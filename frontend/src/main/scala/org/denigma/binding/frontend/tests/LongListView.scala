@@ -7,6 +7,7 @@ import scalatags.HtmlTag
 import scala.collection.mutable
 import scala.collection.immutable.Map
 
+
 /**
  * Class for testing purposes that makes a long list out of test element
  */

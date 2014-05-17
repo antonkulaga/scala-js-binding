@@ -10,7 +10,6 @@ import scala.collection.immutable.Map
 import org.scalajs.dom
 import org.denigma.views.OrdinaryView
 
-
 /**
  * For test purposes only
  */

@@ -9,6 +9,7 @@ import org.scalajs.spickling.PicklerRegistry
 import play.api.templates.Html
 import org.scalax.semweb.rdf.vocabulary.WI
 import scala.concurrent.Future
+import play.api.mvc.{AnyContent, Action}
 
 object Application extends PJaxPlatformWith("index") {
 
@@ -26,7 +27,8 @@ object Application extends PJaxPlatformWith("index") {
 
 
 
-  def topMenu() =  UserAction{
+
+  def topMenu(): Action[AnyContent] =  UserAction{
     implicit request=>
       RegisterPicklers.registerPicklers()
 
@@ -34,7 +36,7 @@ object Application extends PJaxPlatformWith("index") {
       val dom =  IRI(s"http://$domain")
 
       val items: List[MenuItem] = List(
-        "slides/binding"->"About ScalaJS Binding",
+        "slides/bind"->"About ScalaJS Binding",
 
         "slides/into"->"About benefits of ScalaJS"
 

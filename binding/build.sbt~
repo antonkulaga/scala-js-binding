@@ -1,0 +1,45 @@
+import sbt._
+import sbt.Keys._
+import scala.scalajs.sbtplugin.ScalaJSPlugin.ScalaJSKeys._
+import scala.scalajs.sbtplugin
+import bintray.Plugin.bintraySettings
+import bintray.Keys._
+
+scalaJSSettings
+
+Build.sharedSettings
+
+name := "binding"
+
+scalacOptions ++= Seq( "-feature", "-language:_" )
+
+ScalaJSKeys.relativeSourceMaps := true
+
+version := "0.0.1"
+
+resolvers += bintray.Opts.resolver.repo("scalax", "scalax-releases")
+
+libraryDependencies ++= Seq(
+ "org.scala-lang.modules.scalajs" %% "scalajs-jquery" % "0.3",
+
+ "org.scala-lang.modules.scalajs" %% "scalajs-dom" % "0.4",
+
+ "org.scalajs" %% "scalajs-pickling" % "0.2",
+
+ "com.scalatags" %% "scalatags" % "0.2.5-JS",
+
+ "com.scalarx" %% "scalarx" % "0.2.4-JS"
+)
+
+(loadedTestFrameworks in Test) := {
+  (loadedTestFrameworks in Test).value.updated(
+    sbt.TestFramework(classOf[utest.runner.JsFramework].getName),
+    new utest.runner.JsFramework(environment = (scalaJSEnvironment in Test).value)
+  )
+}
+
+autoCompilerPlugins := true
+
+bintraySettings
+
+Build.publishSettings

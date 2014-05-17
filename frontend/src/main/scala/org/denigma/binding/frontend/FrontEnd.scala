@@ -66,11 +66,15 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     ins.parentNode.removeChild(ins)
   }
 
+
   val toggle: Var[MouseEvent] = Var(this.createMouseEvent())
 
   toggle.handler{
     jQuery(".left.sidebar").dyn.sidebar(sidebarParams).sidebar("toggle")
   }
+//  val onMenuOver: Var[MouseEvent] = Var(this.createMouseEvent())
+//  val onMenuOut: Var[MouseEvent] = Var(this.createMouseEvent())
+
 
 
 }

@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
+@(title:String)(implicit request: UserRequestHeader)
+<article id="main_article" data-view="ArticleView" class="ui blue piled segment">
+    <h1 id="title" class="ui large header green message">@title </h1>
 
-</body>
-</html>
+
+
+    <div id="textfield" data-html = "text">
+
+        </div>
+
+
+</article>
+
+<aside>
+
+
+My ScalaJS libraries:
+            <h4><a href="http://github.com/antonkulaga/scalajs-binding">http://github.com/antonkulaga/scalajs-binding</a></h4>
+            <h4><a href="https://github.com/scalax/semweb">https://github.com/scalax/semweb</a></h4>
+</aside>

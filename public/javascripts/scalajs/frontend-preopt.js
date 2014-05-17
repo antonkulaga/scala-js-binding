@@ -47461,7 +47461,7 @@ ScalaJS.c.org_denigma_binding_frontend_ArticleView.prototype.init___Lorg_scalajs
   })()), ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply$default$2__T());
   this.text$4 = ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply__Lscala_Function0__T__Lrx_core_Var(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function() {
     return (function() {
-      return new ScalaJS.c.scala_collection_immutable_StringOps().init___T(ScalaJS.modules.scala_Predef().augmentString__T__T("\n      <h3 class=\"ui blue message\">Scala js allows to make dynamic property binding and share code between backend and frontend</h3>\n   ")).stripMargin__T()
+      return new ScalaJS.c.scala_collection_immutable_StringOps().init___T(ScalaJS.modules.scala_Predef().augmentString__T__T("\n      <h3 class=\"ui blue message\">Scala js allows to make dynamic property binding and share code between backend and frontend</h3>\n      <a href=\"http://http://www.scala-js-fiddle.com/\">YOU CAN TRY IT RIGHT NOW</a>\n   ")).stripMargin__T()
     })
   })()), ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply$default$2__T());
   this.published$4 = ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply__Lscala_Function0__T__Lrx_core_Var(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function() {
@@ -47734,7 +47734,7 @@ ScalaJS.c.org_denigma_binding_frontend_SidebarView.prototype.init___Lorg_scalajs
   ScalaJS.modules.org_scalajs_dom_extensions_Ajax().get__T__T__I__Lscala_collection_Seq__Z__Lscala_concurrent_Future(ScalaJS.modules.org_denigma_extensions_sq().withHost__T__T("/logo/sidebar"), ScalaJS.modules.org_scalajs_dom_extensions_Ajax().get$default$2__T(), ScalaJS.modules.org_scalajs_dom_extensions_Ajax().get$default$3__I(), ScalaJS.modules.org_scalajs_dom_extensions_Ajax().get$default$4__Lscala_collection_Seq(), ScalaJS.modules.org_scalajs_dom_extensions_Ajax().get$default$5__Z()).foreach__Lscala_Function1__Lscala_concurrent_ExecutionContext__V(new ScalaJS.c.scala_scalajs_runtime_AnonFunction1().init___Lscala_scalajs_js_Function1((function(arg$outer) {
     return (function(res) {
       arg$outer.logo__Lrx_core_Var().update__Lscala_Function0__Lrx_core_Propagator__O(new ScalaJS.c.org_denigma_binding_frontend_SidebarView$$anonfun$2$$anonfun$apply$1().init___Lorg_denigma_binding_frontend_SidebarView$$anonfun$2__Lorg_scalajs_dom_XMLHttpRequest(this, res), ScalaJS.modules.rx_core_Propagator$Immediate());
-      return ScalaJS.bV(undefined)
+      return ScalaJS.g["eval"]("$('.ui.accordion').accordion();")
     })
   })(this)), ScalaJS.modules.scala_scalajs_concurrent_JSExecutionContext$Implicits().queue__Lscala_concurrent_ExecutionContext());
   return this

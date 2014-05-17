@@ -1,0 +1,51 @@
+import sbt._
+import Keys._
+import play.Keys._
+import scala.scalajs.sbtplugin.ScalaJSPlugin._
+import ScalaJSKeys._
+import com.typesafe.sbt.packager.universal.UniversalKeys
+import com.typesafe.sbteclipse.core.EclipsePlugin.EclipseKeys
+import bintray.Keys._
+
+object ApplicationBuild extends Build with UniversalKeys {
+
+  val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")
+
+  override def rootProject = Some(preview)
+
+  val sharedSrcDir = "scala"
+
+  lazy val preview = play.Project(
+    name = "binding-preview",
+    path = file(".")
+  ) aggregate (frontend)
+
+  lazy val frontend = Project(
+    id   = "frontend",
+    base = file("scalajs")
+  ) dependsOn(shared)
+
+  lazy val shared = Project(
+    id = "shared",
+    base = file("shared")
+  ) 
+
+  protected val bintrayPublishIvyStyle =
+    settingKey[Boolean]("=== !publishMavenStyle")
+
+  lazy val publishSettings = Seq(
+    repository in bintray := "denigma-releases",
+    bintrayOrganization in bintray := Some("denigma"),
+    Def.derive(bintrayPublishIvyStyle := !publishMavenStyle.value)
+  )
+
+  /**
+   * For parts of the project that we will not publish
+   */
+  lazy val noPublishSettings = Seq(
+    publish := (),
+    publishLocal := (),
+    publishArtifact := false
+  )
+
+}

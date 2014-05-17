@@ -1,0 +1,10 @@
+@(title:String)(implicit request: UserRequestHeader)
+<article id="main_article" data-view="SlideView" class="ui blue piled segment">
+    <h1 id="title"class="ui large header orange message">@title </h1>
+
+
+    @random(request)
+
+    <img src="@routes.Assets.at("images/rx.png")">
+
+</article>

@@ -11,21 +11,20 @@ import models.Menu
 import scala.util.Success
 import scala.util.Failure
 import scalatags.HtmlTag
-import models.MenuItem
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.scalax.semweb.rdf.IRI
 
-object MenuView extends Remote{
-  val menus = Map.empty[String,Menu]
-
-  type RemoteData = Menu
-
-  implicit val fromFuture:FromFuture = (str)=> {
-    RegisterPicklers.registerPicklers()
-    sq.get[Menu](sq.withHost("/menu/"+str))
-  }
-
-}
+//object MenuView extends Remote{
+//  val menus = Map.empty[String,Menu]
+//
+//  type RemoteData = Menu
+//
+//  implicit val fromFuture:FromFuture = (str)=> {
+//    RegisterPicklers.registerPicklers()
+//    sq.get[Menu](sq.withHost("/menu/"+str))
+//  }
+//
+//}
 
 /**
  * Menu view, this view is devoted to displaying menus
@@ -34,11 +33,16 @@ object MenuView extends Remote{
  */
 class MenuView(el:HTMLElement, params:Map[String,Any] = Map.empty) extends ListView("menu",el,params) with RemoteView
 {
-  import MenuView._
+
+  override val path = params.get("path").map(_.toString).getOrElse("/menu/")
+
+  implicit val fromFuture:FromFuture = (str)=> {
+    RegisterPicklers.registerPicklers()
+    sq.get[Menu](sq.withHost(str))
+  }
 
   type RemoteData = Menu
 
-  val path = params.getOrError("domain").map(_.toString).get
 
   val menu: Var[Menu] = Var {
     //MenuView.testMenu
@@ -74,5 +78,3 @@ class MenuView(el:HTMLElement, params:Map[String,Any] = Map.empty) extends ListV
 
   override lazy val  lists: Map[String, Rx[scala.List[Map[String, Any]]]] = this.extractListRx(this)
 }
-
-
