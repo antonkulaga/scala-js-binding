@@ -1,0 +1,48 @@
+@(implicit request: UserRequestHeader)
+
+
+<section class="ui wide left sidebar green segment" data-view="sidebar">
+
+
+
+    <div class="ui breadcrumb">
+        <i class="right arrow icon divider"></i>
+        <header class="ui section header">@request.domain</header>
+        <i class="right arrow icon divider"></i>
+    </div>
+    <div class="item">
+        <img  class="ui image" data-bind-src="logo">
+    </div>
+
+    <div class="ui accordion">
+        <div class="active title">
+            <i class="dropdown icon"></i>
+            What ScalaJS can do
+        </div>
+        <div class="active content">
+            <nav class="ui large blue vertical menu" data-view="menu" data-param-path="menu/right">
+                <a data-template="true" class="active item header" data-item-bind-href="uri" data-item-bind="label" data-load-into="main">
+                    <i class="ui-icon-home"></i>
+                </a>
+
+            </nav>
+        </div>
+        <div class="title">
+            <i class="dropdown icon"></i>
+            How to deal with ScalaJS
+        </div>
+        <div class="content">
+            <nav class="ui large blue vertical menu" data-view="menu" data-param-path="menu/right">
+                <a data-template="true" class="active item header" data-item-bind-href="uri" data-item-bind="label" data-load-into="main">
+                    <i class="ui-icon-home"></i>
+                </a>
+
+            </nav>
+        </div>
+    </div>
+
+
+</section>
+
+
+
