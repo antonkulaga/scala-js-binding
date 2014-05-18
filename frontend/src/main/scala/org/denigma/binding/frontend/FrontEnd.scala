@@ -49,8 +49,6 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     this.bind(this.viewElement)
     jQuery(".top.sidebar").dyn.sidebar(sidebarParams).sidebar("show")
     jQuery(".left.sidebar").dyn.sidebar(sidebarParams).sidebar("show")
-
-
   }
 
   @JSExport

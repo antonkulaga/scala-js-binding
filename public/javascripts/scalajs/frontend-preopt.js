@@ -47566,7 +47566,8 @@ ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype.main__V = (function()
   ScalaJS.modules.models_RegisterPicklers().registerPicklers__V();
   this.bind__Lorg_scalajs_dom_HTMLElement__V(this.viewElement__Lorg_scalajs_dom_HTMLElement());
   ScalaJS.modules.org_denigma_extensions_package().AnyJs__Lscala_scalajs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(ScalaJS.protect(ScalaJS.g["jQuery"])(".top.sidebar")).dyn__Lscala_scalajs_js_Dynamic()["sidebar"](this.sidebarParams__Lscala_scalajs_js_Dynamic())["sidebar"]("show");
-  ScalaJS.modules.org_denigma_extensions_package().AnyJs__Lscala_scalajs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(ScalaJS.protect(ScalaJS.g["jQuery"])(".left.sidebar")).dyn__Lscala_scalajs_js_Dynamic()["sidebar"](this.sidebarParams__Lscala_scalajs_js_Dynamic())["sidebar"]("show")
+  ScalaJS.modules.org_denigma_extensions_package().AnyJs__Lscala_scalajs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(ScalaJS.protect(ScalaJS.g["jQuery"])(".left.sidebar")).dyn__Lscala_scalajs_js_Dynamic()["sidebar"](this.sidebarParams__Lscala_scalajs_js_Dynamic())["sidebar"]("show");
+  ScalaJS.g["alert"]("Hello world!")
 });
 ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype.load__T__T__V = (function(content, into) {
   ScalaJS.g["document"]["getElementById"](into)["innerHTML"] = content
@@ -47633,10 +47634,10 @@ ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype.init___ = (function()
 });
 ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype["main"] = (function(arg$1) {
   switch (arguments.length) {
-    case 1:
-      return this.$$js$exported$meth$main__AT__O(arg$1);
     case 0:
       return this.$$js$exported$meth$main__O();
+    case 1:
+      return this.$$js$exported$meth$main__AT__O(arg$1);
     default:
       throw "No matching overload";
   }

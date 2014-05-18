@@ -85,8 +85,6 @@ object Build extends sbt.Build with UniversalKeys {
 
     organization := "org.denigma",
 
-    name := "semweb",
-
     scalaVersion := "2.10.4",
 
     resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
