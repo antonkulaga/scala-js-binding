@@ -22,7 +22,7 @@ trait UserRequestHeader extends RequestHeader{
 object UserAction extends ActionBuilder[AuthRequest]
 {
 
-  override protected def invokeBlock[A](request: Request[A], block: (AuthRequest[A]) => Future[SimpleResult]): Future[SimpleResult] =
+  override def invokeBlock[A](request: Request[A], block: (AuthRequest[A]) => Future[SimpleResult]): Future[SimpleResult] =
   {
     val user: Option[IRI] = request.session.get("user").map(name=>if(name.contains(":")) IRI(name) else IRI(USERS.user / name))
     val req = AuthRequest(user,request)

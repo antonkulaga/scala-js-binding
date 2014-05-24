@@ -1,6 +1,10 @@
 import sbt._
 import Keys._
-import play.Keys._
+//import play.Keys._
+import play._
+import play.Play.autoImport._
+import PlayKeys._
+
 import scala.scalajs.sbtplugin.ScalaJSPlugin._
 import scala.Some
 import ScalaJSKeys._
@@ -21,12 +25,11 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.2.27"
+  val semWebVersion =  "0.3.1"
 
-  lazy val preview = play.Project(
-    name = "binding-preview",
-    path = file(".")
-  ) .settings(previewSettings: _*) aggregate (frontend)
+  // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
+
+  lazy val preview = (project in file(".")).enablePlugins(PlayScala) settings(previewSettings: _*) aggregate (frontend)
 
   lazy val frontend = Project(
     id   = "frontend",

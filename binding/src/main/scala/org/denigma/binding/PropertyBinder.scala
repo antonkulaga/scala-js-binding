@@ -18,7 +18,13 @@ trait PropertyBinder {
   def bools:Map[String,Rx[Boolean]]
 
 
-
+  /**
+   * Partial function that is usually added to bindProperties
+   * @param el
+   * @param key
+   * @param value
+   * @return
+   */
   protected def propertyPartial(el:HTMLElement,key:String,value:dom.Attr):PartialFunction[String,Unit] = {
     case bname if bname.startsWith("bind-")=>this.bindAttribute(el,key.replace("bind-",""),value.value,this.strings)
     case "bind" => this.bindProperty(el,key,value)

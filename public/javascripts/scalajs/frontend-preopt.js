@@ -347,7 +347,7 @@ var ScalaJS = {
  * eliminate it altogether, along with all the exports, which is ... er ...
  * plain wrong.
  */
-ScalaJS.g["__ScalaJSExportsNamespace"] = ScalaJS.e;
+this["__ScalaJSExportsNamespace"] = ScalaJS.e;
 
 // Type data constructors
 
@@ -32309,7 +32309,7 @@ ScalaJS.c.java_lang_Double.prototype.toString__T = (function() {
     return "-0.0"
   } else {
     var s = ScalaJS.objectToString(this.value__p2__D());
-    if (((ScalaJS.impls.scala_scalajs_runtime_RuntimeString$class__indexOf__Lscala_scalajs_runtime_RuntimeString__T__I(s, ".") < 0) && (!ScalaJS.g["isNaN"](this.value__p2__D())))) {
+    if ((((ScalaJS.impls.scala_scalajs_runtime_RuntimeString$class__indexOf__Lscala_scalajs_runtime_RuntimeString__T__I(s, ".") < 0) && (!ScalaJS.g["isNaN"](this.value__p2__D()))) && ScalaJS.g["isFinite"](this.value__p2__D()))) {
       return (("" + s) + ".0")
     } else {
       return s
@@ -32485,7 +32485,7 @@ ScalaJS.c.java_lang_Float.prototype.toString__T = (function() {
     return "-0.0"
   } else {
     var s = ScalaJS.objectToString(this.value__p2__F());
-    if (((ScalaJS.impls.scala_scalajs_runtime_RuntimeString$class__indexOf__Lscala_scalajs_runtime_RuntimeString__T__I(s, ".") < 0) && (!ScalaJS.g["isNaN"](this.value__p2__F())))) {
+    if ((((ScalaJS.impls.scala_scalajs_runtime_RuntimeString$class__indexOf__Lscala_scalajs_runtime_RuntimeString__T__I(s, ".") < 0) && (!ScalaJS.g["isNaN"](this.value__p2__F()))) && ScalaJS.g["isFinite"](this.value__p2__F()))) {
       return (("" + s) + ".0")
     } else {
       return s
@@ -47566,8 +47566,7 @@ ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype.main__V = (function()
   ScalaJS.modules.models_RegisterPicklers().registerPicklers__V();
   this.bind__Lorg_scalajs_dom_HTMLElement__V(this.viewElement__Lorg_scalajs_dom_HTMLElement());
   ScalaJS.modules.org_denigma_extensions_package().AnyJs__Lscala_scalajs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(ScalaJS.protect(ScalaJS.g["jQuery"])(".top.sidebar")).dyn__Lscala_scalajs_js_Dynamic()["sidebar"](this.sidebarParams__Lscala_scalajs_js_Dynamic())["sidebar"]("show");
-  ScalaJS.modules.org_denigma_extensions_package().AnyJs__Lscala_scalajs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(ScalaJS.protect(ScalaJS.g["jQuery"])(".left.sidebar")).dyn__Lscala_scalajs_js_Dynamic()["sidebar"](this.sidebarParams__Lscala_scalajs_js_Dynamic())["sidebar"]("show");
-  ScalaJS.g["alert"]("Hello world!")
+  ScalaJS.modules.org_denigma_extensions_package().AnyJs__Lscala_scalajs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(ScalaJS.protect(ScalaJS.g["jQuery"])(".left.sidebar")).dyn__Lscala_scalajs_js_Dynamic()["sidebar"](this.sidebarParams__Lscala_scalajs_js_Dynamic())["sidebar"]("show")
 });
 ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype.load__T__T__V = (function(content, into) {
   ScalaJS.g["document"]["getElementById"](into)["innerHTML"] = content
@@ -52590,7 +52589,7 @@ ScalaJS.c.org_denigma_binding_frontend_MenuView.prototype.bindView__Lorg_scalajs
         if (ScalaJS.is.scala_util_Failure(x1)) {
           var x3 = ScalaJS.as.scala_util_Failure(x1);
           var m = x3.exception__Ljava_lang_Throwable();
-          ScalaJS.g["console"]["error"](new ScalaJS.c.scala_StringContext().init___Lscala_collection_Seq(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_String.getArrayOf(), ["Future data failuer for view ", " with exception: \\n ", ""]), 1))).s__Lscala_collection_Seq__T(ScalaJS.modules.scala_Predef().genericWrapArray__O__Lscala_collection_mutable_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_Object.getArrayOf(), [arg$outer.id__T(), m.toString__T()]))));
+          ScalaJS.g["console"]["error"](new ScalaJS.c.scala_StringContext().init___Lscala_collection_Seq(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_String.getArrayOf(), ["Future data failure for view ", " with exception: \\n ", ""]), 1))).s__Lscala_collection_Seq__T(ScalaJS.modules.scala_Predef().genericWrapArray__O__Lscala_collection_mutable_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_Object.getArrayOf(), [arg$outer.id__T(), m.toString__T()]))));
           ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
           break matchEnd5
         };

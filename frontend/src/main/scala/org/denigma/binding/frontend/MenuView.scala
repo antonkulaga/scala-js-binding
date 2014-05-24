@@ -64,7 +64,7 @@ class MenuView(el:HTMLElement, params:Map[String,Any] = Map.empty) extends ListV
       case Success(data)=>
         this.menu()=data
         super.bindView(el)
-      case Failure(m)=>dom.console.error(s"Future data failuer for view ${this.id} with exception: \n ${m.toString}")
+      case Failure(m)=>dom.console.error(s"Future data failure for view ${this.id} with exception: \n ${m.toString}")
     }
   }
 
