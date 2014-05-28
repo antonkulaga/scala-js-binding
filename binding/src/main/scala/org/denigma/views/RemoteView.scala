@@ -8,7 +8,7 @@ import org.scalajs.dom
 /**
  * View that fetches remote data
  */
-trait RemoteView extends BindingView with Remote{
+trait RemoteView extends OrganizedView with Remote{
 
 
   def path:String

@@ -23,7 +23,7 @@ class SlideView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,An
   override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
 
   override def bindView(el:HTMLElement) {
-    jQuery(el).slideUp()
+    //jQuery(el).slideUp()
     super.bindView(el)
 
   }

@@ -25,14 +25,14 @@ trait EventBinding  extends JustBinding
 
   //def textEvents:Map[String,Var[TextEvent]]
 
-  def bindEvents(el:HTMLElement,ats:mutable.Map[String, dom.Attr]) = for {
+  def bindEvents(el:HTMLElement,ats:Map[String, String]) = for {
     (key, value) <- ats
     }
     {
       key.toString match {
-        case "event-click" => this.mouseEvents.get(value.value) match {
+        case "event-click" => this.mouseEvents.get(value) match {
           case Some(ev)=>this.bindClick(el,key,ev)
-          case _ => dom.console.error(s"cannot bind click event for ${value.value}")
+          case _ => dom.console.error(s"cannot bind click event for ${value}")
         }
 
         case _ => //some other thing to do

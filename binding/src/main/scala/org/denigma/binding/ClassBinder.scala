@@ -38,13 +38,13 @@ trait ClassBinder {
    * @param value
    * @return
    */
-  protected def classPartial(el:HTMLElement,value:dom.Attr):PartialFunction[String,Unit] = {
-    case "class" => this.bindClass(el,value.value)
+  protected def classPartial(el:HTMLElement,value:String):PartialFunction[String,Unit] = {
+    case "class" => this.bindClass(el,value)
     case str if str.startsWith("class-")=> str.replace("class-","") match {
       case cl if cl.endsWith("-if")=>
-        this.classIf(el,cl.replace("-if",""),value.value)
+        this.classIf(el,cl.replace("-if",""),value)
       case cl if cl.endsWith("-unless")=>
-        this.classUnless(el,cl.replace("-unless",""),value.value)
+        this.classUnless(el,cl.replace("-unless",""),value)
       case _ =>
         dom.console.error(s"other class bindings are not implemented yet for $str")
 

@@ -6,10 +6,10 @@ import models.{RegisterPicklers, MenuItem, Menu}
 import play.api.libs.json.JsValue
 import org.scalajs.spickling.PicklerRegistry
 
-import play.api.templates.Html
 import org.scalax.semweb.rdf.vocabulary.WI
 import scala.concurrent.Future
 import play.api.mvc.{AnyContent, Action}
+import play.twirl.api.Html
 
 object Application extends PJaxPlatformWith("index") {
 

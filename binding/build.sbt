@@ -16,7 +16,7 @@ scalacOptions ++= Seq( "-feature", "-language:_" )
 
 ScalaJSKeys.relativeSourceMaps := true
 
-version := "0.11"
+version := "0.1.1"
 
 libraryDependencies += "org.scala-lang.modules.scalajs" %% "scalajs-jquery" % "0.3"
 

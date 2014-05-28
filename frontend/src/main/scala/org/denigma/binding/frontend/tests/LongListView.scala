@@ -23,10 +23,7 @@ class LongListView(element:HTMLElement, params:Map[String,Any]) extends ListView
   }
 
 
-  override def bindAttributes(el: HTMLElement, ats: mutable.Map[String, Attr]): Unit = {
 
-
-  }
   override lazy val lists: Map[String, Rx[List[Map[String, Any]]]] = this.extractListRx(this)
 
   override lazy val tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)

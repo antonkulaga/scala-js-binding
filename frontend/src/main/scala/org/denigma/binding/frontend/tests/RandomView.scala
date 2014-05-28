@@ -15,15 +15,15 @@ import org.denigma.views.OrdinaryView
  */
 class RandomView(el:HTMLElement, params:Map[String,Any]) extends OrdinaryView("random",el){
 
-  val segment: Var[HtmlTag] = Var{
+  val counting: Var[HtmlTag] = Var{
     div(`class`:="ui segment",
       h1("This is title"),
       p("""value that changes: "START" """)
     )
   }
 
-  val shortText = Var{"Some very short text"}
-  val longText = Var{"Some very long text"}
+  val foo= Var{"Foo variable text"}
+  val bar = Var{"Bar variable text"}
 
 
   val list = List("ONE","TWO","THREE","FOUR","SOME TEXT","THAT IS RANDOM")
@@ -33,15 +33,12 @@ class RandomView(el:HTMLElement, params:Map[String,Any]) extends OrdinaryView("r
       h1("This is title"),
       p(s"""value that changes: "${list(Random.nextInt(list.length))}" """)
     )
-    segment() = value
+    counting() = value
 
   }
 
 
-
   dom.setInterval(update _, 100)
-
-
 
   /** Computes the square of an integer.
     *  This demonstrates unit testing.

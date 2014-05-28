@@ -15,29 +15,36 @@
 
         @header(request)
 
+        <div class="ui positive huge launch right attached button" style="width: 70px;" data-event-click="toggle">
+            <i class="icon list layout"></i>
+            <span class="text" style="display: none;">Sidebar</span>
+        </div>
+        <main id="main" style="min-height: 90%;">
 
-        @main(request)
+            @if(html.isDefined) {
+                @{html.get}
+            } else {
+                @{slides.bind("About binding")(request)}
+            }
+
+
+        </main>
 
         @sidebar(request)
-
-        @if(html.isDefined) {
-            <div id="insertMe">
-                @{html.get}
-            </div>
-        }
-
-
     </body>
 
     <script>
+    $( document ).ready(function() {
+    // Handler for .ready() called.
         session = {}
         @if(request.username.isDefined) {
             session.user = "@Html(s"${request.username.get.stringValue}")"
         }
+
         FrontEnd().main();
-        @if(html.isDefined) {
-            FrontEnd().moveInto("insertMe","@{into}");
-        }
+
+
+    });
     </script>
 
 

@@ -1,10 +1,51 @@
 @(title:String)(implicit request: UserRequestHeader)
 <article id="main_article" data-view="SlideView" class="ui blue piled segment">
+
+
+
     <h1 id="title"class="ui large header orange message">@title </h1>
 
 
-    @random(request)
+    <section class="ui segment">
+      Scalajs-binding library provides binding of ScalaJS classes and properties to HTML tags.
+    </section>
 
-    <img src="@routes.Assets.at("images/rx.png")">
+
+    <div class="ui two column page grid">
+        <section class="row">
+        <div class="column">
+            <p class="ui segment">
+            Consider a simple example. Here you can see several text areas and inputs.
+            Some of this inputs/textareas are binded to same scala variables, you can notice it by changing the content.
+            </p>
+        </div>
+        <div class="column">
+            @random(request)
+
+
+        <code>
+
+        </code>
+        </section>
+        <section class="row">
+            <div class="column">
+                Let's look into html part
+
+            </div>
+
+            <div class="column">
+                <textarea data-view="CodeView">
+
+                </textarea>
+
+            </div>
+
+
+
+        </section>
+
+    </div>
+
 
 </article>
+

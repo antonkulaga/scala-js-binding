@@ -8,7 +8,7 @@ import scala.scalajs.js.annotation.JSExport
 import org.denigma.extensions._
 import org.scalajs.jquery._
 import scala.util.Try
-import org.denigma.views.OrdinaryView
+import org.denigma.views.{CodeMirrorView, OrdinaryView}
 import scala.collection.immutable.Map
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import models.RegisterPicklers
@@ -40,6 +40,9 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     .register("sidebar", (el, params) =>Try(new SidebarView(el,params)))
     .register("random",(el,params)=> Try {new RandomView(el,params)})
     .register("lists",(el,params)=>Try {new LongListView(el,params)})
+    .register("SlideView",(el,params)=>Try {new SlideView(el,params)})
+    .register("CodeView",(el,params)=>Try {new CodeMirrorView(el,params)})
+
 
   //    .register("righ-menu", (el, params) =>Try(new RightMenuView(el,params)))
 
@@ -59,8 +62,12 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
   @JSExport
   def moveInto(from:String,into:String): Unit = {
     val ins: HTMLElement = dom.document.getElementById(from)
-    dom.document.getElementById(into).innerHTML =ins.innerHTML
 
+    val intoElement = dom.document.getElementById(into)
+    this.loadElementInto(intoElement,ins.innerHTML)
+
+
+    //dom.document.getElementById(into).innerHTML =ins.innerHTML
     ins.parentNode.removeChild(ins)
   }
 

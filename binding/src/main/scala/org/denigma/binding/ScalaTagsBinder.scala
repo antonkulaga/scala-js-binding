@@ -26,8 +26,8 @@ trait ScalaTagsBinder extends JustBinding{
   def extractTagRx[T: TagRxMap](t: T) =  implicitly[TagRxMap[T]].asTagRxMap(t)
 
 
-  def bindHTML(el:HTMLElement,ats:mutable.Map[String, dom.Attr]) =
-    ats.get("html").flatMap(value=>this.tags.get(value.value).map(v=>(value.value,v))).foreach{case (key,rx)=>
+  def bindHTML(el:HTMLElement,ats:Map[String, String]) =
+    ats.get("html").flatMap(value=>this.tags.get(value).map(v=>(value,v))).foreach{case (key,rx)=>
       this.updateAttrByRx(key,el,rx)
     }
 

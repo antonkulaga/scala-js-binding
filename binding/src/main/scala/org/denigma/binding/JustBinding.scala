@@ -35,7 +35,7 @@ abstract class JustBinding {
       event.preventDefault()
       element.attributes.get("href") match {
         case Some(url) =>
-          val uri = processUrl(url,relativeURI)
+          val uri = processUrl(url.value,relativeURI)
 
           val pjax = ("X-PJAX",into)
 
@@ -63,19 +63,19 @@ abstract class JustBinding {
    * @param uri uri (for push state)
    * @param newInnerHTML new content of the inner html
    */
-  protected def loadElementInto(el:HTMLElement,uri:String, newInnerHTML:String) = {
+  def loadElementInto(el:HTMLElement, newInnerHTML:String,uri:String = "") = {
     val params = js.Dynamic.literal( "html" -> newInnerHTML)
-    dom.window.history.pushState(params,dom.document.title,uri)
+    if(uri!="")  dom.window.history.pushState(params,dom.document.title,uri)
     el.innerHTML = newInnerHTML
   }
 
-  protected def processUrl(url:Attr, relativeURI:Boolean = true):String =
-    if(url.value.contains("://")) {
-      val st = url.value.indexOf("://")+3
-      sq.withHost(url.value.substring(url.value.indexOf("/",st)))
+  protected def processUrl(url:String, relativeURI:Boolean = true):String =
+    if(url.contains("://")) {
+      val st = url.indexOf("://")+3
+      sq.withHost(url.substring(url.indexOf("/",st)))
     }
     else
-      sq.withHost(url.value)
+      sq.withHost(url)
 
 
     /**

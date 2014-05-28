@@ -23,7 +23,7 @@ abstract class MapView(name:String,element:HTMLElement,props:Map[String,Any]) ex
   val reactiveMap: Map[String, Var[String]] = props.map(kv => (kv._1, Var(kv._2.toString)))
 
   //TODO: rewrite props
-  override def bindProperties(el: HTMLElement, ats: mutable.Map[String, dom.Attr]) = for {
+  override def bindProperties(el: HTMLElement, ats: Map[String, String]) = for {
     (key, value) <- ats
   } {
     this.visibilityPartial(el, value)
@@ -34,13 +34,13 @@ abstract class MapView(name:String,element:HTMLElement,props:Map[String,Any]) ex
       .orElse(this.otherPartial)(key.toString)
   }
 
-  protected def itemPartial(el:HTMLElement,key:String,value:dom.Attr):PartialFunction[String,Unit] = {
+  protected def itemPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
     case "item-bind" => this.bindItemProperty(el, key, value)
-    case bname if bname.startsWith("item-bind-") => this.bindAttribute(el, key.replace("item-bind-", ""), value.value, this.reactiveMap)
+    case bname if bname.startsWith("item-bind-") => this.bindAttribute(el, key.replace("item-bind-", ""), value, this.reactiveMap)
   }
 
 
-  override def bindAttributes(el:HTMLElement,ats:mutable.Map[String,Attr]) ={
+  override def bindAttributes(el:HTMLElement,ats:Map[String,String]) ={
     super.bindAttributes(el,ats)
 
   }
@@ -51,23 +51,23 @@ abstract class MapView(name:String,element:HTMLElement,props:Map[String,Any]) ex
    * @param key name of the binding key
    * @param att binding attribute
    */
-  def bindItemProperty(el:HTMLElement,key:String,att:dom.Attr) = (key.toString.replace("item-",""),el.tagName.toLowerCase().toString) match {
+  def bindItemProperty(el:HTMLElement,key:String,att:String) = (key.toString.replace("item-",""),el.tagName.toLowerCase().toString) match {
     case ("bind","input")=>
       el.attributes.get("type").map(_.value.toString) match {
         case Some("checkbox") => //skip
-        case _ => this.reactiveMap.get(att.value).foreach{str=>
+        case _ => this.reactiveMap.get(att).foreach{str=>
           el.onkeyup =this.makePropHandler[KeyboardEvent](el,str,"value")
           this.bindInput(el,key,str)
         }
       }
 
     case ("bind","textarea")=>
-      this.reactiveMap.get(att.value.toString).foreach{str=>
+      this.reactiveMap.get(att).foreach{str=>
         el.onkeyup = this.makePropHandler(el,str,"value")
         this.bindText(el,key,str)
       }
 
-    case ("bind",other)=> this.reactiveMap.get(att.value.toString).foreach{str=>
+    case ("bind",other)=> this.reactiveMap.get(att).foreach{str=>
       el.onkeyup = this.makePropHandler(el,str,"value")
       this.bindText(el,key,str)
     }

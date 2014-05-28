@@ -47,7 +47,7 @@ trait GeneralBinding  extends JustBinding with VisibilityBinder with ClassBinder
 
 
   //TODO: rewrite
-  def bindProperties(el:HTMLElement,ats:mutable.Map[String, dom.Attr]): Unit = for {
+  def bindProperties(el:HTMLElement,ats:Map[String, String]): Unit = for {
     (key, value) <- ats
   }{
     this.visibilityPartial(el,value)
@@ -64,9 +64,9 @@ trait GeneralBinding  extends JustBinding with VisibilityBinder with ClassBinder
    * @param value
    * @return
    */
-  protected def loadIntoPartial(el:HTMLElement,value:dom.Attr):PartialFunction[String,Unit] = {
-    case "load-into" => bindLoadInto(el,value.value, rel = true)
-    case "load-abs-into" => bindLoadInto(el,value.value, rel = false)
+  protected def loadIntoPartial(el:HTMLElement,value:String):PartialFunction[String,Unit] = {
+    case "load-into" => bindLoadInto(el,value, rel = true)
+    case "load-abs-into" => bindLoadInto(el,value, rel = false)
   }
 
   protected def otherPartial:PartialFunction[String,Unit] = {case _=>}

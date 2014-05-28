@@ -12,13 +12,13 @@ import org.denigma.binding.{EventBinding, ScalaTagsBinder, GeneralBinding}
  * @param name
  * @param elem
  */
-abstract class OrdinaryView(name:String,elem:dom.HTMLElement) extends BindingView(name,elem)
+abstract class OrdinaryView(name:String,elem:dom.HTMLElement) extends OrganizedView(name,elem)
   with GeneralBinding
   with ScalaTagsBinder
   with EventBinding
 {
 
-  override def bindAttributes(el:HTMLElement,ats:mutable.Map[String, Attr]) = {
+  override def bindAttributes(el:HTMLElement,ats:Map[String, String]) = {
     this.bindHTML(el,ats)
     this.bindProperties(el,ats)
     this.bindEvents(el,ats)

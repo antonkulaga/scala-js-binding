@@ -15,12 +15,10 @@ trait VisibilityBinder {
 
   def bools:Map[String,Rx[Boolean]]
 
-  def visibilityPartial(el:HTMLElement,value:dom.Attr):PartialFunction[String,Unit] = {
-    case "showif" => this.showIf(el, value.value, el.style.display)
-    case "hideif" => this.hideIf(el, value.value, el.style.display)
+  def visibilityPartial(el:HTMLElement,value:String):PartialFunction[String,Unit] = {
+    case "showif" => this.showIf(el, value, el.style.display)
+    case "hideif" => this.hideIf(el, value, el.style.display)
   }
-
-
 
 
   /**

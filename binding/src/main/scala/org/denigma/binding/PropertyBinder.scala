@@ -25,57 +25,73 @@ trait PropertyBinder {
    * @param value
    * @return
    */
-  protected def propertyPartial(el:HTMLElement,key:String,value:dom.Attr):PartialFunction[String,Unit] = {
-    case bname if bname.startsWith("bind-")=>this.bindAttribute(el,key.replace("bind-",""),value.value,this.strings)
+  protected def propertyPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
+    case bname if bname.startsWith("bind-")=>this.bindAttribute(el,key.replace("bind-",""),value,this.strings)
     case "bind" => this.bindProperty(el,key,value)
     case "html" => this.bindInnerHTML(el,key,value)
   }
 
-  //TODO: split into subfunctions
+
   /**
-   * Binds property value to attribute
-   * @param el Element
-   * @param key name of the binding key
-   * @param att binding attribute
+   * Bind property
+   * @param el
+   * @param key
+   * @param att
+   * @param binder  binding view which collection we search, this by default
+   * @return
    */
-  def bindProperty(el:HTMLElement,key:String,att:dom.Attr): Unit = (key.toString,el.tagName.toLowerCase().toString) match
+  def bindProperty(el:HTMLElement,key:String,att:String)(implicit binder:PropertyBinder = this): Boolean = (key.toString,el.tagName.toLowerCase().toString) match
   {
     case ("bind","input")=>
       el.attributes.get("type").map(_.value.toString) match {
-        case Some("checkbox") => this.bools.get(att.value.toString).foreach{b=>
-          this.bindCheckBox(el,key,b)
+        case Some("checkbox") =>binder.bools.get(att) match {
+          case Some(b)=>  binder.bindCheckBox(el,key,b)
+            true
+          case None => false
         }
-        case _ => this.strings.get(att.value).foreach{str=>
-          el.onkeyup =this.makePropHandler[KeyboardEvent](el,str,"value")
-          this.bindInput(el,key,str)
+
+        case _ => binder.strings.get(att) match {
+          case Some(str)=>
+            el.onkeyup =binder.makePropHandler[KeyboardEvent](el,str,"value")
+            binder.bindInput(el,key,str)
+            true
+          case None=>false
         }
 
       }
     case ("bind","textarea")=>
-      this.strings.get(att.value.toString).foreach{str=>
-        el.onkeyup = this.makePropHandler(el,str,"value")
-        this.bindText(el,key,str)
-      }
+      binder.strings.get(att) match {
+        case Some(str)=>
+          el.onkeyup = binder.makePropHandler(el,str,"value")
+          this.bindText(el,key,str)
+          true
 
-    case ("bind",other)=> this.strings.get(att.value.toString).foreach{str=>
-      el.onkeyup = this.makePropHandler(el,str,"value")
-      this.bindText(el,key,str)
+        case None=>false
+      }
+    case ("bind",other)=> binder.strings.get(att) match {
+      case Some(str) =>
+        el.onkeyup = binder.makePropHandler(el,str,"value")
+        binder.bindText(el,key,str)
+        true
+      case None=>false
     }
 
-    case _=> dom.console.error(s"unknown binding for $key with attribute ${att.value}")
+    case _=>
+      false
+      //dom.console.error(s"unknown binding for $key with attribute ${att}")
 
   }
 
 
-  def bindCheckBox(el:HTMLElement,key:String,rx:Rx[Boolean]) = this.bindRx(key,el:HTMLElement,rx){ (el,value)=>
+  protected def bindCheckBox(el:HTMLElement,key:String,rx:Rx[Boolean]) = this.bindRx(key,el:HTMLElement,rx){ (el,value)=>
     el.attributes.setNamedItem( ("checked" -> value.toString ).toAtt )
   }
 
-  def bindInput(el:HTMLElement,key:String,str:Rx[String]) = this.bindRx(key,el:HTMLElement,str){ (el,value)=>
+  protected def bindInput(el:HTMLElement,key:String,str:Rx[String]) = this.bindRx(key,el:HTMLElement,str){ (el,value)=>
     if(el.dyn.value!=value) el.dyn.value=value
   }
 
-  def bindText(el:HTMLElement,key:String,str:Rx[String]) = this.bindRx(key,el:HTMLElement,str){ (el,value)=>
+  protected def bindText(el:HTMLElement,key:String,str:Rx[String]) = this.bindRx(key,el:HTMLElement,str){ (el,value)=>
     el.textContent = value
   }
 
@@ -119,15 +135,13 @@ trait PropertyBinder {
     }
   }
 
-
-
   /**
    * Binds html property
    * @param el
    * @param key
    * @param att
    */
-  def bindInnerHTML(el:HTMLElement,key:String,att:dom.Attr): Unit=    this.strings.get(att.value.toString).foreach{str=>
+  def bindInnerHTML(el:HTMLElement,key:String,att:String): Unit=    this.strings.get(att).foreach{str=>
     el.onchange = this.makePropHandler(el,str,"innerHTML")
     this.bindInner(el,key,str)
   }
