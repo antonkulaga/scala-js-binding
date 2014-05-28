@@ -16,6 +16,7 @@ import models.{RegisterPicklers=>rp}
 import scala.scalajs.js
 import org.denigma.binding.frontend.tests.{LongListView, RandomView}
 import org.denigma.extensions._
+import org.denigma.binding.frontend.slides.{BindSlide, SlideView}
 
 @JSExport
 object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.JSApp
@@ -41,6 +42,7 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     .register("random",(el,params)=> Try {new RandomView(el,params)})
     .register("lists",(el,params)=>Try {new LongListView(el,params)})
     .register("SlideView",(el,params)=>Try {new SlideView(el,params)})
+    .register("BindSlide",(el,params)=>Try {new BindSlide(el,params)})
     .register("CodeView",(el,params)=>Try {new CodeMirrorView(el,params)})
 
 

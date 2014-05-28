@@ -158,7 +158,7 @@ trait PropertyBinder {
    * @param value value
    * @param mp map
    */
-  def bindAttribute(el:HTMLElement,key:String,value:String,mp:Map[String,Rx[String]]): Unit =  mp.get(value) match
+  def bindAttribute(el:HTMLElement,key:String,value:String,mp:Map[String,Rx[String]]): Boolean =  mp.get(value) match
   {
     case Some(str)=>
       this.bindRx(key, el: HTMLElement, str) {
@@ -167,8 +167,10 @@ trait PropertyBinder {
           el.attributes.setNamedItem((key -> str.now).toAtt)
           el.dyn.updateDynamic(key)(str.now) //TODO: check if redundant
       }
+      true
 
-    case _=>  dom.console.error(s"unknown binding for $key with attribute $value")
+    case _=>false
+    //dom.console.error(s"unknown binding for $key with attribute $value")
 
   }
 

@@ -27,7 +27,8 @@ class CodeMirrorView(element:HTMLElement,params:Map[String,Any] = Map.empty[Stri
   override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
 
 
-  val code = params.get("value").getOrElse("")
+  val code = Var("")
+  val mode: String = params.get("mode").fold("htmlmixed")(_.toString())
 
 
   override def bindView(el:HTMLElement) {
@@ -37,13 +38,17 @@ class CodeMirrorView(element:HTMLElement,params:Map[String,Any] = Map.empty[Stri
       case area:dom.HTMLTextAreaElement=>
 
         val params = js.Dynamic.literal(
-          mode = "htmlmixed",
+          mode = this.mode.asInstanceOf[js.Any],
           lineNumbers = true,
-          value = code.asInstanceOf[js.Any]
+          value = code().asInstanceOf[js.Any]
         )
 
 
         val m: Editor = CodeMirror.fromTextArea(area,params.asInstanceOf[EditorConfiguration])
+
+        Rx{
+          m.getDoc().setValue(code())
+        }
 
 
         dom.console.log("code mirror has started!")

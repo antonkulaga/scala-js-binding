@@ -1,14 +1,11 @@
-package org.denigma.binding.frontend
-
+package org.denigma.binding.frontend.slides
 
 import org.denigma.views.OrdinaryView
-import org.scalajs.dom.{MouseEvent, HTMLElement}
-import rx.{Rx, Var}
-import scalatags.HtmlTag
+import org.scalajs.dom.MouseEvent
+import rx.Rx
 import org.scalajs.dom.HTMLElement
 import rx.Var
 import scalatags.HtmlTag
-import org.scalajs.jquery.jQuery
 
 /**
  * View for article with some text

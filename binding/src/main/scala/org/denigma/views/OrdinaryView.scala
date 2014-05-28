@@ -13,7 +13,6 @@ import org.denigma.binding.{EventBinding, ScalaTagsBinder, GeneralBinding}
  * @param elem
  */
 abstract class OrdinaryView(name:String,elem:dom.HTMLElement) extends OrganizedView(name,elem)
-  with GeneralBinding
   with ScalaTagsBinder
   with EventBinding
 {

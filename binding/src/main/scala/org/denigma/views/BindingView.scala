@@ -68,6 +68,12 @@ abstract class BindingView(val name:String,elem:dom.HTMLElement) extends JustBin
     case Some(par)=>par.nearestParentOf[TView]
   }
 
+  def searchUp[TView<:BindingView](filter:TView=>Boolean): Option[TView] = parent match {
+    case Some(p:TView)=>if(filter(p)) Some(p) else p.searchUp(filter)
+    case Some(p)=> p.searchUp[TView](filter)
+    case None=>None
+  }
+
   def hasParent = parent.isDefined
 
   /**

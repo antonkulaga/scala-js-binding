@@ -13,19 +13,57 @@ import extensions._
 
 import scala.scalajs.js
 import js.Dynamic.{ global => g }
-import org.denigma.binding.{PropertyBinder, JustBinding}
+import org.denigma.binding.{GeneralBinding, PropertyBinder, JustBinding}
 import scala.util.{Success, Failure}
 import scala.annotation.tailrec
+import rx.core.{Obs, Rx}
+
 /**
  * A view that works well with hierarchy
  */
-abstract class OrganizedView(name:String,elem:HTMLElement) extends BindingView(name,elem) with PropertyBinder
+abstract class OrganizedView(name:String,elem:HTMLElement) extends BindingView(name,elem) with GeneralBinding
 {
 
-  protected def upPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
-    case "up-bind" => if(!this.bindProperty(el, key, value)) this.nearestParentOf[OrganizedView].foreach(n=>n.upPartial(el,key,value))
-    //case bname if bname.startsWith("up-bind-") => this.bindAttribute(el, key.replace("up-bind-", ""), value, this.reactiveMap)
+  //TODO: rewrite
+  override def bindProperties(el:HTMLElement,ats:Map[String, String]): Unit = for {
+    (key, value) <- ats
+  }{
+    this.visibilityPartial(el,value)
+      .orElse(this.classPartial(el,value))
+      .orElse(this.propertyPartial(el,key.toString,value))
+      .orElse(this.upPartial(el,key.toString,value))
+      .orElse(this.loadIntoPartial(el,value))
+      .orElse(this.otherPartial)(key.toString)
   }
+
+
+  protected def upPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
+
+//    case bname if bname.startsWith("up-bind-")=>
+//      if(!this.bindAttribute(el,key.replace("up-bind-",""),value,this.strings))
+//        this.nearestParentOf[OrganizedView].foreach(n=>n.upPartial(el,key,value))
+//    case "up-bind" => if(!this.bindProperty(el, key, value)) this.nearestParentOf[OrganizedView].foreach(n=>n.upPartial(el,key,value))
+
+    case bname if bname.startsWith("up-bind-")=>
+      val my = key.replace("up-bind-","")
+      this.strings.get(my) match {
+        case Some(str: rx.Var[String])=> this.searchUp[OrganizedView](p=>p.strings.contains(value)) match {
+          case Some(p)=>
+
+            val rs: rx.Rx[String] = p.strings(value)
+            str() = rs.now
+            Obs(rs){ str()=rs.now }
+
+          case Some(other)=>dom.console.error(s"$my is not a Var")
+
+          case None=>dom.console.log("failed to find upper binding")
+        }
+        case None=>dom.console.error(s"binding to unkown variable $my")
+
+     }
+  }
+
+
 
 
 
