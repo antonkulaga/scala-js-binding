@@ -2,9 +2,10 @@ package controllers
 import org.scalajs.spickling.playjson._
 import org.scalax.semweb.sparql._
 import org.scalax.semweb.rdf.IRI
-import models.{RegisterPicklers, MenuItem, Menu}
 import play.api.libs.json.JsValue
 import org.scalajs.spickling.PicklerRegistry
+import org.denigma.binding.models._
+import models._
 
 import org.scalax.semweb.rdf.vocabulary.WI
 import scala.concurrent.Future
@@ -24,29 +25,6 @@ object Application extends PJaxPlatformWith("index") {
 
       Future.successful{     Ok("assets/images/scala-js-logo.svg")    }
   }
-
-
-
-
-  def topMenu(): Action[AnyContent] =  UserAction{
-    implicit request=>
-      RegisterPicklers.registerPicklers()
-
-      val domain: String = request.domain
-      val dom =  IRI(s"http://$domain")
-
-      val items: List[MenuItem] = List(
-        "slides/bind"->"About ScalaJS Binding",
-
-        "slides/into"->"About benefits of ScalaJS"
-
-      ) map{ case (url,title)=> MenuItem(dom / url,title)}
-
-      val menu =  Menu(dom / "menu", "Main menu", items)
-      val pickle: JsValue = PicklerRegistry.pickle(menu)
-      Ok(pickle).as("application/json")
-  }
-
   def page(uri:String)= UserAction{
     implicit request=>
       val pg = IRI("http://"+request.domain)

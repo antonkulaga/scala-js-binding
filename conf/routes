@@ -4,9 +4,10 @@
 
 
 GET        /                     controllers.Application.index()
-GET        /menu/top             controllers.Application.topMenu()
-GET        /menu/what           controllers.Slides.whatMenu()
-GET        /menu/how           controllers.Slides.howMenu()
+GET        /menu/top             controllers.MenuController.all()
+
+GET        /menu/what            controllers.Slides.whatMenu()
+#GET        /menu/how           controllers.Slides.howMenu()
 
 GET        /pages/:page          controllers.Application.page(page)
 GET        /slides/:slide        controllers.Slides.slide(slide)

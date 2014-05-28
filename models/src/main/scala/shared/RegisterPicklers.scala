@@ -1,48 +1,73 @@
-package models
+package shared
 
 import org.scalajs.spickling._
+import org.scalajs.spickling.PicklerRegistry._
 import org.scalax.semweb.rdf.IRI
+import org.denigma.binding.models.Menu
+import org.denigma.binding.models.MenuItem
+import shared.chat._
 
 /**
  * Registers picklers
  */
 object RegisterPicklers {
-  import PicklerRegistry.register
-//
-  // Utils
-  register(Nil)
-  register[::[Any]]
-
-//
-  // Models
-  register[User]
-  register[Room]
-  register[Message]
-
-  // Actions from users
-  register[Connect]
-  register[Join]
-  register(Leave)
-  register[SendMessage]
-
-//  // Requests
-  register[RequestPrivateChat]
-  register(AcceptPrivateChat)
-  register(RejectPrivateChat)
-  register(UserDoesNotExist)
-
-// Notifications from server
-  register[RoomListChanged]
-  register[JoinedRoom]
-  register[UserJoined]
-  register[UserLeft]
-  register[ReceiveMessage]
 
 
-  //Semantic
-  register[IRI]
-  register[MenuItem]
-  register[Menu]
+  def registerCommon() = {
+    import PicklerRegistry.register
+    //
+    // Utils
+    register(Nil)
+    register[::[Any]]
+
+  }
+
+
+  def registerMenu() = {
+
+
+    //Semantic
+    register[IRI]
+    register[MenuItem]
+    register[Menu]
+
+  }
+
+
+
+
+
+  def registerChat() = {
+
+    //
+    // Models
+    register[User]
+    register[Room]
+    register[Message]
+
+    // Actions from users
+    register[Connect]
+    register[Join]
+    register(Leave)
+    register[SendMessage]
+
+    //  // Requests
+    register[RequestPrivateChat]
+    register(AcceptPrivateChat)
+    register(RejectPrivateChat)
+    register(UserDoesNotExist)
+
+    // Notifications from server
+    register[RoomListChanged]
+    register[JoinedRoom]
+    register[UserJoined]
+    register[UserLeft]
+    register[ReceiveMessage]
+  }
+
+  this.registerCommon()
+  this.registerChat()
+  this.registerMenu()
 
 
 

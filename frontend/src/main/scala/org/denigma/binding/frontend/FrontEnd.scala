@@ -11,8 +11,8 @@ import scala.util.Try
 import org.denigma.views.{CodeMirrorView, OrdinaryView}
 import scala.collection.immutable.Map
 import org.scalajs.dom.{HTMLElement, MouseEvent}
-import models.RegisterPicklers
-import models.{RegisterPicklers=>rp}
+import shared.RegisterPicklers
+import shared.{RegisterPicklers=>rp}
 import scala.scalajs.js
 import org.denigma.binding.frontend.tests.{LongListView, RandomView}
 import org.denigma.extensions._

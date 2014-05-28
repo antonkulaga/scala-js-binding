@@ -1,14 +1,6 @@
-package models
+package org.denigma.binding.models
 
-import org.scalax.semweb.rdf.IRI
-
-
-//object Menu {
-//  def apply(uri:IRI, label:String, child:MenuItem*): Menu = {
-//    new Menu(uri,label,child:_*)
-//  }
-//
-//}
+import org.scalax.semweb.rdf.{Res, IRI}
 
 case class TestMenu(uri:IRI,title:String)
 
@@ -18,7 +10,10 @@ case class Menu(uri:IRI,title:String, children: List[MenuItem]) extends MenuItem
 
 case class MenuItem(uri:IRI,title:String) extends MenuItemLike
 
-trait MenuItemLike{
+trait MenuItemLike extends Model
+{
   val uri:IRI
   val title:String
+
+  override def id:Res = uri
 }

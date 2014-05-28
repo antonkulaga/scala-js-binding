@@ -1,30 +1,18 @@
 package org.denigma.binding.frontend
 
 import rx._
-import models._
 import org.scalajs.dom
 import org.scalajs.dom._
 import scala.collection.immutable._
 import org.denigma.views._
 import org.denigma.extensions._
-import models.Menu
 import scala.util.Success
 import scala.util.Failure
 import scalatags.HtmlTag
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.scalax.semweb.rdf.IRI
-
-//object MenuView extends Remote{
-//  val menus = Map.empty[String,Menu]
-//
-//  type RemoteData = Menu
-//
-//  implicit val fromFuture:FromFuture = (str)=> {
-//    RegisterPicklers.registerPicklers()
-//    sq.get[Menu](sq.withHost("/menu/"+str))
-//  }
-//
-//}
+import org.denigma.binding.models._
+import shared._
 
 /**
  * Menu view, this view is devoted to displaying menus

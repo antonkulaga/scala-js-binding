@@ -10,7 +10,7 @@ import scalatags._
  * @param element
  * @param params
  */
-class BindSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("slide",element){
+class BindSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("bind",element){
   override def tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
 
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)

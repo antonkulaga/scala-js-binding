@@ -2,8 +2,8 @@ package controllers
 
 import play.api.mvc._
 
-import play.api.templates.Html
 import play.api.libs.json.Json
+import play.twirl.api.Html
 
 /**
  * Just a class for P-Jax
@@ -23,7 +23,7 @@ class PJaxPlatformWith(val name:String) extends Controller  {
 //  def pj[T](controller:String,action:String,html:Html)(implicit req:UserRequestHeader): Html =
 //    if(req.headers.keys("X-PJAX")) html  else views.html.webintelligence.index(controller,action,html)(req)
 
-  def pj[T<:UserRequestHeader](html:Html)(implicit request:T): SimpleResult =
+  def pj[T<:UserRequestHeader](html:Html)(implicit request:T): Result =
     if(request.pjax.isEmpty) Ok(views.html.index(request,Some(html))) else  Ok(html)
 
   def tellBad(message:String) = BadRequest(Json.obj("status" ->"KO","message"->message)).as("application/json")

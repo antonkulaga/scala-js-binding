@@ -29,29 +29,35 @@ object Build extends sbt.Build with UniversalKeys {
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
-  lazy val preview = (project in file(".")).enablePlugins(PlayScala) settings(previewSettings: _*) aggregate (frontend)
+  lazy val preview = (project in file(".")).enablePlugins(PlayScala) settings(previewSettings: _*) dependsOn shared aggregate frontend
 
   lazy val frontend = Project(
     id   = "frontend",
     base = file("frontend")
-  ) dependsOn(shared) dependsOn(binding)
+  ) dependsOn shared dependsOn binding
+
+  lazy val models = Project(
+    id = "models",
+    base = file("models")
+  )
+
 
   lazy val shared = Project(
     id = "shared",
     base = file("shared")
-  )
+  ) settings (  sourceDirectory := (sourceDirectory in models).value )
 
   lazy val binding = Project(
     id = "binding",
     base = file("binding")
-  ) dependsOn(jsmacro)
+  ) dependsOn jsmacro  dependsOn models
 
   lazy val jsmacro = Project(
     id = "js-macro",
     base = file("jsmacro")
   )
 
-  lazy val sharedCode= unmanagedSourceDirectories in Compile += baseDirectory.value / "shared" / "src" / "main" / "scala"
+  //lazy val sharedCode= unmanagedSourceDirectories in Compile += baseDirectory.value / "shared" / "src" / "main" / "scala"
 
   lazy val previewSettings = Seq(
 
@@ -65,7 +71,7 @@ object Build extends sbt.Build with UniversalKeys {
 
       test in Test <<= (test in Test) dependsOn (test in (binding, Test)),
 
-      sharedCode,
+      //sharedCode,
 
       dist <<= dist dependsOn (optimizeJS in (frontend, Compile)),
 

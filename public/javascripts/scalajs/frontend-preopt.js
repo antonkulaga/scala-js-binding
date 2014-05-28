@@ -1183,6 +1183,9 @@ ScalaJS.impls.org_denigma_binding_VisibilityBinder$class__hideIf__Lorg_denigma_b
 ScalaJS.impls.org_denigma_binding_VisibilityBinder$class__$init$__Lorg_denigma_binding_JustBinding__V = (function($$this) {
   /*<skip>*/
 });
+ScalaJS.impls.org_denigma_binding_models_MenuItemLike$class__$init$__Lorg_denigma_binding_models_MenuItemLike__V = (function($$this) {
+  /*<skip>*/
+});
 ScalaJS.impls.org_denigma_extensions_AnyJsExtensions$class__AnyJs__Lorg_denigma_extensions_AnyJsExtensions__Lscala_scalajs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs = (function($$this, obj) {
   return new ScalaJS.c.org_denigma_extensions_AnyJsExtensions$AnyJs().init___Lorg_denigma_extensions_AnyJsExtensions__Lscala_scalajs_js_Any($$this, obj)
 });
@@ -7005,3867 +7008,6 @@ ScalaJS.modules.java_util_regex_Pattern = (function() {
   };
   return ScalaJS.moduleInstances.java_util_regex_Pattern
 });
-/** @constructor */
-ScalaJS.c.models_AcceptPrivateChat$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_AcceptPrivateChat$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_AcceptPrivateChat$.prototype.constructor = ScalaJS.c.models_AcceptPrivateChat$;
-ScalaJS.c.models_AcceptPrivateChat$.prototype.productPrefix__T = (function() {
-  return "AcceptPrivateChat"
-});
-ScalaJS.c.models_AcceptPrivateChat$.prototype.productArity__I = (function() {
-  return 0
-});
-ScalaJS.c.models_AcceptPrivateChat$.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)))
-});
-ScalaJS.c.models_AcceptPrivateChat$.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_AcceptPrivateChat$.prototype.hashCode__I = (function() {
-  return 1100804403
-});
-ScalaJS.c.models_AcceptPrivateChat$.prototype.toString__T = (function() {
-  return "AcceptPrivateChat"
-});
-ScalaJS.c.models_AcceptPrivateChat$.prototype.init___ = (function() {
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.moduleInstances.models_AcceptPrivateChat = this;
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_AcceptPrivateChat$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_AcceptPrivateChat$.prototype = ScalaJS.c.models_AcceptPrivateChat$.prototype;
-ScalaJS.is.models_AcceptPrivateChat$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_AcceptPrivateChat$)))
-});
-ScalaJS.as.models_AcceptPrivateChat$ = (function(obj) {
-  if ((ScalaJS.is.models_AcceptPrivateChat$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.AcceptPrivateChat")
-  }
-});
-ScalaJS.isArrayOf.models_AcceptPrivateChat$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_AcceptPrivateChat$)))
-});
-ScalaJS.asArrayOf.models_AcceptPrivateChat$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_AcceptPrivateChat$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.AcceptPrivateChat;", depth)
-  }
-});
-ScalaJS.data.models_AcceptPrivateChat$ = new ScalaJS.ClassTypeData({
-  models_AcceptPrivateChat$: 0
-}, false, "models.AcceptPrivateChat$", ScalaJS.data.java_lang_Object, {
-  models_AcceptPrivateChat$: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_AcceptPrivateChat$.prototype.$classData = ScalaJS.data.models_AcceptPrivateChat$;
-ScalaJS.moduleInstances.models_AcceptPrivateChat = undefined;
-ScalaJS.modules.models_AcceptPrivateChat = (function() {
-  if ((!ScalaJS.moduleInstances.models_AcceptPrivateChat)) {
-    ScalaJS.moduleInstances.models_AcceptPrivateChat = new ScalaJS.c.models_AcceptPrivateChat$().init___()
-  };
-  return ScalaJS.moduleInstances.models_AcceptPrivateChat
-});
-/** @constructor */
-ScalaJS.c.models_Connect = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.user$1 = null
-});
-ScalaJS.c.models_Connect.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_Connect.prototype.constructor = ScalaJS.c.models_Connect;
-ScalaJS.c.models_Connect.prototype.user__Lmodels_User = (function() {
-  return this.user$1
-});
-ScalaJS.c.models_Connect.prototype.productPrefix__T = (function() {
-  return "Connect"
-});
-ScalaJS.c.models_Connect.prototype.productArity__I = (function() {
-  return 1
-});
-ScalaJS.c.models_Connect.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.user__Lmodels_User();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_Connect.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_Connect.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_Connect(x$1)
-});
-ScalaJS.c.models_Connect.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_Connect.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_Connect.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_Connect(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var Connect$1 = ScalaJS.as.models_Connect(x$1);
-      return (ScalaJS.anyRefEqEq(this.user__Lmodels_User(), Connect$1.user__Lmodels_User()) && Connect$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_Connect.prototype.init___Lmodels_User = (function(user) {
-  this.user$1 = user;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_Connect = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_Connect.prototype = ScalaJS.c.models_Connect.prototype;
-ScalaJS.is.models_Connect = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_Connect)))
-});
-ScalaJS.as.models_Connect = (function(obj) {
-  if ((ScalaJS.is.models_Connect(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.Connect")
-  }
-});
-ScalaJS.isArrayOf.models_Connect = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_Connect)))
-});
-ScalaJS.asArrayOf.models_Connect = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_Connect(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.Connect;", depth)
-  }
-});
-ScalaJS.data.models_Connect = new ScalaJS.ClassTypeData({
-  models_Connect: 0
-}, false, "models.Connect", ScalaJS.data.java_lang_Object, {
-  models_Connect: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_Connect.prototype.$classData = ScalaJS.data.models_Connect;
-/** @constructor */
-ScalaJS.c.models_GenericConsPickler = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_GenericConsPickler.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_GenericConsPickler.prototype.constructor = ScalaJS.c.models_GenericConsPickler;
-/** @constructor */
-ScalaJS.inheritable.models_GenericConsPickler = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_GenericConsPickler.prototype = ScalaJS.c.models_GenericConsPickler.prototype;
-ScalaJS.is.models_GenericConsPickler = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_GenericConsPickler)))
-});
-ScalaJS.as.models_GenericConsPickler = (function(obj) {
-  if ((ScalaJS.is.models_GenericConsPickler(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.GenericConsPickler")
-  }
-});
-ScalaJS.isArrayOf.models_GenericConsPickler = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_GenericConsPickler)))
-});
-ScalaJS.asArrayOf.models_GenericConsPickler = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_GenericConsPickler(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.GenericConsPickler;", depth)
-  }
-});
-ScalaJS.data.models_GenericConsPickler = new ScalaJS.ClassTypeData({
-  models_GenericConsPickler: 0
-}, false, "models.GenericConsPickler", ScalaJS.data.java_lang_Object, {
-  models_GenericConsPickler: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_GenericConsPickler.prototype.$classData = ScalaJS.data.models_GenericConsPickler;
-/** @constructor */
-ScalaJS.c.models_GenericConsUnpickler = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_GenericConsUnpickler.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_GenericConsUnpickler.prototype.constructor = ScalaJS.c.models_GenericConsUnpickler;
-ScalaJS.c.models_GenericConsUnpickler.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lscala_collection_immutable_$colon$colon = (function(pickle, registry$3, reader) {
-  var len = reader.readArrayLength__O__I(pickle);
-  ScalaJS.modules.scala_Predef().assert__Z__V((len > 0));
-  return ScalaJS.as.scala_collection_immutable_$colon$colon(ScalaJS.modules.scala_runtime_RichInt().until$extension0__I__I__Lscala_collection_immutable_Range(ScalaJS.modules.scala_Predef().intWrapper__I__I(0), len).toList__Lscala_collection_immutable_List().map__Lscala_Function1__Lscala_collection_generic_CanBuildFrom__O(new ScalaJS.c.scala_scalajs_runtime_AnonFunction1().init___Lscala_scalajs_js_Function1((function(pickle$2, registry$4, reader$2) {
-    return (function(index) {
-      index = ScalaJS.uI(index);
-      return registry$4.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader$2.readArrayElem__O__I__O(pickle$2, index), reader$2, registry$4)
-    })
-  })(pickle, registry$3, reader)), ScalaJS.modules.scala_collection_immutable_List().canBuildFrom__Lscala_collection_generic_CanBuildFrom()))
-});
-ScalaJS.c.models_GenericConsUnpickler.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lscala_collection_immutable_$colon$colon(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_GenericConsUnpickler = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_GenericConsUnpickler.prototype = ScalaJS.c.models_GenericConsUnpickler.prototype;
-ScalaJS.is.models_GenericConsUnpickler = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_GenericConsUnpickler)))
-});
-ScalaJS.as.models_GenericConsUnpickler = (function(obj) {
-  if ((ScalaJS.is.models_GenericConsUnpickler(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.GenericConsUnpickler")
-  }
-});
-ScalaJS.isArrayOf.models_GenericConsUnpickler = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_GenericConsUnpickler)))
-});
-ScalaJS.asArrayOf.models_GenericConsUnpickler = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_GenericConsUnpickler(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.GenericConsUnpickler;", depth)
-  }
-});
-ScalaJS.data.models_GenericConsUnpickler = new ScalaJS.ClassTypeData({
-  models_GenericConsUnpickler: 0
-}, false, "models.GenericConsUnpickler", ScalaJS.data.java_lang_Object, {
-  models_GenericConsUnpickler: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_GenericConsUnpickler.prototype.$classData = ScalaJS.data.models_GenericConsUnpickler;
-/** @constructor */
-ScalaJS.c.models_Join = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.room$1 = null
-});
-ScalaJS.c.models_Join.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_Join.prototype.constructor = ScalaJS.c.models_Join;
-ScalaJS.c.models_Join.prototype.room__Lmodels_Room = (function() {
-  return this.room$1
-});
-ScalaJS.c.models_Join.prototype.productPrefix__T = (function() {
-  return "Join"
-});
-ScalaJS.c.models_Join.prototype.productArity__I = (function() {
-  return 1
-});
-ScalaJS.c.models_Join.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.room__Lmodels_Room();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_Join.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_Join.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_Join(x$1)
-});
-ScalaJS.c.models_Join.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_Join.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_Join.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_Join(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var Join$1 = ScalaJS.as.models_Join(x$1);
-      return (ScalaJS.anyRefEqEq(this.room__Lmodels_Room(), Join$1.room__Lmodels_Room()) && Join$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_Join.prototype.init___Lmodels_Room = (function(room) {
-  this.room$1 = room;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_Join = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_Join.prototype = ScalaJS.c.models_Join.prototype;
-ScalaJS.is.models_Join = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_Join)))
-});
-ScalaJS.as.models_Join = (function(obj) {
-  if ((ScalaJS.is.models_Join(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.Join")
-  }
-});
-ScalaJS.isArrayOf.models_Join = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_Join)))
-});
-ScalaJS.asArrayOf.models_Join = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_Join(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.Join;", depth)
-  }
-});
-ScalaJS.data.models_Join = new ScalaJS.ClassTypeData({
-  models_Join: 0
-}, false, "models.Join", ScalaJS.data.java_lang_Object, {
-  models_Join: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_Join.prototype.$classData = ScalaJS.data.models_Join;
-/** @constructor */
-ScalaJS.c.models_JoinedRoom = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.users$1 = null
-});
-ScalaJS.c.models_JoinedRoom.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_JoinedRoom.prototype.constructor = ScalaJS.c.models_JoinedRoom;
-ScalaJS.c.models_JoinedRoom.prototype.users__Lscala_collection_immutable_List = (function() {
-  return this.users$1
-});
-ScalaJS.c.models_JoinedRoom.prototype.productPrefix__T = (function() {
-  return "JoinedRoom"
-});
-ScalaJS.c.models_JoinedRoom.prototype.productArity__I = (function() {
-  return 1
-});
-ScalaJS.c.models_JoinedRoom.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.users__Lscala_collection_immutable_List();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_JoinedRoom.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_JoinedRoom.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_JoinedRoom(x$1)
-});
-ScalaJS.c.models_JoinedRoom.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_JoinedRoom.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_JoinedRoom.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_JoinedRoom(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var JoinedRoom$1 = ScalaJS.as.models_JoinedRoom(x$1);
-      return (ScalaJS.anyRefEqEq(this.users__Lscala_collection_immutable_List(), JoinedRoom$1.users__Lscala_collection_immutable_List()) && JoinedRoom$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_JoinedRoom.prototype.init___Lscala_collection_immutable_List = (function(users) {
-  this.users$1 = users;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_JoinedRoom = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_JoinedRoom.prototype = ScalaJS.c.models_JoinedRoom.prototype;
-ScalaJS.is.models_JoinedRoom = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_JoinedRoom)))
-});
-ScalaJS.as.models_JoinedRoom = (function(obj) {
-  if ((ScalaJS.is.models_JoinedRoom(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.JoinedRoom")
-  }
-});
-ScalaJS.isArrayOf.models_JoinedRoom = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_JoinedRoom)))
-});
-ScalaJS.asArrayOf.models_JoinedRoom = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_JoinedRoom(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.JoinedRoom;", depth)
-  }
-});
-ScalaJS.data.models_JoinedRoom = new ScalaJS.ClassTypeData({
-  models_JoinedRoom: 0
-}, false, "models.JoinedRoom", ScalaJS.data.java_lang_Object, {
-  models_JoinedRoom: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_JoinedRoom.prototype.$classData = ScalaJS.data.models_JoinedRoom;
-/** @constructor */
-ScalaJS.c.models_Leave$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_Leave$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_Leave$.prototype.constructor = ScalaJS.c.models_Leave$;
-ScalaJS.c.models_Leave$.prototype.productPrefix__T = (function() {
-  return "Leave"
-});
-ScalaJS.c.models_Leave$.prototype.productArity__I = (function() {
-  return 0
-});
-ScalaJS.c.models_Leave$.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)))
-});
-ScalaJS.c.models_Leave$.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_Leave$.prototype.hashCode__I = (function() {
-  return 73293463
-});
-ScalaJS.c.models_Leave$.prototype.toString__T = (function() {
-  return "Leave"
-});
-ScalaJS.c.models_Leave$.prototype.init___ = (function() {
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.moduleInstances.models_Leave = this;
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_Leave$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_Leave$.prototype = ScalaJS.c.models_Leave$.prototype;
-ScalaJS.is.models_Leave$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_Leave$)))
-});
-ScalaJS.as.models_Leave$ = (function(obj) {
-  if ((ScalaJS.is.models_Leave$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.Leave")
-  }
-});
-ScalaJS.isArrayOf.models_Leave$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_Leave$)))
-});
-ScalaJS.asArrayOf.models_Leave$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_Leave$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.Leave;", depth)
-  }
-});
-ScalaJS.data.models_Leave$ = new ScalaJS.ClassTypeData({
-  models_Leave$: 0
-}, false, "models.Leave$", ScalaJS.data.java_lang_Object, {
-  models_Leave$: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_Leave$.prototype.$classData = ScalaJS.data.models_Leave$;
-ScalaJS.moduleInstances.models_Leave = undefined;
-ScalaJS.modules.models_Leave = (function() {
-  if ((!ScalaJS.moduleInstances.models_Leave)) {
-    ScalaJS.moduleInstances.models_Leave = new ScalaJS.c.models_Leave$().init___()
-  };
-  return ScalaJS.moduleInstances.models_Leave
-});
-/** @constructor */
-ScalaJS.c.models_Menu = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.uri$1 = null;
-  this.title$1 = null;
-  this.children$1 = null
-});
-ScalaJS.c.models_Menu.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_Menu.prototype.constructor = ScalaJS.c.models_Menu;
-ScalaJS.c.models_Menu.prototype.uri__Lorg_scalax_semweb_rdf_IRI = (function() {
-  return this.uri$1
-});
-ScalaJS.c.models_Menu.prototype.title__T = (function() {
-  return this.title$1
-});
-ScalaJS.c.models_Menu.prototype.children__Lscala_collection_immutable_List = (function() {
-  return this.children$1
-});
-ScalaJS.c.models_Menu.prototype.productPrefix__T = (function() {
-  return "Menu"
-});
-ScalaJS.c.models_Menu.prototype.productArity__I = (function() {
-  return 3
-});
-ScalaJS.c.models_Menu.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.uri__Lorg_scalax_semweb_rdf_IRI();
-        break
-      };
-    case 1:
-      {
-        return this.title__T();
-        break
-      };
-    case 2:
-      {
-        return this.children__Lscala_collection_immutable_List();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_Menu.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_Menu.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_Menu(x$1)
-});
-ScalaJS.c.models_Menu.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_Menu.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_Menu.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_Menu(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var Menu$1 = ScalaJS.as.models_Menu(x$1);
-      return (((ScalaJS.anyRefEqEq(this.uri__Lorg_scalax_semweb_rdf_IRI(), Menu$1.uri__Lorg_scalax_semweb_rdf_IRI()) && ScalaJS.anyRefEqEq(this.title__T(), Menu$1.title__T())) && ScalaJS.anyRefEqEq(this.children__Lscala_collection_immutable_List(), Menu$1.children__Lscala_collection_immutable_List())) && Menu$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_Menu.prototype.init___Lorg_scalax_semweb_rdf_IRI__T__Lscala_collection_immutable_List = (function(uri, title, children) {
-  this.uri$1 = uri;
-  this.title$1 = title;
-  this.children$1 = children;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_Menu = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_Menu.prototype = ScalaJS.c.models_Menu.prototype;
-ScalaJS.is.models_Menu = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_Menu)))
-});
-ScalaJS.as.models_Menu = (function(obj) {
-  if ((ScalaJS.is.models_Menu(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.Menu")
-  }
-});
-ScalaJS.isArrayOf.models_Menu = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_Menu)))
-});
-ScalaJS.asArrayOf.models_Menu = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_Menu(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.Menu;", depth)
-  }
-});
-ScalaJS.data.models_Menu = new ScalaJS.ClassTypeData({
-  models_Menu: 0
-}, false, "models.Menu", ScalaJS.data.java_lang_Object, {
-  models_Menu: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  models_MenuItemLike: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_Menu.prototype.$classData = ScalaJS.data.models_Menu;
-/** @constructor */
-ScalaJS.c.models_MenuItem = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.uri$1 = null;
-  this.title$1 = null
-});
-ScalaJS.c.models_MenuItem.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_MenuItem.prototype.constructor = ScalaJS.c.models_MenuItem;
-ScalaJS.c.models_MenuItem.prototype.uri__Lorg_scalax_semweb_rdf_IRI = (function() {
-  return this.uri$1
-});
-ScalaJS.c.models_MenuItem.prototype.title__T = (function() {
-  return this.title$1
-});
-ScalaJS.c.models_MenuItem.prototype.productPrefix__T = (function() {
-  return "MenuItem"
-});
-ScalaJS.c.models_MenuItem.prototype.productArity__I = (function() {
-  return 2
-});
-ScalaJS.c.models_MenuItem.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.uri__Lorg_scalax_semweb_rdf_IRI();
-        break
-      };
-    case 1:
-      {
-        return this.title__T();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_MenuItem.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_MenuItem.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_MenuItem(x$1)
-});
-ScalaJS.c.models_MenuItem.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_MenuItem.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_MenuItem.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_MenuItem(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var MenuItem$1 = ScalaJS.as.models_MenuItem(x$1);
-      return ((ScalaJS.anyRefEqEq(this.uri__Lorg_scalax_semweb_rdf_IRI(), MenuItem$1.uri__Lorg_scalax_semweb_rdf_IRI()) && ScalaJS.anyRefEqEq(this.title__T(), MenuItem$1.title__T())) && MenuItem$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_MenuItem.prototype.init___Lorg_scalax_semweb_rdf_IRI__T = (function(uri, title) {
-  this.uri$1 = uri;
-  this.title$1 = title;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_MenuItem = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_MenuItem.prototype = ScalaJS.c.models_MenuItem.prototype;
-ScalaJS.is.models_MenuItem = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_MenuItem)))
-});
-ScalaJS.as.models_MenuItem = (function(obj) {
-  if ((ScalaJS.is.models_MenuItem(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.MenuItem")
-  }
-});
-ScalaJS.isArrayOf.models_MenuItem = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_MenuItem)))
-});
-ScalaJS.asArrayOf.models_MenuItem = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_MenuItem(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.MenuItem;", depth)
-  }
-});
-ScalaJS.data.models_MenuItem = new ScalaJS.ClassTypeData({
-  models_MenuItem: 0
-}, false, "models.MenuItem", ScalaJS.data.java_lang_Object, {
-  models_MenuItem: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  models_MenuItemLike: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_MenuItem.prototype.$classData = ScalaJS.data.models_MenuItem;
-/** @constructor */
-ScalaJS.c.models_Message = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.user$1 = null;
-  this.text$1 = null;
-  this.timestamp$1 = ScalaJS.modules.scala_scalajs_runtime_Long().zero__Lscala_scalajs_runtime_Long()
-});
-ScalaJS.c.models_Message.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_Message.prototype.constructor = ScalaJS.c.models_Message;
-ScalaJS.c.models_Message.prototype.user__Lmodels_User = (function() {
-  return this.user$1
-});
-ScalaJS.c.models_Message.prototype.text__T = (function() {
-  return this.text$1
-});
-ScalaJS.c.models_Message.prototype.timestamp__J = (function() {
-  return this.timestamp$1
-});
-ScalaJS.c.models_Message.prototype.productPrefix__T = (function() {
-  return "Message"
-});
-ScalaJS.c.models_Message.prototype.productArity__I = (function() {
-  return 3
-});
-ScalaJS.c.models_Message.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.user__Lmodels_User();
-        break
-      };
-    case 1:
-      {
-        return this.text__T();
-        break
-      };
-    case 2:
-      {
-        return ScalaJS.bJ(this.timestamp__J());
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_Message.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_Message.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_Message(x$1)
-});
-ScalaJS.c.models_Message.prototype.hashCode__I = (function() {
-  var acc = -889275714;
-  acc = ScalaJS.modules.scala_runtime_Statics().mix__I__I__I(acc, ScalaJS.modules.scala_runtime_Statics().anyHash__O__I(this.user__Lmodels_User()));
-  acc = ScalaJS.modules.scala_runtime_Statics().mix__I__I__I(acc, ScalaJS.modules.scala_runtime_Statics().anyHash__O__I(this.text__T()));
-  acc = ScalaJS.modules.scala_runtime_Statics().mix__I__I__I(acc, ScalaJS.modules.scala_runtime_Statics().longHash__J__I(this.timestamp__J()));
-  return ScalaJS.modules.scala_runtime_Statics().finalizeHash__I__I__I(acc, 3)
-});
-ScalaJS.c.models_Message.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_Message.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_Message(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var Message$1 = ScalaJS.as.models_Message(x$1);
-      return (((ScalaJS.anyRefEqEq(this.user__Lmodels_User(), Message$1.user__Lmodels_User()) && ScalaJS.anyRefEqEq(this.text__T(), Message$1.text__T())) && this.timestamp__J().equals__O__Z(Message$1.timestamp__J())) && Message$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_Message.prototype.init___Lmodels_User__T__J = (function(user, text, timestamp) {
-  this.user$1 = user;
-  this.text$1 = text;
-  this.timestamp$1 = timestamp;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_Message = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_Message.prototype = ScalaJS.c.models_Message.prototype;
-ScalaJS.is.models_Message = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_Message)))
-});
-ScalaJS.as.models_Message = (function(obj) {
-  if ((ScalaJS.is.models_Message(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.Message")
-  }
-});
-ScalaJS.isArrayOf.models_Message = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_Message)))
-});
-ScalaJS.asArrayOf.models_Message = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_Message(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.Message;", depth)
-  }
-});
-ScalaJS.data.models_Message = new ScalaJS.ClassTypeData({
-  models_Message: 0
-}, false, "models.Message", ScalaJS.data.java_lang_Object, {
-  models_Message: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_Message.prototype.$classData = ScalaJS.data.models_Message;
-/** @constructor */
-ScalaJS.c.models_ReceiveMessage = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.message$1 = null
-});
-ScalaJS.c.models_ReceiveMessage.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_ReceiveMessage.prototype.constructor = ScalaJS.c.models_ReceiveMessage;
-ScalaJS.c.models_ReceiveMessage.prototype.message__Lmodels_Message = (function() {
-  return this.message$1
-});
-ScalaJS.c.models_ReceiveMessage.prototype.productPrefix__T = (function() {
-  return "ReceiveMessage"
-});
-ScalaJS.c.models_ReceiveMessage.prototype.productArity__I = (function() {
-  return 1
-});
-ScalaJS.c.models_ReceiveMessage.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.message__Lmodels_Message();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_ReceiveMessage.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_ReceiveMessage.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_ReceiveMessage(x$1)
-});
-ScalaJS.c.models_ReceiveMessage.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_ReceiveMessage.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_ReceiveMessage.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_ReceiveMessage(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var ReceiveMessage$1 = ScalaJS.as.models_ReceiveMessage(x$1);
-      return (ScalaJS.anyRefEqEq(this.message__Lmodels_Message(), ReceiveMessage$1.message__Lmodels_Message()) && ReceiveMessage$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_ReceiveMessage.prototype.init___Lmodels_Message = (function(message) {
-  this.message$1 = message;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_ReceiveMessage = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_ReceiveMessage.prototype = ScalaJS.c.models_ReceiveMessage.prototype;
-ScalaJS.is.models_ReceiveMessage = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_ReceiveMessage)))
-});
-ScalaJS.as.models_ReceiveMessage = (function(obj) {
-  if ((ScalaJS.is.models_ReceiveMessage(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.ReceiveMessage")
-  }
-});
-ScalaJS.isArrayOf.models_ReceiveMessage = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_ReceiveMessage)))
-});
-ScalaJS.asArrayOf.models_ReceiveMessage = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_ReceiveMessage(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.ReceiveMessage;", depth)
-  }
-});
-ScalaJS.data.models_ReceiveMessage = new ScalaJS.ClassTypeData({
-  models_ReceiveMessage: 0
-}, false, "models.ReceiveMessage", ScalaJS.data.java_lang_Object, {
-  models_ReceiveMessage: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_ReceiveMessage.prototype.$classData = ScalaJS.data.models_ReceiveMessage;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$;
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$1$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$17$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$17$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$17$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$1$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$17$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$17$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$17$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$2$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$18$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$18$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$18$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$2$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$18$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$18$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$18$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$3$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$19$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$19$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$19$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$3$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$19$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$19$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$19$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$4$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$20$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$20$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$20$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$4$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$20$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$20$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$20$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$5$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$21$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$21$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$21$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$5$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$21$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$21$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$21$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$6$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$22$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$22$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$22$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$6$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$22$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$22$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$22$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$7$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$23$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$23$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$23$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$7$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$23$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$23$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$23$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$8$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$24$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$24$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$24$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$8$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$24$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$24$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$24$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$9$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$25$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$25$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$25$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$9$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$25$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$25$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$25$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$10$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$26$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$26$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$26$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$10$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$26$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$26$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$26$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$11$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$27$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$27$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$27$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$11$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$27$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$27$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$27$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$12$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$28$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$28$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$28$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$12$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$28$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$28$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$28$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$13$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$29$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$29$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$29$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$13$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$29$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$29$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$29$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$14$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$30$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$30$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$30$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$14$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$30$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$30$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$30$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$15$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$31$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$31$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$31$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$15$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$31$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$31$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$31$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$16$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$32$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenPickler$32$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenPickler$32$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$16$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$32$ = (function(x$1) {
-  if ((x$1.elem$1 === null)) {
-    x$1.elem$1 = new ScalaJS.c.models_RegisterPicklers$GenUnpickler$32$().init___()
-  };
-  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-  return ScalaJS.as.models_RegisterPicklers$GenUnpickler$32$(x$1.elem$1)
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.registerPicklers__V = (function() {
-  /*<skip>*/
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$1__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$17$ = (function(GenPickler$module$1) {
-  if ((GenPickler$module$1.elem$1 === null)) {
-    return this.GenPickler$1$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$17$(GenPickler$module$1)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$17$(GenPickler$module$1.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$1__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$17$ = (function(GenUnpickler$module$1) {
-  if ((GenUnpickler$module$1.elem$1 === null)) {
-    return this.GenUnpickler$1$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$17$(GenUnpickler$module$1)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$17$(GenUnpickler$module$1.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$2__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$18$ = (function(GenPickler$module$2) {
-  if ((GenPickler$module$2.elem$1 === null)) {
-    return this.GenPickler$2$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$18$(GenPickler$module$2)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$18$(GenPickler$module$2.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$2__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$18$ = (function(GenUnpickler$module$2) {
-  if ((GenUnpickler$module$2.elem$1 === null)) {
-    return this.GenUnpickler$2$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$18$(GenUnpickler$module$2)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$18$(GenUnpickler$module$2.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$3__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$19$ = (function(GenPickler$module$3) {
-  if ((GenPickler$module$3.elem$1 === null)) {
-    return this.GenPickler$3$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$19$(GenPickler$module$3)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$19$(GenPickler$module$3.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$3__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$19$ = (function(GenUnpickler$module$3) {
-  if ((GenUnpickler$module$3.elem$1 === null)) {
-    return this.GenUnpickler$3$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$19$(GenUnpickler$module$3)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$19$(GenUnpickler$module$3.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$4__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$20$ = (function(GenPickler$module$4) {
-  if ((GenPickler$module$4.elem$1 === null)) {
-    return this.GenPickler$4$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$20$(GenPickler$module$4)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$20$(GenPickler$module$4.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$4__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$20$ = (function(GenUnpickler$module$4) {
-  if ((GenUnpickler$module$4.elem$1 === null)) {
-    return this.GenUnpickler$4$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$20$(GenUnpickler$module$4)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$20$(GenUnpickler$module$4.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$5__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$21$ = (function(GenPickler$module$5) {
-  if ((GenPickler$module$5.elem$1 === null)) {
-    return this.GenPickler$5$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$21$(GenPickler$module$5)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$21$(GenPickler$module$5.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$5__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$21$ = (function(GenUnpickler$module$5) {
-  if ((GenUnpickler$module$5.elem$1 === null)) {
-    return this.GenUnpickler$5$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$21$(GenUnpickler$module$5)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$21$(GenUnpickler$module$5.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$6__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$22$ = (function(GenPickler$module$6) {
-  if ((GenPickler$module$6.elem$1 === null)) {
-    return this.GenPickler$6$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$22$(GenPickler$module$6)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$22$(GenPickler$module$6.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$6__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$22$ = (function(GenUnpickler$module$6) {
-  if ((GenUnpickler$module$6.elem$1 === null)) {
-    return this.GenUnpickler$6$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$22$(GenUnpickler$module$6)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$22$(GenUnpickler$module$6.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$7__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$23$ = (function(GenPickler$module$7) {
-  if ((GenPickler$module$7.elem$1 === null)) {
-    return this.GenPickler$7$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$23$(GenPickler$module$7)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$23$(GenPickler$module$7.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$7__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$23$ = (function(GenUnpickler$module$7) {
-  if ((GenUnpickler$module$7.elem$1 === null)) {
-    return this.GenUnpickler$7$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$23$(GenUnpickler$module$7)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$23$(GenUnpickler$module$7.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$8__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$24$ = (function(GenPickler$module$8) {
-  if ((GenPickler$module$8.elem$1 === null)) {
-    return this.GenPickler$8$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$24$(GenPickler$module$8)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$24$(GenPickler$module$8.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$8__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$24$ = (function(GenUnpickler$module$8) {
-  if ((GenUnpickler$module$8.elem$1 === null)) {
-    return this.GenUnpickler$8$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$24$(GenUnpickler$module$8)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$24$(GenUnpickler$module$8.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$9__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$25$ = (function(GenPickler$module$9) {
-  if ((GenPickler$module$9.elem$1 === null)) {
-    return this.GenPickler$9$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$25$(GenPickler$module$9)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$25$(GenPickler$module$9.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$9__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$25$ = (function(GenUnpickler$module$9) {
-  if ((GenUnpickler$module$9.elem$1 === null)) {
-    return this.GenUnpickler$9$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$25$(GenUnpickler$module$9)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$25$(GenUnpickler$module$9.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$10__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$26$ = (function(GenPickler$module$10) {
-  if ((GenPickler$module$10.elem$1 === null)) {
-    return this.GenPickler$10$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$26$(GenPickler$module$10)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$26$(GenPickler$module$10.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$10__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$26$ = (function(GenUnpickler$module$10) {
-  if ((GenUnpickler$module$10.elem$1 === null)) {
-    return this.GenUnpickler$10$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$26$(GenUnpickler$module$10)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$26$(GenUnpickler$module$10.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$11__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$27$ = (function(GenPickler$module$11) {
-  if ((GenPickler$module$11.elem$1 === null)) {
-    return this.GenPickler$11$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$27$(GenPickler$module$11)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$27$(GenPickler$module$11.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$11__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$27$ = (function(GenUnpickler$module$11) {
-  if ((GenUnpickler$module$11.elem$1 === null)) {
-    return this.GenUnpickler$11$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$27$(GenUnpickler$module$11)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$27$(GenUnpickler$module$11.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$12__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$28$ = (function(GenPickler$module$12) {
-  if ((GenPickler$module$12.elem$1 === null)) {
-    return this.GenPickler$12$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$28$(GenPickler$module$12)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$28$(GenPickler$module$12.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$12__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$28$ = (function(GenUnpickler$module$12) {
-  if ((GenUnpickler$module$12.elem$1 === null)) {
-    return this.GenUnpickler$12$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$28$(GenUnpickler$module$12)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$28$(GenUnpickler$module$12.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$13__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$29$ = (function(GenPickler$module$13) {
-  if ((GenPickler$module$13.elem$1 === null)) {
-    return this.GenPickler$13$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$29$(GenPickler$module$13)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$29$(GenPickler$module$13.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$13__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$29$ = (function(GenUnpickler$module$13) {
-  if ((GenUnpickler$module$13.elem$1 === null)) {
-    return this.GenUnpickler$13$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$29$(GenUnpickler$module$13)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$29$(GenUnpickler$module$13.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$14__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$30$ = (function(GenPickler$module$14) {
-  if ((GenPickler$module$14.elem$1 === null)) {
-    return this.GenPickler$14$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$30$(GenPickler$module$14)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$30$(GenPickler$module$14.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$14__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$30$ = (function(GenUnpickler$module$14) {
-  if ((GenUnpickler$module$14.elem$1 === null)) {
-    return this.GenUnpickler$14$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$30$(GenUnpickler$module$14)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$30$(GenUnpickler$module$14.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$15__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$31$ = (function(GenPickler$module$15) {
-  if ((GenPickler$module$15.elem$1 === null)) {
-    return this.GenPickler$15$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$31$(GenPickler$module$15)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$31$(GenPickler$module$15.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$15__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$31$ = (function(GenUnpickler$module$15) {
-  if ((GenUnpickler$module$15.elem$1 === null)) {
-    return this.GenUnpickler$15$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$31$(GenUnpickler$module$15)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$31$(GenUnpickler$module$15.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenPickler$16__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$32$ = (function(GenPickler$module$16) {
-  if ((GenPickler$module$16.elem$1 === null)) {
-    return this.GenPickler$16$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$32$(GenPickler$module$16)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenPickler$32$(GenPickler$module$16.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.GenUnpickler$16__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$32$ = (function(GenUnpickler$module$16) {
-  if ((GenUnpickler$module$16.elem$1 === null)) {
-    return this.GenUnpickler$16$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$32$(GenUnpickler$module$16)
-  } else {
-    return ScalaJS.as.models_RegisterPicklers$GenUnpickler$32$(GenUnpickler$module$16.elem$1)
-  }
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.init___ = (function() {
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.moduleInstances.models_RegisterPicklers = this;
-  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.modules.scala_collection_immutable_Nil(), new ScalaJS.c.org_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("scala.collection.immutable.Nil$"));
-  var jsx$4 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$3 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.scala_collection_immutable_$colon$colon.getClassOf());
-  var GenPickler$module = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$2 = this.GenPickler$1__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$17$(GenPickler$module);
-  var GenUnpickler$module = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$1 = this.GenUnpickler$1__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$17$(GenUnpickler$module);
-  jsx$4.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$3, jsx$2, jsx$1);
-  var jsx$8 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$7 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_User.getClassOf());
-  var GenPickler$module$2 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$6 = this.GenPickler$2__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$18$(GenPickler$module$2);
-  var GenUnpickler$module$2 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$5 = this.GenUnpickler$2__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$18$(GenUnpickler$module$2);
-  jsx$8.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$7, jsx$6, jsx$5);
-  var jsx$12 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$11 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_Room.getClassOf());
-  var GenPickler$module$3 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$10 = this.GenPickler$3__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$19$(GenPickler$module$3);
-  var GenUnpickler$module$3 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$9 = this.GenUnpickler$3__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$19$(GenUnpickler$module$3);
-  jsx$12.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$11, jsx$10, jsx$9);
-  var jsx$16 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$15 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_Message.getClassOf());
-  var GenPickler$module$4 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$14 = this.GenPickler$4__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$20$(GenPickler$module$4);
-  var GenUnpickler$module$4 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$13 = this.GenUnpickler$4__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$20$(GenUnpickler$module$4);
-  jsx$16.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$15, jsx$14, jsx$13);
-  var jsx$20 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$19 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_Connect.getClassOf());
-  var GenPickler$module$5 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$18 = this.GenPickler$5__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$21$(GenPickler$module$5);
-  var GenUnpickler$module$5 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$17 = this.GenUnpickler$5__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$21$(GenUnpickler$module$5);
-  jsx$20.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$19, jsx$18, jsx$17);
-  var jsx$24 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$23 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_Join.getClassOf());
-  var GenPickler$module$6 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$22 = this.GenPickler$6__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$22$(GenPickler$module$6);
-  var GenUnpickler$module$6 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$21 = this.GenUnpickler$6__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$22$(GenUnpickler$module$6);
-  jsx$24.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$23, jsx$22, jsx$21);
-  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.modules.models_Leave(), new ScalaJS.c.org_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("models.Leave$"));
-  var jsx$28 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$27 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_SendMessage.getClassOf());
-  var GenPickler$module$7 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$26 = this.GenPickler$7__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$23$(GenPickler$module$7);
-  var GenUnpickler$module$7 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$25 = this.GenUnpickler$7__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$23$(GenUnpickler$module$7);
-  jsx$28.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$27, jsx$26, jsx$25);
-  var jsx$32 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$31 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_RequestPrivateChat.getClassOf());
-  var GenPickler$module$8 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$30 = this.GenPickler$8__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$24$(GenPickler$module$8);
-  var GenUnpickler$module$8 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$29 = this.GenUnpickler$8__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$24$(GenUnpickler$module$8);
-  jsx$32.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$31, jsx$30, jsx$29);
-  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.modules.models_AcceptPrivateChat(), new ScalaJS.c.org_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("models.AcceptPrivateChat$"));
-  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.modules.models_RejectPrivateChat(), new ScalaJS.c.org_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("models.RejectPrivateChat$"));
-  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.modules.models_UserDoesNotExist(), new ScalaJS.c.org_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("models.UserDoesNotExist$"));
-  var jsx$36 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$35 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_RoomListChanged.getClassOf());
-  var GenPickler$module$9 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$34 = this.GenPickler$9__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$25$(GenPickler$module$9);
-  var GenUnpickler$module$9 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$33 = this.GenUnpickler$9__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$25$(GenUnpickler$module$9);
-  jsx$36.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$35, jsx$34, jsx$33);
-  var jsx$40 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$39 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_JoinedRoom.getClassOf());
-  var GenPickler$module$10 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$38 = this.GenPickler$10__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$26$(GenPickler$module$10);
-  var GenUnpickler$module$10 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$37 = this.GenUnpickler$10__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$26$(GenUnpickler$module$10);
-  jsx$40.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$39, jsx$38, jsx$37);
-  var jsx$44 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$43 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_UserJoined.getClassOf());
-  var GenPickler$module$11 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$42 = this.GenPickler$11__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$27$(GenPickler$module$11);
-  var GenUnpickler$module$11 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$41 = this.GenUnpickler$11__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$27$(GenUnpickler$module$11);
-  jsx$44.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$43, jsx$42, jsx$41);
-  var jsx$48 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$47 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_UserLeft.getClassOf());
-  var GenPickler$module$12 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$46 = this.GenPickler$12__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$28$(GenPickler$module$12);
-  var GenUnpickler$module$12 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$45 = this.GenUnpickler$12__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$28$(GenUnpickler$module$12);
-  jsx$48.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$47, jsx$46, jsx$45);
-  var jsx$52 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$51 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_ReceiveMessage.getClassOf());
-  var GenPickler$module$13 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$50 = this.GenPickler$13__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$29$(GenPickler$module$13);
-  var GenUnpickler$module$13 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$49 = this.GenUnpickler$13__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$29$(GenUnpickler$module$13);
-  jsx$52.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$51, jsx$50, jsx$49);
-  var jsx$56 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$55 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.org_scalax_semweb_rdf_IRI.getClassOf());
-  var GenPickler$module$14 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$54 = this.GenPickler$14__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$30$(GenPickler$module$14);
-  var GenUnpickler$module$14 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$53 = this.GenUnpickler$14__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$30$(GenUnpickler$module$14);
-  jsx$56.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$55, jsx$54, jsx$53);
-  var jsx$60 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$59 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_MenuItem.getClassOf());
-  var GenPickler$module$15 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$58 = this.GenPickler$15__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$31$(GenPickler$module$15);
-  var GenUnpickler$module$15 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$57 = this.GenUnpickler$15__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$31$(GenUnpickler$module$15);
-  jsx$60.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$59, jsx$58, jsx$57);
-  var jsx$64 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
-  var jsx$63 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.models_Menu.getClassOf());
-  var GenPickler$module$16 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$62 = this.GenPickler$16__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenPickler$32$(GenPickler$module$16);
-  var GenUnpickler$module$16 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
-  var jsx$61 = this.GenUnpickler$16__p1__Lscala_runtime_VolatileObjectRef__Lmodels_RegisterPicklers$GenUnpickler$32$(GenUnpickler$module$16);
-  jsx$64.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$63, jsx$62, jsx$61);
-  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.scala_collection_immutable_$colon$colon.getClassOf()), ScalaJS.modules.models_RegisterPicklers$StrConsPickler(), ScalaJS.modules.models_RegisterPicklers$StrConsUnpickler());
-  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.scala_collection_immutable_$colon$colon.getClassOf()), ScalaJS.modules.models_RegisterPicklers$IriItemPickler(), ScalaJS.modules.models_RegisterPicklers$IriItemUnpickler());
-  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.scala_collection_immutable_$colon$colon.getClassOf()), ScalaJS.modules.models_RegisterPicklers$MenuItemPickler(), ScalaJS.modules.models_RegisterPicklers$MenuItemUnpickler());
-  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.scala_collection_immutable_$colon$colon.getClassOf()), ScalaJS.modules.models_RegisterPicklers$MenuConsPickler(), ScalaJS.modules.models_RegisterPicklers$MenuConsUnpickler());
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$.prototype = ScalaJS.c.models_RegisterPicklers$.prototype;
-ScalaJS.is.models_RegisterPicklers$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$)))
-});
-ScalaJS.as.models_RegisterPicklers$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$: 0
-}, false, "models.RegisterPicklers$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$;
-ScalaJS.moduleInstances.models_RegisterPicklers = undefined;
-ScalaJS.modules.models_RegisterPicklers = (function() {
-  if ((!ScalaJS.moduleInstances.models_RegisterPicklers)) {
-    ScalaJS.moduleInstances.models_RegisterPicklers = new ScalaJS.c.models_RegisterPicklers$().init___()
-  };
-  return ScalaJS.moduleInstances.models_RegisterPicklers
-});
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$17$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$17$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$17$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$17$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$17$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$17$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$17$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$17$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$17$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$17$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$17$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$17")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$17$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$17$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$17$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$17$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$17;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$17$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$17$: 0
-}, false, "models.RegisterPicklers$GenPickler$17$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$17$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$17$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$17$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$18$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$18$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$18$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$18$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$18$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$18$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$18$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$18$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$18$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$18$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$18$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$18")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$18$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$18$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$18$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$18$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$18;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$18$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$18$: 0
-}, false, "models.RegisterPicklers$GenPickler$18$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$18$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$18$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$18$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$19$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$19$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$19$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$19$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$19$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$19$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$19$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$19$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$19$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$19$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$19$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$19")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$19$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$19$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$19$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$19$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$19;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$19$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$19$: 0
-}, false, "models.RegisterPicklers$GenPickler$19$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$19$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$19$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$19$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$20$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$20$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$20$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$20$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$20$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$20$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$20$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$20$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$20$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$20$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$20$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$20")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$20$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$20$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$20$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$20$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$20;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$20$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$20$: 0
-}, false, "models.RegisterPicklers$GenPickler$20$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$20$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$20$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$20$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$21$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$21$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$21$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$21$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$21$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$21$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$21$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$21$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$21$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$21$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$21$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$21")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$21$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$21$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$21$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$21$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$21;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$21$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$21$: 0
-}, false, "models.RegisterPicklers$GenPickler$21$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$21$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$21$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$21$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$22$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$22$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$22$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$22$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$22$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$22$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$22$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$22$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$22$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$22$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$22$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$22")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$22$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$22$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$22$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$22$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$22;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$22$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$22$: 0
-}, false, "models.RegisterPicklers$GenPickler$22$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$22$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$22$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$22$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$23$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$23$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$23$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$23$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$23$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$23$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$23$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$23$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$23$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$23$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$23$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$23")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$23$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$23$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$23$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$23$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$23;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$23$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$23$: 0
-}, false, "models.RegisterPicklers$GenPickler$23$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$23$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$23$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$23$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$24$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$24$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$24$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$24$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$24$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$24$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$24$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$24$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$24$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$24$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$24$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$24")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$24$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$24$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$24$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$24$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$24;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$24$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$24$: 0
-}, false, "models.RegisterPicklers$GenPickler$24$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$24$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$24$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$24$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$25$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$25$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$25$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$25$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$25$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$25$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$25$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$25$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$25$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$25$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$25$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$25")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$25$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$25$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$25$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$25$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$25;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$25$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$25$: 0
-}, false, "models.RegisterPicklers$GenPickler$25$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$25$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$25$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$25$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$26$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$26$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$26$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$26$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$26$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$26$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$26$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$26$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$26$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$26$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$26$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$26")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$26$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$26$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$26$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$26$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$26;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$26$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$26$: 0
-}, false, "models.RegisterPicklers$GenPickler$26$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$26$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$26$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$26$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$27$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$27$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$27$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$27$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$27$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$27$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$27$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$27$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$27$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$27$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$27$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$27")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$27$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$27$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$27$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$27$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$27;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$27$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$27$: 0
-}, false, "models.RegisterPicklers$GenPickler$27$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$27$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$27$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$27$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$28$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$28$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$28$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$28$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$28$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$28$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$28$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$28$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$28$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$28$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$28$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$28")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$28$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$28$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$28$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$28$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$28;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$28$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$28$: 0
-}, false, "models.RegisterPicklers$GenPickler$28$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$28$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$28$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$28$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$29$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$29$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$29$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$29$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$29$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$29$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$29$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$29$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$29$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$29$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$29$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$29")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$29$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$29$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$29$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$29$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$29;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$29$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$29$: 0
-}, false, "models.RegisterPicklers$GenPickler$29$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$29$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$29$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$29$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$30$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$30$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$30$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$30$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$30$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$30$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$30$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$30$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$30$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$30$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$30$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$30")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$30$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$30$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$30$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$30$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$30;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$30$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$30$: 0
-}, false, "models.RegisterPicklers$GenPickler$30$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$30$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$30$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$30$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$31$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$31$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$31$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$31$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$31$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$31$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$31$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$31$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$31$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$31$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$31$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$31")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$31$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$31$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$31$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$31$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$31;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$31$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$31$: 0
-}, false, "models.RegisterPicklers$GenPickler$31$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$31$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$31$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$31$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenPickler$32$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$32$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenPickler$32$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenPickler$32$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$32$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenPickler$32$.prototype = ScalaJS.c.models_RegisterPicklers$GenPickler$32$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenPickler$32$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenPickler$32$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenPickler$32$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenPickler$32$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenPickler$32")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$32$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenPickler$32$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenPickler$32$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenPickler$32$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenPickler$32;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenPickler$32$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenPickler$32$: 0
-}, false, "models.RegisterPicklers$GenPickler$32$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenPickler$32$: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenPickler$32$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenPickler$32$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$17$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$17$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$17$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$17$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$17$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lscala_collection_immutable_$colon$colon = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.scala_collection_immutable_$colon$colon().init___O__Lscala_collection_immutable_List(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "hd$1"), reader, registry$3), ScalaJS.as.scala_collection_immutable_List(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "tl$1"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$17$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lscala_collection_immutable_$colon$colon(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$17$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$17$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$17$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$17$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$17$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$17$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$17$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$17")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$17$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$17$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$17$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$17$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$17;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$17$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$17$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$17$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$17$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$17$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$17$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$18$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$18$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$18$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$18$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$18$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_User = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_User().init___T__T(ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "nick"), reader, registry$3)), ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "avatar"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$18$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_User(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$18$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$18$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$18$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$18$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$18$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$18$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$18$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$18")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$18$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$18$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$18$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$18$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$18;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$18$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$18$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$18$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$18$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$18$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$18$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$19$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$19$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$19$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$19$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$19$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_Room = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_Room().init___T(ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "name"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$19$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_Room(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$19$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$19$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$19$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$19$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$19$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$19$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$19$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$19")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$19$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$19$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$19$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$19$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$19;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$19$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$19$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$19$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$19$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$19$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$19$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$20$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$20$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$20$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$20$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$20$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_Message = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_Message().init___Lmodels_User__T__J(ScalaJS.as.models_User(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "user"), reader, registry$3)), ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "text"), reader, registry$3)), ScalaJS.uJ(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "timestamp"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$20$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_Message(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$20$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$20$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$20$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$20$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$20$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$20$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$20$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$20")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$20$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$20$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$20$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$20$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$20;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$20$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$20$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$20$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$20$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$20$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$20$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$21$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$21$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$21$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$21$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$21$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_Connect = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_Connect().init___Lmodels_User(ScalaJS.as.models_User(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "user"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$21$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_Connect(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$21$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$21$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$21$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$21$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$21$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$21$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$21$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$21")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$21$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$21$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$21$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$21$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$21;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$21$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$21$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$21$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$21$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$21$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$21$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$22$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$22$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$22$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$22$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$22$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_Join = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_Join().init___Lmodels_Room(ScalaJS.as.models_Room(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "room"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$22$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_Join(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$22$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$22$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$22$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$22$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$22$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$22$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$22$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$22")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$22$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$22$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$22$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$22$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$22;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$22$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$22$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$22$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$22$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$22$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$22$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$23$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$23$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$23$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$23$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$23$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_SendMessage = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_SendMessage().init___Lmodels_Message(ScalaJS.as.models_Message(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "message"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$23$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_SendMessage(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$23$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$23$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$23$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$23$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$23$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$23$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$23$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$23")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$23$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$23$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$23$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$23$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$23;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$23$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$23$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$23$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$23$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$23$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$23$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$24$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$24$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$24$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$24$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$24$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_RequestPrivateChat = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_RequestPrivateChat().init___Lmodels_User(ScalaJS.as.models_User(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "peer"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$24$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_RequestPrivateChat(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$24$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$24$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$24$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$24$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$24$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$24$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$24$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$24")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$24$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$24$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$24$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$24$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$24;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$24$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$24$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$24$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$24$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$24$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$24$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$25$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$25$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$25$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$25$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$25$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_RoomListChanged = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_RoomListChanged().init___Lscala_collection_immutable_List(ScalaJS.as.scala_collection_immutable_List(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "rooms"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$25$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_RoomListChanged(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$25$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$25$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$25$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$25$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$25$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$25$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$25$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$25")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$25$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$25$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$25$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$25$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$25;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$25$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$25$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$25$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$25$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$25$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$25$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$26$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$26$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$26$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$26$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$26$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_JoinedRoom = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_JoinedRoom().init___Lscala_collection_immutable_List(ScalaJS.as.scala_collection_immutable_List(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "users"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$26$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_JoinedRoom(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$26$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$26$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$26$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$26$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$26$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$26$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$26$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$26")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$26$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$26$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$26$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$26$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$26;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$26$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$26$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$26$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$26$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$26$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$26$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$27$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$27$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$27$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$27$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$27$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_UserJoined = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_UserJoined().init___Lmodels_User(ScalaJS.as.models_User(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "user"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$27$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_UserJoined(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$27$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$27$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$27$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$27$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$27$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$27$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$27$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$27")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$27$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$27$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$27$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$27$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$27;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$27$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$27$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$27$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$27$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$27$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$27$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$28$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$28$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$28$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$28$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$28$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_UserLeft = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_UserLeft().init___Lmodels_User(ScalaJS.as.models_User(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "user"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$28$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_UserLeft(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$28$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$28$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$28$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$28$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$28$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$28$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$28$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$28")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$28$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$28$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$28$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$28$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$28;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$28$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$28$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$28$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$28$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$28$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$28$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$29$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$29$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$29$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$29$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$29$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_ReceiveMessage = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_ReceiveMessage().init___Lmodels_Message(ScalaJS.as.models_Message(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "message"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$29$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_ReceiveMessage(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$29$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$29$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$29$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$29$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$29$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$29$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$29$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$29")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$29$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$29$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$29$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$29$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$29;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$29$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$29$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$29$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$29$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$29$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$29$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$30$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$30$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$30$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$30$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$30$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_IRI = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.org_scalax_semweb_rdf_IRI().init___T(ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$30$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_IRI(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$30$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$30$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$30$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$30$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$30$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$30$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$30$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$30")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$30$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$30$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$30$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$30$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$30;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$30$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$30$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$30$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$30$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$30$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$30$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$31$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$31$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$31$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$31$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$31$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_MenuItem = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_MenuItem().init___Lorg_scalax_semweb_rdf_IRI__T(ScalaJS.as.org_scalax_semweb_rdf_IRI(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry$3)), ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "title"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$31$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_MenuItem(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$31$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$31$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$31$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$31$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$31$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$31$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$31$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$31")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$31$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$31$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$31$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$31$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$31;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$31$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$31$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$31$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$31$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$31$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$31$;
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$32$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$32$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$32$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$GenUnpickler$32$;
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$32$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_Menu = (function(pickle, registry$3, reader) {
-  return new ScalaJS.c.models_Menu().init___Lorg_scalax_semweb_rdf_IRI__T__Lscala_collection_immutable_List(ScalaJS.as.org_scalax_semweb_rdf_IRI(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry$3)), ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "title"), reader, registry$3)), ScalaJS.as.scala_collection_immutable_List(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "children"), reader, registry$3)))
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$32$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lmodels_Menu(pickle, registry, reader)
-});
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$32$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$GenUnpickler$32$.prototype = ScalaJS.c.models_RegisterPicklers$GenUnpickler$32$.prototype;
-ScalaJS.is.models_RegisterPicklers$GenUnpickler$32$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$GenUnpickler$32$)))
-});
-ScalaJS.as.models_RegisterPicklers$GenUnpickler$32$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$GenUnpickler$32$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$GenUnpickler$32")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$32$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$GenUnpickler$32$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$GenUnpickler$32$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$GenUnpickler$32$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$GenUnpickler$32;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$GenUnpickler$32$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$GenUnpickler$32$: 0
-}, false, "models.RegisterPicklers$GenUnpickler$32$", ScalaJS.data.java_lang_Object, {
-  models_RegisterPicklers$GenUnpickler$32$: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$GenUnpickler$32$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$GenUnpickler$32$;
-/** @constructor */
-ScalaJS.c.models_RejectPrivateChat$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_RejectPrivateChat$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RejectPrivateChat$.prototype.constructor = ScalaJS.c.models_RejectPrivateChat$;
-ScalaJS.c.models_RejectPrivateChat$.prototype.productPrefix__T = (function() {
-  return "RejectPrivateChat"
-});
-ScalaJS.c.models_RejectPrivateChat$.prototype.productArity__I = (function() {
-  return 0
-});
-ScalaJS.c.models_RejectPrivateChat$.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)))
-});
-ScalaJS.c.models_RejectPrivateChat$.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_RejectPrivateChat$.prototype.hashCode__I = (function() {
-  return -1201603012
-});
-ScalaJS.c.models_RejectPrivateChat$.prototype.toString__T = (function() {
-  return "RejectPrivateChat"
-});
-ScalaJS.c.models_RejectPrivateChat$.prototype.init___ = (function() {
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.moduleInstances.models_RejectPrivateChat = this;
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_RejectPrivateChat$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RejectPrivateChat$.prototype = ScalaJS.c.models_RejectPrivateChat$.prototype;
-ScalaJS.is.models_RejectPrivateChat$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RejectPrivateChat$)))
-});
-ScalaJS.as.models_RejectPrivateChat$ = (function(obj) {
-  if ((ScalaJS.is.models_RejectPrivateChat$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RejectPrivateChat")
-  }
-});
-ScalaJS.isArrayOf.models_RejectPrivateChat$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RejectPrivateChat$)))
-});
-ScalaJS.asArrayOf.models_RejectPrivateChat$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RejectPrivateChat$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RejectPrivateChat;", depth)
-  }
-});
-ScalaJS.data.models_RejectPrivateChat$ = new ScalaJS.ClassTypeData({
-  models_RejectPrivateChat$: 0
-}, false, "models.RejectPrivateChat$", ScalaJS.data.java_lang_Object, {
-  models_RejectPrivateChat$: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RejectPrivateChat$.prototype.$classData = ScalaJS.data.models_RejectPrivateChat$;
-ScalaJS.moduleInstances.models_RejectPrivateChat = undefined;
-ScalaJS.modules.models_RejectPrivateChat = (function() {
-  if ((!ScalaJS.moduleInstances.models_RejectPrivateChat)) {
-    ScalaJS.moduleInstances.models_RejectPrivateChat = new ScalaJS.c.models_RejectPrivateChat$().init___()
-  };
-  return ScalaJS.moduleInstances.models_RejectPrivateChat
-});
-/** @constructor */
-ScalaJS.c.models_RequestPrivateChat = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.peer$1 = null
-});
-ScalaJS.c.models_RequestPrivateChat.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RequestPrivateChat.prototype.constructor = ScalaJS.c.models_RequestPrivateChat;
-ScalaJS.c.models_RequestPrivateChat.prototype.peer__Lmodels_User = (function() {
-  return this.peer$1
-});
-ScalaJS.c.models_RequestPrivateChat.prototype.productPrefix__T = (function() {
-  return "RequestPrivateChat"
-});
-ScalaJS.c.models_RequestPrivateChat.prototype.productArity__I = (function() {
-  return 1
-});
-ScalaJS.c.models_RequestPrivateChat.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.peer__Lmodels_User();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_RequestPrivateChat.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_RequestPrivateChat.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_RequestPrivateChat(x$1)
-});
-ScalaJS.c.models_RequestPrivateChat.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_RequestPrivateChat.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_RequestPrivateChat.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_RequestPrivateChat(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var RequestPrivateChat$1 = ScalaJS.as.models_RequestPrivateChat(x$1);
-      return (ScalaJS.anyRefEqEq(this.peer__Lmodels_User(), RequestPrivateChat$1.peer__Lmodels_User()) && RequestPrivateChat$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_RequestPrivateChat.prototype.init___Lmodels_User = (function(peer) {
-  this.peer$1 = peer;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_RequestPrivateChat = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RequestPrivateChat.prototype = ScalaJS.c.models_RequestPrivateChat.prototype;
-ScalaJS.is.models_RequestPrivateChat = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RequestPrivateChat)))
-});
-ScalaJS.as.models_RequestPrivateChat = (function(obj) {
-  if ((ScalaJS.is.models_RequestPrivateChat(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RequestPrivateChat")
-  }
-});
-ScalaJS.isArrayOf.models_RequestPrivateChat = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RequestPrivateChat)))
-});
-ScalaJS.asArrayOf.models_RequestPrivateChat = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RequestPrivateChat(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RequestPrivateChat;", depth)
-  }
-});
-ScalaJS.data.models_RequestPrivateChat = new ScalaJS.ClassTypeData({
-  models_RequestPrivateChat: 0
-}, false, "models.RequestPrivateChat", ScalaJS.data.java_lang_Object, {
-  models_RequestPrivateChat: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RequestPrivateChat.prototype.$classData = ScalaJS.data.models_RequestPrivateChat;
-/** @constructor */
-ScalaJS.c.models_Room = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.name$1 = null
-});
-ScalaJS.c.models_Room.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_Room.prototype.constructor = ScalaJS.c.models_Room;
-ScalaJS.c.models_Room.prototype.name__T = (function() {
-  return this.name$1
-});
-ScalaJS.c.models_Room.prototype.productPrefix__T = (function() {
-  return "Room"
-});
-ScalaJS.c.models_Room.prototype.productArity__I = (function() {
-  return 1
-});
-ScalaJS.c.models_Room.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.name__T();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_Room.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_Room.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_Room(x$1)
-});
-ScalaJS.c.models_Room.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_Room.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_Room.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_Room(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var Room$1 = ScalaJS.as.models_Room(x$1);
-      return (ScalaJS.anyRefEqEq(this.name__T(), Room$1.name__T()) && Room$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_Room.prototype.init___T = (function(name) {
-  this.name$1 = name;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_Room = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_Room.prototype = ScalaJS.c.models_Room.prototype;
-ScalaJS.is.models_Room = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_Room)))
-});
-ScalaJS.as.models_Room = (function(obj) {
-  if ((ScalaJS.is.models_Room(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.Room")
-  }
-});
-ScalaJS.isArrayOf.models_Room = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_Room)))
-});
-ScalaJS.asArrayOf.models_Room = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_Room(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.Room;", depth)
-  }
-});
-ScalaJS.data.models_Room = new ScalaJS.ClassTypeData({
-  models_Room: 0
-}, false, "models.Room", ScalaJS.data.java_lang_Object, {
-  models_Room: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_Room.prototype.$classData = ScalaJS.data.models_Room;
-/** @constructor */
-ScalaJS.c.models_RoomListChanged = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.rooms$1 = null
-});
-ScalaJS.c.models_RoomListChanged.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_RoomListChanged.prototype.constructor = ScalaJS.c.models_RoomListChanged;
-ScalaJS.c.models_RoomListChanged.prototype.rooms__Lscala_collection_immutable_List = (function() {
-  return this.rooms$1
-});
-ScalaJS.c.models_RoomListChanged.prototype.productPrefix__T = (function() {
-  return "RoomListChanged"
-});
-ScalaJS.c.models_RoomListChanged.prototype.productArity__I = (function() {
-  return 1
-});
-ScalaJS.c.models_RoomListChanged.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.rooms__Lscala_collection_immutable_List();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_RoomListChanged.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_RoomListChanged.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_RoomListChanged(x$1)
-});
-ScalaJS.c.models_RoomListChanged.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_RoomListChanged.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_RoomListChanged.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_RoomListChanged(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var RoomListChanged$1 = ScalaJS.as.models_RoomListChanged(x$1);
-      return (ScalaJS.anyRefEqEq(this.rooms__Lscala_collection_immutable_List(), RoomListChanged$1.rooms__Lscala_collection_immutable_List()) && RoomListChanged$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_RoomListChanged.prototype.init___Lscala_collection_immutable_List = (function(rooms) {
-  this.rooms$1 = rooms;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_RoomListChanged = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RoomListChanged.prototype = ScalaJS.c.models_RoomListChanged.prototype;
-ScalaJS.is.models_RoomListChanged = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RoomListChanged)))
-});
-ScalaJS.as.models_RoomListChanged = (function(obj) {
-  if ((ScalaJS.is.models_RoomListChanged(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RoomListChanged")
-  }
-});
-ScalaJS.isArrayOf.models_RoomListChanged = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RoomListChanged)))
-});
-ScalaJS.asArrayOf.models_RoomListChanged = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RoomListChanged(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RoomListChanged;", depth)
-  }
-});
-ScalaJS.data.models_RoomListChanged = new ScalaJS.ClassTypeData({
-  models_RoomListChanged: 0
-}, false, "models.RoomListChanged", ScalaJS.data.java_lang_Object, {
-  models_RoomListChanged: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RoomListChanged.prototype.$classData = ScalaJS.data.models_RoomListChanged;
-/** @constructor */
-ScalaJS.c.models_SendMessage = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.message$1 = null
-});
-ScalaJS.c.models_SendMessage.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_SendMessage.prototype.constructor = ScalaJS.c.models_SendMessage;
-ScalaJS.c.models_SendMessage.prototype.message__Lmodels_Message = (function() {
-  return this.message$1
-});
-ScalaJS.c.models_SendMessage.prototype.productPrefix__T = (function() {
-  return "SendMessage"
-});
-ScalaJS.c.models_SendMessage.prototype.productArity__I = (function() {
-  return 1
-});
-ScalaJS.c.models_SendMessage.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.message__Lmodels_Message();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_SendMessage.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_SendMessage.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_SendMessage(x$1)
-});
-ScalaJS.c.models_SendMessage.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_SendMessage.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_SendMessage.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_SendMessage(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var SendMessage$1 = ScalaJS.as.models_SendMessage(x$1);
-      return (ScalaJS.anyRefEqEq(this.message__Lmodels_Message(), SendMessage$1.message__Lmodels_Message()) && SendMessage$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_SendMessage.prototype.init___Lmodels_Message = (function(message) {
-  this.message$1 = message;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_SendMessage = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_SendMessage.prototype = ScalaJS.c.models_SendMessage.prototype;
-ScalaJS.is.models_SendMessage = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_SendMessage)))
-});
-ScalaJS.as.models_SendMessage = (function(obj) {
-  if ((ScalaJS.is.models_SendMessage(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.SendMessage")
-  }
-});
-ScalaJS.isArrayOf.models_SendMessage = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_SendMessage)))
-});
-ScalaJS.asArrayOf.models_SendMessage = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_SendMessage(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.SendMessage;", depth)
-  }
-});
-ScalaJS.data.models_SendMessage = new ScalaJS.ClassTypeData({
-  models_SendMessage: 0
-}, false, "models.SendMessage", ScalaJS.data.java_lang_Object, {
-  models_SendMessage: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_SendMessage.prototype.$classData = ScalaJS.data.models_SendMessage;
-/** @constructor */
-ScalaJS.c.models_User = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.nick$1 = null;
-  this.avatar$1 = null
-});
-ScalaJS.c.models_User.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_User.prototype.constructor = ScalaJS.c.models_User;
-ScalaJS.c.models_User.prototype.nick__T = (function() {
-  return this.nick$1
-});
-ScalaJS.c.models_User.prototype.avatar__T = (function() {
-  return this.avatar$1
-});
-ScalaJS.c.models_User.prototype.productPrefix__T = (function() {
-  return "User"
-});
-ScalaJS.c.models_User.prototype.productArity__I = (function() {
-  return 2
-});
-ScalaJS.c.models_User.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.nick__T();
-        break
-      };
-    case 1:
-      {
-        return this.avatar__T();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_User.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_User.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_User(x$1)
-});
-ScalaJS.c.models_User.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_User.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_User.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_User(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var User$1 = ScalaJS.as.models_User(x$1);
-      return ((ScalaJS.anyRefEqEq(this.nick__T(), User$1.nick__T()) && ScalaJS.anyRefEqEq(this.avatar__T(), User$1.avatar__T())) && User$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_User.prototype.init___T__T = (function(nick, avatar) {
-  this.nick$1 = nick;
-  this.avatar$1 = avatar;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_User = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_User.prototype = ScalaJS.c.models_User.prototype;
-ScalaJS.is.models_User = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_User)))
-});
-ScalaJS.as.models_User = (function(obj) {
-  if ((ScalaJS.is.models_User(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.User")
-  }
-});
-ScalaJS.isArrayOf.models_User = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_User)))
-});
-ScalaJS.asArrayOf.models_User = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_User(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.User;", depth)
-  }
-});
-ScalaJS.data.models_User = new ScalaJS.ClassTypeData({
-  models_User: 0
-}, false, "models.User", ScalaJS.data.java_lang_Object, {
-  models_User: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_User.prototype.$classData = ScalaJS.data.models_User;
-/** @constructor */
-ScalaJS.c.models_UserDoesNotExist$ = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.models_UserDoesNotExist$.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_UserDoesNotExist$.prototype.constructor = ScalaJS.c.models_UserDoesNotExist$;
-ScalaJS.c.models_UserDoesNotExist$.prototype.productPrefix__T = (function() {
-  return "UserDoesNotExist"
-});
-ScalaJS.c.models_UserDoesNotExist$.prototype.productArity__I = (function() {
-  return 0
-});
-ScalaJS.c.models_UserDoesNotExist$.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)))
-});
-ScalaJS.c.models_UserDoesNotExist$.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_UserDoesNotExist$.prototype.hashCode__I = (function() {
-  return -1940929272
-});
-ScalaJS.c.models_UserDoesNotExist$.prototype.toString__T = (function() {
-  return "UserDoesNotExist"
-});
-ScalaJS.c.models_UserDoesNotExist$.prototype.init___ = (function() {
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.moduleInstances.models_UserDoesNotExist = this;
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_UserDoesNotExist$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_UserDoesNotExist$.prototype = ScalaJS.c.models_UserDoesNotExist$.prototype;
-ScalaJS.is.models_UserDoesNotExist$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_UserDoesNotExist$)))
-});
-ScalaJS.as.models_UserDoesNotExist$ = (function(obj) {
-  if ((ScalaJS.is.models_UserDoesNotExist$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.UserDoesNotExist")
-  }
-});
-ScalaJS.isArrayOf.models_UserDoesNotExist$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_UserDoesNotExist$)))
-});
-ScalaJS.asArrayOf.models_UserDoesNotExist$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_UserDoesNotExist$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.UserDoesNotExist;", depth)
-  }
-});
-ScalaJS.data.models_UserDoesNotExist$ = new ScalaJS.ClassTypeData({
-  models_UserDoesNotExist$: 0
-}, false, "models.UserDoesNotExist$", ScalaJS.data.java_lang_Object, {
-  models_UserDoesNotExist$: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_UserDoesNotExist$.prototype.$classData = ScalaJS.data.models_UserDoesNotExist$;
-ScalaJS.moduleInstances.models_UserDoesNotExist = undefined;
-ScalaJS.modules.models_UserDoesNotExist = (function() {
-  if ((!ScalaJS.moduleInstances.models_UserDoesNotExist)) {
-    ScalaJS.moduleInstances.models_UserDoesNotExist = new ScalaJS.c.models_UserDoesNotExist$().init___()
-  };
-  return ScalaJS.moduleInstances.models_UserDoesNotExist
-});
-/** @constructor */
-ScalaJS.c.models_UserJoined = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.user$1 = null
-});
-ScalaJS.c.models_UserJoined.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_UserJoined.prototype.constructor = ScalaJS.c.models_UserJoined;
-ScalaJS.c.models_UserJoined.prototype.user__Lmodels_User = (function() {
-  return this.user$1
-});
-ScalaJS.c.models_UserJoined.prototype.productPrefix__T = (function() {
-  return "UserJoined"
-});
-ScalaJS.c.models_UserJoined.prototype.productArity__I = (function() {
-  return 1
-});
-ScalaJS.c.models_UserJoined.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.user__Lmodels_User();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_UserJoined.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_UserJoined.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_UserJoined(x$1)
-});
-ScalaJS.c.models_UserJoined.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_UserJoined.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_UserJoined.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_UserJoined(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var UserJoined$1 = ScalaJS.as.models_UserJoined(x$1);
-      return (ScalaJS.anyRefEqEq(this.user__Lmodels_User(), UserJoined$1.user__Lmodels_User()) && UserJoined$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_UserJoined.prototype.init___Lmodels_User = (function(user) {
-  this.user$1 = user;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_UserJoined = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_UserJoined.prototype = ScalaJS.c.models_UserJoined.prototype;
-ScalaJS.is.models_UserJoined = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_UserJoined)))
-});
-ScalaJS.as.models_UserJoined = (function(obj) {
-  if ((ScalaJS.is.models_UserJoined(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.UserJoined")
-  }
-});
-ScalaJS.isArrayOf.models_UserJoined = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_UserJoined)))
-});
-ScalaJS.asArrayOf.models_UserJoined = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_UserJoined(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.UserJoined;", depth)
-  }
-});
-ScalaJS.data.models_UserJoined = new ScalaJS.ClassTypeData({
-  models_UserJoined: 0
-}, false, "models.UserJoined", ScalaJS.data.java_lang_Object, {
-  models_UserJoined: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_UserJoined.prototype.$classData = ScalaJS.data.models_UserJoined;
-/** @constructor */
-ScalaJS.c.models_UserLeft = (function() {
-  ScalaJS.c.java_lang_Object.call(this);
-  this.user$1 = null
-});
-ScalaJS.c.models_UserLeft.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.models_UserLeft.prototype.constructor = ScalaJS.c.models_UserLeft;
-ScalaJS.c.models_UserLeft.prototype.user__Lmodels_User = (function() {
-  return this.user$1
-});
-ScalaJS.c.models_UserLeft.prototype.productPrefix__T = (function() {
-  return "UserLeft"
-});
-ScalaJS.c.models_UserLeft.prototype.productArity__I = (function() {
-  return 1
-});
-ScalaJS.c.models_UserLeft.prototype.productElement__I__O = (function(x$1) {
-  var x1 = x$1;
-  switch (x1) {
-    case 0:
-      {
-        return this.user__Lmodels_User();
-        break
-      };
-    default:
-      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
-  }
-});
-ScalaJS.c.models_UserLeft.prototype.productIterator__Lscala_collection_Iterator = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
-});
-ScalaJS.c.models_UserLeft.prototype.canEqual__O__Z = (function(x$1) {
-  return ScalaJS.is.models_UserLeft(x$1)
-});
-ScalaJS.c.models_UserLeft.prototype.hashCode__I = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
-});
-ScalaJS.c.models_UserLeft.prototype.toString__T = (function() {
-  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
-});
-ScalaJS.c.models_UserLeft.prototype.equals__O__Z = (function(x$1) {
-  if ((this === x$1)) {
-    return true
-  } else {
-    var x1 = x$1;
-    matchEnd4: {
-      if (ScalaJS.is.models_UserLeft(x1)) {
-        var jsx$1 = true;
-        break matchEnd4
-      };
-      var jsx$1 = false;
-      break matchEnd4
-    };
-    if (jsx$1) {
-      var UserLeft$1 = ScalaJS.as.models_UserLeft(x$1);
-      return (ScalaJS.anyRefEqEq(this.user__Lmodels_User(), UserLeft$1.user__Lmodels_User()) && UserLeft$1.canEqual__O__Z(this))
-    } else {
-      return false
-    }
-  }
-});
-ScalaJS.c.models_UserLeft.prototype.init___Lmodels_User = (function(user) {
-  this.user$1 = user;
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.models_UserLeft = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_UserLeft.prototype = ScalaJS.c.models_UserLeft.prototype;
-ScalaJS.is.models_UserLeft = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_UserLeft)))
-});
-ScalaJS.as.models_UserLeft = (function(obj) {
-  if ((ScalaJS.is.models_UserLeft(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.UserLeft")
-  }
-});
-ScalaJS.isArrayOf.models_UserLeft = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_UserLeft)))
-});
-ScalaJS.asArrayOf.models_UserLeft = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_UserLeft(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.UserLeft;", depth)
-  }
-});
-ScalaJS.data.models_UserLeft = new ScalaJS.ClassTypeData({
-  models_UserLeft: 0
-}, false, "models.UserLeft", ScalaJS.data.java_lang_Object, {
-  models_UserLeft: 1,
-  scala_Serializable: 1,
-  java_io_Serializable: 1,
-  scala_Product: 1,
-  scala_Equals: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_UserLeft.prototype.$classData = ScalaJS.data.models_UserLeft;
 ScalaJS.is.org_denigma_binding_ClassBinder = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_binding_ClassBinder)))
 });
@@ -12842,6 +8984,248 @@ ScalaJS.data.org_denigma_binding_macroses_TagRxMap = new ScalaJS.ClassTypeData({
   org_denigma_binding_macroses_TagRxMap: 1,
   java_lang_Object: 1
 });
+/** @constructor */
+ScalaJS.c.org_denigma_binding_models_Menu = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.uri$1 = null;
+  this.title$1 = null;
+  this.children$1 = null
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.constructor = ScalaJS.c.org_denigma_binding_models_Menu;
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.uri__Lorg_scalax_semweb_rdf_IRI = (function() {
+  return this.uri$1
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.title__T = (function() {
+  return this.title$1
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.children__Lscala_collection_immutable_List = (function() {
+  return this.children$1
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.productPrefix__T = (function() {
+  return "Menu"
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.productArity__I = (function() {
+  return 3
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.uri__Lorg_scalax_semweb_rdf_IRI();
+        break
+      };
+    case 1:
+      {
+        return this.title__T();
+        break
+      };
+    case 2:
+      {
+        return this.children__Lscala_collection_immutable_List();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.org_denigma_binding_models_Menu(x$1)
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.org_denigma_binding_models_Menu(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var Menu$1 = ScalaJS.as.org_denigma_binding_models_Menu(x$1);
+      return (((ScalaJS.anyRefEqEq(this.uri__Lorg_scalax_semweb_rdf_IRI(), Menu$1.uri__Lorg_scalax_semweb_rdf_IRI()) && ScalaJS.anyRefEqEq(this.title__T(), Menu$1.title__T())) && ScalaJS.anyRefEqEq(this.children__Lscala_collection_immutable_List(), Menu$1.children__Lscala_collection_immutable_List())) && Menu$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.init___Lorg_scalax_semweb_rdf_IRI__T__Lscala_collection_immutable_List = (function(uri, title, children) {
+  this.uri$1 = uri;
+  this.title$1 = title;
+  this.children$1 = children;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.org_denigma_binding_models_MenuItemLike$class__$init$__Lorg_denigma_binding_models_MenuItemLike__V(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.org_denigma_binding_models_Menu = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.org_denigma_binding_models_Menu.prototype = ScalaJS.c.org_denigma_binding_models_Menu.prototype;
+ScalaJS.is.org_denigma_binding_models_Menu = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_binding_models_Menu)))
+});
+ScalaJS.as.org_denigma_binding_models_Menu = (function(obj) {
+  if ((ScalaJS.is.org_denigma_binding_models_Menu(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.models.Menu")
+  }
+});
+ScalaJS.isArrayOf.org_denigma_binding_models_Menu = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_binding_models_Menu)))
+});
+ScalaJS.asArrayOf.org_denigma_binding_models_Menu = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.org_denigma_binding_models_Menu(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.models.Menu;", depth)
+  }
+});
+ScalaJS.data.org_denigma_binding_models_Menu = new ScalaJS.ClassTypeData({
+  org_denigma_binding_models_Menu: 0
+}, false, "org.denigma.binding.models.Menu", ScalaJS.data.java_lang_Object, {
+  org_denigma_binding_models_Menu: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  org_denigma_binding_models_MenuItemLike: 1,
+  org_denigma_binding_models_Model: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.org_denigma_binding_models_Menu.prototype.$classData = ScalaJS.data.org_denigma_binding_models_Menu;
+/** @constructor */
+ScalaJS.c.org_denigma_binding_models_MenuItem = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.uri$1 = null;
+  this.title$1 = null
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.constructor = ScalaJS.c.org_denigma_binding_models_MenuItem;
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.uri__Lorg_scalax_semweb_rdf_IRI = (function() {
+  return this.uri$1
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.title__T = (function() {
+  return this.title$1
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.productPrefix__T = (function() {
+  return "MenuItem"
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.productArity__I = (function() {
+  return 2
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.uri__Lorg_scalax_semweb_rdf_IRI();
+        break
+      };
+    case 1:
+      {
+        return this.title__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.org_denigma_binding_models_MenuItem(x$1)
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.org_denigma_binding_models_MenuItem(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var MenuItem$1 = ScalaJS.as.org_denigma_binding_models_MenuItem(x$1);
+      return ((ScalaJS.anyRefEqEq(this.uri__Lorg_scalax_semweb_rdf_IRI(), MenuItem$1.uri__Lorg_scalax_semweb_rdf_IRI()) && ScalaJS.anyRefEqEq(this.title__T(), MenuItem$1.title__T())) && MenuItem$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.init___Lorg_scalax_semweb_rdf_IRI__T = (function(uri, title) {
+  this.uri$1 = uri;
+  this.title$1 = title;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.org_denigma_binding_models_MenuItemLike$class__$init$__Lorg_denigma_binding_models_MenuItemLike__V(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.org_denigma_binding_models_MenuItem = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.org_denigma_binding_models_MenuItem.prototype = ScalaJS.c.org_denigma_binding_models_MenuItem.prototype;
+ScalaJS.is.org_denigma_binding_models_MenuItem = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_binding_models_MenuItem)))
+});
+ScalaJS.as.org_denigma_binding_models_MenuItem = (function(obj) {
+  if ((ScalaJS.is.org_denigma_binding_models_MenuItem(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.models.MenuItem")
+  }
+});
+ScalaJS.isArrayOf.org_denigma_binding_models_MenuItem = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_binding_models_MenuItem)))
+});
+ScalaJS.asArrayOf.org_denigma_binding_models_MenuItem = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.org_denigma_binding_models_MenuItem(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.models.MenuItem;", depth)
+  }
+});
+ScalaJS.data.org_denigma_binding_models_MenuItem = new ScalaJS.ClassTypeData({
+  org_denigma_binding_models_MenuItem: 0
+}, false, "org.denigma.binding.models.MenuItem", ScalaJS.data.java_lang_Object, {
+  org_denigma_binding_models_MenuItem: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  org_denigma_binding_models_MenuItemLike: 1,
+  org_denigma_binding_models_Model: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.org_denigma_binding_models_MenuItem.prototype.$classData = ScalaJS.data.org_denigma_binding_models_MenuItem;
 /** @constructor */
 ScalaJS.c.org_denigma_extensions_AnyJsExtensions$AnyJs = (function() {
   ScalaJS.c.java_lang_Object.call(this);
@@ -32626,6 +29010,3638 @@ ScalaJS.data.scalatags_package$ExtendedString = new ScalaJS.ClassTypeData({
 });
 ScalaJS.c.scalatags_package$ExtendedString.prototype.$classData = ScalaJS.data.scalatags_package$ExtendedString;
 /** @constructor */
+ScalaJS.c.shared_GenericConsPickler = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_GenericConsPickler.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_GenericConsPickler.prototype.constructor = ScalaJS.c.shared_GenericConsPickler;
+/** @constructor */
+ScalaJS.inheritable.shared_GenericConsPickler = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_GenericConsPickler.prototype = ScalaJS.c.shared_GenericConsPickler.prototype;
+ScalaJS.is.shared_GenericConsPickler = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_GenericConsPickler)))
+});
+ScalaJS.as.shared_GenericConsPickler = (function(obj) {
+  if ((ScalaJS.is.shared_GenericConsPickler(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.GenericConsPickler")
+  }
+});
+ScalaJS.isArrayOf.shared_GenericConsPickler = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_GenericConsPickler)))
+});
+ScalaJS.asArrayOf.shared_GenericConsPickler = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_GenericConsPickler(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.GenericConsPickler;", depth)
+  }
+});
+ScalaJS.data.shared_GenericConsPickler = new ScalaJS.ClassTypeData({
+  shared_GenericConsPickler: 0
+}, false, "shared.GenericConsPickler", ScalaJS.data.java_lang_Object, {
+  shared_GenericConsPickler: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_GenericConsPickler.prototype.$classData = ScalaJS.data.shared_GenericConsPickler;
+/** @constructor */
+ScalaJS.c.shared_GenericConsUnpickler = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_GenericConsUnpickler.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_GenericConsUnpickler.prototype.constructor = ScalaJS.c.shared_GenericConsUnpickler;
+ScalaJS.c.shared_GenericConsUnpickler.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lscala_collection_immutable_$colon$colon = (function(pickle, registry$3, reader) {
+  var len = reader.readArrayLength__O__I(pickle);
+  ScalaJS.modules.scala_Predef().assert__Z__V((len > 0));
+  return ScalaJS.as.scala_collection_immutable_$colon$colon(ScalaJS.modules.scala_runtime_RichInt().until$extension0__I__I__Lscala_collection_immutable_Range(ScalaJS.modules.scala_Predef().intWrapper__I__I(0), len).toList__Lscala_collection_immutable_List().map__Lscala_Function1__Lscala_collection_generic_CanBuildFrom__O(new ScalaJS.c.scala_scalajs_runtime_AnonFunction1().init___Lscala_scalajs_js_Function1((function(pickle$2, registry$4, reader$2) {
+    return (function(index) {
+      index = ScalaJS.uI(index);
+      return registry$4.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader$2.readArrayElem__O__I__O(pickle$2, index), reader$2, registry$4)
+    })
+  })(pickle, registry$3, reader)), ScalaJS.modules.scala_collection_immutable_List().canBuildFrom__Lscala_collection_generic_CanBuildFrom()))
+});
+ScalaJS.c.shared_GenericConsUnpickler.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lscala_collection_immutable_$colon$colon(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_GenericConsUnpickler = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_GenericConsUnpickler.prototype = ScalaJS.c.shared_GenericConsUnpickler.prototype;
+ScalaJS.is.shared_GenericConsUnpickler = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_GenericConsUnpickler)))
+});
+ScalaJS.as.shared_GenericConsUnpickler = (function(obj) {
+  if ((ScalaJS.is.shared_GenericConsUnpickler(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.GenericConsUnpickler")
+  }
+});
+ScalaJS.isArrayOf.shared_GenericConsUnpickler = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_GenericConsUnpickler)))
+});
+ScalaJS.asArrayOf.shared_GenericConsUnpickler = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_GenericConsUnpickler(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.GenericConsUnpickler;", depth)
+  }
+});
+ScalaJS.data.shared_GenericConsUnpickler = new ScalaJS.ClassTypeData({
+  shared_GenericConsUnpickler: 0
+}, false, "shared.GenericConsUnpickler", ScalaJS.data.java_lang_Object, {
+  shared_GenericConsUnpickler: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_GenericConsUnpickler.prototype.$classData = ScalaJS.data.shared_GenericConsUnpickler;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$;
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$1$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$17$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$17$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$17$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$1$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$17$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$17$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$17$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$2$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$18$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$18$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$18$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$2$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$18$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$18$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$18$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$3$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$19$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$19$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$19$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$3$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$19$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$19$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$19$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$4$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$20$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$20$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$20$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$4$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$20$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$20$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$20$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$5$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$21$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$21$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$21$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$5$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$21$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$21$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$21$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$6$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$22$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$22$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$22$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$6$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$22$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$22$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$22$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$7$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$23$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$23$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$23$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$7$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$23$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$23$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$23$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$8$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$24$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$24$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$24$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$8$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$24$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$24$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$24$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$9$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$25$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$25$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$25$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$9$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$25$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$25$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$25$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$10$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$26$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$26$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$26$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$10$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$26$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$26$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$26$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$11$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$27$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$27$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$27$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$11$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$27$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$27$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$27$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$12$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$28$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$28$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$28$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$12$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$28$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$28$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$28$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$13$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$29$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$29$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$29$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$13$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$29$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$29$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$29$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$14$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$30$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$30$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$30$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$14$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$30$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$30$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$30$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$15$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$31$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$31$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$31$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$15$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$31$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$31$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$31$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$16$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$32$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenPickler$32$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenPickler$32$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$16$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$32$ = (function(x$1) {
+  if ((x$1.elem$1 === null)) {
+    x$1.elem$1 = new ScalaJS.c.shared_RegisterPicklers$GenUnpickler$32$().init___()
+  };
+  ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+  return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$32$(x$1.elem$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.registerCommon__V = (function() {
+  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.modules.scala_collection_immutable_Nil(), new ScalaJS.c.org_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("scala.collection.immutable.Nil$"));
+  var jsx$4 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$3 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.scala_collection_immutable_$colon$colon.getClassOf());
+  var GenPickler$module = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$2 = this.GenPickler$1__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$17$(GenPickler$module);
+  var GenUnpickler$module = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$1 = this.GenUnpickler$1__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$17$(GenUnpickler$module);
+  jsx$4.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$3, jsx$2, jsx$1)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.registerMenu__V = (function() {
+  var jsx$8 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$7 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.org_scalax_semweb_rdf_IRI.getClassOf());
+  var GenPickler$module = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$6 = this.GenPickler$2__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$18$(GenPickler$module);
+  var GenUnpickler$module = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$5 = this.GenUnpickler$2__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$18$(GenUnpickler$module);
+  jsx$8.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$7, jsx$6, jsx$5);
+  var jsx$12 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$11 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.org_denigma_binding_models_MenuItem.getClassOf());
+  var GenPickler$module$2 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$10 = this.GenPickler$3__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$19$(GenPickler$module$2);
+  var GenUnpickler$module$2 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$9 = this.GenUnpickler$3__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$19$(GenUnpickler$module$2);
+  jsx$12.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$11, jsx$10, jsx$9);
+  var jsx$16 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$15 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.org_denigma_binding_models_Menu.getClassOf());
+  var GenPickler$module$3 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$14 = this.GenPickler$4__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$20$(GenPickler$module$3);
+  var GenUnpickler$module$3 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$13 = this.GenUnpickler$4__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$20$(GenUnpickler$module$3);
+  jsx$16.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$15, jsx$14, jsx$13)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.registerChat__V = (function() {
+  var jsx$20 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$19 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_User.getClassOf());
+  var GenPickler$module = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$18 = this.GenPickler$5__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$21$(GenPickler$module);
+  var GenUnpickler$module = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$17 = this.GenUnpickler$5__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$21$(GenUnpickler$module);
+  jsx$20.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$19, jsx$18, jsx$17);
+  var jsx$24 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$23 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_Room.getClassOf());
+  var GenPickler$module$2 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$22 = this.GenPickler$6__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$22$(GenPickler$module$2);
+  var GenUnpickler$module$2 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$21 = this.GenUnpickler$6__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$22$(GenUnpickler$module$2);
+  jsx$24.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$23, jsx$22, jsx$21);
+  var jsx$28 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$27 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_Message.getClassOf());
+  var GenPickler$module$3 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$26 = this.GenPickler$7__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$23$(GenPickler$module$3);
+  var GenUnpickler$module$3 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$25 = this.GenUnpickler$7__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$23$(GenUnpickler$module$3);
+  jsx$28.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$27, jsx$26, jsx$25);
+  var jsx$32 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$31 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_Connect.getClassOf());
+  var GenPickler$module$4 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$30 = this.GenPickler$8__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$24$(GenPickler$module$4);
+  var GenUnpickler$module$4 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$29 = this.GenUnpickler$8__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$24$(GenUnpickler$module$4);
+  jsx$32.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$31, jsx$30, jsx$29);
+  var jsx$36 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$35 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_Join.getClassOf());
+  var GenPickler$module$5 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$34 = this.GenPickler$9__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$25$(GenPickler$module$5);
+  var GenUnpickler$module$5 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$33 = this.GenUnpickler$9__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$25$(GenUnpickler$module$5);
+  jsx$36.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$35, jsx$34, jsx$33);
+  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.modules.shared_chat_Leave(), new ScalaJS.c.org_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("shared.chat.Leave$"));
+  var jsx$40 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$39 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_SendMessage.getClassOf());
+  var GenPickler$module$6 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$38 = this.GenPickler$10__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$26$(GenPickler$module$6);
+  var GenUnpickler$module$6 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$37 = this.GenUnpickler$10__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$26$(GenUnpickler$module$6);
+  jsx$40.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$39, jsx$38, jsx$37);
+  var jsx$44 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$43 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_RequestPrivateChat.getClassOf());
+  var GenPickler$module$7 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$42 = this.GenPickler$11__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$27$(GenPickler$module$7);
+  var GenUnpickler$module$7 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$41 = this.GenUnpickler$11__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$27$(GenUnpickler$module$7);
+  jsx$44.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$43, jsx$42, jsx$41);
+  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.modules.shared_chat_AcceptPrivateChat(), new ScalaJS.c.org_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("shared.chat.AcceptPrivateChat$"));
+  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.modules.shared_chat_RejectPrivateChat(), new ScalaJS.c.org_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("shared.chat.RejectPrivateChat$"));
+  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.modules.shared_chat_UserDoesNotExist(), new ScalaJS.c.org_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("shared.chat.UserDoesNotExist$"));
+  var jsx$48 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$47 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_RoomListChanged.getClassOf());
+  var GenPickler$module$8 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$46 = this.GenPickler$12__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$28$(GenPickler$module$8);
+  var GenUnpickler$module$8 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$45 = this.GenUnpickler$12__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$28$(GenUnpickler$module$8);
+  jsx$48.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$47, jsx$46, jsx$45);
+  var jsx$52 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$51 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_JoinedRoom.getClassOf());
+  var GenPickler$module$9 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$50 = this.GenPickler$13__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$29$(GenPickler$module$9);
+  var GenUnpickler$module$9 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$49 = this.GenUnpickler$13__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$29$(GenUnpickler$module$9);
+  jsx$52.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$51, jsx$50, jsx$49);
+  var jsx$56 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$55 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_UserJoined.getClassOf());
+  var GenPickler$module$10 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$54 = this.GenPickler$14__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$30$(GenPickler$module$10);
+  var GenUnpickler$module$10 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$53 = this.GenUnpickler$14__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$30$(GenUnpickler$module$10);
+  jsx$56.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$55, jsx$54, jsx$53);
+  var jsx$60 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$59 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_UserLeft.getClassOf());
+  var GenPickler$module$11 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$58 = this.GenPickler$15__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$31$(GenPickler$module$11);
+  var GenUnpickler$module$11 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$57 = this.GenUnpickler$15__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$31$(GenUnpickler$module$11);
+  jsx$60.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$59, jsx$58, jsx$57);
+  var jsx$64 = ScalaJS.modules.org_scalajs_spickling_PicklerRegistry();
+  var jsx$63 = ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.shared_chat_ReceiveMessage.getClassOf());
+  var GenPickler$module$12 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$62 = this.GenPickler$16__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$32$(GenPickler$module$12);
+  var GenUnpickler$module$12 = new ScalaJS.c.scala_runtime_VolatileObjectRef().init___O(null);
+  var jsx$61 = this.GenUnpickler$16__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$32$(GenUnpickler$module$12);
+  jsx$64.register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$63, jsx$62, jsx$61)
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.registerPicklers__V = (function() {
+  /*<skip>*/
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$1__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$17$ = (function(GenPickler$module$1) {
+  if ((GenPickler$module$1.elem$1 === null)) {
+    return this.GenPickler$1$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$17$(GenPickler$module$1)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$17$(GenPickler$module$1.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$1__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$17$ = (function(GenUnpickler$module$1) {
+  if ((GenUnpickler$module$1.elem$1 === null)) {
+    return this.GenUnpickler$1$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$17$(GenUnpickler$module$1)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$17$(GenUnpickler$module$1.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$2__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$18$ = (function(GenPickler$module$2) {
+  if ((GenPickler$module$2.elem$1 === null)) {
+    return this.GenPickler$2$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$18$(GenPickler$module$2)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$18$(GenPickler$module$2.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$2__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$18$ = (function(GenUnpickler$module$2) {
+  if ((GenUnpickler$module$2.elem$1 === null)) {
+    return this.GenUnpickler$2$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$18$(GenUnpickler$module$2)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$18$(GenUnpickler$module$2.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$3__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$19$ = (function(GenPickler$module$3) {
+  if ((GenPickler$module$3.elem$1 === null)) {
+    return this.GenPickler$3$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$19$(GenPickler$module$3)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$19$(GenPickler$module$3.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$3__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$19$ = (function(GenUnpickler$module$3) {
+  if ((GenUnpickler$module$3.elem$1 === null)) {
+    return this.GenUnpickler$3$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$19$(GenUnpickler$module$3)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$19$(GenUnpickler$module$3.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$4__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$20$ = (function(GenPickler$module$4) {
+  if ((GenPickler$module$4.elem$1 === null)) {
+    return this.GenPickler$4$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$20$(GenPickler$module$4)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$20$(GenPickler$module$4.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$4__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$20$ = (function(GenUnpickler$module$4) {
+  if ((GenUnpickler$module$4.elem$1 === null)) {
+    return this.GenUnpickler$4$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$20$(GenUnpickler$module$4)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$20$(GenUnpickler$module$4.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$5__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$21$ = (function(GenPickler$module$5) {
+  if ((GenPickler$module$5.elem$1 === null)) {
+    return this.GenPickler$5$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$21$(GenPickler$module$5)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$21$(GenPickler$module$5.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$5__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$21$ = (function(GenUnpickler$module$5) {
+  if ((GenUnpickler$module$5.elem$1 === null)) {
+    return this.GenUnpickler$5$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$21$(GenUnpickler$module$5)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$21$(GenUnpickler$module$5.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$6__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$22$ = (function(GenPickler$module$6) {
+  if ((GenPickler$module$6.elem$1 === null)) {
+    return this.GenPickler$6$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$22$(GenPickler$module$6)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$22$(GenPickler$module$6.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$6__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$22$ = (function(GenUnpickler$module$6) {
+  if ((GenUnpickler$module$6.elem$1 === null)) {
+    return this.GenUnpickler$6$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$22$(GenUnpickler$module$6)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$22$(GenUnpickler$module$6.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$7__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$23$ = (function(GenPickler$module$7) {
+  if ((GenPickler$module$7.elem$1 === null)) {
+    return this.GenPickler$7$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$23$(GenPickler$module$7)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$23$(GenPickler$module$7.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$7__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$23$ = (function(GenUnpickler$module$7) {
+  if ((GenUnpickler$module$7.elem$1 === null)) {
+    return this.GenUnpickler$7$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$23$(GenUnpickler$module$7)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$23$(GenUnpickler$module$7.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$8__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$24$ = (function(GenPickler$module$8) {
+  if ((GenPickler$module$8.elem$1 === null)) {
+    return this.GenPickler$8$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$24$(GenPickler$module$8)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$24$(GenPickler$module$8.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$8__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$24$ = (function(GenUnpickler$module$8) {
+  if ((GenUnpickler$module$8.elem$1 === null)) {
+    return this.GenUnpickler$8$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$24$(GenUnpickler$module$8)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$24$(GenUnpickler$module$8.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$9__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$25$ = (function(GenPickler$module$9) {
+  if ((GenPickler$module$9.elem$1 === null)) {
+    return this.GenPickler$9$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$25$(GenPickler$module$9)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$25$(GenPickler$module$9.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$9__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$25$ = (function(GenUnpickler$module$9) {
+  if ((GenUnpickler$module$9.elem$1 === null)) {
+    return this.GenUnpickler$9$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$25$(GenUnpickler$module$9)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$25$(GenUnpickler$module$9.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$10__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$26$ = (function(GenPickler$module$10) {
+  if ((GenPickler$module$10.elem$1 === null)) {
+    return this.GenPickler$10$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$26$(GenPickler$module$10)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$26$(GenPickler$module$10.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$10__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$26$ = (function(GenUnpickler$module$10) {
+  if ((GenUnpickler$module$10.elem$1 === null)) {
+    return this.GenUnpickler$10$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$26$(GenUnpickler$module$10)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$26$(GenUnpickler$module$10.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$11__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$27$ = (function(GenPickler$module$11) {
+  if ((GenPickler$module$11.elem$1 === null)) {
+    return this.GenPickler$11$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$27$(GenPickler$module$11)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$27$(GenPickler$module$11.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$11__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$27$ = (function(GenUnpickler$module$11) {
+  if ((GenUnpickler$module$11.elem$1 === null)) {
+    return this.GenUnpickler$11$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$27$(GenUnpickler$module$11)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$27$(GenUnpickler$module$11.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$12__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$28$ = (function(GenPickler$module$12) {
+  if ((GenPickler$module$12.elem$1 === null)) {
+    return this.GenPickler$12$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$28$(GenPickler$module$12)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$28$(GenPickler$module$12.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$12__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$28$ = (function(GenUnpickler$module$12) {
+  if ((GenUnpickler$module$12.elem$1 === null)) {
+    return this.GenUnpickler$12$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$28$(GenUnpickler$module$12)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$28$(GenUnpickler$module$12.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$13__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$29$ = (function(GenPickler$module$13) {
+  if ((GenPickler$module$13.elem$1 === null)) {
+    return this.GenPickler$13$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$29$(GenPickler$module$13)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$29$(GenPickler$module$13.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$13__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$29$ = (function(GenUnpickler$module$13) {
+  if ((GenUnpickler$module$13.elem$1 === null)) {
+    return this.GenUnpickler$13$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$29$(GenUnpickler$module$13)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$29$(GenUnpickler$module$13.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$14__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$30$ = (function(GenPickler$module$14) {
+  if ((GenPickler$module$14.elem$1 === null)) {
+    return this.GenPickler$14$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$30$(GenPickler$module$14)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$30$(GenPickler$module$14.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$14__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$30$ = (function(GenUnpickler$module$14) {
+  if ((GenUnpickler$module$14.elem$1 === null)) {
+    return this.GenUnpickler$14$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$30$(GenUnpickler$module$14)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$30$(GenUnpickler$module$14.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$15__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$31$ = (function(GenPickler$module$15) {
+  if ((GenPickler$module$15.elem$1 === null)) {
+    return this.GenPickler$15$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$31$(GenPickler$module$15)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$31$(GenPickler$module$15.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$15__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$31$ = (function(GenUnpickler$module$15) {
+  if ((GenUnpickler$module$15.elem$1 === null)) {
+    return this.GenUnpickler$15$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$31$(GenUnpickler$module$15)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$31$(GenUnpickler$module$15.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenPickler$16__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$32$ = (function(GenPickler$module$16) {
+  if ((GenPickler$module$16.elem$1 === null)) {
+    return this.GenPickler$16$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenPickler$32$(GenPickler$module$16)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenPickler$32$(GenPickler$module$16.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.GenUnpickler$16__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$32$ = (function(GenUnpickler$module$16) {
+  if ((GenUnpickler$module$16.elem$1 === null)) {
+    return this.GenUnpickler$16$lzycompute__p1__Lscala_runtime_VolatileObjectRef__Lshared_RegisterPicklers$GenUnpickler$32$(GenUnpickler$module$16)
+  } else {
+    return ScalaJS.as.shared_RegisterPicklers$GenUnpickler$32$(GenUnpickler$module$16.elem$1)
+  }
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.init___ = (function() {
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.moduleInstances.shared_RegisterPicklers = this;
+  this.registerCommon__V();
+  this.registerChat__V();
+  this.registerMenu__V();
+  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.scala_collection_immutable_$colon$colon.getClassOf()), ScalaJS.modules.shared_RegisterPicklers$StrConsPickler(), ScalaJS.modules.shared_RegisterPicklers$StrConsUnpickler());
+  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.scala_collection_immutable_$colon$colon.getClassOf()), ScalaJS.modules.shared_RegisterPicklers$IriItemPickler(), ScalaJS.modules.shared_RegisterPicklers$IriItemUnpickler());
+  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.scala_collection_immutable_$colon$colon.getClassOf()), ScalaJS.modules.shared_RegisterPicklers$MenuItemPickler(), ScalaJS.modules.shared_RegisterPicklers$MenuItemUnpickler());
+  ScalaJS.modules.org_scalajs_spickling_PicklerRegistry().register__Lscala_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(ScalaJS.modules.scala_reflect_ClassTag().apply__Ljava_lang_Class__Lscala_reflect_ClassTag(ScalaJS.data.scala_collection_immutable_$colon$colon.getClassOf()), ScalaJS.modules.shared_RegisterPicklers$MenuConsPickler(), ScalaJS.modules.shared_RegisterPicklers$MenuConsUnpickler());
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$.prototype = ScalaJS.c.shared_RegisterPicklers$.prototype;
+ScalaJS.is.shared_RegisterPicklers$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$)))
+});
+ScalaJS.as.shared_RegisterPicklers$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$: 0
+}, false, "shared.RegisterPicklers$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$;
+ScalaJS.moduleInstances.shared_RegisterPicklers = undefined;
+ScalaJS.modules.shared_RegisterPicklers = (function() {
+  if ((!ScalaJS.moduleInstances.shared_RegisterPicklers)) {
+    ScalaJS.moduleInstances.shared_RegisterPicklers = new ScalaJS.c.shared_RegisterPicklers$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_RegisterPicklers
+});
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$17$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$17$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$17$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$17$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$17$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$17$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$17$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$17$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$17$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$17$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$17$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$17")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$17$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$17$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$17$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$17$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$17;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$17$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$17$: 0
+}, false, "shared.RegisterPicklers$GenPickler$17$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$17$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$17$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$17$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$18$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$18$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$18$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$18$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$18$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$18$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$18$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$18$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$18$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$18$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$18$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$18")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$18$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$18$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$18$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$18$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$18;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$18$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$18$: 0
+}, false, "shared.RegisterPicklers$GenPickler$18$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$18$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$18$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$18$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$19$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$19$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$19$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$19$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$19$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$19$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$19$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$19$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$19$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$19$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$19$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$19")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$19$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$19$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$19$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$19$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$19;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$19$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$19$: 0
+}, false, "shared.RegisterPicklers$GenPickler$19$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$19$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$19$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$19$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$20$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$20$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$20$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$20$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$20$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$20$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$20$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$20$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$20$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$20$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$20$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$20")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$20$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$20$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$20$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$20$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$20;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$20$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$20$: 0
+}, false, "shared.RegisterPicklers$GenPickler$20$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$20$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$20$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$20$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$21$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$21$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$21$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$21$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$21$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$21$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$21$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$21$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$21$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$21$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$21$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$21")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$21$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$21$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$21$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$21$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$21;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$21$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$21$: 0
+}, false, "shared.RegisterPicklers$GenPickler$21$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$21$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$21$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$21$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$22$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$22$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$22$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$22$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$22$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$22$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$22$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$22$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$22$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$22$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$22$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$22")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$22$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$22$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$22$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$22$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$22;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$22$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$22$: 0
+}, false, "shared.RegisterPicklers$GenPickler$22$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$22$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$22$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$22$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$23$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$23$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$23$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$23$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$23$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$23$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$23$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$23$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$23$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$23$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$23$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$23")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$23$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$23$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$23$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$23$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$23;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$23$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$23$: 0
+}, false, "shared.RegisterPicklers$GenPickler$23$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$23$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$23$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$23$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$24$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$24$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$24$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$24$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$24$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$24$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$24$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$24$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$24$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$24$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$24$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$24")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$24$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$24$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$24$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$24$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$24;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$24$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$24$: 0
+}, false, "shared.RegisterPicklers$GenPickler$24$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$24$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$24$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$24$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$25$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$25$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$25$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$25$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$25$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$25$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$25$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$25$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$25$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$25$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$25$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$25")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$25$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$25$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$25$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$25$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$25;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$25$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$25$: 0
+}, false, "shared.RegisterPicklers$GenPickler$25$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$25$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$25$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$25$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$26$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$26$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$26$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$26$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$26$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$26$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$26$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$26$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$26$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$26$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$26$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$26")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$26$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$26$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$26$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$26$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$26;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$26$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$26$: 0
+}, false, "shared.RegisterPicklers$GenPickler$26$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$26$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$26$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$26$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$27$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$27$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$27$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$27$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$27$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$27$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$27$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$27$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$27$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$27$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$27$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$27")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$27$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$27$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$27$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$27$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$27;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$27$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$27$: 0
+}, false, "shared.RegisterPicklers$GenPickler$27$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$27$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$27$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$27$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$28$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$28$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$28$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$28$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$28$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$28$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$28$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$28$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$28$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$28$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$28$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$28")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$28$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$28$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$28$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$28$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$28;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$28$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$28$: 0
+}, false, "shared.RegisterPicklers$GenPickler$28$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$28$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$28$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$28$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$29$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$29$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$29$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$29$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$29$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$29$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$29$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$29$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$29$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$29$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$29$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$29")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$29$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$29$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$29$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$29$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$29;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$29$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$29$: 0
+}, false, "shared.RegisterPicklers$GenPickler$29$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$29$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$29$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$29$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$30$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$30$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$30$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$30$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$30$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$30$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$30$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$30$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$30$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$30$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$30$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$30")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$30$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$30$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$30$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$30$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$30;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$30$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$30$: 0
+}, false, "shared.RegisterPicklers$GenPickler$30$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$30$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$30$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$30$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$31$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$31$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$31$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$31$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$31$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$31$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$31$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$31$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$31$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$31$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$31$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$31")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$31$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$31$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$31$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$31$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$31;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$31$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$31$: 0
+}, false, "shared.RegisterPicklers$GenPickler$31$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$31$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$31$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$31$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenPickler$32$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$32$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenPickler$32$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenPickler$32$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$32$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenPickler$32$.prototype = ScalaJS.c.shared_RegisterPicklers$GenPickler$32$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenPickler$32$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenPickler$32$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenPickler$32$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenPickler$32$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenPickler$32")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$32$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenPickler$32$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenPickler$32$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenPickler$32$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenPickler$32;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenPickler$32$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenPickler$32$: 0
+}, false, "shared.RegisterPicklers$GenPickler$32$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenPickler$32$: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenPickler$32$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenPickler$32$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$17$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$17$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$17$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$17$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$17$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lscala_collection_immutable_$colon$colon = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.scala_collection_immutable_$colon$colon().init___O__Lscala_collection_immutable_List(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "hd$1"), reader, registry$3), ScalaJS.as.scala_collection_immutable_List(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "tl$1"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$17$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lscala_collection_immutable_$colon$colon(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$17$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$17$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$17$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$17$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$17$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$17$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$17$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$17")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$17$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$17$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$17$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$17$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$17;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$17$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$17$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$17$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$17$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$17$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$17$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$18$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$18$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$18$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$18$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$18$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_IRI = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.org_scalax_semweb_rdf_IRI().init___T(ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$18$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_IRI(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$18$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$18$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$18$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$18$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$18$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$18$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$18$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$18")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$18$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$18$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$18$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$18$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$18;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$18$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$18$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$18$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$18$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$18$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$18$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$19$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$19$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$19$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$19$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$19$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_MenuItem = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.org_denigma_binding_models_MenuItem().init___Lorg_scalax_semweb_rdf_IRI__T(ScalaJS.as.org_scalax_semweb_rdf_IRI(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry$3)), ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "title"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$19$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_MenuItem(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$19$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$19$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$19$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$19$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$19$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$19$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$19$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$19")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$19$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$19$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$19$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$19$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$19;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$19$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$19$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$19$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$19$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$19$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$19$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$20$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$20$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$20$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$20$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$20$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_Menu = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.org_denigma_binding_models_Menu().init___Lorg_scalax_semweb_rdf_IRI__T__Lscala_collection_immutable_List(ScalaJS.as.org_scalax_semweb_rdf_IRI(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry$3)), ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "title"), reader, registry$3)), ScalaJS.as.scala_collection_immutable_List(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "children"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$20$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_Menu(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$20$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$20$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$20$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$20$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$20$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$20$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$20$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$20")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$20$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$20$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$20$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$20$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$20;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$20$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$20$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$20$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$20$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$20$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$20$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$21$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$21$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$21$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$21$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$21$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_User = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_User().init___T__T(ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "nick"), reader, registry$3)), ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "avatar"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$21$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_User(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$21$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$21$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$21$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$21$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$21$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$21$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$21$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$21")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$21$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$21$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$21$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$21$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$21;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$21$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$21$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$21$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$21$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$21$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$21$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$22$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$22$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$22$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$22$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$22$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_Room = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_Room().init___T(ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "name"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$22$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_Room(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$22$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$22$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$22$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$22$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$22$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$22$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$22$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$22")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$22$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$22$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$22$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$22$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$22;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$22$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$22$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$22$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$22$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$22$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$22$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$23$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$23$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$23$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$23$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$23$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_Message = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_Message().init___Lshared_chat_User__T__J(ScalaJS.as.shared_chat_User(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "user"), reader, registry$3)), ScalaJS.as.java_lang_String(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "text"), reader, registry$3)), ScalaJS.uJ(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "timestamp"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$23$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_Message(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$23$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$23$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$23$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$23$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$23$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$23$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$23$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$23")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$23$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$23$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$23$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$23$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$23;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$23$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$23$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$23$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$23$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$23$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$23$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$24$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$24$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$24$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$24$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$24$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_Connect = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_Connect().init___Lshared_chat_User(ScalaJS.as.shared_chat_User(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "user"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$24$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_Connect(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$24$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$24$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$24$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$24$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$24$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$24$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$24$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$24")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$24$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$24$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$24$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$24$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$24;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$24$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$24$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$24$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$24$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$24$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$24$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$25$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$25$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$25$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$25$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$25$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_Join = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_Join().init___Lshared_chat_Room(ScalaJS.as.shared_chat_Room(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "room"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$25$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_Join(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$25$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$25$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$25$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$25$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$25$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$25$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$25$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$25")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$25$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$25$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$25$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$25$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$25;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$25$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$25$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$25$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$25$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$25$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$25$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$26$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$26$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$26$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$26$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$26$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_SendMessage = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_SendMessage().init___Lshared_chat_Message(ScalaJS.as.shared_chat_Message(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "message"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$26$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_SendMessage(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$26$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$26$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$26$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$26$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$26$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$26$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$26$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$26")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$26$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$26$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$26$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$26$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$26;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$26$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$26$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$26$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$26$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$26$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$26$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$27$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$27$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$27$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$27$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$27$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_RequestPrivateChat = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_RequestPrivateChat().init___Lshared_chat_User(ScalaJS.as.shared_chat_User(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "peer"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$27$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_RequestPrivateChat(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$27$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$27$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$27$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$27$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$27$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$27$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$27$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$27")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$27$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$27$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$27$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$27$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$27;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$27$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$27$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$27$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$27$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$27$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$27$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$28$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$28$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$28$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$28$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$28$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_RoomListChanged = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_RoomListChanged().init___Lscala_collection_immutable_List(ScalaJS.as.scala_collection_immutable_List(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "rooms"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$28$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_RoomListChanged(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$28$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$28$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$28$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$28$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$28$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$28$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$28$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$28")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$28$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$28$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$28$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$28$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$28;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$28$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$28$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$28$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$28$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$28$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$28$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$29$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$29$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$29$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$29$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$29$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_JoinedRoom = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_JoinedRoom().init___Lscala_collection_immutable_List(ScalaJS.as.scala_collection_immutable_List(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "users"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$29$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_JoinedRoom(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$29$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$29$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$29$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$29$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$29$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$29$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$29$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$29")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$29$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$29$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$29$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$29$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$29;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$29$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$29$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$29$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$29$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$29$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$29$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$30$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$30$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$30$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$30$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$30$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_UserJoined = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_UserJoined().init___Lshared_chat_User(ScalaJS.as.shared_chat_User(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "user"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$30$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_UserJoined(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$30$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$30$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$30$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$30$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$30$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$30$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$30$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$30")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$30$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$30$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$30$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$30$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$30;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$30$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$30$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$30$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$30$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$30$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$30$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$31$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$31$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$31$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$31$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$31$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_UserLeft = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_UserLeft().init___Lshared_chat_User(ScalaJS.as.shared_chat_User(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "user"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$31$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_UserLeft(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$31$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$31$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$31$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$31$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$31$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$31$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$31$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$31")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$31$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$31$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$31$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$31$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$31;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$31$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$31$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$31$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$31$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$31$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$31$;
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$32$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$32$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$32$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$32$;
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$32$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_ReceiveMessage = (function(pickle, registry$3, reader) {
+  return new ScalaJS.c.shared_chat_ReceiveMessage().init___Lshared_chat_Message(ScalaJS.as.shared_chat_Message(registry$3.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "message"), reader, registry$3)))
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$32$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lshared_chat_ReceiveMessage(pickle, registry, reader)
+});
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$32$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$GenUnpickler$32$.prototype = ScalaJS.c.shared_RegisterPicklers$GenUnpickler$32$.prototype;
+ScalaJS.is.shared_RegisterPicklers$GenUnpickler$32$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$GenUnpickler$32$)))
+});
+ScalaJS.as.shared_RegisterPicklers$GenUnpickler$32$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$GenUnpickler$32$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$GenUnpickler$32")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$32$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$GenUnpickler$32$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$GenUnpickler$32$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$GenUnpickler$32$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$GenUnpickler$32;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$GenUnpickler$32$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$GenUnpickler$32$: 0
+}, false, "shared.RegisterPicklers$GenUnpickler$32$", ScalaJS.data.java_lang_Object, {
+  shared_RegisterPicklers$GenUnpickler$32$: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$GenUnpickler$32$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$GenUnpickler$32$;
+/** @constructor */
+ScalaJS.c.shared_chat_AcceptPrivateChat$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype.constructor = ScalaJS.c.shared_chat_AcceptPrivateChat$;
+ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype.productPrefix__T = (function() {
+  return "AcceptPrivateChat"
+});
+ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)))
+});
+ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype.hashCode__I = (function() {
+  return 1100804403
+});
+ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype.toString__T = (function() {
+  return "AcceptPrivateChat"
+});
+ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype.init___ = (function() {
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.moduleInstances.shared_chat_AcceptPrivateChat = this;
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_AcceptPrivateChat$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_AcceptPrivateChat$.prototype = ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype;
+ScalaJS.is.shared_chat_AcceptPrivateChat$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_AcceptPrivateChat$)))
+});
+ScalaJS.as.shared_chat_AcceptPrivateChat$ = (function(obj) {
+  if ((ScalaJS.is.shared_chat_AcceptPrivateChat$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.AcceptPrivateChat")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_AcceptPrivateChat$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_AcceptPrivateChat$)))
+});
+ScalaJS.asArrayOf.shared_chat_AcceptPrivateChat$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_AcceptPrivateChat$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.AcceptPrivateChat;", depth)
+  }
+});
+ScalaJS.data.shared_chat_AcceptPrivateChat$ = new ScalaJS.ClassTypeData({
+  shared_chat_AcceptPrivateChat$: 0
+}, false, "shared.chat.AcceptPrivateChat$", ScalaJS.data.java_lang_Object, {
+  shared_chat_AcceptPrivateChat$: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_AcceptPrivateChat$.prototype.$classData = ScalaJS.data.shared_chat_AcceptPrivateChat$;
+ScalaJS.moduleInstances.shared_chat_AcceptPrivateChat = undefined;
+ScalaJS.modules.shared_chat_AcceptPrivateChat = (function() {
+  if ((!ScalaJS.moduleInstances.shared_chat_AcceptPrivateChat)) {
+    ScalaJS.moduleInstances.shared_chat_AcceptPrivateChat = new ScalaJS.c.shared_chat_AcceptPrivateChat$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_chat_AcceptPrivateChat
+});
+/** @constructor */
+ScalaJS.c.shared_chat_Connect = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.user$1 = null
+});
+ScalaJS.c.shared_chat_Connect.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_Connect.prototype.constructor = ScalaJS.c.shared_chat_Connect;
+ScalaJS.c.shared_chat_Connect.prototype.user__Lshared_chat_User = (function() {
+  return this.user$1
+});
+ScalaJS.c.shared_chat_Connect.prototype.productPrefix__T = (function() {
+  return "Connect"
+});
+ScalaJS.c.shared_chat_Connect.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.shared_chat_Connect.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.user__Lshared_chat_User();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_Connect.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_Connect.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_Connect(x$1)
+});
+ScalaJS.c.shared_chat_Connect.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_Connect.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_Connect.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_Connect(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var Connect$1 = ScalaJS.as.shared_chat_Connect(x$1);
+      return (ScalaJS.anyRefEqEq(this.user__Lshared_chat_User(), Connect$1.user__Lshared_chat_User()) && Connect$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_Connect.prototype.init___Lshared_chat_User = (function(user) {
+  this.user$1 = user;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_Connect = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_Connect.prototype = ScalaJS.c.shared_chat_Connect.prototype;
+ScalaJS.is.shared_chat_Connect = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_Connect)))
+});
+ScalaJS.as.shared_chat_Connect = (function(obj) {
+  if ((ScalaJS.is.shared_chat_Connect(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.Connect")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_Connect = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_Connect)))
+});
+ScalaJS.asArrayOf.shared_chat_Connect = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_Connect(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.Connect;", depth)
+  }
+});
+ScalaJS.data.shared_chat_Connect = new ScalaJS.ClassTypeData({
+  shared_chat_Connect: 0
+}, false, "shared.chat.Connect", ScalaJS.data.java_lang_Object, {
+  shared_chat_Connect: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_Connect.prototype.$classData = ScalaJS.data.shared_chat_Connect;
+/** @constructor */
+ScalaJS.c.shared_chat_Join = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.room$1 = null
+});
+ScalaJS.c.shared_chat_Join.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_Join.prototype.constructor = ScalaJS.c.shared_chat_Join;
+ScalaJS.c.shared_chat_Join.prototype.room__Lshared_chat_Room = (function() {
+  return this.room$1
+});
+ScalaJS.c.shared_chat_Join.prototype.productPrefix__T = (function() {
+  return "Join"
+});
+ScalaJS.c.shared_chat_Join.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.shared_chat_Join.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.room__Lshared_chat_Room();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_Join.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_Join.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_Join(x$1)
+});
+ScalaJS.c.shared_chat_Join.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_Join.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_Join.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_Join(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var Join$1 = ScalaJS.as.shared_chat_Join(x$1);
+      return (ScalaJS.anyRefEqEq(this.room__Lshared_chat_Room(), Join$1.room__Lshared_chat_Room()) && Join$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_Join.prototype.init___Lshared_chat_Room = (function(room) {
+  this.room$1 = room;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_Join = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_Join.prototype = ScalaJS.c.shared_chat_Join.prototype;
+ScalaJS.is.shared_chat_Join = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_Join)))
+});
+ScalaJS.as.shared_chat_Join = (function(obj) {
+  if ((ScalaJS.is.shared_chat_Join(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.Join")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_Join = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_Join)))
+});
+ScalaJS.asArrayOf.shared_chat_Join = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_Join(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.Join;", depth)
+  }
+});
+ScalaJS.data.shared_chat_Join = new ScalaJS.ClassTypeData({
+  shared_chat_Join: 0
+}, false, "shared.chat.Join", ScalaJS.data.java_lang_Object, {
+  shared_chat_Join: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_Join.prototype.$classData = ScalaJS.data.shared_chat_Join;
+/** @constructor */
+ScalaJS.c.shared_chat_JoinedRoom = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.users$1 = null
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_JoinedRoom.prototype.constructor = ScalaJS.c.shared_chat_JoinedRoom;
+ScalaJS.c.shared_chat_JoinedRoom.prototype.users__Lscala_collection_immutable_List = (function() {
+  return this.users$1
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype.productPrefix__T = (function() {
+  return "JoinedRoom"
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.users__Lscala_collection_immutable_List();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_JoinedRoom(x$1)
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_JoinedRoom(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var JoinedRoom$1 = ScalaJS.as.shared_chat_JoinedRoom(x$1);
+      return (ScalaJS.anyRefEqEq(this.users__Lscala_collection_immutable_List(), JoinedRoom$1.users__Lscala_collection_immutable_List()) && JoinedRoom$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype.init___Lscala_collection_immutable_List = (function(users) {
+  this.users$1 = users;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_JoinedRoom = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_JoinedRoom.prototype = ScalaJS.c.shared_chat_JoinedRoom.prototype;
+ScalaJS.is.shared_chat_JoinedRoom = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_JoinedRoom)))
+});
+ScalaJS.as.shared_chat_JoinedRoom = (function(obj) {
+  if ((ScalaJS.is.shared_chat_JoinedRoom(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.JoinedRoom")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_JoinedRoom = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_JoinedRoom)))
+});
+ScalaJS.asArrayOf.shared_chat_JoinedRoom = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_JoinedRoom(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.JoinedRoom;", depth)
+  }
+});
+ScalaJS.data.shared_chat_JoinedRoom = new ScalaJS.ClassTypeData({
+  shared_chat_JoinedRoom: 0
+}, false, "shared.chat.JoinedRoom", ScalaJS.data.java_lang_Object, {
+  shared_chat_JoinedRoom: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_JoinedRoom.prototype.$classData = ScalaJS.data.shared_chat_JoinedRoom;
+/** @constructor */
+ScalaJS.c.shared_chat_Leave$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_chat_Leave$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_Leave$.prototype.constructor = ScalaJS.c.shared_chat_Leave$;
+ScalaJS.c.shared_chat_Leave$.prototype.productPrefix__T = (function() {
+  return "Leave"
+});
+ScalaJS.c.shared_chat_Leave$.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.shared_chat_Leave$.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)))
+});
+ScalaJS.c.shared_chat_Leave$.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_Leave$.prototype.hashCode__I = (function() {
+  return 73293463
+});
+ScalaJS.c.shared_chat_Leave$.prototype.toString__T = (function() {
+  return "Leave"
+});
+ScalaJS.c.shared_chat_Leave$.prototype.init___ = (function() {
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.moduleInstances.shared_chat_Leave = this;
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_Leave$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_Leave$.prototype = ScalaJS.c.shared_chat_Leave$.prototype;
+ScalaJS.is.shared_chat_Leave$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_Leave$)))
+});
+ScalaJS.as.shared_chat_Leave$ = (function(obj) {
+  if ((ScalaJS.is.shared_chat_Leave$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.Leave")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_Leave$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_Leave$)))
+});
+ScalaJS.asArrayOf.shared_chat_Leave$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_Leave$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.Leave;", depth)
+  }
+});
+ScalaJS.data.shared_chat_Leave$ = new ScalaJS.ClassTypeData({
+  shared_chat_Leave$: 0
+}, false, "shared.chat.Leave$", ScalaJS.data.java_lang_Object, {
+  shared_chat_Leave$: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_Leave$.prototype.$classData = ScalaJS.data.shared_chat_Leave$;
+ScalaJS.moduleInstances.shared_chat_Leave = undefined;
+ScalaJS.modules.shared_chat_Leave = (function() {
+  if ((!ScalaJS.moduleInstances.shared_chat_Leave)) {
+    ScalaJS.moduleInstances.shared_chat_Leave = new ScalaJS.c.shared_chat_Leave$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_chat_Leave
+});
+/** @constructor */
+ScalaJS.c.shared_chat_Message = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.user$1 = null;
+  this.text$1 = null;
+  this.timestamp$1 = ScalaJS.modules.scala_scalajs_runtime_Long().zero__Lscala_scalajs_runtime_Long()
+});
+ScalaJS.c.shared_chat_Message.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_Message.prototype.constructor = ScalaJS.c.shared_chat_Message;
+ScalaJS.c.shared_chat_Message.prototype.user__Lshared_chat_User = (function() {
+  return this.user$1
+});
+ScalaJS.c.shared_chat_Message.prototype.text__T = (function() {
+  return this.text$1
+});
+ScalaJS.c.shared_chat_Message.prototype.timestamp__J = (function() {
+  return this.timestamp$1
+});
+ScalaJS.c.shared_chat_Message.prototype.productPrefix__T = (function() {
+  return "Message"
+});
+ScalaJS.c.shared_chat_Message.prototype.productArity__I = (function() {
+  return 3
+});
+ScalaJS.c.shared_chat_Message.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.user__Lshared_chat_User();
+        break
+      };
+    case 1:
+      {
+        return this.text__T();
+        break
+      };
+    case 2:
+      {
+        return ScalaJS.bJ(this.timestamp__J());
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_Message.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_Message.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_Message(x$1)
+});
+ScalaJS.c.shared_chat_Message.prototype.hashCode__I = (function() {
+  var acc = -889275714;
+  acc = ScalaJS.modules.scala_runtime_Statics().mix__I__I__I(acc, ScalaJS.modules.scala_runtime_Statics().anyHash__O__I(this.user__Lshared_chat_User()));
+  acc = ScalaJS.modules.scala_runtime_Statics().mix__I__I__I(acc, ScalaJS.modules.scala_runtime_Statics().anyHash__O__I(this.text__T()));
+  acc = ScalaJS.modules.scala_runtime_Statics().mix__I__I__I(acc, ScalaJS.modules.scala_runtime_Statics().longHash__J__I(this.timestamp__J()));
+  return ScalaJS.modules.scala_runtime_Statics().finalizeHash__I__I__I(acc, 3)
+});
+ScalaJS.c.shared_chat_Message.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_Message.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_Message(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var Message$1 = ScalaJS.as.shared_chat_Message(x$1);
+      return (((ScalaJS.anyRefEqEq(this.user__Lshared_chat_User(), Message$1.user__Lshared_chat_User()) && ScalaJS.anyRefEqEq(this.text__T(), Message$1.text__T())) && this.timestamp__J().equals__O__Z(Message$1.timestamp__J())) && Message$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_Message.prototype.init___Lshared_chat_User__T__J = (function(user, text, timestamp) {
+  this.user$1 = user;
+  this.text$1 = text;
+  this.timestamp$1 = timestamp;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_Message = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_Message.prototype = ScalaJS.c.shared_chat_Message.prototype;
+ScalaJS.is.shared_chat_Message = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_Message)))
+});
+ScalaJS.as.shared_chat_Message = (function(obj) {
+  if ((ScalaJS.is.shared_chat_Message(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.Message")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_Message = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_Message)))
+});
+ScalaJS.asArrayOf.shared_chat_Message = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_Message(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.Message;", depth)
+  }
+});
+ScalaJS.data.shared_chat_Message = new ScalaJS.ClassTypeData({
+  shared_chat_Message: 0
+}, false, "shared.chat.Message", ScalaJS.data.java_lang_Object, {
+  shared_chat_Message: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_Message.prototype.$classData = ScalaJS.data.shared_chat_Message;
+/** @constructor */
+ScalaJS.c.shared_chat_ReceiveMessage = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.message$1 = null
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.constructor = ScalaJS.c.shared_chat_ReceiveMessage;
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.message__Lshared_chat_Message = (function() {
+  return this.message$1
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.productPrefix__T = (function() {
+  return "ReceiveMessage"
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.message__Lshared_chat_Message();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_ReceiveMessage(x$1)
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_ReceiveMessage(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var ReceiveMessage$1 = ScalaJS.as.shared_chat_ReceiveMessage(x$1);
+      return (ScalaJS.anyRefEqEq(this.message__Lshared_chat_Message(), ReceiveMessage$1.message__Lshared_chat_Message()) && ReceiveMessage$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.init___Lshared_chat_Message = (function(message) {
+  this.message$1 = message;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_ReceiveMessage = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_ReceiveMessage.prototype = ScalaJS.c.shared_chat_ReceiveMessage.prototype;
+ScalaJS.is.shared_chat_ReceiveMessage = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_ReceiveMessage)))
+});
+ScalaJS.as.shared_chat_ReceiveMessage = (function(obj) {
+  if ((ScalaJS.is.shared_chat_ReceiveMessage(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.ReceiveMessage")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_ReceiveMessage = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_ReceiveMessage)))
+});
+ScalaJS.asArrayOf.shared_chat_ReceiveMessage = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_ReceiveMessage(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.ReceiveMessage;", depth)
+  }
+});
+ScalaJS.data.shared_chat_ReceiveMessage = new ScalaJS.ClassTypeData({
+  shared_chat_ReceiveMessage: 0
+}, false, "shared.chat.ReceiveMessage", ScalaJS.data.java_lang_Object, {
+  shared_chat_ReceiveMessage: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_ReceiveMessage.prototype.$classData = ScalaJS.data.shared_chat_ReceiveMessage;
+/** @constructor */
+ScalaJS.c.shared_chat_RejectPrivateChat$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_chat_RejectPrivateChat$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_RejectPrivateChat$.prototype.constructor = ScalaJS.c.shared_chat_RejectPrivateChat$;
+ScalaJS.c.shared_chat_RejectPrivateChat$.prototype.productPrefix__T = (function() {
+  return "RejectPrivateChat"
+});
+ScalaJS.c.shared_chat_RejectPrivateChat$.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.shared_chat_RejectPrivateChat$.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)))
+});
+ScalaJS.c.shared_chat_RejectPrivateChat$.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_RejectPrivateChat$.prototype.hashCode__I = (function() {
+  return -1201603012
+});
+ScalaJS.c.shared_chat_RejectPrivateChat$.prototype.toString__T = (function() {
+  return "RejectPrivateChat"
+});
+ScalaJS.c.shared_chat_RejectPrivateChat$.prototype.init___ = (function() {
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.moduleInstances.shared_chat_RejectPrivateChat = this;
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_RejectPrivateChat$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_RejectPrivateChat$.prototype = ScalaJS.c.shared_chat_RejectPrivateChat$.prototype;
+ScalaJS.is.shared_chat_RejectPrivateChat$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_RejectPrivateChat$)))
+});
+ScalaJS.as.shared_chat_RejectPrivateChat$ = (function(obj) {
+  if ((ScalaJS.is.shared_chat_RejectPrivateChat$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.RejectPrivateChat")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_RejectPrivateChat$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_RejectPrivateChat$)))
+});
+ScalaJS.asArrayOf.shared_chat_RejectPrivateChat$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_RejectPrivateChat$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.RejectPrivateChat;", depth)
+  }
+});
+ScalaJS.data.shared_chat_RejectPrivateChat$ = new ScalaJS.ClassTypeData({
+  shared_chat_RejectPrivateChat$: 0
+}, false, "shared.chat.RejectPrivateChat$", ScalaJS.data.java_lang_Object, {
+  shared_chat_RejectPrivateChat$: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_RejectPrivateChat$.prototype.$classData = ScalaJS.data.shared_chat_RejectPrivateChat$;
+ScalaJS.moduleInstances.shared_chat_RejectPrivateChat = undefined;
+ScalaJS.modules.shared_chat_RejectPrivateChat = (function() {
+  if ((!ScalaJS.moduleInstances.shared_chat_RejectPrivateChat)) {
+    ScalaJS.moduleInstances.shared_chat_RejectPrivateChat = new ScalaJS.c.shared_chat_RejectPrivateChat$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_chat_RejectPrivateChat
+});
+/** @constructor */
+ScalaJS.c.shared_chat_RequestPrivateChat = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.peer$1 = null
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.constructor = ScalaJS.c.shared_chat_RequestPrivateChat;
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.peer__Lshared_chat_User = (function() {
+  return this.peer$1
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.productPrefix__T = (function() {
+  return "RequestPrivateChat"
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.peer__Lshared_chat_User();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_RequestPrivateChat(x$1)
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_RequestPrivateChat(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var RequestPrivateChat$1 = ScalaJS.as.shared_chat_RequestPrivateChat(x$1);
+      return (ScalaJS.anyRefEqEq(this.peer__Lshared_chat_User(), RequestPrivateChat$1.peer__Lshared_chat_User()) && RequestPrivateChat$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.init___Lshared_chat_User = (function(peer) {
+  this.peer$1 = peer;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_RequestPrivateChat = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_RequestPrivateChat.prototype = ScalaJS.c.shared_chat_RequestPrivateChat.prototype;
+ScalaJS.is.shared_chat_RequestPrivateChat = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_RequestPrivateChat)))
+});
+ScalaJS.as.shared_chat_RequestPrivateChat = (function(obj) {
+  if ((ScalaJS.is.shared_chat_RequestPrivateChat(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.RequestPrivateChat")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_RequestPrivateChat = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_RequestPrivateChat)))
+});
+ScalaJS.asArrayOf.shared_chat_RequestPrivateChat = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_RequestPrivateChat(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.RequestPrivateChat;", depth)
+  }
+});
+ScalaJS.data.shared_chat_RequestPrivateChat = new ScalaJS.ClassTypeData({
+  shared_chat_RequestPrivateChat: 0
+}, false, "shared.chat.RequestPrivateChat", ScalaJS.data.java_lang_Object, {
+  shared_chat_RequestPrivateChat: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_RequestPrivateChat.prototype.$classData = ScalaJS.data.shared_chat_RequestPrivateChat;
+/** @constructor */
+ScalaJS.c.shared_chat_Room = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.name$1 = null
+});
+ScalaJS.c.shared_chat_Room.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_Room.prototype.constructor = ScalaJS.c.shared_chat_Room;
+ScalaJS.c.shared_chat_Room.prototype.name__T = (function() {
+  return this.name$1
+});
+ScalaJS.c.shared_chat_Room.prototype.productPrefix__T = (function() {
+  return "Room"
+});
+ScalaJS.c.shared_chat_Room.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.shared_chat_Room.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.name__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_Room.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_Room.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_Room(x$1)
+});
+ScalaJS.c.shared_chat_Room.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_Room.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_Room.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_Room(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var Room$1 = ScalaJS.as.shared_chat_Room(x$1);
+      return (ScalaJS.anyRefEqEq(this.name__T(), Room$1.name__T()) && Room$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_Room.prototype.init___T = (function(name) {
+  this.name$1 = name;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_Room = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_Room.prototype = ScalaJS.c.shared_chat_Room.prototype;
+ScalaJS.is.shared_chat_Room = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_Room)))
+});
+ScalaJS.as.shared_chat_Room = (function(obj) {
+  if ((ScalaJS.is.shared_chat_Room(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.Room")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_Room = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_Room)))
+});
+ScalaJS.asArrayOf.shared_chat_Room = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_Room(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.Room;", depth)
+  }
+});
+ScalaJS.data.shared_chat_Room = new ScalaJS.ClassTypeData({
+  shared_chat_Room: 0
+}, false, "shared.chat.Room", ScalaJS.data.java_lang_Object, {
+  shared_chat_Room: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_Room.prototype.$classData = ScalaJS.data.shared_chat_Room;
+/** @constructor */
+ScalaJS.c.shared_chat_RoomListChanged = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.rooms$1 = null
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_RoomListChanged.prototype.constructor = ScalaJS.c.shared_chat_RoomListChanged;
+ScalaJS.c.shared_chat_RoomListChanged.prototype.rooms__Lscala_collection_immutable_List = (function() {
+  return this.rooms$1
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype.productPrefix__T = (function() {
+  return "RoomListChanged"
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.rooms__Lscala_collection_immutable_List();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_RoomListChanged(x$1)
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_RoomListChanged(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var RoomListChanged$1 = ScalaJS.as.shared_chat_RoomListChanged(x$1);
+      return (ScalaJS.anyRefEqEq(this.rooms__Lscala_collection_immutable_List(), RoomListChanged$1.rooms__Lscala_collection_immutable_List()) && RoomListChanged$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype.init___Lscala_collection_immutable_List = (function(rooms) {
+  this.rooms$1 = rooms;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_RoomListChanged = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_RoomListChanged.prototype = ScalaJS.c.shared_chat_RoomListChanged.prototype;
+ScalaJS.is.shared_chat_RoomListChanged = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_RoomListChanged)))
+});
+ScalaJS.as.shared_chat_RoomListChanged = (function(obj) {
+  if ((ScalaJS.is.shared_chat_RoomListChanged(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.RoomListChanged")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_RoomListChanged = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_RoomListChanged)))
+});
+ScalaJS.asArrayOf.shared_chat_RoomListChanged = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_RoomListChanged(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.RoomListChanged;", depth)
+  }
+});
+ScalaJS.data.shared_chat_RoomListChanged = new ScalaJS.ClassTypeData({
+  shared_chat_RoomListChanged: 0
+}, false, "shared.chat.RoomListChanged", ScalaJS.data.java_lang_Object, {
+  shared_chat_RoomListChanged: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_RoomListChanged.prototype.$classData = ScalaJS.data.shared_chat_RoomListChanged;
+/** @constructor */
+ScalaJS.c.shared_chat_SendMessage = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.message$1 = null
+});
+ScalaJS.c.shared_chat_SendMessage.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_SendMessage.prototype.constructor = ScalaJS.c.shared_chat_SendMessage;
+ScalaJS.c.shared_chat_SendMessage.prototype.message__Lshared_chat_Message = (function() {
+  return this.message$1
+});
+ScalaJS.c.shared_chat_SendMessage.prototype.productPrefix__T = (function() {
+  return "SendMessage"
+});
+ScalaJS.c.shared_chat_SendMessage.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.shared_chat_SendMessage.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.message__Lshared_chat_Message();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_SendMessage.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_SendMessage.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_SendMessage(x$1)
+});
+ScalaJS.c.shared_chat_SendMessage.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_SendMessage.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_SendMessage.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_SendMessage(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var SendMessage$1 = ScalaJS.as.shared_chat_SendMessage(x$1);
+      return (ScalaJS.anyRefEqEq(this.message__Lshared_chat_Message(), SendMessage$1.message__Lshared_chat_Message()) && SendMessage$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_SendMessage.prototype.init___Lshared_chat_Message = (function(message) {
+  this.message$1 = message;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_SendMessage = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_SendMessage.prototype = ScalaJS.c.shared_chat_SendMessage.prototype;
+ScalaJS.is.shared_chat_SendMessage = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_SendMessage)))
+});
+ScalaJS.as.shared_chat_SendMessage = (function(obj) {
+  if ((ScalaJS.is.shared_chat_SendMessage(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.SendMessage")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_SendMessage = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_SendMessage)))
+});
+ScalaJS.asArrayOf.shared_chat_SendMessage = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_SendMessage(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.SendMessage;", depth)
+  }
+});
+ScalaJS.data.shared_chat_SendMessage = new ScalaJS.ClassTypeData({
+  shared_chat_SendMessage: 0
+}, false, "shared.chat.SendMessage", ScalaJS.data.java_lang_Object, {
+  shared_chat_SendMessage: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_SendMessage.prototype.$classData = ScalaJS.data.shared_chat_SendMessage;
+/** @constructor */
+ScalaJS.c.shared_chat_User = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.nick$1 = null;
+  this.avatar$1 = null
+});
+ScalaJS.c.shared_chat_User.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_User.prototype.constructor = ScalaJS.c.shared_chat_User;
+ScalaJS.c.shared_chat_User.prototype.nick__T = (function() {
+  return this.nick$1
+});
+ScalaJS.c.shared_chat_User.prototype.avatar__T = (function() {
+  return this.avatar$1
+});
+ScalaJS.c.shared_chat_User.prototype.productPrefix__T = (function() {
+  return "User"
+});
+ScalaJS.c.shared_chat_User.prototype.productArity__I = (function() {
+  return 2
+});
+ScalaJS.c.shared_chat_User.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.nick__T();
+        break
+      };
+    case 1:
+      {
+        return this.avatar__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_User.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_User.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_User(x$1)
+});
+ScalaJS.c.shared_chat_User.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_User.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_User.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_User(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var User$1 = ScalaJS.as.shared_chat_User(x$1);
+      return ((ScalaJS.anyRefEqEq(this.nick__T(), User$1.nick__T()) && ScalaJS.anyRefEqEq(this.avatar__T(), User$1.avatar__T())) && User$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_User.prototype.init___T__T = (function(nick, avatar) {
+  this.nick$1 = nick;
+  this.avatar$1 = avatar;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_User = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_User.prototype = ScalaJS.c.shared_chat_User.prototype;
+ScalaJS.is.shared_chat_User = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_User)))
+});
+ScalaJS.as.shared_chat_User = (function(obj) {
+  if ((ScalaJS.is.shared_chat_User(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.User")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_User = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_User)))
+});
+ScalaJS.asArrayOf.shared_chat_User = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_User(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.User;", depth)
+  }
+});
+ScalaJS.data.shared_chat_User = new ScalaJS.ClassTypeData({
+  shared_chat_User: 0
+}, false, "shared.chat.User", ScalaJS.data.java_lang_Object, {
+  shared_chat_User: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_User.prototype.$classData = ScalaJS.data.shared_chat_User;
+/** @constructor */
+ScalaJS.c.shared_chat_UserDoesNotExist$ = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.shared_chat_UserDoesNotExist$.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_UserDoesNotExist$.prototype.constructor = ScalaJS.c.shared_chat_UserDoesNotExist$;
+ScalaJS.c.shared_chat_UserDoesNotExist$.prototype.productPrefix__T = (function() {
+  return "UserDoesNotExist"
+});
+ScalaJS.c.shared_chat_UserDoesNotExist$.prototype.productArity__I = (function() {
+  return 0
+});
+ScalaJS.c.shared_chat_UserDoesNotExist$.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)))
+});
+ScalaJS.c.shared_chat_UserDoesNotExist$.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_UserDoesNotExist$.prototype.hashCode__I = (function() {
+  return -1940929272
+});
+ScalaJS.c.shared_chat_UserDoesNotExist$.prototype.toString__T = (function() {
+  return "UserDoesNotExist"
+});
+ScalaJS.c.shared_chat_UserDoesNotExist$.prototype.init___ = (function() {
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.moduleInstances.shared_chat_UserDoesNotExist = this;
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_UserDoesNotExist$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_UserDoesNotExist$.prototype = ScalaJS.c.shared_chat_UserDoesNotExist$.prototype;
+ScalaJS.is.shared_chat_UserDoesNotExist$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_UserDoesNotExist$)))
+});
+ScalaJS.as.shared_chat_UserDoesNotExist$ = (function(obj) {
+  if ((ScalaJS.is.shared_chat_UserDoesNotExist$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.UserDoesNotExist")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_UserDoesNotExist$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_UserDoesNotExist$)))
+});
+ScalaJS.asArrayOf.shared_chat_UserDoesNotExist$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_UserDoesNotExist$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.UserDoesNotExist;", depth)
+  }
+});
+ScalaJS.data.shared_chat_UserDoesNotExist$ = new ScalaJS.ClassTypeData({
+  shared_chat_UserDoesNotExist$: 0
+}, false, "shared.chat.UserDoesNotExist$", ScalaJS.data.java_lang_Object, {
+  shared_chat_UserDoesNotExist$: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_UserDoesNotExist$.prototype.$classData = ScalaJS.data.shared_chat_UserDoesNotExist$;
+ScalaJS.moduleInstances.shared_chat_UserDoesNotExist = undefined;
+ScalaJS.modules.shared_chat_UserDoesNotExist = (function() {
+  if ((!ScalaJS.moduleInstances.shared_chat_UserDoesNotExist)) {
+    ScalaJS.moduleInstances.shared_chat_UserDoesNotExist = new ScalaJS.c.shared_chat_UserDoesNotExist$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_chat_UserDoesNotExist
+});
+/** @constructor */
+ScalaJS.c.shared_chat_UserJoined = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.user$1 = null
+});
+ScalaJS.c.shared_chat_UserJoined.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_UserJoined.prototype.constructor = ScalaJS.c.shared_chat_UserJoined;
+ScalaJS.c.shared_chat_UserJoined.prototype.user__Lshared_chat_User = (function() {
+  return this.user$1
+});
+ScalaJS.c.shared_chat_UserJoined.prototype.productPrefix__T = (function() {
+  return "UserJoined"
+});
+ScalaJS.c.shared_chat_UserJoined.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.shared_chat_UserJoined.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.user__Lshared_chat_User();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_UserJoined.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_UserJoined.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_UserJoined(x$1)
+});
+ScalaJS.c.shared_chat_UserJoined.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_UserJoined.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_UserJoined.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_UserJoined(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var UserJoined$1 = ScalaJS.as.shared_chat_UserJoined(x$1);
+      return (ScalaJS.anyRefEqEq(this.user__Lshared_chat_User(), UserJoined$1.user__Lshared_chat_User()) && UserJoined$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_UserJoined.prototype.init___Lshared_chat_User = (function(user) {
+  this.user$1 = user;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_UserJoined = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_UserJoined.prototype = ScalaJS.c.shared_chat_UserJoined.prototype;
+ScalaJS.is.shared_chat_UserJoined = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_UserJoined)))
+});
+ScalaJS.as.shared_chat_UserJoined = (function(obj) {
+  if ((ScalaJS.is.shared_chat_UserJoined(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.UserJoined")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_UserJoined = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_UserJoined)))
+});
+ScalaJS.asArrayOf.shared_chat_UserJoined = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_UserJoined(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.UserJoined;", depth)
+  }
+});
+ScalaJS.data.shared_chat_UserJoined = new ScalaJS.ClassTypeData({
+  shared_chat_UserJoined: 0
+}, false, "shared.chat.UserJoined", ScalaJS.data.java_lang_Object, {
+  shared_chat_UserJoined: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_UserJoined.prototype.$classData = ScalaJS.data.shared_chat_UserJoined;
+/** @constructor */
+ScalaJS.c.shared_chat_UserLeft = (function() {
+  ScalaJS.c.java_lang_Object.call(this);
+  this.user$1 = null
+});
+ScalaJS.c.shared_chat_UserLeft.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.shared_chat_UserLeft.prototype.constructor = ScalaJS.c.shared_chat_UserLeft;
+ScalaJS.c.shared_chat_UserLeft.prototype.user__Lshared_chat_User = (function() {
+  return this.user$1
+});
+ScalaJS.c.shared_chat_UserLeft.prototype.productPrefix__T = (function() {
+  return "UserLeft"
+});
+ScalaJS.c.shared_chat_UserLeft.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.shared_chat_UserLeft.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.user__Lshared_chat_User();
+        break
+      };
+    default:
+      throw new ScalaJS.c.java_lang_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(ScalaJS.bI(x$1)));
+  }
+});
+ScalaJS.c.shared_chat_UserLeft.prototype.productIterator__Lscala_collection_Iterator = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().typedProductIterator__Lscala_Product__Lscala_collection_Iterator(this)
+});
+ScalaJS.c.shared_chat_UserLeft.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.shared_chat_UserLeft(x$1)
+});
+ScalaJS.c.shared_chat_UserLeft.prototype.hashCode__I = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undhashCode__Lscala_Product__I(this)
+});
+ScalaJS.c.shared_chat_UserLeft.prototype.toString__T = (function() {
+  return ScalaJS.modules.scala_runtime_ScalaRunTime().$$undtoString__Lscala_Product__T(this)
+});
+ScalaJS.c.shared_chat_UserLeft.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.shared_chat_UserLeft(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var UserLeft$1 = ScalaJS.as.shared_chat_UserLeft(x$1);
+      return (ScalaJS.anyRefEqEq(this.user__Lshared_chat_User(), UserLeft$1.user__Lshared_chat_User()) && UserLeft$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.shared_chat_UserLeft.prototype.init___Lshared_chat_User = (function(user) {
+  this.user$1 = user;
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  ScalaJS.impls.scala_Product$class__$init$__Lscala_Product__V(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.shared_chat_UserLeft = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_chat_UserLeft.prototype = ScalaJS.c.shared_chat_UserLeft.prototype;
+ScalaJS.is.shared_chat_UserLeft = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_chat_UserLeft)))
+});
+ScalaJS.as.shared_chat_UserLeft = (function(obj) {
+  if ((ScalaJS.is.shared_chat_UserLeft(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.chat.UserLeft")
+  }
+});
+ScalaJS.isArrayOf.shared_chat_UserLeft = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_chat_UserLeft)))
+});
+ScalaJS.asArrayOf.shared_chat_UserLeft = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_chat_UserLeft(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.chat.UserLeft;", depth)
+  }
+});
+ScalaJS.data.shared_chat_UserLeft = new ScalaJS.ClassTypeData({
+  shared_chat_UserLeft: 0
+}, false, "shared.chat.UserLeft", ScalaJS.data.java_lang_Object, {
+  shared_chat_UserLeft: 1,
+  scala_Serializable: 1,
+  java_io_Serializable: 1,
+  scala_Product: 1,
+  scala_Equals: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_chat_UserLeft.prototype.$classData = ScalaJS.data.shared_chat_UserLeft;
+/** @constructor */
 ScalaJS.c.java_io_FilterOutputStream = (function() {
   ScalaJS.c.java_io_OutputStream.call(this);
   this.out$2 = null
@@ -33890,382 +33906,6 @@ ScalaJS.data.java_util_Formatter$$anonfun$format$1 = new ScalaJS.ClassTypeData({
 });
 ScalaJS.c.java_util_Formatter$$anonfun$format$1.prototype.$classData = ScalaJS.data.java_util_Formatter$$anonfun$format$1;
 /** @constructor */
-ScalaJS.c.models_RegisterPicklers$IriItemPickler$ = (function() {
-  ScalaJS.c.models_GenericConsPickler.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$IriItemPickler$.prototype = new ScalaJS.inheritable.models_GenericConsPickler();
-ScalaJS.c.models_RegisterPicklers$IriItemPickler$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$IriItemPickler$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$IriItemPickler$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$IriItemPickler$.prototype = ScalaJS.c.models_RegisterPicklers$IriItemPickler$.prototype;
-ScalaJS.is.models_RegisterPicklers$IriItemPickler$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$IriItemPickler$)))
-});
-ScalaJS.as.models_RegisterPicklers$IriItemPickler$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$IriItemPickler$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$IriItemPickler")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$IriItemPickler$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$IriItemPickler$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$IriItemPickler$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$IriItemPickler$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$IriItemPickler;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$IriItemPickler$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$IriItemPickler$: 0
-}, false, "models.RegisterPicklers$IriItemPickler$", ScalaJS.data.models_GenericConsPickler, {
-  models_RegisterPicklers$IriItemPickler$: 1,
-  models_GenericConsPickler: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$IriItemPickler$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$IriItemPickler$;
-ScalaJS.moduleInstances.models_RegisterPicklers$IriItemPickler = undefined;
-ScalaJS.modules.models_RegisterPicklers$IriItemPickler = (function() {
-  if ((!ScalaJS.moduleInstances.models_RegisterPicklers$IriItemPickler)) {
-    ScalaJS.moduleInstances.models_RegisterPicklers$IriItemPickler = new ScalaJS.c.models_RegisterPicklers$IriItemPickler$().init___()
-  };
-  return ScalaJS.moduleInstances.models_RegisterPicklers$IriItemPickler
-});
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$IriItemUnpickler$ = (function() {
-  ScalaJS.c.models_GenericConsUnpickler.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$IriItemUnpickler$.prototype = new ScalaJS.inheritable.models_GenericConsUnpickler();
-ScalaJS.c.models_RegisterPicklers$IriItemUnpickler$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$IriItemUnpickler$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$IriItemUnpickler$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$IriItemUnpickler$.prototype = ScalaJS.c.models_RegisterPicklers$IriItemUnpickler$.prototype;
-ScalaJS.is.models_RegisterPicklers$IriItemUnpickler$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$IriItemUnpickler$)))
-});
-ScalaJS.as.models_RegisterPicklers$IriItemUnpickler$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$IriItemUnpickler$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$IriItemUnpickler")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$IriItemUnpickler$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$IriItemUnpickler$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$IriItemUnpickler$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$IriItemUnpickler$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$IriItemUnpickler;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$IriItemUnpickler$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$IriItemUnpickler$: 0
-}, false, "models.RegisterPicklers$IriItemUnpickler$", ScalaJS.data.models_GenericConsUnpickler, {
-  models_RegisterPicklers$IriItemUnpickler$: 1,
-  models_GenericConsUnpickler: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$IriItemUnpickler$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$IriItemUnpickler$;
-ScalaJS.moduleInstances.models_RegisterPicklers$IriItemUnpickler = undefined;
-ScalaJS.modules.models_RegisterPicklers$IriItemUnpickler = (function() {
-  if ((!ScalaJS.moduleInstances.models_RegisterPicklers$IriItemUnpickler)) {
-    ScalaJS.moduleInstances.models_RegisterPicklers$IriItemUnpickler = new ScalaJS.c.models_RegisterPicklers$IriItemUnpickler$().init___()
-  };
-  return ScalaJS.moduleInstances.models_RegisterPicklers$IriItemUnpickler
-});
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$MenuConsPickler$ = (function() {
-  ScalaJS.c.models_GenericConsPickler.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$MenuConsPickler$.prototype = new ScalaJS.inheritable.models_GenericConsPickler();
-ScalaJS.c.models_RegisterPicklers$MenuConsPickler$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$MenuConsPickler$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$MenuConsPickler$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$MenuConsPickler$.prototype = ScalaJS.c.models_RegisterPicklers$MenuConsPickler$.prototype;
-ScalaJS.is.models_RegisterPicklers$MenuConsPickler$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$MenuConsPickler$)))
-});
-ScalaJS.as.models_RegisterPicklers$MenuConsPickler$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$MenuConsPickler$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$MenuConsPickler")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$MenuConsPickler$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$MenuConsPickler$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$MenuConsPickler$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$MenuConsPickler$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$MenuConsPickler;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$MenuConsPickler$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$MenuConsPickler$: 0
-}, false, "models.RegisterPicklers$MenuConsPickler$", ScalaJS.data.models_GenericConsPickler, {
-  models_RegisterPicklers$MenuConsPickler$: 1,
-  models_GenericConsPickler: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$MenuConsPickler$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$MenuConsPickler$;
-ScalaJS.moduleInstances.models_RegisterPicklers$MenuConsPickler = undefined;
-ScalaJS.modules.models_RegisterPicklers$MenuConsPickler = (function() {
-  if ((!ScalaJS.moduleInstances.models_RegisterPicklers$MenuConsPickler)) {
-    ScalaJS.moduleInstances.models_RegisterPicklers$MenuConsPickler = new ScalaJS.c.models_RegisterPicklers$MenuConsPickler$().init___()
-  };
-  return ScalaJS.moduleInstances.models_RegisterPicklers$MenuConsPickler
-});
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$MenuConsUnpickler$ = (function() {
-  ScalaJS.c.models_GenericConsUnpickler.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$MenuConsUnpickler$.prototype = new ScalaJS.inheritable.models_GenericConsUnpickler();
-ScalaJS.c.models_RegisterPicklers$MenuConsUnpickler$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$MenuConsUnpickler$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$MenuConsUnpickler$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$MenuConsUnpickler$.prototype = ScalaJS.c.models_RegisterPicklers$MenuConsUnpickler$.prototype;
-ScalaJS.is.models_RegisterPicklers$MenuConsUnpickler$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$MenuConsUnpickler$)))
-});
-ScalaJS.as.models_RegisterPicklers$MenuConsUnpickler$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$MenuConsUnpickler$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$MenuConsUnpickler")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$MenuConsUnpickler$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$MenuConsUnpickler$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$MenuConsUnpickler$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$MenuConsUnpickler$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$MenuConsUnpickler;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$MenuConsUnpickler$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$MenuConsUnpickler$: 0
-}, false, "models.RegisterPicklers$MenuConsUnpickler$", ScalaJS.data.models_GenericConsUnpickler, {
-  models_RegisterPicklers$MenuConsUnpickler$: 1,
-  models_GenericConsUnpickler: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$MenuConsUnpickler$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$MenuConsUnpickler$;
-ScalaJS.moduleInstances.models_RegisterPicklers$MenuConsUnpickler = undefined;
-ScalaJS.modules.models_RegisterPicklers$MenuConsUnpickler = (function() {
-  if ((!ScalaJS.moduleInstances.models_RegisterPicklers$MenuConsUnpickler)) {
-    ScalaJS.moduleInstances.models_RegisterPicklers$MenuConsUnpickler = new ScalaJS.c.models_RegisterPicklers$MenuConsUnpickler$().init___()
-  };
-  return ScalaJS.moduleInstances.models_RegisterPicklers$MenuConsUnpickler
-});
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$MenuItemPickler$ = (function() {
-  ScalaJS.c.models_GenericConsPickler.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$MenuItemPickler$.prototype = new ScalaJS.inheritable.models_GenericConsPickler();
-ScalaJS.c.models_RegisterPicklers$MenuItemPickler$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$MenuItemPickler$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$MenuItemPickler$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$MenuItemPickler$.prototype = ScalaJS.c.models_RegisterPicklers$MenuItemPickler$.prototype;
-ScalaJS.is.models_RegisterPicklers$MenuItemPickler$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$MenuItemPickler$)))
-});
-ScalaJS.as.models_RegisterPicklers$MenuItemPickler$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$MenuItemPickler$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$MenuItemPickler")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$MenuItemPickler$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$MenuItemPickler$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$MenuItemPickler$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$MenuItemPickler$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$MenuItemPickler;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$MenuItemPickler$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$MenuItemPickler$: 0
-}, false, "models.RegisterPicklers$MenuItemPickler$", ScalaJS.data.models_GenericConsPickler, {
-  models_RegisterPicklers$MenuItemPickler$: 1,
-  models_GenericConsPickler: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$MenuItemPickler$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$MenuItemPickler$;
-ScalaJS.moduleInstances.models_RegisterPicklers$MenuItemPickler = undefined;
-ScalaJS.modules.models_RegisterPicklers$MenuItemPickler = (function() {
-  if ((!ScalaJS.moduleInstances.models_RegisterPicklers$MenuItemPickler)) {
-    ScalaJS.moduleInstances.models_RegisterPicklers$MenuItemPickler = new ScalaJS.c.models_RegisterPicklers$MenuItemPickler$().init___()
-  };
-  return ScalaJS.moduleInstances.models_RegisterPicklers$MenuItemPickler
-});
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$MenuItemUnpickler$ = (function() {
-  ScalaJS.c.models_GenericConsUnpickler.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$MenuItemUnpickler$.prototype = new ScalaJS.inheritable.models_GenericConsUnpickler();
-ScalaJS.c.models_RegisterPicklers$MenuItemUnpickler$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$MenuItemUnpickler$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$MenuItemUnpickler$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$MenuItemUnpickler$.prototype = ScalaJS.c.models_RegisterPicklers$MenuItemUnpickler$.prototype;
-ScalaJS.is.models_RegisterPicklers$MenuItemUnpickler$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$MenuItemUnpickler$)))
-});
-ScalaJS.as.models_RegisterPicklers$MenuItemUnpickler$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$MenuItemUnpickler$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$MenuItemUnpickler")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$MenuItemUnpickler$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$MenuItemUnpickler$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$MenuItemUnpickler$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$MenuItemUnpickler$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$MenuItemUnpickler;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$MenuItemUnpickler$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$MenuItemUnpickler$: 0
-}, false, "models.RegisterPicklers$MenuItemUnpickler$", ScalaJS.data.models_GenericConsUnpickler, {
-  models_RegisterPicklers$MenuItemUnpickler$: 1,
-  models_GenericConsUnpickler: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$MenuItemUnpickler$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$MenuItemUnpickler$;
-ScalaJS.moduleInstances.models_RegisterPicklers$MenuItemUnpickler = undefined;
-ScalaJS.modules.models_RegisterPicklers$MenuItemUnpickler = (function() {
-  if ((!ScalaJS.moduleInstances.models_RegisterPicklers$MenuItemUnpickler)) {
-    ScalaJS.moduleInstances.models_RegisterPicklers$MenuItemUnpickler = new ScalaJS.c.models_RegisterPicklers$MenuItemUnpickler$().init___()
-  };
-  return ScalaJS.moduleInstances.models_RegisterPicklers$MenuItemUnpickler
-});
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$StrConsPickler$ = (function() {
-  ScalaJS.c.models_GenericConsPickler.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$StrConsPickler$.prototype = new ScalaJS.inheritable.models_GenericConsPickler();
-ScalaJS.c.models_RegisterPicklers$StrConsPickler$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$StrConsPickler$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$StrConsPickler$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$StrConsPickler$.prototype = ScalaJS.c.models_RegisterPicklers$StrConsPickler$.prototype;
-ScalaJS.is.models_RegisterPicklers$StrConsPickler$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$StrConsPickler$)))
-});
-ScalaJS.as.models_RegisterPicklers$StrConsPickler$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$StrConsPickler$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$StrConsPickler")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$StrConsPickler$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$StrConsPickler$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$StrConsPickler$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$StrConsPickler$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$StrConsPickler;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$StrConsPickler$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$StrConsPickler$: 0
-}, false, "models.RegisterPicklers$StrConsPickler$", ScalaJS.data.models_GenericConsPickler, {
-  models_RegisterPicklers$StrConsPickler$: 1,
-  models_GenericConsPickler: 1,
-  org_scalajs_spickling_Pickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$StrConsPickler$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$StrConsPickler$;
-ScalaJS.moduleInstances.models_RegisterPicklers$StrConsPickler = undefined;
-ScalaJS.modules.models_RegisterPicklers$StrConsPickler = (function() {
-  if ((!ScalaJS.moduleInstances.models_RegisterPicklers$StrConsPickler)) {
-    ScalaJS.moduleInstances.models_RegisterPicklers$StrConsPickler = new ScalaJS.c.models_RegisterPicklers$StrConsPickler$().init___()
-  };
-  return ScalaJS.moduleInstances.models_RegisterPicklers$StrConsPickler
-});
-/** @constructor */
-ScalaJS.c.models_RegisterPicklers$StrConsUnpickler$ = (function() {
-  ScalaJS.c.models_GenericConsUnpickler.call(this)
-});
-ScalaJS.c.models_RegisterPicklers$StrConsUnpickler$.prototype = new ScalaJS.inheritable.models_GenericConsUnpickler();
-ScalaJS.c.models_RegisterPicklers$StrConsUnpickler$.prototype.constructor = ScalaJS.c.models_RegisterPicklers$StrConsUnpickler$;
-/** @constructor */
-ScalaJS.inheritable.models_RegisterPicklers$StrConsUnpickler$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.models_RegisterPicklers$StrConsUnpickler$.prototype = ScalaJS.c.models_RegisterPicklers$StrConsUnpickler$.prototype;
-ScalaJS.is.models_RegisterPicklers$StrConsUnpickler$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.models_RegisterPicklers$StrConsUnpickler$)))
-});
-ScalaJS.as.models_RegisterPicklers$StrConsUnpickler$ = (function(obj) {
-  if ((ScalaJS.is.models_RegisterPicklers$StrConsUnpickler$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "models.RegisterPicklers$StrConsUnpickler")
-  }
-});
-ScalaJS.isArrayOf.models_RegisterPicklers$StrConsUnpickler$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.models_RegisterPicklers$StrConsUnpickler$)))
-});
-ScalaJS.asArrayOf.models_RegisterPicklers$StrConsUnpickler$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.models_RegisterPicklers$StrConsUnpickler$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lmodels.RegisterPicklers$StrConsUnpickler;", depth)
-  }
-});
-ScalaJS.data.models_RegisterPicklers$StrConsUnpickler$ = new ScalaJS.ClassTypeData({
-  models_RegisterPicklers$StrConsUnpickler$: 0
-}, false, "models.RegisterPicklers$StrConsUnpickler$", ScalaJS.data.models_GenericConsUnpickler, {
-  models_RegisterPicklers$StrConsUnpickler$: 1,
-  models_GenericConsUnpickler: 1,
-  org_scalajs_spickling_Unpickler: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.models_RegisterPicklers$StrConsUnpickler$.prototype.$classData = ScalaJS.data.models_RegisterPicklers$StrConsUnpickler$;
-ScalaJS.moduleInstances.models_RegisterPicklers$StrConsUnpickler = undefined;
-ScalaJS.modules.models_RegisterPicklers$StrConsUnpickler = (function() {
-  if ((!ScalaJS.moduleInstances.models_RegisterPicklers$StrConsUnpickler)) {
-    ScalaJS.moduleInstances.models_RegisterPicklers$StrConsUnpickler = new ScalaJS.c.models_RegisterPicklers$StrConsUnpickler$().init___()
-  };
-  return ScalaJS.moduleInstances.models_RegisterPicklers$StrConsUnpickler
-});
-/** @constructor */
 ScalaJS.c.org_denigma_binding_ClassBinder$$anonfun$bindClass$1 = (function() {
   ScalaJS.c.scala_runtime_AbstractFunction1.call(this);
   this.$$outer$2 = null;
@@ -35470,11 +35110,11 @@ ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$5$$anonfun$apply$1 = (f
 });
 ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$5$$anonfun$apply$1.prototype = new ScalaJS.inheritable.scala_runtime_AbstractFunction1();
 ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$5$$anonfun$apply$1.prototype.constructor = ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$5$$anonfun$apply$1;
-ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$5$$anonfun$apply$1.prototype.apply__Lmodels_MenuItem__Lscala_collection_immutable_Map = (function(ch) {
+ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$5$$anonfun$apply$1.prototype.apply__Lorg_denigma_binding_models_MenuItem__Lscala_collection_immutable_Map = (function(ch) {
   return ScalaJS.as.scala_collection_immutable_Map(ScalaJS.modules.scala_collection_immutable_Map().apply__Lscala_collection_Seq__Lscala_collection_GenMap(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.scala_Tuple2.getArrayOf(), [ScalaJS.modules.scala_Predef$ArrowAssoc().$$minus$greater$extension__O__O__Lscala_Tuple2(ScalaJS.modules.scala_Predef().any2ArrowAssoc__O__O("label"), ch.title__T()), ScalaJS.modules.scala_Predef$ArrowAssoc().$$minus$greater$extension__O__O__Lscala_Tuple2(ScalaJS.modules.scala_Predef().any2ArrowAssoc__O__O("uri"), ch.uri__Lorg_scalax_semweb_rdf_IRI().stringValue__T())]), 1))))
 });
 ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$5$$anonfun$apply$1.prototype.apply__O__O = (function(v1) {
-  return this.apply__Lmodels_MenuItem__Lscala_collection_immutable_Map(ScalaJS.as.models_MenuItem(v1))
+  return this.apply__Lorg_denigma_binding_models_MenuItem__Lscala_collection_immutable_Map(ScalaJS.as.org_denigma_binding_models_MenuItem(v1))
 });
 ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$5$$anonfun$apply$1.prototype.init___Lorg_denigma_binding_frontend_MenuView$$anonfun$5 = (function($$outer) {
   ScalaJS.c.scala_runtime_AbstractFunction1.prototype.init___.call(this);
@@ -35523,13 +35163,13 @@ ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$app
 });
 ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$apply$2.prototype = new ScalaJS.inheritable.scala_runtime_AbstractFunction0();
 ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$apply$2.prototype.constructor = ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$apply$2;
-ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$apply$2.prototype.apply__Lmodels_Menu = (function() {
+ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$apply$2.prototype.apply__Lorg_denigma_binding_models_Menu = (function() {
   return this.data$1$2
 });
 ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$apply$2.prototype.apply__O = (function() {
-  return this.apply__Lmodels_Menu()
+  return this.apply__Lorg_denigma_binding_models_Menu()
 });
-ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$apply$2.prototype.init___Lorg_denigma_binding_frontend_MenuView$$anonfun$bindView$1__Lmodels_Menu = (function($$outer, data$1) {
+ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$apply$2.prototype.init___Lorg_denigma_binding_frontend_MenuView$$anonfun$bindView$1__Lorg_denigma_binding_models_Menu = (function($$outer, data$1) {
   this.data$1$2 = data$1;
   ScalaJS.c.scala_runtime_AbstractFunction0.prototype.init___.call(this);
   return this
@@ -36366,21 +36006,21 @@ ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$1 = (function() {
 });
 ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$1.prototype = new ScalaJS.inheritable.scala_runtime_AbstractPartialFunction();
 ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$1.prototype.constructor = ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$1;
-ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$1.prototype.applyOrElse__Lscala_Tuple2__Lscala_Function1__O = (function(x2, default$2) {
-  var x1 = x2;
-  if ((x1 !== null)) {
-    var key = ScalaJS.as.java_lang_String(x1.$$und1__O());
-    var value = ScalaJS.as.org_denigma_views_BindingView(x1.$$und2__O());
+ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$1.prototype.applyOrElse__Lscala_Tuple2__Lscala_Function1__O = (function(x1, default$2) {
+  var x1$2 = x1;
+  if ((x1$2 !== null)) {
+    var key = ScalaJS.as.java_lang_String(x1$2.$$und1__O());
+    var value = ScalaJS.as.org_denigma_views_BindingView(x1$2.$$und2__O());
     if (value.isInside__Lorg_scalajs_dom_HTMLElement__Lorg_scalajs_dom_HTMLElement__Z(this.element$1$2, value.isInside$default$2__Lorg_scalajs_dom_HTMLElement())) {
       return key
     }
   };
-  return default$2.apply__O__O(x2)
+  return default$2.apply__O__O(x1)
 });
-ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$1.prototype.isDefinedAt__Lscala_Tuple2__Z = (function(x2) {
-  var x1 = x2;
-  if ((x1 !== null)) {
-    var value = ScalaJS.as.org_denigma_views_BindingView(x1.$$und2__O());
+ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$1.prototype.isDefinedAt__Lscala_Tuple2__Z = (function(x1) {
+  var x1$2 = x1;
+  if ((x1$2 !== null)) {
+    var value = ScalaJS.as.org_denigma_views_BindingView(x1$2.$$und2__O());
     if (value.isInside__Lorg_scalajs_dom_HTMLElement__Lorg_scalajs_dom_HTMLElement__Z(this.element$1$2, value.isInside$default$2__Lorg_scalajs_dom_HTMLElement())) {
       return true
     }
@@ -43862,6 +43502,382 @@ ScalaJS.data.scalatags_UntypedStyle = new ScalaJS.ClassTypeData({
 });
 ScalaJS.c.scalatags_UntypedStyle.prototype.$classData = ScalaJS.data.scalatags_UntypedStyle;
 /** @constructor */
+ScalaJS.c.shared_RegisterPicklers$IriItemPickler$ = (function() {
+  ScalaJS.c.shared_GenericConsPickler.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$IriItemPickler$.prototype = new ScalaJS.inheritable.shared_GenericConsPickler();
+ScalaJS.c.shared_RegisterPicklers$IriItemPickler$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$IriItemPickler$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$IriItemPickler$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$IriItemPickler$.prototype = ScalaJS.c.shared_RegisterPicklers$IriItemPickler$.prototype;
+ScalaJS.is.shared_RegisterPicklers$IriItemPickler$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$IriItemPickler$)))
+});
+ScalaJS.as.shared_RegisterPicklers$IriItemPickler$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$IriItemPickler$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$IriItemPickler")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$IriItemPickler$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$IriItemPickler$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$IriItemPickler$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$IriItemPickler$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$IriItemPickler;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$IriItemPickler$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$IriItemPickler$: 0
+}, false, "shared.RegisterPicklers$IriItemPickler$", ScalaJS.data.shared_GenericConsPickler, {
+  shared_RegisterPicklers$IriItemPickler$: 1,
+  shared_GenericConsPickler: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$IriItemPickler$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$IriItemPickler$;
+ScalaJS.moduleInstances.shared_RegisterPicklers$IriItemPickler = undefined;
+ScalaJS.modules.shared_RegisterPicklers$IriItemPickler = (function() {
+  if ((!ScalaJS.moduleInstances.shared_RegisterPicklers$IriItemPickler)) {
+    ScalaJS.moduleInstances.shared_RegisterPicklers$IriItemPickler = new ScalaJS.c.shared_RegisterPicklers$IriItemPickler$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_RegisterPicklers$IriItemPickler
+});
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$IriItemUnpickler$ = (function() {
+  ScalaJS.c.shared_GenericConsUnpickler.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$IriItemUnpickler$.prototype = new ScalaJS.inheritable.shared_GenericConsUnpickler();
+ScalaJS.c.shared_RegisterPicklers$IriItemUnpickler$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$IriItemUnpickler$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$IriItemUnpickler$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$IriItemUnpickler$.prototype = ScalaJS.c.shared_RegisterPicklers$IriItemUnpickler$.prototype;
+ScalaJS.is.shared_RegisterPicklers$IriItemUnpickler$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$IriItemUnpickler$)))
+});
+ScalaJS.as.shared_RegisterPicklers$IriItemUnpickler$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$IriItemUnpickler$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$IriItemUnpickler")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$IriItemUnpickler$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$IriItemUnpickler$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$IriItemUnpickler$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$IriItemUnpickler$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$IriItemUnpickler;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$IriItemUnpickler$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$IriItemUnpickler$: 0
+}, false, "shared.RegisterPicklers$IriItemUnpickler$", ScalaJS.data.shared_GenericConsUnpickler, {
+  shared_RegisterPicklers$IriItemUnpickler$: 1,
+  shared_GenericConsUnpickler: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$IriItemUnpickler$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$IriItemUnpickler$;
+ScalaJS.moduleInstances.shared_RegisterPicklers$IriItemUnpickler = undefined;
+ScalaJS.modules.shared_RegisterPicklers$IriItemUnpickler = (function() {
+  if ((!ScalaJS.moduleInstances.shared_RegisterPicklers$IriItemUnpickler)) {
+    ScalaJS.moduleInstances.shared_RegisterPicklers$IriItemUnpickler = new ScalaJS.c.shared_RegisterPicklers$IriItemUnpickler$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_RegisterPicklers$IriItemUnpickler
+});
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$MenuConsPickler$ = (function() {
+  ScalaJS.c.shared_GenericConsPickler.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$MenuConsPickler$.prototype = new ScalaJS.inheritable.shared_GenericConsPickler();
+ScalaJS.c.shared_RegisterPicklers$MenuConsPickler$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$MenuConsPickler$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$MenuConsPickler$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$MenuConsPickler$.prototype = ScalaJS.c.shared_RegisterPicklers$MenuConsPickler$.prototype;
+ScalaJS.is.shared_RegisterPicklers$MenuConsPickler$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$MenuConsPickler$)))
+});
+ScalaJS.as.shared_RegisterPicklers$MenuConsPickler$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$MenuConsPickler$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$MenuConsPickler")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$MenuConsPickler$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$MenuConsPickler$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$MenuConsPickler$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$MenuConsPickler$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$MenuConsPickler;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$MenuConsPickler$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$MenuConsPickler$: 0
+}, false, "shared.RegisterPicklers$MenuConsPickler$", ScalaJS.data.shared_GenericConsPickler, {
+  shared_RegisterPicklers$MenuConsPickler$: 1,
+  shared_GenericConsPickler: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$MenuConsPickler$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$MenuConsPickler$;
+ScalaJS.moduleInstances.shared_RegisterPicklers$MenuConsPickler = undefined;
+ScalaJS.modules.shared_RegisterPicklers$MenuConsPickler = (function() {
+  if ((!ScalaJS.moduleInstances.shared_RegisterPicklers$MenuConsPickler)) {
+    ScalaJS.moduleInstances.shared_RegisterPicklers$MenuConsPickler = new ScalaJS.c.shared_RegisterPicklers$MenuConsPickler$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_RegisterPicklers$MenuConsPickler
+});
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$MenuConsUnpickler$ = (function() {
+  ScalaJS.c.shared_GenericConsUnpickler.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$MenuConsUnpickler$.prototype = new ScalaJS.inheritable.shared_GenericConsUnpickler();
+ScalaJS.c.shared_RegisterPicklers$MenuConsUnpickler$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$MenuConsUnpickler$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$MenuConsUnpickler$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$MenuConsUnpickler$.prototype = ScalaJS.c.shared_RegisterPicklers$MenuConsUnpickler$.prototype;
+ScalaJS.is.shared_RegisterPicklers$MenuConsUnpickler$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$MenuConsUnpickler$)))
+});
+ScalaJS.as.shared_RegisterPicklers$MenuConsUnpickler$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$MenuConsUnpickler$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$MenuConsUnpickler")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$MenuConsUnpickler$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$MenuConsUnpickler$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$MenuConsUnpickler$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$MenuConsUnpickler$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$MenuConsUnpickler;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$MenuConsUnpickler$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$MenuConsUnpickler$: 0
+}, false, "shared.RegisterPicklers$MenuConsUnpickler$", ScalaJS.data.shared_GenericConsUnpickler, {
+  shared_RegisterPicklers$MenuConsUnpickler$: 1,
+  shared_GenericConsUnpickler: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$MenuConsUnpickler$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$MenuConsUnpickler$;
+ScalaJS.moduleInstances.shared_RegisterPicklers$MenuConsUnpickler = undefined;
+ScalaJS.modules.shared_RegisterPicklers$MenuConsUnpickler = (function() {
+  if ((!ScalaJS.moduleInstances.shared_RegisterPicklers$MenuConsUnpickler)) {
+    ScalaJS.moduleInstances.shared_RegisterPicklers$MenuConsUnpickler = new ScalaJS.c.shared_RegisterPicklers$MenuConsUnpickler$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_RegisterPicklers$MenuConsUnpickler
+});
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$MenuItemPickler$ = (function() {
+  ScalaJS.c.shared_GenericConsPickler.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$MenuItemPickler$.prototype = new ScalaJS.inheritable.shared_GenericConsPickler();
+ScalaJS.c.shared_RegisterPicklers$MenuItemPickler$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$MenuItemPickler$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$MenuItemPickler$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$MenuItemPickler$.prototype = ScalaJS.c.shared_RegisterPicklers$MenuItemPickler$.prototype;
+ScalaJS.is.shared_RegisterPicklers$MenuItemPickler$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$MenuItemPickler$)))
+});
+ScalaJS.as.shared_RegisterPicklers$MenuItemPickler$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$MenuItemPickler$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$MenuItemPickler")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$MenuItemPickler$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$MenuItemPickler$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$MenuItemPickler$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$MenuItemPickler$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$MenuItemPickler;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$MenuItemPickler$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$MenuItemPickler$: 0
+}, false, "shared.RegisterPicklers$MenuItemPickler$", ScalaJS.data.shared_GenericConsPickler, {
+  shared_RegisterPicklers$MenuItemPickler$: 1,
+  shared_GenericConsPickler: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$MenuItemPickler$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$MenuItemPickler$;
+ScalaJS.moduleInstances.shared_RegisterPicklers$MenuItemPickler = undefined;
+ScalaJS.modules.shared_RegisterPicklers$MenuItemPickler = (function() {
+  if ((!ScalaJS.moduleInstances.shared_RegisterPicklers$MenuItemPickler)) {
+    ScalaJS.moduleInstances.shared_RegisterPicklers$MenuItemPickler = new ScalaJS.c.shared_RegisterPicklers$MenuItemPickler$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_RegisterPicklers$MenuItemPickler
+});
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$MenuItemUnpickler$ = (function() {
+  ScalaJS.c.shared_GenericConsUnpickler.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$MenuItemUnpickler$.prototype = new ScalaJS.inheritable.shared_GenericConsUnpickler();
+ScalaJS.c.shared_RegisterPicklers$MenuItemUnpickler$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$MenuItemUnpickler$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$MenuItemUnpickler$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$MenuItemUnpickler$.prototype = ScalaJS.c.shared_RegisterPicklers$MenuItemUnpickler$.prototype;
+ScalaJS.is.shared_RegisterPicklers$MenuItemUnpickler$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$MenuItemUnpickler$)))
+});
+ScalaJS.as.shared_RegisterPicklers$MenuItemUnpickler$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$MenuItemUnpickler$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$MenuItemUnpickler")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$MenuItemUnpickler$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$MenuItemUnpickler$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$MenuItemUnpickler$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$MenuItemUnpickler$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$MenuItemUnpickler;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$MenuItemUnpickler$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$MenuItemUnpickler$: 0
+}, false, "shared.RegisterPicklers$MenuItemUnpickler$", ScalaJS.data.shared_GenericConsUnpickler, {
+  shared_RegisterPicklers$MenuItemUnpickler$: 1,
+  shared_GenericConsUnpickler: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$MenuItemUnpickler$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$MenuItemUnpickler$;
+ScalaJS.moduleInstances.shared_RegisterPicklers$MenuItemUnpickler = undefined;
+ScalaJS.modules.shared_RegisterPicklers$MenuItemUnpickler = (function() {
+  if ((!ScalaJS.moduleInstances.shared_RegisterPicklers$MenuItemUnpickler)) {
+    ScalaJS.moduleInstances.shared_RegisterPicklers$MenuItemUnpickler = new ScalaJS.c.shared_RegisterPicklers$MenuItemUnpickler$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_RegisterPicklers$MenuItemUnpickler
+});
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$StrConsPickler$ = (function() {
+  ScalaJS.c.shared_GenericConsPickler.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$StrConsPickler$.prototype = new ScalaJS.inheritable.shared_GenericConsPickler();
+ScalaJS.c.shared_RegisterPicklers$StrConsPickler$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$StrConsPickler$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$StrConsPickler$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$StrConsPickler$.prototype = ScalaJS.c.shared_RegisterPicklers$StrConsPickler$.prototype;
+ScalaJS.is.shared_RegisterPicklers$StrConsPickler$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$StrConsPickler$)))
+});
+ScalaJS.as.shared_RegisterPicklers$StrConsPickler$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$StrConsPickler$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$StrConsPickler")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$StrConsPickler$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$StrConsPickler$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$StrConsPickler$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$StrConsPickler$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$StrConsPickler;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$StrConsPickler$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$StrConsPickler$: 0
+}, false, "shared.RegisterPicklers$StrConsPickler$", ScalaJS.data.shared_GenericConsPickler, {
+  shared_RegisterPicklers$StrConsPickler$: 1,
+  shared_GenericConsPickler: 1,
+  org_scalajs_spickling_Pickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$StrConsPickler$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$StrConsPickler$;
+ScalaJS.moduleInstances.shared_RegisterPicklers$StrConsPickler = undefined;
+ScalaJS.modules.shared_RegisterPicklers$StrConsPickler = (function() {
+  if ((!ScalaJS.moduleInstances.shared_RegisterPicklers$StrConsPickler)) {
+    ScalaJS.moduleInstances.shared_RegisterPicklers$StrConsPickler = new ScalaJS.c.shared_RegisterPicklers$StrConsPickler$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_RegisterPicklers$StrConsPickler
+});
+/** @constructor */
+ScalaJS.c.shared_RegisterPicklers$StrConsUnpickler$ = (function() {
+  ScalaJS.c.shared_GenericConsUnpickler.call(this)
+});
+ScalaJS.c.shared_RegisterPicklers$StrConsUnpickler$.prototype = new ScalaJS.inheritable.shared_GenericConsUnpickler();
+ScalaJS.c.shared_RegisterPicklers$StrConsUnpickler$.prototype.constructor = ScalaJS.c.shared_RegisterPicklers$StrConsUnpickler$;
+/** @constructor */
+ScalaJS.inheritable.shared_RegisterPicklers$StrConsUnpickler$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.shared_RegisterPicklers$StrConsUnpickler$.prototype = ScalaJS.c.shared_RegisterPicklers$StrConsUnpickler$.prototype;
+ScalaJS.is.shared_RegisterPicklers$StrConsUnpickler$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.shared_RegisterPicklers$StrConsUnpickler$)))
+});
+ScalaJS.as.shared_RegisterPicklers$StrConsUnpickler$ = (function(obj) {
+  if ((ScalaJS.is.shared_RegisterPicklers$StrConsUnpickler$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "shared.RegisterPicklers$StrConsUnpickler")
+  }
+});
+ScalaJS.isArrayOf.shared_RegisterPicklers$StrConsUnpickler$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.shared_RegisterPicklers$StrConsUnpickler$)))
+});
+ScalaJS.asArrayOf.shared_RegisterPicklers$StrConsUnpickler$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.shared_RegisterPicklers$StrConsUnpickler$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lshared.RegisterPicklers$StrConsUnpickler;", depth)
+  }
+});
+ScalaJS.data.shared_RegisterPicklers$StrConsUnpickler$ = new ScalaJS.ClassTypeData({
+  shared_RegisterPicklers$StrConsUnpickler$: 0
+}, false, "shared.RegisterPicklers$StrConsUnpickler$", ScalaJS.data.shared_GenericConsUnpickler, {
+  shared_RegisterPicklers$StrConsUnpickler$: 1,
+  shared_GenericConsUnpickler: 1,
+  org_scalajs_spickling_Unpickler: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.shared_RegisterPicklers$StrConsUnpickler$.prototype.$classData = ScalaJS.data.shared_RegisterPicklers$StrConsUnpickler$;
+ScalaJS.moduleInstances.shared_RegisterPicklers$StrConsUnpickler = undefined;
+ScalaJS.modules.shared_RegisterPicklers$StrConsUnpickler = (function() {
+  if ((!ScalaJS.moduleInstances.shared_RegisterPicklers$StrConsUnpickler)) {
+    ScalaJS.moduleInstances.shared_RegisterPicklers$StrConsUnpickler = new ScalaJS.c.shared_RegisterPicklers$StrConsUnpickler$().init___()
+  };
+  return ScalaJS.moduleInstances.shared_RegisterPicklers$StrConsUnpickler
+});
+/** @constructor */
 ScalaJS.c.java_io_PrintStream = (function() {
   ScalaJS.c.java_io_FilterOutputStream.call(this);
   this.$$undout$3 = null;
@@ -44955,27 +44971,27 @@ ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$upPartial$1 = (function() {
 });
 ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$upPartial$1.prototype = new ScalaJS.inheritable.scala_runtime_AbstractPartialFunction$mcVL$sp();
 ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$upPartial$1.prototype.constructor = ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$upPartial$1;
-ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$upPartial$1.prototype.applyOrElse__T__Lscala_Function1__O = (function(x1, default$2) {
-  var x1$2 = x1;
-  if (ScalaJS.impls.scala_scalajs_runtime_RuntimeString$class__startsWith__Lscala_scalajs_runtime_RuntimeString__T__Z(x1$2, "up-bind-")) {
+ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$upPartial$1.prototype.applyOrElse__T__Lscala_Function1__O = (function(x2, default$2) {
+  var x1 = x2;
+  if (ScalaJS.impls.scala_scalajs_runtime_RuntimeString$class__startsWith__Lscala_scalajs_runtime_RuntimeString__T__Z(x1, "up-bind-")) {
     var my = ScalaJS.impls.scala_scalajs_runtime_RuntimeString$class__replace__Lscala_scalajs_runtime_RuntimeString__Ljava_lang_CharSequence__Ljava_lang_CharSequence__T(this.key$1$3, "up-bind-", "");
-    var x1$3 = this.$$outer$3.strings__Lscala_collection_immutable_Map().get__O__Lscala_Option(my);
-    if (ScalaJS.is.scala_Some(x1$3)) {
-      var x2 = ScalaJS.as.scala_Some(x1$3);
-      var str = ScalaJS.as.rx_core_Rx(x2.x__O());
+    var x1$2 = this.$$outer$3.strings__Lscala_collection_immutable_Map().get__O__Lscala_Option(my);
+    if (ScalaJS.is.scala_Some(x1$2)) {
+      var x2$2 = ScalaJS.as.scala_Some(x1$2);
+      var str = ScalaJS.as.rx_core_Rx(x2$2.x__O());
       if (ScalaJS.is.rx_core_Var(str)) {
         var x3 = ScalaJS.as.rx_core_Var(str);
         var rc6 = false;
-        var x2$2 = null;
-        var x1$4 = this.$$outer$3.searchUp__Lscala_Function1__Lscala_Option(new ScalaJS.c.scala_scalajs_runtime_AnonFunction1().init___Lscala_scalajs_js_Function1((function(arg$outer) {
+        var x2$3 = null;
+        var x1$3 = this.$$outer$3.searchUp__Lscala_Function1__Lscala_Option(new ScalaJS.c.scala_scalajs_runtime_AnonFunction1().init___Lscala_scalajs_js_Function1((function(arg$outer) {
           return (function(p) {
             return ScalaJS.bZ(p.strings__Lscala_collection_immutable_Map().contains__O__Z(arg$outer.value$1$f))
           })
         })(this)));
-        if (ScalaJS.is.scala_Some(x1$4)) {
+        if (ScalaJS.is.scala_Some(x1$3)) {
           rc6 = true;
-          x2$2 = ScalaJS.as.scala_Some(x1$4);
-          var p = ScalaJS.as.org_denigma_views_OrganizedView(x2$2.x__O());
+          x2$3 = ScalaJS.as.scala_Some(x1$3);
+          var p = ScalaJS.as.org_denigma_views_OrganizedView(x2$3.x__O());
           var rs = ScalaJS.as.rx_core_Rx(p.strings__Lscala_collection_immutable_Map().apply__O__O(this.value$1$f));
           x3.update__Lscala_Function0__Lrx_core_Propagator__O(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function(rs$1) {
             return (function() {
@@ -44989,24 +45005,24 @@ ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$upPartial$1.prototype.applyOr
           ScalaJS.g["console"]["error"](new ScalaJS.c.scala_StringContext().init___Lscala_collection_Seq(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_String.getArrayOf(), ["", " is not a Var"]), 1))).s__Lscala_collection_Seq__T(ScalaJS.modules.scala_Predef().genericWrapArray__O__Lscala_collection_mutable_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_Object.getArrayOf(), [my]))));
           return ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit()
         };
-        if (ScalaJS.anyRefEqEq(ScalaJS.modules.scala_None(), x1$4)) {
+        if (ScalaJS.anyRefEqEq(ScalaJS.modules.scala_None(), x1$3)) {
           ScalaJS.g["console"]["log"]("failed to find upper binding");
           return ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit()
         };
-        throw new ScalaJS.c.scala_MatchError().init___O(x1$4)
+        throw new ScalaJS.c.scala_MatchError().init___O(x1$3)
       }
     };
-    if (ScalaJS.anyRefEqEq(ScalaJS.modules.scala_None(), x1$3)) {
+    if (ScalaJS.anyRefEqEq(ScalaJS.modules.scala_None(), x1$2)) {
       ScalaJS.g["console"]["error"](new ScalaJS.c.scala_StringContext().init___Lscala_collection_Seq(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_String.getArrayOf(), ["binding to unkown variable ", ""]), 1))).s__Lscala_collection_Seq__T(ScalaJS.modules.scala_Predef().genericWrapArray__O__Lscala_collection_mutable_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_Object.getArrayOf(), [my]))));
       return ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit()
     };
-    throw new ScalaJS.c.scala_MatchError().init___O(x1$3)
+    throw new ScalaJS.c.scala_MatchError().init___O(x1$2)
   };
-  return default$2.apply__O__O(x1)
+  return default$2.apply__O__O(x2)
 });
-ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$upPartial$1.prototype.isDefinedAt__T__Z = (function(x1) {
-  var x1$2 = x1;
-  if (ScalaJS.impls.scala_scalajs_runtime_RuntimeString$class__startsWith__Lscala_scalajs_runtime_RuntimeString__T__Z(x1$2, "up-bind-")) {
+ScalaJS.c.org_denigma_views_OrganizedView$$anonfun$upPartial$1.prototype.isDefinedAt__T__Z = (function(x2) {
+  var x1 = x2;
+  if (ScalaJS.impls.scala_scalajs_runtime_RuntimeString$class__startsWith__Lscala_scalajs_runtime_RuntimeString__T__Z(x1, "up-bind-")) {
     return true
   };
   return false
@@ -52645,7 +52661,7 @@ ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype.sidebarParams__Lscala
   return this.sidebarParams$5
 });
 ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype.main__V = (function() {
-  ScalaJS.modules.models_RegisterPicklers().registerPicklers__V();
+  ScalaJS.modules.shared_RegisterPicklers().registerPicklers__V();
   this.bind__Lorg_scalajs_dom_HTMLElement__V(this.viewElement__Lorg_scalajs_dom_HTMLElement());
   ScalaJS.modules.org_denigma_extensions_package().AnyJs__Lscala_scalajs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(ScalaJS.protect(ScalaJS.g["jQuery"])(".top.sidebar")).dyn__Lscala_scalajs_js_Dynamic()["sidebar"](this.sidebarParams__Lscala_scalajs_js_Dynamic())["sidebar"]("show");
   ScalaJS.modules.org_denigma_extensions_package().AnyJs__Lscala_scalajs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(ScalaJS.protect(ScalaJS.g["jQuery"])(".left.sidebar")).dyn__Lscala_scalajs_js_Dynamic()["sidebar"](this.sidebarParams__Lscala_scalajs_js_Dynamic())["sidebar"]("show")
@@ -52728,10 +52744,10 @@ ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype.init___ = (function()
 });
 ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype["main"] = (function(arg$1) {
   switch (arguments.length) {
-    case 1:
-      return this.$$js$exported$meth$main__AT__O(arg$1);
     case 0:
       return this.$$js$exported$meth$main__O();
+    case 1:
+      return this.$$js$exported$meth$main__AT__O(arg$1);
     default:
       throw "No matching overload";
   }
@@ -52907,7 +52923,7 @@ ScalaJS.c.org_denigma_binding_frontend_slides_BindSlide.prototype.scala$undcode_
   return this.scala$undcode$5
 });
 ScalaJS.c.org_denigma_binding_frontend_slides_BindSlide.prototype.init___Lorg_scalajs_dom_HTMLElement__Lscala_collection_immutable_Map = (function(element, params) {
-  ScalaJS.c.org_denigma_views_OrdinaryView.prototype.init___T__Lorg_scalajs_dom_HTMLElement.call(this, "slide", element);
+  ScalaJS.c.org_denigma_views_OrdinaryView.prototype.init___T__Lorg_scalajs_dom_HTMLElement.call(this, "bind", element);
   this.html$undcode$5 = ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply__Lscala_Function0__T__Lrx_core_Var(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function() {
     return (function() {
       return new ScalaJS.c.scala_collection_immutable_StringOps().init___T(ScalaJS.modules.scala_Predef().augmentString__T__T("\n      |<section class=\"ui\" data-view=\"random\">\n      |\n      |    <section data-html=\"counting\"></section>\n      |    <h1 class=\"ui purple large header\" data-bind=\"bar\"></h1>\n      |\n      |    <div class=\"ui two column grid\">\n      |        <section class=\"row\">\n      |            <div class=\"column\">\n      |                <input class=\"ui input\" data-bind=\"foo\">\n      |                <textarea class=\"ui textarea\" data-bind=\"foo\"></textarea>\n      |            </div>\n      |            <div class=\"column\">\n      |                <textarea class=\"ui textarea\" data-bind=\"bar\"></textarea>\n      |                <input class=\"ui input\"  data-bind=\"bar\">\n      |            </div>\n      |\n      |        </section>\n      |\n      |\n      |\n      |    </div>\n      |\n      |    <h1 class=\"ui teal large header\" data-bind=\"foo\"></h1>\n      |\n      |\n      |</section>\n    ")).stripMargin__T()
@@ -58513,8 +58529,8 @@ ScalaJS.c.org_denigma_binding_frontend_MenuView.prototype.bindView__Lorg_scalajs
       matchEnd5: {
         if (ScalaJS.is.scala_util_Success(x1)) {
           var x2 = ScalaJS.as.scala_util_Success(x1);
-          var data = ScalaJS.as.models_Menu(x2.value__O());
-          arg$outer.menu__Lrx_core_Var().update__Lscala_Function0__Lrx_core_Propagator__O(new ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$apply$2().init___Lorg_denigma_binding_frontend_MenuView$$anonfun$bindView$1__Lmodels_Menu(this, data), ScalaJS.modules.rx_core_Propagator$Immediate());
+          var data = ScalaJS.as.org_denigma_binding_models_Menu(x2.value__O());
+          arg$outer.menu__Lrx_core_Var().update__Lscala_Function0__Lrx_core_Propagator__O(new ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$bindView$1$$anonfun$apply$2().init___Lorg_denigma_binding_frontend_MenuView$$anonfun$bindView$1__Lorg_denigma_binding_models_Menu(this, data), ScalaJS.modules.rx_core_Propagator$Immediate());
           arg$outer.org$denigma$binding$frontend$MenuView$$super$bindView__Lorg_scalajs_dom_HTMLElement__V(el$1);
           ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
           break matchEnd5
@@ -58581,18 +58597,18 @@ ScalaJS.c.org_denigma_binding_frontend_MenuView.prototype.init___Lorg_scalajs_do
   })())));
   this.fromFuture$6 = new ScalaJS.c.scala_scalajs_runtime_AnonFunction1().init___Lscala_scalajs_js_Function1((function() {
     return (function(str) {
-      ScalaJS.modules.models_RegisterPicklers().registerPicklers__V();
+      ScalaJS.modules.shared_RegisterPicklers().registerPicklers__V();
       return ScalaJS.modules.org_denigma_extensions_sq().get__T__I__Lscala_collection_Seq__Z__Lscala_concurrent_Future(ScalaJS.modules.org_denigma_extensions_sq().withHost__T__T(str), ScalaJS.modules.org_denigma_extensions_sq().get$default$2__I(), ScalaJS.modules.org_denigma_extensions_sq().get$default$3__Lscala_collection_Seq(), ScalaJS.modules.org_denigma_extensions_sq().get$default$4__Z())
     })
   })());
   this.menu$6 = ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply__Lscala_Function0__T__Lrx_core_Var(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function() {
     return (function() {
-      return new ScalaJS.c.models_Menu().init___Lorg_scalax_semweb_rdf_IRI__T__Lscala_collection_immutable_List(new ScalaJS.c.org_scalax_semweb_rdf_IRI().init___T(new ScalaJS.c.scala_StringContext().init___Lscala_collection_Seq(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_String.getArrayOf(), ["http://", ""]), 1))).s__Lscala_collection_Seq__T(ScalaJS.modules.scala_Predef().genericWrapArray__O__Lscala_collection_mutable_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_Object.getArrayOf(), [ScalaJS.g["window"]["location"]["host"]])))), ScalaJS.g["window"]["location"]["host"], ScalaJS.modules.scala_collection_immutable_List().empty__Lscala_collection_immutable_List())
+      return new ScalaJS.c.org_denigma_binding_models_Menu().init___Lorg_scalax_semweb_rdf_IRI__T__Lscala_collection_immutable_List(new ScalaJS.c.org_scalax_semweb_rdf_IRI().init___T(new ScalaJS.c.scala_StringContext().init___Lscala_collection_Seq(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_String.getArrayOf(), ["http://", ""]), 1))).s__Lscala_collection_Seq__T(ScalaJS.modules.scala_Predef().genericWrapArray__O__Lscala_collection_mutable_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_Object.getArrayOf(), [ScalaJS.g["window"]["location"]["host"]])))), ScalaJS.g["window"]["location"]["host"], ScalaJS.modules.scala_collection_immutable_List().empty__Lscala_collection_immutable_List())
     })
   })()), ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply$default$2__T());
   this.items$6 = ScalaJS.modules.rx_package().Rx__Lrx_core_Rx$().apply__Lscala_Function0__Lrx_core_Rx(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function(arg$outer) {
     return (function() {
-      return ScalaJS.as.scala_collection_immutable_List(ScalaJS.as.models_Menu(arg$outer.menu__Lrx_core_Var().apply__O()).children__Lscala_collection_immutable_List().map__Lscala_Function1__Lscala_collection_generic_CanBuildFrom__O(new ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$5$$anonfun$apply$1().init___Lorg_denigma_binding_frontend_MenuView$$anonfun$5(this), ScalaJS.modules.scala_collection_immutable_List().canBuildFrom__Lscala_collection_generic_CanBuildFrom()))
+      return ScalaJS.as.scala_collection_immutable_List(ScalaJS.as.org_denigma_binding_models_Menu(arg$outer.menu__Lrx_core_Var().apply__O()).children__Lscala_collection_immutable_List().map__Lscala_Function1__Lscala_collection_generic_CanBuildFrom__O(new ScalaJS.c.org_denigma_binding_frontend_MenuView$$anonfun$5$$anonfun$apply$1().init___Lorg_denigma_binding_frontend_MenuView$$anonfun$5(this), ScalaJS.modules.scala_collection_immutable_List().canBuildFrom__Lscala_collection_generic_CanBuildFrom()))
     })
   })(this)));
   return this

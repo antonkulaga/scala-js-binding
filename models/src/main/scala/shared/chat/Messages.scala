@@ -1,5 +1,4 @@
-package models
-
+package shared.chat
 
 //NOTE: not yet used anywhere
 

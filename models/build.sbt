@@ -6,6 +6,7 @@ import scala.scalajs.sbtplugin
 import bintray.Plugin.bintraySettings
 import bintray.Keys._
 
+scalaJSSettings
 
 Build.sameSettings
 
@@ -15,7 +16,8 @@ version := "0.0.1"
 
 ScalaJSKeys.relativeSourceMaps := true
 
-libraryDependencies +=  "org.scalax" %% "semweb" % Build.semWebVersion
+
+libraryDependencies +=  "org.scalax" %% "semweb" % (Build.semWebVersion + "-JS")
 
 libraryDependencies += "org.scalajs" %% "scalajs-pickling" % "0.2"
 
