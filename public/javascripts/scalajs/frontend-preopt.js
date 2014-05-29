@@ -8854,6 +8854,202 @@ ScalaJS.data.org_denigma_binding_frontend_tests_RandomView$$anon$4 = new ScalaJS
   java_lang_Object: 1
 });
 ScalaJS.c.org_denigma_binding_frontend_tests_RandomView$$anon$4.prototype.$classData = ScalaJS.data.org_denigma_binding_frontend_tests_RandomView$$anon$4;
+/** @constructor */
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$1 = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$1.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$1.prototype.constructor = ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$1;
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$1.prototype.asTagRxMap__Lorg_denigma_binding_frontend_tools_CodeView__Lscala_collection_immutable_Map = (function(t) {
+  return ScalaJS.as.scala_collection_immutable_Map(ScalaJS.modules.scala_collection_immutable_Map().apply__Lscala_collection_Seq__Lscala_collection_GenMap(ScalaJS.modules.scala_collection_immutable_Nil()))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$1.prototype.asTagRxMap__O__Lscala_collection_immutable_Map = (function(t) {
+  return this.asTagRxMap__Lorg_denigma_binding_frontend_tools_CodeView__Lscala_collection_immutable_Map(ScalaJS.as.org_denigma_binding_frontend_tools_CodeView(t))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$1.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.org_denigma_binding_frontend_tools_CodeView$$anon$1 = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.org_denigma_binding_frontend_tools_CodeView$$anon$1.prototype = ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$1.prototype;
+ScalaJS.is.org_denigma_binding_frontend_tools_CodeView$$anon$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_binding_frontend_tools_CodeView$$anon$1)))
+});
+ScalaJS.as.org_denigma_binding_frontend_tools_CodeView$$anon$1 = (function(obj) {
+  if ((ScalaJS.is.org_denigma_binding_frontend_tools_CodeView$$anon$1(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$1")
+  }
+});
+ScalaJS.isArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_binding_frontend_tools_CodeView$$anon$1)))
+});
+ScalaJS.asArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$1(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$1;", depth)
+  }
+});
+ScalaJS.data.org_denigma_binding_frontend_tools_CodeView$$anon$1 = new ScalaJS.ClassTypeData({
+  org_denigma_binding_frontend_tools_CodeView$$anon$1: 0
+}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$1", ScalaJS.data.java_lang_Object, {
+  org_denigma_binding_frontend_tools_CodeView$$anon$1: 1,
+  org_denigma_binding_macroses_TagRxMap: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$1.prototype.$classData = ScalaJS.data.org_denigma_binding_frontend_tools_CodeView$$anon$1;
+/** @constructor */
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$2 = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$2.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$2.prototype.constructor = ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$2;
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$2.prototype.asStringRxMap__Lorg_denigma_binding_frontend_tools_CodeView__Lscala_collection_immutable_Map = (function(t$3) {
+  return ScalaJS.as.scala_collection_immutable_Map(ScalaJS.modules.scala_collection_immutable_Map().apply__Lscala_collection_Seq__Lscala_collection_GenMap(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.scala_Tuple2.getArrayOf(), [ScalaJS.modules.scala_Predef$ArrowAssoc().$$minus$greater$extension__O__O__Lscala_Tuple2(ScalaJS.modules.scala_Predef().any2ArrowAssoc__O__O("code"), t$3.code__Lrx_core_Var())]), 1))))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$2.prototype.asStringRxMap__O__Lscala_collection_immutable_Map = (function(t) {
+  return this.asStringRxMap__Lorg_denigma_binding_frontend_tools_CodeView__Lscala_collection_immutable_Map(ScalaJS.as.org_denigma_binding_frontend_tools_CodeView(t))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$2.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.org_denigma_binding_frontend_tools_CodeView$$anon$2 = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.org_denigma_binding_frontend_tools_CodeView$$anon$2.prototype = ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$2.prototype;
+ScalaJS.is.org_denigma_binding_frontend_tools_CodeView$$anon$2 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_binding_frontend_tools_CodeView$$anon$2)))
+});
+ScalaJS.as.org_denigma_binding_frontend_tools_CodeView$$anon$2 = (function(obj) {
+  if ((ScalaJS.is.org_denigma_binding_frontend_tools_CodeView$$anon$2(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$2")
+  }
+});
+ScalaJS.isArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$2 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_binding_frontend_tools_CodeView$$anon$2)))
+});
+ScalaJS.asArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$2 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$2(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$2;", depth)
+  }
+});
+ScalaJS.data.org_denigma_binding_frontend_tools_CodeView$$anon$2 = new ScalaJS.ClassTypeData({
+  org_denigma_binding_frontend_tools_CodeView$$anon$2: 0
+}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$2", ScalaJS.data.java_lang_Object, {
+  org_denigma_binding_frontend_tools_CodeView$$anon$2: 1,
+  org_denigma_binding_macroses_StringRxMap: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$2.prototype.$classData = ScalaJS.data.org_denigma_binding_frontend_tools_CodeView$$anon$2;
+/** @constructor */
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$3 = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$3.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$3.prototype.constructor = ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$3;
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$3.prototype.asBooleanRxMap__Lorg_denigma_binding_frontend_tools_CodeView__Lscala_collection_immutable_Map = (function(t$3) {
+  return ScalaJS.as.scala_collection_immutable_Map(ScalaJS.modules.scala_collection_immutable_Map().apply__Lscala_collection_Seq__Lscala_collection_GenMap(ScalaJS.modules.scala_collection_immutable_Nil()))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$3.prototype.asBooleanRxMap__O__Lscala_collection_immutable_Map = (function(t) {
+  return this.asBooleanRxMap__Lorg_denigma_binding_frontend_tools_CodeView__Lscala_collection_immutable_Map(ScalaJS.as.org_denigma_binding_frontend_tools_CodeView(t))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$3.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.org_denigma_binding_frontend_tools_CodeView$$anon$3 = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.org_denigma_binding_frontend_tools_CodeView$$anon$3.prototype = ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$3.prototype;
+ScalaJS.is.org_denigma_binding_frontend_tools_CodeView$$anon$3 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_binding_frontend_tools_CodeView$$anon$3)))
+});
+ScalaJS.as.org_denigma_binding_frontend_tools_CodeView$$anon$3 = (function(obj) {
+  if ((ScalaJS.is.org_denigma_binding_frontend_tools_CodeView$$anon$3(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$3")
+  }
+});
+ScalaJS.isArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$3 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_binding_frontend_tools_CodeView$$anon$3)))
+});
+ScalaJS.asArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$3 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$3(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$3;", depth)
+  }
+});
+ScalaJS.data.org_denigma_binding_frontend_tools_CodeView$$anon$3 = new ScalaJS.ClassTypeData({
+  org_denigma_binding_frontend_tools_CodeView$$anon$3: 0
+}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$3", ScalaJS.data.java_lang_Object, {
+  org_denigma_binding_frontend_tools_CodeView$$anon$3: 1,
+  org_denigma_binding_macroses_BooleanRxMap: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$3.prototype.$classData = ScalaJS.data.org_denigma_binding_frontend_tools_CodeView$$anon$3;
+/** @constructor */
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$4 = (function() {
+  ScalaJS.c.java_lang_Object.call(this)
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$4.prototype = new ScalaJS.inheritable.java_lang_Object();
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$4.prototype.constructor = ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$4;
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$4.prototype.asMouseEventMap__Lorg_denigma_binding_frontend_tools_CodeView__Lscala_collection_immutable_Map = (function(t$3) {
+  return ScalaJS.as.scala_collection_immutable_Map(ScalaJS.modules.scala_collection_immutable_Map().apply__Lscala_collection_Seq__Lscala_collection_GenMap(ScalaJS.modules.scala_collection_immutable_Nil()))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$4.prototype.asMouseEventMap__O__Lscala_collection_immutable_Map = (function(t) {
+  return this.asMouseEventMap__Lorg_denigma_binding_frontend_tools_CodeView__Lscala_collection_immutable_Map(ScalaJS.as.org_denigma_binding_frontend_tools_CodeView(t))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$4.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.org_denigma_binding_frontend_tools_CodeView$$anon$4 = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.org_denigma_binding_frontend_tools_CodeView$$anon$4.prototype = ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$4.prototype;
+ScalaJS.is.org_denigma_binding_frontend_tools_CodeView$$anon$4 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_binding_frontend_tools_CodeView$$anon$4)))
+});
+ScalaJS.as.org_denigma_binding_frontend_tools_CodeView$$anon$4 = (function(obj) {
+  if ((ScalaJS.is.org_denigma_binding_frontend_tools_CodeView$$anon$4(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$4")
+  }
+});
+ScalaJS.isArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$4 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_binding_frontend_tools_CodeView$$anon$4)))
+});
+ScalaJS.asArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$4 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.org_denigma_binding_frontend_tools_CodeView$$anon$4(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$4;", depth)
+  }
+});
+ScalaJS.data.org_denigma_binding_frontend_tools_CodeView$$anon$4 = new ScalaJS.ClassTypeData({
+  org_denigma_binding_frontend_tools_CodeView$$anon$4: 0
+}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$4", ScalaJS.data.java_lang_Object, {
+  org_denigma_binding_frontend_tools_CodeView$$anon$4: 1,
+  org_denigma_binding_macroses_MouseEventMap: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$4.prototype.$classData = ScalaJS.data.org_denigma_binding_frontend_tools_CodeView$$anon$4;
 ScalaJS.is.org_denigma_binding_macroses_BooleanRxMap = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_binding_macroses_BooleanRxMap)))
 });
@@ -9932,202 +10128,6 @@ ScalaJS.data.org_denigma_views_BindingView$JustView$$anon$4 = new ScalaJS.ClassT
   java_lang_Object: 1
 });
 ScalaJS.c.org_denigma_views_BindingView$JustView$$anon$4.prototype.$classData = ScalaJS.data.org_denigma_views_BindingView$JustView$$anon$4;
-/** @constructor */
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$1 = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$1.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$1.prototype.constructor = ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$1;
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$1.prototype.asTagRxMap__Lorg_denigma_views_CodeMirrorView__Lscala_collection_immutable_Map = (function(t) {
-  return ScalaJS.as.scala_collection_immutable_Map(ScalaJS.modules.scala_collection_immutable_Map().apply__Lscala_collection_Seq__Lscala_collection_GenMap(ScalaJS.modules.scala_collection_immutable_Nil()))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$1.prototype.asTagRxMap__O__Lscala_collection_immutable_Map = (function(t) {
-  return this.asTagRxMap__Lorg_denigma_views_CodeMirrorView__Lscala_collection_immutable_Map(ScalaJS.as.org_denigma_views_CodeMirrorView(t))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$1.prototype.init___Lorg_denigma_views_CodeMirrorView = (function($$outer) {
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.org_denigma_views_CodeMirrorView$$anon$1 = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.org_denigma_views_CodeMirrorView$$anon$1.prototype = ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$1.prototype;
-ScalaJS.is.org_denigma_views_CodeMirrorView$$anon$1 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_views_CodeMirrorView$$anon$1)))
-});
-ScalaJS.as.org_denigma_views_CodeMirrorView$$anon$1 = (function(obj) {
-  if ((ScalaJS.is.org_denigma_views_CodeMirrorView$$anon$1(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.views.CodeMirrorView$$anon$1")
-  }
-});
-ScalaJS.isArrayOf.org_denigma_views_CodeMirrorView$$anon$1 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_views_CodeMirrorView$$anon$1)))
-});
-ScalaJS.asArrayOf.org_denigma_views_CodeMirrorView$$anon$1 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.org_denigma_views_CodeMirrorView$$anon$1(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.CodeMirrorView$$anon$1;", depth)
-  }
-});
-ScalaJS.data.org_denigma_views_CodeMirrorView$$anon$1 = new ScalaJS.ClassTypeData({
-  org_denigma_views_CodeMirrorView$$anon$1: 0
-}, false, "org.denigma.views.CodeMirrorView$$anon$1", ScalaJS.data.java_lang_Object, {
-  org_denigma_views_CodeMirrorView$$anon$1: 1,
-  org_denigma_binding_macroses_TagRxMap: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$1.prototype.$classData = ScalaJS.data.org_denigma_views_CodeMirrorView$$anon$1;
-/** @constructor */
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$2 = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$2.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$2.prototype.constructor = ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$2;
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$2.prototype.asStringRxMap__Lorg_denigma_views_CodeMirrorView__Lscala_collection_immutable_Map = (function(t$3) {
-  return ScalaJS.as.scala_collection_immutable_Map(ScalaJS.modules.scala_collection_immutable_Map().apply__Lscala_collection_Seq__Lscala_collection_GenMap(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.scala_Tuple2.getArrayOf(), [ScalaJS.modules.scala_Predef$ArrowAssoc().$$minus$greater$extension__O__O__Lscala_Tuple2(ScalaJS.modules.scala_Predef().any2ArrowAssoc__O__O("code"), t$3.code__Lrx_core_Var())]), 1))))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$2.prototype.asStringRxMap__O__Lscala_collection_immutable_Map = (function(t) {
-  return this.asStringRxMap__Lorg_denigma_views_CodeMirrorView__Lscala_collection_immutable_Map(ScalaJS.as.org_denigma_views_CodeMirrorView(t))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$2.prototype.init___Lorg_denigma_views_CodeMirrorView = (function($$outer) {
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.org_denigma_views_CodeMirrorView$$anon$2 = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.org_denigma_views_CodeMirrorView$$anon$2.prototype = ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$2.prototype;
-ScalaJS.is.org_denigma_views_CodeMirrorView$$anon$2 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_views_CodeMirrorView$$anon$2)))
-});
-ScalaJS.as.org_denigma_views_CodeMirrorView$$anon$2 = (function(obj) {
-  if ((ScalaJS.is.org_denigma_views_CodeMirrorView$$anon$2(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.views.CodeMirrorView$$anon$2")
-  }
-});
-ScalaJS.isArrayOf.org_denigma_views_CodeMirrorView$$anon$2 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_views_CodeMirrorView$$anon$2)))
-});
-ScalaJS.asArrayOf.org_denigma_views_CodeMirrorView$$anon$2 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.org_denigma_views_CodeMirrorView$$anon$2(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.CodeMirrorView$$anon$2;", depth)
-  }
-});
-ScalaJS.data.org_denigma_views_CodeMirrorView$$anon$2 = new ScalaJS.ClassTypeData({
-  org_denigma_views_CodeMirrorView$$anon$2: 0
-}, false, "org.denigma.views.CodeMirrorView$$anon$2", ScalaJS.data.java_lang_Object, {
-  org_denigma_views_CodeMirrorView$$anon$2: 1,
-  org_denigma_binding_macroses_StringRxMap: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$2.prototype.$classData = ScalaJS.data.org_denigma_views_CodeMirrorView$$anon$2;
-/** @constructor */
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$3 = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$3.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$3.prototype.constructor = ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$3;
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$3.prototype.asBooleanRxMap__Lorg_denigma_views_CodeMirrorView__Lscala_collection_immutable_Map = (function(t$3) {
-  return ScalaJS.as.scala_collection_immutable_Map(ScalaJS.modules.scala_collection_immutable_Map().apply__Lscala_collection_Seq__Lscala_collection_GenMap(ScalaJS.modules.scala_collection_immutable_Nil()))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$3.prototype.asBooleanRxMap__O__Lscala_collection_immutable_Map = (function(t) {
-  return this.asBooleanRxMap__Lorg_denigma_views_CodeMirrorView__Lscala_collection_immutable_Map(ScalaJS.as.org_denigma_views_CodeMirrorView(t))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$3.prototype.init___Lorg_denigma_views_CodeMirrorView = (function($$outer) {
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.org_denigma_views_CodeMirrorView$$anon$3 = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.org_denigma_views_CodeMirrorView$$anon$3.prototype = ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$3.prototype;
-ScalaJS.is.org_denigma_views_CodeMirrorView$$anon$3 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_views_CodeMirrorView$$anon$3)))
-});
-ScalaJS.as.org_denigma_views_CodeMirrorView$$anon$3 = (function(obj) {
-  if ((ScalaJS.is.org_denigma_views_CodeMirrorView$$anon$3(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.views.CodeMirrorView$$anon$3")
-  }
-});
-ScalaJS.isArrayOf.org_denigma_views_CodeMirrorView$$anon$3 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_views_CodeMirrorView$$anon$3)))
-});
-ScalaJS.asArrayOf.org_denigma_views_CodeMirrorView$$anon$3 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.org_denigma_views_CodeMirrorView$$anon$3(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.CodeMirrorView$$anon$3;", depth)
-  }
-});
-ScalaJS.data.org_denigma_views_CodeMirrorView$$anon$3 = new ScalaJS.ClassTypeData({
-  org_denigma_views_CodeMirrorView$$anon$3: 0
-}, false, "org.denigma.views.CodeMirrorView$$anon$3", ScalaJS.data.java_lang_Object, {
-  org_denigma_views_CodeMirrorView$$anon$3: 1,
-  org_denigma_binding_macroses_BooleanRxMap: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$3.prototype.$classData = ScalaJS.data.org_denigma_views_CodeMirrorView$$anon$3;
-/** @constructor */
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$4 = (function() {
-  ScalaJS.c.java_lang_Object.call(this)
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$4.prototype = new ScalaJS.inheritable.java_lang_Object();
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$4.prototype.constructor = ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$4;
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$4.prototype.asMouseEventMap__Lorg_denigma_views_CodeMirrorView__Lscala_collection_immutable_Map = (function(t$3) {
-  return ScalaJS.as.scala_collection_immutable_Map(ScalaJS.modules.scala_collection_immutable_Map().apply__Lscala_collection_Seq__Lscala_collection_GenMap(ScalaJS.modules.scala_collection_immutable_Nil()))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$4.prototype.asMouseEventMap__O__Lscala_collection_immutable_Map = (function(t) {
-  return this.asMouseEventMap__Lorg_denigma_views_CodeMirrorView__Lscala_collection_immutable_Map(ScalaJS.as.org_denigma_views_CodeMirrorView(t))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$4.prototype.init___Lorg_denigma_views_CodeMirrorView = (function($$outer) {
-  ScalaJS.c.java_lang_Object.prototype.init___.call(this);
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.org_denigma_views_CodeMirrorView$$anon$4 = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.org_denigma_views_CodeMirrorView$$anon$4.prototype = ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$4.prototype;
-ScalaJS.is.org_denigma_views_CodeMirrorView$$anon$4 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_views_CodeMirrorView$$anon$4)))
-});
-ScalaJS.as.org_denigma_views_CodeMirrorView$$anon$4 = (function(obj) {
-  if ((ScalaJS.is.org_denigma_views_CodeMirrorView$$anon$4(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.views.CodeMirrorView$$anon$4")
-  }
-});
-ScalaJS.isArrayOf.org_denigma_views_CodeMirrorView$$anon$4 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_views_CodeMirrorView$$anon$4)))
-});
-ScalaJS.asArrayOf.org_denigma_views_CodeMirrorView$$anon$4 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.org_denigma_views_CodeMirrorView$$anon$4(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.CodeMirrorView$$anon$4;", depth)
-  }
-});
-ScalaJS.data.org_denigma_views_CodeMirrorView$$anon$4 = new ScalaJS.ClassTypeData({
-  org_denigma_views_CodeMirrorView$$anon$4: 0
-}, false, "org.denigma.views.CodeMirrorView$$anon$4", ScalaJS.data.java_lang_Object, {
-  org_denigma_views_CodeMirrorView$$anon$4: 1,
-  org_denigma_binding_macroses_MouseEventMap: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$4.prototype.$classData = ScalaJS.data.org_denigma_views_CodeMirrorView$$anon$4;
 /** @constructor */
 ScalaJS.c.org_denigma_views_ListView$ = (function() {
   ScalaJS.c.java_lang_Object.call(this)
@@ -35056,11 +35056,11 @@ ScalaJS.c.org_denigma_binding_frontend_FrontEnd$$anonfun$9$$anonfun$apply$8 = (f
 });
 ScalaJS.c.org_denigma_binding_frontend_FrontEnd$$anonfun$9$$anonfun$apply$8.prototype = new ScalaJS.inheritable.scala_runtime_AbstractFunction0();
 ScalaJS.c.org_denigma_binding_frontend_FrontEnd$$anonfun$9$$anonfun$apply$8.prototype.constructor = ScalaJS.c.org_denigma_binding_frontend_FrontEnd$$anonfun$9$$anonfun$apply$8;
-ScalaJS.c.org_denigma_binding_frontend_FrontEnd$$anonfun$9$$anonfun$apply$8.prototype.apply__Lorg_denigma_views_CodeMirrorView = (function() {
-  return new ScalaJS.c.org_denigma_views_CodeMirrorView().init___Lorg_scalajs_dom_HTMLElement__Lscala_collection_immutable_Map(this.el$8$2, this.params$8$2)
+ScalaJS.c.org_denigma_binding_frontend_FrontEnd$$anonfun$9$$anonfun$apply$8.prototype.apply__Lorg_denigma_binding_frontend_tools_CodeView = (function() {
+  return new ScalaJS.c.org_denigma_binding_frontend_tools_CodeView().init___Lorg_scalajs_dom_HTMLElement__Lscala_collection_immutable_Map(this.el$8$2, this.params$8$2)
 });
 ScalaJS.c.org_denigma_binding_frontend_FrontEnd$$anonfun$9$$anonfun$apply$8.prototype.apply__O = (function() {
-  return this.apply__Lorg_denigma_views_CodeMirrorView()
+  return this.apply__Lorg_denigma_binding_frontend_tools_CodeView()
 });
 ScalaJS.c.org_denigma_binding_frontend_FrontEnd$$anonfun$9$$anonfun$apply$8.prototype.init___Lorg_denigma_binding_frontend_FrontEnd$$anonfun$9__Lorg_scalajs_dom_HTMLElement__Lscala_collection_immutable_Map = (function($$outer, el$8, params$8) {
   this.el$8$2 = el$8;
@@ -53256,119 +53256,6 @@ ScalaJS.data.org_denigma_views_BindingView$JustView = new ScalaJS.ClassTypeData(
 });
 ScalaJS.c.org_denigma_views_BindingView$JustView.prototype.$classData = ScalaJS.data.org_denigma_views_BindingView$JustView;
 /** @constructor */
-ScalaJS.c.org_denigma_views_CodeMirrorView = (function() {
-  ScalaJS.c.org_denigma_views_OrdinaryView.call(this);
-  this.code$5 = null;
-  this.mode$5 = null
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype = new ScalaJS.inheritable.org_denigma_views_OrdinaryView();
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype.constructor = ScalaJS.c.org_denigma_views_CodeMirrorView;
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype.tags__Lscala_collection_immutable_Map = (function() {
-  return this.extractTagRx__O__Lorg_denigma_binding_macroses_TagRxMap__Lscala_collection_immutable_Map(this, new ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$1().init___Lorg_denigma_views_CodeMirrorView(this))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype.strings__Lscala_collection_immutable_Map = (function() {
-  return this.extractStringRx__O__Lorg_denigma_binding_macroses_StringRxMap__Lscala_collection_immutable_Map(this, new ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$2().init___Lorg_denigma_views_CodeMirrorView(this))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype.bools__Lscala_collection_immutable_Map = (function() {
-  return this.extractBooleanRx__O__Lorg_denigma_binding_macroses_BooleanRxMap__Lscala_collection_immutable_Map(this, new ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$3().init___Lorg_denigma_views_CodeMirrorView(this))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype.mouseEvents__Lscala_collection_immutable_Map = (function() {
-  return this.extractMouseEvens__O__Lorg_denigma_binding_macroses_MouseEventMap__Lscala_collection_immutable_Map(this, new ScalaJS.c.org_denigma_views_CodeMirrorView$$anon$4().init___Lorg_denigma_views_CodeMirrorView(this))
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype.code__Lrx_core_Var = (function() {
-  return this.code$5
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype.mode__T = (function() {
-  return this.mode$5
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
-  ScalaJS.c.org_denigma_views_BindingView.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V.call(this, el);
-  var x1 = el;
-  matchEnd4: {
-    if ((x1 instanceof ScalaJS.g["HTMLTextAreaElement"])) {
-      var x2 = x1;
-      var params = {
-        "mode": this.mode__T(),
-        "lineNumbers": true,
-        "value": this.code__Lrx_core_Var().apply__O()
-      };
-      var m = ScalaJS.g["CodeMirror"]["fromTextArea"](x2, params);
-      ScalaJS.modules.rx_package().Rx__Lrx_core_Rx$().apply__Lscala_Function0__Lrx_core_Rx(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function(arg$outer, m$1) {
-        return (function() {
-          m$1["getDoc"]()["setValue"](ScalaJS.as.java_lang_String(arg$outer.code__Lrx_core_Var().apply__O()));
-          return ScalaJS.bV(undefined)
-        })
-      })(this, m)));
-      ScalaJS.g["console"]["log"]("code mirror has started!");
-      ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-      break matchEnd4
-    };
-    ScalaJS.g["console"]["log"]("it is not a text area!");
-    ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
-    break matchEnd4
-  }
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype.init___Lorg_scalajs_dom_HTMLElement__Lscala_collection_immutable_Map = (function(element, params) {
-  ScalaJS.c.org_denigma_views_OrdinaryView.prototype.init___T__Lorg_scalajs_dom_HTMLElement.call(this, "CodeView", element);
-  this.code$5 = ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply__Lscala_Function0__T__Lrx_core_Var(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function() {
-    return (function() {
-      return ""
-    })
-  })()), ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply$default$2__T());
-  this.mode$5 = ScalaJS.as.java_lang_String(params.get__O__Lscala_Option("mode").fold__Lscala_Function0__Lscala_Function1__O(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function() {
-    return (function() {
-      return "htmlmixed"
-    })
-  })()), new ScalaJS.c.scala_scalajs_runtime_AnonFunction1().init___Lscala_scalajs_js_Function1((function() {
-    return (function(x$1) {
-      return ScalaJS.objectToString(x$1)
-    })
-  })())));
-  return this
-});
-/** @constructor */
-ScalaJS.inheritable.org_denigma_views_CodeMirrorView = (function() {
-  /*<skip>*/
-});
-ScalaJS.inheritable.org_denigma_views_CodeMirrorView.prototype = ScalaJS.c.org_denigma_views_CodeMirrorView.prototype;
-ScalaJS.is.org_denigma_views_CodeMirrorView = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_views_CodeMirrorView)))
-});
-ScalaJS.as.org_denigma_views_CodeMirrorView = (function(obj) {
-  if ((ScalaJS.is.org_denigma_views_CodeMirrorView(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.views.CodeMirrorView")
-  }
-});
-ScalaJS.isArrayOf.org_denigma_views_CodeMirrorView = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_views_CodeMirrorView)))
-});
-ScalaJS.asArrayOf.org_denigma_views_CodeMirrorView = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.org_denigma_views_CodeMirrorView(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.CodeMirrorView;", depth)
-  }
-});
-ScalaJS.data.org_denigma_views_CodeMirrorView = new ScalaJS.ClassTypeData({
-  org_denigma_views_CodeMirrorView: 0
-}, false, "org.denigma.views.CodeMirrorView", ScalaJS.data.org_denigma_views_OrdinaryView, {
-  org_denigma_views_CodeMirrorView: 1,
-  org_denigma_views_OrdinaryView: 1,
-  org_denigma_binding_EventBinding: 1,
-  org_denigma_binding_ScalaTagsBinder: 1,
-  org_denigma_views_OrganizedView: 1,
-  org_denigma_binding_GeneralBinding: 1,
-  org_denigma_binding_PropertyBinder: 1,
-  org_denigma_binding_ClassBinder: 1,
-  org_denigma_binding_VisibilityBinder: 1,
-  org_denigma_views_BindingView: 1,
-  org_denigma_binding_JustBinding: 1,
-  java_lang_Object: 1
-});
-ScalaJS.c.org_denigma_views_CodeMirrorView.prototype.$classData = ScalaJS.data.org_denigma_views_CodeMirrorView;
-/** @constructor */
 ScalaJS.c.org_denigma_views_ListView = (function() {
   ScalaJS.c.org_denigma_views_OrdinaryView.call(this);
   this.org$denigma$views$ListView$$element$f = null;
@@ -53697,6 +53584,107 @@ ScalaJS.data.org_denigma_views_MapView = new ScalaJS.ClassTypeData({
   java_lang_Object: 1
 });
 ScalaJS.c.org_denigma_views_MapView.prototype.$classData = ScalaJS.data.org_denigma_views_MapView;
+/** @constructor */
+ScalaJS.c.org_denigma_views_tools_CodeMirrorView = (function() {
+  ScalaJS.c.org_denigma_views_OrdinaryView.call(this);
+  this.code$5 = null;
+  this.mode$5 = null
+});
+ScalaJS.c.org_denigma_views_tools_CodeMirrorView.prototype = new ScalaJS.inheritable.org_denigma_views_OrdinaryView();
+ScalaJS.c.org_denigma_views_tools_CodeMirrorView.prototype.constructor = ScalaJS.c.org_denigma_views_tools_CodeMirrorView;
+ScalaJS.c.org_denigma_views_tools_CodeMirrorView.prototype.code__Lrx_core_Var = (function() {
+  return this.code$5
+});
+ScalaJS.c.org_denigma_views_tools_CodeMirrorView.prototype.mode__T = (function() {
+  return this.mode$5
+});
+ScalaJS.c.org_denigma_views_tools_CodeMirrorView.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
+  ScalaJS.c.org_denigma_views_BindingView.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V.call(this, el);
+  var x1 = el;
+  matchEnd4: {
+    if ((x1 instanceof ScalaJS.g["HTMLTextAreaElement"])) {
+      var x2 = x1;
+      var params = {
+        "mode": this.mode__T(),
+        "lineNumbers": true,
+        "value": this.code__Lrx_core_Var().apply__O()
+      };
+      var m = ScalaJS.g["CodeMirror"]["fromTextArea"](x2, params);
+      ScalaJS.modules.rx_package().Rx__Lrx_core_Rx$().apply__Lscala_Function0__Lrx_core_Rx(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function(arg$outer, m$1) {
+        return (function() {
+          m$1["getDoc"]()["setValue"](ScalaJS.as.java_lang_String(arg$outer.code__Lrx_core_Var().apply__O()));
+          return ScalaJS.bV(undefined)
+        })
+      })(this, m)));
+      ScalaJS.g["console"]["log"]("code mirror has started!");
+      ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+      break matchEnd4
+    };
+    ScalaJS.g["console"]["log"]("it is not a text area!");
+    ScalaJS.modules.scala_runtime_BoxedUnit().UNIT__Lscala_runtime_BoxedUnit();
+    break matchEnd4
+  }
+});
+ScalaJS.c.org_denigma_views_tools_CodeMirrorView.prototype.init___T__Lorg_scalajs_dom_HTMLElement__Lscala_collection_immutable_Map = (function(name, element, params) {
+  ScalaJS.c.org_denigma_views_OrdinaryView.prototype.init___T__Lorg_scalajs_dom_HTMLElement.call(this, name, element);
+  this.code$5 = ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply__Lscala_Function0__T__Lrx_core_Var(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function() {
+    return (function() {
+      return ""
+    })
+  })()), ScalaJS.modules.rx_package().Var__Lrx_core_Var$().apply$default$2__T());
+  this.mode$5 = ScalaJS.as.java_lang_String(params.get__O__Lscala_Option("mode").fold__Lscala_Function0__Lscala_Function1__O(new ScalaJS.c.scala_scalajs_runtime_AnonFunction0().init___Lscala_scalajs_js_Function0((function() {
+    return (function() {
+      return "htmlmixed"
+    })
+  })()), new ScalaJS.c.scala_scalajs_runtime_AnonFunction1().init___Lscala_scalajs_js_Function1((function() {
+    return (function(x$1) {
+      return ScalaJS.objectToString(x$1)
+    })
+  })())));
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.org_denigma_views_tools_CodeMirrorView = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.org_denigma_views_tools_CodeMirrorView.prototype = ScalaJS.c.org_denigma_views_tools_CodeMirrorView.prototype;
+ScalaJS.is.org_denigma_views_tools_CodeMirrorView = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_views_tools_CodeMirrorView)))
+});
+ScalaJS.as.org_denigma_views_tools_CodeMirrorView = (function(obj) {
+  if ((ScalaJS.is.org_denigma_views_tools_CodeMirrorView(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.views.tools.CodeMirrorView")
+  }
+});
+ScalaJS.isArrayOf.org_denigma_views_tools_CodeMirrorView = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_views_tools_CodeMirrorView)))
+});
+ScalaJS.asArrayOf.org_denigma_views_tools_CodeMirrorView = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.org_denigma_views_tools_CodeMirrorView(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.tools.CodeMirrorView;", depth)
+  }
+});
+ScalaJS.data.org_denigma_views_tools_CodeMirrorView = new ScalaJS.ClassTypeData({
+  org_denigma_views_tools_CodeMirrorView: 0
+}, false, "org.denigma.views.tools.CodeMirrorView", ScalaJS.data.org_denigma_views_OrdinaryView, {
+  org_denigma_views_tools_CodeMirrorView: 1,
+  org_denigma_views_OrdinaryView: 1,
+  org_denigma_binding_EventBinding: 1,
+  org_denigma_binding_ScalaTagsBinder: 1,
+  org_denigma_views_OrganizedView: 1,
+  org_denigma_binding_GeneralBinding: 1,
+  org_denigma_binding_PropertyBinder: 1,
+  org_denigma_binding_ClassBinder: 1,
+  org_denigma_binding_VisibilityBinder: 1,
+  org_denigma_views_BindingView: 1,
+  org_denigma_binding_JustBinding: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.org_denigma_views_tools_CodeMirrorView.prototype.$classData = ScalaJS.data.org_denigma_views_tools_CodeMirrorView;
 /** @constructor */
 ScalaJS.c.scala_StringContext$InvalidEscapeException = (function() {
   ScalaJS.c.java_lang_IllegalArgumentException.call(this)
@@ -58803,6 +58791,71 @@ ScalaJS.data.org_denigma_binding_frontend_tests_LongListView = new ScalaJS.Class
   java_lang_Object: 1
 });
 ScalaJS.c.org_denigma_binding_frontend_tests_LongListView.prototype.$classData = ScalaJS.data.org_denigma_binding_frontend_tests_LongListView;
+/** @constructor */
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView = (function() {
+  ScalaJS.c.org_denigma_views_tools_CodeMirrorView.call(this)
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView.prototype = new ScalaJS.inheritable.org_denigma_views_tools_CodeMirrorView();
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView.prototype.constructor = ScalaJS.c.org_denigma_binding_frontend_tools_CodeView;
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView.prototype.tags__Lscala_collection_immutable_Map = (function() {
+  return this.extractTagRx__O__Lorg_denigma_binding_macroses_TagRxMap__Lscala_collection_immutable_Map(this, new ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$1().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView.prototype.strings__Lscala_collection_immutable_Map = (function() {
+  return this.extractStringRx__O__Lorg_denigma_binding_macroses_StringRxMap__Lscala_collection_immutable_Map(this, new ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$2().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView.prototype.bools__Lscala_collection_immutable_Map = (function() {
+  return this.extractBooleanRx__O__Lorg_denigma_binding_macroses_BooleanRxMap__Lscala_collection_immutable_Map(this, new ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$3().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView.prototype.mouseEvents__Lscala_collection_immutable_Map = (function() {
+  return this.extractMouseEvens__O__Lorg_denigma_binding_macroses_MouseEventMap__Lscala_collection_immutable_Map(this, new ScalaJS.c.org_denigma_binding_frontend_tools_CodeView$$anon$4().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView.prototype.init___Lorg_scalajs_dom_HTMLElement__Lscala_collection_immutable_Map = (function(element, params) {
+  ScalaJS.c.org_denigma_views_tools_CodeMirrorView.prototype.init___T__Lorg_scalajs_dom_HTMLElement__Lscala_collection_immutable_Map.call(this, "CodeView", element, params);
+  return this
+});
+/** @constructor */
+ScalaJS.inheritable.org_denigma_binding_frontend_tools_CodeView = (function() {
+  /*<skip>*/
+});
+ScalaJS.inheritable.org_denigma_binding_frontend_tools_CodeView.prototype = ScalaJS.c.org_denigma_binding_frontend_tools_CodeView.prototype;
+ScalaJS.is.org_denigma_binding_frontend_tools_CodeView = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.org_denigma_binding_frontend_tools_CodeView)))
+});
+ScalaJS.as.org_denigma_binding_frontend_tools_CodeView = (function(obj) {
+  if ((ScalaJS.is.org_denigma_binding_frontend_tools_CodeView(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView")
+  }
+});
+ScalaJS.isArrayOf.org_denigma_binding_frontend_tools_CodeView = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.org_denigma_binding_frontend_tools_CodeView)))
+});
+ScalaJS.asArrayOf.org_denigma_binding_frontend_tools_CodeView = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.org_denigma_binding_frontend_tools_CodeView(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView;", depth)
+  }
+});
+ScalaJS.data.org_denigma_binding_frontend_tools_CodeView = new ScalaJS.ClassTypeData({
+  org_denigma_binding_frontend_tools_CodeView: 0
+}, false, "org.denigma.binding.frontend.tools.CodeView", ScalaJS.data.org_denigma_views_tools_CodeMirrorView, {
+  org_denigma_binding_frontend_tools_CodeView: 1,
+  org_denigma_views_tools_CodeMirrorView: 1,
+  org_denigma_views_OrdinaryView: 1,
+  org_denigma_binding_EventBinding: 1,
+  org_denigma_binding_ScalaTagsBinder: 1,
+  org_denigma_views_OrganizedView: 1,
+  org_denigma_binding_GeneralBinding: 1,
+  org_denigma_binding_PropertyBinder: 1,
+  org_denigma_binding_ClassBinder: 1,
+  org_denigma_binding_VisibilityBinder: 1,
+  org_denigma_views_BindingView: 1,
+  org_denigma_binding_JustBinding: 1,
+  java_lang_Object: 1
+});
+ScalaJS.c.org_denigma_binding_frontend_tools_CodeView.prototype.$classData = ScalaJS.data.org_denigma_binding_frontend_tools_CodeView;
 /** @constructor */
 ScalaJS.c.org_denigma_views_ListView$JustMapView = (function() {
   ScalaJS.c.org_denigma_views_MapView.call(this)

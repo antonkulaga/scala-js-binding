@@ -8,7 +8,7 @@ import scala.scalajs.js.annotation.JSExport
 import org.denigma.extensions._
 import org.scalajs.jquery._
 import scala.util.Try
-import org.denigma.views.{CodeMirrorView, OrdinaryView}
+import org.denigma.views.OrdinaryView
 import scala.collection.immutable.Map
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import shared.RegisterPicklers
@@ -17,6 +17,8 @@ import scala.scalajs.js
 import org.denigma.binding.frontend.tests.{LongListView, RandomView}
 import org.denigma.extensions._
 import org.denigma.binding.frontend.slides.{BindSlide, SlideView}
+import org.denigma.views.tools.CodeMirrorView
+import org.denigma.binding.frontend.tools.CodeView
 
 @JSExport
 object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.JSApp
@@ -43,7 +45,7 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     .register("lists",(el,params)=>Try {new LongListView(el,params)})
     .register("SlideView",(el,params)=>Try {new SlideView(el,params)})
     .register("BindSlide",(el,params)=>Try {new BindSlide(el,params)})
-    .register("CodeView",(el,params)=>Try {new CodeMirrorView(el,params)})
+    .register("CodeView",(el,params)=>Try {new CodeView(el,params)})
 
 
   //    .register("righ-menu", (el, params) =>Try(new RightMenuView(el,params)))

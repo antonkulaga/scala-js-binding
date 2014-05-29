@@ -65,11 +65,21 @@ object MenuController  extends Controller  {
 trait ModelController extends Controller {
 
   type ModelType<: Model
+
   var items:Seq[ModelType]
+
+  def add() = UserAction{implicit  request=>
+    RegisterPicklers.registerPicklers()
+    ???
+
+
+  }
 
   def remove(res:Res) = {
 
     this.items = this.items.filterNot(i=>i.id==res)
+
+
 
   }
 

@@ -98,6 +98,13 @@ object Build extends sbt.Build with UniversalKeys {
 
     resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
 
+
+    resolvers +=  Resolver.url("scala-js-releases",
+      url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
+        Resolver.ivyStylePatterns),
+
+
+
     scalacOptions ++= Seq( "-feature", "-language:_" )
 
   )
