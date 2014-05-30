@@ -24,7 +24,7 @@
             @if(html.isDefined) {
                 @{html.get}
             } else {
-                @{slides.bind("About binding")(request)}
+                @{slides.remote("Remote")(request)}
             }
 
 

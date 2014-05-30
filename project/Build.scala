@@ -98,6 +98,9 @@ object Build extends sbt.Build with UniversalKeys {
 
     resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
 
+    // The Typesafe repository
+    resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
+
 
     resolvers +=  Resolver.url("scala-js-releases",
       url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(

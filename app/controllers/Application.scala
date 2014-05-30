@@ -6,7 +6,7 @@ import play.api.libs.json.JsValue
 import org.scalajs.spickling.PicklerRegistry
 import org.denigma.binding.models._
 import models._
-
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import org.scalax.semweb.rdf.vocabulary.WI
 import scala.concurrent.Future
 import play.api.mvc.{AnyContent, Action}
