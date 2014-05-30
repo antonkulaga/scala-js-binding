@@ -58,27 +58,28 @@ object sq{
 
 
   /**
-   * Post method that does nice thing
+   * Puts pickled value
    * @param url
    * @param data
    * @param timeout
    * @param headers
    * @param withCredentials
+   * @tparam T
    * @return
    */
-  def post(
-                url:String,data:js.Any,timeout:Int = 0,
-                headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
-                withCredentials:Boolean = false
-                ): Future[XMLHttpRequest] =
-  {
+  def put[T](url:String,data:T,timeout:Int = 0,
+              headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
+              withCredentials:Boolean = false
+               ): Future[XMLHttpRequest] = {
+    Ajax.apply("PUT", url, this.pack2String(data), timeout, headers, withCredentials)
+  }
 
-    val jsonStr: String =     data match {
-      case d:js.String=>d.toString
-      case _=>g.JSON.stringify(data).toString
-    }
 
-    Ajax.apply("POST", url, jsonStr, timeout, headers, withCredentials)
+  def delete[T](url:String,data:T,timeout:Int = 0,
+             headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
+             withCredentials:Boolean = false
+              ): Future[XMLHttpRequest] = {
+    Ajax.apply("DELETE", url, this.pack2String(data), timeout, headers, withCredentials)
   }
 
   /**
@@ -97,8 +98,32 @@ object sq{
     this.pickleRequest[T](Ajax.apply("GET", url, "", timeout, headers, withCredentials))
 
 
+  /**
+   * Post method that does nice thing
+   * @param url
+   * @param data
+   * @param timeout
+   * @param headers
+   * @param withCredentials
+   * @return
+   */
+  def post[TIn,TOut](
+            url:String,data:TIn,timeout:Int = 0,
+            headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
+            withCredentials:Boolean = false
+            ): Future[TOut] =
+    this.pickleRequest[TOut](Ajax.apply("POST", url,this.pack2String(data), timeout, headers, withCredentials))
+
+
+
   def withHost(str:String): String = {
     "http://"+dom.location.host+(if(str.startsWith("/") || str.startsWith("#")) str else "/"+str)
+  }
+
+  def pack2String[T](data:T) = {
+    val p: js.Any = PicklerRegistry.pickle(data)
+    g.JSON.stringify(p).toString
+
   }
 
   def pickleRequest[T](req:Future[XMLHttpRequest]): Future[T] = req.map{case r=>

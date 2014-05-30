@@ -11,45 +11,20 @@ import org.scalajs.spickling.playjson._
 import org.scalax.semweb.sparql._
 import org.scalajs.spickling.PicklerRegistry
 import org.denigma.binding.models._
-import models._
 
-import org.scalax.semweb.rdf.vocabulary.WI
-import scala.concurrent.Future
-import play.twirl.api.Html
-import play.api.Play
 import org.scalax.semweb.rdf.IRI
-import scala.Some
-import play.api.http.HttpVerbs
-import play.api.libs.iteratee.Done
-import org.scalax.semweb.rdf.IRI
-import scala.Some
-import play.api.libs.iteratee.Input.Empty
-import java.util.Locale
-import org.scalax.semweb.rdf.IRI
-import scala.Some
-import scala.util.matching.Regex
-import org.scalax.semweb.rdf.IRI
-import scala.Some
-import org.scalax.semweb.rdf.IRI
-import scala.Some
-import play.api.mvc.AnyContentAsMultipartFormData
-import play.api.mvc.AnyContentAsJson
-import play.api.mvc.AnyContentAsText
-import play.api.mvc.AnyContentAsFormUrlEncoded
-import play.api.mvc.AnyContentAsXml
-import play.api.mvc.BodyParsers.parse
-import java.io.File
 
-/**
- *
- */
-object MenuController  extends Controller  {
+
+object TopMenu  extends Controller  with ItemsController{
 
   implicit def register = RegisterPicklers.registerPicklers
 
+  type ModelType = MenuItem
+
+
   val dom =  IRI(s"http://domain")
-//
-  var items:List[MenuItem] =  List(
+
+  var items:List[ModelType] =  List(
     "slides/bind"->"About ScalaJS Binding",
 
     "slides/into"->"About benefits of ScalaJS"
@@ -57,37 +32,11 @@ object MenuController  extends Controller  {
   ) map{ case (url,title)=> MenuItem(dom / url,title)}
 
 
-
-
-//  def remove(res:Res) = UserAction{implicit  request=>
-//    this.items = this.items.filterNot(i=>i.id==res)
-//    ???
-//  }
-//
-//
-//
-//
-
-//
-//
-  def all(): Action[AnyContent] =  UserAction{
-    implicit request=>
-      RegisterPicklers.registerPicklers()
-      //val domain: String = request.domain
-      val menu =  Menu(dom / "menu", "Main menu", items)
-      val pickle: JsValue = PicklerRegistry.pickle(menu)
-      Ok(pickle).as("application/json")
-  }
-
-
-
-
-
-
 }
 
 
-trait PickleController extends Controller {
+trait ItemsController {
+  self: Controller=>
 
   implicit def register:()=>Unit
 
@@ -95,16 +44,34 @@ trait PickleController extends Controller {
 
   var items:List[ModelType]
 
-  def add = UserAction(this.pickle[ModelType]()){implicit request=>
+  def all(): Action[AnyContent] =  UserAction{
+    implicit request=>
+      RegisterPicklers.registerPicklers()
+      //val domain: String = request.domain
+      //val menu =  Menu(dom / "menu", "Main menu", items)
+      val pickle: JsValue = PicklerRegistry.pickle(items)
+      Ok(pickle).as("application/json")
+  }
+  def add() = UserAction(this.pickle[ModelType]()){implicit request=>
     val item = request.body
-    Ok(Json.obj("status" ->"OK","message"->"addition successful")).as("application/json")
+    this.items= items:::item::Nil
+    Ok(PicklerRegistry.pickle(true)).as("application/json")
   }
 
-  def remove = UserAction(this.pickle[ModelType]()){implicit request=>
-    val item = request.body
-
-    Ok(Json.obj("status" ->"OK","message"->"addition successful")).as("application/json")
+  def deleteById() = UserAction(this.pickle[Model]()){implicit request=>
+    val id = request.body.id
+    this.items = this.items.filterNot(i=>i.id==id)
+    Ok(PicklerRegistry.pickle(true)).as("application/json")
   }
+
+
+  def delete() = UserAction(this.pickle[ModelType]()){implicit request=>
+    val item = request.body
+    this.items = this.items filterNot (_ == item)
+    Ok(PicklerRegistry.pickle(true)).as("application/json")
+  }
+
+
   /**
    * Generates body parser for required type
    * @param failMessage

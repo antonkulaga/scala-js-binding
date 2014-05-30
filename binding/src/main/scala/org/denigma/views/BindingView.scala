@@ -120,7 +120,7 @@ abstract class BindingView(val name:String,elem:dom.HTMLElement) extends JustBin
     this.bind(value)
   }
 
-  protected def bindAttributes(el:HTMLElement,ats:Map[String, String] )
+  protected def bindDataAttributes(el:HTMLElement,ats:Map[String, String] )
 
   /**
    * Binds element attributes
@@ -131,7 +131,7 @@ abstract class BindingView(val name:String,elem:dom.HTMLElement) extends JustBin
       case (key,attr) if key.contains("data-") && !key.contains("data-view") =>
         (key.replace("data-",""),attr.value.toString)
     }.toMap
-    this.bindAttributes(el,ats)
+    this.bindDataAttributes(el,ats)
 
   }
 

@@ -5,6 +5,7 @@ import rx._
 import org.scalajs.dom.HTMLElement
 import org.scalajs.dom
 import org.denigma.extensions._
+import scalajs.concurrent.JSExecutionContext.Implicits.queue
 /**
  * Does binding for classes
  */

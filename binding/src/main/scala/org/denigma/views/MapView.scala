@@ -40,8 +40,8 @@ abstract class MapView(name:String,element:HTMLElement,props:Map[String,Any]) ex
   }
 
 
-  override def bindAttributes(el:HTMLElement,ats:Map[String,String]) ={
-    super.bindAttributes(el,ats)
+  override def bindDataAttributes(el:HTMLElement,ats:Map[String,String]) ={
+    super.bindDataAttributes(el,ats)
 
   }
 

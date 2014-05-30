@@ -115,6 +115,8 @@ You can also look at a Play application inside scalajs-binding repository to see
         $ activator eclipse #for Eclipse
 
 Play app will open with some samples code. 
+Note: models and shared projects have same source folder. If you use IntellijIDEA you may encounter a bug with shared source folder,
+there is a workaround for such bug - go to File->Projects_Structure and manually add symbolic link as a source folder for shared project 
 
 How it works
 ------------

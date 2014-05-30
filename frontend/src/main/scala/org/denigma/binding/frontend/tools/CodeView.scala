@@ -7,7 +7,7 @@ import scalatags.HtmlTag
 
 import scala.scalajs.js
 import js.Dynamic.{global=>g}
-import org.denigma.views.tools.CodeMirrorView
+import org.denigma.tools.CodeMirrorView
 
 
 class CodeView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorView("CodeView",element,params)

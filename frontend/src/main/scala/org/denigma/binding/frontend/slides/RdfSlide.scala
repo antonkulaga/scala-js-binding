@@ -5,9 +5,10 @@ import org.denigma.views.OrdinaryView
 import rx._
 import scalatags._
 
-import org.denigma.views.OrdinaryView
-
-class RemoteSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("remote",element)
+/**
+ * Created by antonkulaga on 5/31/14.
+ */
+class RdfSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("rdf",element)
 {
   override def tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
 
@@ -18,8 +19,8 @@ class RemoteSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,
   override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
 
   override def bindView(el:HTMLElement) {
-  //jQuery(el).slideUp()
-  super.bindView(el)
+    //jQuery(el).slideUp()
+    super.bindView(el)
 
   }
 

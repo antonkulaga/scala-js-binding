@@ -115,8 +115,14 @@ abstract class JustBinding {
   }
 
 
-  /*
-  Binds value to rx
+  /**
+   * Binds value to reactive property
+   * @param key key to witch to bind to
+   * @param el html element
+   * @param rx reactive variable
+   * @param assign assign function that assigns value to html element
+   * @tparam T type param
+   * @return
    */
   def bindRx[T](key:String,el:HTMLElement ,rx:Rx[T])(assign:(HTMLElement,T)=>Unit) = {
     val eid = this.makeId(el, key)

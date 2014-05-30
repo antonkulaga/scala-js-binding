@@ -13,48 +13,17 @@ import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.scalax.semweb.rdf.IRI
 import org.denigma.binding.models._
 import shared._
+import org.denigma.models.AjaxStorage
+import scala.concurrent.Future
+import org.denigma.tools.{EditableMenuView, AjaxMenuView}
 
 /**
  * Menu view, this view is devoted to displaying menus
  * @param el html element
  * @param params view params (if any)
  */
-class MenuView(el:HTMLElement, params:Map[String,Any] = Map.empty) extends ListView("menu",el,params) with RemoteView
+class MenuView(el:HTMLElement, params:Map[String,Any] = Map.empty) extends EditableMenuView("menu",el,params)
 {
-
-  override val path = params.get("path").map(_.toString).getOrElse("/menu/")
-
-  implicit val fromFuture:FromFuture = (str)=> {
-    RegisterPicklers.registerPicklers()
-    sq.get[Menu](sq.withHost(str))
-  }
-
-  type RemoteData = Menu
-
-
-  val menu: Var[Menu] = Var {
-    //MenuView.testMenu
-    Menu(IRI(s"http://${dom.window.location.host}"),dom.window.location.host,List.empty)
-  }
-
-  val items: Rx[List[Map[String, Any]]] = Rx {
-    menu().children.map(ch=>Map[String,Any]("label"->ch.title,"uri"->ch.uri.stringValue))
-  }
-
-
-  /**
-   * Fires when view was binded by default does the same as bind
-   * @param el
-   */
-  override def bindView(el:HTMLElement) = {
-    val futureMenu = this.futureData
-    futureMenu.onComplete{
-      case Success(data)=>
-        this.menu()=data
-        super.bindView(el)
-      case Failure(m)=>dom.console.error(s"Future data failure for view ${this.id} with exception: \n ${m.toString}")
-    }
-  }
 
   override lazy val tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
 

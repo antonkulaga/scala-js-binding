@@ -24,7 +24,7 @@
             @if(html.isDefined) {
                 @{html.get}
             } else {
-                @{slides.remote("Remote")(request)}
+                @{slides.bind("Property binding")(request)}
             }
 
 
@@ -38,7 +38,7 @@
     // Handler for .ready() called.
         session = {}
         @if(request.username.isDefined) {
-            session.user = "@Html(s"${request.username.get.stringValue}")"
+            session.user = "@Html(s"${request.username.get.stringValue}")";
         }
 
         FrontEnd().main();
