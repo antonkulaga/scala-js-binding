@@ -6,7 +6,9 @@ import rx._
 import scalatags._
 
 /**
- * Created by antonkulaga on 5/31/14.
+ * Slide about RDF-related binding
+ * @param element
+ * @param params
  */
 class RdfSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("rdf",element)
 {

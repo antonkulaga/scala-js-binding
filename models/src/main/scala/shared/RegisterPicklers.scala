@@ -2,10 +2,31 @@ package shared
 
 import org.scalajs.spickling._
 import org.scalajs.spickling.PicklerRegistry._
-import org.scalax.semweb.rdf.IRI
+import org.scalax.semweb.rdf._
 import org.denigma.binding.models.Menu
 import org.denigma.binding.models.MenuItem
 import shared.chat._
+import org.scalax.semweb.shex.PropertyModel
+import org.scalax.semweb.sparql.Pat
+import org.scalax.semweb.rdf.IRI
+import org.denigma.binding.models.Menu
+import shared.chat.User
+import org.scalax.semweb.rdf.BlankNode
+import shared.chat.JoinedRoom
+import org.scalax.semweb.rdf.Trip
+import shared.chat.Join
+import shared.chat.RoomListChanged
+import shared.chat.Connect
+import shared.chat.Message
+import shared.chat.SendMessage
+import shared.chat.RequestPrivateChat
+import shared.chat.Room
+import shared.chat.ReceiveMessage
+import org.scalax.semweb.sparql.Pat
+import shared.chat.UserLeft
+import org.denigma.binding.models.MenuItem
+import shared.chat.UserJoined
+import org.scalax.semweb.rdf.Quad
 
 /**
  * Registers picklers
@@ -23,13 +44,22 @@ object RegisterPicklers {
   }
 
 
-  def registerMenu() = {
+  def registerRdf() = {
 
 
     //Semantic
     register[IRI]
+    register[BlankNode]
+    register[StringLiteral]
+    register[Pat]
+    register[Trip]
+    register[Quad]
+
     register[MenuItem]
     register[Menu]
+
+    //register[Map[IRI,RDFValue]]
+    register[PropertyModel]
 
   }
 
@@ -67,7 +97,7 @@ object RegisterPicklers {
 
   this.registerCommon()
   this.registerChat()
-  this.registerMenu()
+  this.registerRdf()
 
 
 
@@ -110,7 +140,20 @@ object RegisterPicklers {
   implicit object MenuConsUnpickler extends GenericConsUnpickler[Menu]
   register[::[Menu]]
 
+
+  implicit object ModelConsPickler extends  GenericConsPickler[PropertyModel]
+  implicit object ModelConsUnpickler extends GenericConsUnpickler[PropertyModel]
+  register[::[PropertyModel]]
+
+  implicit object MapPickler extends Pickler[Map[String,String]]{
+    override def pickle[P](obj: MapPickler.Picklee)(implicit registry: PicklerRegistry, builder: PBuilder[P]): P = {
+      builder.makeObject()
+    }
+  }
+
+
 }
+
 
 class GenericConsPickler[T] extends Pickler[::[T]] {
   def pickle[P](value: ::[T])(implicit registry: PicklerRegistry,
