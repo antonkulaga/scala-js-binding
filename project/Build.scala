@@ -25,7 +25,7 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.3.1"
+  val semWebVersion =  "0.4.2"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -67,13 +67,13 @@ object Build extends sbt.Build with UniversalKeys {
 
       scalajsOutputDir     := baseDirectory.value / "public" / "javascripts" / "scalajs",
 
-      compile in Compile <<= (compile in Compile) dependsOn (preoptimizeJS in (frontend, Compile)),
+      compile in Compile <<= (compile in Compile) dependsOn (fastOptJS in (frontend, Compile)),
 
       test in Test <<= (test in Test) dependsOn (test in (binding, Test)),
 
       //sharedCode,
 
-      dist <<= dist dependsOn (optimizeJS in (frontend, Compile)),
+      dist <<= dist dependsOn (fullOptJS in (frontend, Compile)),
 
       watchSources <++= (sourceDirectory in (frontend, Compile)).map { path => (path ** "*.scala").get},
 
@@ -83,9 +83,9 @@ object Build extends sbt.Build with UniversalKeys {
 
       crossTarget in (frontend, Compile, packageExportedProductsJS) := scalajsOutputDir.value,
 
-      crossTarget in (frontend, Compile, preoptimizeJS) := scalajsOutputDir.value,
+      crossTarget in (frontend, Compile, fastOptJS) := scalajsOutputDir.value,
 
-      crossTarget in (frontend, Compile, optimizeJS) := scalajsOutputDir.value
+      crossTarget in (frontend, Compile, fullOptJS) := scalajsOutputDir.value
 
     )
 
@@ -93,6 +93,8 @@ object Build extends sbt.Build with UniversalKeys {
   val sameSettings = bintraySettings ++Seq(
 
     organization := "org.denigma",
+
+    //scalaVersion := "2.11.1",
 
     scalaVersion := "2.10.4",
 

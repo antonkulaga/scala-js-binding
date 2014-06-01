@@ -96,7 +96,7 @@ In your sbt config you should add resolver and dependency
 ```scala
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 
-libraryDependencies += "org.denigma" %% "binding" % "0.1" //change number to latest version
+libraryDependencies += "org.denigma" %% "binding" % "0.1" //change number to the latest version
 ```
 
 

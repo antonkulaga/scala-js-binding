@@ -17,4 +17,4 @@ scalacOptions ++= Seq( "-feature", "-language:_" )
 
 ScalaJSKeys.relativeSourceMaps := true
 
-version := "0.0.1"
+version := "0.2"

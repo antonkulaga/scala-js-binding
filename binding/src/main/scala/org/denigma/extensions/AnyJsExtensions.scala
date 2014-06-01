@@ -1,8 +1,8 @@
 package org.denigma.extensions
 
-import scala.scalajs.js.Undefined
 import scala.scalajs.js
 import org.scalajs.dom
+import scala.scalajs.js.prim.Undefined
 
 /**
  * Is mixed in to be used in extensions
@@ -34,7 +34,7 @@ trait AnyJsExtensions {
       case null =>
         None
 
-      case v: Undefined => None
+      case v if v.isInstanceOf[Undefined] => None
 
       case validValue => Some(validValue)
     }

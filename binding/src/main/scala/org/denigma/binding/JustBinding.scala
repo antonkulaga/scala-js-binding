@@ -16,7 +16,7 @@ import scala.scalajs.js
 import scala.util.Success
 import scala.util.Failure
 import scala.Some
-import scala.scalajs.js.{Number, Dynamic}
+import scala.scalajs.js.{Dynamic}
 
 
 /**
@@ -107,11 +107,13 @@ abstract class JustBinding {
    * @param title title of id
    * @return
    */
-  def makeId(el:HTMLElement,title:String) = {
-    if (el.id.isNullOrUndef) {
+  def makeId(el:HTMLElement,title:String) = el.id match {
+    case s if s==null || s.isInstanceOf[js.prim.Undefined]=>
       el.id = title + "_" + math.random
-    }
-    el.id
+      el.id
+
+    case id=>id
+
   }
 
 

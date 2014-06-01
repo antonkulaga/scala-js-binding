@@ -22,7 +22,11 @@ libraryDependencies <+= (scalaVersion)("org.scala-lang" % "scala-reflect" % _)
 
 ScalaJSKeys.relativeSourceMaps := true
 
-libraryDependencies += "org.scala-lang.modules.scalajs" %% "scalajs-dom" % "0.4"
+libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.5"
+
+//libraryDependencies += "com.scalatags" %%% "scalatags" % "0.2.5"
+
+//libraryDependencies +=  "com.scalarx" %%% "scalarx" % "0.2.4"
 
 libraryDependencies += "com.scalatags" %% "scalatags" % "0.2.5-JS"
 

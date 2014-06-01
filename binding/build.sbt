@@ -16,19 +16,11 @@ scalacOptions ++= Seq( "-feature", "-language:_" )
 
 ScalaJSKeys.relativeSourceMaps := true
 
-version := "0.2"
+version := "0.2.1"
 
-libraryDependencies += "org.scala-lang.modules.scalajs" %% "scalajs-jquery" % "0.3"
+libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-jquery" % "0.5"
 
-libraryDependencies += "org.scala-lang.modules.scalajs" %% "scalajs-dom" % "0.4"
-
-libraryDependencies +=  "org.scalajs" %% "scalajs-pickling" % "0.2"
-
-libraryDependencies += "com.scalatags" %% "scalatags" % "0.2.5-JS"
-
-libraryDependencies +=  "com.scalarx" %% "scalarx" % "0.2.4-JS"
-
-libraryDependencies +=  "org.scalax" %% "semweb" % (Build.semWebVersion + "-JS")
+libraryDependencies +=  "org.scalax" %%% "semweb" % Build.semWebVersion
 
 autoCompilerPlugins := true
 

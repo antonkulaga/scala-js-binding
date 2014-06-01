@@ -15,6 +15,7 @@ import org.scalajs.spickling.jsany._
 
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.scalajs.spickling._
+import scala.scalajs.js.prim.Undefined
 
 /**
  * "ScalaQuery" helper for convenient DOM manipulation and other useful things
@@ -43,7 +44,7 @@ object sq{
 
   def byId(id:String): Option[HTMLElement] = dom.document.getElementById(id) match {
     case null=>None
-    case undef:js.Undefined=>None
+    case v if v.isInstanceOf[Undefined] =>None
     case el=>Some(el)
   }
 

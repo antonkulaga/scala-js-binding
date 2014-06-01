@@ -12,13 +12,13 @@ Build.sameSettings
 
 name := "binding-models"
 
-version := "0.2"
+version := "0.3"
 
 ScalaJSKeys.relativeSourceMaps := true
 
+libraryDependencies +=  "org.scalax" %%% "semweb" % Build.semWebVersion
 
-libraryDependencies +=  "org.scalax" %% "semweb" % (Build.semWebVersion + "-JS")
+libraryDependencies += "org.scalajs" %%% "scalajs-pickling" % "0.3"
 
-libraryDependencies += "org.scalajs" %% "scalajs-pickling" % "0.2"
 
 Build.publishSettings
