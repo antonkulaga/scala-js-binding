@@ -1,21 +1,10 @@
 package org.denigma.binding.frontend
 
 import rx._
-import org.scalajs.dom
 import org.scalajs.dom._
 import scala.collection.immutable._
-import org.denigma.views._
-import org.denigma.extensions._
-import scala.util.Success
-import scala.util.Failure
 import scalatags.HtmlTag
-import scalajs.concurrent.JSExecutionContext.Implicits.queue
-import org.scalax.semweb.rdf.IRI
-import org.denigma.binding.models._
-import shared._
-import org.denigma.models.AjaxStorage
-import scala.concurrent.Future
-import org.denigma.tools.{EditableMenuView, AjaxMenuView}
+import org.denigma.tools.EditableMenuView
 
 /**
  * Menu view, this view is devoted to displaying menus

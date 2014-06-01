@@ -65,28 +65,22 @@ object Build extends sbt.Build with UniversalKeys {
 
       parallelExecution in Test := false,
 
+      //scalajsOutputDir     := (crossTarget in Compile).value / "classes" / "public" / "javascripts",
+
       scalajsOutputDir     := baseDirectory.value / "public" / "javascripts" / "scalajs",
 
       compile in Compile <<= (compile in Compile) dependsOn (fastOptJS in (frontend, Compile)),
 
-      test in Test <<= (test in Test) dependsOn (test in (binding, Test)),
-
-      //sharedCode,
 
       dist <<= dist dependsOn (fullOptJS in (frontend, Compile)),
 
-      watchSources <++= (sourceDirectory in (frontend, Compile)).map { path => (path ** "*.scala").get},
+      //test in Test <<= (test in Test) dependsOn (test in (binding, Test)),
 
-      crossTarget in (frontend, Compile, packageExternalDepsJS) := scalajsOutputDir.value,
+      watchSources <++= (sourceDirectory in (frontend, Compile)).map { path => (path ** "*.scala").get}
 
-      crossTarget in (frontend, Compile, packageInternalDepsJS) := scalajsOutputDir.value,
-
-      crossTarget in (frontend, Compile, packageExportedProductsJS) := scalajsOutputDir.value,
-
-      crossTarget in (frontend, Compile, fastOptJS) := scalajsOutputDir.value,
-
-      crossTarget in (frontend, Compile, fullOptJS) := scalajsOutputDir.value
-
+    ) ++ (   Seq(packageExternalDepsJS, packageInternalDepsJS, packageExportedProductsJS, /*packageLauncher,*/ fastOptJS, fullOptJS) map { packageJSKey =>
+      crossTarget in (frontend, Compile, packageJSKey) := scalajsOutputDir.value
+    }
     )
 
 

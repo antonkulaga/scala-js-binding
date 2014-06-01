@@ -4,9 +4,8 @@ import org.scalajs.dom.HTMLElement
 import org.denigma.views.ListView
 import rx._
 import org.denigma.models.AjaxStorage
-import org.denigma.binding.models.MenuItem
+import org.denigma.binding.models.{RegisterPicklers, MenuItem}
 import scala.collection.immutable.{Map, List}
-import shared.RegisterPicklers
 import scala.util.{Failure, Success}
 import org.scalajs.dom
 import scalajs.concurrent.JSExecutionContext.Implicits.queue

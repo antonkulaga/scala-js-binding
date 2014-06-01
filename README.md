@@ -20,8 +20,9 @@ For instance taken following html:
 Here at the beginning property *data-view="login"*  attaches LoginView scala class to corresponding div tag.  
 Then each *data-bind-propertyname* property is binded to corresponding property of LoginView class.
 All bindings inside of children tags will be to properties of this view. There is a view hierarchy. Each view can have subviews. 
-Usually mains view attached to body tag is created. In quoted sample there are bindings to isSigned and logoutClick reactive variables. 
-
+Usually mains view attached to body tag is created. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
+ 
+ 
 Binding to properties
 ---------------------
 
@@ -96,8 +97,10 @@ In your sbt config you should add resolver and dependency
 ```scala
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 
-libraryDependencies += "org.denigma" %% "binding" % "0.1" //change number to the latest version
+libraryDependencies += "org.denigma" %% "binding" % "0.1"
 ```
+
+WARNING: current github version is temporally broken due to migration to newer scalajs
 
 
 Looking into sample App

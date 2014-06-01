@@ -24,7 +24,7 @@ import org.scalajs.spickling.PicklerRegistry
 import play.api.templates.Html
 import org.scalax.semweb.rdf.vocabulary.WI
 import scala.concurrent.Future
-import shared._
+
 
 object Slides extends PJaxPlatformWith("index") {
 

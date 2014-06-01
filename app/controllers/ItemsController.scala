@@ -1,7 +1,6 @@
 package controllers
 
 import org.denigma.binding.models._
-import shared._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.mvc._
 import org.scalax.semweb.rdf.{StringLiteral, Res, IRI}

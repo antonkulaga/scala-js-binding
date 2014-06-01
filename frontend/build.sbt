@@ -13,8 +13,12 @@ Build.sameSettings
 
 name := "frontend"
 
+//persistLauncher := true
+
+//persistLauncher in Test := false
+
 scalacOptions ++= Seq( "-feature", "-language:_" )
 
 ScalaJSKeys.relativeSourceMaps := true
 
-version := "0.2"
+version := "0.3"

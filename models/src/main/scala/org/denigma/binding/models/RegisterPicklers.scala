@@ -1,31 +1,13 @@
-package shared
+package org.denigma.binding.models
 
 import org.scalajs.spickling._
 import org.scalajs.spickling.PicklerRegistry._
 import org.scalax.semweb.rdf._
-import org.denigma.binding.models.Menu
-import org.denigma.binding.models.MenuItem
-import shared.chat._
 import org.scalax.semweb.shex.PropertyModel
-import org.scalax.semweb.sparql.Pat
 import org.scalax.semweb.rdf.IRI
-import org.denigma.binding.models.Menu
-import shared.chat.User
 import org.scalax.semweb.rdf.BlankNode
-import shared.chat.JoinedRoom
 import org.scalax.semweb.rdf.Trip
-import shared.chat.Join
-import shared.chat.RoomListChanged
-import shared.chat.Connect
-import shared.chat.Message
-import shared.chat.SendMessage
-import shared.chat.RequestPrivateChat
-import shared.chat.Room
-import shared.chat.ReceiveMessage
 import org.scalax.semweb.sparql.Pat
-import shared.chat.UserLeft
-import org.denigma.binding.models.MenuItem
-import shared.chat.UserJoined
 import org.scalax.semweb.rdf.Quad
 
 /**
@@ -63,40 +45,13 @@ object RegisterPicklers {
 
   }
 
+  def registerWorkAround{
+    register[Property]
+    register[PropertyModel]
 
-
-
-
-  def registerChat() = {
-
-    //
-    // Models
-    register[User]
-    register[Room]
-    register[Message]
-
-    // Actions from users
-    register[Connect]
-    register[Join]
-    register(Leave)
-    register[SendMessage]
-
-    //  // Requests
-    register[RequestPrivateChat]
-    register(AcceptPrivateChat)
-    register(RejectPrivateChat)
-    register(UserDoesNotExist)
-
-    // Notifications from server
-    register[RoomListChanged]
-    register[JoinedRoom]
-    register[UserJoined]
-    register[UserLeft]
-    register[ReceiveMessage]
   }
 
   this.registerCommon()
-  this.registerChat()
   this.registerRdf()
 
 
@@ -140,16 +95,22 @@ object RegisterPicklers {
   implicit object MenuConsUnpickler extends GenericConsUnpickler[Menu]
   register[::[Menu]]
 
+  implicit object ModelConsPickler extends  GenericConsPickler[Property]
+  implicit object ModelConsUnpickler extends GenericConsUnpickler[Property]
+  register[::[Property]]
 
-  implicit object ModelConsPickler extends  GenericConsPickler[PropertyModel]
-  implicit object ModelConsUnpickler extends GenericConsUnpickler[PropertyModel]
-  register[::[PropertyModel]]
 
-  implicit object MapPickler extends Pickler[Map[String,String]]{
-    override def pickle[P](obj: MapPickler.Picklee)(implicit registry: PicklerRegistry, builder: PBuilder[P]): P = {
-      builder.makeObject()
-    }
-  }
+
+  implicit object TransferModelConsPickler extends  GenericConsPickler[TransferModel]
+  implicit object TransferModelConsUnpickler extends GenericConsUnpickler[TransferModel]
+  register[::[TransferModel]]
+
+
+
+//  implicit object ModelConsPickler extends  GenericConsPickler[PropertyModel]
+//  implicit object ModelConsUnpickler extends GenericConsUnpickler[PropertyModel]
+//  register[::[PropertyModel]]
+
 
 
 }

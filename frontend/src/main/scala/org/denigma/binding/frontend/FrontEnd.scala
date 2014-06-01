@@ -11,14 +11,13 @@ import scala.util.Try
 import org.denigma.views.OrdinaryView
 import scala.collection.immutable.Map
 import org.scalajs.dom.{HTMLElement, MouseEvent}
-import shared.RegisterPicklers
-import shared.{RegisterPicklers=>rp}
 import scala.scalajs.js
 import org.denigma.binding.frontend.tests.{LongListView, RandomView}
 import org.denigma.extensions._
 import org.denigma.binding.frontend.slides.{TestModelView, RemoteSlide, BindSlide, SlideView}
 import org.denigma.tools.CodeMirrorView
 import org.denigma.binding.frontend.tools.CodeView
+import org.denigma.binding.models.{RegisterPicklers=>rp}
 
 @JSExport
 object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.JSApp
