@@ -12,8 +12,6 @@ Build.sameSettings
 
 name := "binding-models"
 
-version := "0.3"
-
 ScalaJSKeys.relativeSourceMaps := true
 
 libraryDependencies +=  "org.scalax" %%% "semweb" % Build.semWebVersion

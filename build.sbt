@@ -1,8 +1,10 @@
 name := """binding-preview"""
 
-version := "0.1"
-
 Build.sameSettings
+
+resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+
+resolvers += "Typesafe Maven Repository" at "http://repo.typesafe.com/typesafe/maven-releases/"
 
 libraryDependencies ++= Seq(
   //filters, 

@@ -20,5 +20,3 @@ name := "frontend"
 scalacOptions ++= Seq( "-feature", "-language:_" )
 
 ScalaJSKeys.relativeSourceMaps := true
-
-version := "0.3"

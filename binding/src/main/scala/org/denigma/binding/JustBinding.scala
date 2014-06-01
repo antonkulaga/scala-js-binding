@@ -108,11 +108,12 @@ abstract class JustBinding {
    * @return
    */
   def makeId(el:HTMLElement,title:String) = el.id match {
-    case s if s==null || s.isInstanceOf[js.prim.Undefined]=>
+    case s if s=="" ||  s==null || s.isInstanceOf[js.prim.Undefined]=>
       el.id = title + "_" + math.random
       el.id
 
-    case id=>id
+    case id=>
+      id
 
   }
 

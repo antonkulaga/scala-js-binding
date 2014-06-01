@@ -25,7 +25,7 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.4.2"
+  val semWebVersion =  "0.4.4"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -69,6 +69,8 @@ object Build extends sbt.Build with UniversalKeys {
 
       scalajsOutputDir     := baseDirectory.value / "public" / "javascripts" / "scalajs",
 
+      //scalajsOutputDir     := (crossTarget in Compile).value / "classes" / "public" / "javascripts",
+
       compile in Compile <<= (compile in Compile) dependsOn (fastOptJS in (frontend, Compile)),
 
 
@@ -87,6 +89,8 @@ object Build extends sbt.Build with UniversalKeys {
   val sameSettings = bintraySettings ++Seq(
 
     organization := "org.denigma",
+
+    version := "0.3.1",
 
     //scalaVersion := "2.11.1",
 

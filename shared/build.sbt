@@ -11,11 +11,17 @@ Build.sameSettings
 
 name := "binding-models"
 
-version := "0.4.4"
-
 ScalaJSKeys.relativeSourceMaps := true
 
 libraryDependencies +=  "org.scalax" %% "semweb" % Build.semWebVersion
+
+// The Typesafe repository
+resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+
+resolvers  += "Online Play Repository" at  "http://repo.typesafe.com/typesafe/simple/maven-releases/"
+
+
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.2.1"
 
 libraryDependencies += "org.scalajs" %% "scalajs-pickling-play-json" % "0.3"
 

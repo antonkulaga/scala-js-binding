@@ -46,7 +46,7 @@ case class WithUser[A](action: Action[A]) extends Action[A] {
 
 
 
-  def apply(request: Request[A]): Future[SimpleResult] = {
+  def apply(request: Request[A]): Future[Result] = {
     val user = request.session.get("user").map(name=>if(name.contains(":")) IRI(name) else IRI(USERS.user / "name"))
     val req = AuthRequest(user,request)
     action(req)

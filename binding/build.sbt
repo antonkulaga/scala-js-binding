@@ -16,7 +16,7 @@ scalacOptions ++= Seq( "-feature", "-language:_" )
 
 ScalaJSKeys.relativeSourceMaps := true
 
-version := "0.2.1"
+resolvers  += "Online Play Repository" at  "http://repo.typesafe.com/typesafe/simple/maven-releases/"
 
 libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-jquery" % "0.5"
 

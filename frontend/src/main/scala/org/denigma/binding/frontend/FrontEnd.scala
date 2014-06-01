@@ -19,6 +19,7 @@ import org.denigma.tools.CodeMirrorView
 import org.denigma.binding.frontend.tools.CodeView
 import org.denigma.binding.models.{RegisterPicklers=>rp}
 
+
 @JSExport
 object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.JSApp
 {
@@ -40,7 +41,9 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     .register("menu", (el, params) =>Try{ new MenuView(el,params) })
     .register("ArticleView", (el, params) =>Try(new ArticleView(el,params)))
     .register("sidebar", (el, params) =>Try(new SidebarView(el,params)))
-    .register("random",(el,params)=> Try {new RandomView(el,params)})
+    .register("random",(el,params)=> Try {
+        new RandomView(el,params)}
+      )
     .register("lists",(el,params)=>Try {new LongListView(el,params)})
     .register("SlideView",(el,params)=>Try {new SlideView(el,params)})
     .register("BindSlide",(el,params)=>Try {new BindSlide(el,params)})
@@ -54,7 +57,7 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
   @JSExport
   def main(): Unit = {
     rp.registerPicklers()
-    this.bind(this.viewElement)
+    this.bindView(this.viewElement)
     jQuery(".top.sidebar").dyn.sidebar(sidebarParams).sidebar("show")
     jQuery(".left.sidebar").dyn.sidebar(sidebarParams).sidebar("show")
   }

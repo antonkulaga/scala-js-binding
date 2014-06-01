@@ -16,6 +16,11 @@ class PJaxPlatformWith(val name:String) extends Controller  {
       Ok(views.html.index(request))
   }
 
+//  def index(): Action[AnyContent] =  UserAction {
+//    implicit request=>
+//      Ok(views.html.test(request))
+//  }
+
 
 //  def pj[T](action:String,html:Html)(implicit req:UserRequestHeader): Html =
 //    pj(name,action:String,html:Html)(req)

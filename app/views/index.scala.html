@@ -4,11 +4,11 @@
     <head>
         <title>Denigma Knowledge Management System</title>
         @libs.libs()
-
-
-        @*<link rel="stylesheet" href="@routes.Assets.at("denigma.css")" type="text/css">*@
-
-        <script src="@routes.Assets.at("javascripts/scalajs/frontend-fastopt.js")" type="text/javascript"></script>
+         @if(play.Play.isDev || play.Play.isTest) {
+             <script src="@routes.Assets.at("javascripts/scalajs/frontend-fastopt.js")" type="text/javascript"></script>
+         } else {
+             <script src="@routes.Assets.at("javascripts/scalajs/frontend-opt.js")" type="text/javascript"></script>
+         }
 
     </head>
     <body>
