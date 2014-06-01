@@ -11,7 +11,7 @@ Build.sameSettings
 
 name := "binding-models"
 
-version := "0.0.1"
+version := "0.2"
 
 ScalaJSKeys.relativeSourceMaps := true
 

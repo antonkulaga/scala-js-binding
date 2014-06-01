@@ -7129,8 +7129,8 @@ ScalaJS.c.org_denigma_binding_JustBinding.prototype.makeEventHandler__Lorg_scala
       var x1 = par$1;
       matchEnd4: {
         if (ScalaJS.is.rx_core_Var(x1)) {
-          var x2 = ScalaJS.as.rx_core_Var(x1);
-          ScalaJS.as.scala_runtime_BoxedUnit(assign$2.apply__O__O__O__O(ev, x2, el$1));
+          var x2$3 = ScalaJS.as.rx_core_Var(x1);
+          ScalaJS.as.scala_runtime_BoxedUnit(assign$2.apply__O__O__O__O(ev, x2$3, el$1));
           break matchEnd4
         };
         ScalaJS.g["console"]["error"](new ScalaJS.c.scala_StringContext().init___Lscala_collection_Seq(ScalaJS.modules.scala_Predef().wrapRefArray__AO__Lscala_collection_mutable_WrappedArray(ScalaJS.asArrayOf.java_lang_Object(ScalaJS.makeNativeArrayWrapper(ScalaJS.data.java_lang_String.getArrayOf(), ["rx is not Var"]), 1))).s__Lscala_collection_Seq__T(ScalaJS.modules.scala_collection_immutable_Nil()));
@@ -56061,10 +56061,10 @@ ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype.init___ = (function()
 });
 ScalaJS.c.org_denigma_binding_frontend_FrontEnd$.prototype["main"] = (function(arg$1) {
   switch (arguments.length) {
-    case 0:
-      return this.$$js$exported$meth$main__O();
     case 1:
       return this.$$js$exported$meth$main__AT__O(arg$1);
+    case 0:
+      return this.$$js$exported$meth$main__O();
     default:
       throw "No matching overload";
   }
