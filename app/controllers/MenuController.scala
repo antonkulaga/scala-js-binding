@@ -26,7 +26,7 @@ object TopMenu  extends Controller  with ItemsController{
   var items:List[ModelType] =  List(
     "slides/bind"->"About ScalaJS Binding",
 
-    "slides/into"->"About benefits of ScalaJS"
+    "slides/scalajs"->"About benefits of ScalaJS"
 
   ) map{ case (url,title)=> MenuItem(dom / url,title)}
 

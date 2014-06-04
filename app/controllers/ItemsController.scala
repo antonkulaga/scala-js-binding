@@ -51,7 +51,7 @@ trait ItemWithIdController extends ItemsController{
   def deleteById() = UserAction(this.pickle[Model]()){implicit request=>
     val id = request.body.id
     this.items = this.items.filterNot(i=>i.id==id)
-    Ok(PicklerRegistry.pickle(true)).as("application/json")
+    Ok(rp.pickle(true)).as("application/json")
   }
   override type ModelType<:Model
 }
@@ -71,13 +71,13 @@ trait ItemsController {
       rp.registerPicklers()
       //val domain: String = request.domain
       //val menu =  Menu(dom / "menu", "Main menu", items)
-      val pickle: JsValue = PicklerRegistry.pickle(items)
+      val pickle: JsValue = rp.pickle(items)
       Ok(pickle).as("application/json")
   }
   def add() = UserAction(this.pickle[ModelType]()){implicit request=>
     val item = request.body
     this.items= items:::item::Nil
-    Ok(PicklerRegistry.pickle(true)).as("application/json")
+    Ok(rp.pickle(true)).as("application/json")
   }
 
 
@@ -86,7 +86,7 @@ trait ItemsController {
   def delete() = UserAction(this.pickle[ModelType]()){implicit request=>
     val item = request.body
     this.items = this.items filterNot (_ == item)
-    Ok(PicklerRegistry.pickle(true)).as("application/json")
+    Ok(rp.pickle(true)).as("application/json")
   }
 
 
@@ -100,7 +100,7 @@ trait ItemsController {
   def pickle[T](failMessage:String = "cannot unpickle json data")(implicit register: ()=>Unit)  = parse.tolerantJson.validate[T]{
     case value: JsValue =>
       register()
-      PicklerRegistry.unpickle(value)
+      rp.unpickle(value)
       value match {
         case data:T=>Right(data)
         case null=>Left(BadRequest(Json.obj("status" ->"KO","message"->failMessage)).as("application/json"))

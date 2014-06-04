@@ -14,7 +14,7 @@ import org.scalajs.dom.{HTMLElement, MouseEvent}
 import scala.scalajs.js
 import org.denigma.binding.frontend.tests.{PicklerView, LongListView, RandomView}
 import org.denigma.extensions._
-import org.denigma.binding.frontend.slides.{TestModelView, RemoteSlide, BindSlide, SlideView}
+import org.denigma.binding.frontend.slides._
 import org.denigma.tools.CodeMirrorView
 import org.denigma.binding.frontend.tools.CodeView
 import org.denigma.binding.models.rp
@@ -48,6 +48,9 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     .register("SlideView",(el,params)=>Try {new SlideView(el,params)})
     .register("BindSlide",(el,params)=>Try {new BindSlide(el,params)})
     .register("RemoteSlide",(el,params)=>Try {new RemoteSlide(el,params)})
+    .register("CollectionSlide",(el,params)=>Try {new CollectionSlide(el,params)})
+    .register("Rdflide",(el,params)=>Try {new RdfSlide(el,params)})
+
     .register("CodeView",(el,params)=>Try {new CodeView(el,params)})
     .register("TestModelView",(el,params)=>Try{new TestModelView(el)})
     .register("PicklerView",(el,params)=>Try{new PicklerView(el,params)})

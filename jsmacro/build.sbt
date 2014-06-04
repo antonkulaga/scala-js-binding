@@ -12,7 +12,7 @@ Build.sameSettings
 
 name := "js-macro"
 
-version := "0.1"
+version := "0.1.1"
 
 resolvers +=  Resolver.url("scala-js-releases",
   url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(

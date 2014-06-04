@@ -29,11 +29,9 @@ trait MapRegistry extends PicklerRegistry {
       val array =  obj.map{case (key,value)=> builder.makeObject("key"->registry.pickle(key),"value"->registry.pickle(value))     }
       builder.makeObject("map"->builder.makeArray(array.toSeq:_*)  )
 
-    case obj:Set[_]=>
-      builder.makeObject("set"->builder.makeArray(obj.map(v=>registry.pickle(v)).toSeq: _*)  )
+    case obj:Set[_]=>    builder.makeObject("set"->builder.makeArray(obj.map(v=>registry.pickle(v)).toSeq: _*)  )
 
-    case seq: Seq[_] =>
-      builder.makeObject("seq" -> builder.makeArray(     seq.map(v=>registry.pickle(v)): _*))
+//    case seq: Seq[_] =>    builder.makeObject("seq" -> builder.makeArray(     seq.map(v=>registry.pickle(v)): _*))
 
 
     case (key,value)=>
@@ -96,7 +94,7 @@ trait MapRegistry extends PicklerRegistry {
   override def unpickle[P](pickle: P)(implicit reader: PReader[P], registry: PicklerRegistry = this): Any = {
     this.unpickleMap(pickle).right.getOrElse{
       this.unpickleSet(pickle).right.getOrElse{
-        this.unpickleSet(pickle).right.getOrElse{
+        this.unpickleSeq(pickle).right.getOrElse{
          this.unpickleTuple2(pickle).right.getOrElse{
            PicklerRegistry.unpickle(pickle)(reader,registry)
          }

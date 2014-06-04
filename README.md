@@ -2,7 +2,7 @@ ScalaJS Binding project
 #######################
 
 *scalajs-binding* library provides binding of ScalaJS classes and properties to HTML tags.
-
+That means that you may define all the code in separate scala-js classes and they will be binded to your html templates on the client.
 
 Bindings
 ========

@@ -9,6 +9,9 @@ import org.scalajs.spickling.PicklerRegistry
 import org.scalajs.dom.XMLHttpRequest
 
 
+/**
+ * Provides features to do storage operations with models
+ */
 trait Storage
 {
   type Value //<:Model
@@ -22,6 +25,7 @@ trait Storage
   def all():Future[List[Value]]
 
 }
+
 
 trait AjaxStorage extends Storage{
 

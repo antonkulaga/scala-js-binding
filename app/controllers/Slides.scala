@@ -37,6 +37,8 @@ object Slides extends PJaxPlatformWith("index") {
       case "remotes"=>views.html.slides.rdf("It can bind rdf shapes")(request)
       case "parse"=>views.html.slides.parse("It can parse")(request)
       case "code"=>views.html.slides.code("The code will tell you")(request)
+      case "scalajs"=>views.html.slides.scalajs("Benefits of scalajs")(request)
+
       case _=>views.html.slides.code("The code will tell you")(request)
 
     }
@@ -57,7 +59,7 @@ object SlidesMenu  extends Controller  with ItemsController{
   var items:List[ModelType] =     List(
     "slides/bind"->"Basic binding example",
     "slides/collection"->"Collection binding",
-    "slides/remotes"->"Remove views",
+    //"slides/remotes"->"Remove views",
     "slides/rdf"->"RDF views"
 
   //"slides/parse"->"Parsing example"

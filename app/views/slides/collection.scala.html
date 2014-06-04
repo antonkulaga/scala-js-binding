@@ -1,5 +1,5 @@
 @(title:String)(implicit request: UserRequestHeader)
-<article id="main_article" class="ui blue piled segment">
+<article id="main_article" data-view="CollectionSlide" class="ui blue piled segment">
 
 
 
@@ -12,6 +12,45 @@
 
 
     <div class="ui two column grid">
+
+        <section class="row">
+            <div class="column">
+                <p class="ui segment">
+                    On the right you can see a sample of menu. There data-param-path makes a request to corresponding
+                    address and loads a menu into the page. Scala-js-pickling library is used to pickle and unpickle results, that means
+                    that you can pass any case class, pickle it on the server and unpickle on the client without a need to write custom json (de)serialization,
+                    the only thing that is required is to register this class with pickl register as well as classes that are in fields of your case class.
+                </p>
+
+            </div>
+            <div class="column">
+                <nav class="ui large blue inverted menu" data-view="menu" data-param-path="menu/what">
+                    <a data-template="true" class="active item header" data-item-bind-href="uri" data-item-bind="label" data-load-into="main">
+                        <i class="ui-icon-home"></i>
+                    </a>
+                </nav>
+            </div>
+        </section>
+        <section class="row">
+            <div class="column">
+                <p class="ui segment">
+                    On the right you can see a code required for the menu to appear. There data-param-path makes a request to corresponding
+                    address and loads a menu into the page.
+                    In current example there is a tag with data-template="true"  this tag is a template for each item that will be created.
+                </p>
+                <p>
+                    Each item has data-load-into attribute. This attribute defined where the data should be loaded after menu is clicked. Usually
+                    data is loaded with ajax into some html element to avoid whole page refreshing. For binding to item properties data-item-bind is used
+                    instead of ordinary data-bind. The only difference between tham is that data-bind binds to the whole view and data-item-bind binds
+                    to current item.
+
+                </p>
+            </div>
+            <div class="column">
+                <textarea data-view="CodeView" data-up-bind-code="html_code" data-param-mode="htmlmixed">
+                </textarea>
+            </div>
+        </section>
 
 
 
