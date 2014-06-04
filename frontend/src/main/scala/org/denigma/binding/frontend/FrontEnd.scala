@@ -12,12 +12,12 @@ import org.denigma.views.OrdinaryView
 import scala.collection.immutable.Map
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import scala.scalajs.js
-import org.denigma.binding.frontend.tests.{LongListView, RandomView}
+import org.denigma.binding.frontend.tests.{PicklerView, LongListView, RandomView}
 import org.denigma.extensions._
 import org.denigma.binding.frontend.slides.{TestModelView, RemoteSlide, BindSlide, SlideView}
 import org.denigma.tools.CodeMirrorView
 import org.denigma.binding.frontend.tools.CodeView
-import org.denigma.binding.models.{RegisterPicklers=>rp}
+import org.denigma.binding.models.rp
 
 
 @JSExport
@@ -50,6 +50,8 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     .register("RemoteSlide",(el,params)=>Try {new RemoteSlide(el,params)})
     .register("CodeView",(el,params)=>Try {new CodeView(el,params)})
     .register("TestModelView",(el,params)=>Try{new TestModelView(el)})
+    .register("PicklerView",(el,params)=>Try{new PicklerView(el,params)})
+
 
 
   //    .register("righ-menu", (el, params) =>Try(new RightMenuView(el,params)))
@@ -78,6 +80,8 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     //dom.document.getElementById(into).innerHTML =ins.innerHTML
     ins.parentNode.removeChild(ins)
   }
+
+
 
 
   val toggle: Var[MouseEvent] = Var(this.createMouseEvent())

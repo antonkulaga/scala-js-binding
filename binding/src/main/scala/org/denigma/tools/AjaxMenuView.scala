@@ -4,7 +4,7 @@ import org.scalajs.dom.HTMLElement
 import org.denigma.views.ListView
 import rx._
 import org.denigma.models.AjaxStorage
-import org.denigma.binding.models.{RegisterPicklers, MenuItem}
+import org.denigma.binding.models.{rp, MenuItem}
 import scala.collection.immutable.{Map, List}
 import scala.util.{Failure, Success}
 import org.scalajs.dom
@@ -45,7 +45,7 @@ abstract class AjaxMenuView(name:String,el:HTMLElement, params:Map[String,Any] =
    */
   override def bindView(el: HTMLElement) = {
 
-    RegisterPicklers.registerPicklers()
+    rp.registerPicklers()
 
     val futureMenu = storage.all()
     futureMenu.onComplete {

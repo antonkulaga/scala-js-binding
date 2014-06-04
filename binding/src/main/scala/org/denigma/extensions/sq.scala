@@ -16,6 +16,7 @@ import org.scalajs.spickling.jsany._
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.scalajs.spickling._
 import scala.scalajs.js.prim.Undefined
+import org.denigma.binding.models.rp
 
 /**
  * "ScalaQuery" helper for convenient DOM manipulation and other useful things
@@ -122,7 +123,7 @@ object sq{
   }
 
   def pack2String[T](data:T) = {
-    val p: js.Any = PicklerRegistry.pickle(data)
+    val p: js.Any = rp.pickle(data)
     g.JSON.stringify(p).toString
 
   }
@@ -130,7 +131,7 @@ object sq{
   def pickleRequest[T](req:Future[XMLHttpRequest]): Future[T] = req.map{case r=>
     val v = js.JSON.parse(r.responseText).asInstanceOf[js.Any]
 
-    PicklerRegistry.unpickle(v) match {
+    rp.unpickle(v) match {
       case value:T=>value
       case _=>
         val ex = s"unpickling problem with $v"

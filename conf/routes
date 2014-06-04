@@ -4,6 +4,14 @@
 
 
 GET           /                          controllers.Application.index()
+GET           /test                      controllers.Test.html()
+GET           /test/tuple2               controllers.Test.tuple2()
+GET           /test/map                  controllers.Test.map()
+GET           /test/model             controllers.Test.model()
+
+
+
+
 GET           /menu/top                  controllers.TopMenu.all()
 PUT           /menu/top/add              controllers.TopMenu.add()
 #DELETE        /menu/top/delete           controllers.TopMenu.deleteById()

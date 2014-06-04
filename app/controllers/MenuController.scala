@@ -16,7 +16,7 @@ import org.scalax.semweb.rdf.IRI
 
 object TopMenu  extends Controller  with ItemsController{
 
-  implicit def register = RegisterPicklers.registerPicklers
+  implicit def register = rp.registerPicklers
 
   type ModelType = MenuItem
 

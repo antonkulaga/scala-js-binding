@@ -10,6 +10,3 @@ trait Model {
   def id:Res
 
 }
-
-case class Property(iri:IRI,values:List[RDFValue])
-case class TransferModel(properties:List[Property])

@@ -19,7 +19,7 @@ object ModelsController  extends Controller with ItemsController{
 
   type ModelType =  PropertyModel
 
-  override implicit def register: () => Unit = RegisterPicklers.registerPicklers
+  override implicit def register: () => Unit = rp.registerPicklers
 
 
 
@@ -68,7 +68,7 @@ trait ItemsController {
 
   def all(): Action[AnyContent] =  UserAction{
     implicit request=>
-      RegisterPicklers.registerPicklers()
+      rp.registerPicklers()
       //val domain: String = request.domain
       //val menu =  Menu(dom / "menu", "Main menu", items)
       val pickle: JsValue = PicklerRegistry.pickle(items)

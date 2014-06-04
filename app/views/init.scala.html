@@ -1,0 +1,15 @@
+@(implicit request: UserRequestHeader, into:String = "main")
+
+<script>
+$( document ).ready(function() {
+// Handler for .ready() called.
+session = {}
+    @if(request.username.isDefined) {
+        session.user = "@Html(s"${request.username.get.stringValue}")";
+    }
+
+FrontEnd().main();
+
+
+});
+</script>

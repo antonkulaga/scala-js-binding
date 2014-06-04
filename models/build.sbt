@@ -18,5 +18,4 @@ libraryDependencies +=  "org.scalax" %%% "semweb" % Build.semWebVersion
 
 libraryDependencies += "org.scalajs" %%% "scalajs-pickling" % "0.3"
 
-
 Build.publishSettings
