@@ -7,7 +7,7 @@ import scalatags.HtmlTag
 
 import scala.scalajs.js
 import js.Dynamic.{global=>g}
-import org.denigma.tools.CodeMirrorView
+import org.denigma.controls.CodeMirrorView
 
 
 class CodeView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorView("CodeView",element,params)
@@ -18,5 +18,5 @@ class CodeView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any
 
   override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
 
-  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
+  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 }

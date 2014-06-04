@@ -38,7 +38,7 @@ object Slides extends PJaxPlatformWith("index") {
       case "parse"=>views.html.slides.parse("It can parse")(request)
       case "code"=>views.html.slides.code("The code will tell you")(request)
       case "scalajs"=>views.html.slides.scalajs("Benefits of scalajs")(request)
-
+      case "rdf"=>views.html.slides.rdf("It can bind views to rdf models")(request)
       case _=>views.html.slides.code("The code will tell you")(request)
 
     }

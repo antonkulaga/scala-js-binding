@@ -2,12 +2,9 @@ package org.denigma.binding.frontend.tests
 
 import org.scalajs.dom.{MouseEvent, HTMLElement}
 import scala.collection.immutable.Map
-import org.denigma.views.{OrdinaryView, ListView}
+import org.denigma.views.OrdinaryView
 import rx._
 import scalatags._
-import org.scalajs.spickling.playjson._
-import org.denigma.binding.models.{ rp}
-import org.scalajs.dom
 import org.denigma.extensions.sq
 import scala.util.{Failure, Success}
 
@@ -27,7 +24,7 @@ class PicklerView(element:HTMLElement, params:Map[String,Any]) extends OrdinaryV
     case Failure(th)=> value() = th.getMessage.toString
   }
 
-  val value = Var("????????????????")
+  val value = Var("")
 
 
   override lazy val tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
@@ -38,5 +35,5 @@ class PicklerView(element:HTMLElement, params:Map[String,Any]) extends OrdinaryV
 
   //override lazy val textEvents: Map[String, Var[TextEvent]] = this.extractTextEvents(this)
 
-  override lazy val mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
+  override lazy val mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 }

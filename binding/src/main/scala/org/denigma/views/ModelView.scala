@@ -23,10 +23,7 @@ import scala.scalajs.js.Any
 import org.denigma.extensions._
 import org.scalajs.dom.extensions._
 
-
-
-
- class ModelView(name:String,element:HTMLElement,props:PropertyModel) extends OrganizedView(name,element) {
+class ModelView(name:String,element:HTMLElement,props:PropertyModel) extends OrganizedView(name,element) {
 
 
    val modelInside = Var(ModelInside(props))
@@ -38,6 +35,7 @@ import org.scalajs.dom.extensions._
     */
    override def bindElement(el: HTMLElement) = {
      super.bindElement(el)
+
      this.bindRdf(el)
    }
 

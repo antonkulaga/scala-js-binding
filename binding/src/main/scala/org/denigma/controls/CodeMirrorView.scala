@@ -1,4 +1,4 @@
-package org.denigma.tools
+package org.denigma.controls
 
 import org.denigma.views.OrdinaryView
 import org.scalajs.dom.HTMLElement
@@ -40,9 +40,6 @@ abstract class CodeMirrorView(name:String,element:HTMLElement,params:Map[String,
         Rx{
           m.getDoc().setValue(code())
         }
-
-
-        dom.console.log("code mirror has started!")
 
       case _=> dom.console.log("it is not a text area!")
     }

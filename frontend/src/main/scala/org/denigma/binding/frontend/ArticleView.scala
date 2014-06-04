@@ -18,7 +18,7 @@ class ArticleView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,
 
   override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
 
-  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
+  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 
 
   val authors = Var("Anton Kulaga")

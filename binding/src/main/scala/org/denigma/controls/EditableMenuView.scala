@@ -1,8 +1,7 @@
-package org.denigma.tools
+package org.denigma.controls
 
 import org.scalajs.dom.HTMLElement
 import scala.collection.immutable.Map
-import org.denigma.views.ListView
 
 abstract class EditableMenuView(name:String,el:HTMLElement, params:Map[String,Any] = Map.empty) extends AjaxMenuView(name,el,params)
 {

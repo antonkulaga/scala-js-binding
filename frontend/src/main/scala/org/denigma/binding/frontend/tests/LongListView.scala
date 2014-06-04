@@ -34,5 +34,5 @@ class LongListView(element:HTMLElement, params:Map[String,Any]) extends ListView
 
   //override lazy val textEvents: Map[String, Var[TextEvent]] = this.extractTextEvents(this)
 
-  override lazy val mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
+  override lazy val mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 }

@@ -17,7 +17,7 @@ class BindSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,An
 
   override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
 
-  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
+  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 
   override def bindView(el:HTMLElement) {
     //jQuery(el).slideUp()

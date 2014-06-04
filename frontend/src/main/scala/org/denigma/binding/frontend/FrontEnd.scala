@@ -15,9 +15,9 @@ import scala.scalajs.js
 import org.denigma.binding.frontend.tests.{PicklerView, LongListView, RandomView}
 import org.denigma.extensions._
 import org.denigma.binding.frontend.slides._
-import org.denigma.tools.CodeMirrorView
 import org.denigma.binding.frontend.tools.CodeView
 import org.denigma.binding.models.rp
+import org.denigma.controls.CodeMirrorView
 
 
 @JSExport
@@ -30,7 +30,7 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
 
   lazy val bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
 
-  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
+  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 
 
   val sidebarParams =  js.Dynamic.literal(exclusive = false)
@@ -49,8 +49,7 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     .register("BindSlide",(el,params)=>Try {new BindSlide(el,params)})
     .register("RemoteSlide",(el,params)=>Try {new RemoteSlide(el,params)})
     .register("CollectionSlide",(el,params)=>Try {new CollectionSlide(el,params)})
-    .register("Rdflide",(el,params)=>Try {new RdfSlide(el,params)})
-
+    .register("RdfSlide",(el,params)=>Try {new RdfSlide(el,params)})
     .register("CodeView",(el,params)=>Try {new CodeView(el,params)})
     .register("TestModelView",(el,params)=>Try{new TestModelView(el)})
     .register("PicklerView",(el,params)=>Try{new PicklerView(el,params)})

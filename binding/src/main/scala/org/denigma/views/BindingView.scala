@@ -37,7 +37,7 @@ object BindingView {
 
     override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
 
-    override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
+    override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 
 
   }
@@ -141,6 +141,8 @@ abstract class BindingView(val name:String,elem:dom.HTMLElement) extends JustBin
    * @param el
    */
   def bindView(el:HTMLElement) = this.bind(el)
+
+
   def unbindView() = {
     this.unbind(this.viewElement)
   }

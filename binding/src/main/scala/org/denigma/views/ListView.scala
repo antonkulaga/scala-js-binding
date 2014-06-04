@@ -24,7 +24,7 @@ object ListView {
 
     override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
 
-    override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
+    override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
   }
 
 

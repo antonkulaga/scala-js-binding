@@ -1,4 +1,4 @@
-package org.denigma.tools
+package org.denigma.controls
 
 import org.scalajs.dom.HTMLElement
 import org.denigma.views.ListView

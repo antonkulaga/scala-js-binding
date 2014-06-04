@@ -55,5 +55,5 @@ class RandomView(el:HTMLElement, params:Map[String,Any]) extends OrdinaryView("r
 
   //override def textEvents:Map[String, rx.Var[TextEvent]] = this.extractTextEvents(this)
 
-  override def mouseEvents: Map[String, rx.Var[MouseEvent]] = this.extractMouseEvens(this)
+  override def mouseEvents: Map[String, rx.Var[MouseEvent]] = this.extractMouseEvents(this)
 }

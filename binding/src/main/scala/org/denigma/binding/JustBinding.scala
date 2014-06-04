@@ -45,7 +45,7 @@ abstract class JustBinding {
               case None => dom.console.error(s"cannot find $into element")
             }
 
-            case Failure(th) => dom.console.error(s"there is a problem with ${uri} ajax request")
+            case Failure(th) => dom.console.error(s"there is a problem with $uri ajax request")
           }
 
 
@@ -128,8 +128,10 @@ abstract class JustBinding {
    * @return
    */
   def bindRx[T](key:String,el:HTMLElement ,rx:Rx[T])(assign:(HTMLElement,T)=>Unit) = {
+
     val eid = this.makeId(el, key)
     lazy val obs: Obs = Obs(rx, eid, skipInitial = false) {
+      /*
       dom.document.getElementById(eid) match {
         case null =>
           dom.console.info(s"$eid was not find, killing observable...")
@@ -140,8 +142,12 @@ abstract class JustBinding {
           //el.dyn.obs = obs.asInstanceOf[js.Dynamic]
           assign(element, value)
       }
+      */
+      val value = rx.now
+      assign(el,value)
     }
     val o = obs //TO MAKE LAZY STUFF WORK
+
   }
 
 

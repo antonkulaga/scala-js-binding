@@ -15,20 +15,29 @@
         <section class="row">
             <div class="column">
                 <p>
-                    On your right you can see a set of RDF rproperties binded to html
+                    On your right you can see a set of RDF properties binded to html
                 </p>
             </div>
-            <div class="column">
-                <h1>I am allive</h1>
-                <section data-view="TestModelView">
+            <div class="column" >
+                <section class="ui segment" data-view="TestModelView">
+
+                <h1>This is test rdf model that is kep in memory</h1>
+                <div>
                     <h1 property="http://hello.world.com"></h1>
                     <input property="http://hello.world.com">
                     <p property="http://text.com"></p>
                     <textarea property="http://text.com"></textarea>
 
 
+                </div>
+                <div class="ui button" data-class-positive-if="dirty" data-event-click="saveClick">save</div>
+
                 </section>
+
+
+
             </div>
+
         </section>
 
 

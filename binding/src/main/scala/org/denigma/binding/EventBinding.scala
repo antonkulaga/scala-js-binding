@@ -14,7 +14,7 @@ import scala.collection.immutable._
 trait EventBinding  extends JustBinding
 {
   def extractEvents[T: EventMap](t: T): Map[String, Var[Event]] =  implicitly[EventMap[T]].asEventMap(t)
-  def extractMouseEvens[T: MouseEventMap](t: T): Map[String, Var[MouseEvent]] =  implicitly[MouseEventMap[T]].asMouseEventMap(t)
+  def extractMouseEvents[T: MouseEventMap](t: T): Map[String, Var[MouseEvent]] =  implicitly[MouseEventMap[T]].asMouseEventMap(t)
   def extractTextEvents[T: TextEventMap](t: T): Map[String, Var[TextEvent]] =  implicitly[TextEventMap[T]].asTextEventMap(t)
   def extractKeyEvents[T: KeyEventMap](t: T): Map[String, Var[KeyboardEvent]] =  implicitly[KeyEventMap[T]].asKeyEventMap(t)
   def extractUIEvents[T: UIEventMap](t: T): Map[String, Var[UIEvent]] =  implicitly[UIEventMap[T]].asUIEventMap(t)
@@ -32,7 +32,10 @@ trait EventBinding  extends JustBinding
       key.toString match {
         case "event-click" => this.mouseEvents.get(value) match {
           case Some(ev)=>this.bindClick(el,key,ev)
-          case _ => dom.console.error(s"cannot bind click event for ${value}")
+          case _ =>
+            dom.console.error(s"cannot bind click event of $name to $value")
+            dom.console.log("current events =" + this.mouseEvents.keys.toString())
+
         }
 
         case _ => //some other thing to do
