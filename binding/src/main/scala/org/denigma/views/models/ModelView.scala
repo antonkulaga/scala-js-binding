@@ -14,6 +14,8 @@ import org.denigma.extensions._
 import org.scalajs.dom.extensions._
 import org.denigma.views.models.ModelInside
 import org.denigma.views.core.OrganizedView
+import scala.collection.mutable
+import scala.scalajs.js
 
 trait ModelView {
 
@@ -46,13 +48,8 @@ trait ModelView {
      ats.foreach { case (key, value) =>
        this.rdfPartial(el, key, value).orElse(otherPartial)(key)
 
-
      }
 
-   }
-
-   protected def otherPartial: PartialFunction[String, Unit] = {
-     case _ =>
    }
 
    protected def rdfPartial(el: HTMLElement, key: String, value: String): PartialFunction[String, Unit] = {
@@ -65,10 +62,25 @@ trait ModelView {
 
        val att = key.replace("property-", "")
        this.bindRdfAttribute(el, IRI(value), att)
+
+
    }
 
+  protected def otherPartial: PartialFunction[String, Unit] = {
+    case _ =>
+  }
 
-   def strFromProperties(model: PropertyModel, key: IRI) = model.properties.get(key).fold("")(v => this.vals2String(v))
+  /**
+   * Extracts STRs from properties
+   * @param model
+   * @param key
+   * @return
+   */
+   def strOptionFromProperties(model: PropertyModel, key: IRI) = model.properties.get(key) match {
+    case Some(values: Set[RDFValue])=> Some(this.vals2String(values))
+    case None=>None
+
+    }
 
 
    def prettyString(value:RDFValue) = value match {
@@ -82,20 +94,26 @@ trait ModelView {
     * @param values
     * @return
     */
-   def vals2String(values: Set[RDFValue]) = values.size match {
+   def vals2String(values: Set[RDFValue]): String = values.size match {
      case 0 => ""
      case 1 => this.prettyString(values.head)
      case _ => values.foldLeft("") { case (acc, prop) => acc + ";" + this.prettyString(prop)}
    }
 
    protected def bindRdfText(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
-     el.textContent = Any.fromString(strFromProperties(model.current, key))
+     strOptionFromProperties(model.current, key) match {
+       case None=> dom.console.log(s"${key.toString()} was not found in the model")
+       case Some(value)=>el.textContent =  value
+     }
    }
 
 
    protected def bindRdfInput(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
-     val value = strFromProperties(model.current, key)
-     if (el.dyn.value != value) el.dyn.value = value
+     strOptionFromProperties(model.current, key) match {
+       case None=>dom.console.log(s"${key.toString()} was not found in the model")
+       case Some(value)=>     if (el.dyn.value != value) el.dyn.value = value
+     }
+
    }
 
    /**
@@ -105,11 +123,15 @@ trait ModelView {
     * @param att
     */
    protected def bindRdfAttribute(el: HTMLElement, key: IRI, att: String) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
-     val value = strFromProperties(modelInside.now.current, key)
-     val at = dom.document.createAttribute(att)
-     at.value = value
-     el.attributes.setNamedItem(at)
-     el.dyn.updateDynamic(att)(value)
+     strOptionFromProperties(modelInside.now.current, key) match {
+       case None=> dom.console.log(s"${key.toString()} was not found in the model")
+       case Some(value)=>
+         val at = dom.document.createAttribute(att)
+         at.value = Any.fromString(value)
+         el.attributes.setNamedItem(at)
+         el.dyn.updateDynamic(att)(value)
+     }
+
    }
 
 

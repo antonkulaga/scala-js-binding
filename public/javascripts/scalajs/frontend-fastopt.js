@@ -1776,17 +1776,20 @@ ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdf__Lorg_denigma_views
 ScalaJS.i.Lorg_denigma_views_models_ModelView$class__rdfPartial__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__T__T__s_PartialFunction = (function($$this, el, key, value) {
   return new ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1().init___Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__T__T($$this, el, key, value)
 });
-ScalaJS.i.Lorg_denigma_views_models_ModelView$class__strFromProperties__Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__T = (function($$this, model, key) {
-  return ScalaJS.as.T(model.properties__sci_Map().get__O__s_Option(key).fold__F0__F1__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-    return (function() {
-      return ""
-    })
-  })()), new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
-    return (function(v$2) {
-      var v = ScalaJS.as.sci_Set(v$2);
-      return ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).vals2String__sci_Set__T(v)
-    })
-  })($$this))))
+ScalaJS.i.Lorg_denigma_views_models_ModelView$class__strOptionFromProperties__Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option = (function($$this, model, key) {
+  var x1 = model.properties__sci_Map().get__O__s_Option(key);
+  if (ScalaJS.is.s_Some(x1)) {
+    var x2 = ScalaJS.as.s_Some(x1);
+    var values = ScalaJS.as.sci_Set(x2.x__O());
+    if ((values !== null)) {
+      var x3 = values;
+      return new ScalaJS.c.s_Some().init___O(ScalaJS.as.Lorg_denigma_views_models_ModelView($$this).vals2String__sci_Set__T(x3))
+    }
+  };
+  if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
+    return ScalaJS.m.s_None()
+  };
+  throw new ScalaJS.c.s_MatchError().init___O(x1)
 });
 ScalaJS.i.Lorg_denigma_views_models_ModelView$class__prettyString__Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_rdf_RDFValue__T = (function($$this, value) {
   var x1 = value;
@@ -1830,7 +1833,20 @@ ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfText__Lorg_denigma_v
     return (function(el$2, model$2) {
       var el = el$2;
       var model = ScalaJS.as.Lorg_denigma_views_models_ModelInside(model$2);
-      el["textContent"] = ScalaJS.as.T(ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).strFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__T(model.current__Lorg_scalax_semweb_shex_PropertyModel(), key$2))
+      var x1 = ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).strOptionFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option(model.current__Lorg_scalax_semweb_shex_PropertyModel(), key$2);
+      matchEnd5: {
+        if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
+          ScalaJS.g["console"]["log"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), ["", " was not found in the model"]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [key$2.toString__T()]))));
+          break matchEnd5
+        };
+        if (ScalaJS.is.s_Some(x1)) {
+          var x2 = ScalaJS.as.s_Some(x1);
+          var value = ScalaJS.as.T(x2.x__O());
+          el["textContent"] = value;
+          break matchEnd5
+        };
+        throw new ScalaJS.c.s_MatchError().init___O(x1)
+      }
     })
   })($$this, key)))
 });
@@ -1839,9 +1855,23 @@ ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfInput__Lorg_denigma_
     return (function(el$2, model$2) {
       var el = el$2;
       var model = ScalaJS.as.Lorg_denigma_views_models_ModelInside(model$2);
-      var value = ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).strFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__T(model.current__Lorg_scalax_semweb_shex_PropertyModel(), key$3);
-      if ((ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(el).dyn__sjs_js_Dynamic()["value"] !== value)) {
-        ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(el).dyn__sjs_js_Dynamic()["value"] = value
+      var x1 = ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).strOptionFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option(model.current__Lorg_scalax_semweb_shex_PropertyModel(), key$3);
+      matchEnd5: {
+        if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
+          ScalaJS.g["console"]["log"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), ["", " was not found in the model"]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [key$3.toString__T()]))));
+          break matchEnd5
+        };
+        if (ScalaJS.is.s_Some(x1)) {
+          var x2 = ScalaJS.as.s_Some(x1);
+          var value = ScalaJS.as.T(x2.x__O());
+          if ((ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(el).dyn__sjs_js_Dynamic()["value"] !== value)) {
+            ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(el).dyn__sjs_js_Dynamic()["value"] = value;
+            break matchEnd5
+          } else {
+            break matchEnd5
+          }
+        };
+        throw new ScalaJS.c.s_MatchError().init___O(x1)
       }
     })
   })($$this, key)))
@@ -1851,11 +1881,23 @@ ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfAttribute__Lorg_deni
     return (function(el$2, model$2) {
       var el = el$2;
       var model = ScalaJS.as.Lorg_denigma_views_models_ModelInside(model$2);
-      var value = ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).strFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__T(ScalaJS.as.Lorg_denigma_views_models_ModelInside(ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).modelInside__Lrx_core_Var().now__O()).current__Lorg_scalax_semweb_shex_PropertyModel(), key$4);
-      var at = ScalaJS.g["document"]["createAttribute"](att$1);
-      at["value"] = value;
-      el["attributes"]["setNamedItem"](at);
-      ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(el).dyn__sjs_js_Dynamic()[att$1] = value
+      var x1 = ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).strOptionFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option(ScalaJS.as.Lorg_denigma_views_models_ModelInside(ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).modelInside__Lrx_core_Var().now__O()).current__Lorg_scalax_semweb_shex_PropertyModel(), key$4);
+      matchEnd5: {
+        if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
+          ScalaJS.g["console"]["log"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), ["", " was not found in the model"]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [key$4.toString__T()]))));
+          break matchEnd5
+        };
+        if (ScalaJS.is.s_Some(x1)) {
+          var x2 = ScalaJS.as.s_Some(x1);
+          var value = ScalaJS.as.T(x2.x__O());
+          var at = ScalaJS.g["document"]["createAttribute"](att$1);
+          at["value"] = ScalaJS.as.T(value);
+          el["attributes"]["setNamedItem"](at);
+          ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(el).dyn__sjs_js_Dynamic()[att$1] = value;
+          break matchEnd5
+        };
+        throw new ScalaJS.c.s_MatchError().init___O(x1)
+      }
     })
   })($$this, key, att)))
 });
@@ -44632,8 +44674,8 @@ ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1 = (function(
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype;
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.applyOrElse__T__F1__O = (function(x4, default$2) {
-  var x1 = x4;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.applyOrElse__T__F1__O = (function(x3, default$2) {
+  var x1 = x3;
   if (ScalaJS.anyRefEqEq("property", x1)) {
     var iri = new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(this.value$1$3);
     ScalaJS.as.Lorg_denigma_views_models_ModelView(this.$$outer$3).bindRDFProperty__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__V(this.el$2$3, iri, this.value$1$3);
@@ -44644,10 +44686,10 @@ ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.ap
     ScalaJS.as.Lorg_denigma_views_models_ModelView(this.$$outer$3).bindRdfAttribute__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__V(this.el$2$3, new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(this.value$1$3), att);
     return undefined
   };
-  return default$2.apply__O__O(x4)
+  return default$2.apply__O__O(x3)
 });
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.isDefinedAt__T__Z = (function(x4) {
-  var x1 = x4;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.isDefinedAt__T__Z = (function(x3) {
+  var x1 = x3;
   if (ScalaJS.anyRefEqEq("property", x1)) {
     return true
   };
@@ -52739,8 +52781,8 @@ ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.bindRdf__Lorg_scalajs_do
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.rdfPartial__Lorg_scalajs_dom_HTMLElement__T__T__s_PartialFunction = (function(el, key, value) {
   return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__rdfPartial__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__T__T__s_PartialFunction(this, el, key, value)
 });
-ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.strFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__T = (function(model, key) {
-  return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__strFromProperties__Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__T(this, model, key)
+ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.strOptionFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option = (function(model, key) {
+  return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__strOptionFromProperties__Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option(this, model, key)
 });
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.prettyString__Lorg_scalax_semweb_rdf_RDFValue__T = (function(value) {
   return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__prettyString__Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_rdf_RDFValue__T(this, value)

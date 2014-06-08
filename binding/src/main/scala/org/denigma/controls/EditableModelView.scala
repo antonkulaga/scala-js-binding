@@ -14,6 +14,7 @@ import scala.util.{Failure, Success}
 import org.scalajs.dom
 import org.scalax.semweb.shex.PropertyModel
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
+import scala.scalajs.js
 
 trait EditableModelView extends ModelView
 {
