@@ -12,6 +12,7 @@ import org.scalajs.spickling.PicklerRegistry
 import org.denigma.binding.models._
 
 import org.scalax.semweb.rdf.IRI
+import org.denigma.binding.play.ItemsController
 
 
 object TopMenu  extends Controller  with ItemsController{

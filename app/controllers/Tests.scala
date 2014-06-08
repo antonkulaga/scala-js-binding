@@ -5,6 +5,7 @@ import play.api.mvc.Controller
 import org.scalax.semweb.shex.PropertyModel
 import org.scalax.semweb.rdf.{StringLiteral, IRI}
 import org.denigma.binding.picklers.rp
+import org.denigma.binding.play.UserAction
 
 object Test extends Controller{
 

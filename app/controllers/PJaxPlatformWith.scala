@@ -4,6 +4,7 @@ import play.api.mvc._
 
 import play.api.libs.json.Json
 import play.twirl.api.Html
+import org.denigma.binding.play.{UserAction, UserRequestHeader}
 
 /**
  * Just a class for P-Jax

@@ -4,6 +4,7 @@ import org.scalax.semweb.rdf.IRI
 
 import scala.concurrent.Future
 import play.twirl.api.Html
+import org.denigma.binding.play.UserAction
 
 object Application extends PJaxPlatformWith("index") {
 
@@ -41,3 +42,4 @@ object Application extends PJaxPlatformWith("index") {
 
 
 }
+

@@ -59,7 +59,7 @@ object Build extends sbt.Build with UniversalKeys {
   lazy val bindingPlay = Project(
     id = "binding-play",
     base = file("binding-play")
-  )
+  ) dependsOn shared
 
   //lazy val sharedCode= unmanagedSourceDirectories in Compile += baseDirectory.value / "shared" / "src" / "main" / "scala"
 
@@ -94,7 +94,7 @@ object Build extends sbt.Build with UniversalKeys {
 
     organization := "org.denigma",
 
-    version := "0.3.3",
+    version := "0.3.4",
 
     //scalaVersion := "2.11.1",
 

@@ -1,12 +1,10 @@
-package controllers
+package org.denigma.binding.play
 
 import play.api.mvc._
 import scala.concurrent.Future
-
-
+import play.api.libs.concurrent.Execution.Implicits._
 import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.rdf.vocabulary.USERS
-import play.api.libs.concurrent.Execution.Implicits._
 
 
 trait UserRequestHeader extends RequestHeader{

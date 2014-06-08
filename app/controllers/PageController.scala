@@ -18,6 +18,7 @@ import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import org.scalajs.spickling.playjson._
 import org.denigma.binding.picklers.rp
 import org.denigma.binding.models.{StorageProtocol, ModelMessages}
+import org.denigma.binding.play.{AjaxModelEndpoint, PickleController, AuthRequest, UserAction}
 
 
 object PageController extends Controller with PickleController with AjaxModelEndpoint
@@ -75,24 +76,4 @@ object PageController extends Controller with PickleController with AjaxModelEnd
   }
 }
 
-trait AjaxModelEndpoint {
-  self:Controller=>
 
-  type RequestType <:Request[ReadMessage]
-
-  def onCreate(createMessage:ModelMessages.Create)(implicit request:RequestType):Result
-  def onRead(readMessage:ModelMessages.Read)(implicit request:RequestType):Result
-  def onUpdate(updateMessage:ModelMessages.Update)(implicit request:RequestType):Result
-  def onDelete(deleteMessage:ModelMessages.Delete)(implicit request:RequestType):Result
-
-  def onMessage(message:ModelMessages.ModelMessage)(implicit request:RequestType) = message match {
-    case m:ModelMessages.Create=>this.onCreate(m)
-    case m:ModelMessages.Read=>this.onRead(m)
-    case m:ModelMessages.Update=>this.onUpdate(m)
-    case m:ModelMessages.Delete=>this.onDelete(m)
-
-    case _=> this.BadRequest("wrong model message format")
-  }
-
-
-}

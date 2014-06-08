@@ -3,6 +3,7 @@ package controllers
 import org.scalax.semweb.rdf.IRI
 import org.denigma.binding.models._
 import play.api.mvc.Controller
+import org.denigma.binding.play.{ItemsController, UserAction}
 
 
 object Slides extends PJaxPlatformWith("index") {

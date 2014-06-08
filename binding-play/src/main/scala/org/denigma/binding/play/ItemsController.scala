@@ -1,11 +1,9 @@
-package controllers
+package org.denigma.binding.play
 
 import play.api.mvc._
 import play.api.libs.json.JsValue
+import org.denigma.binding.picklers.rp
 import org.scalajs.spickling.playjson._
-import org.denigma.binding.models._
-import org.denigma.binding.picklers._
-
 
 trait ItemsController extends PickleController{
   self: Controller=>

@@ -1,11 +1,11 @@
-package controllers
+package org.denigma.binding.play
 
 import play.api.mvc.Controller
 import play.api.libs.json.{Json, JsValue}
-import org.denigma.binding.picklers._
 
-import org.scalajs.spickling.playjson._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import org.denigma.binding.picklers.rp
+import org.scalajs.spickling.playjson._
 
 
 trait PickleController {
