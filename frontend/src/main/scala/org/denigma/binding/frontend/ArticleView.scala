@@ -2,17 +2,16 @@ package org.denigma.binding.frontend
 
 import org.scalajs.dom.{MouseEvent, HTMLElement}
 import rx.{Rx, Var}
-import scalatags.HtmlTag
 import org.scalajs.dom.HTMLElement
 import rx.Var
-import scalatags.HtmlTag
 import org.denigma.views.core.OrdinaryView
+import scalatags.Text.Tag
 
 /**
  * View for article with some text
  */
 class ArticleView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("article",element){
-  override def tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 

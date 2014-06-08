@@ -4,6 +4,7 @@ import org.scalajs.dom.{MouseEvent, HTMLElement}
 import rx._
 import scalatags._
 import org.denigma.views.core.OrdinaryView
+import scalatags.Text.Tag
 
 /**
  * Bind slide
@@ -11,7 +12,7 @@ import org.denigma.views.core.OrdinaryView
  * @param params
  */
 class BindSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("bind",element){
-  override def tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 
@@ -63,7 +64,7 @@ class BindSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,An
       | */
       |class RandomView(el:HTMLElement, params:Map[String,Any]) extends OrdinaryView("random",el){
       |
-      |  val counting: Var[HtmlTag] = Var{
+      |  val counting: Var[Tag] = Var{
       |    div(`class`:="ui segment",
       |      h1("This is title"),
       |      p("value that changes: \"START\"")
@@ -93,7 +94,7 @@ class BindSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,An
       |    */
       |  def square(x: Int): Int = x*x
       |
-      |  lazy val tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+      |  lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
       |
       |  //val doubles: Map[String, Rx[Double]] = this.extractDoubles[this.type]
       |

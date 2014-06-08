@@ -1,10 +1,7 @@
 import sbt._
 import sbt.Keys._
 import scala.scalajs.sbtplugin.ScalaJSPlugin.ScalaJSKeys
-import scala.scalajs.sbtplugin.ScalaJSPlugin.ScalaJSKeys._
-import scala.scalajs.sbtplugin
 import bintray.Plugin._
-import bintray.Keys._
 
 scalaJSSettings
 

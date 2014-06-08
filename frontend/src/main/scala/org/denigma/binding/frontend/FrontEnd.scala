@@ -1,7 +1,6 @@
 package org.denigma.binding.frontend
 
 import org.scalajs.dom
-import scalatags.HtmlTag
 import rx._
 import scala.scalajs.js.annotation.JSExport
 import org.scalajs.jquery._
@@ -15,13 +14,14 @@ import org.denigma.binding.frontend.slides._
 import org.denigma.binding.frontend.tools.CodeView
 import org.denigma.views.core.OrdinaryView
 import org.denigma.binding.picklers.rp
+import scalatags.Text.Tag
 
 
 @JSExport
 object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.JSApp
 {
 
-  val tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+  val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   val strings: Map[String, Rx[String]] = this.extractStringRx(this)
 

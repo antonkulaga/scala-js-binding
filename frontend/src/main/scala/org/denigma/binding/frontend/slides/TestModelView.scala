@@ -13,6 +13,7 @@ import org.denigma.extensions._
 import org.denigma.controls.{AjaxModelView, EditableModelView}
 import org.denigma.storages.AjaxStorage
 import org.denigma.views.models.ModelView
+import scalatags.Text.Tag
 
 
 /**
@@ -37,5 +38,5 @@ class TestModelView(element:HTMLElement,props:Map[String,Any]) extends AjaxModel
 
   lazy val mouseEvents: Map[String, rx.Var[dom.MouseEvent]] = this.extractMouseEvents(this)
 
-  override def tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 }

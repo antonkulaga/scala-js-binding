@@ -6,7 +6,7 @@ import scala.language.experimental.macros
 import rx._
 import scala.reflect.macros.Context
 import org.scalajs.dom
-
+import scalatags.Text._
 /**
  * Just some experiments
  */
@@ -58,7 +58,7 @@ object ClassToMap extends BinderObject {
 
 
 trait TagRxMap[T] {
-  def asTagRxMap(t: T): Map[String,Rx[scalatags.HtmlTag]]
+  def asTagRxMap(t: T): Map[String,Rx[Tag]]
 }
 
 object TagRxMap extends BinderObject {
@@ -66,7 +66,7 @@ object TagRxMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: Context): c.Expr[TagRxMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Rx[scalatags.HtmlTag]](c)
+    val mapExpr = extract[T,Rx[Tag]](c)
 
     reify {
       new TagRxMap[T] {

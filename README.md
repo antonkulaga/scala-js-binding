@@ -211,7 +211,7 @@ to extract all properties of the view and than inherited from this view, you wil
 That is why you should implement binding maps in your final class. So you will have to add something like this
 
 ```scala
-  val tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+  val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   val strings: Map[String, Rx[String]] = this.extractStringRx(this)
 

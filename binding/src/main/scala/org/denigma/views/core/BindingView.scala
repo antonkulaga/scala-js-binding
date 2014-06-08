@@ -13,6 +13,7 @@ import org.denigma.views._
 import scala.util.Failure
 import scala.Some
 import scala.util.Success
+import scalatags.Text.Tag
 
 object BindingView {
   /**
@@ -23,7 +24,7 @@ object BindingView {
   class JustView(name:String,elem:dom.HTMLElement) extends OrdinaryView(name,elem)
   {
 
-    override def tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+    override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
     override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 

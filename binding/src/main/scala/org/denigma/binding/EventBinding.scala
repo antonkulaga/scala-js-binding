@@ -4,9 +4,7 @@ import org.denigma.binding.macroses._
 import org.scalajs.dom._
 import org.scalajs.dom
 import rx._
-import scala.scalajs.js
-import scala.collection.mutable
-import scala.collection.immutable._
+
 
 /**
  * Extracts various events

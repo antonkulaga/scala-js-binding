@@ -4,6 +4,7 @@ import org.scalajs.dom.{MouseEvent, HTMLElement}
 import rx._
 import scalatags._
 import org.denigma.views.core.OrdinaryView
+import scalatags.Text.Tag
 
 /**
  * Slide about RDF-related binding
@@ -12,7 +13,7 @@ import org.denigma.views.core.OrdinaryView
  */
 class RdfSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("rdf",element)
 {
-  override def tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 

@@ -3,9 +3,9 @@ package org.denigma.binding.macroses
 
 import scala.language.experimental.macros
 import rx._
-import scalatags.HtmlTag
 import org.scalajs.dom.Attr
 import scala.reflect.runtime.universe._
+import scalatags.Text.Tag
 
 
 object Binder {
@@ -30,7 +30,7 @@ object Binder {
     c.Expr[Map[String, TE]](Apply(mapApply, pairs.toList))
   }
 
-  def htmlBindings_impl[T: c.WeakTypeTag](c: Context) = this.extractByType_impl[T,Rx[HtmlTag]](c)
+  def htmlBindings_impl[T: c.WeakTypeTag](c: Context) = this.extractByType_impl[T,Rx[Tag]](c)
   def attrBindings_impl[T: c.WeakTypeTag](c: Context) = this.extractByType_impl[T,Rx[Attr]](c)
   def stringBindings_impl[T: c.WeakTypeTag](c: Context) = this.extractByType_impl[T,Rx[String]](c)
   def booleanBindings_impl[T: c.WeakTypeTag](c: Context) = this.extractByType_impl[T,Rx[Boolean]](c)

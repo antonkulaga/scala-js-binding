@@ -2,7 +2,6 @@ package org.denigma.binding
 
 import scala.reflect.macros.Context
 import rx._
-import scalatags.HtmlTag
 import org.scalajs.dom.{KeyboardEvent, MouseEvent, Event, Attr}
 
 /**

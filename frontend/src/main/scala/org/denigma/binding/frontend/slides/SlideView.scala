@@ -4,14 +4,14 @@ import org.scalajs.dom.MouseEvent
 import rx.Rx
 import org.scalajs.dom.HTMLElement
 import rx.Var
-import scalatags.HtmlTag
 import org.denigma.views.core.OrdinaryView
+import scalatags.Text.Tag
 
 /**
  * View for article with some text
  */
 class SlideView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("slide",element){
-  override def tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 

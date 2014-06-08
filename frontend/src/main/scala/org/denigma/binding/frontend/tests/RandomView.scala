@@ -1,24 +1,23 @@
 package org.denigma.binding.frontend.tests
 
-import org.scalajs.dom.{TextEvent, MouseEvent, HTMLElement}
+import org.scalajs.dom.{HTMLDivElement, TextEvent, MouseEvent, HTMLElement}
 import rx.core.Var
-import scalatags.all._
-import scalatags.HtmlTag
 import scala.util.Random
 import rx.Rx
 import scala.collection.immutable.Map
 import org.scalajs.dom
 import org.denigma.views.core.OrdinaryView
-
-
+import scalatags.Text.tags._
+import scalatags.Text.{attrs => a, styles => s, _}
 /**
  * For test purposes only
  */
 class RandomView(el:HTMLElement, params:Map[String,Any]) extends OrdinaryView("random",el){
 
-  val counting: Var[HtmlTag] = Var{
-    div(`class`:="ui segment",
-      h1("This is title"),
+  val counting: Var[Tag] = Var{
+
+    div(a.`class`:="ui segment",
+      h1()("This is title"),
       p("""value that changes: "START" """)
     )
   }
@@ -30,7 +29,7 @@ class RandomView(el:HTMLElement, params:Map[String,Any]) extends OrdinaryView("r
   val list = List("ONE","TWO","THREE","FOUR","SOME TEXT","THAT IS RANDOM")
 
   def update():Unit ={
-    val value =  div(`class`:="ui segment",
+    val value =  div(a.`class`:="ui segment",
       h1("This is title"),
       p(s"""value that changes: "${list(Random.nextInt(list.length))}" """)
     )
@@ -46,7 +45,7 @@ class RandomView(el:HTMLElement, params:Map[String,Any]) extends OrdinaryView("r
     */
   def square(x: Int): Int = x*x
 
-  lazy val tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+  lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   //val doubles: Map[String, Rx[Double]] = this.extractDoubles[this.type]
 

@@ -3,13 +3,13 @@ package org.denigma.views.lists
 import org.scalajs.dom._
 import org.scalajs.dom
 import rx.{Var, Rx}
-import scalatags.HtmlTag
 import org.denigma.binding.CollectionBinding
 import scala.collection.immutable._
 import scala.Some
 import org.scalajs.dom.extensions._
 import org.denigma.extensions._
 import org.denigma.views.core.OrdinaryView
+import scalatags.Text.Tag
 
 object ListView {
 
@@ -19,7 +19,7 @@ object ListView {
    * @param props properties to bind to
    */
   class JustMapView(el:HTMLElement,props:Map[String,Any]) extends MapView("justmapview",el,props){
-    override def tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+    override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
     override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 

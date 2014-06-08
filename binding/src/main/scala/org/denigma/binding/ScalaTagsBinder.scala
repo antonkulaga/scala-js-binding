@@ -1,27 +1,31 @@
 package org.denigma.binding
 
 import rx._
-import scalatags.HtmlTag
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import scala.collection.mutable
 import scala.collection.immutable._
 import org.denigma.extensions._
 import org.scalajs.dom.extensions._
+
+
 import org.denigma.binding.macroses.TagRxMap
+import org.denigma.extensions._
+import scalatags.Text.{Tag, TypedTag}
 
 /**
  * HTML binding to scalatagnode
  */
 trait ScalaTagsBinder extends JustBinding{
 
+  //type Tag = TypedTag[_]
   //TODO: rewrite
 
 
-  def tags:Map[String,Rx[HtmlTag]]
+  def tags:Map[String,Rx[Tag]]
 
 
-  //def extractTags[T]:Map[String,Rx[HtmlTag]] = macro Binder.htmlBindings_impl[T]
+  //def extractTags[T]:Map[String,Rx[Tag]] = macro Binder.htmlBindings_impl[T]
 
   def extractTagRx[T: TagRxMap](t: T) =  implicitly[TagRxMap[T]].asTagRxMap(t)
 
@@ -38,14 +42,15 @@ trait ScalaTagsBinder extends JustBinding{
    * @param rtag tag to update from
    * @return
    */
-  def updateAttrByRx(key:String,el:org.scalajs.dom.HTMLElement ,rtag:Rx[HtmlTag]) = this.bindRx[HtmlTag](key,el,rtag){
+  def updateAttrByRx(key:String,el:org.scalajs.dom.HTMLElement ,rtag:Rx[Tag]) = this.bindRx[Tag](key,el,rtag){
     case (elem,tg)=>
-      tg.attrs.foreach {
-        case (k, v) =>
-          val att = (k,v).toAtt
-          elem.attributes.setNamedItem(att)
 
-    }
+//      tg.attrs.foreach {
+//        case (k, v) =>
+//          val att = (k,v).toAtt
+//          elem.attributes.setNamedItem(att)
+
+//    }
     elem.innerHTML = tg.toString()
 
   }

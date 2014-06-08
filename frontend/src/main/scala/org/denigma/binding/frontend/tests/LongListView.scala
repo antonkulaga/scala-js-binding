@@ -2,10 +2,9 @@ package org.denigma.binding.frontend.tests
 
 import org.scalajs.dom.{Attr, TextEvent, MouseEvent, HTMLElement}
 import rx.{Var, Rx}
-import scalatags.HtmlTag
-import scala.collection.mutable
 import scala.collection.immutable.Map
 import org.denigma.views.lists.ListView
+import scalatags.Text.Tag
 
 
 /**
@@ -26,7 +25,7 @@ class LongListView(element:HTMLElement, params:Map[String,Any]) extends ListView
 
   override lazy val lists: Map[String, Rx[List[Map[String, Any]]]] = this.extractListRx(this)
 
-  override lazy val tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+  override lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override lazy val strings: Map[String, Rx[String]] = this.extractStringRx(this)
 

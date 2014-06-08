@@ -2,15 +2,11 @@ import sbt._
 import Keys._
 //import play.Keys._
 import play._
-import play.Play.autoImport._
-import PlayKeys._
 
 import scala.scalajs.sbtplugin.ScalaJSPlugin._
 import scala.Some
 import ScalaJSKeys._
 import com.typesafe.sbt.packager.universal.UniversalKeys
-import com.typesafe.sbteclipse.core.EclipsePlugin.EclipseKeys
-import Def.ScopedKey
 import bintray.Plugin.bintraySettings
 import bintray.Opts
 import bintray.Keys._
@@ -25,7 +21,7 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.4.5"
+  val semWebVersion =  "0.4.6"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -94,7 +90,7 @@ object Build extends sbt.Build with UniversalKeys {
 
     organization := "org.denigma",
 
-    version := "0.3.4",
+    version := "0.3.5",
 
     //scalaVersion := "2.11.1",
 
@@ -110,10 +106,9 @@ object Build extends sbt.Build with UniversalKeys {
       url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
         Resolver.ivyStylePatterns),
 
-    scalacOptions ++= Seq( "-feature", "-language:_" ),
+    scalacOptions ++= Seq( "-feature", "-language:_" )
 
-    incOptions := incOptions.value.withNameHashing(true)
-
+  //  incOptions := incOptions.value.withNameHashing(true)
   )
 
 

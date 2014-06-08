@@ -9,6 +9,7 @@ import scala.util.{Failure, Success}
 
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.denigma.views.core.OrdinaryView
+import scalatags.Text.Tag
 
 /**
  * Class for testing purposes that makes a long list out of test element
@@ -28,7 +29,7 @@ class PicklerView(element:HTMLElement, params:Map[String,Any]) extends OrdinaryV
   val value = Var("")
 
 
-  override lazy val tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
+  override lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override lazy val strings: Map[String, Rx[String]] = this.extractStringRx(this)
 
