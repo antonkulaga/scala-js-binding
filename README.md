@@ -73,7 +73,7 @@ resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 libraryDependencies += "org.denigma" %%% "binding" % "0.3.2"
 ```
 
-NOTE: at the moment library is published only for scalajs 0.5-M3 and scala 2.10.4 . Version for scala 2.11.1 is in plans 
+NOTE: at the moment library is published only for scalajs 0.5-RC1 and scala 2.10.4 . Version for scala 2.11.1 is in plans 
 (waiting when scalaj 0.5 -stable will come up)
 
 

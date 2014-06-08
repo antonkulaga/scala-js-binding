@@ -43,8 +43,6 @@ trait EditableModelView extends ModelView
 
   val dirty = Rx{!this.modelInside().isUnchanged}
 
-  val saveClick: Var[MouseEvent] = Var(this.createMouseEvent())
-
 }
 
 abstract class AjaxModelView(name:String = "AjaxModel", element:HTMLElement,params:Map[String,Any]) extends OrdinaryView(name:String,element) with EditableModelView{
@@ -75,6 +73,25 @@ abstract class AjaxModelView(name:String = "AjaxModel", element:HTMLElement,para
     }
 
   }
+
+  def saveModel() = {
+    if(this.modelInside.now.isUnchanged)
+    {
+      dom.console.log("trying to save unchanged model")
+    }
+    else {
+      storage.update(this.shape,overWrite = true)(modelInside.now.current).onComplete{
+        case Failure(th)=>
+          dom.console.error(s"failure in saving of movel on $path: \n ${th.getMessage} ")
+        case Success(bool)=>
+        {
+          if(bool) this.modelInside() = this.modelInside.now.refresh else dom.console.log(s"the model was not saved")
+        }
+
+      }
+    }
+  }
+
 
   /**
    * Handler on model load

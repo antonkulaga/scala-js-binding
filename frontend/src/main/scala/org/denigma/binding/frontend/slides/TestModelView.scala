@@ -22,9 +22,11 @@ import scalatags.Text.Tag
  */
 class TestModelView(element:HTMLElement,props:Map[String,Any]) extends AjaxModelView("TestModel",element,props)
 {
+  val saveClick: Var[MouseEvent] = Var(this.createMouseEvent())
 
   this.saveClick.takeIf(dirty).handler{
-    dom.console.log("it should be saved right now")
+    //dom.console.log("it should be saved right now")
+    this.saveModel()
   }
 
 
