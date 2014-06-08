@@ -1,32 +1,25 @@
 package org.denigma.controls
 
-import org.denigma.views.ModelView
 import scala.collection.immutable.Map
 import rx._
-import scalatags._
 import rx.core.Var
-import org.scalajs.dom.{TextEvent, HTMLElement, MouseEvent}
-import org.scalax.semweb.shex.PropertyModel
-import org.scalax.semweb.rdf.{RDFValue, StringLiteral, IRI}
-import org.denigma.binding.GeneralBinding
-import org.denigma.binding.EventBinding
-import org.denigma.binding.{GeneralBinding, EventBinding}
-import org.scalajs.dom
-import org.denigma.extensions._
-import org.denigma.models.{Storage, AjaxStorage}
 import org.scalajs.dom.HTMLElement
-import org.scalax.semweb.shex.PropertyModel
-import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.rdf.StringLiteral
-import org.denigma.views.ModelView
 import org.scalajs.dom.MouseEvent
+import org.denigma.views.models.ModelView
+import org.denigma.views.core.OrdinaryView
+import org.denigma.storages.AjaxModelStorage
+import org.scalax.semweb.rdf.IRI
+import org.denigma.extensions.sq
+import scala.util.{Failure, Success}
 import org.scalajs.dom
-import org.scalajs.dom.TextEvent
+import org.scalax.semweb.shex.PropertyModel
+import scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-
-abstract class EditableModelView(name:String,element:HTMLElement,model:PropertyModel,params:Map[String,Any] = Map.empty ) extends ModelView(name,element,model) with EventBinding with GeneralBinding
+trait EditableModelView extends ModelView
 {
-  self:ModelView=>
+  self:OrdinaryView=>
+
+
 
   override protected def otherPartial:PartialFunction[String,Unit] = {case _=>}
 
@@ -34,7 +27,6 @@ abstract class EditableModelView(name:String,element:HTMLElement,model:PropertyM
     this.bindProperties(el,ats)
     this.bindEvents(el,ats)
   }
-
 
 
   //TODO: rewrite
@@ -51,5 +43,46 @@ abstract class EditableModelView(name:String,element:HTMLElement,model:PropertyM
   val dirty = Rx{!this.modelInside().isUnchanged}
 
   val saveClick: Var[MouseEvent] = Var(this.createMouseEvent())
+
+}
+
+abstract class AjaxModelView(name:String = "AjaxModel", element:HTMLElement,params:Map[String,Any]) extends OrdinaryView(name:String,element) with EditableModelView{
+
+  self=>
+
+  val path:String = params.get("path").map(v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)).get
+  val resource = IRI(params("resource").toString)
+  val shape = IRI(params("shape").toString)
+
+  val storage = new AjaxModelStorage(path)
+
+  override def bindView(el:HTMLElement)
+  {
+    storage.read(shape)(resource).onComplete{
+      case Success(model) if model.size==0=>
+        dom.console.log(s"empty model received from $path")
+        super.bindView(el)
+
+
+      case Success(model) =>
+        this.onLoadModel(model)
+        super.bindView(el)
+
+      case Failure(th)=>
+        dom.console.error(s"failure in read of model for $path: \n ${th.getMessage} ")
+        super.bindView(el)
+    }
+
+  }
+
+  /**
+   * Handler on model load
+   * @param items
+   */
+  protected def onLoadModel(items:List[PropertyModel]) = {
+    if(items.size>1) dom.console.error(s"more than one model received from $path for onemodel binding")
+    val model = items.head
+    this.modelInside() = this.modelInside.now.copy(model,model)
+  }
 
 }

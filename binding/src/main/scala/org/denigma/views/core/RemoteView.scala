@@ -1,8 +1,8 @@
-package org.denigma.views
-import scala.util.{ Try, Success, Failure }
+package org.denigma.views.core
+
+import scala.util.Try
 import scala.concurrent.Future
 import org.scalajs.dom.HTMLElement
-import org.scalajs.dom
 
 
 /**

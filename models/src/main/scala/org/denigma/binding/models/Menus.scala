@@ -1,19 +1,22 @@
 package org.denigma.binding.models
 
 import org.scalax.semweb.rdf.{Res, IRI}
+import org.scalax.semweb.shex.Model
 
 case class TestMenu(uri:IRI,title:String)
 
 //extends MenuItemLike
 
-case class Menu(uri:IRI,title:String, children: List[MenuItem]) extends MenuItemLike
+case class Menu(uri:IRI,title:String, children: List[MenuItem], icon:String="") extends MenuItemLike
 
-case class MenuItem(uri:IRI,title:String) extends MenuItemLike
+case class MenuItem(uri:IRI,title:String, icon:String ="") extends MenuItemLike
 
 trait MenuItemLike extends Model
 {
   val uri:IRI
   val title:String
+  val icon:String
+
 
   override def id:Res = uri
 }

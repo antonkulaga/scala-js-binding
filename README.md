@@ -1,11 +1,87 @@
 ScalaJS Binding project
 #######################
 
-*scalajs-binding* library provides binding of ScalaJS classes and properties to HTML tags.
-That means that you may define all the code in separate scala-js classes and they will be binded to your html templates on the client.
+*scalajs-binding* is a scala-scala-js framework that provides:
 
-Bindings
-========
+* binding of HTML tags to ScalaJS classes
+* collection binding to html tags
+* storage classes that simplify CRUD operations with scalajs models
+* defining properties as reactive variables (Scala.Rx is used) that allows to make complex event flow in a reactive way
+* reactive-event flow (you can bind dom events to Scala.Rx definitions)
+* some play clases that make working for binding-framework easier
+
+Bindings are done in a following way. For instance taken following html:
+```html
+   <div class="right menu" data-view="login">
+       <div class="item"  data-showif="isSigned">
+            <div class="ui teal button" data-event-click="logoutClick">Log out</div>
+        </div>
+   <!some other code>
+   </div>
+```
+
+Here at the beginning property *data-view="login"*  attaches LoginView scala class to corresponding div tag.  
+Then each *data-bind-propertyname* property is binded to corresponding property of LoginView class.
+All bindings inside of children tags will be to properties of this view. There is a view hierarchy. Each view can have subviews. 
+Usually mains view attached to body tag is created. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
+
+
+Getting started
+===============
+
+The best way to understand is to look at code and a SampleApp
+
+
+Looking into sample App
+-----------------------
+
+You can also look at a Play application inside scalajs-binding repository to see how bindings can be used in Play app. 
+
+    * Install TypeSafe stack:
+        - Make sure you use JDK 1.7+ and have JAVA_HOME variable in your PATH
+        - Download TypeSafe Activator (  http://typesafe.com/platform/getstarted ) and add it to your PATH
+    * run the app:
+        $ activator run
+    * generate project files of your favourite IDE
+        $ activator gen-idea #for Intellij IDEA, OR
+        $ activator eclipse #for Eclipse
+
+Play app will open with some samples code. 
+Note: models and shared projects have same source folder. If you use IntellijIDEA you may encounter a bug with shared source folder,
+there is a workaround for such bug - go to File->Projects_Structure and manually add symbolic link as a source folder for shared project 
+
+Adding to your project
+----------------------
+
+All versions are published to bintray repository ( https://bintray.com/denigma/denigma-releases/binding/view )
+So in order to use the library you have to add bintray sbt plugin to your sbt configuration (see https://github.com/softprops/bintray-sbt
+ for more info) in plugins.sbt
+
+```scala
+resolvers += Resolver.url(
+  "bintray-sbt-plugin-releases",
+    url("http://dl.bintray.com/content/sbt/sbt-plugin-releases"))(
+        Resolver.ivyStylePatterns)
+
+addSbtPlugin("me.lessis" % "bintray-sbt" % "0.1")
+```
+
+In your sbt config you should add resolver and dependency
+```scala
+resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
+
+libraryDependencies += "org.denigma" %%% "binding" % "0.3.2"
+```
+
+NOTE: at the moment library is published only for scalajs 0.5-M3 and scala 2.10.4 . Version for scala 2.11.1 is in plans 
+(waiting when scalaj 0.5 -stable will come up)
+
+
+Framework elements
+=================
+
+Binding to properties
+---------------------
 
 For instance taken following html:
 ```html
@@ -21,10 +97,7 @@ Here at the beginning property *data-view="login"*  attaches LoginView scala cla
 Then each *data-bind-propertyname* property is binded to corresponding property of LoginView class.
 All bindings inside of children tags will be to properties of this view. There is a view hierarchy. Each view can have subviews. 
 Usually mains view attached to body tag is created. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
- 
- 
-Binding to properties
----------------------
+
 
 In general following kinds of bindings are available: 
     * data-bind="propertyname" that binds html element to the property. Depending on html tag it can be text inside html or value (if input element is used)     
@@ -74,56 +147,9 @@ Each view has bindView and bind methods.
 Whenever bind method finds any html tag with data-view="viewclassname" property it tries to create a view and add it to subviews. After that all children elements
 of this html element will be binded not by this view but by corresponding subview.
 
-Getting started
-===============
 
-Adding to dependencies
-----------------------
-
-All versions are published to bintray repository ( https://bintray.com/denigma/denigma-releases/binding/view )
-So in order to use the library you have to add bintray sbt plugin to your sbt configuration (see https://github.com/softprops/bintray-sbt
- for more info) in plugins.sbt
-
-```scala
-resolvers += Resolver.url(
-  "bintray-sbt-plugin-releases",
-    url("http://dl.bintray.com/content/sbt/sbt-plugin-releases"))(
-        Resolver.ivyStylePatterns)
-
-addSbtPlugin("me.lessis" % "bintray-sbt" % "0.1")
-```
-
-In your sbt config you should add resolver and dependency
-```scala
-resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
-
-libraryDependencies += "org.denigma" %%% "binding" % "0.3.2"
-```
-
-NOTE: at the moment library is published only for scalajs 0.5-M3 and scala 2.10.4 . Version for scala 2.11.1 is in plans 
-(waiting when scalaj 0.5 -stable will come up)
-
-
-Looking into sample App
------------------------
-
-You can also look at a Play application inside scalajs-binding repository to see how bindings can be used in Play app. 
-
-    * Install TypeSafe stack:
-        - Make sure you use JDK 1.7+ and have JAVA_HOME variable in your PATH
-        - Download TypeSafe Activator (  http://typesafe.com/platform/getstarted ) and add it to your PATH
-    * run the app:
-        $ activator run
-    * generate project files of your favourite IDE
-        $ activator gen-idea #for Intellij IDEA, OR
-        $ activator eclipse #for Eclipse
-
-Play app will open with some samples code. 
-Note: models and shared projects have same source folder. If you use IntellijIDEA you may encounter a bug with shared source folder,
-there is a workaround for such bug - go to File->Projects_Structure and manually add symbolic link as a source folder for shared project 
-
-How it works
-------------
+How views and bindings work
+---------------------------
 
 In order to benefit from html bindings you should create scalajs classes that inherit from views (for instance OrdinaryView) and connect them to html
  
@@ -162,6 +188,12 @@ So in order to handle, for instance, logout click, you can:
 
 Under the hood bindings are done with use of macroses. All rx variables (more about reactive variables are extracted by macroses into Map-s to make them accessible
 for binding views.
+ 
+ 
+Storages
+--------
+
+
  
  
 Rough edges

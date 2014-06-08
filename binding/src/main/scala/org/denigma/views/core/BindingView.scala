@@ -1,23 +1,15 @@
-package org.denigma.views
+package org.denigma.views.core
 
 import scala.collection.immutable.Map
-import org.scalajs.dom.{MouseEvent, Attr, HTMLElement}
+import org.scalajs.dom.{MouseEvent, HTMLElement}
 import org.scalajs.dom.extensions._
-import scala.collection.mutable
 import org.scalajs.dom
 import org.denigma.extensions
 import extensions._
-
-import scala.scalajs.js
-import js.Dynamic.{ global => g }
 import org.denigma.binding.JustBinding
-import scala.util.{Success, Failure}
-import scala.annotation.tailrec
 import rx._
 import scalatags._
-import scala.util.Failure
-import scala.Some
-import scala.util.Success
+import org.denigma.views._
 import scala.util.Failure
 import scala.Some
 import scala.util.Success

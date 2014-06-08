@@ -2,13 +2,14 @@ package org.denigma.binding.frontend.tests
 
 import org.scalajs.dom.{MouseEvent, HTMLElement}
 import scala.collection.immutable.Map
-import org.denigma.views.OrdinaryView
 import rx._
 import scalatags._
 import org.denigma.extensions.sq
 import scala.util.{Failure, Success}
 
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
+import org.denigma.views.core.OrdinaryView
+
 /**
  * Class for testing purposes that makes a long list out of test element
  */

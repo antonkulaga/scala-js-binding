@@ -15,11 +15,6 @@ trait UserRequestHeader extends RequestHeader{
   def pjax: Option[String]
 }
 
-//
-
-
-
-
 object UserAction extends ActionBuilder[AuthRequest]
 {
 

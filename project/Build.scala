@@ -25,11 +25,11 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.4.4"
+  val semWebVersion =  "0.4.5"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
-  lazy val preview = (project in file(".")).enablePlugins(PlayScala) settings(previewSettings: _*) dependsOn shared aggregate frontend
+  lazy val preview = (project in file(".")).enablePlugins(PlayScala) settings(previewSettings: _*) dependsOn shared dependsOn bindingPlay aggregate frontend
 
   lazy val frontend = Project(
     id   = "frontend",
@@ -40,7 +40,6 @@ object Build extends sbt.Build with UniversalKeys {
     id = "models",
     base = file("models")
   )
-
 
   lazy val shared = Project(
     id = "shared",
@@ -55,6 +54,11 @@ object Build extends sbt.Build with UniversalKeys {
   lazy val jsmacro = Project(
     id = "js-macro",
     base = file("jsmacro")
+  )
+
+  lazy val bindingPlay = Project(
+    id = "binding-play",
+    base = file("binding-play")
   )
 
   //lazy val sharedCode= unmanagedSourceDirectories in Compile += baseDirectory.value / "shared" / "src" / "main" / "scala"
@@ -106,9 +110,9 @@ object Build extends sbt.Build with UniversalKeys {
       url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
         Resolver.ivyStylePatterns),
 
+    scalacOptions ++= Seq( "-feature", "-language:_" ),
 
-
-    scalacOptions ++= Seq( "-feature", "-language:_" )
+    incOptions := incOptions.value.withNameHashing(true)
 
   )
 

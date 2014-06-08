@@ -1,11 +1,11 @@
 package org.denigma.binding.frontend.tests
 
-import org.denigma.views.ListView
 import org.scalajs.dom.{Attr, TextEvent, MouseEvent, HTMLElement}
 import rx.{Var, Rx}
 import scalatags.HtmlTag
 import scala.collection.mutable
 import scala.collection.immutable.Map
+import org.denigma.views.lists.ListView
 
 
 /**

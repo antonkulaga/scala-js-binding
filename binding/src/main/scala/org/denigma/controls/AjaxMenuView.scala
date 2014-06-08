@@ -1,14 +1,16 @@
 package org.denigma.controls
 
 import org.scalajs.dom.HTMLElement
-import org.denigma.views.ListView
 import rx._
-import org.denigma.models.AjaxStorage
-import org.denigma.binding.models.{rp, MenuItem}
 import scala.collection.immutable.{Map, List}
 import scala.util.{Failure, Success}
 import org.scalajs.dom
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
+import org.denigma.storages.AjaxStorage
+import org.denigma.views.lists.ListView
+import scala.concurrent.Future
+import org.denigma.binding.models.MenuItem
+import org.denigma.binding.picklers.rp
 
 abstract class AjaxMenuView(name:String,el:HTMLElement, params:Map[String,Any] = Map.empty) extends ListView(name,el,params) {
   self =>
@@ -25,7 +27,7 @@ abstract class AjaxMenuView(name:String,el:HTMLElement, params:Map[String,Any] =
   object storage extends AjaxStorage {
     override def path: String = self.path
 
-    override type Value = MenuItem
+    override type MyModel = MenuItem
   }
 
 

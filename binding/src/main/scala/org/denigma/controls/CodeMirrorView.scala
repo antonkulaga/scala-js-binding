@@ -1,6 +1,5 @@
 package org.denigma.controls
 
-import org.denigma.views.OrdinaryView
 import org.scalajs.dom.HTMLElement
 import rx.Rx
 import rx.Var
@@ -9,6 +8,7 @@ import scala.scalajs.js
 import js.Dynamic.{global=>g}
 import org.scalajs.dom
 import importedjs.CodeMirror._
+import org.denigma.views.core.OrdinaryView
 
 
 /**

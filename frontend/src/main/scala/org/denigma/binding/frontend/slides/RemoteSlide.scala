@@ -1,11 +1,10 @@
 package org.denigma.binding.frontend.slides
 
 import org.scalajs.dom.{MouseEvent, HTMLElement}
-import org.denigma.views.OrdinaryView
 import rx._
 import scalatags._
+import org.denigma.views.core.OrdinaryView
 
-import org.denigma.views.OrdinaryView
 
 class RemoteSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("remote",element)
 {

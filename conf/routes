@@ -18,11 +18,7 @@ PUT           /menu/top/add              controllers.TopMenu.add()
 DELETE        /menu/top/delete/id        controllers.TopMenu.delete()
 
 
-
-GET           /menu/alt                  controllers.ModelsController.all()
-PUT           /menu/alt/add              controllers.ModelsController.add()
-#DELETE        /menu/top/delete           controllers.TopMenu.deleteById()
-DELETE        /menu/alt/delete/id        controllers.ModelsController.delete()
+POST         /models/endpoint         controllers.PageController.endpoint()
 
 
 

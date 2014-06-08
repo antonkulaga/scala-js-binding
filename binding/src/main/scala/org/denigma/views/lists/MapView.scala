@@ -1,16 +1,13 @@
-package org.denigma.views
+package org.denigma.views.lists
 
 import org.scalajs.dom._
 import org.scalajs.dom
-import org.denigma.views.OrdinaryView
-import rx.{Var, Rx}
-import scalatags.HtmlTag
+import rx.Var
 import dom.extensions._
-import org.denigma.binding.{EventBinding, ScalaTagsBinder, GeneralBinding, CollectionBinding}
+import org.denigma.binding.EventBinding
 import scala.collection.immutable._
-import scala.collection.mutable
 import scala.Some
-import org.denigma.extensions._
+import org.denigma.views.core.OrdinaryView
 
 
 /**

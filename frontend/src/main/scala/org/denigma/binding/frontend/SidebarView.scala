@@ -1,14 +1,13 @@
 package org.denigma.binding.frontend
 
-import org.scalajs.dom.HTMLElement
 import org.scalajs.dom.{MouseEvent, HTMLElement}
-import org.denigma.views.OrdinaryView
 import rx._
 import scalatags._
 import org.scalajs.dom.extensions.Ajax
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.denigma.extensions.sq
 import scala.scalajs.js
+import org.denigma.views.core.OrdinaryView
 
 /**
  * View for the sitebar

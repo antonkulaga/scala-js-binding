@@ -1,4 +1,4 @@
-package org.denigma.views
+package org.denigma.views.core
 
 import org.scalajs.dom
 

@@ -1,6 +1,5 @@
 package org.denigma.binding
 
-import org.denigma.views.BindingView
 import scala.collection.immutable.Map
 import rx._
 import org.scalajs.dom.HTMLElement

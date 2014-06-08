@@ -1,8 +1,7 @@
-package org.denigma.models
+package org.denigma.views.models
 
-import org.scalax.semweb.shex.{ArcRule, PropertyModel}
+import org.scalax.semweb.shex.PropertyModel
 import org.scalax.semweb.rdf._
-import javax.annotation.Resource
 import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.rdf.StringLiteral
 import scala.Some
@@ -41,7 +40,7 @@ case class ModelInside(initial:PropertyModel, current:PropertyModel){
    * @param value
    * @return
    */
-  def replace(iri:IRI,value:RDFValue): ModelInside = this.copy(initial,current.copy(properties = this.current.properties.updated(iri,Set(value))))
+  def replace(iri:IRI,value:RDFValue): ModelInside = this.copy(initial,current.replace(iri,value))
   def replace(iri:IRI,text:String,lang:String): ModelInside  = this.replace(iri,StringLangLiteral(text,lang))
   def replace(iri:IRI,text:String): ModelInside  = this.replace(iri,StringLiteral(text))
   def replace(iri:IRI,value:Double): ModelInside  = this.replace(iri,DoubleLiteral(value))

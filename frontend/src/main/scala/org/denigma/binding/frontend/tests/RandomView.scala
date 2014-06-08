@@ -8,7 +8,8 @@ import scala.util.Random
 import rx.Rx
 import scala.collection.immutable.Map
 import org.scalajs.dom
-import org.denigma.views.OrdinaryView
+import org.denigma.views.core.OrdinaryView
+
 
 /**
  * For test purposes only

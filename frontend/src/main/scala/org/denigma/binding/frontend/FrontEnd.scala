@@ -1,14 +1,11 @@
 package org.denigma.binding.frontend
 
 import org.scalajs.dom
-import scalatags.all._
 import scalatags.HtmlTag
 import rx._
 import scala.scalajs.js.annotation.JSExport
-import org.denigma.extensions._
 import org.scalajs.jquery._
 import scala.util.Try
-import org.denigma.views.OrdinaryView
 import scala.collection.immutable.Map
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import scala.scalajs.js
@@ -16,8 +13,8 @@ import org.denigma.binding.frontend.tests.{PicklerView, LongListView, RandomView
 import org.denigma.extensions._
 import org.denigma.binding.frontend.slides._
 import org.denigma.binding.frontend.tools.CodeView
-import org.denigma.binding.models.rp
-import org.denigma.controls.CodeMirrorView
+import org.denigma.views.core.OrdinaryView
+import org.denigma.binding.picklers.rp
 
 
 @JSExport
@@ -51,7 +48,7 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     .register("CollectionSlide",(el,params)=>Try {new CollectionSlide(el,params)})
     .register("RdfSlide",(el,params)=>Try {new RdfSlide(el,params)})
     .register("CodeView",(el,params)=>Try {new CodeView(el,params)})
-    .register("TestModelView",(el,params)=>Try{new TestModelView(el)})
+    .register("TestModelView",(el,params)=>Try{new TestModelView(el,params)})
     .register("PicklerView",(el,params)=>Try{new PicklerView(el,params)})
 
 

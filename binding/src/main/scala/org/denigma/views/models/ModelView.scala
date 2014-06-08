@@ -1,29 +1,25 @@
-package org.denigma.views
+package org.denigma.views.models
 
-import org.scalax.semweb.shex.{ArcRule, PropertyModel}
+import org.scalax.semweb.shex.PropertyModel
 import org.scalax.semweb.rdf._
-import javax.annotation.Resource
 import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.rdf.StringLiteral
-import scala.Some
-import org.scalax.semweb.rdf.StringLangLiteral
 import rx.core.Var
-import org.scalajs.dom.{Event, KeyboardEvent, MouseEvent, HTMLElement}
-import org.denigma.models.ModelInside
-import rx._
-import scalatags.HtmlTag
+import org.scalajs.dom.{Event, HTMLElement}
 import scala.collection.immutable.Map
 import org.scalajs.dom
 import scala.Some
-import dom.extensions._
-
-import org.denigma.extensions._
 import scala.scalajs.js.Any
 
 import org.denigma.extensions._
 import org.scalajs.dom.extensions._
+import org.denigma.views.models.ModelInside
+import org.denigma.views.core.OrganizedView
 
-class ModelView(name:String,element:HTMLElement,props:PropertyModel) extends OrganizedView(name,element) {
+trait ModelView {
+
+  self:OrganizedView=>
+
+  val props: PropertyModel = PropertyModel.empty
 
 
    val modelInside = Var(ModelInside(props))
@@ -34,7 +30,11 @@ class ModelView(name:String,element:HTMLElement,props:PropertyModel) extends Org
     * @param el
     */
    override def bindElement(el: HTMLElement) = {
-     super.bindElement(el)
+       val ats: Map[String, String] = el.attributes.collect{
+         case (key,attr) if key.contains("data-") && !key.contains("data-view") =>
+           (key.replace("data-",""),attr.value.toString)
+       }.toMap
+       this.bindDataAttributes(el,ats)
 
      this.bindRdf(el)
    }

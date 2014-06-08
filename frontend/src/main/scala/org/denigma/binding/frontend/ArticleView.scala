@@ -1,12 +1,12 @@
 package org.denigma.binding.frontend
 
-import org.denigma.views.OrdinaryView
 import org.scalajs.dom.{MouseEvent, HTMLElement}
 import rx.{Rx, Var}
 import scalatags.HtmlTag
 import org.scalajs.dom.HTMLElement
 import rx.Var
 import scalatags.HtmlTag
+import org.denigma.views.core.OrdinaryView
 
 /**
  * View for article with some text

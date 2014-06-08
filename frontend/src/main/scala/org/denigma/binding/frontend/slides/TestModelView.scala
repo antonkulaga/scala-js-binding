@@ -1,6 +1,5 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.views.ModelView
 import scala.collection.immutable.Map
 import rx._
 import scalatags._
@@ -11,22 +10,16 @@ import org.scalax.semweb.rdf.{RDFValue, StringLiteral, IRI}
 import org.denigma.binding.{GeneralBinding, EventBinding}
 import org.scalajs.dom
 import org.denigma.extensions._
-import org.denigma.models.AjaxStorage
-import org.denigma.controls.EditableModelView
+import org.denigma.controls.{AjaxModelView, EditableModelView}
+import org.denigma.storages.AjaxStorage
+import org.denigma.views.models.ModelView
 
-object TestModelView{
-  val testProp = PropertyModel(
-    properties = Map(
-      IRI("http://hello.world.com")->Set(StringLiteral("HELLO WORLD")),
-      IRI("http://text.com")->Set(StringLiteral("TEXT")))
-  )
-}
 
 /**
  * Test model view
  * @param element
  */
-class TestModelView(element:HTMLElement,   props:PropertyModel = TestModelView.testProp    ) extends EditableModelView("TestModel",element,props)
+class TestModelView(element:HTMLElement,props:Map[String,Any]) extends AjaxModelView("TestModel",element,props)
 {
 
   this.saveClick.takeIf(dirty).handler{
@@ -43,4 +36,6 @@ class TestModelView(element:HTMLElement,   props:PropertyModel = TestModelView.t
   lazy val textEvents: Map[String, rx.Var[TextEvent]] = this.extractTextEvents(this)
 
   lazy val mouseEvents: Map[String, rx.Var[dom.MouseEvent]] = this.extractMouseEvents(this)
+
+  override def tags: Map[String, Rx[HtmlTag]] = this.extractTagRx(this)
 }

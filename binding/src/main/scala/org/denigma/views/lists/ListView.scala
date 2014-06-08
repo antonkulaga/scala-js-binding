@@ -1,4 +1,4 @@
-package org.denigma.views
+package org.denigma.views.lists
 
 import org.scalajs.dom._
 import org.scalajs.dom
@@ -9,6 +9,7 @@ import scala.collection.immutable._
 import scala.Some
 import org.scalajs.dom.extensions._
 import org.denigma.extensions._
+import org.denigma.views.core.OrdinaryView
 
 object ListView {
 

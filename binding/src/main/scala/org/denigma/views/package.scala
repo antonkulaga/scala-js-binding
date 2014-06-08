@@ -3,6 +3,7 @@ package org.denigma
 import scala.collection.immutable.Map
 import org.scalajs.dom.{HTMLElement, Node}
 import scala.util.Try
+import org.denigma.views.core.BindingView
 
 
 /**
@@ -11,6 +12,7 @@ import scala.util.Try
 package object views {
 
   type ViewFactory = (HTMLElement,Map[String,Any])=>Try[BindingView]
+
 
 
   var factories = Map.empty[String,ViewFactory]

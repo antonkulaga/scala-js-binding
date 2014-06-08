@@ -2,9 +2,9 @@ package controllers
 
 import org.scalajs.spickling.playjson._
 import play.api.mvc.Controller
-import org.denigma.binding.models.rp
 import org.scalax.semweb.shex.PropertyModel
 import org.scalax.semweb.rdf.{StringLiteral, IRI}
+import org.denigma.binding.picklers.rp
 
 object Test extends Controller{
 
@@ -22,8 +22,6 @@ object Test extends Controller{
   }
   def tuple2()= UserAction{
     implicit request=>
-
-      rp.registerPicklers()
       //val value = Seq("one"->"1","two"->"2","three"->"3")
       val value =  ("10","20")
       val pickle = rp.pickle(value)
@@ -33,8 +31,6 @@ object Test extends Controller{
 
   def map()= UserAction{
     implicit request=>
-
-      rp.registerPicklers()
       //val value = Seq("one"->"1","two"->"2","three"->"3")
       val mp =   Map("one"->"first value","two"->"second value","three"->"third value")
 
@@ -47,8 +43,7 @@ object Test extends Controller{
   def model()= UserAction{
     implicit request=>
 
-      rp.registerPicklers()
-      val value = PropertyModel(properties = Map(IRI("http://hello.world.com")->Set(StringLiteral("HELLO WORLD")),IRI("http://text.com")->Set(StringLiteral("TEXT"))))
+      val value = PropertyModel(IRI("http://test"),properties = Map(IRI("http://hello.world.com")->Set(StringLiteral("HELLO WORLD")),IRI("http://text.com")->Set(StringLiteral("TEXT"))))
 
       val pickle = rp.pickle(value)
 

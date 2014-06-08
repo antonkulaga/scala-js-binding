@@ -1,9 +1,9 @@
 package org.denigma.binding.frontend.slides
 
 import org.scalajs.dom.{MouseEvent, HTMLElement}
-import org.denigma.views.OrdinaryView
 import rx._
 import scalatags._
+import org.denigma.views.core.OrdinaryView
 
 /**
  * Slide about RDF-related binding
