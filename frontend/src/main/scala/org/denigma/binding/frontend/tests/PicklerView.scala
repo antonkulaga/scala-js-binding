@@ -10,6 +10,7 @@ import scala.util.{Failure, Success}
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.denigma.views.core.OrdinaryView
 import scalatags.Text.Tag
+import org.denigma.binding.picklers.rp
 
 /**
  * Class for testing purposes that makes a long list out of test element
@@ -17,6 +18,7 @@ import scalatags.Text.Tag
 class PicklerView(element:HTMLElement, params:Map[String,Any]) extends OrdinaryView("PicklerView",element){
   self=>
 
+  implicit def registry = rp
   //RegisterPicklers.registerPicklers()
 
   val path: String = params.get("path").fold("test/map"){case (acc,v)=>v.toString}

@@ -13,6 +13,7 @@ libraryDependencies ++= Seq(
   "org.webjars" % "jquery" % "2.1.1",
   "org.webjars" % "Semantic-UI" % "0.17.0",
   "org.webjars" % "codemirror" % "4.1",
+  "org.webjars" % "ckeditor" % "4.4.1",
   "org.scalax" %% "semweb" % semWebVersion
 )
 

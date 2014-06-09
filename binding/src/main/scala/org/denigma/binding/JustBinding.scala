@@ -127,7 +127,7 @@ abstract class JustBinding {
    * @tparam T type param
    * @return
    */
-  def bindRx[T](key:String,el:HTMLElement ,rx:Rx[T])(assign:(HTMLElement,T)=>Unit) = {
+  def bindRx[T](key:String,el:HTMLElement ,rx:Rx[T])(assign:(HTMLElement,T)=>Unit): Unit = {
 
     val eid = this.makeId(el, key)
     lazy val obs: Obs = Obs(rx, eid, skipInitial = false) {

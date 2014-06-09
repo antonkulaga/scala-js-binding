@@ -13,10 +13,11 @@ object ModelInside
   def apply(initial:PropertyModel):ModelInside = ModelInside(initial,initial)
 }
 
-case class ModelInside(initial:PropertyModel, current:PropertyModel){
+case class ModelInside(initial:PropertyModel, current:PropertyModel) extends ChangeSlot
+{
 
 
-  def isUnchanged = initial==current
+  type Value = PropertyModel
 
 
   /**
@@ -51,4 +52,14 @@ case class ModelInside(initial:PropertyModel, current:PropertyModel){
 
 
   def refresh = this.copy(initial = current)
+}
+
+trait ChangeSlot {
+
+  type Value
+
+  def initial:Value
+  def current:Value
+
+  def isUnchanged = initial==current
 }

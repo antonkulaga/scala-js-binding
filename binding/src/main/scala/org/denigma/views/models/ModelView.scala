@@ -21,10 +21,7 @@ trait ModelView {
 
   self:OrganizedView=>
 
-  val props: PropertyModel = PropertyModel.empty
-
-
-   val modelInside = Var(ModelInside(props))
+   val modelInside = Var(ModelInside( PropertyModel.empty))
 
 
      /**
@@ -43,20 +40,19 @@ trait ModelView {
 
 
    protected def bindRdf(el: HTMLElement) = {
-     val ats = el.attributes.collect { case (key, value) if !value.value.toString.contains("data") => (key, value.value.toString)}
+     val ats = el.attributes.collect { case (key, value) if !value.value.toString.contains("data") => (key, value.value.toString)}.toMap
 
      ats.foreach { case (key, value) =>
-       this.rdfPartial(el, key, value).orElse(otherPartial)(key)
+       this.rdfPartial(el, key, value,ats).orElse(otherPartial)(key)
 
      }
 
    }
 
-   protected def rdfPartial(el: HTMLElement, key: String, value: String): PartialFunction[String, Unit] = {
+   protected def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] = {
      case "property" =>
-
        val iri = IRI(value)
-       this.bindRDFProperty(el, iri, value)
+       this.bindRDFProperty(el, iri, value, ats.get("datatype").fold("")(v=>v))
 
      case bname if bname.startsWith("property-") =>
 
@@ -100,10 +96,22 @@ trait ModelView {
      case _ => values.foldLeft("") { case (acc, prop) => acc + ";" + this.prettyString(prop)}
    }
 
+
+  protected def bindRdfInner(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
+    strOptionFromProperties(model.current, key) match {
+      case None=>
+        dom.console.log(s"${key.toString()} was not found in the model")
+      case
+        Some(value)=>el.innerHTML =  value
+    }
+  }
+
    protected def bindRdfText(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
      strOptionFromProperties(model.current, key) match {
-       case None=> dom.console.log(s"${key.toString()} was not found in the model")
-       case Some(value)=>el.textContent =  value
+       case None=>
+         dom.console.log(s"${key.toString()} was not found in the model")
+       case Some(value)=>
+         el.textContent =  value
      }
    }
 
@@ -162,22 +170,30 @@ trait ModelView {
     * @param iri name of the binding key
     * @param att binding attribute
     */
-   def bindRDFProperty(el: HTMLElement, iri: IRI, att: String) = el.tagName.toLowerCase().toString match {
-     case "input" | "textarea" =>
+   def bindRDFProperty(el: HTMLElement, iri: IRI, att: String, datatype:String = "xsd:string") = datatype.toLowerCase() match {
+     case tp if tp.contains("html")=>
+       el.onkeyup = this.makeRdfHandler(el, iri, "innerHTML")
+       this.bindRdfInner(el, iri)
 
-       el.attributes.get("type").map(_.value.toString) match {
-         case Some("checkbox") => //skip
-         case _ =>
-           //el.onkeyup
-           el.onkeyup = this.makeRdfHandler(el, iri, "value")
-           this.bindRdfInput(el, iri)
-       }
+     case _=> el.tagName.toLowerCase().toString match {
+       case "input" | "textarea" =>
+
+         el.attributes.get("type").map(_.value.toString) match {
+           case Some("checkbox") => //skip
+           case _ =>
+             //el.onkeyup
+             el.onkeyup = this.makeRdfHandler(el, iri, "value")
+             this.bindRdfInput(el, iri)
+         }
 
 
-     case other =>
-       //        el.onkeyup = this.makePropHandler(el,str,"value")
-       el.onkeyup = this.makeRdfHandler(el, iri, "value")
-       this.bindRdfText(el, iri)
+       case other =>
+         //        el.onkeyup = this.makePropHandler(el,str,"value")
+         el.onkeyup = this.makeRdfHandler(el, iri, "textContent")
+         this.bindRdfText(el, iri)
+
+     }
+
 
    }
 

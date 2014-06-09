@@ -19,6 +19,7 @@ import org.scalajs.spickling.playjson._
 import org.denigma.binding.picklers.rp
 import org.denigma.binding.models.{StorageProtocol, ModelMessages}
 import org.denigma.binding.play.{AjaxModelEndpoint, PickleController, AuthRequest, UserAction}
+import play.api.http
 
 
 object PageController extends Controller with PickleController with AjaxModelEndpoint
@@ -26,14 +27,53 @@ object PageController extends Controller with PickleController with AjaxModelEnd
 
   override type RequestType = AuthRequest[ReadMessage]
 
-  val res = new IRI("http://page.org")
   val shapeRes = new IRI("http://shape.org")
+  val title = (WI.PLATFORM / "title").iri
+  val text = (WI.PLATFORM / "text").iri
 
-  var items: Map[Res, PropertyModel] = Map(res->  PropertyModel(res,
+
+  val hello = IRI("http://page.org")
+
+
+  val helloModel = PropertyModel(hello,
     properties = Map(
-      (WI.PLATFORM / "title").iri -> Set(StringLiteral("HELLO WORLD")),
-      (WI.PLATFORM / "text").iri->Set(StringLiteral("TEXT")))
-  ) )
+      title -> Set(StringLiteral("HELLO WORLD")),
+      text->Set(StringLiteral("TEXT")))
+  )
+
+
+  val rybka = IRI("http://rybka.org.ua/project")
+
+  val rybkaModel = PropertyModel(rybka,
+    properties = Map(
+      title -> Set(StringLiteral("About Rybka Project")),
+      text ->Set(StringLiteral(
+        """
+          |                <p class="ui text">
+          |
+          |                Memory consolidation is long-term memory formation from short-term memories.
+          |                Despite of various studies the problem of memory storage in the brain is not solved yet.
+          |                Molecular mechanisms of memory loading and reading (retrieval) are not fully discovered as well.
+          |                </p>
+          |                <p class="text">
+          |
+          |                The Rybka Project is dedicated to bring some more clarity to this area.
+          |                Basic idea our studies is to research proteins responsible for memory consolidation, reconsolidation, and learning,  as well as their expressions with Zebrafish model.
+          |                </p>
+          |                <p class="text">
+          |                    We are going  manage to make those proteins glow with help of green flourescent protein (GFP) transfection.
+          |                    Since we use transparent strain of the zebrafish we will be able to watch them glowing while and after fish learns something while solving some cognitive tasks.
+          |
+          |                </p>
+          |            </div>
+        """.stripMargin))
+    )
+  )
+
+
+
+
+  var items: Map[Res, PropertyModel] = Map(hello->helloModel, rybka->rybkaModel   )
 
   override def onCreate(createMessage: Create)(implicit request:RequestType): Result = {
     val models:Map[Res,PropertyModel] =  createMessage.models.map(m=> m.resource -> m).toMap

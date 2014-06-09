@@ -21,6 +21,4 @@ class MenuView(el:HTMLElement, params:Map[String,Any] = Map.empty) extends Edita
   override lazy val bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
 
   override lazy val mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
-
-  override lazy val  lists: Map[String, Rx[scala.List[Map[String, Any]]]] = this.extractListRx(this)
 }

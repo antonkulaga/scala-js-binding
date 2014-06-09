@@ -9,6 +9,8 @@ import org.scalax.semweb.sparql.SelectQuery
 import org.denigma.binding.models.{Channeled, ModelMessages}
 import org.scalajs.dom
 import scala.scalajs.js
+import org.scalajs.spickling.PicklerRegistry
+import org.denigma.binding.picklers.rp
 
 
 trait ReadOnlyModelStorage extends Channeled{
@@ -31,7 +33,7 @@ trait ModelStorage extends ReadOnlyModelStorage {
  * ModelAjax Storage
  * @param path
  */
-class AjaxModelStorage(path:String) extends ModelStorage{
+class AjaxModelStorage(path:String)(implicit registry:PicklerRegistry = rp) extends ModelStorage{
 
   def genId(): String = js.eval(""" 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {var r = Math.random()*16|0,v=c=='x'?r:r&0x3|0x8;return v.toString(16);}); """).toString
 

@@ -21,10 +21,6 @@ class LongListView(element:HTMLElement, params:Map[String,Any]) extends ListView
 
   }
 
-
-
-  override lazy val lists: Map[String, Rx[List[Map[String, Any]]]] = this.extractListRx(this)
-
   override lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override lazy val strings: Map[String, Rx[String]] = this.extractStringRx(this)

@@ -46,6 +46,34 @@
             </div>
 
         </section>
+        <section class="row">
+            <div class="column">
+                <p>It is also possible to bind collections of RDF items</p>
+
+            </div>
+            <div class="column" >
+
+                <h1>This is a test collection of RDF items</h1>
+                <section id = "todos">
+
+                    <div class="ui divided list">
+                        <div class="item"  data-template="true" >
+                            <div class="content ui segment">
+                                <h1 class="header" property="http://webintelligence.eu/platform/title"></h1>
+                                <p property="http://webintelligence.eu/platform/text"></p>
+                            </div>
+                        </div>
+
+                    <a data-template="true" class="active item header" data-item-bind-href="uri" data-item-bind="label" data-load-into="main">
+                        <i class="ui-icon-home"></i>
+                    </a>
+
+                </section>
+
+
+            </div>
+
+        </section>
 
 
 

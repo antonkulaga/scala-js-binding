@@ -1,0 +1,55 @@
+@(title:String)(implicit request: UserRequestHeader)
+<article id="main_article"  data-view="RdfSlide" class="ui blue piled segment" >
+
+
+
+    <h1 id="title"class="ui large header orange message">@title </h1>
+
+
+    <section class="ui segment">
+        <p><b>scala-js-binding</b> provides some views for convenient text editing
+    </section>
+
+
+    <div class="ui one column grid">
+        <section class="row">
+            <div class="column">
+                On the button there is some text that can be switched into edit mode with corresponding button.
+             </div>
+        </section>
+        <section class="row">
+            <div class="column">
+
+
+                <section class="ui segment" data-view="PageEditView" data-param-path="models/endpoint" data-param-resource="http://rybka.org.ua/project" data-param-shape="http://shape.org">
+
+                    <h1 class="ui header">This is test rdf model that is kept in memory. You can switch on contenteditable mode and edit text directly</h1>
+                    <div>
+                        <h1 property="http://webintelligence.eu/platform/title"></h1>
+                        <p property="http://webintelligence.eu/platform/text"  datatype="xsd:html"></p>
+
+
+                    </div>
+                    <div class="ui button" data-class-positive-if="dirty" data-event-click="saveClick">save</div>
+                    <div class="ui toggle button" data-class-positive-if="editMode" data-event-click="toggleClick"> EditMode</div>
+
+                    <hr>
+                    Title <input property="http://webintelligence.eu/platform/title"><br>
+                    Text <textarea property="http://webintelligence.eu/platform/text" style="min-width: 50vw; min-height: 20vh"></textarea>
+
+
+                </section>
+
+
+
+            </div>
+        </section>
+
+
+
+
+    </div>
+
+
+</article>
+

@@ -5,6 +5,7 @@ import org.denigma.extensions.sq
 import org.scalax.semweb.rdf.Res
 import org.scalajs.dom.XMLHttpRequest
 import org.scalax.semweb.shex.Model
+import org.scalajs.spickling.PicklerRegistry
 
 
 trait ReadWriteStorage{
@@ -36,8 +37,9 @@ trait Storage extends ReadWriteStorage
 
 trait AjaxStorage extends Storage{
 
-  def path:String
+  implicit def registry:PicklerRegistry
 
+  def path:String
 
   override def all() = sq.get[List[MyModel]](sq.withHost(path))
 

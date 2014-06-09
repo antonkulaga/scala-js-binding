@@ -10,23 +10,24 @@ import org.scalax.semweb.rdf.{RDFValue, StringLiteral, IRI}
 import org.denigma.binding.{GeneralBinding, EventBinding}
 import org.scalajs.dom
 import org.denigma.extensions._
-import org.denigma.controls.{AjaxModelView, ActiveModelView}
+import org.denigma.controls.{EditModelView, AjaxModelView, ActiveModelView}
 import org.denigma.storages.AjaxStorage
 import org.denigma.views.models.ModelView
 import scalatags.Text.Tag
+import scala.scalajs.js
+import js.Dynamic.{ global => g, newInstance => jsnew }
 
-
-/**
- * Test model view
- * @param element
- */
-class TestModelView(element:HTMLElement,props:Map[String,Any]) extends AjaxModelView("TestModel",element,props)
+class PageEditView(element:HTMLElement,val params:Map[String,Any]) extends AjaxModelView("PageModel",element,params) with EditModelView
 {
-  val saveClick: Var[MouseEvent] = Var(this.createMouseEvent())
 
   this.saveClick.takeIf(dirty).handler{
     //dom.console.log("it should be saved right now")
     this.saveModel()
+  }
+
+
+  this.toggleClick.handler{
+    this.editMode() = !this.editMode.now
   }
 
 

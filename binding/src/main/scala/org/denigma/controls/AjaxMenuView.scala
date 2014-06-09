@@ -11,6 +11,19 @@ import org.denigma.views.lists.ListView
 import scala.concurrent.Future
 import org.denigma.binding.models.MenuItem
 import org.denigma.binding.picklers.rp
+import org.scalajs.spickling.PicklerRegistry
+
+
+abstract class EditableMenuView(name:String,el:HTMLElement, params:Map[String,Any] = Map.empty) extends AjaxMenuView(name,el,params)
+{
+  self =>
+
+  val editable = params.get("editable").fold(false){
+    case b:Boolean=>b
+    case _=>false
+  }
+
+}
 
 abstract class AjaxMenuView(name:String,el:HTMLElement, params:Map[String,Any] = Map.empty) extends ListView(name,el,params) {
   self =>
@@ -28,6 +41,8 @@ abstract class AjaxMenuView(name:String,el:HTMLElement, params:Map[String,Any] =
     override def path: String = self.path
 
     override type MyModel = MenuItem
+
+    override implicit def registry: PicklerRegistry = rp
   }
 
 

@@ -16,7 +16,7 @@ import org.scalax.semweb.shex.PropertyModel
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
 
-trait EditableModelView extends ModelView
+trait ActiveModelView extends ModelView
 {
   self:OrdinaryView=>
 
@@ -45,7 +45,7 @@ trait EditableModelView extends ModelView
 
 }
 
-abstract class AjaxModelView(name:String = "AjaxModel", element:HTMLElement,params:Map[String,Any]) extends OrdinaryView(name:String,element) with EditableModelView{
+abstract class AjaxModelView(name:String = "AjaxModel", element:HTMLElement,params:Map[String,Any]) extends OrdinaryView(name:String,element) with ActiveModelView{
 
   self=>
 

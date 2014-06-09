@@ -50,6 +50,8 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     .register("CodeView",(el,params)=>Try {new CodeView(el,params)})
     .register("TestModelView",(el,params)=>Try{new TestModelView(el,params)})
     .register("PicklerView",(el,params)=>Try{new PicklerView(el,params)})
+    .register("PageEditView",(el,params)=>Try{new PageEditView(el,params)})
+
 
 
 

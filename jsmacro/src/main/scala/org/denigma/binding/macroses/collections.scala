@@ -26,7 +26,6 @@ object MapRxMap extends BinderObject
 }
 
 
-
 trait ListRxMap[T] {
   def asListRxMap(t: T): Map[String,Rx[List[Map[String,Any]]]]
 }

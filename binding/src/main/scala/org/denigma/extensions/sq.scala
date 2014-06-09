@@ -16,7 +16,7 @@ import org.scalajs.spickling.jsany._
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.scalajs.spickling._
 import scala.scalajs.js.prim.Undefined
-import org.denigma.binding.picklers.rp
+import org.denigma.binding.picklers.BindingPicklers
 
 
 /**
@@ -73,7 +73,7 @@ object sq{
   def put[T](url:String,data:T,timeout:Int = 0,
               headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
               withCredentials:Boolean = false
-               ): Future[XMLHttpRequest] = {
+               )(implicit registry:PicklerRegistry) : Future[XMLHttpRequest] = {
     Ajax.apply("PUT", url, this.pack2String(data), timeout, headers, withCredentials)
   }
 
@@ -81,7 +81,7 @@ object sq{
   def delete[T](url:String,data:T,timeout:Int = 0,
              headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
              withCredentials:Boolean = false
-              ): Future[XMLHttpRequest] = {
+              )(implicit registry:PicklerRegistry) : Future[XMLHttpRequest] = {
     Ajax.apply("DELETE", url, this.pack2String(data), timeout, headers, withCredentials)
   }
 
@@ -97,8 +97,8 @@ object sq{
   def get[T](url:String,timeout:Int = 0,
             headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
             withCredentials:Boolean = false
-            ): Future[T] =
-    this.pickleRequest[T](Ajax.apply("GET", url, "", timeout, headers, withCredentials))
+            )(implicit registry:PicklerRegistry) : Future[T] =
+    this.pickleRequest[T](Ajax.apply("GET", url, "", timeout, headers, withCredentials))(registry)
 
 
   /**
@@ -114,7 +114,7 @@ object sq{
             url:String,data:TIn,timeout:Int = 0,
             headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
             withCredentials:Boolean = false
-            ): Future[TOut] =
+            )(implicit registry:PicklerRegistry) : Future[TOut] =
     this.pickleRequest[TOut](Ajax.apply("POST", url,this.pack2String(data), timeout, headers, withCredentials))
 
 
@@ -123,16 +123,16 @@ object sq{
     "http://"+dom.location.host+(if(str.startsWith("/") || str.startsWith("#")) str else "/"+str)
   }
 
-  def pack2String[T](data:T) = {
-    val p: js.Any = rp.pickle(data)
+  def pack2String[T](data:T)(implicit registry:PicklerRegistry) = {
+    val p: js.Any = registry.pickle(data)
     g.JSON.stringify(p).toString
 
   }
 
-  def pickleRequest[T](req:Future[XMLHttpRequest]): Future[T] = req.map{case r=>
+  def pickleRequest[T](req:Future[XMLHttpRequest])(implicit registry:PicklerRegistry) : Future[T] = req.map{case r=>
     val v = js.JSON.parse(r.responseText).asInstanceOf[js.Any]
 
-    rp.unpickle(v) match {
+   registry.unpickle(v) match {
       case value:T=>value
       case _=>
         val ex = s"unpickling problem with $v"
