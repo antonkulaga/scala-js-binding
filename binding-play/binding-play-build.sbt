@@ -8,7 +8,7 @@ resolvers += Resolver.url("scala-js-releases",
 
 libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play" % "2.3.0",
-  "org.scalajs" %% "scalajs-pickling-play-json" % "0.3"
+  "org.scalajs" %% "scalajs-pickling-play-json" % "0.3.1"
 )
 
 bintraySettings

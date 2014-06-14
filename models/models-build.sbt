@@ -11,6 +11,6 @@ ScalaJSKeys.relativeSourceMaps := true
 
 libraryDependencies +=  "org.scalax" %%% "semweb" % Build.semWebVersion
 
-libraryDependencies += "org.scalajs" %%% "scalajs-pickling" % "0.3"
+libraryDependencies += "org.scalajs" %%% "scalajs-pickling" % "0.3.1"
 
 Build.publishSettings

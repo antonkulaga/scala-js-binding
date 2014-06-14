@@ -12,7 +12,7 @@ Build.sameSettings
 
 name := "js-macro"
 
-version := "0.1.2"
+version := "0.1.4"
 
 resolvers +=  Resolver.url("scala-js-releases",
   url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
@@ -22,11 +22,11 @@ libraryDependencies <+= (scalaVersion)("org.scala-lang" % "scala-reflect" % _)
 
 ScalaJSKeys.relativeSourceMaps := true
 
-libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.5"
+libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.6"
 
-libraryDependencies += "com.scalatags" %%% "scalatags" % "0.3.0-RC1"
+libraryDependencies += "com.scalatags" %%% "scalatags" % "0.3.0"
 
-libraryDependencies +=  "com.scalarx" %%% "scalarx" % "0.2.5-RC1"
+libraryDependencies +=  "com.scalarx" %%% "scalarx" % "0.2.5"
 
 
 bintraySettings

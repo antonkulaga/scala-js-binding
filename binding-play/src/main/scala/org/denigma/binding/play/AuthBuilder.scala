@@ -11,6 +11,7 @@ trait UserRequestHeader extends RequestHeader{
 
   def username: Option[IRI]
   def pjax: Option[String]
+  def isSigned:Boolean
 }
 
 object UserAction extends ActionBuilder[AuthRequest]

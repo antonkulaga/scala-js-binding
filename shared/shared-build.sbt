@@ -21,9 +21,7 @@ resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/release
 resolvers  += "Online Play Repository" at  "http://repo.typesafe.com/typesafe/simple/maven-releases/"
 
 
-libraryDependencies += "com.typesafe.play" %% "play-json" % "2.2.1"
-
-libraryDependencies += "org.scalajs" %% "scalajs-pickling-play-json" % "0.3"
+libraryDependencies += "org.scalajs" %% "scalajs-pickling-play-json" % "0.3.1"
 
 
 

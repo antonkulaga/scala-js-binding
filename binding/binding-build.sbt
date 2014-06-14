@@ -15,7 +15,7 @@ ScalaJSKeys.relativeSourceMaps := true
 
 resolvers  += "Online Play Repository" at  "http://repo.typesafe.com/typesafe/simple/maven-releases/"
 
-libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-jquery" % "0.5"
+libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-jquery" % "0.6"
 
 libraryDependencies +=  "org.scalax" %%% "semweb" % Build.semWebVersion
 

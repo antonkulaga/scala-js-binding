@@ -23,7 +23,9 @@ object Binder {
     val pairs = weakTypeOf[T].members.collect {
       case m: MethodSymbol if m.returnType.<:<(weakTypeOf[TE]) =>
         val name = c.literal(m.name.decoded)
-        val value = c.Expr(Select(c.resetAllAttrs(c.prefix.tree), m.name))
+        //val value = c.Expr(Select(c.resetAllAttrs(c.prefix.tree), m.name))
+        val value = c.Expr(Select(c.prefix.tree, m.name))
+
         reify(name.splice -> value.splice).tree
     }
 
