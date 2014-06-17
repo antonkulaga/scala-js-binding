@@ -14,14 +14,14 @@ trait StorageMessage extends Channeled{
     def time:Double
 }
 
-object ModelMessages extends StorageProtocol
+object ModelMessages extends ExtendedStorageProtocol
 {
   self=>
 
 
   trait ModelMessage extends StorageMessage
 
-
+  case class SelectQuery(channel:String,shapeId:Res,query:Res, id:String ,time:Double ) extends ModelMessage
 
   case class Create(channel:String,shapeId:Res,models:Set[PropertyModel],rewriteIfExists:Boolean = true, id:String ,time:Double ) extends ModelMessage
 
@@ -36,6 +36,7 @@ object ModelMessages extends StorageProtocol
   type ReadMessage = Read
   type UpdateMessage = Update
   type DeleteMessage = Delete
+  type ResourceQuery = SelectQuery
 
 }
 

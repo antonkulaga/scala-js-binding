@@ -1,0 +1,83 @@
+@(title:String)(implicit request: UserRequestHeader)
+<article id="main_article"  data-view="RdfSlide" class="ui blue piled segment" >
+
+
+
+    <h1 id="title"class="ui large header orange message">@title </h1>
+
+
+    <section class="ui segment">
+        <p><b>scala-js-binding</b> provides some controls for easier dealing with data (slide is in development)
+    </section>
+
+
+    <div class="ui one column grid">
+        <section class="row">
+            <div class="column">
+                Selection box with autosuggestion
+            </div>
+        </section>
+        <section class="row">
+            <div class="column">
+                <section>
+                    <input list="">
+                    <datalist id="character">
+                        <option value="Чебурашка"></option>
+                        <option value="Крокодил Гена"></option>
+                        <option value="Шапокляк"></option>
+                    </datalist>
+
+                </section>
+            </div>
+        </section>
+        <section class="row">
+            <div class="column">
+                Editing of schema of tables
+                <section data-view="TableView">
+                    <table class="ui sortable table segment">
+                        <thead>
+                            <tr><th>Name</th>
+                                <th>Status</th>
+                                <th>Notes</th>
+                            </tr></thead>
+                        <tbody>
+                            <tr>
+                                <td>John</td>
+                                <td>No Action</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>Jamie</td>
+                                <td class="positive">Approved</td>
+                                <td class="warning">Requires call</td>
+                            </tr>
+                            <tr>
+                                <td>Jill</td>
+                                <td class="negative">Denied</td>
+                                <td>None</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><th>3 People</th>
+                                <th>2 Approved</th>
+                                <th></th>
+                            </tr></tfoot>
+                    </table>
+
+
+                </section>
+
+
+
+            </div>
+        </section>
+
+
+
+
+
+    </div>
+
+
+</article>
+

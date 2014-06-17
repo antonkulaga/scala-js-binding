@@ -20,12 +20,15 @@
             <i class="icon list layout"></i>
             <span class="text" style="display: none;">Sidebar</span>
         </div>
+
+
+
         <main id="main" style="min-height: 90%;">
 
             @if(html.isDefined) {
                 @{html.get}
             } else {
-                @{slides.bind("Property binding")(request) /* slides.editing("allows easy page editing")*/}
+                @{slides.bind("Property binding")(request) /*slides.rdf("supports RDFa")*/}
             }
 
 

@@ -1,6 +1,11 @@
 package org.denigma.binding.models
 
 
+trait ExtendedStorageProtocol extends StorageProtocol{
+
+  type SelectMessage <:CommonMessage
+}
+
 /**
  * Just come constrains to keep CRUD protocols in order
  */

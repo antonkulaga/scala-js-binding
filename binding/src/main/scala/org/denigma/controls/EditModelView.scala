@@ -1,6 +1,7 @@
 package org.denigma.controls
 
-import org.denigma.views.core.OrdinaryView
+import org.denigma.InlineEditor
+import org.denigma.views.core.{OrganizedView, OrdinaryView}
 import rx.core.Var
 
 import org.scalajs.dom.{HTMLDivElement, TextEvent, MouseEvent, HTMLElement}
@@ -9,13 +10,14 @@ import scala.util.Random
 import rx.Rx
 import scala.collection.immutable.Map
 import org.scalajs.dom
-import org.denigma.views.core.OrdinaryView
 import scalatags.Text.tags._
 import scalatags.Text.{attrs => a, styles => s, _}
 import org.denigma.extensions._
 import org.scalax.semweb.rdf.IRI
 import importedjs.CodeMirror.{EditorConfiguration, CodeMirror, Editor}
 import scala.scalajs.js
+import js.Dynamic.{ global => g }
+
 import java.awt.TextArea
 
 trait EditModelView extends ActiveModelView
@@ -46,19 +48,23 @@ trait EditModelView extends ActiveModelView
     this.bindEditable(el,key.stringValue)
   }
 
-  def bindEditable(el:HTMLElement,key:String) = {
-    this.bindRx(key,el,this.editMode){ (el,model)=>
-      el.contentEditable = editMode().toString
-    }
-
-  }
-
-
-
   override protected def bindRdfText(el: HTMLElement, key: IRI) = {
     super.bindRdfText(el,key)
     this.bindEditable(el,key.stringValue)
   }
+
+
+  def bindEditable(el:HTMLElement,key:String) = {
+    this.bindRx(key,el,this.editMode){ (el,model)=>
+      el.contentEditable = editMode().toString
+      org.denigma.views.onEdit(editMode.now,el,this)
+
+    }
+  }
+
+
+
+
 
   val toggleClick = Var(createMouseEvent())
 
@@ -66,4 +72,27 @@ trait EditModelView extends ActiveModelView
 
 
 
+}
+/**
+ * Note works only if you added CKEditor js.lib
+ */
+object CkEditor extends InlineEditor{
+
+  var editors = Map.empty[HTMLElement,js.Dynamic]
+
+  override def on(el: HTMLElement, view: OrganizedView): Unit = {
+    val id = el.id
+    val editor = g.CKEDITOR.inline( el )
+    editors = editors + (el->editor)
+  }
+
+  override def off(el: HTMLElement, view: OrganizedView): Unit = {
+    editors.get(el) match {
+      case Some(ed)=>
+        this.editors = editors - el
+        ed.destroy()
+      case None=>
+    }
+    //g.CKEDITOR.inline( el )
+  }
 }

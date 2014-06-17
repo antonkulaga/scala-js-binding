@@ -1,18 +1,16 @@
 package org.denigma.views.core
 
-import scala.collection.immutable.Map
-import org.scalajs.dom.{MouseEvent, HTMLElement}
-import org.scalajs.dom.extensions._
-import org.scalajs.dom
-import org.denigma.extensions
-import extensions._
 import org.denigma.binding.JustBinding
-import rx._
-import scalatags._
+import org.denigma.extensions._
 import org.denigma.views._
-import scala.util.Failure
-import scala.Some
-import scala.util.Success
+import org.scalajs.dom
+import org.scalajs.dom.extensions._
+import org.scalajs.dom.{HTMLElement, MouseEvent}
+import rx._
+
+import scala.collection.immutable.Map
+import scala.reflect.ClassTag
+import scala.util.{Failure, Success}
 import scalatags.Text.Tag
 
 object BindingView {
@@ -55,14 +53,16 @@ abstract class BindingView(val name:String,elem:dom.HTMLElement) extends JustBin
    * @tparam TView type that a parent should satisfy
    * @return
    */
-  def nearestParentOf[TView<:BindingView]:Option[TView] = this.parent match {
+  def nearestParentOf[TView<:BindingView](implicit viewTag: ClassTag[TView]):Option[TView] = this.parent match {
     case None=>None
-    case Some(par:TView)=>Some(par)
+    case Some(par) if viewTag.runtimeClass.isInstance(par) => Some(par.asInstanceOf[TView])
     case Some(par)=>par.nearestParentOf[TView]
   }
 
-  def searchUp[TView<:BindingView](filter:TView=>Boolean): Option[TView] = parent match {
-    case Some(p:TView)=>if(filter(p)) Some(p) else p.searchUp(filter)
+  def searchUp[TView<:BindingView](filter:TView=>Boolean)(implicit viewTag: ClassTag[TView]): Option[TView] = parent match {
+    case Some(p) if viewTag.runtimeClass.isInstance(p)=> p match {
+      case view:TView=> if(filter(view)) Some(p.asInstanceOf[TView]) else p.searchUp(filter)
+    }
     case Some(p)=> p.searchUp[TView](filter)
     case None=>None
   }

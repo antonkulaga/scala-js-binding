@@ -1,16 +1,17 @@
 package org.denigma.storages
 
-import org.scalax.semweb.rdf.{Res, IRI}
-import org.denigma.extensions.sq
-import scala.concurrent.{Promise, Future}
-import org.scalajs.dom._
-import org.scalax.semweb.shex.{Shape, PropertyModel}
-import org.scalax.semweb.sparql.SelectQuery
+import org.denigma.binding.models.ModelMessages.SelectQuery
 import org.denigma.binding.models.{Channeled, ModelMessages}
-import org.scalajs.dom
-import scala.scalajs.js
-import org.scalajs.spickling.PicklerRegistry
 import org.denigma.binding.picklers.rp
+import org.denigma.extensions.sq
+import org.scalajs.dom
+import org.scalajs.dom._
+import org.scalajs.spickling.PicklerRegistry
+import org.scalax.semweb.rdf.Res
+import org.scalax.semweb.shex.PropertyModel
+
+import scala.concurrent.Future
+import scala.scalajs.js
 
 
 trait ReadOnlyModelStorage extends Channeled{
@@ -28,6 +29,21 @@ trait ModelStorage extends ReadOnlyModelStorage {
   def delete(shape: Res)(res: Res*): Future[Boolean]
 
 }
+
+class AjaxModelQueryStorage(path:String)(implicit registry:PicklerRegistry) extends AjaxModelStorage(path)(registry){
+
+  /**
+   * Select query
+   * @param query
+   * @param shape
+   * @return
+   */
+  def select(query:Res,shape:Res): Future[List[PropertyModel]] = {
+    val data: SelectQuery = ModelMessages.SelectQuery(path,shape,query, id = genId(), time = js.Date.now())
+    sq.post(path,data):Future[List[PropertyModel]]
+  }
+}
+
 
 /**
  * ModelAjax Storage

@@ -1187,474 +1187,705 @@ ScalaJS.i.Lorg_denigma_binding_picklers_MapRegistry$class__unpickle__Lorg_denigm
 ScalaJS.i.Lorg_denigma_binding_picklers_MapRegistry$class__$init$__Lorg_denigma_binding_picklers_MapRegistry__V = (function($$this) {
   /*<skip>*/
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$1$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$1$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$2$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$1$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$2$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$1$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$3$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$2$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$3$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$2$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$4$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$3$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$4$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$3$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$(x$2.elem$1)
 });
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$4$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$4$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$5$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$5$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$().init___Lorg_denigma_binding_picklers_ModelPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$(x$2.elem$1)
+});
 ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__registerMessages__Lorg_denigma_binding_picklers_ModelPicklers__V = (function($$this) {
   var jsx$4 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
   var jsx$3 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_denigma_binding_models_ModelMessages$Create.getClassOf());
   var GenPickler$module = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$2 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$1__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$($$this, GenPickler$module);
+  var jsx$2 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$1__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$($$this, GenPickler$module);
   var GenUnpickler$module = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$1 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$1__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$($$this, GenUnpickler$module);
+  var jsx$1 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$1__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$($$this, GenUnpickler$module);
   jsx$4.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$3, jsx$2, jsx$1);
   var jsx$8 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
   var jsx$7 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_denigma_binding_models_ModelMessages$Read.getClassOf());
   var GenPickler$module$2 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$6 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$2__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$($$this, GenPickler$module$2);
+  var jsx$6 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$2__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$($$this, GenPickler$module$2);
   var GenUnpickler$module$2 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$5 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$2__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$($$this, GenUnpickler$module$2);
+  var jsx$5 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$2__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$($$this, GenUnpickler$module$2);
   jsx$8.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$7, jsx$6, jsx$5);
   var jsx$12 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
   var jsx$11 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_denigma_binding_models_ModelMessages$Update.getClassOf());
   var GenPickler$module$3 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$10 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$3__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$($$this, GenPickler$module$3);
+  var jsx$10 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$3__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$($$this, GenPickler$module$3);
   var GenUnpickler$module$3 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$9 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$3__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$($$this, GenUnpickler$module$3);
+  var jsx$9 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$3__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$($$this, GenUnpickler$module$3);
   jsx$12.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$11, jsx$10, jsx$9);
   var jsx$16 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
   var jsx$15 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_denigma_binding_models_ModelMessages$Delete.getClassOf());
   var GenPickler$module$4 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$14 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$4__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$($$this, GenPickler$module$4);
+  var jsx$14 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$4__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$($$this, GenPickler$module$4);
   var GenUnpickler$module$4 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$13 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$4__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$($$this, GenUnpickler$module$4);
-  jsx$16.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$15, jsx$14, jsx$13)
+  var jsx$13 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$4__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$($$this, GenUnpickler$module$4);
+  jsx$16.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$15, jsx$14, jsx$13);
+  var jsx$20 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
+  var jsx$19 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_denigma_binding_models_ModelMessages$SelectQuery.getClassOf());
+  var GenPickler$module$5 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$18 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$5__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$($$this, GenPickler$module$5);
+  var GenUnpickler$module$5 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$17 = ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$5__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$($$this, GenUnpickler$module$5);
+  jsx$20.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$19, jsx$18, jsx$17)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$1__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$ = (function($$this, GenPickler$module$1) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$1__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$ = (function($$this, GenPickler$module$1) {
   if ((GenPickler$module$1.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$1$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$($$this, GenPickler$module$1)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$1$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$($$this, GenPickler$module$1)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$(GenPickler$module$1.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$(GenPickler$module$1.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$1__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$ = (function($$this, GenUnpickler$module$1) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$1__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$ = (function($$this, GenUnpickler$module$1) {
   if ((GenUnpickler$module$1.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$1$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$($$this, GenUnpickler$module$1)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$1$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$($$this, GenUnpickler$module$1)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$(GenUnpickler$module$1.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$(GenUnpickler$module$1.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$2__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$ = (function($$this, GenPickler$module$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$2__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$ = (function($$this, GenPickler$module$2) {
   if ((GenPickler$module$2.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$2$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$($$this, GenPickler$module$2)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$2$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$($$this, GenPickler$module$2)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$(GenPickler$module$2.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$(GenPickler$module$2.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$2__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$ = (function($$this, GenUnpickler$module$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$2__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$ = (function($$this, GenUnpickler$module$2) {
   if ((GenUnpickler$module$2.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$2$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$($$this, GenUnpickler$module$2)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$2$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$($$this, GenUnpickler$module$2)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$(GenUnpickler$module$2.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$(GenUnpickler$module$2.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$3__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$ = (function($$this, GenPickler$module$3) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$3__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$ = (function($$this, GenPickler$module$3) {
   if ((GenPickler$module$3.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$3$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$($$this, GenPickler$module$3)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$3$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$($$this, GenPickler$module$3)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$(GenPickler$module$3.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$(GenPickler$module$3.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$3__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$ = (function($$this, GenUnpickler$module$3) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$3__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$ = (function($$this, GenUnpickler$module$3) {
   if ((GenUnpickler$module$3.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$3$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$($$this, GenUnpickler$module$3)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$3$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$($$this, GenUnpickler$module$3)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$(GenUnpickler$module$3.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$(GenUnpickler$module$3.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$4__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$ = (function($$this, GenPickler$module$4) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$4__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$ = (function($$this, GenPickler$module$4) {
   if ((GenPickler$module$4.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$4$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$($$this, GenPickler$module$4)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$4$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$($$this, GenPickler$module$4)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$(GenPickler$module$4.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$(GenPickler$module$4.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$4__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$ = (function($$this, GenUnpickler$module$4) {
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$4__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$ = (function($$this, GenUnpickler$module$4) {
   if ((GenUnpickler$module$4.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$4$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$($$this, GenUnpickler$module$4)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$4$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$($$this, GenUnpickler$module$4)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$(GenUnpickler$module$4.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$(GenUnpickler$module$4.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$5__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$ = (function($$this, GenPickler$module$5) {
+  if ((GenPickler$module$5.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenPickler$5$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$($$this, GenPickler$module$5)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$(GenPickler$module$5.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$5__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$ = (function($$this, GenUnpickler$module$5) {
+  if ((GenUnpickler$module$5.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__GenUnpickler$5$lzycompute__Lorg_denigma_binding_picklers_ModelPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$($$this, GenUnpickler$module$5)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$(GenUnpickler$module$5.elem$1)
   }
 });
 ScalaJS.i.Lorg_denigma_binding_picklers_ModelPicklers$class__$init$__Lorg_denigma_binding_picklers_ModelPicklers__V = (function($$this) {
   /*<skip>*/
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$1$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$1$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$2$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$2$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$3$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$3$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$4$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$4$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$5$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$5$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$6$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$6$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$ = (function(x$1, x$2) {
-  if ((x$2.elem$1 === null)) {
-    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
-  };
-  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$(x$2.elem$1)
-});
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$7$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$1$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$7$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$1$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$8$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$2$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$8$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$2$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$9$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$3$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$9$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$3$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$10$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$4$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$(x$2.elem$1)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$10$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$ = (function(x$1, x$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$4$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$ = (function(x$1, x$2) {
   if ((x$2.elem$1 === null)) {
     x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
   };
   return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$(x$2.elem$1)
 });
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$5$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$5$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$6$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$6$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$7$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$7$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$8$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$8$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$9$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$9$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$10$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$10$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$11$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$11$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$12$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$12$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$13$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$13$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$14$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$14$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$15$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$15$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$16$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$(x$2.elem$1)
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$16$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$ = (function(x$1, x$2) {
+  if ((x$2.elem$1 === null)) {
+    x$2.elem$1 = new ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$().init___Lorg_denigma_binding_picklers_RDFPicklers(x$1)
+  };
+  return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$(x$2.elem$1)
+});
 ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__registerRdf__Lorg_denigma_binding_picklers_RDFPicklers__V = (function($$this) {
   var jsx$4 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
   var jsx$3 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_IRI.getClassOf());
   var GenPickler$module = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$2 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$1__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$($$this, GenPickler$module);
+  var jsx$2 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$1__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$($$this, GenPickler$module);
   var GenUnpickler$module = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$1 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$1__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$($$this, GenUnpickler$module);
+  var jsx$1 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$1__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$($$this, GenUnpickler$module);
   jsx$4.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$3, jsx$2, jsx$1);
   var jsx$8 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
   var jsx$7 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_BlankNode.getClassOf());
   var GenPickler$module$2 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$6 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$2__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$($$this, GenPickler$module$2);
+  var jsx$6 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$2__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$($$this, GenPickler$module$2);
   var GenUnpickler$module$2 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$5 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$2__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$($$this, GenUnpickler$module$2);
+  var jsx$5 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$2__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$($$this, GenUnpickler$module$2);
   jsx$8.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$7, jsx$6, jsx$5);
   var jsx$12 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
   var jsx$11 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_StringLiteral.getClassOf());
   var GenPickler$module$3 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$10 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$3__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$($$this, GenPickler$module$3);
+  var jsx$10 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$3__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$($$this, GenPickler$module$3);
   var GenUnpickler$module$3 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$9 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$3__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$($$this, GenUnpickler$module$3);
+  var jsx$9 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$3__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$($$this, GenUnpickler$module$3);
   jsx$12.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$11, jsx$10, jsx$9);
   var jsx$16 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
-  var jsx$15 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_sparql_Pat.getClassOf());
+  var jsx$15 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_BooleanLiteral.getClassOf());
   var GenPickler$module$4 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$14 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$4__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$($$this, GenPickler$module$4);
+  var jsx$14 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$4__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$($$this, GenPickler$module$4);
   var GenUnpickler$module$4 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$13 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$4__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$($$this, GenUnpickler$module$4);
+  var jsx$13 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$4__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$($$this, GenUnpickler$module$4);
   jsx$16.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$15, jsx$14, jsx$13);
   var jsx$20 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
-  var jsx$19 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_Trip.getClassOf());
+  var jsx$19 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_DoubleLiteral.getClassOf());
   var GenPickler$module$5 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$18 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$5__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$($$this, GenPickler$module$5);
+  var jsx$18 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$5__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$($$this, GenPickler$module$5);
   var GenUnpickler$module$5 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$17 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$5__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$($$this, GenUnpickler$module$5);
+  var jsx$17 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$5__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$($$this, GenUnpickler$module$5);
   jsx$20.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$19, jsx$18, jsx$17);
   var jsx$24 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
-  var jsx$23 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_Quad.getClassOf());
+  var jsx$23 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_DecimalLiteral.getClassOf());
   var GenPickler$module$6 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$22 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$6__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$($$this, GenPickler$module$6);
+  var jsx$22 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$6__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$($$this, GenPickler$module$6);
   var GenUnpickler$module$6 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$21 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$6__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$($$this, GenUnpickler$module$6);
+  var jsx$21 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$6__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$($$this, GenUnpickler$module$6);
   jsx$24.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$23, jsx$22, jsx$21);
   var jsx$28 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
-  var jsx$27 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_denigma_binding_models_MenuItem.getClassOf());
+  var jsx$27 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_StringLangLiteral.getClassOf());
   var GenPickler$module$7 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$26 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$7__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$($$this, GenPickler$module$7);
+  var jsx$26 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$7__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$($$this, GenPickler$module$7);
   var GenUnpickler$module$7 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$25 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$7__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$($$this, GenUnpickler$module$7);
+  var jsx$25 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$7__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$($$this, GenUnpickler$module$7);
   jsx$28.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$27, jsx$26, jsx$25);
   var jsx$32 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
-  var jsx$31 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_denigma_binding_models_Menu.getClassOf());
+  var jsx$31 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_LongLiteral.getClassOf());
   var GenPickler$module$8 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$30 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$8__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$($$this, GenPickler$module$8);
+  var jsx$30 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$8__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$($$this, GenPickler$module$8);
   var GenUnpickler$module$8 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$29 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$8__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$($$this, GenUnpickler$module$8);
+  var jsx$29 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$8__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$($$this, GenUnpickler$module$8);
   jsx$32.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$31, jsx$30, jsx$29);
-  ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.m.Lorg_scalax_semweb_shex_validation_Valid(), new ScalaJS.c.Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("org.scalax.semweb.shex.validation.Valid$"));
   var jsx$36 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
-  var jsx$35 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_shex_validation_JustFailure.getClassOf());
+  var jsx$35 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_IntegerLiteral.getClassOf());
   var GenPickler$module$9 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$34 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$9__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$($$this, GenPickler$module$9);
+  var jsx$34 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$9__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$($$this, GenPickler$module$9);
   var GenUnpickler$module$9 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$33 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$9__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$($$this, GenUnpickler$module$9);
+  var jsx$33 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$9__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$($$this, GenUnpickler$module$9);
   jsx$36.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$35, jsx$34, jsx$33);
   var jsx$40 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
-  var jsx$39 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_shex_PropertyModel.getClassOf());
+  var jsx$39 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_sparql_Pat.getClassOf());
   var GenPickler$module$10 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$38 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$10__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$($$this, GenPickler$module$10);
+  var jsx$38 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$10__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$($$this, GenPickler$module$10);
   var GenUnpickler$module$10 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
-  var jsx$37 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$10__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$($$this, GenUnpickler$module$10);
-  jsx$40.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$39, jsx$38, jsx$37)
+  var jsx$37 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$10__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$($$this, GenUnpickler$module$10);
+  jsx$40.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$39, jsx$38, jsx$37);
+  var jsx$44 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
+  var jsx$43 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_Trip.getClassOf());
+  var GenPickler$module$11 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$42 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$11__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$($$this, GenPickler$module$11);
+  var GenUnpickler$module$11 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$41 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$11__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$($$this, GenUnpickler$module$11);
+  jsx$44.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$43, jsx$42, jsx$41);
+  var jsx$48 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
+  var jsx$47 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_rdf_Quad.getClassOf());
+  var GenPickler$module$12 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$46 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$12__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$($$this, GenPickler$module$12);
+  var GenUnpickler$module$12 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$45 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$12__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$($$this, GenUnpickler$module$12);
+  jsx$48.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$47, jsx$46, jsx$45);
+  var jsx$52 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
+  var jsx$51 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_denigma_binding_models_MenuItem.getClassOf());
+  var GenPickler$module$13 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$50 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$13__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$($$this, GenPickler$module$13);
+  var GenUnpickler$module$13 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$49 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$13__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$($$this, GenUnpickler$module$13);
+  jsx$52.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$51, jsx$50, jsx$49);
+  var jsx$56 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
+  var jsx$55 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_denigma_binding_models_Menu.getClassOf());
+  var GenPickler$module$14 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$54 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$14__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$($$this, GenPickler$module$14);
+  var GenUnpickler$module$14 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$53 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$14__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$($$this, GenUnpickler$module$14);
+  jsx$56.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$55, jsx$54, jsx$53);
+  ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry().register__O__Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName__V(ScalaJS.m.Lorg_scalax_semweb_shex_validation_Valid(), new ScalaJS.c.Lorg_scalajs_spickling_PicklerRegistry$SingletonFullName().init___T("org.scalax.semweb.shex.validation.Valid$"));
+  var jsx$60 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
+  var jsx$59 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_shex_validation_JustFailure.getClassOf());
+  var GenPickler$module$15 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$58 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$15__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$($$this, GenPickler$module$15);
+  var GenUnpickler$module$15 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$57 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$15__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$($$this, GenUnpickler$module$15);
+  jsx$60.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$59, jsx$58, jsx$57);
+  var jsx$64 = ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry();
+  var jsx$63 = ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_scalax_semweb_shex_PropertyModel.getClassOf());
+  var GenPickler$module$16 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$62 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$16__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$($$this, GenPickler$module$16);
+  var GenUnpickler$module$16 = ScalaJS.m.sr_VolatileObjectRef().zero__sr_VolatileObjectRef();
+  var jsx$61 = ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$16__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$($$this, GenUnpickler$module$16);
+  jsx$64.register__s_reflect_ClassTag__Lorg_scalajs_spickling_Pickler__Lorg_scalajs_spickling_Unpickler__V(jsx$63, jsx$62, jsx$61)
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$1__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$ = (function($$this, GenPickler$module$1) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$1__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$ = (function($$this, GenPickler$module$1) {
   if ((GenPickler$module$1.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$1$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$($$this, GenPickler$module$1)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$1$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$($$this, GenPickler$module$1)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$(GenPickler$module$1.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$(GenPickler$module$1.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$1__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$ = (function($$this, GenUnpickler$module$1) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$1__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$ = (function($$this, GenUnpickler$module$1) {
   if ((GenUnpickler$module$1.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$1$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$($$this, GenUnpickler$module$1)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$1$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$($$this, GenUnpickler$module$1)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$(GenUnpickler$module$1.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$(GenUnpickler$module$1.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$2__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$ = (function($$this, GenPickler$module$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$2__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$ = (function($$this, GenPickler$module$2) {
   if ((GenPickler$module$2.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$2$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$($$this, GenPickler$module$2)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$2$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$($$this, GenPickler$module$2)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$(GenPickler$module$2.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$(GenPickler$module$2.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$2__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$ = (function($$this, GenUnpickler$module$2) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$2__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$ = (function($$this, GenUnpickler$module$2) {
   if ((GenUnpickler$module$2.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$2$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$($$this, GenUnpickler$module$2)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$2$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$($$this, GenUnpickler$module$2)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$(GenUnpickler$module$2.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$(GenUnpickler$module$2.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$3__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$ = (function($$this, GenPickler$module$3) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$3__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$ = (function($$this, GenPickler$module$3) {
   if ((GenPickler$module$3.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$3$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$($$this, GenPickler$module$3)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$3$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$($$this, GenPickler$module$3)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$(GenPickler$module$3.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$(GenPickler$module$3.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$3__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$ = (function($$this, GenUnpickler$module$3) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$3__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$ = (function($$this, GenUnpickler$module$3) {
   if ((GenUnpickler$module$3.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$3$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$($$this, GenUnpickler$module$3)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$3$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$($$this, GenUnpickler$module$3)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$(GenUnpickler$module$3.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$(GenUnpickler$module$3.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$4__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$ = (function($$this, GenPickler$module$4) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$4__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$ = (function($$this, GenPickler$module$4) {
   if ((GenPickler$module$4.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$4$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$($$this, GenPickler$module$4)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$4$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$($$this, GenPickler$module$4)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$(GenPickler$module$4.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$(GenPickler$module$4.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$4__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$ = (function($$this, GenUnpickler$module$4) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$4__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$ = (function($$this, GenUnpickler$module$4) {
   if ((GenUnpickler$module$4.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$4$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$($$this, GenUnpickler$module$4)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$4$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$($$this, GenUnpickler$module$4)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$(GenUnpickler$module$4.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$(GenUnpickler$module$4.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$5__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$ = (function($$this, GenPickler$module$5) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$5__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$ = (function($$this, GenPickler$module$5) {
   if ((GenPickler$module$5.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$5$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$($$this, GenPickler$module$5)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$5$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$($$this, GenPickler$module$5)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$(GenPickler$module$5.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$(GenPickler$module$5.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$5__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$ = (function($$this, GenUnpickler$module$5) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$5__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$ = (function($$this, GenUnpickler$module$5) {
   if ((GenUnpickler$module$5.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$5$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$($$this, GenUnpickler$module$5)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$5$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$($$this, GenUnpickler$module$5)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$(GenUnpickler$module$5.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$(GenUnpickler$module$5.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$6__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$ = (function($$this, GenPickler$module$6) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$6__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$ = (function($$this, GenPickler$module$6) {
   if ((GenPickler$module$6.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$6$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$($$this, GenPickler$module$6)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$6$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$($$this, GenPickler$module$6)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$(GenPickler$module$6.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$(GenPickler$module$6.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$6__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$ = (function($$this, GenUnpickler$module$6) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$6__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$ = (function($$this, GenUnpickler$module$6) {
   if ((GenUnpickler$module$6.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$6$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$($$this, GenUnpickler$module$6)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$6$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$($$this, GenUnpickler$module$6)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$(GenUnpickler$module$6.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$(GenUnpickler$module$6.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$7__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$ = (function($$this, GenPickler$module$7) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$7__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$ = (function($$this, GenPickler$module$7) {
   if ((GenPickler$module$7.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$7$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$($$this, GenPickler$module$7)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$7$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$($$this, GenPickler$module$7)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$(GenPickler$module$7.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$(GenPickler$module$7.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$7__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$ = (function($$this, GenUnpickler$module$7) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$7__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$ = (function($$this, GenUnpickler$module$7) {
   if ((GenUnpickler$module$7.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$7$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$($$this, GenUnpickler$module$7)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$7$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$($$this, GenUnpickler$module$7)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$(GenUnpickler$module$7.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$(GenUnpickler$module$7.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$8__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$ = (function($$this, GenPickler$module$8) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$8__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$ = (function($$this, GenPickler$module$8) {
   if ((GenPickler$module$8.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$8$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$($$this, GenPickler$module$8)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$8$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$($$this, GenPickler$module$8)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$(GenPickler$module$8.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$(GenPickler$module$8.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$8__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$ = (function($$this, GenUnpickler$module$8) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$8__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$ = (function($$this, GenUnpickler$module$8) {
   if ((GenUnpickler$module$8.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$8$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$($$this, GenUnpickler$module$8)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$8$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$($$this, GenUnpickler$module$8)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$(GenUnpickler$module$8.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$(GenUnpickler$module$8.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$9__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$ = (function($$this, GenPickler$module$9) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$9__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$ = (function($$this, GenPickler$module$9) {
   if ((GenPickler$module$9.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$9$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$($$this, GenPickler$module$9)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$9$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$($$this, GenPickler$module$9)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$(GenPickler$module$9.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$(GenPickler$module$9.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$9__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$ = (function($$this, GenUnpickler$module$9) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$9__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$ = (function($$this, GenUnpickler$module$9) {
   if ((GenUnpickler$module$9.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$9$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$($$this, GenUnpickler$module$9)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$9$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$($$this, GenUnpickler$module$9)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$(GenUnpickler$module$9.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$(GenUnpickler$module$9.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$10__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$ = (function($$this, GenPickler$module$10) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$10__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$ = (function($$this, GenPickler$module$10) {
   if ((GenPickler$module$10.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$10$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$($$this, GenPickler$module$10)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$10$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$($$this, GenPickler$module$10)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$(GenPickler$module$10.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$(GenPickler$module$10.elem$1)
   }
 });
-ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$10__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$ = (function($$this, GenUnpickler$module$10) {
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$10__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$ = (function($$this, GenUnpickler$module$10) {
   if ((GenUnpickler$module$10.elem$1 === null)) {
-    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$10$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$($$this, GenUnpickler$module$10)
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$10$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$($$this, GenUnpickler$module$10)
   } else {
-    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$(GenUnpickler$module$10.elem$1)
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$(GenUnpickler$module$10.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$11__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$ = (function($$this, GenPickler$module$11) {
+  if ((GenPickler$module$11.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$11$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$($$this, GenPickler$module$11)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$(GenPickler$module$11.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$11__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$ = (function($$this, GenUnpickler$module$11) {
+  if ((GenUnpickler$module$11.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$11$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$($$this, GenUnpickler$module$11)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$(GenUnpickler$module$11.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$12__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$ = (function($$this, GenPickler$module$12) {
+  if ((GenPickler$module$12.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$12$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$($$this, GenPickler$module$12)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$(GenPickler$module$12.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$12__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$ = (function($$this, GenUnpickler$module$12) {
+  if ((GenUnpickler$module$12.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$12$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$($$this, GenUnpickler$module$12)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$(GenUnpickler$module$12.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$13__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$ = (function($$this, GenPickler$module$13) {
+  if ((GenPickler$module$13.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$13$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$($$this, GenPickler$module$13)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$(GenPickler$module$13.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$13__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$ = (function($$this, GenUnpickler$module$13) {
+  if ((GenUnpickler$module$13.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$13$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$($$this, GenUnpickler$module$13)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$(GenUnpickler$module$13.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$14__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$ = (function($$this, GenPickler$module$14) {
+  if ((GenPickler$module$14.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$14$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$($$this, GenPickler$module$14)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$(GenPickler$module$14.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$14__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$ = (function($$this, GenUnpickler$module$14) {
+  if ((GenUnpickler$module$14.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$14$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$($$this, GenUnpickler$module$14)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$(GenUnpickler$module$14.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$15__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$ = (function($$this, GenPickler$module$15) {
+  if ((GenPickler$module$15.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$15$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$($$this, GenPickler$module$15)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$(GenPickler$module$15.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$15__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$ = (function($$this, GenUnpickler$module$15) {
+  if ((GenUnpickler$module$15.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$15$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$($$this, GenUnpickler$module$15)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$(GenUnpickler$module$15.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$16__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$ = (function($$this, GenPickler$module$16) {
+  if ((GenPickler$module$16.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenPickler$16$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$($$this, GenPickler$module$16)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$(GenPickler$module$16.elem$1)
+  }
+});
+ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$16__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$ = (function($$this, GenUnpickler$module$16) {
+  if ((GenUnpickler$module$16.elem$1 === null)) {
+    return ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__GenUnpickler$16$lzycompute__Lorg_denigma_binding_picklers_RDFPicklers__sr_VolatileObjectRef__Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$($$this, GenUnpickler$module$16)
+  } else {
+    return ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$(GenUnpickler$module$16.elem$1)
   }
 });
 ScalaJS.i.Lorg_denigma_binding_picklers_RDFPicklers$class__$init$__Lorg_denigma_binding_picklers_RDFPicklers__V = (function($$this) {
@@ -1704,18 +1935,19 @@ ScalaJS.i.Lorg_denigma_controls_EditModelView$class__bindRdfInner__Lorg_denigma_
   ScalaJS.as.Lorg_denigma_controls_EditModelView($$this).org$denigma$controls$EditModelView$$super$bindRdfInner__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(el, key);
   ScalaJS.as.Lorg_denigma_controls_EditModelView($$this).bindEditable__Lorg_scalajs_dom_HTMLElement__T__V(el, key.stringValue__T())
 });
+ScalaJS.i.Lorg_denigma_controls_EditModelView$class__bindRdfText__Lorg_denigma_views_core_OrdinaryView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function($$this, el, key) {
+  ScalaJS.as.Lorg_denigma_controls_EditModelView($$this).org$denigma$controls$EditModelView$$super$bindRdfText__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(el, key);
+  ScalaJS.as.Lorg_denigma_controls_EditModelView($$this).bindEditable__Lorg_scalajs_dom_HTMLElement__T__V(el, key.stringValue__T())
+});
 ScalaJS.i.Lorg_denigma_controls_EditModelView$class__bindEditable__Lorg_denigma_views_core_OrdinaryView__Lorg_scalajs_dom_HTMLElement__T__V = (function($$this, el, key) {
   $$this.bindRx__T__Lorg_scalajs_dom_HTMLElement__Lrx_core_Rx__F2__V(key, el, ScalaJS.as.Lorg_denigma_controls_EditModelView($$this).editMode__Lrx_core_Var(), new ScalaJS.c.sjsr_AnonFunction2().init___sjs_js_Function2((function(arg$outer) {
     return (function(el$2, model$2) {
       var el = el$2;
       var model = ScalaJS.uZ(model$2);
-      el["contentEditable"] = ScalaJS.objectToString(ScalaJS.as.Lorg_denigma_controls_EditModelView(arg$outer).editMode__Lrx_core_Var().apply__O())
+      el["contentEditable"] = ScalaJS.objectToString(ScalaJS.as.Lorg_denigma_controls_EditModelView(arg$outer).editMode__Lrx_core_Var().apply__O());
+      ScalaJS.m.Lorg_denigma_views_package().onEdit__Z__Lorg_scalajs_dom_HTMLElement__Lorg_denigma_views_core_OrganizedView__V(ScalaJS.uZ(ScalaJS.as.Lorg_denigma_controls_EditModelView(arg$outer).editMode__Lrx_core_Var().now__O()), el, arg$outer)
     })
   })($$this)))
-});
-ScalaJS.i.Lorg_denigma_controls_EditModelView$class__bindRdfText__Lorg_denigma_views_core_OrdinaryView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function($$this, el, key) {
-  ScalaJS.as.Lorg_denigma_controls_EditModelView($$this).org$denigma$controls$EditModelView$$super$bindRdfText__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(el, key);
-  ScalaJS.as.Lorg_denigma_controls_EditModelView($$this).bindEditable__Lorg_scalajs_dom_HTMLElement__T__V(el, key.stringValue__T())
 });
 ScalaJS.i.Lorg_denigma_controls_EditModelView$class__$init$__Lorg_denigma_views_core_OrdinaryView__V = (function($$this) {
   ScalaJS.as.Lorg_denigma_controls_EditModelView($$this).org$denigma$controls$EditModelView$$undsetter$und$mode$und$eq__T__V(ScalaJS.as.T(ScalaJS.as.Lorg_denigma_controls_EditModelView($$this).params__sci_Map().get__O__s_Option("mode").fold__F0__F1__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
@@ -1838,30 +2070,12 @@ ScalaJS.i.Lorg_denigma_views_models_ChangeSlot$class__$init$__Lorg_denigma_views
   /*<skip>*/
 });
 ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindElement__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__V = (function($$this, el) {
-  var ats = ScalaJS.as.sc_TraversableOnce(ScalaJS.m.Lorg_scalajs_dom_extensions_package().Attributes__Lorg_scalajs_dom_NamedNodeMap__Lorg_scalajs_dom_extensions_package$Attributes(el["attributes"]).collect__s_PartialFunction__scg_CanBuildFrom__O(new ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1().init___Lorg_denigma_views_core_OrganizedView($$this), ScalaJS.m.scm_Map().canBuildFrom__scg_CanBuildFrom())).toMap__s_Predef$$less$colon$less__sci_Map(ScalaJS.m.s_Predef().$$conforms__s_Predef$$less$colon$less());
-  ScalaJS.as.Lorg_denigma_views_models_ModelView($$this).bindDataAttributes__Lorg_scalajs_dom_HTMLElement__sci_Map__V(el, ats);
-  ScalaJS.as.Lorg_denigma_views_models_ModelView($$this).bindRdf__Lorg_scalajs_dom_HTMLElement__V(el)
-});
-ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdf__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__V = (function($$this, el) {
   var ats = ScalaJS.as.sc_TraversableOnce(ScalaJS.m.Lorg_scalajs_dom_extensions_package().Attributes__Lorg_scalajs_dom_NamedNodeMap__Lorg_scalajs_dom_extensions_package$Attributes(el["attributes"]).collect__s_PartialFunction__scg_CanBuildFrom__O(new ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$2().init___Lorg_denigma_views_core_OrganizedView($$this), ScalaJS.m.scm_Map().canBuildFrom__scg_CanBuildFrom())).toMap__s_Predef$$less$colon$less__sci_Map(ScalaJS.m.s_Predef().$$conforms__s_Predef$$less$colon$less());
-  ats.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer, ats$1, el$1) {
-    return (function(x0$1$2) {
-      var x0$1 = ScalaJS.as.T2(x0$1$2);
-      var x1 = x0$1;
-      matchEnd3: {
-        if ((x1 !== null)) {
-          var key = ScalaJS.as.T(x1.$$und1__O());
-          var value = ScalaJS.as.T(x1.$$und2__O());
-          ScalaJS.asUnit(ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).rdfPartial__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map__s_PartialFunction(el$1, key, value, ats$1).orElse__s_PartialFunction__s_PartialFunction(ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).otherPartial__s_PartialFunction()).apply__O__O(key));
-          break matchEnd3
-        };
-        throw new ScalaJS.c.s_MatchError().init___O(x1)
-      }
-    })
-  })($$this, ats, el)))
+  $$this.bindDataAttributes__Lorg_scalajs_dom_HTMLElement__sci_Map__V(el, ats);
+  ScalaJS.as.Lorg_denigma_views_models_RDFView($$this).bindRdf__Lorg_scalajs_dom_HTMLElement__V(el)
 });
 ScalaJS.i.Lorg_denigma_views_models_ModelView$class__rdfPartial__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map__s_PartialFunction = (function($$this, el, key, value, ats) {
-  return new ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1().init___Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map($$this, el, key, value, ats)
+  return new ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2().init___Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map($$this, el, key, value, ats)
 });
 ScalaJS.i.Lorg_denigma_views_models_ModelView$class__strOptionFromProperties__Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option = (function($$this, model, key) {
   var x1 = model.properties__sci_Map().get__O__s_Option(key);
@@ -1985,24 +2199,27 @@ ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfInput__Lorg_denigma_
     })
   })($$this, key)))
 });
+ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfCkeckBox__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function($$this, el, key) {
+  $$this.bindRx__T__Lorg_scalajs_dom_HTMLElement__Lrx_core_Rx__F2__V(key.stringValue__T(), el, ScalaJS.as.Lorg_denigma_views_models_ModelView($$this).modelInside__Lrx_core_Var(), new ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1().init___Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_rdf_IRI($$this, key))
+});
 ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfAttribute__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__V = (function($$this, el, key, att) {
-  $$this.bindRx__T__Lorg_scalajs_dom_HTMLElement__Lrx_core_Rx__F2__V(key.stringValue__T(), el, ScalaJS.as.Lorg_denigma_views_models_ModelView($$this).modelInside__Lrx_core_Var(), new ScalaJS.c.sjsr_AnonFunction2().init___sjs_js_Function2((function(arg$outer, key$5, att$1) {
+  $$this.bindRx__T__Lorg_scalajs_dom_HTMLElement__Lrx_core_Rx__F2__V(key.stringValue__T(), el, ScalaJS.as.Lorg_denigma_views_models_ModelView($$this).modelInside__Lrx_core_Var(), new ScalaJS.c.sjsr_AnonFunction2().init___sjs_js_Function2((function(arg$outer, key$6, att$2) {
     return (function(el$2, model$2) {
       var el = el$2;
       var model = ScalaJS.as.Lorg_denigma_views_models_ModelInside(model$2);
-      var x1 = ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).strOptionFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option(ScalaJS.as.Lorg_denigma_views_models_ModelInside(ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).modelInside__Lrx_core_Var().now__O()).current__Lorg_scalax_semweb_shex_PropertyModel(), key$5);
+      var x1 = ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).strOptionFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option(ScalaJS.as.Lorg_denigma_views_models_ModelInside(ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer).modelInside__Lrx_core_Var().now__O()).current__Lorg_scalax_semweb_shex_PropertyModel(), key$6);
       matchEnd5: {
         if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
-          ScalaJS.g["console"]["log"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), ["", " was not found in the model"]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [key$5.toString__T()]))));
+          ScalaJS.g["console"]["log"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), ["", " was not found in the model"]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [key$6.toString__T()]))));
           break matchEnd5
         };
         if (ScalaJS.is.s_Some(x1)) {
           var x2 = ScalaJS.as.s_Some(x1);
           var value = ScalaJS.as.T(x2.x__O());
-          var at = ScalaJS.g["document"]["createAttribute"](att$1);
+          var at = ScalaJS.g["document"]["createAttribute"](att$2);
           at["value"] = ScalaJS.as.T(value);
           el["attributes"]["setNamedItem"](at);
-          ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(el).dyn__sjs_js_Dynamic()[att$1] = value;
+          ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(el).dyn__sjs_js_Dynamic()[att$2] = value;
           break matchEnd5
         };
         throw new ScalaJS.c.s_MatchError().init___O(x1)
@@ -2012,6 +2229,9 @@ ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfAttribute__Lorg_deni
 });
 ScalaJS.i.Lorg_denigma_views_models_ModelView$class__makeRdfHandler__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__F1 = (function($$this, el, iri, pname) {
   return new ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeRdfHandler$1().init___Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T($$this, el, iri, pname)
+});
+ScalaJS.i.Lorg_denigma_views_models_ModelView$class__makeCheckboxHandler__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__F1 = (function($$this, el, iri) {
+  return new ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1().init___Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI($$this, el, iri)
 });
 ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRDFProperty__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__T__V = (function($$this, el, iri, att, datatype) {
   var x1 = ScalaJS.i.sjsr_RuntimeString$class__toLowerCase__sjsr_RuntimeString__T(datatype);
@@ -2040,15 +2260,21 @@ ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRDFProperty__Lorg_denig
     };
     if (jsx$1) {
       var x1$3 = ScalaJS.m.Lorg_scalajs_dom_extensions_package().Attributes__Lorg_scalajs_dom_NamedNodeMap__Lorg_scalajs_dom_extensions_package$Attributes(el["attributes"]).get__T__s_Option("type").map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function() {
-        return (function(x$1$2) {
-          var x$1 = x$1$2;
-          return ScalaJS.as.T(x$1["value"]).toString()
+        return (function(x$3$2) {
+          var x$3 = x$3$2;
+          return ScalaJS.as.T(x$3["value"]).toString()
         })
       })()));
       if (ScalaJS.is.s_Some(x1$3)) {
         var x2 = ScalaJS.as.s_Some(x1$3);
         var p3 = ScalaJS.as.T(x2.x__O());
         if (ScalaJS.anyRefEqEq("checkbox", p3)) {
+          ScalaJS.as.Lorg_denigma_views_models_ModelView($$this).bindRdfCkeckBox__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(el, iri);
+          el["onclick"] = (function(f) {
+            return (function(arg1) {
+              return f.apply__O__O(arg1)
+            })
+          })(ScalaJS.as.Lorg_denigma_views_models_ModelView($$this).makeCheckboxHandler__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__F1(el, iri));
           break matchEnd3
         }
       };
@@ -2075,6 +2301,106 @@ ScalaJS.i.Lorg_denigma_views_models_ModelView$class__$init$__Lorg_denigma_views_
       return ScalaJS.m.Lorg_denigma_views_models_ModelInside().apply__Lorg_scalax_semweb_shex_PropertyModel__Lorg_denigma_views_models_ModelInside(ScalaJS.m.Lorg_scalax_semweb_shex_PropertyModel().empty__Lorg_scalax_semweb_shex_PropertyModel())
     })
   })()), ScalaJS.m.Lrx_core_Var().apply$default$2__T()))
+});
+ScalaJS.i.Lorg_denigma_views_models_RDFView$class__resolve__Lorg_denigma_views_core_OrganizedView__T__s_Option = (function($$this, property) {
+  var x1 = ScalaJS.i.sjsr_RuntimeString$class__indexOf__sjsr_RuntimeString__T__I(property, ":");
+  switch (x1) {
+    case -1:
+      {
+        return ScalaJS.as.Lorg_denigma_views_models_RDFView($$this).prefixes__sci_Map().get__O__s_Option(":").orElse__F0__s_Option(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer) {
+          return (function() {
+            return ScalaJS.as.Lorg_denigma_views_models_RDFView(arg$outer).prefixes__sci_Map().get__O__s_Option("")
+          })
+        })($$this))).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(property$1) {
+          return (function(p$2) {
+            var p = ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(p$2);
+            return p.$$div__T__Lorg_scalax_semweb_rdf_IRI(property$1)
+          })
+        })(property)));
+        break
+      };
+    case 0:
+      {
+        return ScalaJS.as.Lorg_denigma_views_models_RDFView($$this).prefixes__sci_Map().get__O__s_Option(":").orElse__F0__s_Option(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer) {
+          return (function() {
+            return ScalaJS.as.Lorg_denigma_views_models_RDFView(arg$outer).prefixes__sci_Map().get__O__s_Option("")
+          })
+        })($$this))).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(property$1) {
+          return (function(p$2) {
+            var p = ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(p$2);
+            return p.$$div__T__Lorg_scalax_semweb_rdf_IRI(property$1)
+          })
+        })(property)));
+        break
+      };
+    default:
+      {
+        var key = ScalaJS.i.sjsr_RuntimeString$class__substring__sjsr_RuntimeString__I__I__T(property, 0, x1);
+        return ScalaJS.as.Lorg_denigma_views_models_RDFView($$this).prefixes__sci_Map().get__O__s_Option(key).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(property$1) {
+          return (function(p$2) {
+            var p = ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(p$2);
+            return p.$$div__T__Lorg_scalax_semweb_rdf_IRI(property$1)
+          })
+        })(property))).orElse__F0__s_Option(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(property$1) {
+          return (function() {
+            return new ScalaJS.c.s_Some().init___O(new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(property$1))
+          })
+        })(property)))
+      };
+  }
+});
+ScalaJS.i.Lorg_denigma_views_models_RDFView$class__nearestRDFParent__Lorg_denigma_views_core_OrganizedView__Lorg_denigma_views_core_BindingView__s_Option = (function($$this, current) {
+  var rc6 = false;
+  var x2 = null;
+  var x1 = current.parent__s_Option();
+  if (ScalaJS.is.s_Some(x1)) {
+    rc6 = true;
+    x2 = ScalaJS.as.s_Some(x1);
+    var par = ScalaJS.as.Lorg_denigma_views_core_BindingView(x2.x__O());
+    if ((ScalaJS.is.Lorg_denigma_views_core_OrganizedView(par) && ScalaJS.is.Lorg_denigma_views_models_RDFView(par))) {
+      var x4 = ScalaJS.as.Lorg_denigma_views_core_OrganizedView(par);
+      return new ScalaJS.c.s_Some().init___O(x4)
+    }
+  };
+  if (rc6) {
+    var par$2 = ScalaJS.as.Lorg_denigma_views_core_BindingView(x2.x__O());
+    return ScalaJS.as.Lorg_denigma_views_models_RDFView($$this).nearestRDFParent__Lorg_denigma_views_core_BindingView__s_Option(par$2)
+  };
+  return ScalaJS.m.s_None()
+});
+ScalaJS.i.Lorg_denigma_views_models_RDFView$class__nearestRDFParent$default$1__Lorg_denigma_views_core_OrganizedView__Lorg_denigma_views_core_BindingView = (function($$this) {
+  return $$this
+});
+ScalaJS.i.Lorg_denigma_views_models_RDFView$class__bindRdf__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__V = (function($$this, el) {
+  ScalaJS.as.Lorg_denigma_views_models_RDFView($$this).prefixes$und$eq__sci_Map__V(ScalaJS.as.sci_MapLike(ScalaJS.as.Lorg_denigma_views_models_RDFView($$this).nearestRDFParent__Lorg_denigma_views_core_BindingView__s_Option(ScalaJS.as.Lorg_denigma_views_models_RDFView($$this).nearestRDFParent$default$1__Lorg_denigma_views_core_BindingView()).fold__F0__F1__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+    return (function() {
+      return ScalaJS.m.sci_Map().empty__sci_Map()
+    })
+  })()), new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function() {
+    return (function(x$1$2) {
+      var x$1 = ScalaJS.as.Lorg_denigma_views_core_OrganizedView(x$1$2);
+      return ScalaJS.as.Lorg_denigma_views_models_RDFView(x$1).prefixes__sci_Map()
+    })
+  })()))).$$plus$plus__sc_GenTraversableOnce__sci_Map(ScalaJS.as.Lorg_denigma_views_models_RDFView($$this).prefixes__sci_Map()));
+  var ats = ScalaJS.as.sc_TraversableOnce(ScalaJS.m.Lorg_scalajs_dom_extensions_package().Attributes__Lorg_scalajs_dom_NamedNodeMap__Lorg_scalajs_dom_extensions_package$Attributes(el["attributes"]).collect__s_PartialFunction__scg_CanBuildFrom__O(new ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1().init___Lorg_denigma_views_core_OrganizedView($$this), ScalaJS.m.scm_Map().canBuildFrom__scg_CanBuildFrom())).toMap__s_Predef$$less$colon$less__sci_Map(ScalaJS.m.s_Predef().$$conforms__s_Predef$$less$colon$less());
+  ats.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer, ats$1, el$1) {
+    return (function(x0$1$2) {
+      var x0$1 = ScalaJS.as.T2(x0$1$2);
+      var x1 = x0$1;
+      matchEnd3: {
+        if ((x1 !== null)) {
+          var key = ScalaJS.as.T(x1.$$und1__O());
+          var value = ScalaJS.as.T(x1.$$und2__O());
+          ScalaJS.asUnit(ScalaJS.as.Lorg_denigma_views_models_RDFView(arg$outer).rdfPartial__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map__s_PartialFunction(el$1, key, value, ats$1).orElse__s_PartialFunction__s_PartialFunction(ScalaJS.as.Lorg_denigma_views_models_RDFView(arg$outer).otherPartial__s_PartialFunction()).apply__O__O(key));
+          break matchEnd3
+        };
+        throw new ScalaJS.c.s_MatchError().init___O(x1)
+      }
+    })
+  })($$this, ats, el)))
+});
+ScalaJS.i.Lorg_denigma_views_models_RDFView$class__$init$__Lorg_denigma_views_core_OrganizedView__V = (function($$this) {
+  ScalaJS.as.Lorg_denigma_views_models_RDFView($$this).prefixes$und$eq__sci_Map__V(ScalaJS.m.sci_Map().empty__sci_Map())
 });
 ScalaJS.i.Lorg_scalajs_spickling_PicklerRegistry$class__$init$__Lorg_scalajs_spickling_PicklerRegistry__V = (function($$this) {
   /*<skip>*/
@@ -2827,6 +3153,28 @@ ScalaJS.i.s_reflect_ClassTag$class__newArray__s_reflect_ClassTag__I__O = (functi
     return ScalaJS.newArrayObject(ScalaJS.d.sr_BoxedUnit.getArrayOf(), [len])
   };
   return ScalaJS.m.jl_reflect_Array().newInstance__jl_Class__I__O($$this.runtimeClass__jl_Class(), len)
+});
+ScalaJS.i.s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option = (function($$this, x) {
+  return ScalaJS.i.s_reflect_ClassTag$class__unapply$undimpl__s_reflect_ClassTag__O__s_reflect_ClassTag__s_Option($$this, x, ScalaJS.m.s_reflect_ClassTag().Any__s_reflect_ClassTag())
+});
+ScalaJS.i.s_reflect_ClassTag$class__unapply$undimpl__s_reflect_ClassTag__O__s_reflect_ClassTag__s_Option = (function($$this, x, evidence$1) {
+  if ((x === null)) {
+    return ScalaJS.m.s_None()
+  } else {
+    var staticClass = ScalaJS.m.s_reflect_package().classTag__s_reflect_ClassTag__s_reflect_ClassTag(evidence$1).runtimeClass__jl_Class();
+    var dynamicClass = ScalaJS.objectGetClass(x);
+    if (staticClass.isPrimitive__Z()) {
+      var effectiveClass = staticClass
+    } else {
+      var effectiveClass = dynamicClass
+    };
+    var conforms = $$this.runtimeClass__jl_Class().isAssignableFrom__jl_Class__Z(effectiveClass);
+    if (conforms) {
+      return new ScalaJS.c.s_Some().init___O(x)
+    } else {
+      return ScalaJS.m.s_None()
+    }
+  }
 });
 ScalaJS.i.s_reflect_ClassTag$class__equals__s_reflect_ClassTag__O__Z = (function($$this, x) {
   return (ScalaJS.is.s_reflect_ClassTag(x) && ScalaJS.anyRefEqEq($$this.runtimeClass__jl_Class(), ScalaJS.as.s_reflect_ClassTag(x).runtimeClass__jl_Class()))
@@ -4211,11 +4559,22 @@ ScalaJS.i.sci_Map$class__$init$__sci_Map__V = (function($$this) {
 ScalaJS.i.sci_MapLike$class__updated__sci_MapLike__O__O__sci_Map = (function($$this, key, value) {
   return $$this.$$plus__T2__sci_Map(new ScalaJS.c.T2().init___O__O(key, value))
 });
+ScalaJS.i.sci_MapLike$class__$plus$plus__sci_MapLike__sc_GenTraversableOnce__sci_Map = (function($$this, xs) {
+  var x$1 = ScalaJS.as.sci_Map($$this.repr__O());
+  return ScalaJS.as.sci_Map(xs.seq__sc_TraversableOnce().$$div$colon__O__F2__O(x$1, new ScalaJS.c.sjsr_AnonFunction2().init___sjs_js_Function2((function(x$2$2, x$3$2) {
+    var x$2 = ScalaJS.as.sci_Map(x$2$2);
+    var x$3 = ScalaJS.as.T2(x$3$2);
+    return ScalaJS.i.sci_MapLike$class__$anonfun$1__sci_MapLike__sci_Map__T2__sci_Map($$this, x$2, x$3)
+  }))))
+});
 ScalaJS.i.sci_MapLike$class__mapValues__sci_MapLike__F1__sci_Map = (function($$this, f) {
   return new ScalaJS.c.sci_MapLike$$anon$2().init___sci_MapLike__F1($$this, f)
 });
 ScalaJS.i.sci_MapLike$class__keySet__sci_MapLike__sci_Set = (function($$this) {
   return new ScalaJS.c.sci_MapLike$ImmutableDefaultKeySet().init___sci_MapLike($$this)
+});
+ScalaJS.i.sci_MapLike$class__$anonfun$1__sci_MapLike__sci_Map__T2__sci_Map = (function($$this, x$2, x$3) {
+  return x$2.$$plus__T2__sci_Map(x$3)
 });
 ScalaJS.i.sci_MapLike$class__$init$__sci_MapLike__V = (function($$this) {
   /*<skip>*/
@@ -5384,6 +5743,32 @@ ScalaJS.d.Ljava_io_OutputStream = new ScalaJS.ClassTypeData({
 });
 ScalaJS.c.Ljava_io_OutputStream.prototype.$classData = ScalaJS.d.Ljava_io_OutputStream;
 /*<skip>*/;
+ScalaJS.is.Lorg_denigma_InlineEditor = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_InlineEditor)))
+});
+ScalaJS.as.Lorg_denigma_InlineEditor = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_InlineEditor(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.InlineEditor")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_InlineEditor = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_InlineEditor)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_InlineEditor = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_InlineEditor(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.InlineEditor;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_InlineEditor = new ScalaJS.ClassTypeData({
+  Lorg_denigma_InlineEditor: 0
+}, true, "org.denigma.InlineEditor", undefined, {
+  Lorg_denigma_InlineEditor: 1,
+  O: 1
+});
 ScalaJS.is.Lorg_denigma_binding_ClassBinder = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_ClassBinder)))
 });
@@ -6572,210 +6957,6 @@ ScalaJS.d.Lorg_denigma_binding_frontend_slides_BindSlide$$anon$4 = new ScalaJS.C
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_BindSlide$$anon$4.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_BindSlide$$anon$4;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1 = (function() {
-  ScalaJS.c.O.call(this)
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1 = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1.prototype;
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1.prototype.asTagRxMap__Lorg_denigma_binding_frontend_slides_CollectionSlide__sci_Map = (function(t) {
-  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1.prototype.asTagRxMap__O__sci_Map = (function(t) {
-  return this.asTagRxMap__Lorg_denigma_binding_frontend_slides_CollectionSlide__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_CollectionSlide(t))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1.prototype.init___Lorg_denigma_binding_frontend_slides_CollectionSlide = (function($$outer) {
-  ScalaJS.c.O.prototype.init___.call(this);
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1)))
-});
-ScalaJS.as.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1 = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.CollectionSlide$$anon$1")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.CollectionSlide$$anon$1;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1 = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1: 0
-}, false, "org.denigma.binding.frontend.slides.CollectionSlide$$anon$1", ScalaJS.d.O, {
-  Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1: 1,
-  Lorg_denigma_binding_macroses_TagRxMap: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1;
-/*<skip>*/;
-/** @constructor */
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2 = (function() {
-  ScalaJS.c.O.call(this)
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2 = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2.prototype;
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2.prototype.asStringRxMap__Lorg_denigma_binding_frontend_slides_CollectionSlide__sci_Map = (function(t) {
-  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O("scala_code"), t.scala$undcode__Lrx_core_Var()), ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O("html_code"), t.html$undcode__Lrx_core_Var())]), 1))))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2.prototype.asStringRxMap__O__sci_Map = (function(t) {
-  return this.asStringRxMap__Lorg_denigma_binding_frontend_slides_CollectionSlide__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_CollectionSlide(t))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2.prototype.init___Lorg_denigma_binding_frontend_slides_CollectionSlide = (function($$outer) {
-  ScalaJS.c.O.prototype.init___.call(this);
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2)))
-});
-ScalaJS.as.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2 = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.CollectionSlide$$anon$2")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.CollectionSlide$$anon$2;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2 = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2: 0
-}, false, "org.denigma.binding.frontend.slides.CollectionSlide$$anon$2", ScalaJS.d.O, {
-  Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2: 1,
-  Lorg_denigma_binding_macroses_StringRxMap: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2;
-/*<skip>*/;
-/** @constructor */
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3 = (function() {
-  ScalaJS.c.O.call(this)
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3 = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3.prototype;
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3.prototype.asBooleanRxMap__Lorg_denigma_binding_frontend_slides_CollectionSlide__sci_Map = (function(t) {
-  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3.prototype.asBooleanRxMap__O__sci_Map = (function(t) {
-  return this.asBooleanRxMap__Lorg_denigma_binding_frontend_slides_CollectionSlide__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_CollectionSlide(t))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3.prototype.init___Lorg_denigma_binding_frontend_slides_CollectionSlide = (function($$outer) {
-  ScalaJS.c.O.prototype.init___.call(this);
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3)))
-});
-ScalaJS.as.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3 = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.CollectionSlide$$anon$3")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.CollectionSlide$$anon$3;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3 = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3: 0
-}, false, "org.denigma.binding.frontend.slides.CollectionSlide$$anon$3", ScalaJS.d.O, {
-  Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3: 1,
-  Lorg_denigma_binding_macroses_BooleanRxMap: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3;
-/*<skip>*/;
-/** @constructor */
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4 = (function() {
-  ScalaJS.c.O.call(this)
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4 = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4.prototype;
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4.prototype.asMouseEventMap__Lorg_denigma_binding_frontend_slides_CollectionSlide__sci_Map = (function(t) {
-  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4.prototype.asMouseEventMap__O__sci_Map = (function(t) {
-  return this.asMouseEventMap__Lorg_denigma_binding_frontend_slides_CollectionSlide__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_CollectionSlide(t))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4.prototype.init___Lorg_denigma_binding_frontend_slides_CollectionSlide = (function($$outer) {
-  ScalaJS.c.O.prototype.init___.call(this);
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4)))
-});
-ScalaJS.as.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4 = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.CollectionSlide$$anon$4")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.CollectionSlide$$anon$4;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4 = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4: 0
-}, false, "org.denigma.binding.frontend.slides.CollectionSlide$$anon$4", ScalaJS.d.O, {
-  Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4: 1,
-  Lorg_denigma_binding_macroses_MouseEventMap: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4;
-/*<skip>*/;
-/** @constructor */
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_PageEditView$$anon$1 = (function() {
   ScalaJS.c.O.call(this)
 });
@@ -7592,6 +7773,210 @@ ScalaJS.d.Lorg_denigma_binding_frontend_slides_SlideView$$anon$4 = new ScalaJS.C
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_SlideView$$anon$4.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_SlideView$$anon$4;
 /*<skip>*/;
 /** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$1 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$1.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$1.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$1;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_TableView$$anon$1 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_TableView$$anon$1.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$1.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$1.prototype.asTagRxMap__Lorg_denigma_binding_frontend_slides_TableView__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$1.prototype.asTagRxMap__O__sci_Map = (function(t) {
+  return this.asTagRxMap__Lorg_denigma_binding_frontend_slides_TableView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_TableView(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$1.prototype.init___Lorg_denigma_binding_frontend_slides_TableView = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_slides_TableView$$anon$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_TableView$$anon$1)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_slides_TableView$$anon$1 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_TableView$$anon$1(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.TableView$$anon$1")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_TableView$$anon$1)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$1(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.TableView$$anon$1;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_slides_TableView$$anon$1 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_slides_TableView$$anon$1: 0
+}, false, "org.denigma.binding.frontend.slides.TableView$$anon$1", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_slides_TableView$$anon$1: 1,
+  Lorg_denigma_binding_macroses_TagRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$1.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_TableView$$anon$1;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$2 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$2.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$2.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$2;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_TableView$$anon$2 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_TableView$$anon$2.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$2.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$2.prototype.asStringRxMap__Lorg_denigma_binding_frontend_slides_TableView__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$2.prototype.asStringRxMap__O__sci_Map = (function(t) {
+  return this.asStringRxMap__Lorg_denigma_binding_frontend_slides_TableView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_TableView(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$2.prototype.init___Lorg_denigma_binding_frontend_slides_TableView = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_slides_TableView$$anon$2 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_TableView$$anon$2)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_slides_TableView$$anon$2 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_TableView$$anon$2(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.TableView$$anon$2")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$2 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_TableView$$anon$2)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$2 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$2(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.TableView$$anon$2;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_slides_TableView$$anon$2 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_slides_TableView$$anon$2: 0
+}, false, "org.denigma.binding.frontend.slides.TableView$$anon$2", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_slides_TableView$$anon$2: 1,
+  Lorg_denigma_binding_macroses_StringRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$2.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_TableView$$anon$2;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$3 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$3.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$3.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$3;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_TableView$$anon$3 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_TableView$$anon$3.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$3.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$3.prototype.asBooleanRxMap__Lorg_denigma_binding_frontend_slides_TableView__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$3.prototype.asBooleanRxMap__O__sci_Map = (function(t) {
+  return this.asBooleanRxMap__Lorg_denigma_binding_frontend_slides_TableView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_TableView(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$3.prototype.init___Lorg_denigma_binding_frontend_slides_TableView = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_slides_TableView$$anon$3 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_TableView$$anon$3)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_slides_TableView$$anon$3 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_TableView$$anon$3(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.TableView$$anon$3")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$3 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_TableView$$anon$3)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$3 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$3(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.TableView$$anon$3;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_slides_TableView$$anon$3 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_slides_TableView$$anon$3: 0
+}, false, "org.denigma.binding.frontend.slides.TableView$$anon$3", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_slides_TableView$$anon$3: 1,
+  Lorg_denigma_binding_macroses_BooleanRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$3.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_TableView$$anon$3;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$4 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$4.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$4.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$4;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_TableView$$anon$4 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_TableView$$anon$4.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$4.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$4.prototype.asMouseEventMap__Lorg_denigma_binding_frontend_slides_TableView__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$4.prototype.asMouseEventMap__O__sci_Map = (function(t) {
+  return this.asMouseEventMap__Lorg_denigma_binding_frontend_slides_TableView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_TableView(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$4.prototype.init___Lorg_denigma_binding_frontend_slides_TableView = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_slides_TableView$$anon$4 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_TableView$$anon$4)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_slides_TableView$$anon$4 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_TableView$$anon$4(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.TableView$$anon$4")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$4 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_TableView$$anon$4)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$4 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_TableView$$anon$4(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.TableView$$anon$4;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_slides_TableView$$anon$4 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_slides_TableView$$anon$4: 0
+}, false, "org.denigma.binding.frontend.slides.TableView$$anon$4", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_slides_TableView$$anon$4: 1,
+  Lorg_denigma_binding_macroses_MouseEventMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$4.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_TableView$$anon$4;
+/*<skip>*/;
+/** @constructor */
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_TestModelView$$anon$1 = (function() {
   ScalaJS.c.O.call(this)
 });
@@ -7794,6 +8179,210 @@ ScalaJS.d.Lorg_denigma_binding_frontend_slides_TestModelView$$anon$5 = new Scala
   O: 1
 });
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_TestModelView$$anon$5.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_TestModelView$$anon$5;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$5 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$5.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$5.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$5;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_Todos$$anon$5 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_Todos$$anon$5.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$5.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$5.prototype.asTagRxMap__Lorg_denigma_binding_frontend_slides_Todos__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$5.prototype.asTagRxMap__O__sci_Map = (function(t) {
+  return this.asTagRxMap__Lorg_denigma_binding_frontend_slides_Todos__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_Todos(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$5.prototype.init___Lorg_denigma_binding_frontend_slides_Todos = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_slides_Todos$$anon$5 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_Todos$$anon$5)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_slides_Todos$$anon$5 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_Todos$$anon$5(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.Todos$$anon$5")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$5 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_Todos$$anon$5)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$5 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$5(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.Todos$$anon$5;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_slides_Todos$$anon$5 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_slides_Todos$$anon$5: 0
+}, false, "org.denigma.binding.frontend.slides.Todos$$anon$5", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_slides_Todos$$anon$5: 1,
+  Lorg_denigma_binding_macroses_TagRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$5.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_Todos$$anon$5;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$6 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$6.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$6.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$6;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_Todos$$anon$6 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_Todos$$anon$6.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$6.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$6.prototype.asStringRxMap__Lorg_denigma_binding_frontend_slides_Todos__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$6.prototype.asStringRxMap__O__sci_Map = (function(t) {
+  return this.asStringRxMap__Lorg_denigma_binding_frontend_slides_Todos__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_Todos(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$6.prototype.init___Lorg_denigma_binding_frontend_slides_Todos = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_slides_Todos$$anon$6 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_Todos$$anon$6)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_slides_Todos$$anon$6 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_Todos$$anon$6(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.Todos$$anon$6")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$6 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_Todos$$anon$6)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$6 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$6(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.Todos$$anon$6;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_slides_Todos$$anon$6 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_slides_Todos$$anon$6: 0
+}, false, "org.denigma.binding.frontend.slides.Todos$$anon$6", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_slides_Todos$$anon$6: 1,
+  Lorg_denigma_binding_macroses_StringRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$6.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_Todos$$anon$6;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$7 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$7.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$7.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$7;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_Todos$$anon$7 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_Todos$$anon$7.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$7.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$7.prototype.asBooleanRxMap__Lorg_denigma_binding_frontend_slides_Todos__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$7.prototype.asBooleanRxMap__O__sci_Map = (function(t) {
+  return this.asBooleanRxMap__Lorg_denigma_binding_frontend_slides_Todos__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_Todos(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$7.prototype.init___Lorg_denigma_binding_frontend_slides_Todos = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_slides_Todos$$anon$7 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_Todos$$anon$7)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_slides_Todos$$anon$7 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_Todos$$anon$7(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.Todos$$anon$7")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$7 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_Todos$$anon$7)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$7 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$7(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.Todos$$anon$7;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_slides_Todos$$anon$7 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_slides_Todos$$anon$7: 0
+}, false, "org.denigma.binding.frontend.slides.Todos$$anon$7", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_slides_Todos$$anon$7: 1,
+  Lorg_denigma_binding_macroses_BooleanRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$7.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_Todos$$anon$7;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$8 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$8.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$8.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$8;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_Todos$$anon$8 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_Todos$$anon$8.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$8.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$8.prototype.asMouseEventMap__Lorg_denigma_binding_frontend_slides_Todos__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$8.prototype.asMouseEventMap__O__sci_Map = (function(t) {
+  return this.asMouseEventMap__Lorg_denigma_binding_frontend_slides_Todos__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_slides_Todos(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$8.prototype.init___Lorg_denigma_binding_frontend_slides_Todos = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_slides_Todos$$anon$8 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_Todos$$anon$8)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_slides_Todos$$anon$8 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_Todos$$anon$8(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.Todos$$anon$8")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$8 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_Todos$$anon$8)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$8 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_Todos$$anon$8(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.Todos$$anon$8;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_slides_Todos$$anon$8 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_slides_Todos$$anon$8: 0
+}, false, "org.denigma.binding.frontend.slides.Todos$$anon$8", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_slides_Todos$$anon$8: 1,
+  Lorg_denigma_binding_macroses_MouseEventMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$8.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_Todos$$anon$8;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_binding_frontend_tests_LongListView$$anon$1 = (function() {
@@ -8408,208 +8997,412 @@ ScalaJS.d.Lorg_denigma_binding_frontend_tests_RandomView$$anon$4 = new ScalaJS.C
 ScalaJS.c.Lorg_denigma_binding_frontend_tests_RandomView$$anon$4.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tests_RandomView$$anon$4;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1 = (function() {
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1 = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1 = (function() {
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1 = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1.prototype;
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1.prototype.asTagRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map = (function(t) {
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1.prototype.asTagRxMap__Lorg_denigma_binding_frontend_tools_CodeInsideView__sci_Map = (function(t) {
   return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1.prototype.asTagRxMap__O__sci_Map = (function(t) {
-  return this.asTagRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView(t))
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1.prototype.asTagRxMap__O__sci_Map = (function(t) {
+  return this.asTagRxMap__Lorg_denigma_binding_frontend_tools_CodeInsideView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeInsideView(t))
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1.prototype.init___Lorg_denigma_binding_frontend_tools_CodeInsideView = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1)))
+ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1)))
 });
-ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1 = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$1")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeInsideView$$anon$1")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$1;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeInsideView$$anon$1;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1 = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_frontend_tools_CodeView$$anon$1: 0
-}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$1", ScalaJS.d.O, {
-  Lorg_denigma_binding_frontend_tools_CodeView$$anon$1: 1,
+ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1: 0
+}, false, "org.denigma.binding.frontend.tools.CodeInsideView$$anon$1", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1: 1,
   Lorg_denigma_binding_macroses_TagRxMap: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2 = (function() {
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2 = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2 = (function() {
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2 = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2.prototype;
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2.prototype.asStringRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map = (function(t) {
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2.prototype.asStringRxMap__Lorg_denigma_binding_frontend_tools_CodeInsideView__sci_Map = (function(t) {
   return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O("code"), t.code__Lrx_core_Var())]), 1))))
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2.prototype.asStringRxMap__O__sci_Map = (function(t) {
-  return this.asStringRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView(t))
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2.prototype.asStringRxMap__O__sci_Map = (function(t) {
+  return this.asStringRxMap__Lorg_denigma_binding_frontend_tools_CodeInsideView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeInsideView(t))
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2.prototype.init___Lorg_denigma_binding_frontend_tools_CodeInsideView = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2)))
+ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2)))
 });
-ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2 = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$2")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeInsideView$$anon$2")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$2;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeInsideView$$anon$2;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2 = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_frontend_tools_CodeView$$anon$2: 0
-}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$2", ScalaJS.d.O, {
-  Lorg_denigma_binding_frontend_tools_CodeView$$anon$2: 1,
+ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2: 0
+}, false, "org.denigma.binding.frontend.tools.CodeInsideView$$anon$2", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2: 1,
   Lorg_denigma_binding_macroses_StringRxMap: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3 = (function() {
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3 = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3 = (function() {
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3 = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3.prototype;
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3.prototype.asBooleanRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map = (function(t) {
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3.prototype.asBooleanRxMap__Lorg_denigma_binding_frontend_tools_CodeInsideView__sci_Map = (function(t) {
   return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3.prototype.asBooleanRxMap__O__sci_Map = (function(t) {
-  return this.asBooleanRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView(t))
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3.prototype.asBooleanRxMap__O__sci_Map = (function(t) {
+  return this.asBooleanRxMap__Lorg_denigma_binding_frontend_tools_CodeInsideView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeInsideView(t))
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3.prototype.init___Lorg_denigma_binding_frontend_tools_CodeInsideView = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3)))
+ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3)))
 });
-ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3 = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$3")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeInsideView$$anon$3")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$3;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeInsideView$$anon$3;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3 = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_frontend_tools_CodeView$$anon$3: 0
-}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$3", ScalaJS.d.O, {
-  Lorg_denigma_binding_frontend_tools_CodeView$$anon$3: 1,
+ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3: 0
+}, false, "org.denigma.binding.frontend.tools.CodeInsideView$$anon$3", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3: 1,
   Lorg_denigma_binding_macroses_BooleanRxMap: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4 = (function() {
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4 = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4 = (function() {
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4 = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4.prototype;
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4.prototype.asMouseEventMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map = (function(t) {
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4.prototype.asMouseEventMap__Lorg_denigma_binding_frontend_tools_CodeInsideView__sci_Map = (function(t) {
   return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4.prototype.asMouseEventMap__O__sci_Map = (function(t) {
-  return this.asMouseEventMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView(t))
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4.prototype.asMouseEventMap__O__sci_Map = (function(t) {
+  return this.asMouseEventMap__Lorg_denigma_binding_frontend_tools_CodeInsideView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeInsideView(t))
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4.prototype.init___Lorg_denigma_binding_frontend_tools_CodeInsideView = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4)))
+ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4)))
 });
-ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4 = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$4")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeInsideView$$anon$4")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$4;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeInsideView$$anon$4;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4 = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_frontend_tools_CodeView$$anon$4: 0
-}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$4", ScalaJS.d.O, {
-  Lorg_denigma_binding_frontend_tools_CodeView$$anon$4: 1,
+ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4: 0
+}, false, "org.denigma.binding.frontend.tools.CodeInsideView$$anon$4", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4: 1,
   Lorg_denigma_binding_macroses_MouseEventMap: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5.prototype.asTagRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5.prototype.asTagRxMap__O__sci_Map = (function(t) {
+  return this.asTagRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$5")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$5;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_tools_CodeView$$anon$5: 0
+}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$5", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_tools_CodeView$$anon$5: 1,
+  Lorg_denigma_binding_macroses_TagRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6.prototype.asStringRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O("code"), t.code__Lrx_core_Var())]), 1))))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6.prototype.asStringRxMap__O__sci_Map = (function(t) {
+  return this.asStringRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$6")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$6;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_tools_CodeView$$anon$6: 0
+}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$6", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_tools_CodeView$$anon$6: 1,
+  Lorg_denigma_binding_macroses_StringRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7.prototype.asBooleanRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7.prototype.asBooleanRxMap__O__sci_Map = (function(t) {
+  return this.asBooleanRxMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$7")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$7;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_tools_CodeView$$anon$7: 0
+}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$7", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_tools_CodeView$$anon$7: 1,
+  Lorg_denigma_binding_macroses_BooleanRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8.prototype.asMouseEventMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8.prototype.asMouseEventMap__O__sci_Map = (function(t) {
+  return this.asMouseEventMap__Lorg_denigma_binding_frontend_tools_CodeView__sci_Map(ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView(t))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8.prototype.init___Lorg_denigma_binding_frontend_tools_CodeView = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeView$$anon$8")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeView$$anon$8;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_tools_CodeView$$anon$8: 0
+}, false, "org.denigma.binding.frontend.tools.CodeView$$anon$8", ScalaJS.d.O, {
+  Lorg_denigma_binding_frontend_tools_CodeView$$anon$8: 1,
+  Lorg_denigma_binding_macroses_MouseEventMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8;
 /*<skip>*/;
 ScalaJS.is.Lorg_denigma_binding_macroses_BooleanRxMap = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_macroses_BooleanRxMap)))
@@ -9462,6 +10255,160 @@ ScalaJS.d.Lorg_denigma_binding_models_ModelMessages$Read = new ScalaJS.ClassType
 ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$Read.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_models_ModelMessages$Read;
 /*<skip>*/;
 /** @constructor */
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery = (function() {
+  ScalaJS.c.O.call(this);
+  this.channel$1 = null;
+  this.shapeId$1 = null;
+  this.query$1 = null;
+  this.id$1 = null;
+  this.time$1 = 0.0
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_models_ModelMessages$SelectQuery = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype = ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype;
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.channel__T = (function() {
+  return this.channel$1
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.shapeId__Lorg_scalax_semweb_rdf_Res = (function() {
+  return this.shapeId$1
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.query__Lorg_scalax_semweb_rdf_Res = (function() {
+  return this.query$1
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.id__T = (function() {
+  return this.id$1
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.time__D = (function() {
+  return this.time$1
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.productPrefix__T = (function() {
+  return "SelectQuery"
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.productArity__I = (function() {
+  return 5
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.channel__T();
+        break
+      };
+    case 1:
+      {
+        return this.shapeId__Lorg_scalax_semweb_rdf_Res();
+        break
+      };
+    case 2:
+      {
+        return this.query__Lorg_scalax_semweb_rdf_Res();
+        break
+      };
+    case 3:
+      {
+        return this.id__T();
+        break
+      };
+    case 4:
+      {
+        return this.time__D();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.canEqual__O__Z = (function(x$1) {
+  return ScalaJS.is.Lorg_denigma_binding_models_ModelMessages$SelectQuery(x$1)
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.hashCode__I = (function() {
+  var acc = -889275714;
+  acc = ScalaJS.m.sr_Statics().mix__I__I__I(acc, ScalaJS.m.sr_Statics().anyHash__O__I(this.channel__T()));
+  acc = ScalaJS.m.sr_Statics().mix__I__I__I(acc, ScalaJS.m.sr_Statics().anyHash__O__I(this.shapeId__Lorg_scalax_semweb_rdf_Res()));
+  acc = ScalaJS.m.sr_Statics().mix__I__I__I(acc, ScalaJS.m.sr_Statics().anyHash__O__I(this.query__Lorg_scalax_semweb_rdf_Res()));
+  acc = ScalaJS.m.sr_Statics().mix__I__I__I(acc, ScalaJS.m.sr_Statics().anyHash__O__I(this.id__T()));
+  acc = ScalaJS.m.sr_Statics().mix__I__I__I(acc, ScalaJS.m.sr_Statics().doubleHash__D__I(this.time__D()));
+  return ScalaJS.m.sr_Statics().finalizeHash__I__I__I(acc, 5)
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.toString__T = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undtoString__s_Product__T(this)
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.equals__O__Z = (function(x$1) {
+  if ((this === x$1)) {
+    return true
+  } else {
+    var x1 = x$1;
+    matchEnd4: {
+      if (ScalaJS.is.Lorg_denigma_binding_models_ModelMessages$SelectQuery(x1)) {
+        var jsx$1 = true;
+        break matchEnd4
+      };
+      var jsx$1 = false;
+      break matchEnd4
+    };
+    if (jsx$1) {
+      var SelectQuery$1 = ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$SelectQuery(x$1);
+      return (((((ScalaJS.anyRefEqEq(this.channel__T(), SelectQuery$1.channel__T()) && ScalaJS.anyRefEqEq(this.shapeId__Lorg_scalax_semweb_rdf_Res(), SelectQuery$1.shapeId__Lorg_scalax_semweb_rdf_Res())) && ScalaJS.anyRefEqEq(this.query__Lorg_scalax_semweb_rdf_Res(), SelectQuery$1.query__Lorg_scalax_semweb_rdf_Res())) && ScalaJS.anyRefEqEq(this.id__T(), SelectQuery$1.id__T())) && (this.time__D() === SelectQuery$1.time__D())) && SelectQuery$1.canEqual__O__Z(this))
+    } else {
+      return false
+    }
+  }
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.init___T__Lorg_scalax_semweb_rdf_Res__Lorg_scalax_semweb_rdf_Res__T__D = (function(channel, shapeId, query, id, time) {
+  this.channel$1 = channel;
+  this.shapeId$1 = shapeId;
+  this.query$1 = query;
+  this.id$1 = id;
+  this.time$1 = time;
+  ScalaJS.c.O.prototype.init___.call(this);
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_models_ModelMessages$SelectQuery = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_models_ModelMessages$SelectQuery)))
+});
+ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$SelectQuery = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_models_ModelMessages$SelectQuery(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.models.ModelMessages$SelectQuery")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_models_ModelMessages$SelectQuery = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_models_ModelMessages$SelectQuery)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_models_ModelMessages$SelectQuery = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_models_ModelMessages$SelectQuery(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.models.ModelMessages$SelectQuery;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_models_ModelMessages$SelectQuery = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_models_ModelMessages$SelectQuery: 0
+}, false, "org.denigma.binding.models.ModelMessages$SelectQuery", ScalaJS.d.O, {
+  Lorg_denigma_binding_models_ModelMessages$SelectQuery: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Lorg_denigma_binding_models_ModelMessages$ModelMessage: 1,
+  Lorg_denigma_binding_models_StorageMessage: 1,
+  Lorg_denigma_binding_models_Channeled: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_models_ModelMessages$SelectQuery;
+/*<skip>*/;
+/** @constructor */
 ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$Update = (function() {
   ScalaJS.c.O.call(this);
   this.channel$1 = null;
@@ -9736,55 +10683,55 @@ ScalaJS.d.Lorg_denigma_binding_picklers_CommonPicklers$GenUnpickler$2$ = new Sca
 ScalaJS.c.Lorg_denigma_binding_picklers_CommonPicklers$GenUnpickler$2$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_CommonPicklers$GenUnpickler$2$;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$ = (function() {
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$ = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$;
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$ = (function() {
+ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$ = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$.prototype.pickle__Lorg_denigma_binding_models_ModelMessages$Create__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("channel", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.channel__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("shapeId", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.shapeId__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("models", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.models__sci_Set(), builder, registry)), new ScalaJS.c.T2().init___O__O("rewriteIfExists", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.rewriteIfExists__Z(), builder, registry)), new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("time", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.time__D(), builder, registry))]), 1)))
+ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$.prototype.pickle__Lorg_denigma_binding_models_ModelMessages$SelectQuery__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("channel", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.channel__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("shapeId", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.shapeId__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("query", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.query__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("time", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.time__D(), builder, registry))]), 1)))
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_denigma_binding_models_ModelMessages$Create__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$Create(obj), registry, builder)
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_denigma_binding_models_ModelMessages$SelectQuery__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$SelectQuery(obj), registry, builder)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$)))
+ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$)))
 });
-ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.ModelPicklers$GenPickler$5$")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.ModelPicklers$GenPickler$10$")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.ModelPicklers$GenPickler$5$;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.ModelPicklers$GenPickler$10$;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$: 0
-}, false, "org.denigma.binding.picklers.ModelPicklers$GenPickler$5$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$: 1,
+ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$: 0
+}, false, "org.denigma.binding.picklers.ModelPicklers$GenPickler$10$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$: 1,
   Lorg_scalajs_spickling_Pickler: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$5$;
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$10$;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$ = (function() {
@@ -9797,11 +10744,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$ = (function(
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$.prototype.pickle__Lorg_denigma_binding_models_ModelMessages$Read__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("channel", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.channel__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("shapeId", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.shapeId__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("resources", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.resources__sci_Set(), builder, registry)), new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("time", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.time__D(), builder, registry))]), 1)))
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$.prototype.pickle__Lorg_denigma_binding_models_ModelMessages$Create__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("channel", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.channel__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("shapeId", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.shapeId__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("models", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.models__sci_Set(), builder, registry)), new ScalaJS.c.T2().init___O__O("rewriteIfExists", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.rewriteIfExists__Z(), builder, registry)), new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("time", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.time__D(), builder, registry))]), 1)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_denigma_binding_models_ModelMessages$Read__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$Read(obj), registry, builder)
+  return this.pickle__Lorg_denigma_binding_models_ModelMessages$Create__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$Create(obj), registry, builder)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$6$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -9848,11 +10795,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$ = (function(
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$.prototype.pickle__Lorg_denigma_binding_models_ModelMessages$Update__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("channel", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.channel__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("shapeId", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.shapeId__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("models", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.models__sci_Set(), builder, registry)), new ScalaJS.c.T2().init___O__O("createIfNotExists", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.createIfNotExists__Z(), builder, registry)), new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("time", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.time__D(), builder, registry))]), 1)))
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$.prototype.pickle__Lorg_denigma_binding_models_ModelMessages$Read__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("channel", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.channel__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("shapeId", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.shapeId__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("resources", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.resources__sci_Set(), builder, registry)), new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("time", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.time__D(), builder, registry))]), 1)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_denigma_binding_models_ModelMessages$Update__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$Update(obj), registry, builder)
+  return this.pickle__Lorg_denigma_binding_models_ModelMessages$Read__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$Read(obj), registry, builder)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$7$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -9899,11 +10846,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$ = (function(
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$.prototype.pickle__Lorg_denigma_binding_models_ModelMessages$Delete__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("channel", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.channel__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("shape", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.shape__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("res", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.res__sci_Set(), builder, registry)), new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("time", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.time__D(), builder, registry))]), 1)))
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$.prototype.pickle__Lorg_denigma_binding_models_ModelMessages$Update__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("channel", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.channel__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("shapeId", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.shapeId__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("models", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.models__sci_Set(), builder, registry)), new ScalaJS.c.T2().init___O__O("createIfNotExists", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.createIfNotExists__Z(), builder, registry)), new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("time", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.time__D(), builder, registry))]), 1)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_denigma_binding_models_ModelMessages$Delete__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$Delete(obj), registry, builder)
+  return this.pickle__Lorg_denigma_binding_models_ModelMessages$Update__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$Update(obj), registry, builder)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -9940,55 +10887,106 @@ ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$ = new ScalaJ
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$8$;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$ = (function() {
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$ = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$;
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$ = (function() {
+ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$ = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Create = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$Create().init___T__Lorg_scalax_semweb_rdf_Res__sci_Set__Z__T__D(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "channel"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "shapeId"), reader, registry)), ScalaJS.as.sci_Set(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "models"), reader, registry)), ScalaJS.uZ(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "rewriteIfExists"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)), ScalaJS.uD(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "time"), reader, registry)))
+ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$.prototype.pickle__Lorg_denigma_binding_models_ModelMessages$Delete__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("channel", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.channel__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("shape", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.shape__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("res", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.res__sci_Set(), builder, registry)), new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("time", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.time__D(), builder, registry))]), 1)))
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Create(pickle, registry, reader)
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_denigma_binding_models_ModelMessages$Delete__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_ModelMessages$Delete(obj), registry, builder)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$)))
+ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$)))
 });
-ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.ModelPicklers$GenUnpickler$5$")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.ModelPicklers$GenPickler$9$")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.ModelPicklers$GenUnpickler$5$;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.ModelPicklers$GenPickler$9$;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$: 0
-}, false, "org.denigma.binding.picklers.ModelPicklers$GenUnpickler$5$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$: 1,
+ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$: 0
+}, false, "org.denigma.binding.picklers.ModelPicklers$GenPickler$9$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenPickler$9$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$SelectQuery = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery().init___T__Lorg_scalax_semweb_rdf_Res__Lorg_scalax_semweb_rdf_Res__T__D(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "channel"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "shapeId"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "query"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)), ScalaJS.uD(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "time"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$SelectQuery(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.ModelPicklers$GenUnpickler$10$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.ModelPicklers$GenUnpickler$10$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$: 0
+}, false, "org.denigma.binding.picklers.ModelPicklers$GenUnpickler$10$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$: 1,
   Lorg_scalajs_spickling_Unpickler: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$5$;
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$10$;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$ = (function() {
@@ -10001,11 +10999,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$ = (functio
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Read = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$Read().init___T__Lorg_scalax_semweb_rdf_Res__sci_Set__T__D(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "channel"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "shapeId"), reader, registry)), ScalaJS.as.sci_Set(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "resources"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)), ScalaJS.uD(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "time"), reader, registry)))
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Create = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$Create().init___T__Lorg_scalax_semweb_rdf_Res__sci_Set__Z__T__D(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "channel"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "shapeId"), reader, registry)), ScalaJS.as.sci_Set(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "models"), reader, registry)), ScalaJS.uZ(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "rewriteIfExists"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)), ScalaJS.uD(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "time"), reader, registry)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Read(pickle, registry, reader)
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Create(pickle, registry, reader)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$6$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -10052,11 +11050,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$ = (functio
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Update = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$Update().init___T__Lorg_scalax_semweb_rdf_Res__sci_Set__Z__T__D(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "channel"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "shapeId"), reader, registry)), ScalaJS.as.sci_Set(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "models"), reader, registry)), ScalaJS.uZ(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "createIfNotExists"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)), ScalaJS.uD(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "time"), reader, registry)))
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Read = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$Read().init___T__Lorg_scalax_semweb_rdf_Res__sci_Set__T__D(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "channel"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "shapeId"), reader, registry)), ScalaJS.as.sci_Set(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "resources"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)), ScalaJS.uD(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "time"), reader, registry)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Update(pickle, registry, reader)
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Read(pickle, registry, reader)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$7$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -10103,11 +11101,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$ = (functio
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Delete = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$Delete().init___T__Lorg_scalax_semweb_rdf_Res__sci_Set__T__D(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "channel"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "shape"), reader, registry)), ScalaJS.as.sci_Set(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "res"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)), ScalaJS.uD(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "time"), reader, registry)))
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Update = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$Update().init___T__Lorg_scalax_semweb_rdf_Res__sci_Set__Z__T__D(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "channel"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "shapeId"), reader, registry)), ScalaJS.as.sci_Set(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "models"), reader, registry)), ScalaJS.uZ(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "createIfNotExists"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)), ScalaJS.uD(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "time"), reader, registry)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Delete(pickle, registry, reader)
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Update(pickle, registry, reader)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -10144,310 +11142,55 @@ ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$ = new Scal
 ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$8$;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$ = (function() {
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$ = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$;
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$ = (function() {
+ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$ = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$.prototype.pickle__Lorg_scalax_semweb_rdf_IRI__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("uri", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.uri__T(), builder, registry))]), 1)))
+ScalaJS.h.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Delete = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$Delete().init___T__Lorg_scalax_semweb_rdf_Res__sci_Set__T__D(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "channel"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "shape"), reader, registry)), ScalaJS.as.sci_Set(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "res"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)), ScalaJS.uD(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "time"), reader, registry)))
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_scalax_semweb_rdf_IRI__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(obj), registry, builder)
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_ModelMessages$Delete(pickle, registry, reader)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$.prototype.init___Lorg_denigma_binding_picklers_ModelPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$)))
+ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$)))
 });
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$11$")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.ModelPicklers$GenUnpickler$9$")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$11$;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.ModelPicklers$GenUnpickler$9$;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$11$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$: 1,
-  Lorg_scalajs_spickling_Pickler: 1,
+ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$: 0
+}, false, "org.denigma.binding.picklers.ModelPicklers$GenUnpickler$9$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$11$;
-/*<skip>*/;
-/** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$ = (function() {
-  ScalaJS.c.O.call(this)
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$.prototype.pickle__Lorg_scalax_semweb_rdf_BlankNode__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry))]), 1)))
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_scalax_semweb_rdf_BlankNode__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_BlankNode(obj), registry, builder)
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
-  ScalaJS.c.O.prototype.init___.call(this);
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$)))
-});
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$12$")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$12$;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$12$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$: 1,
-  Lorg_scalajs_spickling_Pickler: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$12$;
-/*<skip>*/;
-/** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$ = (function() {
-  ScalaJS.c.O.call(this)
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$.prototype.pickle__Lorg_scalax_semweb_rdf_StringLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("text", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.text__T(), builder, registry))]), 1)))
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_scalax_semweb_rdf_StringLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_StringLiteral(obj), registry, builder)
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
-  ScalaJS.c.O.prototype.init___.call(this);
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$)))
-});
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$13$")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$13$;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$13$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$: 1,
-  Lorg_scalajs_spickling_Pickler: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$13$;
-/*<skip>*/;
-/** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$ = (function() {
-  ScalaJS.c.O.call(this)
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$.prototype.pickle__Lorg_scalax_semweb_sparql_Pat__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("sub", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.sub__Lorg_scalax_semweb_rdf_CanBeSubject(), builder, registry)), new ScalaJS.c.T2().init___O__O("pred", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.pred__Lorg_scalax_semweb_rdf_CanBePredicate(), builder, registry)), new ScalaJS.c.T2().init___O__O("obj", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.obj__Lorg_scalax_semweb_rdf_CanBeObject(), builder, registry)), new ScalaJS.c.T2().init___O__O("cont", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.cont__Lorg_scalax_semweb_rdf_CanBeSubject(), builder, registry))]), 1)))
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_scalax_semweb_sparql_Pat__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_sparql_Pat(obj), registry, builder)
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
-  ScalaJS.c.O.prototype.init___.call(this);
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$)))
-});
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$14$")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$14$;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$14$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$: 1,
-  Lorg_scalajs_spickling_Pickler: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$14$;
-/*<skip>*/;
-/** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$ = (function() {
-  ScalaJS.c.O.call(this)
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$.prototype.pickle__Lorg_scalax_semweb_rdf_Trip__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("sub", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.sub__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("pred", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.pred__Lorg_scalax_semweb_rdf_IRI(), builder, registry)), new ScalaJS.c.T2().init___O__O("obj", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.obj__Lorg_scalax_semweb_rdf_RDFValue(), builder, registry))]), 1)))
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_scalax_semweb_rdf_Trip__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_Trip(obj), registry, builder)
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
-  ScalaJS.c.O.prototype.init___.call(this);
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$)))
-});
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$15$")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$15$;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$15$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$: 1,
-  Lorg_scalajs_spickling_Pickler: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$15$;
-/*<skip>*/;
-/** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$ = (function() {
-  ScalaJS.c.O.call(this)
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$ = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$.prototype.pickle__Lorg_scalax_semweb_rdf_Quad__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("sub", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.sub__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("pred", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.pred__Lorg_scalax_semweb_rdf_IRI(), builder, registry)), new ScalaJS.c.T2().init___O__O("obj", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.obj__Lorg_scalax_semweb_rdf_RDFValue(), builder, registry)), new ScalaJS.c.T2().init___O__O("cont", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.cont__Lorg_scalax_semweb_rdf_Res(), builder, registry))]), 1)))
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_scalax_semweb_rdf_Quad__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_Quad(obj), registry, builder)
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
-  ScalaJS.c.O.prototype.init___.call(this);
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$)))
-});
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$16$")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$16$;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$16$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$: 1,
-  Lorg_scalajs_spickling_Pickler: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$16$;
+ScalaJS.c.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_ModelPicklers$GenUnpickler$9$;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$ = (function() {
@@ -10460,11 +11203,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$ = (function()
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$.prototype.pickle__Lorg_denigma_binding_models_MenuItem__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("uri", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.uri__Lorg_scalax_semweb_rdf_IRI(), builder, registry)), new ScalaJS.c.T2().init___O__O("title", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.title__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("icon", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.icon__T(), builder, registry))]), 1)))
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$.prototype.pickle__Lorg_scalax_semweb_rdf_IRI__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("uri", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.uri__T(), builder, registry))]), 1)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_denigma_binding_models_MenuItem__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_MenuItem(obj), registry, builder)
+  return this.pickle__Lorg_scalax_semweb_rdf_IRI__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(obj), registry, builder)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$17$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -10511,11 +11254,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$ = (function()
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$.prototype.pickle__Lorg_denigma_binding_models_Menu__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("uri", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.uri__Lorg_scalax_semweb_rdf_IRI(), builder, registry)), new ScalaJS.c.T2().init___O__O("title", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.title__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("children", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.children__sci_List(), builder, registry)), new ScalaJS.c.T2().init___O__O("icon", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.icon__T(), builder, registry))]), 1)))
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$.prototype.pickle__Lorg_scalax_semweb_rdf_BlankNode__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("id", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.id__T(), builder, registry))]), 1)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_denigma_binding_models_Menu__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_Menu(obj), registry, builder)
+  return this.pickle__Lorg_scalax_semweb_rdf_BlankNode__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_BlankNode(obj), registry, builder)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$18$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -10562,11 +11305,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$ = (function()
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$.prototype.pickle__Lorg_scalax_semweb_shex_validation_JustFailure__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("constraint", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.constraint__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("value", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.value__O(), builder, registry))]), 1)))
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$.prototype.pickle__Lorg_scalax_semweb_rdf_StringLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("text", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.text__T(), builder, registry))]), 1)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_scalax_semweb_shex_validation_JustFailure__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_shex_validation_JustFailure(obj), registry, builder)
+  return this.pickle__Lorg_scalax_semweb_rdf_StringLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_StringLiteral(obj), registry, builder)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$19$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -10613,11 +11356,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$ = (function()
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$.prototype.pickle__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
-  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("resource", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.resource__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("properties", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.properties__sci_Map(), builder, registry)), new ScalaJS.c.T2().init___O__O("validation", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.validation__Lorg_scalax_semweb_shex_validation_ValidationResult(), builder, registry))]), 1)))
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$.prototype.pickle__Lorg_scalax_semweb_rdf_BooleanLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("value", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.value__Z(), builder, registry))]), 1)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
-  return this.pickle__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_shex_PropertyModel(obj), registry, builder)
+  return this.pickle__Lorg_scalax_semweb_rdf_BooleanLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_BooleanLiteral(obj), registry, builder)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -10654,310 +11397,616 @@ ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$ = new ScalaJS
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$20$;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$ = (function() {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$ = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$ = (function() {
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$ = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_IRI = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry)))
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$.prototype.pickle__Lorg_scalax_semweb_rdf_DoubleLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("value", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.value__D(), builder, registry))]), 1)))
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_IRI(pickle, registry, reader)
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_scalax_semweb_rdf_DoubleLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_DoubleLiteral(obj), registry, builder)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$)))
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$)))
 });
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$11$")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$21$")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$11$;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$21$;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$11$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$: 1,
-  Lorg_scalajs_spickling_Unpickler: 1,
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$21$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$11$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$21$;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$ = (function() {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$ = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$ = (function() {
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$ = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_BlankNode = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_scalax_semweb_rdf_BlankNode().init___T(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)))
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$.prototype.pickle__Lorg_scalax_semweb_rdf_DecimalLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("value", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.value__s_math_BigDecimal(), builder, registry))]), 1)))
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_BlankNode(pickle, registry, reader)
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_scalax_semweb_rdf_DecimalLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_DecimalLiteral(obj), registry, builder)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$)))
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$)))
 });
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$12$")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$22$")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$12$;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$22$;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$12$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$: 1,
-  Lorg_scalajs_spickling_Unpickler: 1,
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$22$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$12$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$22$;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$ = (function() {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$ = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$ = (function() {
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$ = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_StringLiteral = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_scalax_semweb_rdf_StringLiteral().init___T(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "text"), reader, registry)))
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$.prototype.pickle__Lorg_scalax_semweb_rdf_StringLangLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("text", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.text__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("lang", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.lang__T(), builder, registry))]), 1)))
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_StringLiteral(pickle, registry, reader)
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_scalax_semweb_rdf_StringLangLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_StringLangLiteral(obj), registry, builder)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$)))
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$)))
 });
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$13$")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$23$")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$13$;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$23$;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$13$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$: 1,
-  Lorg_scalajs_spickling_Unpickler: 1,
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$23$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$13$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$23$;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$ = (function() {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$ = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$ = (function() {
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$ = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_sparql_Pat = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_scalax_semweb_sparql_Pat().init___Lorg_scalax_semweb_rdf_CanBeSubject__Lorg_scalax_semweb_rdf_CanBePredicate__Lorg_scalax_semweb_rdf_CanBeObject__Lorg_scalax_semweb_rdf_CanBeSubject(ScalaJS.as.Lorg_scalax_semweb_rdf_CanBeSubject(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "sub"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_CanBePredicate(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "pred"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_CanBeObject(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "obj"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_CanBeSubject(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "cont"), reader, registry)))
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$.prototype.pickle__Lorg_scalax_semweb_rdf_LongLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("value", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.value__J(), builder, registry))]), 1)))
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_sparql_Pat(pickle, registry, reader)
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_scalax_semweb_rdf_LongLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_LongLiteral(obj), registry, builder)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$)))
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$)))
 });
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$14$")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$24$")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$14$;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$24$;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$14$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$: 1,
-  Lorg_scalajs_spickling_Unpickler: 1,
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$24$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$14$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$24$;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$ = (function() {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$ = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$ = (function() {
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$ = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_Trip = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_scalax_semweb_rdf_Trip().init___Lorg_scalax_semweb_rdf_Res__Lorg_scalax_semweb_rdf_IRI__Lorg_scalax_semweb_rdf_RDFValue(ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "sub"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "pred"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_RDFValue(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "obj"), reader, registry)))
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$.prototype.pickle__Lorg_scalax_semweb_rdf_IntegerLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("value", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.value__jl_Integer(), builder, registry))]), 1)))
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_Trip(pickle, registry, reader)
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_scalax_semweb_rdf_IntegerLiteral__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_IntegerLiteral(obj), registry, builder)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$)))
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$)))
 });
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$15$")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$25$")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$15$;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$25$;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$15$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$: 1,
-  Lorg_scalajs_spickling_Unpickler: 1,
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$25$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$15$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$25$;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$ = (function() {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$ = (function() {
   ScalaJS.c.O.call(this)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$.prototype = new ScalaJS.h.O();
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$ = (function() {
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$ = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_Quad = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_scalax_semweb_rdf_Quad().init___Lorg_scalax_semweb_rdf_Res__Lorg_scalax_semweb_rdf_IRI__Lorg_scalax_semweb_rdf_RDFValue__Lorg_scalax_semweb_rdf_Res(ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "sub"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "pred"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_RDFValue(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "obj"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "cont"), reader, registry)))
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$.prototype.pickle__Lorg_scalax_semweb_sparql_Pat__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("sub", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.sub__Lorg_scalax_semweb_rdf_CanBeSubject(), builder, registry)), new ScalaJS.c.T2().init___O__O("pred", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.pred__Lorg_scalax_semweb_rdf_CanBePredicate(), builder, registry)), new ScalaJS.c.T2().init___O__O("obj", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.obj__Lorg_scalax_semweb_rdf_CanBeObject(), builder, registry)), new ScalaJS.c.T2().init___O__O("cont", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.cont__Lorg_scalax_semweb_rdf_CanBeSubject(), builder, registry))]), 1)))
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_Quad(pickle, registry, reader)
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_scalax_semweb_sparql_Pat__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_sparql_Pat(obj), registry, builder)
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$ = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$)))
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$)))
 });
-ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$ = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$16$")
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$26$")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$ = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$)))
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$ = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$16$;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$26$;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$ = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$: 0
-}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$16$", ScalaJS.d.O, {
-  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$: 1,
-  Lorg_scalajs_spickling_Unpickler: 1,
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$26$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$16$;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$26$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$.prototype.pickle__Lorg_scalax_semweb_rdf_Trip__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("sub", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.sub__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("pred", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.pred__Lorg_scalax_semweb_rdf_IRI(), builder, registry)), new ScalaJS.c.T2().init___O__O("obj", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.obj__Lorg_scalax_semweb_rdf_RDFValue(), builder, registry))]), 1)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_scalax_semweb_rdf_Trip__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_Trip(obj), registry, builder)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$27$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$27$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$27$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$27$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$.prototype.pickle__Lorg_scalax_semweb_rdf_Quad__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("sub", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.sub__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("pred", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.pred__Lorg_scalax_semweb_rdf_IRI(), builder, registry)), new ScalaJS.c.T2().init___O__O("obj", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.obj__Lorg_scalax_semweb_rdf_RDFValue(), builder, registry)), new ScalaJS.c.T2().init___O__O("cont", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.cont__Lorg_scalax_semweb_rdf_Res(), builder, registry))]), 1)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_scalax_semweb_rdf_Quad__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_rdf_Quad(obj), registry, builder)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$28$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$28$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$28$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$28$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$.prototype.pickle__Lorg_denigma_binding_models_MenuItem__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("uri", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.uri__Lorg_scalax_semweb_rdf_IRI(), builder, registry)), new ScalaJS.c.T2().init___O__O("title", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.title__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("icon", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.icon__T(), builder, registry))]), 1)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_denigma_binding_models_MenuItem__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_MenuItem(obj), registry, builder)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$29$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$29$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$29$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$29$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$.prototype.pickle__Lorg_denigma_binding_models_Menu__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("uri", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.uri__Lorg_scalax_semweb_rdf_IRI(), builder, registry)), new ScalaJS.c.T2().init___O__O("title", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.title__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("children", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.children__sci_List(), builder, registry)), new ScalaJS.c.T2().init___O__O("icon", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.icon__T(), builder, registry))]), 1)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_denigma_binding_models_Menu__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_denigma_binding_models_Menu(obj), registry, builder)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$30$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$30$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$30$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$30$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$.prototype.pickle__Lorg_scalax_semweb_shex_validation_JustFailure__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("constraint", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.constraint__T(), builder, registry)), new ScalaJS.c.T2().init___O__O("value", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.value__O(), builder, registry))]), 1)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_scalax_semweb_shex_validation_JustFailure__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_shex_validation_JustFailure(obj), registry, builder)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$31$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$31$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$31$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$31$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$.prototype.pickle__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(value, registry, builder) {
+  return builder.makeObject__sc_Seq__O(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [new ScalaJS.c.T2().init___O__O("resource", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.resource__Lorg_scalax_semweb_rdf_Res(), builder, registry)), new ScalaJS.c.T2().init___O__O("properties", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.properties__sci_Map(), builder, registry)), new ScalaJS.c.T2().init___O__O("validation", registry.pickle__O__Lorg_scalajs_spickling_PBuilder__Lorg_scalajs_spickling_PicklerRegistry__O(value.validation__Lorg_scalax_semweb_shex_validation_ValidationResult(), builder, registry))]), 1)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$.prototype.pickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O = (function(obj, registry, builder) {
+  return this.pickle__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PBuilder__O(ScalaJS.as.Lorg_scalax_semweb_shex_PropertyModel(obj), registry, builder)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenPickler$32$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenPickler$32$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenPickler$32$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$: 1,
+  Lorg_scalajs_spickling_Pickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenPickler$32$;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$ = (function() {
@@ -10970,11 +12019,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$ = (function
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_MenuItem = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_denigma_binding_models_MenuItem().init___Lorg_scalax_semweb_rdf_IRI__T__T(ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "title"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "icon"), reader, registry)))
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_IRI = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_MenuItem(pickle, registry, reader)
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_IRI(pickle, registry, reader)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$17$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -11021,11 +12070,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$ = (function
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_Menu = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_denigma_binding_models_Menu().init___Lorg_scalax_semweb_rdf_IRI__T__sci_List__T(ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "title"), reader, registry)), ScalaJS.as.sci_List(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "children"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "icon"), reader, registry)))
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_BlankNode = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_BlankNode().init___T(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "id"), reader, registry)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_Menu(pickle, registry, reader)
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_BlankNode(pickle, registry, reader)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$18$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -11072,11 +12121,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$ = (function
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_shex_validation_JustFailure = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_scalax_semweb_shex_validation_JustFailure().init___T__O(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "constraint"), reader, registry)), registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "value"), reader, registry))
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_StringLiteral = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_StringLiteral().init___T(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "text"), reader, registry)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_shex_validation_JustFailure(pickle, registry, reader)
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_StringLiteral(pickle, registry, reader)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$19$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -11123,11 +12172,11 @@ ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$ = (function
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$.prototype;
-ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_shex_PropertyModel = (function(pickle, registry, reader) {
-  return new ScalaJS.c.Lorg_scalax_semweb_shex_PropertyModel().init___Lorg_scalax_semweb_rdf_Res__sci_Map__Lorg_scalax_semweb_shex_validation_ValidationResult(ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "resource"), reader, registry)), ScalaJS.as.sci_Map(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "properties"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_shex_validation_ValidationResult(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "validation"), reader, registry)))
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_BooleanLiteral = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral().init___Z(ScalaJS.uZ(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "value"), reader, registry)))
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
-  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_shex_PropertyModel(pickle, registry, reader)
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_BooleanLiteral(pickle, registry, reader)
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -11162,6 +12211,618 @@ ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$ = new Scala
   O: 1
 });
 ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$20$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_DoubleLiteral = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral().init___D(ScalaJS.uD(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "value"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_DoubleLiteral(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$21$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$21$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$21$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$21$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_DecimalLiteral = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral().init___s_math_BigDecimal(ScalaJS.as.s_math_BigDecimal(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "value"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_DecimalLiteral(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$22$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$22$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$22$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$22$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_StringLangLiteral = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral().init___T__T(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "text"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "lang"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_StringLangLiteral(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$23$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$23$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$23$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$23$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_LongLiteral = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral().init___J(ScalaJS.uJ(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "value"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_LongLiteral(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$24$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$24$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$24$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$24$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_IntegerLiteral = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral().init___jl_Integer(ScalaJS.asInt(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "value"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_IntegerLiteral(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$25$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$25$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$25$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$25$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_sparql_Pat = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_sparql_Pat().init___Lorg_scalax_semweb_rdf_CanBeSubject__Lorg_scalax_semweb_rdf_CanBePredicate__Lorg_scalax_semweb_rdf_CanBeObject__Lorg_scalax_semweb_rdf_CanBeSubject(ScalaJS.as.Lorg_scalax_semweb_rdf_CanBeSubject(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "sub"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_CanBePredicate(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "pred"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_CanBeObject(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "obj"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_CanBeSubject(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "cont"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_sparql_Pat(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$26$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$26$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$26$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$26$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_Trip = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_Trip().init___Lorg_scalax_semweb_rdf_Res__Lorg_scalax_semweb_rdf_IRI__Lorg_scalax_semweb_rdf_RDFValue(ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "sub"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "pred"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_RDFValue(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "obj"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_Trip(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$27$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$27$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$27$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$27$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_Quad = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_rdf_Quad().init___Lorg_scalax_semweb_rdf_Res__Lorg_scalax_semweb_rdf_IRI__Lorg_scalax_semweb_rdf_RDFValue__Lorg_scalax_semweb_rdf_Res(ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "sub"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "pred"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_RDFValue(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "obj"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "cont"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_rdf_Quad(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$28$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$28$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$28$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$28$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_MenuItem = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_denigma_binding_models_MenuItem().init___Lorg_scalax_semweb_rdf_IRI__T__T(ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "title"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "icon"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_MenuItem(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$29$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$29$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$29$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$29$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_Menu = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_denigma_binding_models_Menu().init___Lorg_scalax_semweb_rdf_IRI__T__sci_List__T(ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "uri"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "title"), reader, registry)), ScalaJS.as.sci_List(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "children"), reader, registry)), ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "icon"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_denigma_binding_models_Menu(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$30$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$30$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$30$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$30$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_shex_validation_JustFailure = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_shex_validation_JustFailure().init___T__O(ScalaJS.as.T(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "constraint"), reader, registry)), registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "value"), reader, registry))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_shex_validation_JustFailure(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$31$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$31$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$31$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$31$;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$.prototype = ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$.prototype;
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_shex_PropertyModel = (function(pickle, registry, reader) {
+  return new ScalaJS.c.Lorg_scalax_semweb_shex_PropertyModel().init___Lorg_scalax_semweb_rdf_Res__sci_Map__Lorg_scalax_semweb_shex_validation_ValidationResult(ScalaJS.as.Lorg_scalax_semweb_rdf_Res(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "resource"), reader, registry)), ScalaJS.as.sci_Map(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "properties"), reader, registry)), ScalaJS.as.Lorg_scalax_semweb_shex_validation_ValidationResult(registry.unpickle__O__Lorg_scalajs_spickling_PReader__Lorg_scalajs_spickling_PicklerRegistry__O(reader.readObjectField__O__T__O(pickle, "validation"), reader, registry)))
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$.prototype.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__O = (function(pickle, registry, reader) {
+  return this.unpickle__O__Lorg_scalajs_spickling_PicklerRegistry__Lorg_scalajs_spickling_PReader__Lorg_scalax_semweb_shex_PropertyModel(pickle, registry, reader)
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$.prototype.init___Lorg_denigma_binding_picklers_RDFPicklers = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$)))
+});
+ScalaJS.as.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$32$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.picklers.RDFPicklers$GenUnpickler$32$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$: 0
+}, false, "org.denigma.binding.picklers.RDFPicklers$GenUnpickler$32$", ScalaJS.d.O, {
+  Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$: 1,
+  Lorg_scalajs_spickling_Unpickler: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_picklers_RDFPicklers$GenUnpickler$32$;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_binding_picklers_rp$ = (function() {
@@ -11284,6 +12945,7 @@ ScalaJS.d.Lorg_denigma_controls_ActiveModelView = new ScalaJS.ClassTypeData({
 }, true, "org.denigma.controls.ActiveModelView", undefined, {
   Lorg_denigma_controls_ActiveModelView: 1,
   Lorg_denigma_views_models_ModelView: 1,
+  Lorg_denigma_views_models_RDFView: 1,
   O: 1
 });
 /** @constructor */
@@ -11349,6 +13011,342 @@ ScalaJS.d.Lorg_denigma_controls_AjaxMenuView$storage$ = new ScalaJS.ClassTypeDat
 });
 ScalaJS.c.Lorg_denigma_controls_AjaxMenuView$storage$.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxMenuView$storage$;
 /*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$ = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$.prototype = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$.prototype;
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$.prototype.apply__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_shex_PropertyModel__Lorg_denigma_views_core_BindingView = (function(html, model) {
+  return new ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel().init___T__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalajs_dom_HTMLElement(("item" + ScalaJS.m.jl_Math().random__D()), model, html)
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_AjaxModelCollection$)))
+});
+ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.AjaxModelCollection$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_AjaxModelCollection$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_AjaxModelCollection$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.AjaxModelCollection$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_AjaxModelCollection$: 0
+}, false, "org.denigma.controls.AjaxModelCollection$", ScalaJS.d.O, {
+  Lorg_denigma_controls_AjaxModelCollection$: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$;
+ScalaJS.n.Lorg_denigma_controls_AjaxModelCollection = undefined;
+ScalaJS.m.Lorg_denigma_controls_AjaxModelCollection = (function() {
+  if ((!ScalaJS.n.Lorg_denigma_controls_AjaxModelCollection)) {
+    ScalaJS.n.Lorg_denigma_controls_AjaxModelCollection = new ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$().init___()
+  };
+  return ScalaJS.n.Lorg_denigma_controls_AjaxModelCollection
+});
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1.prototype = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1.prototype;
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1.prototype.asBooleanRxMap__Lorg_denigma_controls_AjaxModelCollection$JustModel__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1.prototype.asBooleanRxMap__O__sci_Map = (function(t) {
+  return this.asBooleanRxMap__Lorg_denigma_controls_AjaxModelCollection$JustModel__sci_Map(ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$JustModel(t))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1.prototype.init___Lorg_denigma_controls_AjaxModelCollection$JustModel = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1)))
+});
+ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.AjaxModelCollection$JustModel$$anon$1")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.AjaxModelCollection$JustModel$$anon$1;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1: 0
+}, false, "org.denigma.controls.AjaxModelCollection$JustModel$$anon$1", ScalaJS.d.O, {
+  Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1: 1,
+  Lorg_denigma_binding_macroses_BooleanRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2.prototype = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2.prototype;
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2.prototype.asStringRxMap__Lorg_denigma_controls_AjaxModelCollection$JustModel__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2.prototype.asStringRxMap__O__sci_Map = (function(t) {
+  return this.asStringRxMap__Lorg_denigma_controls_AjaxModelCollection$JustModel__sci_Map(ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$JustModel(t))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2.prototype.init___Lorg_denigma_controls_AjaxModelCollection$JustModel = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2)))
+});
+ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.AjaxModelCollection$JustModel$$anon$2")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.AjaxModelCollection$JustModel$$anon$2;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2: 0
+}, false, "org.denigma.controls.AjaxModelCollection$JustModel$$anon$2", ScalaJS.d.O, {
+  Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2: 1,
+  Lorg_denigma_binding_macroses_StringRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3.prototype = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3.prototype;
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3.prototype.asMouseEventMap__Lorg_denigma_controls_AjaxModelCollection$JustModel__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3.prototype.asMouseEventMap__O__sci_Map = (function(t) {
+  return this.asMouseEventMap__Lorg_denigma_controls_AjaxModelCollection$JustModel__sci_Map(ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$JustModel(t))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3.prototype.init___Lorg_denigma_controls_AjaxModelCollection$JustModel = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3)))
+});
+ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.AjaxModelCollection$JustModel$$anon$3")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.AjaxModelCollection$JustModel$$anon$3;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3: 0
+}, false, "org.denigma.controls.AjaxModelCollection$JustModel$$anon$3", ScalaJS.d.O, {
+  Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3: 1,
+  Lorg_denigma_binding_macroses_MouseEventMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4 = (function() {
+  ScalaJS.c.O.call(this)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4.prototype = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4.prototype;
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4.prototype.asTagRxMap__Lorg_denigma_controls_AjaxModelCollection$JustModel__sci_Map = (function(t) {
+  return ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.sci_Nil()))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4.prototype.asTagRxMap__O__sci_Map = (function(t) {
+  return this.asTagRxMap__Lorg_denigma_controls_AjaxModelCollection$JustModel__sci_Map(ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$JustModel(t))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4.prototype.init___Lorg_denigma_controls_AjaxModelCollection$JustModel = (function($$outer) {
+  ScalaJS.c.O.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4)))
+});
+ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.AjaxModelCollection$JustModel$$anon$4")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.AjaxModelCollection$JustModel$$anon$4;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4: 0
+}, false, "org.denigma.controls.AjaxModelCollection$JustModel$$anon$4", ScalaJS.d.O, {
+  Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4: 1,
+  Lorg_denigma_binding_macroses_TagRxMap: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_controls_CkEditor$ = (function() {
+  ScalaJS.c.O.call(this);
+  this.editors$1 = null
+});
+ScalaJS.c.Lorg_denigma_controls_CkEditor$.prototype = new ScalaJS.h.O();
+ScalaJS.c.Lorg_denigma_controls_CkEditor$.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_CkEditor$;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_CkEditor$ = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_CkEditor$.prototype = ScalaJS.c.Lorg_denigma_controls_CkEditor$.prototype;
+ScalaJS.c.Lorg_denigma_controls_CkEditor$.prototype.editors__sci_Map = (function() {
+  return this.editors$1
+});
+ScalaJS.c.Lorg_denigma_controls_CkEditor$.prototype.editors$und$eq__sci_Map__V = (function(x$1) {
+  this.editors$1 = x$1
+});
+ScalaJS.c.Lorg_denigma_controls_CkEditor$.prototype.on__Lorg_scalajs_dom_HTMLElement__Lorg_denigma_views_core_OrganizedView__V = (function(el, view) {
+  var id = ScalaJS.as.T(el["id"]);
+  var editor = ScalaJS.g["CKEDITOR"]["inline"](el);
+  this.editors$und$eq__sci_Map__V(this.editors__sci_Map().$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(el), editor)))
+});
+ScalaJS.c.Lorg_denigma_controls_CkEditor$.prototype.off__Lorg_scalajs_dom_HTMLElement__Lorg_denigma_views_core_OrganizedView__V = (function(el, view) {
+  var x1 = this.editors__sci_Map().get__O__s_Option(el);
+  matchEnd5: {
+    if (ScalaJS.is.s_Some(x1)) {
+      var x2 = ScalaJS.as.s_Some(x1);
+      var ed = x2.x__O();
+      this.editors$und$eq__sci_Map__V(ScalaJS.as.sci_Map(this.editors__sci_Map().$$minus__O__sc_Map(el)));
+      ed["destroy"]();
+      break matchEnd5
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
+      break matchEnd5
+    };
+    throw new ScalaJS.c.s_MatchError().init___O(x1)
+  }
+});
+ScalaJS.c.Lorg_denigma_controls_CkEditor$.prototype.init___ = (function() {
+  ScalaJS.c.O.prototype.init___.call(this);
+  ScalaJS.n.Lorg_denigma_controls_CkEditor = this;
+  this.editors$1 = ScalaJS.m.sci_Map().empty__sci_Map();
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_CkEditor$ = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_CkEditor$)))
+});
+ScalaJS.as.Lorg_denigma_controls_CkEditor$ = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_CkEditor$(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.CkEditor$")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_CkEditor$ = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_CkEditor$)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_CkEditor$ = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_CkEditor$(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.CkEditor$;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_CkEditor$ = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_CkEditor$: 0
+}, false, "org.denigma.controls.CkEditor$", ScalaJS.d.O, {
+  Lorg_denigma_controls_CkEditor$: 1,
+  Lorg_denigma_InlineEditor: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_CkEditor$.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_CkEditor$;
+ScalaJS.n.Lorg_denigma_controls_CkEditor = undefined;
+ScalaJS.m.Lorg_denigma_controls_CkEditor = (function() {
+  if ((!ScalaJS.n.Lorg_denigma_controls_CkEditor)) {
+    ScalaJS.n.Lorg_denigma_controls_CkEditor = new ScalaJS.c.Lorg_denigma_controls_CkEditor$().init___()
+  };
+  return ScalaJS.n.Lorg_denigma_controls_CkEditor
+});
+/*<skip>*/;
 ScalaJS.is.Lorg_denigma_controls_EditModelView = (function(obj) {
   return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_EditModelView)))
 });
@@ -11375,6 +13373,7 @@ ScalaJS.d.Lorg_denigma_controls_EditModelView = new ScalaJS.ClassTypeData({
   Lorg_denigma_controls_EditModelView: 1,
   Lorg_denigma_controls_ActiveModelView: 1,
   Lorg_denigma_views_models_ModelView: 1,
+  Lorg_denigma_views_models_RDFView: 1,
   O: 1
 });
 /** @constructor */
@@ -12797,12 +14796,40 @@ ScalaJS.d.Lorg_denigma_views_models_ModelView = new ScalaJS.ClassTypeData({
   Lorg_denigma_views_models_ModelView: 0
 }, true, "org.denigma.views.models.ModelView", undefined, {
   Lorg_denigma_views_models_ModelView: 1,
+  Lorg_denigma_views_models_RDFView: 1,
+  O: 1
+});
+ScalaJS.is.Lorg_denigma_views_models_RDFView = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_views_models_RDFView)))
+});
+ScalaJS.as.Lorg_denigma_views_models_RDFView = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_views_models_RDFView(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.views.models.RDFView")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_views_models_RDFView = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_views_models_RDFView)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_views_models_RDFView = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_views_models_RDFView(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.models.RDFView;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_views_models_RDFView = new ScalaJS.ClassTypeData({
+  Lorg_denigma_views_models_RDFView: 0
+}, true, "org.denigma.views.models.RDFView", undefined, {
+  Lorg_denigma_views_models_RDFView: 1,
   O: 1
 });
 /** @constructor */
 ScalaJS.c.Lorg_denigma_views_package$ = (function() {
   ScalaJS.c.O.call(this);
-  this.factories$1 = null
+  this.factories$1 = null;
+  this.editors$1 = null
 });
 ScalaJS.c.Lorg_denigma_views_package$.prototype = new ScalaJS.h.O();
 ScalaJS.c.Lorg_denigma_views_package$.prototype.constructor = ScalaJS.c.Lorg_denigma_views_package$;
@@ -12821,10 +14848,41 @@ ScalaJS.c.Lorg_denigma_views_package$.prototype.register__T__F2__Lorg_denigma_vi
   this.factories$und$eq__sci_Map__V(this.factories__sci_Map().$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(name), factory)));
   return this
 });
+ScalaJS.c.Lorg_denigma_views_package$.prototype.editors__sci_Map = (function() {
+  return this.editors$1
+});
+ScalaJS.c.Lorg_denigma_views_package$.prototype.editors$und$eq__sci_Map__V = (function(x$1) {
+  this.editors$1 = x$1
+});
+ScalaJS.c.Lorg_denigma_views_package$.prototype.registerEditor__T__Lorg_denigma_InlineEditor__V = (function(name, editor) {
+  this.editors$und$eq__sci_Map__V(this.editors__sci_Map().$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(name), editor)))
+});
+ScalaJS.c.Lorg_denigma_views_package$.prototype.onEdit__Z__Lorg_scalajs_dom_HTMLElement__Lorg_denigma_views_core_OrganizedView__V = (function(mode, el, view) {
+  this.editors__sci_Map().foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(mode$1, el$1, view$1) {
+    return (function(x0$1$2) {
+      var x0$1 = ScalaJS.as.T2(x0$1$2);
+      var x1 = x0$1;
+      matchEnd3: {
+        if ((x1 !== null)) {
+          var e = ScalaJS.as.Lorg_denigma_InlineEditor(x1.$$und2__O());
+          if (mode$1) {
+            e.on__Lorg_scalajs_dom_HTMLElement__Lorg_denigma_views_core_OrganizedView__V(el$1, view$1);
+            break matchEnd3
+          } else {
+            e.off__Lorg_scalajs_dom_HTMLElement__Lorg_denigma_views_core_OrganizedView__V(el$1, view$1);
+            break matchEnd3
+          }
+        };
+        throw new ScalaJS.c.s_MatchError().init___O(x1)
+      }
+    })
+  })(mode, el, view)))
+});
 ScalaJS.c.Lorg_denigma_views_package$.prototype.init___ = (function() {
   ScalaJS.c.O.prototype.init___.call(this);
   ScalaJS.n.Lorg_denigma_views_package = this;
   this.factories$1 = ScalaJS.m.sci_Map().empty__sci_Map();
+  this.editors$1 = ScalaJS.m.sci_Map().empty__sci_Map();
   return this
 });
 /*<skip>*/;
@@ -15624,6 +17682,14 @@ ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.label__T = (function(
 ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.dataType__Lorg_scalax_semweb_rdf_IRI = (function() {
   return this.dataType$1
 });
+ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.equals__O__Z = (function(that) {
+  var x1 = that;
+  if (ScalaJS.is.Lorg_scalax_semweb_rdf_DatatypeLiteral(x1)) {
+    var x2 = ScalaJS.as.Lorg_scalax_semweb_rdf_DatatypeLiteral(x1);
+    return (ScalaJS.anyRefEqEq(x2.label__T(), this.label__T()) && ScalaJS.anyRefEqEq(x2.dataType__Lorg_scalax_semweb_rdf_IRI(), this.dataType__Lorg_scalax_semweb_rdf_IRI()))
+  };
+  return false
+});
 ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.stringValue__T = (function() {
   if ((this.dataType__Lorg_scalax_semweb_rdf_IRI() !== null)) {
     return ((((("\"" + this.label__T()) + "\"^^") + "<") + this.dataType__Lorg_scalax_semweb_rdf_IRI().stringValue__T()) + ">")
@@ -16159,6 +18225,21 @@ ScalaJS.c.Lorg_scalax_semweb_rdf_vocabulary_XSD$.prototype.xsd__Lorg_scalax_semw
 });
 ScalaJS.c.Lorg_scalax_semweb_rdf_vocabulary_XSD$.prototype.StringDatatypeIRI__Lorg_scalax_semweb_rdf_IRI = (function() {
   return this.StringDatatypeIRI$1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_vocabulary_XSD$.prototype.BooleanDatatypeIRI__Lorg_scalax_semweb_rdf_IRI = (function() {
+  return this.BooleanDatatypeIRI$1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_vocabulary_XSD$.prototype.IntegerDatatypeIRI__Lorg_scalax_semweb_rdf_IRI = (function() {
+  return this.IntegerDatatypeIRI$1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_vocabulary_XSD$.prototype.LongDatatypeIRI__Lorg_scalax_semweb_rdf_IRI = (function() {
+  return this.LongDatatypeIRI$1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_vocabulary_XSD$.prototype.DoubleDatatypeIRI__Lorg_scalax_semweb_rdf_IRI = (function() {
+  return this.DoubleDatatypeIRI$1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_vocabulary_XSD$.prototype.DecimalDatatypeIRI__Lorg_scalax_semweb_rdf_IRI = (function() {
+  return this.DecimalDatatypeIRI$1
 });
 ScalaJS.c.Lorg_scalax_semweb_rdf_vocabulary_XSD$.prototype.init___ = (function() {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -23265,6 +25346,13 @@ ScalaJS.c.s_Option.prototype.foreach__F1__V = (function(f) {
     f.apply__O__O(this.get__O())
   }
 });
+ScalaJS.c.s_Option.prototype.orElse__F0__s_Option = (function(alternative) {
+  if (this.isEmpty__Z()) {
+    return ScalaJS.as.s_Option(alternative.apply__O())
+  } else {
+    return this
+  }
+});
 ScalaJS.c.s_Option.prototype.toList__sci_List = (function() {
   if (this.isEmpty__Z()) {
     return ScalaJS.m.sci_Nil()
@@ -25325,6 +27413,9 @@ ScalaJS.h.s_reflect_AnyValManifest = (function() {
   /*<skip>*/
 });
 ScalaJS.h.s_reflect_AnyValManifest.prototype = ScalaJS.c.s_reflect_AnyValManifest.prototype;
+ScalaJS.c.s_reflect_AnyValManifest.prototype.unapply__O__s_Option = (function(x) {
+  return ScalaJS.i.s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(this, x)
+});
 ScalaJS.c.s_reflect_AnyValManifest.prototype.toString__T = (function() {
   return this.toString$1
 });
@@ -25555,6 +27646,9 @@ ScalaJS.c.s_reflect_ClassTag$.prototype.Boolean__s_reflect_ClassTag = (function(
 ScalaJS.c.s_reflect_ClassTag$.prototype.Unit__s_reflect_ClassTag = (function() {
   return this.Unit$1
 });
+ScalaJS.c.s_reflect_ClassTag$.prototype.Any__s_reflect_ClassTag = (function() {
+  return this.Any$1
+});
 ScalaJS.c.s_reflect_ClassTag$.prototype.Object__s_reflect_ClassTag = (function() {
   return this.Object$1
 });
@@ -25682,6 +27776,9 @@ ScalaJS.h.s_reflect_ClassTag$$anon$1 = (function() {
 ScalaJS.h.s_reflect_ClassTag$$anon$1.prototype = ScalaJS.c.s_reflect_ClassTag$$anon$1.prototype;
 ScalaJS.c.s_reflect_ClassTag$$anon$1.prototype.newArray__I__O = (function(len) {
   return ScalaJS.i.s_reflect_ClassTag$class__newArray__s_reflect_ClassTag__I__O(this, len)
+});
+ScalaJS.c.s_reflect_ClassTag$$anon$1.prototype.unapply__O__s_Option = (function(x) {
+  return ScalaJS.i.s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(this, x)
 });
 ScalaJS.c.s_reflect_ClassTag$$anon$1.prototype.equals__O__Z = (function(x) {
   return ScalaJS.i.s_reflect_ClassTag$class__equals__s_reflect_ClassTag__O__Z(this, x)
@@ -25893,6 +27990,9 @@ ScalaJS.h.s_reflect_ManifestFactory$ClassTypeManifest = (function() {
   /*<skip>*/
 });
 ScalaJS.h.s_reflect_ManifestFactory$ClassTypeManifest.prototype = ScalaJS.c.s_reflect_ManifestFactory$ClassTypeManifest.prototype;
+ScalaJS.c.s_reflect_ManifestFactory$ClassTypeManifest.prototype.unapply__O__s_Option = (function(x) {
+  return ScalaJS.i.s_reflect_ClassTag$class__unapply__s_reflect_ClassTag__O__s_Option(this, x)
+});
 ScalaJS.c.s_reflect_ManifestFactory$ClassTypeManifest.prototype.runtimeClass__jl_Class = (function() {
   return this.runtimeClass$1
 });
@@ -26013,6 +28113,9 @@ ScalaJS.c.s_reflect_package$.prototype.ClassManifest__s_reflect_ClassManifestFac
 });
 ScalaJS.c.s_reflect_package$.prototype.Manifest__s_reflect_ManifestFactory$ = (function() {
   return this.Manifest$1
+});
+ScalaJS.c.s_reflect_package$.prototype.classTag__s_reflect_ClassTag__s_reflect_ClassTag = (function(ctag) {
+  return ctag
 });
 ScalaJS.c.s_reflect_package$.prototype.init___ = (function() {
   ScalaJS.c.O.prototype.init___.call(this);
@@ -28960,6 +31063,47 @@ ScalaJS.d.sci_Map = new ScalaJS.ClassTypeData({
   sc_GenTraversableOnce: 1,
   scg_FilterMonadic: 1,
   scg_HasNewBuilder: 1,
+  O: 1
+});
+ScalaJS.is.sci_MapLike = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.sci_MapLike)))
+});
+ScalaJS.as.sci_MapLike = (function(obj) {
+  if ((ScalaJS.is.sci_MapLike(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "scala.collection.immutable.MapLike")
+  }
+});
+ScalaJS.isArrayOf.sci_MapLike = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.sci_MapLike)))
+});
+ScalaJS.asArrayOf.sci_MapLike = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.sci_MapLike(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lscala.collection.immutable.MapLike;", depth)
+  }
+});
+ScalaJS.d.sci_MapLike = new ScalaJS.ClassTypeData({
+  sci_MapLike: 0
+}, true, "scala.collection.immutable.MapLike", undefined, {
+  sci_MapLike: 1,
+  sc_MapLike: 1,
+  scg_Subtractable: 1,
+  sc_GenMapLike: 1,
+  sc_IterableLike: 1,
+  sc_GenIterableLike: 1,
+  sc_TraversableLike: 1,
+  sc_GenTraversableLike: 1,
+  sc_Parallelizable: 1,
+  sc_TraversableOnce: 1,
+  sc_GenTraversableOnce: 1,
+  scg_FilterMonadic: 1,
+  scg_HasNewBuilder: 1,
+  s_Equals: 1,
+  s_PartialFunction: 1,
+  F1: 1,
   O: 1
 });
 /** @constructor */
@@ -35377,7 +37521,7 @@ ScalaJS.h.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$10.prototype = ScalaJS
 ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$10.prototype.apply__Lorg_scalajs_dom_HTMLElement__sci_Map__s_util_Try = (function(el, params) {
   return ScalaJS.m.s_util_Try().apply__F0__s_util_Try(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(el$9, params$9) {
     return (function() {
-      return new ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide().init___Lorg_scalajs_dom_HTMLElement__sci_Map(el$9, params$9)
+      return new ScalaJS.c.Lorg_denigma_binding_frontend_slides_RdfSlide().init___Lorg_scalajs_dom_HTMLElement__sci_Map(el$9, params$9)
     })
   })(el, params)))
 });
@@ -35431,7 +37575,7 @@ ScalaJS.h.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$11.prototype = ScalaJS
 ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$11.prototype.apply__Lorg_scalajs_dom_HTMLElement__sci_Map__s_util_Try = (function(el, params) {
   return ScalaJS.m.s_util_Try().apply__F0__s_util_Try(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(el$10, params$10) {
     return (function() {
-      return new ScalaJS.c.Lorg_denigma_binding_frontend_slides_RdfSlide().init___Lorg_scalajs_dom_HTMLElement__sci_Map(el$10, params$10)
+      return new ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos().init___Lorg_scalajs_dom_HTMLElement__sci_Map(el$10, params$10)
     })
   })(el, params)))
 });
@@ -35686,6 +37830,114 @@ ScalaJS.d.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$15 = new ScalaJS.Class
   O: 1
 });
 ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$15.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$15;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16 = (function() {
+  ScalaJS.c.sr_AbstractFunction2.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16.prototype = new ScalaJS.h.sr_AbstractFunction2();
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16.prototype.apply__Lorg_scalajs_dom_HTMLElement__sci_Map__s_util_Try = (function(el, params) {
+  return ScalaJS.m.s_util_Try().apply__F0__s_util_Try(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(el$15, params$15) {
+    return (function() {
+      return new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView().init___Lorg_scalajs_dom_HTMLElement__sci_Map(el$15, params$15)
+    })
+  })(el, params)))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16.prototype.apply__O__O__O = (function(v1, v2) {
+  return this.apply__Lorg_scalajs_dom_HTMLElement__sci_Map__s_util_Try(v1, ScalaJS.as.sci_Map(v2))
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.FrontEnd$$anonfun$16")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.FrontEnd$$anonfun$16;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16: 0
+}, false, "org.denigma.binding.frontend.FrontEnd$$anonfun$16", ScalaJS.d.sr_AbstractFunction2, {
+  Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  sr_AbstractFunction2: 1,
+  F2: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17 = (function() {
+  ScalaJS.c.sr_AbstractFunction2.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17.prototype = new ScalaJS.h.sr_AbstractFunction2();
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17.prototype.apply__Lorg_scalajs_dom_HTMLElement__sci_Map__s_util_Try = (function(el, params) {
+  return ScalaJS.m.s_util_Try().apply__F0__s_util_Try(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(el$16, params$16) {
+    return (function() {
+      return new ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView().init___Lorg_scalajs_dom_HTMLElement__sci_Map(el$16, params$16)
+    })
+  })(el, params)))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17.prototype.apply__O__O__O = (function(v1, v2) {
+  return this.apply__Lorg_scalajs_dom_HTMLElement__sci_Map__s_util_Try(v1, ScalaJS.as.sci_Map(v2))
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.FrontEnd$$anonfun$17")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.FrontEnd$$anonfun$17;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17: 0
+}, false, "org.denigma.binding.frontend.FrontEnd$$anonfun$17", ScalaJS.d.sr_AbstractFunction2, {
+  Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  sr_AbstractFunction2: 1,
+  F2: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$2 = (function() {
@@ -36792,6 +39044,165 @@ ScalaJS.d.Lorg_denigma_controls_AjaxMenuView$$anonfun$bindView$1 = new ScalaJS.C
 ScalaJS.c.Lorg_denigma_controls_AjaxMenuView$$anonfun$bindView$1.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxMenuView$$anonfun$bindView$1;
 /*<skip>*/;
 /** @constructor */
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1 = (function() {
+  ScalaJS.c.sr_AbstractFunction1.call(this);
+  this.$$outer$2 = null;
+  this.el$1$2 = null
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1.prototype = new ScalaJS.h.sr_AbstractFunction1();
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1.prototype = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1.prototype;
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1.prototype.apply__s_util_Try__V = (function(x0$1) {
+  var x1 = x0$1;
+  matchEnd5: {
+    if (ScalaJS.is.s_util_Success(x1)) {
+      var x2 = ScalaJS.as.s_util_Success(x1);
+      var data = ScalaJS.as.sci_List(x2.value__O());
+      var x1$2 = this.$$outer$2.items__Lrx_core_Var();
+      if ((x1$2 !== null)) {
+        var x2$2 = x1$2;
+        x2$2.update__F0__Lrx_core_Propagator__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(data$1) {
+          return (function() {
+            return data$1
+          })
+        })(data)), ScalaJS.m.Lrx_core_Propagator$Immediate());
+        this.$$outer$2.updateItems__V();
+        break matchEnd5
+      };
+      ScalaJS.g["console"]["error"]("items is not Var");
+      break matchEnd5
+    };
+    if (ScalaJS.is.s_util_Failure(x1)) {
+      var x3 = ScalaJS.as.s_util_Failure(x1);
+      var m = x3.exception__jl_Throwable();
+      ScalaJS.g["console"]["error"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), ["Future data failure for view ", " with exception: \\n ", ""]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [this.$$outer$2.id__T(), m.toString__T()]))));
+      this.$$outer$2.org$denigma$controls$AjaxModelCollection$$super$bindView__Lorg_scalajs_dom_HTMLElement__V(this.el$1$2);
+      break matchEnd5
+    };
+    throw new ScalaJS.c.s_MatchError().init___O(x1)
+  }
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1.prototype.apply__O__O = (function(v1) {
+  this.apply__s_util_Try__V(ScalaJS.as.s_util_Try(v1))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1.prototype.init___Lorg_denigma_controls_AjaxModelCollection__Lorg_scalajs_dom_HTMLElement = (function($$outer, el$1) {
+  if (($$outer === null)) {
+    throw ScalaJS.unwrapJavaScriptException(null)
+  } else {
+    this.$$outer$2 = $$outer
+  };
+  this.el$1$2 = el$1;
+  ScalaJS.c.sr_AbstractFunction1.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1)))
+});
+ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.AjaxModelCollection$$anonfun$bindView$1")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.AjaxModelCollection$$anonfun$bindView$1;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1: 0
+}, false, "org.denigma.controls.AjaxModelCollection$$anonfun$bindView$1", ScalaJS.d.sr_AbstractFunction1, {
+  Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  sr_AbstractFunction1: 1,
+  F1: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1 = (function() {
+  ScalaJS.c.sr_AbstractPartialFunction.call(this)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1.prototype = new ScalaJS.h.sr_AbstractPartialFunction();
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1.prototype = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1.prototype;
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1.prototype.applyOrElse__Lorg_scalajs_dom_Element__F1__O = (function(x1, default$2) {
+  var x1$2 = x1;
+  if ((x1$2 instanceof ScalaJS.g["HTMLElement"])) {
+    var x2 = x1$2;
+    return x2
+  };
+  return default$2.apply__O__O(x1)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1.prototype.isDefinedAt__Lorg_scalajs_dom_Element__Z = (function(x1) {
+  var x1$2 = x1;
+  if ((x1$2 instanceof ScalaJS.g["HTMLElement"])) {
+    return true
+  };
+  return false
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1.prototype.isDefinedAt__O__Z = (function(x) {
+  return this.isDefinedAt__Lorg_scalajs_dom_Element__Z(x)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1.prototype.applyOrElse__O__F1__O = (function(x, default$2) {
+  return this.applyOrElse__Lorg_scalajs_dom_Element__F1__O(x, default$2)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1.prototype.init___Lorg_denigma_controls_AjaxModelCollection = (function($$outer) {
+  ScalaJS.c.sr_AbstractPartialFunction.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1)))
+});
+ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.AjaxModelCollection$$anonfun$updateItems$1")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.AjaxModelCollection$$anonfun$updateItems$1;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1: 0
+}, false, "org.denigma.controls.AjaxModelCollection$$anonfun$updateItems$1", ScalaJS.d.sr_AbstractPartialFunction, {
+  Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  sr_AbstractPartialFunction: 1,
+  s_PartialFunction: 1,
+  F1: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1;
+/*<skip>*/;
+/** @constructor */
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView$$anonfun$saveModel$1 = (function() {
   ScalaJS.c.sr_AbstractFunction1.call(this);
   this.$$outer$2 = null
@@ -36879,6 +39290,62 @@ ScalaJS.d.Lorg_denigma_controls_AjaxModelView$$anonfun$saveModel$1 = new ScalaJS
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView$$anonfun$saveModel$1.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxModelView$$anonfun$saveModel$1;
 /*<skip>*/;
 /** @constructor */
+ScalaJS.c.Lorg_denigma_storages_AjaxModelQueryStorage = (function() {
+  ScalaJS.c.Lorg_denigma_storages_AjaxModelStorage.call(this);
+  this.path$2 = null;
+  this.registry$2 = null
+});
+ScalaJS.c.Lorg_denigma_storages_AjaxModelQueryStorage.prototype = new ScalaJS.h.Lorg_denigma_storages_AjaxModelStorage();
+ScalaJS.c.Lorg_denigma_storages_AjaxModelQueryStorage.prototype.constructor = ScalaJS.c.Lorg_denigma_storages_AjaxModelQueryStorage;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_storages_AjaxModelQueryStorage = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_storages_AjaxModelQueryStorage.prototype = ScalaJS.c.Lorg_denigma_storages_AjaxModelQueryStorage.prototype;
+ScalaJS.c.Lorg_denigma_storages_AjaxModelQueryStorage.prototype.select__Lorg_scalax_semweb_rdf_Res__Lorg_scalax_semweb_rdf_Res__s_concurrent_Future = (function(query, shape) {
+  var data = new ScalaJS.c.Lorg_denigma_binding_models_ModelMessages$SelectQuery().init___T__Lorg_scalax_semweb_rdf_Res__Lorg_scalax_semweb_rdf_Res__T__D(this.path$2, shape, query, this.genId__T(), ScalaJS.uD(ScalaJS.g["Date"]["now"]()));
+  return ScalaJS.m.Lorg_denigma_extensions_sq().post__T__O__I__sc_Seq__Z__Lorg_scalajs_spickling_PicklerRegistry__s_concurrent_Future(this.path$2, data, ScalaJS.m.Lorg_denigma_extensions_sq().post$default$3__I(), ScalaJS.m.Lorg_denigma_extensions_sq().post$default$4__sc_Seq(), ScalaJS.m.Lorg_denigma_extensions_sq().post$default$5__Z(), this.registry$2)
+});
+ScalaJS.c.Lorg_denigma_storages_AjaxModelQueryStorage.prototype.init___T__Lorg_scalajs_spickling_PicklerRegistry = (function(path, registry) {
+  this.path$2 = path;
+  this.registry$2 = registry;
+  ScalaJS.c.Lorg_denigma_storages_AjaxModelStorage.prototype.init___T__Lorg_scalajs_spickling_PicklerRegistry.call(this, path, registry);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_storages_AjaxModelQueryStorage = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_storages_AjaxModelQueryStorage)))
+});
+ScalaJS.as.Lorg_denigma_storages_AjaxModelQueryStorage = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_storages_AjaxModelQueryStorage(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.storages.AjaxModelQueryStorage")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_storages_AjaxModelQueryStorage = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_storages_AjaxModelQueryStorage)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_storages_AjaxModelQueryStorage = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_storages_AjaxModelQueryStorage(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.storages.AjaxModelQueryStorage;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_storages_AjaxModelQueryStorage = new ScalaJS.ClassTypeData({
+  Lorg_denigma_storages_AjaxModelQueryStorage: 0
+}, false, "org.denigma.storages.AjaxModelQueryStorage", ScalaJS.d.Lorg_denigma_storages_AjaxModelStorage, {
+  Lorg_denigma_storages_AjaxModelQueryStorage: 1,
+  Lorg_denigma_storages_AjaxModelStorage: 1,
+  Lorg_denigma_storages_ModelStorage: 1,
+  Lorg_denigma_storages_ReadOnlyModelStorage: 1,
+  Lorg_denigma_binding_models_Channeled: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_storages_AjaxModelQueryStorage.prototype.$classData = ScalaJS.d.Lorg_denigma_storages_AjaxModelQueryStorage;
+/*<skip>*/;
+/** @constructor */
 ScalaJS.c.Lorg_denigma_views_core_BindingView = (function() {
   ScalaJS.c.Lorg_denigma_binding_JustBinding.call(this);
   this.name$2 = null;
@@ -36910,26 +39377,32 @@ ScalaJS.c.Lorg_denigma_views_core_BindingView.prototype.parent__s_Option = (func
 ScalaJS.c.Lorg_denigma_views_core_BindingView.prototype.parent$und$eq__s_Option__V = (function(x$1) {
   this.parent$2 = x$1
 });
-ScalaJS.c.Lorg_denigma_views_core_BindingView.prototype.searchUp__F1__s_Option = (function(filter) {
-  var rc7 = false;
+ScalaJS.c.Lorg_denigma_views_core_BindingView.prototype.searchUp__F1__s_reflect_ClassTag__s_Option = (function(filter, viewTag) {
+  var rc6 = false;
   var x2 = null;
   var x1 = this.parent__s_Option();
   if (ScalaJS.is.s_Some(x1)) {
-    rc7 = true;
+    rc6 = true;
     x2 = ScalaJS.as.s_Some(x1);
     var p = ScalaJS.as.Lorg_denigma_views_core_BindingView(x2.x__O());
-    if (ScalaJS.is.Lorg_denigma_views_core_BindingView(p)) {
-      var x4 = p;
-      if (ScalaJS.uZ(filter.apply__O__O(x4))) {
-        return new ScalaJS.c.s_Some().init___O(x4)
-      } else {
-        return x4.searchUp__F1__s_Option(filter)
-      }
+    if (viewTag.runtimeClass__jl_Class().isInstance__O__Z(p)) {
+      var x1$2 = p;
+      var o9 = viewTag.unapply__O__s_Option(x1$2);
+      if ((!o9.isEmpty__Z())) {
+        if ((o9.get__O() !== null)) {
+          if (ScalaJS.uZ(filter.apply__O__O(x1$2))) {
+            return new ScalaJS.c.s_Some().init___O(p)
+          } else {
+            return p.searchUp__F1__s_reflect_ClassTag__s_Option(filter, viewTag)
+          }
+        }
+      };
+      throw new ScalaJS.c.s_MatchError().init___O(x1$2)
     }
   };
-  if (rc7) {
+  if (rc6) {
     var p$2 = ScalaJS.as.Lorg_denigma_views_core_BindingView(x2.x__O());
-    return p$2.searchUp__F1__s_Option(filter)
+    return p$2.searchUp__F1__s_reflect_ClassTag__s_Option(filter, viewTag)
   };
   if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
     return ScalaJS.m.s_None()
@@ -37315,12 +39788,12 @@ ScalaJS.c.Lorg_denigma_views_core_OrdinaryView$$anonfun$upPartial$1.prototype.ap
         var x3 = ScalaJS.as.Lrx_core_Var(str);
         var rc6 = false;
         var x2$2 = null;
-        var x1$4 = this.$$outer$2.searchUp__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
+        var x1$4 = this.$$outer$2.searchUp__F1__s_reflect_ClassTag__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
           return (function(p$2) {
             var p = ScalaJS.as.Lorg_denigma_views_core_OrdinaryView(p$2);
             return p.strings__sci_Map().contains__O__Z(arg$outer.value$1$f)
           })
-        })(this)));
+        })(this)), ScalaJS.m.s_reflect_ClassTag().apply__jl_Class__s_reflect_ClassTag(ScalaJS.d.Lorg_denigma_views_core_OrdinaryView.getClassOf()));
         if (ScalaJS.is.s_Some(x1$4)) {
           rc6 = true;
           x2$2 = ScalaJS.as.s_Some(x1$4);
@@ -37919,82 +40392,6 @@ ScalaJS.d.Lorg_denigma_views_lists_MapView$$anonfun$itemPartial$1 = new ScalaJS.
 ScalaJS.c.Lorg_denigma_views_lists_MapView$$anonfun$itemPartial$1.prototype.$classData = ScalaJS.d.Lorg_denigma_views_lists_MapView$$anonfun$itemPartial$1;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1 = (function() {
-  ScalaJS.c.sr_AbstractPartialFunction.call(this)
-});
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1.prototype = new ScalaJS.h.sr_AbstractPartialFunction();
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1.prototype.constructor = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$1 = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$1.prototype = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1.prototype;
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1.prototype.applyOrElse__T2__F1__O = (function(x1, default$2) {
-  var x1$2 = x1;
-  if ((x1$2 !== null)) {
-    var key = ScalaJS.as.T(x1$2.$$und1__O());
-    var attr = x1$2.$$und2__O();
-    if ((ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(key, "data-") && (!ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(key, "data-view")))) {
-      return new ScalaJS.c.T2().init___O__O(ScalaJS.i.sjsr_RuntimeString$class__replace__sjsr_RuntimeString__jl_CharSequence__jl_CharSequence__T(key, "data-", ""), ScalaJS.as.T(attr["value"]).toString())
-    }
-  };
-  return default$2.apply__O__O(x1)
-});
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1.prototype.isDefinedAt__T2__Z = (function(x1) {
-  var x1$2 = x1;
-  if ((x1$2 !== null)) {
-    var key = ScalaJS.as.T(x1$2.$$und1__O());
-    if ((ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(key, "data-") && (!ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(key, "data-view")))) {
-      return true
-    }
-  };
-  return false
-});
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1.prototype.isDefinedAt__O__Z = (function(x) {
-  return this.isDefinedAt__T2__Z(ScalaJS.as.T2(x))
-});
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1.prototype.applyOrElse__O__F1__O = (function(x, default$2) {
-  return this.applyOrElse__T2__F1__O(ScalaJS.as.T2(x), default$2)
-});
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1.prototype.init___Lorg_denigma_views_core_OrganizedView = (function($$outer) {
-  ScalaJS.c.sr_AbstractPartialFunction.prototype.init___.call(this);
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$1 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$1)))
-});
-ScalaJS.as.Lorg_denigma_views_models_ModelView$$anonfun$1 = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$1(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.views.models.ModelView$$anonfun$1")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$1 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$1)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$1 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$1(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.models.ModelView$$anonfun$1;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$1 = new ScalaJS.ClassTypeData({
-  Lorg_denigma_views_models_ModelView$$anonfun$1: 0
-}, false, "org.denigma.views.models.ModelView$$anonfun$1", ScalaJS.d.sr_AbstractPartialFunction, {
-  Lorg_denigma_views_models_ModelView$$anonfun$1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1,
-  sr_AbstractPartialFunction: 1,
-  s_PartialFunction: 1,
-  F1: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$1.prototype.$classData = ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$1;
-/*<skip>*/;
-/** @constructor */
 ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$2 = (function() {
   ScalaJS.c.sr_AbstractPartialFunction.call(this)
 });
@@ -38005,22 +40402,22 @@ ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$2 = (function() {
   /*<skip>*/
 });
 ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$2.prototype = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$2.prototype;
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$2.prototype.applyOrElse__T2__F1__O = (function(x2, default$2) {
-  var x1 = x2;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$2.prototype.applyOrElse__T2__F1__O = (function(x3, default$2) {
+  var x1 = x3;
   if ((x1 !== null)) {
     var key = ScalaJS.as.T(x1.$$und1__O());
-    var value = x1.$$und2__O();
-    if ((!ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(ScalaJS.as.T(value["value"]).toString(), "data"))) {
-      return new ScalaJS.c.T2().init___O__O(key, ScalaJS.as.T(value["value"]).toString())
+    var attr = x1.$$und2__O();
+    if ((ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(key, "data-") && (!ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(key, "data-view")))) {
+      return new ScalaJS.c.T2().init___O__O(ScalaJS.i.sjsr_RuntimeString$class__replace__sjsr_RuntimeString__jl_CharSequence__jl_CharSequence__T(key, "data-", ""), ScalaJS.as.T(attr["value"]).toString())
     }
   };
-  return default$2.apply__O__O(x2)
+  return default$2.apply__O__O(x3)
 });
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$2.prototype.isDefinedAt__T2__Z = (function(x2) {
-  var x1 = x2;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$2.prototype.isDefinedAt__T2__Z = (function(x3) {
+  var x1 = x3;
   if ((x1 !== null)) {
-    var value = x1.$$und2__O();
-    if ((!ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(ScalaJS.as.T(value["value"]).toString(), "data"))) {
+    var key = ScalaJS.as.T(x1.$$und1__O());
+    if ((ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(key, "data-") && (!ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(key, "data-view")))) {
       return true
     }
   };
@@ -38069,6 +40466,192 @@ ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$2 = new ScalaJS.ClassType
   O: 1
 });
 ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$2.prototype.$classData = ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$2;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1 = (function() {
+  ScalaJS.c.sr_AbstractFunction2.call(this);
+  this.key$5$2 = null
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1.prototype = new ScalaJS.h.sr_AbstractFunction2();
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1.prototype.constructor = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1.prototype = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1.prototype;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1.prototype.apply__Lorg_scalajs_dom_HTMLElement__Lorg_denigma_views_models_ModelInside__V = (function(el, model) {
+  var rc7 = false;
+  var x2 = null;
+  var x1 = model.current__Lorg_scalax_semweb_shex_PropertyModel().properties__sci_Map().get__O__s_Option(this.key$5$2).map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function() {
+    return (function(x$2$2) {
+      var x$2 = ScalaJS.as.sci_Set(x$2$2);
+      return ScalaJS.as.Lorg_scalax_semweb_rdf_RDFValue(x$2.head__O())
+    })
+  })()));
+  matchEnd8: {
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
+      ScalaJS.g["console"]["log"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), ["", " was not found in the model"]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [this.key$5$2.toString__T()]))));
+      break matchEnd8
+    };
+    if (ScalaJS.is.s_Some(x1)) {
+      rc7 = true;
+      x2 = ScalaJS.as.s_Some(x1);
+      var value = ScalaJS.as.Lorg_scalax_semweb_rdf_RDFValue(x2.x__O());
+      if (ScalaJS.is.Lorg_scalax_semweb_rdf_BooleanLiteral(value)) {
+        var x5 = ScalaJS.as.Lorg_scalax_semweb_rdf_BooleanLiteral(value);
+        var x1$2 = ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(el).dyn__sjs_js_Dynamic()["checked"];
+        if ((typeof(x1$2) === "boolean")) {
+          var b = ScalaJS.uZ(x1$2);
+          if ((b !== x5.value__Z())) {
+            ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(el).dyn__sjs_js_Dynamic()["checked"] = x5.value__Z();
+            break matchEnd8
+          } else {
+            break matchEnd8
+          }
+        };
+        ScalaJS.g["console"]["log"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), ["unknown checked value for ", ""]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [this.key$5$2.toString__T()]))));
+        break matchEnd8
+      }
+    };
+    if (rc7) {
+      var value$2 = ScalaJS.as.Lorg_scalax_semweb_rdf_RDFValue(x2.x__O());
+      ScalaJS.g["console"]["log"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), ["", " is not a boolean, it is = ", ""]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [this.key$5$2.toString__T(), ScalaJS.objectGetClass(value$2).getName__T()]))));
+      break matchEnd8
+    };
+    throw new ScalaJS.c.s_MatchError().init___O(x1)
+  }
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1.prototype.apply__O__O__O = (function(v1, v2) {
+  this.apply__Lorg_scalajs_dom_HTMLElement__Lorg_denigma_views_models_ModelInside__V(v1, ScalaJS.as.Lorg_denigma_views_models_ModelInside(v2))
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1.prototype.init___Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_rdf_IRI = (function($$outer, key$5) {
+  this.key$5$2 = key$5;
+  ScalaJS.c.sr_AbstractFunction2.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1)))
+});
+ScalaJS.as.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.views.models.ModelView$$anonfun$bindRdfCkeckBox$1")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.models.ModelView$$anonfun$bindRdfCkeckBox$1;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1: 0
+}, false, "org.denigma.views.models.ModelView$$anonfun$bindRdfCkeckBox$1", ScalaJS.d.sr_AbstractFunction2, {
+  Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  sr_AbstractFunction2: 1,
+  F2: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1.prototype.$classData = ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$bindRdfCkeckBox$1;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1 = (function() {
+  ScalaJS.c.sr_AbstractFunction1.call(this);
+  this.$$outer$2 = null;
+  this.el$4$2 = null;
+  this.iri$2$f = null
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1.prototype = new ScalaJS.h.sr_AbstractFunction1();
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1.prototype.constructor = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1.prototype = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1.prototype;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1.prototype.apply__Lorg_scalajs_dom_Event__V = (function(ev) {
+  var x1 = ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(this.el$4$2).$$bslash__T__s_Option("checked");
+  matchEnd5: {
+    if (ScalaJS.is.s_Some(x1)) {
+      var x2 = ScalaJS.as.s_Some(x1);
+      var value = x2.x__O();
+      var x1$2 = value;
+      if ((typeof(value) === "boolean")) {
+        var b = ScalaJS.uZ(x1$2);
+        ScalaJS.m.Lorg_denigma_extensions_package().AnyJs__sjs_js_Any__Lorg_denigma_extensions_AnyJsExtensions$AnyJs(this.el$4$2).dyn__sjs_js_Dynamic()["checked"] = b;
+        ScalaJS.asUnit(ScalaJS.as.Lorg_denigma_views_models_ModelView(this.$$outer$2).modelInside__Lrx_core_Var().update__F0__Lrx_core_Propagator__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer, b$1) {
+          return (function() {
+            return ScalaJS.as.Lorg_denigma_views_models_ModelInside(ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer.org$denigma$views$models$ModelView$$anonfun$$$outer__Lorg_denigma_views_core_OrganizedView()).modelInside__Lrx_core_Var().now__O()).replace__Lorg_scalax_semweb_rdf_IRI__Lorg_scalax_semweb_rdf_RDFValue__Lorg_denigma_views_models_ModelInside(arg$outer.iri$2$f, new ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral().init___Z(b$1))
+          })
+        })(this, b)), ScalaJS.m.Lrx_core_Propagator$Immediate()));
+        break matchEnd5
+      };
+      ScalaJS.g["console"]["log"]("checked is not boolean");
+      break matchEnd5
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
+      ScalaJS.g["console"]["log"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), [" ", " not a checkbox"]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [this.iri$2$f.stringValue__T()]))));
+      break matchEnd5
+    };
+    throw new ScalaJS.c.s_MatchError().init___O(x1)
+  }
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1.prototype.org$denigma$views$models$ModelView$$anonfun$$$outer__Lorg_denigma_views_core_OrganizedView = (function() {
+  return this.$$outer$2
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1.prototype.apply__O__O = (function(v1) {
+  this.apply__Lorg_scalajs_dom_Event__V(v1)
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1.prototype.init___Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI = (function($$outer, el$4, iri$2) {
+  if (($$outer === null)) {
+    throw ScalaJS.unwrapJavaScriptException(null)
+  } else {
+    this.$$outer$2 = $$outer
+  };
+  this.el$4$2 = el$4;
+  this.iri$2$f = iri$2;
+  ScalaJS.c.sr_AbstractFunction1.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1)))
+});
+ScalaJS.as.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.views.models.ModelView$$anonfun$makeCheckboxHandler$1")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.models.ModelView$$anonfun$makeCheckboxHandler$1;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1: 0
+}, false, "org.denigma.views.models.ModelView$$anonfun$makeCheckboxHandler$1", ScalaJS.d.sr_AbstractFunction1, {
+  Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  sr_AbstractFunction1: 1,
+  F1: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1.prototype.$classData = ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$makeCheckboxHandler$1;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeRdfHandler$1 = (function() {
@@ -38179,46 +40762,63 @@ ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$makeRdfHandler$1 = new Sc
 ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$makeRdfHandler$1.prototype.$classData = ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$makeRdfHandler$1;
 /*<skip>*/;
 /** @constructor */
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1 = (function() {
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2 = (function() {
   ScalaJS.c.sr_AbstractPartialFunction.call(this);
   this.$$outer$2 = null;
-  this.el$2$2 = null;
+  this.el$2$f = null;
   this.key$1$2 = null;
-  this.value$1$2 = null;
-  this.ats$2$2 = null
+  this.value$2$f = null;
+  this.ats$2$f = null
 });
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype = new ScalaJS.h.sr_AbstractPartialFunction();
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.constructor = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype = new ScalaJS.h.sr_AbstractPartialFunction();
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype.constructor = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2;
 /** @constructor */
-ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1 = (function() {
+ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2 = (function() {
   /*<skip>*/
 });
-ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype;
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.applyOrElse__T__F1__O = (function(x3, default$2) {
-  var x1 = x3;
+ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype.applyOrElse__T__F1__O = (function(x4, default$2) {
+  var x1 = x4;
+  if (ScalaJS.anyRefEqEq("vocab", x1)) {
+    if (ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(this.value$2$f, ":")) {
+      ScalaJS.as.Lorg_denigma_views_models_RDFView(this.$$outer$2).prefixes$und$eq__sci_Map__V(ScalaJS.as.Lorg_denigma_views_models_RDFView(this.$$outer$2).prefixes__sci_Map().$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(":"), new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(this.value$2$f))));
+      return undefined
+    }
+  };
+  if (ScalaJS.anyRefEqEq("prefix", x1)) {
+    if (ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(this.value$2$f, ":")) {
+      ScalaJS.as.Lorg_denigma_views_models_RDFView(this.$$outer$2).prefixes$und$eq__sci_Map__V(ScalaJS.as.Lorg_denigma_views_models_RDFView(this.$$outer$2).prefixes__sci_Map().$$plus__T2__sci_Map(ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O(ScalaJS.i.sjsr_RuntimeString$class__substring__sjsr_RuntimeString__I__I__T(this.value$2$f, 0, ScalaJS.i.sjsr_RuntimeString$class__indexOf__sjsr_RuntimeString__T__I(this.value$2$f, ":"))), new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(this.value$2$f))));
+      return undefined
+    }
+  };
   if (ScalaJS.anyRefEqEq("property", x1)) {
-    var iri = new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(this.value$1$2);
-    ScalaJS.as.Lorg_denigma_views_models_ModelView(this.$$outer$2).bindRDFProperty__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__T__V(this.el$2$2, iri, this.value$1$2, ScalaJS.as.T(this.ats$2$2.get__O__s_Option("datatype").fold__F0__F1__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-      return (function() {
-        return ""
-      })
-    })()), new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function() {
-      return (function(v$2) {
-        var v = ScalaJS.as.T(v$2);
-        return v
-      })
-    })()))));
+    ScalaJS.as.Lorg_denigma_views_models_RDFView(this.$$outer$2).resolve__T__s_Option(this.value$2$f).foreach__F1__V(new ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1().init___Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2(this));
     return undefined
   };
   if (ScalaJS.i.sjsr_RuntimeString$class__startsWith__sjsr_RuntimeString__T__Z(x1, "property-")) {
     var att = ScalaJS.i.sjsr_RuntimeString$class__replace__sjsr_RuntimeString__jl_CharSequence__jl_CharSequence__T(this.key$1$2, "property-", "");
-    ScalaJS.as.Lorg_denigma_views_models_ModelView(this.$$outer$2).bindRdfAttribute__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__V(this.el$2$2, new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(this.value$1$2), att);
+    ScalaJS.as.Lorg_denigma_views_models_RDFView(this.$$outer$2).resolve__T__s_Option(this.value$2$f).foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer, att$1) {
+      return (function(iri$2) {
+        var iri = ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(iri$2);
+        ScalaJS.as.Lorg_denigma_views_models_ModelView(arg$outer.org$denigma$views$models$ModelView$$anonfun$$$outer__Lorg_denigma_views_core_OrganizedView()).bindRdfAttribute__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__V(arg$outer.el$2$f, iri, att$1)
+      })
+    })(this, att)));
     return undefined
   };
-  return default$2.apply__O__O(x3)
+  return default$2.apply__O__O(x4)
 });
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.isDefinedAt__T__Z = (function(x3) {
-  var x1 = x3;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype.isDefinedAt__T__Z = (function(x4) {
+  var x1 = x4;
+  if (ScalaJS.anyRefEqEq("vocab", x1)) {
+    if (ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(this.value$2$f, ":")) {
+      return true
+    }
+  };
+  if (ScalaJS.anyRefEqEq("prefix", x1)) {
+    if (ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(this.value$2$f, ":")) {
+      return true
+    }
+  };
   if (ScalaJS.anyRefEqEq("property", x1)) {
     return true
   };
@@ -38227,50 +40827,53 @@ ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.is
   };
   return false
 });
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.isDefinedAt__O__Z = (function(x) {
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype.org$denigma$views$models$ModelView$$anonfun$$$outer__Lorg_denigma_views_core_OrganizedView = (function() {
+  return this.$$outer$2
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype.isDefinedAt__O__Z = (function(x) {
   return this.isDefinedAt__T__Z(ScalaJS.as.T(x))
 });
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.applyOrElse__O__F1__O = (function(x, default$2) {
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype.applyOrElse__O__F1__O = (function(x, default$2) {
   return this.applyOrElse__T__F1__O(ScalaJS.as.T(x), default$2)
 });
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.init___Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map = (function($$outer, el$2, key$1, value$1, ats$2) {
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype.init___Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map = (function($$outer, el$2, key$1, value$2, ats$2) {
   if (($$outer === null)) {
     throw ScalaJS.unwrapJavaScriptException(null)
   } else {
     this.$$outer$2 = $$outer
   };
-  this.el$2$2 = el$2;
+  this.el$2$f = el$2;
   this.key$1$2 = key$1;
-  this.value$1$2 = value$1;
-  this.ats$2$2 = ats$2;
+  this.value$2$f = value$2;
+  this.ats$2$f = ats$2;
   ScalaJS.c.sr_AbstractPartialFunction.prototype.init___.call(this);
   return this
 });
 /*<skip>*/;
-ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1 = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1)))
+ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2)))
 });
-ScalaJS.as.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1 = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1(obj) || (obj === null))) {
+ScalaJS.as.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2(obj) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.views.models.ModelView$$anonfun$rdfPartial$1")
+    ScalaJS.throwClassCastException(obj, "org.denigma.views.models.ModelView$$anonfun$rdfPartial$2")
   }
 });
-ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1 = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1)))
+ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2)))
 });
-ScalaJS.asArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1 = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1(obj, depth) || (obj === null))) {
+ScalaJS.asArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2(obj, depth) || (obj === null))) {
     return obj
   } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.models.ModelView$$anonfun$rdfPartial$1;", depth)
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.models.ModelView$$anonfun$rdfPartial$2;", depth)
   }
 });
-ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1 = new ScalaJS.ClassTypeData({
-  Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1: 0
-}, false, "org.denigma.views.models.ModelView$$anonfun$rdfPartial$1", ScalaJS.d.sr_AbstractPartialFunction, {
-  Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1: 1,
+ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2: 0
+}, false, "org.denigma.views.models.ModelView$$anonfun$rdfPartial$2", ScalaJS.d.sr_AbstractPartialFunction, {
+  Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1,
   sr_AbstractPartialFunction: 1,
@@ -38278,7 +40881,152 @@ ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1 = new ScalaJ
   F1: 1,
   O: 1
 });
-ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1.prototype.$classData = ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$1;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2.prototype.$classData = ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1 = (function() {
+  ScalaJS.c.sr_AbstractFunction1.call(this);
+  this.$$outer$2 = null
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1.prototype = new ScalaJS.h.sr_AbstractFunction1();
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1.prototype.constructor = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1.prototype = ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1.prototype;
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1.prototype.apply__Lorg_scalax_semweb_rdf_IRI__V = (function(iri) {
+  ScalaJS.as.Lorg_denigma_views_models_ModelView(this.$$outer$2.org$denigma$views$models$ModelView$$anonfun$$$outer__Lorg_denigma_views_core_OrganizedView()).bindRDFProperty__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__T__V(this.$$outer$2.el$2$f, iri, this.$$outer$2.value$2$f, ScalaJS.as.T(this.$$outer$2.ats$2$f.get__O__s_Option("datatype").fold__F0__F1__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+    return (function() {
+      return ""
+    })
+  })()), new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function() {
+    return (function(v$2) {
+      var v = ScalaJS.as.T(v$2);
+      return v
+    })
+  })()))))
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1.prototype.apply__O__O = (function(v1) {
+  this.apply__Lorg_scalax_semweb_rdf_IRI__V(ScalaJS.as.Lorg_scalax_semweb_rdf_IRI(v1))
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1.prototype.init___Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2 = (function($$outer) {
+  if (($$outer === null)) {
+    throw ScalaJS.unwrapJavaScriptException(null)
+  } else {
+    this.$$outer$2 = $$outer
+  };
+  ScalaJS.c.sr_AbstractFunction1.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1)))
+});
+ScalaJS.as.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.views.models.ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.models.ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1: 0
+}, false, "org.denigma.views.models.ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1", ScalaJS.d.sr_AbstractFunction1, {
+  Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  sr_AbstractFunction1: 1,
+  F1: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1.prototype.$classData = ScalaJS.d.Lorg_denigma_views_models_ModelView$$anonfun$rdfPartial$2$$anonfun$applyOrElse$1;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1 = (function() {
+  ScalaJS.c.sr_AbstractPartialFunction.call(this)
+});
+ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1.prototype = new ScalaJS.h.sr_AbstractPartialFunction();
+ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1.prototype.constructor = ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_views_models_RDFView$$anonfun$1 = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_views_models_RDFView$$anonfun$1.prototype = ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1.prototype;
+ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1.prototype.applyOrElse__T2__F1__O = (function(x1, default$2) {
+  var x1$2 = x1;
+  if ((x1$2 !== null)) {
+    var key = ScalaJS.as.T(x1$2.$$und1__O());
+    var value = x1$2.$$und2__O();
+    if ((!ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(ScalaJS.as.T(value["value"]).toString(), "data"))) {
+      return new ScalaJS.c.T2().init___O__O(key, ScalaJS.as.T(value["value"]).toString())
+    }
+  };
+  return default$2.apply__O__O(x1)
+});
+ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1.prototype.isDefinedAt__T2__Z = (function(x1) {
+  var x1$2 = x1;
+  if ((x1$2 !== null)) {
+    var value = x1$2.$$und2__O();
+    if ((!ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(ScalaJS.as.T(value["value"]).toString(), "data"))) {
+      return true
+    }
+  };
+  return false
+});
+ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1.prototype.isDefinedAt__O__Z = (function(x) {
+  return this.isDefinedAt__T2__Z(ScalaJS.as.T2(x))
+});
+ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1.prototype.applyOrElse__O__F1__O = (function(x, default$2) {
+  return this.applyOrElse__T2__F1__O(ScalaJS.as.T2(x), default$2)
+});
+ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1.prototype.init___Lorg_denigma_views_core_OrganizedView = (function($$outer) {
+  ScalaJS.c.sr_AbstractPartialFunction.prototype.init___.call(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_views_models_RDFView$$anonfun$1 = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_views_models_RDFView$$anonfun$1)))
+});
+ScalaJS.as.Lorg_denigma_views_models_RDFView$$anonfun$1 = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_views_models_RDFView$$anonfun$1(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.views.models.RDFView$$anonfun$1")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_views_models_RDFView$$anonfun$1 = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_views_models_RDFView$$anonfun$1)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_views_models_RDFView$$anonfun$1 = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_views_models_RDFView$$anonfun$1(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.views.models.RDFView$$anonfun$1;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_views_models_RDFView$$anonfun$1 = new ScalaJS.ClassTypeData({
+  Lorg_denigma_views_models_RDFView$$anonfun$1: 0
+}, false, "org.denigma.views.models.RDFView$$anonfun$1", ScalaJS.d.sr_AbstractPartialFunction, {
+  Lorg_denigma_views_models_RDFView$$anonfun$1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  sr_AbstractPartialFunction: 1,
+  s_PartialFunction: 1,
+  F1: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_views_models_RDFView$$anonfun$1.prototype.$classData = ScalaJS.d.Lorg_denigma_views_models_RDFView$$anonfun$1;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_scalajs_dom_extensions_package$PimpedHtmlCollection = (function() {
@@ -38470,6 +41218,545 @@ ScalaJS.m.Lorg_scalajs_spickling_PicklerRegistry = (function() {
   };
   return ScalaJS.n.Lorg_scalajs_spickling_PicklerRegistry
 });
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral = (function() {
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.call(this);
+  this.value$2 = false
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype = new ScalaJS.h.Lorg_scalax_semweb_rdf_DatatypeLiteral();
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype.constructor = ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral;
+/** @constructor */
+ScalaJS.h.Lorg_scalax_semweb_rdf_BooleanLiteral = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype = ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype;
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype.value__Z = (function() {
+  return this.value$2
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype.productPrefix__T = (function() {
+  return "BooleanLiteral"
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.value__Z();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype.hashCode__I = (function() {
+  var acc = -889275714;
+  var jsx$3 = ScalaJS.m.sr_Statics();
+  var jsx$2 = acc;
+  if (this.value__Z()) {
+    var jsx$1 = 1231
+  } else {
+    var jsx$1 = 1237
+  };
+  acc = jsx$3.mix__I__I__I(jsx$2, jsx$1);
+  return ScalaJS.m.sr_Statics().finalizeHash__I__I__I(acc, 1)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype.init___Z = (function(value) {
+  this.value$2 = value;
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.init___T__Lorg_scalax_semweb_rdf_IRI.call(this, ScalaJS.objectToString(value), ScalaJS.m.Lorg_scalax_semweb_rdf_vocabulary_XSD().BooleanDatatypeIRI__Lorg_scalax_semweb_rdf_IRI());
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_scalax_semweb_rdf_BooleanLiteral = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_scalax_semweb_rdf_BooleanLiteral)))
+});
+ScalaJS.as.Lorg_scalax_semweb_rdf_BooleanLiteral = (function(obj) {
+  if ((ScalaJS.is.Lorg_scalax_semweb_rdf_BooleanLiteral(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.scalax.semweb.rdf.BooleanLiteral")
+  }
+});
+ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_BooleanLiteral = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_scalax_semweb_rdf_BooleanLiteral)))
+});
+ScalaJS.asArrayOf.Lorg_scalax_semweb_rdf_BooleanLiteral = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_BooleanLiteral(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.scalax.semweb.rdf.BooleanLiteral;", depth)
+  }
+});
+ScalaJS.d.Lorg_scalax_semweb_rdf_BooleanLiteral = new ScalaJS.ClassTypeData({
+  Lorg_scalax_semweb_rdf_BooleanLiteral: 0
+}, false, "org.scalax.semweb.rdf.BooleanLiteral", ScalaJS.d.Lorg_scalax_semweb_rdf_DatatypeLiteral, {
+  Lorg_scalax_semweb_rdf_BooleanLiteral: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Lorg_scalax_semweb_rdf_DatatypeLiteral: 1,
+  Lorg_scalax_semweb_rdf_Lit: 1,
+  Lorg_scalax_semweb_rdf_RDFValue: 1,
+  Lorg_scalax_semweb_rdf_CanBeObject: 1,
+  Lorg_scalax_semweb_rdf_RDFElement: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_BooleanLiteral.prototype.$classData = ScalaJS.d.Lorg_scalax_semweb_rdf_BooleanLiteral;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral = (function() {
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.call(this);
+  this.value$2 = null
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype = new ScalaJS.h.Lorg_scalax_semweb_rdf_DatatypeLiteral();
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype.constructor = ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral;
+/** @constructor */
+ScalaJS.h.Lorg_scalax_semweb_rdf_DecimalLiteral = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype = ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype;
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype.value__s_math_BigDecimal = (function() {
+  return this.value$2
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype.productPrefix__T = (function() {
+  return "DecimalLiteral"
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.value__s_math_BigDecimal();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype.init___s_math_BigDecimal = (function(value) {
+  this.value$2 = value;
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.init___T__Lorg_scalax_semweb_rdf_IRI.call(this, value.toString__T(), ScalaJS.m.Lorg_scalax_semweb_rdf_vocabulary_XSD().DecimalDatatypeIRI__Lorg_scalax_semweb_rdf_IRI());
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_scalax_semweb_rdf_DecimalLiteral = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_scalax_semweb_rdf_DecimalLiteral)))
+});
+ScalaJS.as.Lorg_scalax_semweb_rdf_DecimalLiteral = (function(obj) {
+  if ((ScalaJS.is.Lorg_scalax_semweb_rdf_DecimalLiteral(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.scalax.semweb.rdf.DecimalLiteral")
+  }
+});
+ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_DecimalLiteral = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_scalax_semweb_rdf_DecimalLiteral)))
+});
+ScalaJS.asArrayOf.Lorg_scalax_semweb_rdf_DecimalLiteral = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_DecimalLiteral(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.scalax.semweb.rdf.DecimalLiteral;", depth)
+  }
+});
+ScalaJS.d.Lorg_scalax_semweb_rdf_DecimalLiteral = new ScalaJS.ClassTypeData({
+  Lorg_scalax_semweb_rdf_DecimalLiteral: 0
+}, false, "org.scalax.semweb.rdf.DecimalLiteral", ScalaJS.d.Lorg_scalax_semweb_rdf_DatatypeLiteral, {
+  Lorg_scalax_semweb_rdf_DecimalLiteral: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Lorg_scalax_semweb_rdf_DatatypeLiteral: 1,
+  Lorg_scalax_semweb_rdf_Lit: 1,
+  Lorg_scalax_semweb_rdf_RDFValue: 1,
+  Lorg_scalax_semweb_rdf_CanBeObject: 1,
+  Lorg_scalax_semweb_rdf_RDFElement: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DecimalLiteral.prototype.$classData = ScalaJS.d.Lorg_scalax_semweb_rdf_DecimalLiteral;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral = (function() {
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.call(this);
+  this.value$2 = 0.0
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype = new ScalaJS.h.Lorg_scalax_semweb_rdf_DatatypeLiteral();
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype.constructor = ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral;
+/** @constructor */
+ScalaJS.h.Lorg_scalax_semweb_rdf_DoubleLiteral = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype = ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype;
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype.value__D = (function() {
+  return this.value$2
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype.productPrefix__T = (function() {
+  return "DoubleLiteral"
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.value__D();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype.hashCode__I = (function() {
+  var acc = -889275714;
+  acc = ScalaJS.m.sr_Statics().mix__I__I__I(acc, ScalaJS.m.sr_Statics().doubleHash__D__I(this.value__D()));
+  return ScalaJS.m.sr_Statics().finalizeHash__I__I__I(acc, 1)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype.init___D = (function(value) {
+  this.value$2 = value;
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.init___T__Lorg_scalax_semweb_rdf_IRI.call(this, ScalaJS.objectToString(value), ScalaJS.m.Lorg_scalax_semweb_rdf_vocabulary_XSD().DoubleDatatypeIRI__Lorg_scalax_semweb_rdf_IRI());
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_scalax_semweb_rdf_DoubleLiteral = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_scalax_semweb_rdf_DoubleLiteral)))
+});
+ScalaJS.as.Lorg_scalax_semweb_rdf_DoubleLiteral = (function(obj) {
+  if ((ScalaJS.is.Lorg_scalax_semweb_rdf_DoubleLiteral(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.scalax.semweb.rdf.DoubleLiteral")
+  }
+});
+ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_DoubleLiteral = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_scalax_semweb_rdf_DoubleLiteral)))
+});
+ScalaJS.asArrayOf.Lorg_scalax_semweb_rdf_DoubleLiteral = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_DoubleLiteral(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.scalax.semweb.rdf.DoubleLiteral;", depth)
+  }
+});
+ScalaJS.d.Lorg_scalax_semweb_rdf_DoubleLiteral = new ScalaJS.ClassTypeData({
+  Lorg_scalax_semweb_rdf_DoubleLiteral: 0
+}, false, "org.scalax.semweb.rdf.DoubleLiteral", ScalaJS.d.Lorg_scalax_semweb_rdf_DatatypeLiteral, {
+  Lorg_scalax_semweb_rdf_DoubleLiteral: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Lorg_scalax_semweb_rdf_DatatypeLiteral: 1,
+  Lorg_scalax_semweb_rdf_Lit: 1,
+  Lorg_scalax_semweb_rdf_RDFValue: 1,
+  Lorg_scalax_semweb_rdf_CanBeObject: 1,
+  Lorg_scalax_semweb_rdf_RDFElement: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_DoubleLiteral.prototype.$classData = ScalaJS.d.Lorg_scalax_semweb_rdf_DoubleLiteral;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral = (function() {
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.call(this);
+  this.value$2 = null
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype = new ScalaJS.h.Lorg_scalax_semweb_rdf_DatatypeLiteral();
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype.constructor = ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral;
+/** @constructor */
+ScalaJS.h.Lorg_scalax_semweb_rdf_IntegerLiteral = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype = ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype;
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype.value__jl_Integer = (function() {
+  return this.value$2
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype.productPrefix__T = (function() {
+  return "IntegerLiteral"
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.value__jl_Integer();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype.init___jl_Integer = (function(value) {
+  this.value$2 = value;
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.init___T__Lorg_scalax_semweb_rdf_IRI.call(this, value.toString(), ScalaJS.m.Lorg_scalax_semweb_rdf_vocabulary_XSD().IntegerDatatypeIRI__Lorg_scalax_semweb_rdf_IRI());
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_scalax_semweb_rdf_IntegerLiteral = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_scalax_semweb_rdf_IntegerLiteral)))
+});
+ScalaJS.as.Lorg_scalax_semweb_rdf_IntegerLiteral = (function(obj) {
+  if ((ScalaJS.is.Lorg_scalax_semweb_rdf_IntegerLiteral(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.scalax.semweb.rdf.IntegerLiteral")
+  }
+});
+ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_IntegerLiteral = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_scalax_semweb_rdf_IntegerLiteral)))
+});
+ScalaJS.asArrayOf.Lorg_scalax_semweb_rdf_IntegerLiteral = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_IntegerLiteral(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.scalax.semweb.rdf.IntegerLiteral;", depth)
+  }
+});
+ScalaJS.d.Lorg_scalax_semweb_rdf_IntegerLiteral = new ScalaJS.ClassTypeData({
+  Lorg_scalax_semweb_rdf_IntegerLiteral: 0
+}, false, "org.scalax.semweb.rdf.IntegerLiteral", ScalaJS.d.Lorg_scalax_semweb_rdf_DatatypeLiteral, {
+  Lorg_scalax_semweb_rdf_IntegerLiteral: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Lorg_scalax_semweb_rdf_DatatypeLiteral: 1,
+  Lorg_scalax_semweb_rdf_Lit: 1,
+  Lorg_scalax_semweb_rdf_RDFValue: 1,
+  Lorg_scalax_semweb_rdf_CanBeObject: 1,
+  Lorg_scalax_semweb_rdf_RDFElement: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_IntegerLiteral.prototype.$classData = ScalaJS.d.Lorg_scalax_semweb_rdf_IntegerLiteral;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral = (function() {
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.call(this);
+  this.value$2 = ScalaJS.m.sjsr_RuntimeLong().zero__sjsr_RuntimeLong()
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype = new ScalaJS.h.Lorg_scalax_semweb_rdf_DatatypeLiteral();
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype.constructor = ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral;
+/** @constructor */
+ScalaJS.h.Lorg_scalax_semweb_rdf_LongLiteral = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_scalax_semweb_rdf_LongLiteral.prototype = ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype;
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype.value__J = (function() {
+  return this.value$2
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype.productPrefix__T = (function() {
+  return "LongLiteral"
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype.productArity__I = (function() {
+  return 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.value__J();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype.hashCode__I = (function() {
+  var acc = -889275714;
+  acc = ScalaJS.m.sr_Statics().mix__I__I__I(acc, ScalaJS.m.sr_Statics().longHash__J__I(this.value__J()));
+  return ScalaJS.m.sr_Statics().finalizeHash__I__I__I(acc, 1)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype.init___J = (function(value) {
+  this.value$2 = value;
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.init___T__Lorg_scalax_semweb_rdf_IRI.call(this, ScalaJS.objectToString(value), ScalaJS.m.Lorg_scalax_semweb_rdf_vocabulary_XSD().LongDatatypeIRI__Lorg_scalax_semweb_rdf_IRI());
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_scalax_semweb_rdf_LongLiteral = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_scalax_semweb_rdf_LongLiteral)))
+});
+ScalaJS.as.Lorg_scalax_semweb_rdf_LongLiteral = (function(obj) {
+  if ((ScalaJS.is.Lorg_scalax_semweb_rdf_LongLiteral(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.scalax.semweb.rdf.LongLiteral")
+  }
+});
+ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_LongLiteral = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_scalax_semweb_rdf_LongLiteral)))
+});
+ScalaJS.asArrayOf.Lorg_scalax_semweb_rdf_LongLiteral = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_LongLiteral(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.scalax.semweb.rdf.LongLiteral;", depth)
+  }
+});
+ScalaJS.d.Lorg_scalax_semweb_rdf_LongLiteral = new ScalaJS.ClassTypeData({
+  Lorg_scalax_semweb_rdf_LongLiteral: 0
+}, false, "org.scalax.semweb.rdf.LongLiteral", ScalaJS.d.Lorg_scalax_semweb_rdf_DatatypeLiteral, {
+  Lorg_scalax_semweb_rdf_LongLiteral: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Lorg_scalax_semweb_rdf_DatatypeLiteral: 1,
+  Lorg_scalax_semweb_rdf_Lit: 1,
+  Lorg_scalax_semweb_rdf_RDFValue: 1,
+  Lorg_scalax_semweb_rdf_CanBeObject: 1,
+  Lorg_scalax_semweb_rdf_RDFElement: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_LongLiteral.prototype.$classData = ScalaJS.d.Lorg_scalax_semweb_rdf_LongLiteral;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral = (function() {
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.call(this);
+  this.lang$2 = null
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype = new ScalaJS.h.Lorg_scalax_semweb_rdf_DatatypeLiteral();
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.constructor = ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral;
+/** @constructor */
+ScalaJS.h.Lorg_scalax_semweb_rdf_StringLangLiteral = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype = ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype;
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.text__T = (function() {
+  return ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.label__T.call(this)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.lang__T = (function() {
+  return this.lang$2
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.stringValue__T = (function() {
+  var lex = (("\"" + this.label__T()) + "\"");
+  if ((!ScalaJS.anyRefEqEq(this.lang__T(), ""))) {
+    return (("" + lex) + this.lang__T())
+  } else {
+    return lex
+  }
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.equals__O__Z = (function(that) {
+  var x1 = that;
+  if (ScalaJS.is.Lorg_scalax_semweb_rdf_StringLangLiteral(x1)) {
+    var x2 = ScalaJS.as.Lorg_scalax_semweb_rdf_StringLangLiteral(x1);
+    return (ScalaJS.anyRefEqEq(x2.label__T(), this.label__T()) && ScalaJS.anyRefEqEq(x2.lang__T(), this.lang__T()))
+  };
+  if (ScalaJS.is.Lorg_scalax_semweb_rdf_Lit(x1)) {
+    var x3 = ScalaJS.as.Lorg_scalax_semweb_rdf_Lit(x1);
+    return ScalaJS.anyRefEqEq(x3.label__T(), this.text__T())
+  };
+  return false
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.productPrefix__T = (function() {
+  return "StringLangLiteral"
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.productArity__I = (function() {
+  return 2
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.productElement__I__O = (function(x$1) {
+  var x1 = x$1;
+  switch (x1) {
+    case 0:
+      {
+        return this.text__T();
+        break
+      };
+    case 1:
+      {
+        return this.lang__T();
+        break
+      };
+    default:
+      throw new ScalaJS.c.jl_IndexOutOfBoundsException().init___T(ScalaJS.objectToString(x$1));
+  }
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.productIterator__sc_Iterator = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().typedProductIterator__s_Product__sc_Iterator(this)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.hashCode__I = (function() {
+  return ScalaJS.m.sr_ScalaRunTime().$$undhashCode__s_Product__I(this)
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.init___T__T = (function(text, lang) {
+  this.lang$2 = lang;
+  ScalaJS.c.Lorg_scalax_semweb_rdf_DatatypeLiteral.prototype.init___T__Lorg_scalax_semweb_rdf_IRI.call(this, text, ScalaJS.m.Lorg_scalax_semweb_rdf_vocabulary_XSD().StringDatatypeIRI__Lorg_scalax_semweb_rdf_IRI());
+  ScalaJS.i.s_Product$class__$init$__s_Product__V(this);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_scalax_semweb_rdf_StringLangLiteral = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_scalax_semweb_rdf_StringLangLiteral)))
+});
+ScalaJS.as.Lorg_scalax_semweb_rdf_StringLangLiteral = (function(obj) {
+  if ((ScalaJS.is.Lorg_scalax_semweb_rdf_StringLangLiteral(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.scalax.semweb.rdf.StringLangLiteral")
+  }
+});
+ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_StringLangLiteral = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_scalax_semweb_rdf_StringLangLiteral)))
+});
+ScalaJS.asArrayOf.Lorg_scalax_semweb_rdf_StringLangLiteral = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_scalax_semweb_rdf_StringLangLiteral(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.scalax.semweb.rdf.StringLangLiteral;", depth)
+  }
+});
+ScalaJS.d.Lorg_scalax_semweb_rdf_StringLangLiteral = new ScalaJS.ClassTypeData({
+  Lorg_scalax_semweb_rdf_StringLangLiteral: 0
+}, false, "org.scalax.semweb.rdf.StringLangLiteral", ScalaJS.d.Lorg_scalax_semweb_rdf_DatatypeLiteral, {
+  Lorg_scalax_semweb_rdf_StringLangLiteral: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1,
+  s_Product: 1,
+  s_Equals: 1,
+  Lorg_scalax_semweb_rdf_DatatypeLiteral: 1,
+  Lorg_scalax_semweb_rdf_Lit: 1,
+  Lorg_scalax_semweb_rdf_RDFValue: 1,
+  Lorg_scalax_semweb_rdf_CanBeObject: 1,
+  Lorg_scalax_semweb_rdf_RDFElement: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_scalax_semweb_rdf_StringLangLiteral.prototype.$classData = ScalaJS.d.Lorg_scalax_semweb_rdf_StringLangLiteral;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_scalax_semweb_rdf_StringLiteral = (function() {
@@ -45686,6 +48973,39 @@ ScalaJS.d.ju_concurrent_ExecutionException = new ScalaJS.ClassTypeData({
 });
 ScalaJS.c.ju_concurrent_ExecutionException.prototype.$classData = ScalaJS.d.ju_concurrent_ExecutionException;
 /*<skip>*/;
+ScalaJS.is.s_math_BigDecimal = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.s_math_BigDecimal)))
+});
+ScalaJS.as.s_math_BigDecimal = (function(obj) {
+  if ((ScalaJS.is.s_math_BigDecimal(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "scala.math.BigDecimal")
+  }
+});
+ScalaJS.isArrayOf.s_math_BigDecimal = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.s_math_BigDecimal)))
+});
+ScalaJS.asArrayOf.s_math_BigDecimal = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.s_math_BigDecimal(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lscala.math.BigDecimal;", depth)
+  }
+});
+ScalaJS.d.s_math_BigDecimal = new ScalaJS.ClassTypeData({
+  s_math_BigDecimal: 0
+}, false, "scala.math.BigDecimal", ScalaJS.d.s_math_ScalaNumber, {
+  s_math_BigDecimal: 1,
+  s_Serializable: 1,
+  s_math_ScalaNumericConversions: 1,
+  s_math_ScalaNumericAnyConversions: 1,
+  s_math_ScalaNumber: 1,
+  jl_Number: 1,
+  Ljava_io_Serializable: 1,
+  O: 1
+});
+/*<skip>*/;
 /** @constructor */
 ScalaJS.c.s_ref_WeakReferenceWithWrapper = (function() {
   ScalaJS.c.jl_ref_WeakReference.call(this);
@@ -48518,6 +51838,9 @@ ScalaJS.c.sci_AbstractMap.prototype.toMap__s_Predef$$less$colon$less__sci_Map = 
 });
 ScalaJS.c.sci_AbstractMap.prototype.seq__sci_Map = (function() {
   return ScalaJS.i.sci_Map$class__seq__sci_Map__sci_Map(this)
+});
+ScalaJS.c.sci_AbstractMap.prototype.$$plus$plus__sc_GenTraversableOnce__sci_Map = (function(xs) {
+  return ScalaJS.i.sci_MapLike$class__$plus$plus__sci_MapLike__sc_GenTraversableOnce__sci_Map(this, xs)
 });
 ScalaJS.c.sci_AbstractMap.prototype.mapValues__F1__sci_Map = (function(f) {
   return ScalaJS.i.sci_MapLike$class__mapValues__sci_MapLike__F1__sci_Map(this, f)
@@ -52322,7 +55645,8 @@ ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$.prototype.init___ = (function(
   this.sidebarParams$5 = {
     "exclusive": false
   };
-  ScalaJS.m.Lorg_denigma_views_package().register__T__F2__Lorg_denigma_views_package$("menu", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$2().init___()).register__T__F2__Lorg_denigma_views_package$("ArticleView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$3().init___()).register__T__F2__Lorg_denigma_views_package$("sidebar", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$4().init___()).register__T__F2__Lorg_denigma_views_package$("random", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$5().init___()).register__T__F2__Lorg_denigma_views_package$("lists", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$6().init___()).register__T__F2__Lorg_denigma_views_package$("SlideView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$7().init___()).register__T__F2__Lorg_denigma_views_package$("BindSlide", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$8().init___()).register__T__F2__Lorg_denigma_views_package$("RemoteSlide", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$9().init___()).register__T__F2__Lorg_denigma_views_package$("CollectionSlide", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$10().init___()).register__T__F2__Lorg_denigma_views_package$("RdfSlide", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$11().init___()).register__T__F2__Lorg_denigma_views_package$("CodeView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$12().init___()).register__T__F2__Lorg_denigma_views_package$("TestModelView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$13().init___()).register__T__F2__Lorg_denigma_views_package$("PicklerView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$14().init___()).register__T__F2__Lorg_denigma_views_package$("PageEditView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$15().init___());
+  ScalaJS.m.Lorg_denigma_views_package().register__T__F2__Lorg_denigma_views_package$("menu", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$2().init___()).register__T__F2__Lorg_denigma_views_package$("ArticleView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$3().init___()).register__T__F2__Lorg_denigma_views_package$("sidebar", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$4().init___()).register__T__F2__Lorg_denigma_views_package$("random", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$5().init___()).register__T__F2__Lorg_denigma_views_package$("lists", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$6().init___()).register__T__F2__Lorg_denigma_views_package$("SlideView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$7().init___()).register__T__F2__Lorg_denigma_views_package$("BindSlide", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$8().init___()).register__T__F2__Lorg_denigma_views_package$("RemoteSlide", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$9().init___()).register__T__F2__Lorg_denigma_views_package$("RdfSlide", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$10().init___()).register__T__F2__Lorg_denigma_views_package$("Todos", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$11().init___()).register__T__F2__Lorg_denigma_views_package$("CodeView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$12().init___()).register__T__F2__Lorg_denigma_views_package$("TestModelView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$13().init___()).register__T__F2__Lorg_denigma_views_package$("PicklerView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$14().init___()).register__T__F2__Lorg_denigma_views_package$("PageEditView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$15().init___()).register__T__F2__Lorg_denigma_views_package$("CodeInsideView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$16().init___()).register__T__F2__Lorg_denigma_views_package$("TableView", new ScalaJS.c.Lorg_denigma_binding_frontend_FrontEnd$$anonfun$17().init___());
+  ScalaJS.m.Lorg_denigma_views_package().registerEditor__T__Lorg_denigma_InlineEditor__V("ckeditor", ScalaJS.m.Lorg_denigma_controls_CkEditor());
   this.toggle$5 = ScalaJS.m.Lrx_package().Var__Lrx_core_Var$().apply__F0__T__Lrx_core_Var(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
     return (function() {
       return ScalaJS.m.Lorg_denigma_binding_frontend_FrontEnd().createMouseEvent__Lorg_scalajs_dom_MouseEvent()
@@ -52561,93 +55885,6 @@ ScalaJS.d.Lorg_denigma_binding_frontend_slides_BindSlide = new ScalaJS.ClassType
   O: 1
 });
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_BindSlide.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_BindSlide;
-/*<skip>*/;
-/** @constructor */
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide = (function() {
-  ScalaJS.c.Lorg_denigma_views_core_OrdinaryView.call(this);
-  this.html$undcode$5 = null;
-  this.scala$undcode$5 = null
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype = new ScalaJS.h.Lorg_denigma_views_core_OrdinaryView();
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide;
-/** @constructor */
-ScalaJS.h.Lorg_denigma_binding_frontend_slides_CollectionSlide = (function() {
-  /*<skip>*/
-});
-ScalaJS.h.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype;
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype.tags__sci_Map = (function() {
-  return this.extractTagRx__O__Lorg_denigma_binding_macroses_TagRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$1().init___Lorg_denigma_binding_frontend_slides_CollectionSlide(this))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype.strings__sci_Map = (function() {
-  return this.extractStringRx__O__Lorg_denigma_binding_macroses_StringRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$2().init___Lorg_denigma_binding_frontend_slides_CollectionSlide(this))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype.bools__sci_Map = (function() {
-  return this.extractBooleanRx__O__Lorg_denigma_binding_macroses_BooleanRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$3().init___Lorg_denigma_binding_frontend_slides_CollectionSlide(this))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype.mouseEvents__sci_Map = (function() {
-  return this.extractMouseEvents__O__Lorg_denigma_binding_macroses_MouseEventMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide$$anon$4().init___Lorg_denigma_binding_frontend_slides_CollectionSlide(this))
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
-  ScalaJS.c.Lorg_denigma_views_core_BindingView.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V.call(this, el)
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype.html$undcode__Lrx_core_Var = (function() {
-  return this.html$undcode$5
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype.scala$undcode__Lrx_core_Var = (function() {
-  return this.scala$undcode$5
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype.init___Lorg_scalajs_dom_HTMLElement__sci_Map = (function(element, params) {
-  ScalaJS.c.Lorg_denigma_views_core_OrdinaryView.prototype.init___T__Lorg_scalajs_dom_HTMLElement.call(this, "bind", element);
-  this.html$undcode$5 = ScalaJS.m.Lrx_package().Var__Lrx_core_Var$().apply__F0__T__Lrx_core_Var(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-    return (function() {
-      return new ScalaJS.c.sci_StringOps().init___T(ScalaJS.m.s_Predef().augmentString__T__T("\n      |<nav class=\"ui large blue inverted menu\" data-view=\"menu\" data-param-path=\"menu/what\">\n      |    <a data-template=\"true\" class=\"active item header\" data-item-bind-href=\"uri\" data-item-bind=\"label\" data-load-into=\"main\">\n      |        <i class=\"ui-icon-home\"></i>\n      |    </a>\n      |</nav>\n    ")).stripMargin__T()
-    })
-  })()), ScalaJS.m.Lrx_package().Var__Lrx_core_Var$().apply$default$2__T());
-  this.scala$undcode$5 = ScalaJS.m.Lrx_package().Var__Lrx_core_Var$().apply__F0__T__Lrx_core_Var(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
-    return (function() {
-      return new ScalaJS.c.sci_StringOps().init___T(ScalaJS.m.s_Predef().augmentString__T__T("\n\n    ")).stripMargin__T()
-    })
-  })()), ScalaJS.m.Lrx_package().Var__Lrx_core_Var$().apply$default$2__T());
-  return this
-});
-/*<skip>*/;
-ScalaJS.is.Lorg_denigma_binding_frontend_slides_CollectionSlide = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_CollectionSlide)))
-});
-ScalaJS.as.Lorg_denigma_binding_frontend_slides_CollectionSlide = (function(obj) {
-  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_CollectionSlide(obj) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.CollectionSlide")
-  }
-});
-ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_CollectionSlide)))
-});
-ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide = (function(obj, depth) {
-  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_CollectionSlide(obj, depth) || (obj === null))) {
-    return obj
-  } else {
-    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.CollectionSlide;", depth)
-  }
-});
-ScalaJS.d.Lorg_denigma_binding_frontend_slides_CollectionSlide = new ScalaJS.ClassTypeData({
-  Lorg_denigma_binding_frontend_slides_CollectionSlide: 0
-}, false, "org.denigma.binding.frontend.slides.CollectionSlide", ScalaJS.d.Lorg_denigma_views_core_OrdinaryView, {
-  Lorg_denigma_binding_frontend_slides_CollectionSlide: 1,
-  Lorg_denigma_views_core_OrdinaryView: 1,
-  Lorg_denigma_binding_EventBinding: 1,
-  Lorg_denigma_binding_ScalaTagsBinder: 1,
-  Lorg_denigma_binding_GeneralBinding: 1,
-  Lorg_denigma_binding_PropertyBinder: 1,
-  Lorg_denigma_binding_ClassBinder: 1,
-  Lorg_denigma_binding_VisibilityBinder: 1,
-  Lorg_denigma_views_core_OrganizedView: 1,
-  Lorg_denigma_views_core_BindingView: 1,
-  Lorg_denigma_binding_JustBinding: 1,
-  O: 1
-});
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_CollectionSlide.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_CollectionSlide;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_RdfSlide = (function() {
@@ -53153,6 +56390,356 @@ ScalaJS.d.Lorg_denigma_binding_frontend_tests_RandomView = new ScalaJS.ClassType
 ScalaJS.c.Lorg_denigma_binding_frontend_tests_RandomView.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tests_RandomView;
 /*<skip>*/;
 /** @constructor */
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection = (function() {
+  ScalaJS.c.Lorg_denigma_views_core_OrdinaryView.call(this);
+  this.path$5 = null;
+  this.query$5 = null;
+  this.shape$5 = null;
+  this.registry$5 = null;
+  this.storage$5 = null;
+  this.items$5 = null;
+  this.template$5 = null
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype = new ScalaJS.h.Lorg_denigma_views_core_OrdinaryView();
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection.prototype = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype;
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.template__Lorg_scalajs_dom_HTMLElement = (function() {
+  return this.template$5
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.org$denigma$views$lists$CollectionView$$undsetter$und$template$und$eq__Lorg_scalajs_dom_HTMLElement__V = (function(x$1) {
+  this.template$5 = x$1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.extractTemplate__Lorg_scalajs_dom_HTMLElement = (function() {
+  return ScalaJS.i.Lorg_denigma_views_lists_CollectionView$class__extractTemplate__Lorg_denigma_views_core_OrdinaryView__Lorg_scalajs_dom_HTMLElement(this)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.org$denigma$controls$AjaxModelCollection$$super$bindView__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
+  ScalaJS.i.Lorg_denigma_views_lists_CollectionView$class__bindView__Lorg_denigma_views_core_OrdinaryView__Lorg_scalajs_dom_HTMLElement__V(this, el)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.path__T = (function() {
+  return this.path$5
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.query__Lorg_scalax_semweb_rdf_IRI = (function() {
+  return this.query$5
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.shape__Lorg_scalax_semweb_rdf_IRI = (function() {
+  return this.shape$5
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.registry__Lorg_denigma_binding_picklers_rp$ = (function() {
+  return this.registry$5
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.storage__Lorg_denigma_storages_AjaxModelQueryStorage = (function() {
+  return this.storage$5
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.items__Lrx_core_Var = (function() {
+  return this.items$5
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.newItem__Lorg_scalax_semweb_shex_PropertyModel__Lorg_denigma_views_core_BindingView = (function(item) {
+  var el = this.template__Lorg_scalajs_dom_HTMLElement()["cloneNode"](true);
+  var mp = ScalaJS.as.sci_Map(ScalaJS.m.sci_Map().apply__sc_Seq__sc_GenMap(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T2.getArrayOf(), [ScalaJS.m.s_Predef$ArrowAssoc().$$minus$greater$extension__O__O__T2(ScalaJS.m.s_Predef().ArrowAssoc__O__O("model"), item)]), 1))));
+  var x1 = ScalaJS.m.Lorg_scalajs_dom_extensions_package().Attributes__Lorg_scalajs_dom_NamedNodeMap__Lorg_scalajs_dom_extensions_package$Attributes(el["attributes"]).get__T__s_Option("item-view");
+  matchEnd5: {
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
+      var view = ScalaJS.m.Lorg_denigma_controls_AjaxModelCollection().apply__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_shex_PropertyModel__Lorg_denigma_views_core_BindingView(el, item);
+      break matchEnd5
+    };
+    if (ScalaJS.is.s_Some(x1)) {
+      var x2 = ScalaJS.as.s_Some(x1);
+      var v = x2.x__O();
+      var x1$2 = this.inject__T__Lorg_scalajs_dom_HTMLElement__sci_Map__Lorg_denigma_views_core_BindingView(ScalaJS.as.T(v["value"]), el, mp);
+      if (ScalaJS.is.Lorg_denigma_views_models_ModelView(x1$2)) {
+        var x2$2 = x1$2;
+        var view = x2$2;
+        break matchEnd5
+      };
+      ScalaJS.g["console"]["error"](new ScalaJS.c.s_StringContext().init___sc_Seq(ScalaJS.m.s_Predef().wrapRefArray__AO__scm_WrappedArray(ScalaJS.asArrayOf.O(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.T.getArrayOf(), ["view ", " exists but does not inherit MapView"]), 1))).s__sc_Seq__T(ScalaJS.m.s_Predef().genericWrapArray__O__scm_WrappedArray(ScalaJS.makeNativeArrayWrapper(ScalaJS.d.O.getArrayOf(), [ScalaJS.as.T(v["value"])]))));
+      var view = ScalaJS.m.Lorg_denigma_controls_AjaxModelCollection().apply__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_shex_PropertyModel__Lorg_denigma_views_core_BindingView(el, item);
+      break matchEnd5
+    };
+    throw new ScalaJS.c.s_MatchError().init___O(x1)
+  };
+  return view
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
+  ScalaJS.m.Lorg_denigma_binding_picklers_rp().registerPicklers__V();
+  var models = this.storage__Lorg_denigma_storages_AjaxModelQueryStorage().select__Lorg_scalax_semweb_rdf_Res__Lorg_scalax_semweb_rdf_Res__s_concurrent_Future(this.query__Lorg_scalax_semweb_rdf_IRI(), this.shape__Lorg_scalax_semweb_rdf_IRI());
+  models.onComplete__F1__s_concurrent_ExecutionContext__V(new ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$bindView$1().init___Lorg_denigma_controls_AjaxModelCollection__Lorg_scalajs_dom_HTMLElement(this, el), ScalaJS.m.sjs_concurrent_JSExecutionContext$Implicits().queue__s_concurrent_ExecutionContext())
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.updateItems__V = (function() {
+  var id = ("items_of_" + ScalaJS.as.T(this.viewElement__Lorg_scalajs_dom_HTMLElement()["id"]));
+  var x1 = ScalaJS.m.Lorg_denigma_extensions_sq().byId__T__s_Option(id);
+  matchEnd5: {
+    if (ScalaJS.is.s_Some(x1)) {
+      var x2 = ScalaJS.as.s_Some(x1);
+      var el = x2.x__O();
+      var span = el;
+      break matchEnd5
+    };
+    if (ScalaJS.anyRefEqEq(ScalaJS.m.s_None(), x1)) {
+      var sp = ScalaJS.g["document"]["createElement"]("span");
+      sp["id"] = id;
+      if ((this.template__Lorg_scalajs_dom_HTMLElement() === this.viewElement__Lorg_scalajs_dom_HTMLElement())) {
+        this.viewElement__Lorg_scalajs_dom_HTMLElement()["appendChild"](sp)
+      } else {
+        this.viewElement__Lorg_scalajs_dom_HTMLElement()["replaceChild"](sp, this.template__Lorg_scalajs_dom_HTMLElement())
+      };
+      var span = sp;
+      break matchEnd5
+    };
+    throw new ScalaJS.c.s_MatchError().init___O(x1)
+  };
+  var viewElements = ScalaJS.as.sci_List(ScalaJS.as.sci_List(this.items__Lrx_core_Var().now__O()).map__F1__scg_CanBuildFrom__O(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
+    return (function(item$2) {
+      var item = ScalaJS.as.Lorg_scalax_semweb_shex_PropertyModel(item$2);
+      return arg$outer.newItem__Lorg_scalax_semweb_shex_PropertyModel__Lorg_denigma_views_core_BindingView(item)
+    })
+  })(this)), ScalaJS.m.sci_List().canBuildFrom__scg_CanBuildFrom()));
+  viewElements.foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer, span$1) {
+    return (function(i$2) {
+      var i = ScalaJS.as.Lorg_denigma_views_core_BindingView(i$2);
+      arg$outer.addView__Lorg_denigma_views_core_BindingView__V(i);
+      arg$outer.viewElement__Lorg_scalajs_dom_HTMLElement()["insertBefore"](i.viewElement__Lorg_scalajs_dom_HTMLElement(), span$1);
+      i.bindView__Lorg_scalajs_dom_HTMLElement__V(i.viewElement__Lorg_scalajs_dom_HTMLElement())
+    })
+  })(this, span)));
+  ScalaJS.as.sc_IterableLike(ScalaJS.m.Lorg_scalajs_dom_extensions_package().PimpedHtmlCollection__Lorg_scalajs_dom_HTMLCollection__Lorg_scalajs_dom_extensions_package$PimpedHtmlCollection(this.viewElement__Lorg_scalajs_dom_HTMLElement()["children"]).collect__s_PartialFunction__scg_CanBuildFrom__O(new ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$$anonfun$updateItems$1().init___Lorg_denigma_controls_AjaxModelCollection(this), ScalaJS.m.sc_Seq().canBuildFrom__scg_CanBuildFrom())).foreach__F1__V(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
+    return (function(el$2) {
+      var el = el$2;
+      arg$outer.bind__Lorg_scalajs_dom_HTMLElement__V(el)
+    })
+  })(this)))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.newItem__O__Lorg_denigma_views_core_BindingView = (function(mp) {
+  return this.newItem__Lorg_scalax_semweb_shex_PropertyModel__Lorg_denigma_views_core_BindingView(ScalaJS.as.Lorg_scalax_semweb_shex_PropertyModel(mp))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.items__Lrx_core_Rx = (function() {
+  return this.items__Lrx_core_Var()
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.init___T__Lorg_scalajs_dom_HTMLElement__sci_Map = (function(name, element, params) {
+  ScalaJS.c.Lorg_denigma_views_core_OrdinaryView.prototype.init___T__Lorg_scalajs_dom_HTMLElement.call(this, name, element);
+  ScalaJS.i.Lorg_denigma_views_lists_CollectionView$class__$init$__Lorg_denigma_views_core_OrdinaryView__V(this);
+  ScalaJS.m.s_Predef().require__Z__F0__V(params.contains__O__Z("path"), new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+    return (function() {
+      return "AjaxModelCollectionView should have query view-param"
+    })
+  })()));
+  ScalaJS.m.s_Predef().require__Z__F0__V(params.contains__O__Z("query"), new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+    return (function() {
+      return "AjaxModelCollectionView should have path query-param"
+    })
+  })()));
+  ScalaJS.m.s_Predef().require__Z__F0__V(params.contains__O__Z("shape"), new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+    return (function() {
+      return "AjaxModelCollectionView should have shape shape-param"
+    })
+  })()));
+  this.path$5 = ScalaJS.as.T(params.get__O__s_Option("path").map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function() {
+    return (function(v$2) {
+      var v = ScalaJS.as.O(v$2);
+      if (ScalaJS.i.sjsr_RuntimeString$class__contains__sjsr_RuntimeString__jl_CharSequence__Z(ScalaJS.objectToString(v), ":")) {
+        return ScalaJS.objectToString(v)
+      } else {
+        return ScalaJS.m.Lorg_denigma_extensions_sq().withHost__T__T(ScalaJS.objectToString(v))
+      }
+    })
+  })())).get__O());
+  this.query$5 = new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(ScalaJS.objectToString(params.apply__O__O("query")));
+  this.shape$5 = new ScalaJS.c.Lorg_scalax_semweb_rdf_IRI().init___T(ScalaJS.objectToString(params.apply__O__O("shape")));
+  this.registry$5 = ScalaJS.m.Lorg_denigma_binding_picklers_rp();
+  this.storage$5 = new ScalaJS.c.Lorg_denigma_storages_AjaxModelQueryStorage().init___T__Lorg_scalajs_spickling_PicklerRegistry(this.path__T(), this.registry__Lorg_denigma_binding_picklers_rp$());
+  this.items$5 = ScalaJS.m.Lrx_package().Var__Lrx_core_Var$().apply__F0__T__Lrx_core_Var(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function() {
+    return (function() {
+      return ScalaJS.m.sci_List().empty__sci_List()
+    })
+  })()), ScalaJS.m.Lrx_package().Var__Lrx_core_Var$().apply$default$2__T());
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_AjaxModelCollection)))
+});
+ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.AjaxModelCollection")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_AjaxModelCollection)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_AjaxModelCollection = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.AjaxModelCollection;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_AjaxModelCollection: 0
+}, false, "org.denigma.controls.AjaxModelCollection", ScalaJS.d.Lorg_denigma_views_core_OrdinaryView, {
+  Lorg_denigma_controls_AjaxModelCollection: 1,
+  Lorg_denigma_views_lists_CollectionView: 1,
+  Lorg_denigma_views_core_OrdinaryView: 1,
+  Lorg_denigma_binding_EventBinding: 1,
+  Lorg_denigma_binding_ScalaTagsBinder: 1,
+  Lorg_denigma_binding_GeneralBinding: 1,
+  Lorg_denigma_binding_PropertyBinder: 1,
+  Lorg_denigma_binding_ClassBinder: 1,
+  Lorg_denigma_binding_VisibilityBinder: 1,
+  Lorg_denigma_views_core_OrganizedView: 1,
+  Lorg_denigma_views_core_BindingView: 1,
+  Lorg_denigma_binding_JustBinding: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel = (function() {
+  ScalaJS.c.Lorg_denigma_views_core_OrdinaryView.call(this);
+  this.org$denigma$controls$AjaxModelCollection$JustModel$$model$f = null;
+  this.modelInside$5 = null;
+  this.prefixes$5 = null
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype = new ScalaJS.h.Lorg_denigma_views_core_OrdinaryView();
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$JustModel = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype = ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype;
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.org$denigma$views$models$ModelView$$undsetter$und$modelInside$und$eq__Lrx_core_Var__V = (function(x$1) {
+  /*<skip>*/
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.bindElement__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
+  ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindElement__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__V(this, el)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.rdfPartial__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map__s_PartialFunction = (function(el, key, value, ats) {
+  return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__rdfPartial__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map__s_PartialFunction(this, el, key, value, ats)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.strOptionFromProperties__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option = (function(model, key) {
+  return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__strOptionFromProperties__Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalax_semweb_rdf_IRI__s_Option(this, model, key)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.prettyString__Lorg_scalax_semweb_rdf_RDFValue__T = (function(value) {
+  return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__prettyString__Lorg_denigma_views_core_OrganizedView__Lorg_scalax_semweb_rdf_RDFValue__T(this, value)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.vals2String__sci_Set__T = (function(values) {
+  return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__vals2String__Lorg_denigma_views_core_OrganizedView__sci_Set__T(this, values)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.bindRdfInner__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function(el, key) {
+  ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfInner__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(this, el, key)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.bindRdfText__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function(el, key) {
+  ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfText__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(this, el, key)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.bindRdfInput__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function(el, key) {
+  ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfInput__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(this, el, key)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.bindRdfCkeckBox__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function(el, key) {
+  ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfCkeckBox__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(this, el, key)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.bindRdfAttribute__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__V = (function(el, key, att) {
+  ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfAttribute__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__V(this, el, key, att)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.makeRdfHandler__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__F1 = (function(el, iri, pname) {
+  return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__makeRdfHandler__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__F1(this, el, iri, pname)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.makeCheckboxHandler__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__F1 = (function(el, iri) {
+  return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__makeCheckboxHandler__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__F1(this, el, iri)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.bindRDFProperty__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__T__V = (function(el, iri, att, datatype) {
+  ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRDFProperty__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__T__V(this, el, iri, att, datatype)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.prefixes__sci_Map = (function() {
+  return this.prefixes$5
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.prefixes$und$eq__sci_Map__V = (function(x$1) {
+  this.prefixes$5 = x$1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.resolve__T__s_Option = (function(property) {
+  return ScalaJS.i.Lorg_denigma_views_models_RDFView$class__resolve__Lorg_denigma_views_core_OrganizedView__T__s_Option(this, property)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.nearestRDFParent__Lorg_denigma_views_core_BindingView__s_Option = (function(current) {
+  return ScalaJS.i.Lorg_denigma_views_models_RDFView$class__nearestRDFParent__Lorg_denigma_views_core_OrganizedView__Lorg_denigma_views_core_BindingView__s_Option(this, current)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.bindRdf__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
+  ScalaJS.i.Lorg_denigma_views_models_RDFView$class__bindRdf__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__V(this, el)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.nearestRDFParent$default$1__Lorg_denigma_views_core_BindingView = (function() {
+  return ScalaJS.i.Lorg_denigma_views_models_RDFView$class__nearestRDFParent$default$1__Lorg_denigma_views_core_OrganizedView__Lorg_denigma_views_core_BindingView(this)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.modelInside__Lrx_core_Var = (function() {
+  return this.modelInside$5
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.bools__sci_Map = (function() {
+  return this.extractBooleanRx__O__Lorg_denigma_binding_macroses_BooleanRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$1().init___Lorg_denigma_controls_AjaxModelCollection$JustModel(this))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.strings__sci_Map = (function() {
+  return this.extractStringRx__O__Lorg_denigma_binding_macroses_StringRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$2().init___Lorg_denigma_controls_AjaxModelCollection$JustModel(this))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.mouseEvents__sci_Map = (function() {
+  return this.extractMouseEvents__O__Lorg_denigma_binding_macroses_MouseEventMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$3().init___Lorg_denigma_controls_AjaxModelCollection$JustModel(this))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.tags__sci_Map = (function() {
+  return this.extractTagRx__O__Lorg_denigma_binding_macroses_TagRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel$$anon$4().init___Lorg_denigma_controls_AjaxModelCollection$JustModel(this))
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.init___T__Lorg_scalax_semweb_shex_PropertyModel__Lorg_scalajs_dom_HTMLElement = (function(name, model, html) {
+  this.org$denigma$controls$AjaxModelCollection$JustModel$$model$f = model;
+  ScalaJS.c.Lorg_denigma_views_core_OrdinaryView.prototype.init___T__Lorg_scalajs_dom_HTMLElement.call(this, name, html);
+  ScalaJS.i.Lorg_denigma_views_models_RDFView$class__$init$__Lorg_denigma_views_core_OrganizedView__V(this);
+  ScalaJS.i.Lorg_denigma_views_models_ModelView$class__$init$__Lorg_denigma_views_core_OrganizedView__V(this);
+  this.modelInside$5 = ScalaJS.m.Lrx_package().Var__Lrx_core_Var$().apply__F0__T__Lrx_core_Var(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(arg$outer) {
+    return (function() {
+      return ScalaJS.m.Lorg_denigma_views_models_ModelInside().apply__Lorg_scalax_semweb_shex_PropertyModel__Lorg_denigma_views_models_ModelInside(arg$outer.org$denigma$controls$AjaxModelCollection$JustModel$$model$f)
+    })
+  })(this)), ScalaJS.m.Lrx_package().Var__Lrx_core_Var$().apply$default$2__T());
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$JustModel = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_AjaxModelCollection$JustModel)))
+});
+ScalaJS.as.Lorg_denigma_controls_AjaxModelCollection$JustModel = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_AjaxModelCollection$JustModel(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.AjaxModelCollection$JustModel")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_AjaxModelCollection$JustModel)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_AjaxModelCollection$JustModel(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.AjaxModelCollection$JustModel;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$JustModel = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_AjaxModelCollection$JustModel: 0
+}, false, "org.denigma.controls.AjaxModelCollection$JustModel", ScalaJS.d.Lorg_denigma_views_core_OrdinaryView, {
+  Lorg_denigma_controls_AjaxModelCollection$JustModel: 1,
+  Lorg_denigma_views_models_ModelView: 1,
+  Lorg_denigma_views_models_RDFView: 1,
+  Lorg_denigma_views_core_OrdinaryView: 1,
+  Lorg_denigma_binding_EventBinding: 1,
+  Lorg_denigma_binding_ScalaTagsBinder: 1,
+  Lorg_denigma_binding_GeneralBinding: 1,
+  Lorg_denigma_binding_PropertyBinder: 1,
+  Lorg_denigma_binding_ClassBinder: 1,
+  Lorg_denigma_binding_VisibilityBinder: 1,
+  Lorg_denigma_views_core_OrganizedView: 1,
+  Lorg_denigma_views_core_BindingView: 1,
+  Lorg_denigma_binding_JustBinding: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection$JustModel.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection$JustModel;
+/*<skip>*/;
+/** @constructor */
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView = (function() {
   ScalaJS.c.Lorg_denigma_views_core_OrdinaryView.call(this);
   this.path$5 = null;
@@ -53160,7 +56747,8 @@ ScalaJS.c.Lorg_denigma_controls_AjaxModelView = (function() {
   this.shape$5 = null;
   this.storage$5 = null;
   this.dirty$5 = null;
-  this.modelInside$5 = null
+  this.modelInside$5 = null;
+  this.prefixes$5 = null
 });
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype = new ScalaJS.h.Lorg_denigma_views_core_OrdinaryView();
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_AjaxModelView;
@@ -53193,9 +56781,6 @@ ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.org$denigma$views$models
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.bindElement__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
   ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindElement__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__V(this, el)
 });
-ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.bindRdf__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
-  ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdf__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__V(this, el)
-});
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.rdfPartial__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map__s_PartialFunction = (function(el, key, value, ats) {
   return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__rdfPartial__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__T__T__sci_Map__s_PartialFunction(this, el, key, value, ats)
 });
@@ -53217,14 +56802,38 @@ ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.bindRdfText__Lorg_scalaj
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.bindRdfInput__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function(el, key) {
   ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfInput__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(this, el, key)
 });
+ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.bindRdfCkeckBox__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function(el, key) {
+  ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfCkeckBox__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(this, el, key)
+});
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.bindRdfAttribute__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__V = (function(el, key, att) {
   ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRdfAttribute__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__V(this, el, key, att)
 });
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.makeRdfHandler__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__F1 = (function(el, iri, pname) {
   return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__makeRdfHandler__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__F1(this, el, iri, pname)
 });
+ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.makeCheckboxHandler__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__F1 = (function(el, iri) {
+  return ScalaJS.i.Lorg_denigma_views_models_ModelView$class__makeCheckboxHandler__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__F1(this, el, iri)
+});
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.bindRDFProperty__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__T__V = (function(el, iri, att, datatype) {
   ScalaJS.i.Lorg_denigma_views_models_ModelView$class__bindRDFProperty__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__T__T__V(this, el, iri, att, datatype)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.prefixes__sci_Map = (function() {
+  return this.prefixes$5
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.prefixes$und$eq__sci_Map__V = (function(x$1) {
+  this.prefixes$5 = x$1
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.resolve__T__s_Option = (function(property) {
+  return ScalaJS.i.Lorg_denigma_views_models_RDFView$class__resolve__Lorg_denigma_views_core_OrganizedView__T__s_Option(this, property)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.nearestRDFParent__Lorg_denigma_views_core_BindingView__s_Option = (function(current) {
+  return ScalaJS.i.Lorg_denigma_views_models_RDFView$class__nearestRDFParent__Lorg_denigma_views_core_OrganizedView__Lorg_denigma_views_core_BindingView__s_Option(this, current)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.bindRdf__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
+  ScalaJS.i.Lorg_denigma_views_models_RDFView$class__bindRdf__Lorg_denigma_views_core_OrganizedView__Lorg_scalajs_dom_HTMLElement__V(this, el)
+});
+ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.nearestRDFParent$default$1__Lorg_denigma_views_core_BindingView = (function() {
+  return ScalaJS.i.Lorg_denigma_views_models_RDFView$class__nearestRDFParent$default$1__Lorg_denigma_views_core_OrganizedView__Lorg_denigma_views_core_BindingView(this)
 });
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.org$denigma$controls$AjaxModelView$$super$bindView__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
   ScalaJS.c.Lorg_denigma_views_core_BindingView.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V.call(this, el)
@@ -53297,6 +56906,7 @@ ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.onLoadModel__sci_List__V
 });
 ScalaJS.c.Lorg_denigma_controls_AjaxModelView.prototype.init___T__Lorg_scalajs_dom_HTMLElement__sci_Map = (function(name, element, params) {
   ScalaJS.c.Lorg_denigma_views_core_OrdinaryView.prototype.init___T__Lorg_scalajs_dom_HTMLElement.call(this, name, element);
+  ScalaJS.i.Lorg_denigma_views_models_RDFView$class__$init$__Lorg_denigma_views_core_OrganizedView__V(this);
   ScalaJS.i.Lorg_denigma_views_models_ModelView$class__$init$__Lorg_denigma_views_core_OrganizedView__V(this);
   ScalaJS.i.Lorg_denigma_controls_ActiveModelView$class__$init$__Lorg_denigma_views_core_OrdinaryView__V(this);
   this.path$5 = ScalaJS.as.T(params.get__O__s_Option("path").map__F1__s_Option(new ScalaJS.c.sjsr_AnonFunction1().init___sjs_js_Function1((function() {
@@ -53344,6 +56954,7 @@ ScalaJS.d.Lorg_denigma_controls_AjaxModelView = new ScalaJS.ClassTypeData({
   Lorg_denigma_controls_AjaxModelView: 1,
   Lorg_denigma_controls_ActiveModelView: 1,
   Lorg_denigma_views_models_ModelView: 1,
+  Lorg_denigma_views_models_RDFView: 1,
   Lorg_denigma_views_core_OrdinaryView: 1,
   Lorg_denigma_binding_EventBinding: 1,
   Lorg_denigma_binding_ScalaTagsBinder: 1,
@@ -55036,6 +58647,14 @@ ScalaJS.c.sci_ListMap.prototype.updated__O__O__sci_ListMap = (function(key, valu
 ScalaJS.c.sci_ListMap.prototype.$$plus__T2__sci_ListMap = (function(kv) {
   return this.updated__O__O__sci_ListMap(kv.$$und1__O(), kv.$$und2__O())
 });
+ScalaJS.c.sci_ListMap.prototype.$$plus$plus__sc_GenTraversableOnce__sci_ListMap = (function(xs) {
+  var x$1 = ScalaJS.as.sci_ListMap(this.repr__O());
+  return ScalaJS.as.sci_ListMap(xs.seq__sc_TraversableOnce().$$div$colon__O__F2__O(x$1, new ScalaJS.c.sjsr_AnonFunction2().init___sjs_js_Function2((function(x$2$2, x$3$2) {
+    var x$2 = ScalaJS.as.sci_ListMap(x$2$2);
+    var x$3 = ScalaJS.as.T2(x$3$2);
+    return this.$$anonfun$1__p5__sci_ListMap__T2__sci_ListMap(x$2, x$3)
+  })["bind"](this))))
+});
 ScalaJS.c.sci_ListMap.prototype.$$minus__O__sci_ListMap = (function(key) {
   return this
 });
@@ -55063,6 +58682,9 @@ ScalaJS.c.sci_ListMap.prototype.seq__sc_Map = (function() {
 ScalaJS.c.sci_ListMap.prototype.$$minus__O__sc_Map = (function(key) {
   return this.$$minus__O__sci_ListMap(key)
 });
+ScalaJS.c.sci_ListMap.prototype.$$plus$plus__sc_GenTraversableOnce__sci_Map = (function(xs) {
+  return this.$$plus$plus__sc_GenTraversableOnce__sci_ListMap(xs)
+});
 ScalaJS.c.sci_ListMap.prototype.$$plus__T2__sc_GenMap = (function(kv) {
   return this.$$plus__T2__sci_ListMap(kv)
 });
@@ -55077,6 +58699,9 @@ ScalaJS.c.sci_ListMap.prototype.empty__sc_Map = (function() {
 });
 ScalaJS.c.sci_ListMap.prototype.empty__sci_Map = (function() {
   return this.empty__sci_ListMap()
+});
+ScalaJS.c.sci_ListMap.prototype.$$anonfun$1__p5__sci_ListMap__T2__sci_ListMap = (function(x$2, x$3) {
+  return x$2.$$plus__T2__sci_ListMap(x$3)
 });
 /*<skip>*/;
 ScalaJS.is.sci_ListMap = (function(obj) {
@@ -56140,6 +59765,9 @@ ScalaJS.c.sci_MapLike$$anon$2.prototype.seq__sci_Map = (function() {
 });
 ScalaJS.c.sci_MapLike$$anon$2.prototype.updated__O__O__sci_Map = (function(key, value) {
   return ScalaJS.i.sci_MapLike$class__updated__sci_MapLike__O__O__sci_Map(this, key, value)
+});
+ScalaJS.c.sci_MapLike$$anon$2.prototype.$$plus$plus__sc_GenTraversableOnce__sci_Map = (function(xs) {
+  return ScalaJS.i.sci_MapLike$class__$plus$plus__sci_MapLike__sc_GenTraversableOnce__sci_Map(this, xs)
 });
 ScalaJS.c.sci_MapLike$$anon$2.prototype.mapValues__F1__sci_Map = (function(f) {
   return ScalaJS.i.sci_MapLike$class__mapValues__sci_MapLike__F1__sci_Map(this, f)
@@ -58521,11 +62149,11 @@ ScalaJS.c.Lorg_denigma_binding_frontend_slides_PageEditView.prototype.org$denigm
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_PageEditView.prototype.bindRdfInner__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function(el, key) {
   ScalaJS.i.Lorg_denigma_controls_EditModelView$class__bindRdfInner__Lorg_denigma_views_core_OrdinaryView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(this, el, key)
 });
-ScalaJS.c.Lorg_denigma_binding_frontend_slides_PageEditView.prototype.bindEditable__Lorg_scalajs_dom_HTMLElement__T__V = (function(el, key) {
-  ScalaJS.i.Lorg_denigma_controls_EditModelView$class__bindEditable__Lorg_denigma_views_core_OrdinaryView__Lorg_scalajs_dom_HTMLElement__T__V(this, el, key)
-});
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_PageEditView.prototype.bindRdfText__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V = (function(el, key) {
   ScalaJS.i.Lorg_denigma_controls_EditModelView$class__bindRdfText__Lorg_denigma_views_core_OrdinaryView__Lorg_scalajs_dom_HTMLElement__Lorg_scalax_semweb_rdf_IRI__V(this, el, key)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_PageEditView.prototype.bindEditable__Lorg_scalajs_dom_HTMLElement__T__V = (function(el, key) {
+  ScalaJS.i.Lorg_denigma_controls_EditModelView$class__bindEditable__Lorg_denigma_views_core_OrdinaryView__Lorg_scalajs_dom_HTMLElement__T__V(this, el, key)
 });
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_PageEditView.prototype.params__sci_Map = (function() {
   return this.params$6
@@ -58595,6 +62223,7 @@ ScalaJS.d.Lorg_denigma_binding_frontend_slides_PageEditView = new ScalaJS.ClassT
   Lorg_denigma_controls_AjaxModelView: 1,
   Lorg_denigma_controls_ActiveModelView: 1,
   Lorg_denigma_views_models_ModelView: 1,
+  Lorg_denigma_views_models_RDFView: 1,
   Lorg_denigma_views_core_OrdinaryView: 1,
   Lorg_denigma_binding_EventBinding: 1,
   Lorg_denigma_binding_ScalaTagsBinder: 1,
@@ -58608,6 +62237,77 @@ ScalaJS.d.Lorg_denigma_binding_frontend_slides_PageEditView = new ScalaJS.ClassT
   O: 1
 });
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_PageEditView.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_PageEditView;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView = (function() {
+  ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView.prototype = new ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection();
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_TableView = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_TableView.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView.prototype.tags__sci_Map = (function() {
+  return this.extractTagRx__O__Lorg_denigma_binding_macroses_TagRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$1().init___Lorg_denigma_binding_frontend_slides_TableView(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView.prototype.strings__sci_Map = (function() {
+  return this.extractStringRx__O__Lorg_denigma_binding_macroses_StringRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$2().init___Lorg_denigma_binding_frontend_slides_TableView(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView.prototype.bools__sci_Map = (function() {
+  return this.extractBooleanRx__O__Lorg_denigma_binding_macroses_BooleanRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$3().init___Lorg_denigma_binding_frontend_slides_TableView(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView.prototype.mouseEvents__sci_Map = (function() {
+  return this.extractMouseEvents__O__Lorg_denigma_binding_macroses_MouseEventMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView$$anon$4().init___Lorg_denigma_binding_frontend_slides_TableView(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
+  ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V.call(this, el)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView.prototype.init___Lorg_scalajs_dom_HTMLElement__sci_Map = (function(element, params) {
+  ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.init___T__Lorg_scalajs_dom_HTMLElement__sci_Map.call(this, "Todos", element, params);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_slides_TableView = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_TableView)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_slides_TableView = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_TableView(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.TableView")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_TableView = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_TableView)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_TableView = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_TableView(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.TableView;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_slides_TableView = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_slides_TableView: 0
+}, false, "org.denigma.binding.frontend.slides.TableView", ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection, {
+  Lorg_denigma_binding_frontend_slides_TableView: 1,
+  Lorg_denigma_controls_AjaxModelCollection: 1,
+  Lorg_denigma_views_lists_CollectionView: 1,
+  Lorg_denigma_views_core_OrdinaryView: 1,
+  Lorg_denigma_binding_EventBinding: 1,
+  Lorg_denigma_binding_ScalaTagsBinder: 1,
+  Lorg_denigma_binding_GeneralBinding: 1,
+  Lorg_denigma_binding_PropertyBinder: 1,
+  Lorg_denigma_binding_ClassBinder: 1,
+  Lorg_denigma_binding_VisibilityBinder: 1,
+  Lorg_denigma_views_core_OrganizedView: 1,
+  Lorg_denigma_views_core_BindingView: 1,
+  Lorg_denigma_binding_JustBinding: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_TableView.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_TableView;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_TestModelView = (function() {
@@ -58716,6 +62416,7 @@ ScalaJS.d.Lorg_denigma_binding_frontend_slides_TestModelView = new ScalaJS.Class
   Lorg_denigma_controls_AjaxModelView: 1,
   Lorg_denigma_controls_ActiveModelView: 1,
   Lorg_denigma_views_models_ModelView: 1,
+  Lorg_denigma_views_models_RDFView: 1,
   Lorg_denigma_views_core_OrdinaryView: 1,
   Lorg_denigma_binding_EventBinding: 1,
   Lorg_denigma_binding_ScalaTagsBinder: 1,
@@ -58729,6 +62430,77 @@ ScalaJS.d.Lorg_denigma_binding_frontend_slides_TestModelView = new ScalaJS.Class
   O: 1
 });
 ScalaJS.c.Lorg_denigma_binding_frontend_slides_TestModelView.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_TestModelView;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos = (function() {
+  ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos.prototype = new ScalaJS.h.Lorg_denigma_controls_AjaxModelCollection();
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_Todos = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_slides_Todos.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos.prototype.tags__sci_Map = (function() {
+  return this.extractTagRx__O__Lorg_denigma_binding_macroses_TagRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$5().init___Lorg_denigma_binding_frontend_slides_Todos(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos.prototype.strings__sci_Map = (function() {
+  return this.extractStringRx__O__Lorg_denigma_binding_macroses_StringRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$6().init___Lorg_denigma_binding_frontend_slides_Todos(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos.prototype.bools__sci_Map = (function() {
+  return this.extractBooleanRx__O__Lorg_denigma_binding_macroses_BooleanRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$7().init___Lorg_denigma_binding_frontend_slides_Todos(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos.prototype.mouseEvents__sci_Map = (function() {
+  return this.extractMouseEvents__O__Lorg_denigma_binding_macroses_MouseEventMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos$$anon$8().init___Lorg_denigma_binding_frontend_slides_Todos(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
+  ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V.call(this, el)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos.prototype.init___Lorg_scalajs_dom_HTMLElement__sci_Map = (function(element, params) {
+  ScalaJS.c.Lorg_denigma_controls_AjaxModelCollection.prototype.init___T__Lorg_scalajs_dom_HTMLElement__sci_Map.call(this, "Todos", element, params);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_slides_Todos = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_slides_Todos)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_slides_Todos = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_slides_Todos(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.slides.Todos")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_Todos = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_slides_Todos)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_slides_Todos = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_slides_Todos(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.slides.Todos;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_slides_Todos = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_slides_Todos: 0
+}, false, "org.denigma.binding.frontend.slides.Todos", ScalaJS.d.Lorg_denigma_controls_AjaxModelCollection, {
+  Lorg_denigma_binding_frontend_slides_Todos: 1,
+  Lorg_denigma_controls_AjaxModelCollection: 1,
+  Lorg_denigma_views_lists_CollectionView: 1,
+  Lorg_denigma_views_core_OrdinaryView: 1,
+  Lorg_denigma_binding_EventBinding: 1,
+  Lorg_denigma_binding_ScalaTagsBinder: 1,
+  Lorg_denigma_binding_GeneralBinding: 1,
+  Lorg_denigma_binding_PropertyBinder: 1,
+  Lorg_denigma_binding_ClassBinder: 1,
+  Lorg_denigma_binding_VisibilityBinder: 1,
+  Lorg_denigma_views_core_OrganizedView: 1,
+  Lorg_denigma_views_core_BindingView: 1,
+  Lorg_denigma_binding_JustBinding: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_slides_Todos.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_slides_Todos;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_binding_frontend_tests_LongListView = (function() {
@@ -58871,16 +62643,16 @@ ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView = (function() {
 });
 ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeView.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView.prototype;
 ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView.prototype.tags__sci_Map = (function() {
-  return this.extractTagRx__O__Lorg_denigma_binding_macroses_TagRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$1().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
+  return this.extractTagRx__O__Lorg_denigma_binding_macroses_TagRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$5().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
 });
 ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView.prototype.strings__sci_Map = (function() {
-  return this.extractStringRx__O__Lorg_denigma_binding_macroses_StringRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$2().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
+  return this.extractStringRx__O__Lorg_denigma_binding_macroses_StringRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$6().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
 });
 ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView.prototype.bools__sci_Map = (function() {
-  return this.extractBooleanRx__O__Lorg_denigma_binding_macroses_BooleanRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$3().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
+  return this.extractBooleanRx__O__Lorg_denigma_binding_macroses_BooleanRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$7().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
 });
 ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView.prototype.mouseEvents__sci_Map = (function() {
-  return this.extractMouseEvents__O__Lorg_denigma_binding_macroses_MouseEventMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$4().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
+  return this.extractMouseEvents__O__Lorg_denigma_binding_macroses_MouseEventMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView$$anon$8().init___Lorg_denigma_binding_frontend_tools_CodeView(this))
 });
 ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeView.prototype.init___Lorg_scalajs_dom_HTMLElement__sci_Map = (function(element, params) {
   ScalaJS.c.Lorg_denigma_controls_CodeMirrorView.prototype.init___T__Lorg_scalajs_dom_HTMLElement__sci_Map.call(this, "CodeView", element, params);
@@ -59038,6 +62810,66 @@ ScalaJS.d.Lorg_denigma_controls_AjaxMenuView = new ScalaJS.ClassTypeData({
   O: 1
 });
 ScalaJS.c.Lorg_denigma_controls_AjaxMenuView.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_AjaxMenuView;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_controls_CodeMirrorInsideView = (function() {
+  ScalaJS.c.Lorg_denigma_controls_CodeMirrorView.call(this)
+});
+ScalaJS.c.Lorg_denigma_controls_CodeMirrorInsideView.prototype = new ScalaJS.h.Lorg_denigma_controls_CodeMirrorView();
+ScalaJS.c.Lorg_denigma_controls_CodeMirrorInsideView.prototype.constructor = ScalaJS.c.Lorg_denigma_controls_CodeMirrorInsideView;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_controls_CodeMirrorInsideView = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_controls_CodeMirrorInsideView.prototype = ScalaJS.c.Lorg_denigma_controls_CodeMirrorInsideView.prototype;
+ScalaJS.c.Lorg_denigma_controls_CodeMirrorInsideView.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V = (function(el) {
+  this.code__Lrx_core_Var().update__F0__Lrx_core_Propagator__O(new ScalaJS.c.sjsr_AnonFunction0().init___sjs_js_Function0((function(el$1) {
+    return (function() {
+      return ScalaJS.as.T(ScalaJS.protect(ScalaJS.g["jQuery"])(el$1)["text"]())
+    })
+  })(el)), ScalaJS.m.Lrx_core_Propagator$Immediate());
+  el["innerHTML"] = "";
+  ScalaJS.c.Lorg_denigma_controls_CodeMirrorView.prototype.bindView__Lorg_scalajs_dom_HTMLElement__V.call(this, el)
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_controls_CodeMirrorInsideView = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_controls_CodeMirrorInsideView)))
+});
+ScalaJS.as.Lorg_denigma_controls_CodeMirrorInsideView = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_controls_CodeMirrorInsideView(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.controls.CodeMirrorInsideView")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_controls_CodeMirrorInsideView = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_controls_CodeMirrorInsideView)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_controls_CodeMirrorInsideView = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_controls_CodeMirrorInsideView(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.controls.CodeMirrorInsideView;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_controls_CodeMirrorInsideView = new ScalaJS.ClassTypeData({
+  Lorg_denigma_controls_CodeMirrorInsideView: 0
+}, false, "org.denigma.controls.CodeMirrorInsideView", ScalaJS.d.Lorg_denigma_controls_CodeMirrorView, {
+  Lorg_denigma_controls_CodeMirrorInsideView: 1,
+  Lorg_denigma_controls_CodeMirrorView: 1,
+  Lorg_denigma_views_core_OrdinaryView: 1,
+  Lorg_denigma_binding_EventBinding: 1,
+  Lorg_denigma_binding_ScalaTagsBinder: 1,
+  Lorg_denigma_binding_GeneralBinding: 1,
+  Lorg_denigma_binding_PropertyBinder: 1,
+  Lorg_denigma_binding_ClassBinder: 1,
+  Lorg_denigma_binding_VisibilityBinder: 1,
+  Lorg_denigma_views_core_OrganizedView: 1,
+  Lorg_denigma_views_core_BindingView: 1,
+  Lorg_denigma_binding_JustBinding: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_controls_CodeMirrorInsideView.prototype.$classData = ScalaJS.d.Lorg_denigma_controls_CodeMirrorInsideView;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_views_lists_ListView$JustMapView = (function() {
@@ -62558,6 +66390,74 @@ ScalaJS.d.scm_WrappedArray$ofUnit = new ScalaJS.ClassTypeData({
   O: 1
 });
 ScalaJS.c.scm_WrappedArray$ofUnit.prototype.$classData = ScalaJS.d.scm_WrappedArray$ofUnit;
+/*<skip>*/;
+/** @constructor */
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView = (function() {
+  ScalaJS.c.Lorg_denigma_controls_CodeMirrorInsideView.call(this)
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView.prototype = new ScalaJS.h.Lorg_denigma_controls_CodeMirrorInsideView();
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView.prototype.constructor = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView;
+/** @constructor */
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeInsideView = (function() {
+  /*<skip>*/
+});
+ScalaJS.h.Lorg_denigma_binding_frontend_tools_CodeInsideView.prototype = ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView.prototype;
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView.prototype.tags__sci_Map = (function() {
+  return this.extractTagRx__O__Lorg_denigma_binding_macroses_TagRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$1().init___Lorg_denigma_binding_frontend_tools_CodeInsideView(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView.prototype.strings__sci_Map = (function() {
+  return this.extractStringRx__O__Lorg_denigma_binding_macroses_StringRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$2().init___Lorg_denigma_binding_frontend_tools_CodeInsideView(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView.prototype.bools__sci_Map = (function() {
+  return this.extractBooleanRx__O__Lorg_denigma_binding_macroses_BooleanRxMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$3().init___Lorg_denigma_binding_frontend_tools_CodeInsideView(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView.prototype.mouseEvents__sci_Map = (function() {
+  return this.extractMouseEvents__O__Lorg_denigma_binding_macroses_MouseEventMap__sci_Map(this, new ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView$$anon$4().init___Lorg_denigma_binding_frontend_tools_CodeInsideView(this))
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView.prototype.init___Lorg_scalajs_dom_HTMLElement__sci_Map = (function(element, params) {
+  ScalaJS.c.Lorg_denigma_controls_CodeMirrorInsideView.prototype.init___T__Lorg_scalajs_dom_HTMLElement__sci_Map.call(this, "CodeView", element, params);
+  return this
+});
+/*<skip>*/;
+ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeInsideView = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lorg_denigma_binding_frontend_tools_CodeInsideView)))
+});
+ScalaJS.as.Lorg_denigma_binding_frontend_tools_CodeInsideView = (function(obj) {
+  if ((ScalaJS.is.Lorg_denigma_binding_frontend_tools_CodeInsideView(obj) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwClassCastException(obj, "org.denigma.binding.frontend.tools.CodeInsideView")
+  }
+});
+ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lorg_denigma_binding_frontend_tools_CodeInsideView)))
+});
+ScalaJS.asArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView = (function(obj, depth) {
+  if ((ScalaJS.isArrayOf.Lorg_denigma_binding_frontend_tools_CodeInsideView(obj, depth) || (obj === null))) {
+    return obj
+  } else {
+    ScalaJS.throwArrayCastException(obj, "Lorg.denigma.binding.frontend.tools.CodeInsideView;", depth)
+  }
+});
+ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeInsideView = new ScalaJS.ClassTypeData({
+  Lorg_denigma_binding_frontend_tools_CodeInsideView: 0
+}, false, "org.denigma.binding.frontend.tools.CodeInsideView", ScalaJS.d.Lorg_denigma_controls_CodeMirrorInsideView, {
+  Lorg_denigma_binding_frontend_tools_CodeInsideView: 1,
+  Lorg_denigma_controls_CodeMirrorInsideView: 1,
+  Lorg_denigma_controls_CodeMirrorView: 1,
+  Lorg_denigma_views_core_OrdinaryView: 1,
+  Lorg_denigma_binding_EventBinding: 1,
+  Lorg_denigma_binding_ScalaTagsBinder: 1,
+  Lorg_denigma_binding_GeneralBinding: 1,
+  Lorg_denigma_binding_PropertyBinder: 1,
+  Lorg_denigma_binding_ClassBinder: 1,
+  Lorg_denigma_binding_VisibilityBinder: 1,
+  Lorg_denigma_views_core_OrganizedView: 1,
+  Lorg_denigma_views_core_BindingView: 1,
+  Lorg_denigma_binding_JustBinding: 1,
+  O: 1
+});
+ScalaJS.c.Lorg_denigma_binding_frontend_tools_CodeInsideView.prototype.$classData = ScalaJS.d.Lorg_denigma_binding_frontend_tools_CodeInsideView;
 /*<skip>*/;
 /** @constructor */
 ScalaJS.c.Lorg_denigma_controls_EditableMenuView = (function() {

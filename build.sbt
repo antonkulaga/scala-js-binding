@@ -11,10 +11,10 @@ libraryDependencies ++= Seq(
   // WebJars pull in client-side web libraries
   "org.webjars" %% "webjars-play" % "2.3.0",
   "org.webjars" % "jquery" % "2.1.1",
-  "org.webjars" % "Semantic-UI" % "0.17.0",
-  "org.webjars" % "codemirror" % "4.1",
+  "org.webjars" % "Semantic-UI" % "0.18.0",
+  "org.webjars" % "codemirror" % "4.2",
   "org.webjars" % "ckeditor" % "4.4.1",
-  "org.scalax" %% "semweb" % semWebVersion
+  "org.scalax" %% "semweb" % Build.semWebVersion
 )
 
 // Apply RequireJS optimization, digest calculation and gzip compression to assets

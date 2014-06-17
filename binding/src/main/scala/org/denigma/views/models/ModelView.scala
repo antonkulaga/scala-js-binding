@@ -1,25 +1,92 @@
 package org.denigma.views.models
 
-import org.scalax.semweb.shex.PropertyModel
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.rdf.IRI
-import rx.core.Var
-import org.scalajs.dom.{Event, HTMLElement}
-import scala.collection.immutable.Map
-import org.scalajs.dom
-import scala.Some
-import scala.scalajs.js.Any
+import java.awt.event.MouseEvent
 
 import org.denigma.extensions._
+import org.denigma.views.core.{BindingView, OrdinaryView, OrganizedView}
+import org.scalajs.dom
 import org.scalajs.dom.extensions._
-import org.denigma.views.models.ModelInside
-import org.denigma.views.core.OrganizedView
-import scala.collection.mutable
-import scala.scalajs.js
+import org.scalajs.dom.{Event, HTMLElement}
+import org.scalax.semweb.rdf._
+import org.scalax.semweb.shex.PropertyModel
+import rx.core.Var
 
-trait ModelView {
+import scala.collection.immutable.Map
+import scala.scalajs.js.Any
+
+trait RDFView {
+  self:OrganizedView=>
+  /**
+   * Default vocabulary is ""
+   */
+  var prefixes = Map.empty[String,IRI]
+
+
+  /**
+   * Resolvers IRI from property map
+   * @param property
+   * @return
+   */
+  def resolve(property:String):Option[IRI] =  property.indexOf(":") match {
+    case -1 =>
+      //dom.alert(prefixes.toString())
+      prefixes.get(":").orElse(prefixes.get("")).map(p=>p / property)
+    case 0 =>
+      //dom.alert("0"+prefixes.toString())
+      prefixes.get(":").orElse(prefixes.get("")).map(p=>p / property)
+    case ind=>
+      val key = property.substring(0,ind)
+
+      prefixes.get(key).map(p=>p / property).orElse(Some(IRI(property)))
+
+  }
+
+
+  type RDFType = OrganizedView with RDFView
+
+  protected def nearestRDFParent(implicit current:BindingView = this):Option[RDFType] = current.parent match {
+    case Some(par:RDFType)=>Some(par)
+    case Some(par)=>this.nearestRDFParent(par)
+    case _=> None
+
+  }
+
+
+  protected def bindRdf(el: HTMLElement) = {
+
+    type RDFView = OrdinaryView with ModelView
+
+    prefixes= nearestRDFParent.fold(Map.empty[String,IRI])(_.prefixes)++this.prefixes
+
+    val ats = el.attributes.collect { case (key, value) if !value.value.toString.contains("data") => (key, value.value.toString)}.toMap
+
+    ats.foreach { case (key, value) =>
+      this.rdfPartial(el, key, value,ats).orElse(otherPartial)(key)
+
+    }
+
+
+
+  }
+
+
+
+  protected def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] = {
+
+    case "vocab" if value.contains(":") => this.prefixes = prefixes + (":"-> IRI(value))
+    //dom.alert("VOCAB=>"+prefixes.toString())
+
+    case "prefix" if value.contains(":")=> this.prefixes = prefixes + (value.substring(0,value.indexOf(":"))-> IRI(value))
+
+  }
+
+  protected def otherPartial: PartialFunction[String, Unit]
+}
+
+trait ModelView extends RDFView{
 
   self:OrganizedView=>
+
 
    val modelInside = Var(ModelInside( PropertyModel.empty))
 
@@ -39,32 +106,29 @@ trait ModelView {
    }
 
 
-   protected def bindRdf(el: HTMLElement) = {
-     val ats = el.attributes.collect { case (key, value) if !value.value.toString.contains("data") => (key, value.value.toString)}.toMap
 
-     ats.foreach { case (key, value) =>
-       this.rdfPartial(el, key, value,ats).orElse(otherPartial)(key)
 
-     }
+   protected override def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] = {
 
-   }
+     case "vocab" if value.contains(":") => this.prefixes = prefixes + (":"-> IRI(value))
+       //dom.alert("VOCAB=>"+prefixes.toString())
 
-   protected def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] = {
+     case "prefix" if value.contains(":")=> this.prefixes = prefixes + (value.substring(0,value.indexOf(":"))-> IRI(value))
+
      case "property" =>
-       val iri = IRI(value)
-       this.bindRDFProperty(el, iri, value, ats.get("datatype").fold("")(v=>v))
+       this.resolve(value).foreach(iri=> this.bindRDFProperty(el, iri, value, ats.get("datatype").fold("")(v=>v)))
 
      case bname if bname.startsWith("property-") =>
-
        val att = key.replace("property-", "")
-       this.bindRdfAttribute(el, IRI(value), att)
+
+       this.resolve(value).foreach(iri=> this.bindRdfAttribute(el, iri, att))
+
+
 
 
    }
 
-  protected def otherPartial: PartialFunction[String, Unit] = {
-    case _ =>
-  }
+
 
   /**
    * Extracts STRs from properties
@@ -124,7 +188,28 @@ trait ModelView {
 
    }
 
-   /**
+  /**
+   * Changes checkbox whenever binded property changes
+   * @param el html element of checkbox
+   * @param key
+   */
+  protected def bindRdfCkeckBox(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
+    model.current.properties.get(key).map(_.head) match {
+      case None =>dom.console.log(s"${key.toString()} was not found in the model")
+      case Some(value:BooleanLiteral)=> el.dyn.checked match {
+        case v if v.isInstanceOf[Boolean]=>
+          val b = v.asInstanceOf[Boolean]
+          if(b!=value.value) el.dyn.checked = value.value
+        case _=>dom.console.log(s"unknown checked value for ${key.toString}")
+      }
+
+      case Some(value)=>dom.console.log(s"${key.toString()} is not a boolean, it is = ${value.getClass.getName}")
+    }
+  }
+
+
+
+  /**
     * Assigns property to rdf value
     * @param el
     * @param key
@@ -141,7 +226,6 @@ trait ModelView {
      }
 
    }
-
 
    /**
     * Changes RDF property when value changes
@@ -163,6 +247,20 @@ trait ModelView {
        case None => dom.console.error(s"no attributed for $pname")
      }
 
+  def makeCheckboxHandler[T <: Event](el: HTMLElement, iri: IRI): (T) => Unit = (ev) =>{
+    el \ "checked" match {
+      case Some(value)=> value match {
+        case v if value.isInstanceOf[Boolean]=>
+          val b = v.asInstanceOf[Boolean]
+          el.dyn.checked = b
+          modelInside() = modelInside.now.replace(iri,BooleanLiteral(b))
+        case _=>dom.console.log("checked is not boolean")
+      }
+      case None=> dom.console.log(s" ${iri.stringValue} not a checkbox")
+
+    }
+
+  }
 
    /**
     * Binds property value to attribute
@@ -179,7 +277,9 @@ trait ModelView {
        case "input" | "textarea" =>
 
          el.attributes.get("type").map(_.value.toString) match {
-           case Some("checkbox") => //skip
+           case Some("checkbox") =>
+             this.bindRdfCkeckBox(el,iri)
+             el.onclick = this.makeCheckboxHandler(el,iri)
            case _ =>
              //el.onkeyup
              el.onkeyup = this.makeRdfHandler(el, iri, "value")
@@ -197,7 +297,7 @@ trait ModelView {
 
    }
 
-   override protected def bindDataAttributes(el: HTMLElement, ats: Map[String, String]): Unit = {
-     /*nothing=)*/
-   }
+//   override def bindDataAttributes(el: HTMLElement, ats: Map[String, String]): Unit = {
+//     /*nothing=)*/
+//   }
  }

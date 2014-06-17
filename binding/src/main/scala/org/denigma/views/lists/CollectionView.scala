@@ -1,17 +1,12 @@
 package org.denigma.views.lists
 
-import org.denigma.views.core.{BindingView, OrdinaryView}
-import org.scalajs.dom.HTMLElement
-
-import org.scalajs.dom._
-import org.scalajs.dom
-import rx.{Var, Rx}
-import org.denigma.binding.CollectionBinding
-import scala.collection.immutable._
-import scala.Some
-import org.scalajs.dom.extensions._
 import org.denigma.extensions._
-import scalatags.Text.Tag
+import org.denigma.views.core.{BindingView, OrdinaryView}
+import org.scalajs.dom._
+import org.scalajs.dom.extensions._
+import rx.Rx
+
+import scala.collection.immutable._
 
 
 trait CollectionView {
@@ -20,7 +15,7 @@ trait CollectionView {
   type Item
   type ItemView <: BindingView
 
-  def items:Rx[List[Item]]
+  val items:Rx[List[Item]]
 
   val template: HTMLElement = this.extractTemplate()
 
@@ -55,7 +50,7 @@ trait CollectionView {
         if(template==viewElement) viewElement.appendChild(sp) else viewElement.replaceChild(sp,template)
         sp
     }
-   val viewElements = this.items.now.map(this.newItem)
+    val viewElements: List[ItemView] = this.items.now.map(this.newItem)
 
     viewElements.foreach{i=>
       this.addView(i)

@@ -4,6 +4,22 @@ import play.api.mvc.{Result, Request, Controller}
 import org.denigma.binding.models.ModelMessages._
 import org.denigma.binding.models.ModelMessages
 
+trait AjaxModelQueryEndpoint  extends AjaxModelEndpoint{
+  self: Controller =>
+
+  def onSelect(createMessage:ModelMessages.SelectQuery)(implicit request:RequestType):Result
+
+
+  override def onMessage(message:ModelMessages.ModelMessage)(implicit request:RequestType) = message match {
+    case m:ModelMessages.Create=>this.onCreate(m)
+    case m:ModelMessages.Read=>this.onRead(m)
+    case m:ModelMessages.Update=>this.onUpdate(m)
+    case m:ModelMessages.Delete=>this.onDelete(m)
+    case m:ModelMessages.SelectQuery=>this.onSelect(m)
+
+    case _=> this.BadRequest("wrong model message format")
+  }
+}
 
 trait AjaxModelEndpoint {
   self:Controller=>

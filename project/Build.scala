@@ -21,7 +21,7 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.5.0"
+  val semWebVersion =  "0.5.1"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -90,7 +90,7 @@ object Build extends sbt.Build with UniversalKeys {
 
     organization := "org.denigma",
 
-    version := "0.4.0",
+    version := "0.4.1",
 
     scalaVersion := "2.11.1",
 
@@ -104,9 +104,10 @@ object Build extends sbt.Build with UniversalKeys {
       url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
         Resolver.ivyStylePatterns),
 
-    scalacOptions ++= Seq( "-feature", "-language:_" )
+    scalacOptions ++= Seq( "-feature", "-language:_" ),
 
-  //  incOptions := incOptions.value.withNameHashing(true)
+    incOptions := incOptions.value.withNameHashing(true)
+
   )
 
 

@@ -9,6 +9,22 @@ import js.Dynamic.{global=>g}
 import org.scalajs.dom
 import importedjs.CodeMirror._
 import org.denigma.views.core.OrdinaryView
+import org.scalajs.jquery.jQuery
+
+abstract class CodeMirrorInsideView(name:String,element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorView(name,element,params){
+
+  override def bindView(el:HTMLElement) {
+
+    code() = jQuery(el).text()
+    el.innerHTML = ""
+
+    super.bindView(el)
+
+  }
+
+
+
+}
 
 
 /**

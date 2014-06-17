@@ -21,12 +21,12 @@
             <div class="column">
 
 
-                <section class="ui segment" data-view="PageEditView" data-param-path="models/endpoint" data-param-resource="http://rybka.org.ua/project" data-param-shape="http://shape.org">
+                <section class="ui segment" data-view="PageEditView" data-param-path="models/endpoint" data-param-resource="http://rybka.org.ua/project" data-param-shape="http://shape.org" vocab="http://webintelligence.eu/platform/">
 
                     <h1 class="ui header">This is test rdf model that is kept in memory. You can switch on contenteditable mode and edit text directly</h1>
                     <div>
-                        <h1 property="http://webintelligence.eu/platform/title"></h1>
-                        <p property="http://webintelligence.eu/platform/text"  datatype="xsd:html"></p>
+                        <h1 property="title"></h1>
+                        <p property="text"  datatype="xsd:html"></p>
 
 
                     </div>
@@ -34,8 +34,8 @@
                     <div class="ui toggle button" data-class-positive-if="editMode" data-event-click="toggleClick"> EditMode</div>
 
                     <hr>
-                    Title <input property="http://webintelligence.eu/platform/title"><br>
-                    Text <textarea property="http://webintelligence.eu/platform/text" style="min-width: 50vw; min-height: 20vh"></textarea>
+                    Title <input property="title"><br>
+                    Text <textarea property="text" style="min-width: 50vw; min-height: 20vh"></textarea>
 
 
                 </section>

@@ -25,6 +25,14 @@ trait RDFPicklers extends CommonPicklers{
     register[IRI]
     register[BlankNode]
     register[StringLiteral]
+    register[BooleanLiteral]
+    register[DoubleLiteral]
+    register[DecimalLiteral]
+    register[StringLangLiteral]
+    register[LongLiteral]
+    register[IntegerLiteral]
+
+
     register[Pat]
     register[Trip]
     register[Quad]

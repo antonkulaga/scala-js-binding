@@ -1,5 +1,6 @@
 package org.denigma.binding.frontend
 
+import org.denigma.controls.CkEditor
 import org.scalajs.dom
 import rx._
 import scala.scalajs.js.annotation.JSExport
@@ -11,7 +12,7 @@ import scala.scalajs.js
 import org.denigma.binding.frontend.tests.{PicklerView, LongListView, RandomView}
 import org.denigma.extensions._
 import org.denigma.binding.frontend.slides._
-import org.denigma.binding.frontend.tools.CodeView
+import org.denigma.binding.frontend.tools.{CodeInsideView, CodeView}
 import org.denigma.views.core.OrdinaryView
 import org.denigma.binding.picklers.rp
 import scalatags.Text.Tag
@@ -45,12 +46,17 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
     .register("SlideView",(el,params)=>Try {new SlideView(el,params)})
     .register("BindSlide",(el,params)=>Try {new BindSlide(el,params)})
     .register("RemoteSlide",(el,params)=>Try {new RemoteSlide(el,params)})
-    .register("CollectionSlide",(el,params)=>Try {new CollectionSlide(el,params)})
     .register("RdfSlide",(el,params)=>Try {new RdfSlide(el,params)})
+    .register("Todos",(el,params)=>Try {new Todos(el,params)})
     .register("CodeView",(el,params)=>Try {new CodeView(el,params)})
     .register("TestModelView",(el,params)=>Try{new TestModelView(el,params)})
     .register("PicklerView",(el,params)=>Try{new PicklerView(el,params)})
     .register("PageEditView",(el,params)=>Try{new PageEditView(el,params)})
+    .register("CodeInsideView",(el,params)=>Try{new CodeInsideView(el,params)})
+    .register("TableView",  (el,params)=>Try{new TableView(el,params)})
+
+
+  org.denigma.views.registerEditor("ckeditor",CkEditor)
 
 
 

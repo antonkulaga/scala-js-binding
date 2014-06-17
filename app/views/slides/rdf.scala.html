@@ -26,14 +26,14 @@
                 <p>In this example remote fetching of RDF properties is shown, but you can write a code that will fetch any other kind of data</p>
             </div>
             <div class="column" >
-                <section class="ui segment" data-view="TestModelView" data-param-path="models/endpoint" data-param-resource="http://page.org" data-param-shape="http://shape.org">
+                <section class="ui segment" data-view="TestModelView" vocab="http://webintelligence.eu/platform/" data-param-path="models/endpoint" data-param-resource="http://page.org" data-param-shape="http://shape.org">
 
                 <h1>This is test rdf model that is kep in memory</h1>
                 <div>
-                    <h1 property="http://webintelligence.eu/platform/title"></h1>
-                    <input property="http://webintelligence.eu/platform/title">
-                    <p property="http://webintelligence.eu/platform/text"></p>
-                    <textarea property="http://webintelligence.eu/platform/text"></textarea>
+                    <h1 property="title"></h1>
+                    <input property="title">
+                    <p property="text"></p>
+                    <textarea property="text"></textarea>
 
 
                 </div>
@@ -49,18 +49,37 @@
         <section class="row">
             <div class="column">
                 <p>It is also possible to bind collections of RDF items</p>
+                <textarea data-view="CodeInsideView">
+                    <section id = "todos" data-view="Todos" data-param-path="todos/endpoint" data-param-query="http://webintelligence.eu/queries/todos" data-param-shape="http://webintelligence.eu/shapes/todo">
+
+                        <div class="ui divided list">
+                            <div class="item"  data-template="true" vocab="http://webintelligence.eu/platform/">
+                                <div class="content ui segment">
+                                    <h1 class="header" property="title"></h1>
+                                    <p property="text"></p>
+                                    <input type="checkbox" property="completed">
+                                </div>
+                            </div>
+
+                            <a data-template="true" class="active item header" data-item-bind-href="uri" data-item-bind="label" data-load-into="main">
+                                <i class="ui-icon-home"></i>
+                            </a>
+
+                    </section>
+                </textarea>
 
             </div>
             <div class="column" >
 
                 <h1>This is a test collection of RDF items</h1>
-                <section id = "todos">
+                <section id = "todos" data-view="Todos" data-param-path="todos/endpoint" data-param-query="http://webintelligence.eu/queries/todos" data-param-shape="http://webintelligence.eu/shapes/todo">
 
                     <div class="ui divided list">
-                        <div class="item"  data-template="true" >
+                        <div class="item"  data-template="true" vocab="http://webintelligence.eu/platform/">
                             <div class="content ui segment">
-                                <h1 class="header" property="http://webintelligence.eu/platform/title"></h1>
-                                <p property="http://webintelligence.eu/platform/text"></p>
+                                <h1 class="header" property="title"></h1>
+                                <p property="text"></p>
+                                <input type="checkbox" property="completed">
                             </div>
                         </div>
 

@@ -18,7 +18,9 @@ PUT           /menu/top/add              controllers.TopMenu.add()
 DELETE        /menu/top/delete/id        controllers.TopMenu.delete()
 
 
-POST         /models/endpoint         controllers.PageController.endpoint()
+POST          /models/endpoint           controllers.PageController.endpoint()
+POST          /todos/endpoint            controllers.ProjectController.endpoint()
+POST          /data/endpoint            controllers.ProjectController.endpoint()
 
 
 

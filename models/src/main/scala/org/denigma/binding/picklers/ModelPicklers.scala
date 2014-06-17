@@ -14,5 +14,7 @@ trait ModelPicklers extends RDFPicklers{
     register[ModelMessages.Update]
     register[ModelMessages.Delete]
 
+    register[ModelMessages.SelectQuery]
+
   }
 }
