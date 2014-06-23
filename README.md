@@ -70,10 +70,10 @@ In your sbt config you should add resolver and dependency
 ```scala
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 
-libraryDependencies += "org.denigma" %%% "binding" % "0.4.0"
+libraryDependencies += "org.denigma" %%% "binding" % "0.4.3"
 ```
 
-NOTE: at the moment library is published only for scalajs 0.5 and scala 2.11.1 (version for scala 2.10.x is no longer published)
+NOTE: at the moment library is published only for scalajs 0.5 and scala 2.11.1 (there is no scala 2.10.x version as keeping it is an overhead for me)
 
 
 Framework elements
@@ -192,8 +192,8 @@ for binding views.
 Storages
 --------
 
-
- 
+In order to do CRUD on iterms rendered to collections of views we need some code that will send requests to the server and get responses.
+In order to abstract veiws from communication details storages have been created. Storages are just classes that do CRUD via ajax or websockets. 
  
 Rough edges
 ===========
@@ -230,7 +230,7 @@ So you also have to register the view somewhere in your main class by providing 
 The best place for this is ScalaJS main object
 
 ```scala
-  org.denigma.views.register("menu", (el, params) =>Try{ new MenuView(el,params) })
+  org.denigma.binding.views.register("menu", (el, params) =>Try{ new MenuView(el,params) })
 ```
 
 I hope to get rid of this in future when I will figure out what kind of dependency injection to choose for view creation.

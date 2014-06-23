@@ -1,5 +1,7 @@
 package org.denigma.binding.frontend.slides
 
+import org.denigma.binding.semantic.ModelView
+
 import scala.collection.immutable.Map
 import rx._
 import scalatags._
@@ -7,17 +9,15 @@ import rx.core.Var
 import org.scalajs.dom.{TextEvent, HTMLElement, MouseEvent}
 import org.scalax.semweb.shex.PropertyModel
 import org.scalax.semweb.rdf.{RDFValue, StringLiteral, IRI}
-import org.denigma.binding.{GeneralBinding, EventBinding}
 import org.scalajs.dom
-import org.denigma.extensions._
-import org.denigma.controls.{EditModelView, AjaxModelView, ActiveModelView}
-import org.denigma.storages.AjaxStorage
-import org.denigma.views.models.ModelView
+import org.denigma.binding.extensions._
+import org.denigma.binding.controls.{EditModelView, AjaxModelView, ActiveModelView}
+import org.denigma.binding.storages.AjaxStorage
 import scalatags.Text.Tag
 import scala.scalajs.js
 import js.Dynamic.{ global => g, newInstance => jsnew }
 
-class PageEditView(element:HTMLElement,val params:Map[String,Any]) extends AjaxModelView("PageModel",element,params) with EditModelView
+class PageEditView(elem:HTMLElement,val params:Map[String,Any]) extends AjaxModelView("PageModel",elem,params) with EditModelView
 {
 
   this.saveClick.takeIf(dirty).handler{

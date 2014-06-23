@@ -23,6 +23,11 @@ trait MapRegistry extends PicklerRegistry {
         "tuple2"-> builder.makeObject("_1" -> registry.pickle(key), "_2" -> registry.pickle(value))
       }
 
+    case Some(value)=>
+      builder.makeObject {
+        "some"-> builder.makeObject("value" -> registry.pickle(value))
+      }
+
     case other=>
 
       PicklerRegistry.pickle(other)(builder,registry)
@@ -68,6 +73,18 @@ trait MapRegistry extends PicklerRegistry {
       ( registry.unpickle(reader.readObjectField(tp,"_1")) , registry.unpickle(reader.readObjectField(tp,"_2"))  )
       match {
         case (one,two) => Right((one,two))
+        case _=>Right(null)
+      }
+    }
+
+  }
+
+  protected  def unpickleSome[P](pickle: P)(implicit reader: PReader[P], registry: PicklerRegistry = this):Either[P,Some[_]] ={
+    val tp = reader.readObjectField(pickle, "some")
+    if(reader.isUndefined(tp)) Left(pickle) else {
+      registry.unpickle(reader.readObjectField(tp,"value"))
+      match {
+        case  value => Right(Some(value))
         case _=>Right(null)
       }
     }

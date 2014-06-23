@@ -1,7 +1,7 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.controls.AjaxModelCollection
-import org.denigma.views.core.OrdinaryView
+import org.denigma.binding.controls.AjaxModelCollection
+import org.denigma.binding.views.OrdinaryView
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx._
 
@@ -9,11 +9,13 @@ import scalatags.Text.Tag
 
 /**
  * Slide about RDF-related binding
- * @param element
+ * @param elem html element to which view is attached
  * @param params
  */
-class RdfSlide(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView("rdf",element)
+class RdfSlide(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView
 {
+
+  val name = "rdf"
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)

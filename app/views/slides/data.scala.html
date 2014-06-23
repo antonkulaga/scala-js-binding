@@ -6,6 +6,7 @@
     <h1 id="title"class="ui large header orange message">@title </h1>
 
 
+    <h1 class="ui header">PAGE IS IN DEVELOPMENT</h1>
     <section class="ui segment">
         <p><b>scala-js-binding</b> provides some controls for easier dealing with data (slide is in development)
     </section>
@@ -20,7 +21,7 @@
         <section class="row">
             <div class="column">
                 <section>
-                    <input list="">
+                    <input list="SuggestView">
                     <datalist id="character">
                         <option value="Чебурашка"></option>
                         <option value="Крокодил Гена"></option>
@@ -32,40 +33,29 @@
         </section>
         <section class="row">
             <div class="column">
-                Editing of schema of tables
-                <section data-view="TableView">
-                    <table class="ui sortable table segment">
-                        <thead>
-                            <tr><th>Name</th>
-                                <th>Status</th>
-                                <th>Notes</th>
-                            </tr></thead>
-                        <tbody>
-                            <tr>
-                                <td>John</td>
-                                <td>No Action</td>
-                                <td>None</td>
-                            </tr>
-                            <tr>
-                                <td>Jamie</td>
-                                <td class="positive">Approved</td>
-                                <td class="warning">Requires call</td>
-                            </tr>
-                            <tr>
-                                <td>Jill</td>
-                                <td class="negative">Denied</td>
-                                <td>None</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr><th>3 People</th>
-                                <th>2 Approved</th>
-                                <th></th>
-                            </tr></tfoot>
+                Editing of schema of data
+                    <table class="ui sortable table segment" data-view="ShapeEditor" data-path="shapes/endpoint" resource="http://webintelligence.eu/shapes/todo">
+                        <tr>
+                            <th>Property</th>
+                            <th>Value</th>
+                            <th>Cardinality</th>
+                            <th>Save</th>
+                            <th>Remove</th>
+                        </tr>
+                        <tr data-template="true" vocab="http://open-services.net/ns/core#">
+                            <td><input type="text"  property="property"></td>
+                            <td><input type="text" property="value" ></td>
+                            <td><input type="text" property="cardinality">
+                                                               </td>
+                            <td><input type="number" property="min"></td>
+                            <td><input type="number" property="max"></td>
+
+                            <th><i class="ui save icon"></i></th>
+                            <th><i class="ui remove sign icon"></i></th>
+                        </tr>
+
                     </table>
 
-
-                </section>
 
 
 

@@ -1,18 +1,20 @@
 package org.denigma.binding.frontend.tests
 
+import org.denigma.binding.views.OrdinaryView
 import org.scalajs.dom.{HTMLDivElement, TextEvent, MouseEvent, HTMLElement}
 import rx.core.Var
 import scala.util.Random
 import rx.Rx
 import scala.collection.immutable.Map
 import org.scalajs.dom
-import org.denigma.views.core.OrdinaryView
 import scalatags.Text.tags._
 import scalatags.Text.{attrs => a, styles => s, _}
 /**
  * For test purposes only
  */
-class RandomView(el:HTMLElement, params:Map[String,Any]) extends OrdinaryView("random",el){
+class RandomView(val elem:HTMLElement, params:Map[String,Any]) extends OrdinaryView{
+
+  val name = "sidebar"
 
   val counting: Var[Tag] = Var{
 

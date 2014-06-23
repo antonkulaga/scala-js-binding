@@ -17,6 +17,8 @@ trait CommonPicklers {
     // Utils
     register(Nil)
     register[::[Any]]
+    register(None)
+
     //register[(_,_)]
 
   }

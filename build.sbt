@@ -14,6 +14,7 @@ libraryDependencies ++= Seq(
   "org.webjars" % "Semantic-UI" % "0.18.0",
   "org.webjars" % "codemirror" % "4.2",
   "org.webjars" % "ckeditor" % "4.4.1",
+  "com.lihaoyi" %% "utest" % "0.1.6",
   "org.scalax" %% "semweb" % Build.semWebVersion
 )
 
@@ -21,3 +22,5 @@ libraryDependencies ++= Seq(
 pipelineStages := Seq(digest, gzip)
 
 net.virtualvoid.sbt.graph.Plugin.graphSettings
+
+testFrameworks += new TestFramework("utest.runner.JvmFramework")

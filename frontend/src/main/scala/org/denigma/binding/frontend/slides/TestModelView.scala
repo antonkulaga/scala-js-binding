@@ -1,5 +1,7 @@
 package org.denigma.binding.frontend.slides
 
+import org.denigma.binding.semantic.ModelView
+
 import scala.collection.immutable.Map
 import rx._
 import scalatags._
@@ -7,12 +9,10 @@ import rx.core.Var
 import org.scalajs.dom.{TextEvent, HTMLElement, MouseEvent}
 import org.scalax.semweb.shex.PropertyModel
 import org.scalax.semweb.rdf.{RDFValue, StringLiteral, IRI}
-import org.denigma.binding.{GeneralBinding, EventBinding}
 import org.scalajs.dom
-import org.denigma.extensions._
-import org.denigma.controls.{AjaxModelView, ActiveModelView}
-import org.denigma.storages.AjaxStorage
-import org.denigma.views.models.ModelView
+import org.denigma.binding.extensions._
+import org.denigma.binding.controls.{AjaxModelView, ActiveModelView}
+import org.denigma.binding.storages.AjaxStorage
 import scalatags.Text.Tag
 
 

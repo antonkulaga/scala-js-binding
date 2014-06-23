@@ -7,7 +7,7 @@ import rx.Var
 
 import scala.scalajs.js
 import js.Dynamic.{global=>g}
-import org.denigma.controls.{CodeMirrorInsideView, CodeMirrorView}
+import org.denigma.binding.controls.{CodeMirrorInsideView, CodeMirrorView}
 import scalatags.Text.Tag
 
 class CodeInsideView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorInsideView("CodeView",element,params)

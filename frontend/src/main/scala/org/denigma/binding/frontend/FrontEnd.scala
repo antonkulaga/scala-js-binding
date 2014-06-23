@@ -1,6 +1,7 @@
 package org.denigma.binding.frontend
 
-import org.denigma.controls.CkEditor
+import org.denigma.binding.controls.CkEditor
+import org.denigma.binding.views.OrdinaryView
 import org.scalajs.dom
 import rx._
 import scala.scalajs.js.annotation.JSExport
@@ -10,17 +11,19 @@ import scala.collection.immutable.Map
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import scala.scalajs.js
 import org.denigma.binding.frontend.tests.{PicklerView, LongListView, RandomView}
-import org.denigma.extensions._
+import org.denigma.binding.extensions._
 import org.denigma.binding.frontend.slides._
 import org.denigma.binding.frontend.tools.{CodeInsideView, CodeView}
-import org.denigma.views.core.OrdinaryView
 import org.denigma.binding.picklers.rp
 import scalatags.Text.Tag
 
 
 @JSExport
-object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.JSApp
+object FrontEnd extends OrdinaryView with scalajs.js.JSApp
 {
+
+  val name = "main"
+  lazy val elem:HTMLElement = dom.document.body
 
   val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
@@ -35,28 +38,27 @@ object FrontEnd extends OrdinaryView("main",dom.document.body)  with scalajs.js.
   /**
    * Register views
    */
-  org.denigma.views
-    .register("menu", (el, params) =>Try{ new MenuView(el,params) })
+  org.denigma.binding.views
+    .register("menu", (el, params) =>Try(new MenuView(el,params)))
     .register("ArticleView", (el, params) =>Try(new ArticleView(el,params)))
     .register("sidebar", (el, params) =>Try(new SidebarView(el,params)))
-    .register("random",(el,params)=> Try {
-        new RandomView(el,params)}
-      )
-    .register("lists",(el,params)=>Try {new LongListView(el,params)})
-    .register("SlideView",(el,params)=>Try {new SlideView(el,params)})
-    .register("BindSlide",(el,params)=>Try {new BindSlide(el,params)})
-    .register("RemoteSlide",(el,params)=>Try {new RemoteSlide(el,params)})
-    .register("RdfSlide",(el,params)=>Try {new RdfSlide(el,params)})
-    .register("Todos",(el,params)=>Try {new Todos(el,params)})
-    .register("CodeView",(el,params)=>Try {new CodeView(el,params)})
-    .register("TestModelView",(el,params)=>Try{new TestModelView(el,params)})
-    .register("PicklerView",(el,params)=>Try{new PicklerView(el,params)})
-    .register("PageEditView",(el,params)=>Try{new PageEditView(el,params)})
-    .register("CodeInsideView",(el,params)=>Try{new CodeInsideView(el,params)})
-    .register("TableView",  (el,params)=>Try{new TableView(el,params)})
+    .register("random",(el,params)=> Try (new RandomView(el,params))  )
+    .register("lists",(el,params)=>Try (new LongListView(el,params)))
+    .register("SlideView",(el,params)=>Try(new SlideView(el,params)))
+    .register("BindSlide",(el,params)=>Try(new BindSlide(el,params)))
+    .register("RemoteSlide",(el,params)=>Try(new RemoteSlide(el,params)))
+    .register("RdfSlide",(el,params)=>Try(new RdfSlide(el,params)))
+    .register("Todos",(el,params)=>Try(new Todos(el,params)))
+    .register("CodeView",(el,params)=>Try(new CodeView(el,params)))
+    .register("TestModelView",(el,params)=>Try(new TestModelView(el,params)))
+    .register("PicklerView",(el,params)=>Try(new PicklerView(el,params)))
+    .register("PageEditView",(el,params)=>Try(new PageEditView(el,params)))
+    .register("CodeInsideView",(el,params)=>Try(new CodeInsideView(el,params)))
+    .register("TableView",  (el,params)=>Try(new TableView(el,params)))
+    .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
 
 
-  org.denigma.views.registerEditor("ckeditor",CkEditor)
+  org.denigma.binding.views.registerEditor("ckeditor",CkEditor)
 
 
 
