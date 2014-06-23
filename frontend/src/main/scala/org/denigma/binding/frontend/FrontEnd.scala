@@ -56,6 +56,7 @@ object FrontEnd extends OrdinaryView with scalajs.js.JSApp
     .register("CodeInsideView",(el,params)=>Try(new CodeInsideView(el,params)))
     .register("TableView",  (el,params)=>Try(new TableView(el,params)))
     .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
+    .register("todo",(el,params)=>Try(new Todo(el,params)))
 
 
   org.denigma.binding.views.registerEditor("ckeditor",CkEditor)

@@ -13,7 +13,6 @@ import org.denigma.binding.views._
 
 trait BindingView extends JustBinding
 {
-  def name:String
   def elem:dom.HTMLElement
 
 
@@ -168,15 +167,16 @@ trait BindingView extends JustBinding
 
   /**
    * Removes view
-   * @param name view name to remove
+   * @param nm view name to remove
    * */
-  def removeView(name:String): Unit =
-    for{
-      view <-    this.subviews.get(name)
-    }    {
+  def removeView(nm:String): Unit = this.subviews.get(nm) match {
+    case Some(view)=>
       view.unbindView()
-      this.subviews = this.subviews - name
-    }
+      view.viewElement.parentElement.removeChild(view.viewElement)
+      this.subviews = this.subviews - nm
+    case None=>
+      dom.console.log(s"now subview to remove for $nm from ${this.id}")
+  }
 
   /**
    * checks if this view is inside some html element in the tree

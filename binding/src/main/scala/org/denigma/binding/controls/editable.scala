@@ -21,7 +21,6 @@ import java.awt.TextArea
 
 trait EditModelView extends ActiveModelView
 {
-  self:OrdinaryView=>
 
   def params:Map[String,Any]
 
@@ -61,10 +60,6 @@ trait EditModelView extends ActiveModelView
     }
   }
 
-
-
-
-
   val toggleClick = Var(createMouseEvent())
 
   val saveClick = Var(createMouseEvent())
@@ -94,4 +89,12 @@ object CkEditor extends InlineEditor{
     }
     //g.CKEDITOR.inline( el )
   }
+}
+
+object CodeMirrorEditor extends InlineEditor {
+  override def on(el: HTMLElement, view: OrganizedView): Unit = {
+
+  }
+
+  override def off(el: HTMLElement, view: OrganizedView): Unit = ???
 }

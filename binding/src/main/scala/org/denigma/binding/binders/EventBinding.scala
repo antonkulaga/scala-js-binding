@@ -31,7 +31,7 @@ trait EventBinding  extends JustBinding
         case "event-click" => this.mouseEvents.get(value) match {
           case Some(ev)=>this.bindClick(el,key,ev)
           case _ =>
-            dom.console.error(s"cannot bind click event of $name to $value")
+            dom.console.error(s"cannot bind click event of ${this.name} to $value")
             dom.console.log("current events =" + this.mouseEvents.keys.toString())
 
         }

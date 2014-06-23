@@ -7,10 +7,10 @@ import org.denigma.binding.views.{CollectionView, OrdinaryView}
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.IRI
-import rx.core.{Rx, Var}
+import rx.core.{Obs, Rx, Var}
 import org.denigma.binding.extensions._
 import org.scalajs.dom.extensions._
-
+import rx.ops._
 /**
  * This trait represents a view that is collection of models (Property models of RDFs)
  */
@@ -30,14 +30,31 @@ trait ModelCollection extends OrdinaryView
   override type Item = Var[ModelInside]
   override type ItemView =  AjaxModelCollection.ItemView
 
+  def defaultItem = ModelInside.empty
+
   override val items = Var(List.empty[Var[ModelInside]])
 
   val dirty = Rx{items().filterNot(i=>i().isUnchanged)} //TODO check how it works
 
 
+  def onItemChange(item:Item) = if(item.now.wantsToDie){
+    //dom.alert("WORKS")
+    val i = items.now
+    items() = items.now.filterNot(_==item)
+  }
+
+  /**
+   * Adds new item
+   * @param item
+   */
+  def addItem(item:Item = Var(this.defaultItem)) = {
+    this.items() = items.now :+ item
+  }
+
   //val dirty = Rx{items().filterNot(_}
 
-  override def newItem(item:Item):ItemView = {
+  override def newItem(item:Item):ItemView =
+  {
     //dom.console.log(template.outerHTML.toString)
     val el = template.cloneNode(true).asInstanceOf[HTMLElement]
     el.removeAttribute("data-template")
@@ -47,12 +64,13 @@ trait ModelCollection extends OrdinaryView
       case None=>
         AjaxModelCollection.apply(el,item)
       case Some(v)=> this.inject(v.value,el,mp) match {
-        case item:ItemView=> item
+        case iv:ItemView=> iv
         case _=>
           dom.console.error(s"view ${v.value} exists but does not inherit MapView")
           AjaxModelCollection.apply(el,item)
       }
     }
+    item.handler(onItemChange(item))
     view
   }
 

@@ -90,7 +90,7 @@ object Build extends sbt.Build with UniversalKeys {
 
     organization := "org.denigma",
 
-    version := "0.4.3",
+    version := "0.4.4",
 
     scalaVersion := "2.11.1",
 

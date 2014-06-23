@@ -6,6 +6,8 @@ import org.scalax.semweb.shex.PropertyModel
 object ModelInside
 {
   def apply(initial:PropertyModel):ModelInside = ModelInside(initial,initial)
+
+  val empty = ModelInside(PropertyModel.empty)
 }
 
 

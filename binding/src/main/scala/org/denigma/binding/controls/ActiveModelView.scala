@@ -41,7 +41,7 @@ trait ActiveModelView extends OrdinaryView with ModelView
       .orElse(this.otherPartial)(key.toString)//key.toString is the most important!
   }
 
-  val dirty = Rx{!this.modelInside().isUnchanged}
+  lazy val dirty = Rx{this.modelInside().isDirty}
 
 }
 

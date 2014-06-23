@@ -5,6 +5,7 @@ import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
 import rx.Rx
+import rx.extensions.Moved
 
 import scala.collection.immutable._
 import scala.scalajs.js
@@ -41,15 +42,39 @@ trait CollectionView extends OrdinaryView{
 
   }
 
-  def replace(newChild:HTMLElement,oldChild:HTMLElement) = if(oldChild!=newChild)   (newChild.parentElement, oldChild.parentElement) match {
+  /**
+   * Replaces elementes
+   * @param newChild new child
+   * @param oldChild oldchild
+   * @return
+   */
+  def replace(newChild:HTMLElement,oldChild:HTMLElement, switch:Boolean = false) = if(oldChild!=newChild)   (newChild.parentElement, oldChild.parentElement) match {
      case (pn,null)=>
        console.error("old child has not parent")
-     case (pn,po) if pn==po || pn==null=>
+       oldChild
+     case (null,po)=>
        po.replaceChild(newChild,oldChild)
+       if(switch) console.error("new child has null parent")
+
+     case (pn,po) if pn==po=>
+       if(switch) {
+         val io = po.children.indexOf(oldChild)
+         val in = pn.children.indexOf(newChild)
+         //po.removeChild(oldChild)
+         po.children(io) = newChild
+         pn.children(in) = oldChild
+         //console.error("new child has null parent")
+       } else  po.replaceChild(newChild,oldChild)
+
      case (pn,po) =>
        val io = po.children.indexOf(oldChild)
-        po.children(io) = newChild
-        po.removeChild(oldChild)
+       val in = pn.children.indexOf(newChild)
+       //po.removeChild(oldChild)
+       po.children(io) = newChild
+       if(switch) {
+         pn.children(in) = oldChild
+       }
+
 
   }
 
@@ -76,31 +101,24 @@ trait CollectionView extends OrdinaryView{
   lazy val updates = Watcher(items).updates
 
 
+  protected def onInsert(item:Item) = this.addItemView(item,this.newItem(item))
+  protected def onRemove(item:Item) = this.removeItemView(item)
+  protected def onMove(mv:Moved[Item]) = {
+    val fr = itemViews(items.now(mv.from))
+    val t = itemViews(items.now(mv.to))
+    this.replace(t.viewElement,fr.viewElement)
+  }
 
   /**
    * Adds subscription
    */
   protected   def subscribeUpdates(){
-    this.items.now.map(this.newItem).foreach(this.addItemView)
+    this.items.now.foreach(i=>this.addItemView(i,this.newItem(i)))
     updates.handler{
-      val inserted = updates.now.inserted
-      val removed = updates.now.removed
-      val moved = updates.now.moved
-      inserted.foreach(i=>this.addItemView(this.newItem(i)))
-      removed.foreach(r=>this.removeItemView(r))
-      moved.foreach { case mv =>
-        val fr = itemViews(items.now(mv.from))
-        val t = itemViews(items.now(mv.to))
-        val frp: HTMLElement = fr.viewElement.parentElement
-        val tp: HTMLElement = t.viewElement.parentElement
-          dom.console.log(moved.toString())
-//        frp.replaceChild(t.viewElement, fr.viewElement)
-//        tp.replaceChild(fr.viewElement, t.viewElement)
-          //DOES NOT WORK YET!
+      updates.now.inserted.foreach(onInsert)
+      updates.now.removed.foreach(onRemove)
+      updates.now.moved.foreach(onMove)
       }
-
-      //inserted.foreach(newItem)
-    }
   }
 
 
@@ -110,17 +128,21 @@ trait CollectionView extends OrdinaryView{
 
   var itemViews = Map.empty[Item,ItemView]
 
-  def addItemView(iv:ItemView):ItemView = {
+  def addItemView(item:Item,iv:ItemView):ItemView = {
     span.parentElement.insertBefore(iv.viewElement)
     this.addView(iv)
     iv.bindView(iv.viewElement)
+    itemViews = itemViews + (item->iv)
     iv
   }
 
-  def removeItemView(r:Item) = {
-    val rv = this.itemViews(r)
-    rv.unbindView()
-    this.removeView(rv.name)
+  def removeItemView(r:Item) =  this.itemViews.get(r) match {
+    case Some(rv)=>
+      rv.unbindView()
+      this.removeView(rv.id)
+      this.itemViews = itemViews - r
+    case None=>
+      dom.console.error("cantot find the view for item: "+r.toString+" in map "+this.itemViews.toString())
 
   }
 

@@ -20,7 +20,7 @@ import scalajs.concurrent.JSExecutionContext.Implicits.queue
 
 object AjaxModelCollection
 {
- type ItemView =  BindingView with ModelView
+ type ItemView =  BindingView with ActiveModelView
 
   def apply(html:HTMLElement,item:Var[ModelInside]):ItemView= {
     //
@@ -30,7 +30,7 @@ object AjaxModelCollection
 
 
 
-  class JustModel(val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends OrdinaryView with ModelView{
+  class JustModel(val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends OrdinaryView with ActiveModelView{
 
 
     override val modelInside = slot
@@ -42,6 +42,7 @@ object AjaxModelCollection
     override def mouseEvents: Predef.Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 
     override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
+
   }
 
 }

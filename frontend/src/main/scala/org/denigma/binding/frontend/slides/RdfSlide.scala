@@ -1,10 +1,12 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.binding.controls.AjaxModelCollection
+import org.denigma.binding.controls.{ActiveModelView, AjaxModelCollection}
+import org.denigma.binding.semantic.ModelInside
 import org.denigma.binding.views.OrdinaryView
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx._
-
+import org.denigma.binding.extensions._
+import org.scalajs.dom
 import scalatags.Text.Tag
 
 /**
@@ -47,9 +49,41 @@ class Todos(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) 
   override def bindView(el:HTMLElement) {
     //jQuery(el).slideUp()
     super.bindView(el)
-
   }
 
+
+  val addClick = Var(this.createMouseEvent())
+
+  addClick handler {
+    this.addItem()
+  }
+
+  val isDirty = Rx{  this.dirty().size>0  }
+
+
+
+}
+class Todo(val elem:HTMLElement, params:Map[String,Any], val name:String = "todo") extends ActiveModelView{
+
+  val initial: Option[Var[ModelInside]] = params.get("model").collect{case mi:Var[ModelInside]=>mi}
+
+  require(initial.isDefined,"No model received!")
+
+  override val modelInside  = initial.get
+
+  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
+
+  override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
+
+  override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
+
+  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
+
+  val removeClick = Var(this.createMouseEvent())
+
+  removeClick.handler{
+    this.die()
+  }
 
 
 }

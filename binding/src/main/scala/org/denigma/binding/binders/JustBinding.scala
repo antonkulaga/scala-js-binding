@@ -16,7 +16,7 @@ import scala.util.{Failure, Success}
  */
 abstract class JustBinding {
 
-
+  def name:String
   /**
    * Loads links into some view
    * @param element

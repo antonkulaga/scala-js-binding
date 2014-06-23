@@ -39,7 +39,6 @@ trait OrdinaryView extends OrganizedView with GeneralBinding
   with EventBinding
 {
 
-
   override def makeDefault(name:String,el:HTMLElement) = OrdinaryView(name:String,el)
 
   override def bindDataAttributes(el:HTMLElement,ats:Map[String, String]) = {

@@ -50,46 +50,53 @@
             <div class="column">
                 <p>It is also possible to bind collections of RDF items</p>
                 <textarea data-view="CodeInsideView">
-                    <section id = "todos" data-view="Todos" data-param-path="todos/endpoint" data-param-query="http://webintelligence.eu/queries/todos" data-param-shape="http://webintelligence.eu/shapes/todo">
 
-                        <div class="ui divided list">
-                            <div class="item"  data-template="true" vocab="http://webintelligence.eu/platform/">
-                                <div class="content ui segment">
-                                    <h1 class="header" property="title"></h1>
-                                    <p property="text"></p>
-                                    <input type="checkbox" property="completed">
-                                </div>
-                            </div>
 
-                            <a data-template="true" class="active item header" data-item-bind-href="uri" data-item-bind="label" data-load-into="main">
-                                <i class="ui-icon-home"></i>
-                            </a>
+                    <table class="ui sortable table segment" id = "todos">
+                        <tr><th>Title</th>
+                            <th>Text</th>
+                            <th>Complected</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr data-template="true" vocab="http://webintelligence.eu/platform/" item-view="todo">
+                            <td  property="title" contenteditable="true"></td>
+                            <td property="text" contenteditable="true"></td>
+                            <td><input type="checkbox" property="completed"></td>
+                            <td><div class="ui small button" data-class-positive-if="dirty" ><i class="save icon"></i></div></td>
+                            <td><div class="ui small button" data-event-click = "removeClick"><i class="remove sign icon"></i></div></td>
+                        </tr>
+                    </table>
+                    <div class="ui positive button" data-event-click="addClick">Add</div>
 
-                    </section>
                 </textarea>
 
             </div>
             <div class="column" >
 
                 <h1>This is a test collection of RDF items</h1>
+                <section  data-view="Todos" data-param-path="todos/endpoint" data-param-query="http://webintelligence.eu/queries/todos" data-param-shape="http://webintelligence.eu/shapes/todo">
 
-                    <table class="ui sortable table segment" id = "todos" data-view="Todos" data-param-path="todos/endpoint" data-param-query="http://webintelligence.eu/queries/todos" data-param-shape="http://webintelligence.eu/shapes/todo">
+
+                    <table class="ui sortable table segment" id = "todos">
                             <tr><th>Title</th>
                                 <th>Text</th>
                                 <th>Complected</th>
                                 <th></th>
                                 <th></th>
                             </tr>
-                            <tr data-template="true" vocab="http://webintelligence.eu/platform/">
-                                <td  property="title"></td>
-                                <td property="text"></td>
+                            <tr data-template="true" vocab="http://webintelligence.eu/platform/" item-view="todo">
+                                <td  property="title" contenteditable="true"></td>
+                                <td property="text" contenteditable="true"></td>
                                 <td><input type="checkbox" property="completed"></td>
-                                <td><div class="ui button"><i class="ui save icon"></i></div></td>
-                                <td><div class="ui button"><i class="ui remove sign icon"></i></div></td>
+                                <td><div class="ui small button" data-class-positive-if="dirty" ><i class="save icon"></i></div></td>
+                                <td><div class="ui small button" data-event-click = "removeClick"><i class="remove sign icon"></i></div></td>
 
                             </tr>
                     </table>
+                    <div class="ui positive button" data-event-click="addClick">Add</div>
 
+                </section>
 
 
             </div>

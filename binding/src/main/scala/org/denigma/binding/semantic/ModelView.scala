@@ -300,4 +300,6 @@ trait ModelView extends RDFView{
 //   override def bindDataAttributes(el: HTMLElement, ats: Map[String, String]): Unit = {
 //     /*nothing=)*/
 //   }
+
+  def die() = this.modelInside() = this.modelInside.now.apoptosis
  }
