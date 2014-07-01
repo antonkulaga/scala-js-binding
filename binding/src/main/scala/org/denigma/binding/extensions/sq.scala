@@ -16,7 +16,6 @@ import org.scalajs.spickling.jsany._
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.scalajs.spickling._
 import scala.scalajs.js.prim.Undefined
-import org.denigma.binding.picklers.BindingPicklers
 
 
 /**

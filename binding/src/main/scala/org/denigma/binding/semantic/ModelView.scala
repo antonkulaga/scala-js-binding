@@ -1,7 +1,7 @@
 package org.denigma.binding.semantic
 
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.{BindingView, OrdinaryView, OrganizedView}
+import org.denigma.binding.views.{BindingView, OrganizedView}
 import org.scalajs.dom
 import org.scalajs.dom.extensions._
 import org.scalajs.dom.{Event, HTMLElement}
@@ -54,11 +54,12 @@ trait RDFView extends OrganizedView
 
   protected def bindRdf(el: HTMLElement) = {
 
-    type RDFView = OrdinaryView with ModelView
 
-    prefixes= nearestRDFParent.fold(Map.empty[String,IRI])(_.prefixes)++this.prefixes
+    val rp = nearestRDFParent
+    prefixes= rp.fold(Map.empty[String,IRI])(_.prefixes)++this.prefixes
+    def binded(str:String) = str.contains("data") && str.contains("bind")
 
-    val ats = el.attributes.collect { case (key, value) if !value.value.toString.contains("data") => (key, value.value.toString)}.toMap
+    val ats = el.attributes.collect { case (key, value) if !binded(value.value) => (key, value.value.toString)}.toMap
 
     ats.foreach { case (key, value) =>
       this.rdfPartial(el, key, value,ats).orElse(otherPartial)(key)
@@ -116,7 +117,9 @@ trait ModelView extends RDFView{
      case "prefix" if value.contains(":")=> this.prefixes = prefixes + (value.substring(0,value.indexOf(":"))-> IRI(value))
 
      case "property" =>
-       this.resolve(value).foreach(iri=> this.bindRDFProperty(el, iri, value, ats.get("datatype").fold("")(v=>v)))
+       this.resolve(value).foreach{
+         case iri=> this.bindRDFProperty(el, iri, value, ats.get("datatype").fold("")(v=>v))
+       }
 
      case bname if bname.startsWith("property-") =>
        val att = key.replace("property-", "")
@@ -274,7 +277,7 @@ trait ModelView extends RDFView{
        this.bindRdfInner(el, iri)
 
      case _=> el.tagName.toLowerCase().toString match {
-       case "input" | "textarea" =>
+       case "input" | "textarea" | "option" =>
 
          el.attributes.get("type").map(_.value.toString) match {
            case Some("checkbox") =>
@@ -285,6 +288,8 @@ trait ModelView extends RDFView{
              el.onkeyup = this.makeRdfHandler(el, iri, "value")
              this.bindRdfInput(el, iri)
          }
+
+
 
 
        case other =>

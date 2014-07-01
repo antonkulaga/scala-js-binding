@@ -1,25 +1,22 @@
 package controllers
 
+import org.denigma.binding.messages.ModelMessages.ReadMessage
 import play.api.mvc.{Request, Result, Controller}
 import org.scalax.semweb.shex.PropertyModel
 import org.scalax.semweb.rdf._
 import org.scalax.semweb.rdf.vocabulary._
+import org.denigma.binding.messages.ModelMessages._
 
 import org.scalax.semweb.rdf.vocabulary.WI
-import org.denigma.binding.models.ModelMessages._
 import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.rdf.StringLiteral
-import org.denigma.binding.models.ModelMessages.Create
-import org.denigma.binding.models.ModelMessages.Read
-import org.denigma.binding.models.ModelMessages.Delete
-import org.denigma.binding.models.ModelMessages.Update
 import play.api.libs.json.Json
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import org.scalajs.spickling.playjson._
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.models.{StorageProtocol, ModelMessages}
 import org.denigma.binding.play.{AjaxModelEndpoint, PickleController, AuthRequest, UserAction}
 import play.api.http
+import org.scalax.semweb.shex._
 
 
 object PageController extends Controller with PickleController with AjaxModelEndpoint

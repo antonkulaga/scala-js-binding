@@ -1,6 +1,6 @@
 package org.denigma.binding.frontend
 
-import org.denigma.binding.controls.CkEditor
+import org.denigma.binding.controls.{CodeMirrorEditor, CkEditor}
 import org.denigma.binding.views.OrdinaryView
 import org.scalajs.dom
 import rx._
@@ -56,10 +56,14 @@ object FrontEnd extends OrdinaryView with scalajs.js.JSApp
     .register("CodeInsideView",(el,params)=>Try(new CodeInsideView(el,params)))
     .register("TableView",  (el,params)=>Try(new TableView(el,params)))
     .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
+    .register("ShapeProperty",(el,params)=>Try(new ShapeProperty(el,params)))
     .register("todo",(el,params)=>Try(new Todo(el,params)))
+    .register("SuggestView",(el,params)=>Try(new SuggestView(el,params)))
 
 
-  org.denigma.binding.views.registerEditor("ckeditor",CkEditor)
+  org.denigma.binding.views
+    .registerEditor("ckeditor",CkEditor)
+    .registerEditor("codemirror",CodeMirrorEditor)
 
 
 
@@ -68,7 +72,6 @@ object FrontEnd extends OrdinaryView with scalajs.js.JSApp
 
   @JSExport
   def main(): Unit = {
-    rp.registerPicklers()
     this.bindView(this.viewElement)
     jQuery(".top.sidebar").dyn.sidebar(sidebarParams).sidebar("show")
     jQuery(".left.sidebar").dyn.sidebar(sidebarParams).sidebar("show")

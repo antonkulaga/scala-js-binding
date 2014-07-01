@@ -12,9 +12,9 @@ libraryDependencies ++= Seq(
   "org.webjars" %% "webjars-play" % "2.3.0",
   "org.webjars" % "jquery" % "2.1.1",
   "org.webjars" % "Semantic-UI" % "0.18.0",
-  "org.webjars" % "codemirror" % "4.2",
+  "org.webjars" % "codemirror" % "4.3",
   "org.webjars" % "ckeditor" % "4.4.1",
-  "com.lihaoyi" %% "utest" % "0.1.6",
+  "com.lihaoyi" %% "utest" % "0.1.7",
   "org.scalax" %% "semweb" % Build.semWebVersion
 )
 

@@ -1,21 +1,15 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.binding.semantic.ModelView
+import org.denigma.binding.controls.{AjaxModelView, EditModelView}
+import org.denigma.binding.extensions._
+import org.denigma.binding.views
+import org.scalajs.dom
+import org.scalajs.dom._
+import rx._
 
 import scala.collection.immutable.Map
-import rx._
-import scalatags._
-import rx.core.Var
-import org.scalajs.dom.{TextEvent, HTMLElement, MouseEvent}
-import org.scalax.semweb.shex.PropertyModel
-import org.scalax.semweb.rdf.{RDFValue, StringLiteral, IRI}
-import org.scalajs.dom
-import org.denigma.binding.extensions._
-import org.denigma.binding.controls.{EditModelView, AjaxModelView, ActiveModelView}
-import org.denigma.binding.storages.AjaxStorage
+import scala.scalajs.js.Dynamic.{global => g, newInstance => jsnew}
 import scalatags.Text.Tag
-import scala.scalajs.js
-import js.Dynamic.{ global => g, newInstance => jsnew }
 
 class PageEditView(elem:HTMLElement,val params:Map[String,Any]) extends AjaxModelView("PageModel",elem,params) with EditModelView
 {
@@ -30,6 +24,21 @@ class PageEditView(elem:HTMLElement,val params:Map[String,Any]) extends AjaxMode
     this.editMode() = !this.editMode.now
   }
 
+  val editor = Var("ckeditor")
+
+  //val editor = Var("codemirror")
+
+  //val edChanges = editor.zip
+
+
+  override def bindEditable(el:HTMLElement,key:String) = {
+    this.bindRx(key,el,this.editMode){ (el,model)=>
+      el.contentEditable = editMode().toString
+      dom.console.log(editor.now)
+      if(editMode.now) views.on(el,this)(editor.now) else views.offAll(el,this)
+
+    }
+  }
 
   //val doubles: Map[String, Rx[Double]] = this.extractDoubles[this.type]
 

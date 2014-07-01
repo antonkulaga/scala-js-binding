@@ -1,49 +1,18 @@
 package org.denigma.binding.controls
 
+import org.denigma.binding.extensions.sq
 import org.denigma.binding.semantic.ModelView
+import org.denigma.binding.storages.AjaxModelStorage
 import org.denigma.binding.views.OrdinaryView
+import org.scalajs.dom
+import org.scalajs.dom.HTMLElement
+import org.scalax.semweb.rdf.IRI
+import org.scalax.semweb.shex.PropertyModel
+import rx._
 
 import scala.collection.immutable.Map
-import rx._
-import rx.core.Var
-import org.scalajs.dom.HTMLElement
-import org.scalajs.dom.MouseEvent
-import org.denigma.binding.storages.AjaxModelStorage
-import org.scalax.semweb.rdf.IRI
-import org.denigma.binding.extensions.sq
+import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
-import org.scalajs.dom
-import org.scalax.semweb.shex.PropertyModel
-import scalajs.concurrent.JSExecutionContext.Implicits.queue
-import scala.scalajs.js
-
-trait ActiveModelView extends OrdinaryView with ModelView
-{
-
-
-
-  override protected def otherPartial:PartialFunction[String,Unit] = {case _=>}
-
-  override def bindDataAttributes(el:HTMLElement,ats:Map[String, String]) = {
-    this.bindProperties(el,ats)
-    this.bindEvents(el,ats)
-  }
-
-
-  //TODO: rewrite
-  override def bindProperties(el:HTMLElement,ats:Map[String, String]): Unit = for {
-    (key, value) <- ats
-  }{
-    this.visibilityPartial(el,value)
-      .orElse(this.classPartial(el,value))
-      .orElse(this.propertyPartial(el,key.toString,value))
-      .orElse(this.loadIntoPartial(el,value))
-      .orElse(this.otherPartial)(key.toString)//key.toString is the most important!
-  }
-
-  lazy val dirty = Rx{this.modelInside().isDirty}
-
-}
 
 abstract class AjaxModelView(val name:String = "AjaxModel", val elem:HTMLElement,params:Map[String,Any]) extends ActiveModelView{
 
@@ -102,5 +71,31 @@ abstract class AjaxModelView(val name:String = "AjaxModel", val elem:HTMLElement
     val model = items.head
     this.modelInside() = this.modelInside.now.copy(model,model)
   }
+
+}
+
+trait ActiveModelView extends OrdinaryView with ModelView
+{
+
+  override protected def otherPartial:PartialFunction[String,Unit] = {case _=>}
+
+  override def bindDataAttributes(el:HTMLElement,ats:Map[String, String]) = {
+    this.bindProperties(el,ats)
+    this.bindEvents(el,ats)
+  }
+
+
+  //TODO: rewrite
+  override def bindProperties(el:HTMLElement,ats:Map[String, String]): Unit = for {
+    (key, value) <- ats
+  }{
+    this.visibilityPartial(el,value)
+      .orElse(this.classPartial(el,value))
+      .orElse(this.propertyPartial(el,key.toString,value))
+      .orElse(this.loadIntoPartial(el,value))
+      .orElse(this.otherPartial)(key.toString)//key.toString is the most important!
+  }
+
+  lazy val dirty = Rx{this.modelInside().isDirty}
 
 }

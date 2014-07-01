@@ -18,6 +18,12 @@ abstract class OrganizedView extends BindingView //with GeneralBinding
 {
 
 
+  /**
+   * Overrides for load element into that includes view switching
+   * @param el element
+   * @param newInnerHTML new content of the inner html
+   * @param uri uri (for push state)
+   */
   override def loadElementInto(el:HTMLElement, newInnerHTML:String,uri:String=""): Unit =  if(this.isTopView)
   {
     val params = js.Dynamic.literal( "html" -> newInnerHTML)
@@ -80,7 +86,7 @@ abstract class OrganizedView extends BindingView //with GeneralBinding
   def removeSubViewsFrom(element:HTMLElement) = {
     val toRemove = this.subviews.collect{case (key,value) if value.isInside(element)=>key}
     toRemove.foreach(r=>removeView(r))
-    dom.console.log(s"removing subviews from $name: ${toRemove.toString()} \n remainin views: ${subviews.toString()}")
+    dom.console.log(s"removing subviews from $name: ${toRemove.toString()} \n remaining views: ${subviews.toString()}")
   }
 
 

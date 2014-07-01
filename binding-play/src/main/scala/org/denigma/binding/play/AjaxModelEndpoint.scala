@@ -1,8 +1,9 @@
 package org.denigma.binding.play
 
+import org.denigma.binding.messages.ModelMessages
+import org.denigma.binding.messages.ModelMessages.ReadMessage
 import play.api.mvc.{Result, Request, Controller}
-import org.denigma.binding.models.ModelMessages._
-import org.denigma.binding.models.ModelMessages
+
 
 trait AjaxModelQueryEndpoint  extends AjaxModelEndpoint{
   self: Controller =>

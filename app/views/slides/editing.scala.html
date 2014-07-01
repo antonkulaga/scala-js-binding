@@ -9,7 +9,10 @@
     <section class="ui segment">
         <p><b>scala-js-binding</b> provides some views for convenient text editing
     </section>
-
+    <datalist id="editor">
+        <option value="codemirror"></option>
+        <option value="ckeditor"></option>
+    </datalist>
 
     <div class="ui one column grid">
         <section class="row">
@@ -28,8 +31,11 @@
                         <h1 property="title"></h1>
                         <p property="text"  datatype="xsd:html"></p>
 
-
                     </div>
+                    @*<input list="editor" data-bind="editor" type="text">*@
+
+
+
                     <div class="ui button" data-class-positive-if="dirty" data-event-click="saveClick">save</div>
                     <div class="ui toggle button" data-class-positive-if="editMode" data-event-click="toggleClick"> EditMode</div>
 

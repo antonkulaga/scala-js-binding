@@ -1,12 +1,13 @@
 package org.denigma.binding.storages
 
-import org.denigma.binding.models.ModelMessages.SelectQuery
-import org.denigma.binding.models.{Channeled, ModelMessages}
+import org.denigma.binding.messages.ModelMessages
+import ModelMessages.SelectQuery
 import org.denigma.binding.picklers.rp
 import org.denigma.binding.extensions.sq
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.spickling.PicklerRegistry
+import org.scalax.semweb.messages.Channeled
 import org.scalax.semweb.rdf.Res
 import org.scalax.semweb.shex.PropertyModel
 
@@ -39,7 +40,7 @@ class AjaxModelQueryStorage(path:String)(implicit registry:PicklerRegistry) exte
    * @return
    */
   def select(query:Res,shape:Res): Future[List[PropertyModel]] = {
-    val data: SelectQuery = ModelMessages.SelectQuery(path,shape,query, id = genId(), time = js.Date.now())
+    val data: SelectQuery = ModelMessages.SelectQuery(shape,query, genId(),  channel = path)
     sq.post(path,data):Future[List[PropertyModel]]
   }
 }
@@ -56,23 +57,23 @@ class AjaxModelStorage(path:String)(implicit registry:PicklerRegistry = rp) exte
   def channel:String = path
 
   override def create(shapeId: Res)(models: PropertyModel*): Future[Boolean] = {
-    val data = ModelMessages.Create(channel,shapeId,models.toSet, id = genId(), time = js.Date.now())
+    val data = ModelMessages.Create(shapeId,models.toSet, genId(), channel = channel)
     sq.post(path,data):Future[Boolean]
   }
 
   override def update(shapeId: Res, overWrite: Boolean)(models: PropertyModel*): Future[Boolean] = {
-    val data = ModelMessages.Create(channel, shapeId,models.toSet, id = genId(), time = js.Date.now())
+    val data = ModelMessages.Create(shapeId,models.toSet,  genId(), channel = channel)
     sq.post(path,data):Future[Boolean]
   }
 
   override def delete(shape:Res)(res: Res*): Future[Boolean] = {
-    val data = ModelMessages.Delete(channel,shape,res.toSet, id = genId(), time = js.Date.now())
+    val data = ModelMessages.Delete(shape,res.toSet, genId(),channel = channel)
     sq.post(path,data):Future[Boolean]
 
   }
 
   override def read(shapeId: Res)(modelIds: Res*): Future[List[PropertyModel]] = {
-    val data = ModelMessages.Read(channel,shapeId, modelIds.toSet, id = genId(), time = js.Date.now())
+    val data = ModelMessages.Read(shapeId, modelIds.toSet, genId(), channel = channel)
     sq.post(channel,data):Future[List[PropertyModel]]
   }
 }

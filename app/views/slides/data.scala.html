@@ -1,5 +1,5 @@
 @(title:String)(implicit request: UserRequestHeader)
-<article id="main_article"  data-view="RdfSlide" class="ui blue piled segment" >
+<article id="main_article" data-view="RdfSlide" class="ui blue piled segment" xmlns="http://www.w3.org/1999/html">
 
 
 
@@ -13,6 +13,26 @@
 
 
     <div class="ui one column grid">
+        @*<section class="row">*@
+            @*You can edit html of views and see bindings updates*@
+
+                @*<section class="ui segment" data-view="TestModelView" vocab="http://webintelligence.eu/platform/" data-param-path="models/endpoint" data-param-resource="http://page.org" data-param-shape="http://shape.org">*@
+
+                    @*<h1>This is test rdf model that is kep in memory</h1>*@
+                    @*<div>*@
+                        @*<h1 property="title"></h1>*@
+                        @*<input property="title">*@
+                        @*<p property="text"></p>*@
+                        @*<textarea property="text"></textarea>*@
+
+
+                    @*</div>*@
+                    @*<div class="ui button" data-class-positive-if="dirty" data-event-click="saveClick">save</div>*@
+
+                @*</section>*@
+            @**@
+            @**@
+        @*</section>*@
         <section class="row">
             <div class="column">
                 Selection box with autosuggestion
@@ -20,42 +40,46 @@
         </section>
         <section class="row">
             <div class="column">
-                <section>
-                    <input list="SuggestView">
-                    <datalist id="character">
-                        <option value="Чебурашка"></option>
-                        <option value="Крокодил Гена"></option>
-                        <option value="Шапокляк"></option>
+                <section data-view="SuggestView"  vocab="http://webintelligence.eu/" data-param-path="suggestions">
+                    <input list="values">
+                    <datalist id="values">
+                        <option data-template="true" property="value">
+
+                        </option>
                     </datalist>
+
 
                 </section>
             </div>
         </section>
+
+        <datalist id="cardinality">
+            <option data-template="true" property="value">
+
+            </option>
+        </datalist>
         <section class="row">
             <div class="column">
-                Editing of schema of data
-                    <table class="ui sortable table segment" data-view="ShapeEditor" data-path="shapes/endpoint" resource="http://webintelligence.eu/shapes/todo">
+                <section id="ShapeEditor" data-view="ShapeEditor" vocab="http://webintelligence.eu/" data-path="shapes/endpoint" resource="http://webintelligence.eu/shapes/todo">
+                <table class="ui sortable table segment">
                         <tr>
                             <th>Property</th>
                             <th>Value</th>
-                            <th>Cardinality</th>
+                            <th>Cadinality</th>
                             <th>Save</th>
                             <th>Remove</th>
                         </tr>
-                        <tr data-template="true" vocab="http://open-services.net/ns/core#">
-                            <td><input type="text"  property="property"></td>
-                            <td><input type="text" property="value" ></td>
-                            <td><input type="text" property="cardinality">
-                                                               </td>
-                            <td><input type="number" property="min"></td>
-                            <td><input type="number" property="max"></td>
-
-                            <th><i class="ui save icon"></i></th>
-                            <th><i class="ui remove sign icon"></i></th>
+                        <tr data-template="true" item-view="ShapeProperty" vocab="http://open-services.net/ns/core#">
+                            <td property="property" contenteditable="true">Property name</td>
+                            <td property="value" contenteditable="true">Property value</td>
+                            <td><input list="cardinality" property="cardinality">   </td>
+                            <td><i class="ui save icon"></i></td>
+                            <td><i class="ui remove sign icon" data-event-click="removeClick"></i></td>
                         </tr>
 
                     </table>
-
+                    <div class="ui positive button" data-event-click="addClick">Add</div>
+                </section>
 
 
 

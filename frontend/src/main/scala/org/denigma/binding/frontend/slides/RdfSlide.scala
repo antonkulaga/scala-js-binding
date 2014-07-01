@@ -1,12 +1,12 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.binding.controls.{ActiveModelView, AjaxModelCollection}
-import org.denigma.binding.semantic.ModelInside
+import org.denigma.binding.controls.ActiveModelView
+import org.denigma.binding.extensions._
+import org.denigma.binding.semantic.{AjaxModelCollection, ModelInside}
 import org.denigma.binding.views.OrdinaryView
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx._
-import org.denigma.binding.extensions._
-import org.scalajs.dom
+
 import scalatags.Text.Tag
 
 /**

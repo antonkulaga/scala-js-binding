@@ -1,15 +1,21 @@
 package org.denigma.binding.frontend.slides
 
-
-import org.denigma.binding.controls.AjaxModelCollection
-import org.denigma.binding.views.OrdinaryView
+import org.denigma.binding.semantic.{ModelCollection, ModelInside}
+import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.scalax.semweb.rdf.vocabulary.WI
+import org.scalax.semweb.rdf.{IRI, StringLiteral}
+import org.scalax.semweb.shex.PropertyModel
 import rx._
 
+import scala.collection.immutable.Map
 import scalatags.Text.Tag
 
-class SuggestView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends AjaxModelCollection("Todos",element,params)
+class SuggestView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends ModelCollection
 {
+
+  val name = "SuggestView"
+
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
@@ -18,9 +24,23 @@ class SuggestView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,
 
   override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 
+
+
+
   override def bindView(el:HTMLElement) {
     //jQuery(el).slideUp()
     super.bindView(el)
+    this.subscribeUpdates()
+    dom.console.log("collection prefixes = " + prefixes.toString())
+
+    val p1 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("one")) )
+    val p2= ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("two")))
+    val p3 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("three")))
+    val p4 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("four")))
+    val p5 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("five")))
+    val p6 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("six")))
+
+    this.items() = List(Var(p1),Var(p2),Var(p3),Var(p4),Var(p5),Var(p6))
 
   }
 

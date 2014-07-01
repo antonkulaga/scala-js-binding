@@ -2,8 +2,8 @@ package org.denigma.binding.controls
 import org.denigma.binding.{InlineEditor, views}
 import org.denigma.binding.views.{OrganizedView, OrdinaryView}
 import rx.core.Var
-
-import org.scalajs.dom.{HTMLDivElement, TextEvent, MouseEvent, HTMLElement}
+import org.scalajs.dom.extensions._
+import org.scalajs.dom._
 import rx.core.Var
 import scala.util.Random
 import rx.Rx
@@ -17,7 +17,6 @@ import importedjs.CodeMirror.{EditorConfiguration, CodeMirror, Editor}
 import scala.scalajs.js
 import js.Dynamic.{ global => g }
 
-import java.awt.TextArea
 
 trait EditModelView extends ActiveModelView
 {
@@ -52,11 +51,18 @@ trait EditModelView extends ActiveModelView
   }
 
 
+  /**
+   * Binds editor to editable element
+   * @param el
+   * @param key
+   */
   def bindEditable(el:HTMLElement,key:String) = {
     this.bindRx(key,el,this.editMode){ (el,model)=>
       el.contentEditable = editMode().toString
-      views.onEdit(editMode.now,el,this)
-
+      el.attributes.get("editor") match {
+        case Some(ed)=>      if(editMode.now) views.on(el,this)(ed.value) else views.off(el,this)(ed.value)
+        case None=>    if(editMode.now) views.on(el,this) else views.off(el,this)
+      }
     }
   }
 
@@ -89,12 +95,85 @@ object CkEditor extends InlineEditor{
     }
     //g.CKEDITOR.inline( el )
   }
+
+//  override def canEdit(el: HTMLElement, view: OrganizedView): Boolean = true
+
+//  override def isActiveAt(el: HTMLElement, view: OrganizedView): Boolean = editors.get(el).isDefined
 }
 
 object CodeMirrorEditor extends InlineEditor {
+
+
+  var pairs = Map.empty[HTMLElement, CodeMirrorEditor]
+
   override def on(el: HTMLElement, view: OrganizedView): Unit = {
+
+//
+//    val area = dom.document.createElement("textarea").asInstanceOf[dom.HTMLTextAreaElement]
+//    val html = el.innerHTML
+//    val p = el.parentElement
+//    p.appendChild(area)
+//    p.replaceChild(area,el)
+//    area.id = el.id
+//    val m: Editor = CodeMirror.fromTextArea(area,params(settings).asInstanceOf[EditorConfiguration])
+//    m.getDoc().setValue(html)
+//    m.on("change",onChange _)
+//    pairs = pairs + (el->m)
+
 
   }
 
-  override def off(el: HTMLElement, view: OrganizedView): Unit = ???
+  override def off(el: HTMLElement, view: OrganizedView): Unit = pairs.get(el) match {
+    case Some(ed)=> dom.document.getElementById(el.id) match {
+      case area:dom.HTMLTextAreaElement =>
+        dom.console.log("closing "+el.id)
+        val p =  area.parentElement
+        p.appendChild(el)
+        p.replaceChild(el,area)
+        el.innerHTML = area.value
+        pairs = pairs - el
+      case _=>dom.console.log("cannot find text aread")
+    }
+
+
+    case None=>
+  }
 }
+
+class CodeMirrorEditor(val el:HTMLElement)
+{
+  def params(md:String) = js.Dynamic.literal(
+    mode = md.asInstanceOf[js.Any],
+    lineNumbers = true
+  )
+
+  val settings = el.attributes.get("data-mode") match {
+    case None=>"htmlmixed"
+    case Some(value)=>value.value
+  }
+
+  lazy val area: HTMLTextAreaElement = {
+    val p = el.parentElement
+    val ar =  dom.document.createElement("textarea").asInstanceOf[dom.HTMLTextAreaElement]
+    p.appendChild(ar)
+    p.replaceChild(ar,el)
+    ar.id = el.id
+    ar
+  }
+
+  lazy val editor = CodeMirror.fromTextArea(area,params(settings).asInstanceOf[EditorConfiguration])
+
+  def activate() = {
+
+  }
+
+  def onChange(ed:Editor)
+  {
+    val v = ed.getDoc().getValue()
+    if(el.innerHTML!=v) el.innerHTML=v
+
+  }
+}
+
+
+

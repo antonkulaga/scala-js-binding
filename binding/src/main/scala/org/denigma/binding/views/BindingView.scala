@@ -9,14 +9,15 @@ import org.scalajs.dom.extensions._
 import scala.collection.immutable.Map
 import scala.reflect.ClassTag
 import scala.util.{Failure, Success}
-import org.denigma.binding.views._
 
 trait BindingView extends JustBinding
 {
   def elem:dom.HTMLElement
 
+  def name:String
 
-  require(elem!=null,s"html elemenet of view with $name must not be null!")
+
+  require(elem!=null,s"html elemenet of view with $id must not be null!")
 
   var topView:BindingView = this
 
@@ -51,7 +52,10 @@ trait BindingView extends JustBinding
   var subviews = Map.empty[String,BindingView]
 
 
-  def addView(view:BindingView) = this.subviews = this.subviews + (view.id -> view)
+  def addView(view:BindingView) = {
+    this.subviews = this.subviews + (view.id -> view)
+    view.parent = Some(this)
+  }
 
   def makeDefault(name:String,el:HTMLElement):BindingView
 

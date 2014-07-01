@@ -1,28 +1,52 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.binding.picklers.rp
-import org.denigma.binding.controls.ShapeView
+import org.denigma.binding.controls.{ActiveModelView, ShapeView}
 import org.denigma.binding.extensions._
-import org.denigma.binding.storages.AjaxModelQueryStorage
-import org.denigma.binding.views.CollectionView
-import org.scalajs.dom
-import org.scalajs.dom._
-import org.scalajs.dom.extensions._
-import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.shex.PropertyModel
-import rx.{Rx, Var}
+import org.denigma.binding.semantic.ModelInside
+import org.scalajs.dom.{HTMLElement, MouseEvent}
+import rx.{Var, _}
 
-import scala.Predef
 import scala.collection.immutable._
-import scala.util.{Failure, Success}
 import scalatags.Text.Tag
-import scalajs.concurrent.JSExecutionContext.Implicits.queue
-class ShapeEditor (element:HTMLElement,params:Map[String,Any]) extends ShapeView("ShapeView",element,params){
-  override def tags: Map[String, Rx[Tag]] = Map.empty
+class ShapeEditor (element:HTMLElement,params:Map[String,Any]) extends ShapeView("ShapeEditor",element,params){
+  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
-  override def mouseEvents: Predef.Map[String, Var[MouseEvent]] = Map.empty
+  override def mouseEvents: Predef.Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 
-  override def strings: Map[String, Rx[String]] = Map.empty
+  override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 
-  override def bools: Map[String, Rx[Boolean]] = Map.empty
+  override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
+
+
+  val addClick = Var(this.createMouseEvent())
+
+  addClick handler {
+    this.addItem()
+  }
+
+}
+
+class ShapeProperty(val elem:HTMLElement, params:Map[String,Any], val name:String = "property") extends ActiveModelView{
+
+  val initial: Option[Var[ModelInside]] = params.get("model").collect{case mi:Var[ModelInside]=>mi}
+
+  require(initial.isDefined,"No model received!")
+
+  override val modelInside  = initial.get
+
+  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
+
+  override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
+
+  override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
+
+  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
+
+  val removeClick = Var(this.createMouseEvent())
+
+  removeClick.handler{
+    this.die()
+  }
+
+
 }

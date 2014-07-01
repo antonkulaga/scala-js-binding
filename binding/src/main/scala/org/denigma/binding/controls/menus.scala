@@ -73,7 +73,6 @@ abstract class AjaxMenuView(name:String,el:HTMLElement, params:Map[String,Any] =
    */
   override def bindView(el:HTMLElement) = {
     this.bind(el)
-    rp.registerPicklers()
     this.subscribeUpdates()
     val futureMenu = storage.all()
     futureMenu.onComplete {

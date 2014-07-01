@@ -16,7 +16,8 @@ import scala.util.{Failure, Success}
  */
 abstract class JustBinding {
 
-  def name:String
+  def id:String
+
   /**
    * Loads links into some view
    * @param element
@@ -59,12 +60,13 @@ abstract class JustBinding {
    * @param uri uri (for push state)
    * @param newInnerHTML new content of the inner html
    */
-  def loadElementInto(el:HTMLElement, newInnerHTML:String,uri:String = "") = {
-    val params = js.Dynamic.literal( "html" -> newInnerHTML)
-
-    if(uri!="")  dom.window.history.pushState(params,dom.document.title,uri)
-    el.innerHTML = newInnerHTML
-  }
+  def loadElementInto(el:HTMLElement, newInnerHTML:String,uri:String = ""):Unit
+//  = {
+//    val params = js.Dynamic.literal( "html" -> newInnerHTML)
+//
+//    if(uri!="")  dom.window.history.pushState(params,dom.document.title,uri)
+//    el.innerHTML = newInnerHTML
+//  }
 
   protected def processUrl(url:String, relativeURI:Boolean = true):String =
     if(url.contains("://")) {

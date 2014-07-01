@@ -1,15 +1,14 @@
+import sbt.Keys._
 import sbt._
-import Keys._
 //import play.Keys._
+import bintray.Opts
+import bintray.Plugin.bintraySettings
+import bintray.Keys._
+import com.typesafe.sbt.packager.universal.UniversalKeys
 import play._
 
+import scala.scalajs.sbtplugin.ScalaJSPlugin.ScalaJSKeys._
 import scala.scalajs.sbtplugin.ScalaJSPlugin._
-import scala.Some
-import ScalaJSKeys._
-import com.typesafe.sbt.packager.universal.UniversalKeys
-import bintray.Plugin.bintraySettings
-import bintray.Opts
-import bintray.Keys._
 
 object Build extends sbt.Build with UniversalKeys {
 
@@ -21,7 +20,7 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.5.1"
+  val semWebVersion =  "0.6.1"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -90,7 +89,7 @@ object Build extends sbt.Build with UniversalKeys {
 
     organization := "org.denigma",
 
-    version := "0.4.4",
+    version := "0.4.6",
 
     scalaVersion := "2.11.1",
 

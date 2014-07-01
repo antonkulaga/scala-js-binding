@@ -37,6 +37,13 @@ abstract class CodeMirrorView(val name:String,val elem:HTMLElement,params:Map[St
   val code = Var("")
   val mode: String = params.get("mode").fold("htmlmixed")(_.toString())
 
+  def onChange(ed:Editor)
+  {
+    val v =  ed.getDoc().getValue()
+    if(code.now!=v)  code() = v
+
+  }
+
 
   override def bindView(el:HTMLElement) {
 
@@ -53,9 +60,13 @@ abstract class CodeMirrorView(val name:String,val elem:HTMLElement,params:Map[St
 
         val m: Editor = CodeMirror.fromTextArea(area,params.asInstanceOf[EditorConfiguration])
 
+
         Rx{
-          m.getDoc().setValue(code())
+          val v =  m.getDoc().getValue()
+          if(code.now!=v)  m.getDoc().setValue(code())
         }
+        m.on("change",onChange _)
+
 
       case _=> dom.console.log("it is not a text area!")
     }

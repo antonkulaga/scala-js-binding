@@ -8,13 +8,13 @@ import rx.Rx
 import rx.extensions.Moved
 
 import scala.collection.immutable._
-import scala.scalajs.js
 
 
 trait CollectionView extends OrdinaryView{
 
   type Item
   type ItemView <: BindingView
+
 
   val items:Rx[List[Item]]
 
@@ -129,10 +129,11 @@ trait CollectionView extends OrdinaryView{
   var itemViews = Map.empty[Item,ItemView]
 
   def addItemView(item:Item,iv:ItemView):ItemView = {
-    span.parentElement.insertBefore(iv.viewElement)
+    span.parentElement.insertBefore(iv.viewElement,span)
     this.addView(iv)
-    iv.bindView(iv.viewElement)
     itemViews = itemViews + (item->iv)
+    iv.bindView(iv.viewElement)
+    dom.console.log(iv.viewElement.innerHTML)
     iv
   }
 
