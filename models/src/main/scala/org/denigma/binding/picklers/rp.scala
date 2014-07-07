@@ -14,5 +14,7 @@ class BindingPicklers extends SemanticRegistry with ModelPicklers
   override def register() = {
     super.register()
     this.registerModels()
+    this.registerExploration()
+
   }
 }

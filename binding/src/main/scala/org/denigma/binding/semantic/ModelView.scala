@@ -89,7 +89,7 @@ trait ModelView extends RDFView{
   self:OrganizedView=>
 
 
-   val modelInside = Var(ModelInside( PropertyModel.empty))
+   val modelInside =  Var(ModelInside( PropertyModel.empty))
 
 
      /**
@@ -121,6 +121,11 @@ trait ModelView extends RDFView{
          case iri=> this.bindRDFProperty(el, iri, value, ats.get("datatype").fold("")(v=>v))
        }
 
+     case "data-name-of" =>
+       this.resolve(value).foreach{
+         case iri=> this.bindRdfName(el, iri)
+       }
+
      case bname if bname.startsWith("property-") =>
        val att = key.replace("property-", "")
 
@@ -132,40 +137,58 @@ trait ModelView extends RDFView{
    }
 
 
+  def prettyString(value:RDFValue) = value match {
+    case lit:Lit=>
+      lit.label
+    case other=>other.stringValue
+  }
 
   /**
-   * Extracts STRs from properties
-   * @param model
-   * @param key
+   * Defines what to do with many rdf values
+   */
+  val onMany:Set[RDFValue]=>String = (values)=>{
+    values.foldLeft("") { case (acc, prop) => acc + this.prettyString(prop) + "; "}
+  }
+
+  /**
+   * Set of values to string
+   * @param values
    * @return
    */
-   def strOptionFromProperties(model: PropertyModel, key: IRI) = model.properties.get(key) match {
-    case Some(values: Set[RDFValue])=> Some(this.vals2String(values))
-    case None=>None
+  def vals2String(values: Set[RDFValue],onZero:String="",onOne:RDFValue=>String = this.prettyString _, onMany:Set[RDFValue]=>String = this.onMany): String = values.size match {
+    case 0 => onZero
+    case 1 => onOne(values.head)
+    case _ => this.onMany(values)
+  }
 
+  protected def printLabel(iri:IRI) = {
+    iri.localName.replace("/","").replace("_"," ")
+
+  }
+
+  protected val oneName:RDFValue=>String = {
+    case iri: IRI => printLabel(iri)
+    case b: BlankNode => b.id
+    case lit: Lit => lit.label
+  }
+
+  protected val manyNames: Set[RDFValue]=>String = (values)=>{
+    values.foldLeft("") { case (acc, prop) => acc + oneName(prop) + "; "}
+  }
+  protected def bindRdfName(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
+    model.current.properties.get(key).map {   case values =>     this.vals2String(values,onOne = oneName,onMany = manyNames)  }
+    match    {
+    //TODO: move to propertymodel class
+      case None=>
+        dom.console.log(s"${key.toString()} was not found in the model")
+      case
+        Some(value)=>el.innerHTML =  value
     }
-
-
-   def prettyString(value:RDFValue) = value match {
-     case lit:Lit=>
-       lit.label
-     case other=>other.stringValue
-   }
-
-   /**
-    * Set of values to string
-    * @param values
-    * @return
-    */
-   def vals2String(values: Set[RDFValue]): String = values.size match {
-     case 0 => ""
-     case 1 => this.prettyString(values.head)
-     case _ => values.foldLeft("") { case (acc, prop) => acc + ";" + this.prettyString(prop)}
-   }
+  }
 
 
   protected def bindRdfInner(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
-    strOptionFromProperties(model.current, key) match {
+    model.current.properties.get(key).map(values=>this.vals2String(values)) match {
       case None=>
         dom.console.log(s"${key.toString()} was not found in the model")
       case
@@ -174,7 +197,7 @@ trait ModelView extends RDFView{
   }
 
    protected def bindRdfText(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
-     strOptionFromProperties(model.current, key) match {
+    model.current.properties.get(key).map(values=>this.vals2String(values)) match {
        case None=>
          dom.console.log(s"${key.toString()} was not found in the model")
        case Some(value)=>
@@ -184,7 +207,7 @@ trait ModelView extends RDFView{
 
 
    protected def bindRdfInput(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
-     strOptionFromProperties(model.current, key) match {
+      model.current.properties.get(key).map(values=>this.vals2String(values)) match {
        case None=>dom.console.log(s"${key.toString()} was not found in the model")
        case Some(value)=>     if (el.dyn.value != value) el.dyn.value = value
      }
@@ -219,7 +242,7 @@ trait ModelView extends RDFView{
     * @param att
     */
    protected def bindRdfAttribute(el: HTMLElement, key: IRI, att: String) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
-     strOptionFromProperties(modelInside.now.current, key) match {
+    model.current.properties.get(key).map(values=>this.vals2String(values)) match {
        case None=> dom.console.log(s"${key.toString()} was not found in the model")
        case Some(value)=>
          val at = dom.document.createAttribute(att)
@@ -265,7 +288,15 @@ trait ModelView extends RDFView{
 
   }
 
-   /**
+  def bindPropertyName(el: HTMLElement, iri: IRI) = {
+
+      el.onkeyup = this.makeRdfHandler(el, iri, "innerHTML")
+      this.bindRdfInner(el, iri)
+
+  }
+
+
+  /**
     * Binds property value to attribute
     * @param el Element
     * @param iri name of the binding key

@@ -1,7 +1,9 @@
 package org.denigma.binding.frontend
 
-import org.denigma.binding.controls.{CodeMirrorEditor, CkEditor}
+import org.denigma.binding.frontend.papers.{Task, TasksView, Report, ReportsView}
 import org.denigma.binding.views.OrdinaryView
+import org.denigma.controls.general.{CodeMirrorEditor, CkEditor}
+
 import org.scalajs.dom
 import rx._
 import scala.scalajs.js.annotation.JSExport
@@ -13,7 +15,7 @@ import scala.scalajs.js
 import org.denigma.binding.frontend.tests.{PicklerView, LongListView, RandomView}
 import org.denigma.binding.extensions._
 import org.denigma.binding.frontend.slides._
-import org.denigma.binding.frontend.tools.{CodeInsideView, CodeView}
+import org.denigma.binding.frontend.tools.{SelectView, CodeInsideView, CodeView}
 import org.denigma.binding.picklers.rp
 import scalatags.Text.Tag
 
@@ -58,7 +60,13 @@ object FrontEnd extends OrdinaryView with scalajs.js.JSApp
     .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
     .register("ShapeProperty",(el,params)=>Try(new ShapeProperty(el,params)))
     .register("todo",(el,params)=>Try(new Todo(el,params)))
+    .register("Tasks",(el,params)=>Try(new TasksView(el,params)))
+    .register("task",(el,params)=>Try(new Task(el,params)))
+
     .register("SuggestView",(el,params)=>Try(new SuggestView(el,params)))
+    .register("ReportsView",(el, params) =>Try(new ReportsView(el,params)))
+    .register("report",(el, params) =>Try(new Report(el,params)))
+    .register("TestSelect",(el, params) =>Try(new SelectView(el,params)))
 
 
   org.denigma.binding.views

@@ -1,5 +1,6 @@
 package controllers
 
+import controllers.ProjectController._
 import org.denigma.binding.messages.ModelMessages.ReadMessage
 import play.api.mvc.{Request, Result, Controller}
 import org.scalax.semweb.shex.PropertyModel
@@ -18,11 +19,16 @@ import org.denigma.binding.play.{AjaxModelEndpoint, PickleController, AuthReques
 import play.api.http
 import org.scalax.semweb.shex._
 
+import scala.concurrent.Future
+
 
 object PageController extends Controller with PickleController with AjaxModelEndpoint
 {
 
-  override type RequestType = AuthRequest[ReadMessage]
+  override type ModelRequest = AuthRequest[ReadMessage]
+
+  override type ModelResult = Result
+
 
   val shapeRes = new IRI("http://shape.org")
   val title = (WI.PLATFORM / "title").iri
@@ -72,7 +78,7 @@ object PageController extends Controller with PickleController with AjaxModelEnd
 
   var items: Map[Res, PropertyModel] = Map(hello->helloModel, rybka->rybkaModel   )
 
-  override def onCreate(createMessage: Create)(implicit request:RequestType): Result = {
+  override def onCreate(createMessage: Create)(implicit request:ModelRequest): Result = {
     val models:Map[Res,PropertyModel] =  createMessage.models.map(m=> m.resource -> m).toMap
     if(createMessage.rewriteIfExists) {
       items = this.items ++ models
@@ -84,7 +90,7 @@ object PageController extends Controller with PickleController with AjaxModelEnd
     Ok(rp.pickle(true)).as("application/json")
   }
 
-  override def onUpdate(updateMessage: Update)(implicit request:RequestType): Result = {
+  override def onUpdate(updateMessage: Update)(implicit request:ModelRequest): Result = {
     val models:Map[Res,PropertyModel] =  updateMessage.models.map(m=> m.resource -> m).toMap
     if(updateMessage.createIfNotExists) {
       items = this.items ++ models
@@ -96,19 +102,22 @@ object PageController extends Controller with PickleController with AjaxModelEnd
     Ok(rp.pickle(true)).as("application/json")
   }
 
-  override def onRead(readMessage: Read)(implicit request:RequestType): Result = {
+  override def onRead(readMessage: Read)(implicit request:ModelRequest): Result = {
     val res = items.foldLeft(List.empty[PropertyModel]){ case (acc,(key,value))=> if(readMessage.resources.contains(key)) value::acc else acc  }
     Ok(rp.pickle(res)).as("application/json")
   }
 
-  override def onDelete(deleteMessage: Delete)(implicit request:RequestType): Result = {
+  override def onDelete(deleteMessage: Delete)(implicit request:ModelRequest): Result = {
     items = items.filterNot(kv=>deleteMessage.res.contains(kv._1))
     Ok(rp.pickle(true)).as("application/json")
 
   }
 
+
+  override def onBadModelMessage(message: ModelMessage): ModelResult = BadRequest(Json.obj("status" ->"KO","message"->"wrong message type!")).as("application/json")
+
   def endpoint() = UserAction(this.pickle[ReadMessage]()){implicit request=>
-   this.onMessage(request.body)
+    this.onModelMessage(request.body)
 
   }
 }

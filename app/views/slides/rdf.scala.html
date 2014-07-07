@@ -59,7 +59,7 @@
                             <th></th>
                             <th></th>
                         </tr>
-                        <tr data-template="true" vocab="http://webintelligence.eu/platform/" item-view="todo">
+                        <tr data-template="true" vocab="http://webintelligence.eu/platform/" data-item-view="todo">
                             <td  property="title" contenteditable="true"></td>
                             <td property="text" contenteditable="true"></td>
                             <td><input type="checkbox" property="completed"></td>
@@ -75,7 +75,9 @@
             <div class="column" >
 
                 <h1>This is a test collection of RDF items</h1>
-                <section  data-view="Todos" data-param-path="todos/endpoint" data-param-query="http://webintelligence.eu/queries/todos" data-param-shape="http://webintelligence.eu/shapes/todo">
+                <section  data-view="Todos" data-param-path="todos/endpoint"
+                data-param-query="http://webintelligence.eu/queries/todos" data-param-shape="http://webintelligence.eu/shapes/todo" data-param-crud="papers/crud"
+                >
 
 
                     <table class="ui sortable table segment" id = "todos">

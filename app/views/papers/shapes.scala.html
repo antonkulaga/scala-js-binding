@@ -1,0 +1,33 @@
+@(implicit request: UserRequestHeader)
+<datalist id="cardinality">
+    <option data-template="true" property="value">
+
+            </option>
+</datalist>
+<section class="row">
+    <div class="column">
+        <section id="ShapeEditor" data-view="ShapeEditor" vocab="http://webintelligence.eu/" data-path="shapes/endpoint" resource="http://webintelligence.eu/shapes/todo">
+            <table class="ui sortable table segment">
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                    <th>Cadinality</th>
+                    <th>Save</th>
+                    <th>Remove</th>
+                </tr>
+                <tr data-template="true" item-view="ShapeProperty" vocab="http://open-services.net/ns/core#">
+                    <td property="property" contenteditable="true">Property name</td>
+                    <td property="value" contenteditable="true">Property value</td>
+                    <td><input list="cardinality" property="cardinality">   </td>
+                    <td><i class="ui save icon"></i></td>
+                    <td><i class="ui remove sign icon" data-event-click="removeClick"></i></td>
+                </tr>
+
+            </table>
+            <div class="ui positive button" data-event-click="addClick">Add</div>
+        </section>
+
+
+
+    </div>
+</section>

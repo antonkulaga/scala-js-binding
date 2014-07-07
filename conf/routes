@@ -9,6 +9,13 @@ GET           /test/tuple2               controllers.Test.tuple2()
 GET           /test/map                  controllers.Test.map()
 GET           /test/model                controllers.Test.model()
 
+GET           /papers/reports            controllers.literature.Literature.reports()
+POST          /papers/explore            controllers.literature.Literature.exploreEndpoint()
+POST          /papers/crud               controllers.literature.Literature.modelEndpoint()
+GET           /papers/                   controllers.literature.Literature.reports()
+
+POST          /tasks/explore            controllers.literature.Literature.exploreEndpoint()
+POST          /tasks/crud               controllers.literature.Literature.modelEndpoint()
 
 
 
@@ -19,8 +26,8 @@ DELETE        /menu/top/delete/id        controllers.TopMenu.delete()
 
 
 POST          /models/endpoint           controllers.PageController.endpoint()
-POST          /todos/endpoint            controllers.ProjectController.endpoint()
-POST          /data/endpoint            controllers.ProjectController.endpoint()
+POST          /todos/endpoint            controllers.ProjectController.exploreEndpoint()
+POST          /data/endpoint             controllers.ProjectController.exploreEndpoint()
 
 
 

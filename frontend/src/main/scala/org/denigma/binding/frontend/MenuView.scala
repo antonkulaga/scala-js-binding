@@ -1,9 +1,9 @@
 package org.denigma.binding.frontend
 
+import org.denigma.controls.general.EditableMenuView
 import rx._
 import org.scalajs.dom._
 import scala.collection.immutable._
-import org.denigma.binding.controls.EditableMenuView
 import scalatags.Text.Tag
 
 /**

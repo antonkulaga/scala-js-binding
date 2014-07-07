@@ -1,9 +1,8 @@
 package org.denigma.binding.semantic
 
-import org.denigma.binding.controls.ActiveModelView
 import org.denigma.binding.extensions._
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.views.{BindingView, CollectionView, OrdinaryView}
+import org.denigma.binding.views.{CollectionView, OrdinaryView}
 import org.scalajs.dom
 import org.scalajs.dom.extensions._
 import org.scalajs.dom.{HTMLElement, MouseEvent}
@@ -14,7 +13,7 @@ import scalatags.Text._
 
 object ModelCollection
 {
-  type ItemView =  BindingView with ActiveModelView
+  type ItemView = ActiveModelView
 
   def apply(html:HTMLElement,item:Var[ModelInside]):ItemView= {
     //
@@ -24,7 +23,7 @@ object ModelCollection
 
 
 
-  class JustModel(val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends OrdinaryView with ActiveModelView{
+  class JustModel(val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends ActiveModelView{
 
 
     override val modelInside = slot
@@ -100,7 +99,7 @@ trait ModelCollection extends OrdinaryView
     el.removeAttribute("data-template")
     val mp: Map[String, Any] = Map[String,Any]("model"->item)
 
-    val view = el.attributes.get("item-view") match {
+    val view = el.attributes.get("data-item-view") match {
       case None=>
         ModelCollection.apply(el,item)
       case Some(v)=> this.inject(v.value,el,mp) match {

@@ -1,27 +1,21 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.binding.semantic.ModelView
+import org.denigma.binding.extensions._
+import org.denigma.controls.semantic.AjaxLoadView
+import org.scalajs.dom
+import org.scalajs.dom.{HTMLElement, MouseEvent, TextEvent}
+import rx._
+import rx.core.Var
 
 import scala.collection.immutable.Map
-import rx._
-import scalatags._
-import rx.core.Var
-import org.scalajs.dom.{TextEvent, HTMLElement, MouseEvent}
-import org.scalax.semweb.shex.PropertyModel
-import org.scalax.semweb.rdf.{RDFValue, StringLiteral, IRI}
-import org.scalajs.dom
-import org.denigma.binding.extensions._
-import org.denigma.binding.controls.{AjaxModelView, ActiveModelView}
-import org.denigma.binding.storages.AjaxStorage
 import scalatags.Text.Tag
 
 
-/**
- * Test model view
- * @param element
- */
-class TestModelView(element:HTMLElement,props:Map[String,Any]) extends AjaxModelView("TestModel",element,props)
+class TestModelView(val elem:HTMLElement,val params:Map[String,Any]) extends AjaxLoadView
 {
+
+  override val name:String = "TestModel"
+
   val saveClick: Var[MouseEvent] = Var(this.createMouseEvent())
 
   this.saveClick.takeIf(dirty).handler{

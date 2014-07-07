@@ -1,8 +1,8 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.binding.controls.{ActiveModelView, ShapeView}
 import org.denigma.binding.extensions._
-import org.denigma.binding.semantic.ModelInside
+import org.denigma.binding.semantic.{ActiveModelView, ModelInside}
+import org.denigma.controls.general.ShapeView
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx.{Var, _}
 

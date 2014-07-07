@@ -8,21 +8,14 @@ import org.scalax.semweb.shex.Model
 import org.scalajs.spickling.PicklerRegistry
 
 
-trait ReadWriteStorage{
-
-  type MyModel<:Model
-  
-  def read(res:Res):Future[MyModel]
-  //def write(model:MyModel):Future[Boolean]
-  
-}
-
 /**
  * Provides features to do storage operations with models
  */
-trait Storage extends ReadWriteStorage
+trait SimpleStorage
 {
- // type ReadResponse = XMLHttpRequest
+  type MyModel<:Model
+
+
 
   def add(MyModel:MyModel): Future[XMLHttpRequest]
   def read(red:Res):Future[MyModel]
@@ -35,7 +28,7 @@ trait Storage extends ReadWriteStorage
 }
 
 
-trait AjaxStorage extends Storage{
+trait AjaxSimpleStorage extends SimpleStorage{
 
   implicit def registry:PicklerRegistry
 

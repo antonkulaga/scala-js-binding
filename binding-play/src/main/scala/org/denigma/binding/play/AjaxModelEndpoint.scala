@@ -1,45 +1,59 @@
 package org.denigma.binding.play
 
-import org.denigma.binding.messages.ModelMessages
-import org.denigma.binding.messages.ModelMessages.ReadMessage
-import play.api.mvc.{Result, Request, Controller}
+import org.denigma.binding.messages._
+import play.api.mvc.{Controller, Request}
 
 
-trait AjaxModelQueryEndpoint  extends AjaxModelEndpoint{
-  self: Controller =>
+trait AjaxExploreEndpoint {
+  self:Controller=>
 
-  def onSelect(createMessage:ModelMessages.SelectQuery)(implicit request:RequestType):Result
+  type ExploreRequest <:Request[ExploreMessages.ExploreMessage]
 
+  type ExploreResult //either result or future result
 
-  override def onMessage(message:ModelMessages.ModelMessage)(implicit request:RequestType) = message match {
-    case m:ModelMessages.Create=>this.onCreate(m)
-    case m:ModelMessages.Read=>this.onRead(m)
-    case m:ModelMessages.Update=>this.onUpdate(m)
-    case m:ModelMessages.Delete=>this.onDelete(m)
-    case m:ModelMessages.SelectQuery=>this.onSelect(m)
+  def onExplore(exploreMessage:  ExploreMessages.Explore)(implicit request: ExploreRequest):ExploreResult
 
-    case _=> this.BadRequest("wrong model message format")
+  def onSuggest(suggestMessage:  ExploreMessages.Suggest)(implicit request: ExploreRequest):ExploreResult
+
+  def onSelect(suggestMessage:  ExploreMessages.SelectQuery)(implicit request: ExploreRequest):ExploreResult
+
+  def onBadExploreMessage(message:ModelMessages.ModelMessage)(implicit request: ExploreRequest):ExploreResult
+
+  def onExploreMessage(message:ExploreMessages.ExploreMessage)(implicit request:ExploreRequest):ExploreResult = message match {
+    case m:ExploreMessages.Explore=>onExplore(m)
+    case m:ExploreMessages.SelectQuery=>onSelect(m)
+    case m:ExploreMessages.Suggest=>onSuggest(m)
+    case other=>onBadExploreMessage(message)
   }
+
+
+
 }
+
 
 trait AjaxModelEndpoint {
   self:Controller=>
 
-  type RequestType <:Request[ReadMessage]
+  type ModelRequest <:Request[ModelMessages.ModelMessage]
 
-  def onCreate(createMessage:ModelMessages.Create)(implicit request:RequestType):Result
-  def onRead(readMessage:ModelMessages.Read)(implicit request:RequestType):Result
-  def onUpdate(updateMessage:ModelMessages.Update)(implicit request:RequestType):Result
-  def onDelete(deleteMessage:ModelMessages.Delete)(implicit request:RequestType):Result
+  type ModelResult //either result or future result
 
-  def onMessage(message:ModelMessages.ModelMessage)(implicit request:RequestType) = message match {
+  def onCreate(createMessage:ModelMessages.Create)(implicit request:ModelRequest):ModelResult
+  def onRead(readMessage:ModelMessages.Read)(implicit request:ModelRequest):ModelResult
+  def onUpdate(updateMessage:ModelMessages.Update)(implicit request:ModelRequest):ModelResult
+  def onDelete(deleteMessage:ModelMessages.Delete)(implicit request:ModelRequest):ModelResult
+
+
+  def onBadModelMessage(message:ModelMessages.ModelMessage):ModelResult
+
+  def onModelMessage(message:ModelMessages.ModelMessage)(implicit request:ModelRequest):ModelResult= message match {
     case m:ModelMessages.Create=>this.onCreate(m)
     case m:ModelMessages.Read=>this.onRead(m)
     case m:ModelMessages.Update=>this.onUpdate(m)
     case m:ModelMessages.Delete=>this.onDelete(m)
 
-    case _=> this.BadRequest("wrong model message format")
-  }
 
+    case other=> onBadModelMessage(other)
+  }
 
 }

@@ -14,10 +14,25 @@ trait ModelPicklers {
     register[ModelMessages.Read]
     register[ModelMessages.Update]
     register[ModelMessages.Delete]
-    register[ModelMessages.SelectQuery]
 
     register[Menu]
     register[MenuItem]
+
+
+  }
+
+  def registerExploration() = {
+    register[Filters.NumFilter]
+    register[Filters.StringFilter]
+    register[Filters.ValueFilter]
+
+    register[Sort]
+
+    register[ExploreMessages.Suggest]
+    register[ExploreMessages.Suggestion]
+    //register[ExploreMessages.Explore]
+    register[ExploreMessages.SelectQuery]
+    //register[ExploreMessages.Exploration]
 
 
   }

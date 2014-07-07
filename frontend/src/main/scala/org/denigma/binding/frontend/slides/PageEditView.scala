@@ -1,8 +1,9 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.binding.controls.{AjaxModelView, EditModelView}
 import org.denigma.binding.extensions._
 import org.denigma.binding.views
+import org.denigma.controls.general.EditModelView
+import org.denigma.controls.semantic.AjaxLoadView
 import org.scalajs.dom
 import org.scalajs.dom._
 import rx._
@@ -11,8 +12,9 @@ import scala.collection.immutable.Map
 import scala.scalajs.js.Dynamic.{global => g, newInstance => jsnew}
 import scalatags.Text.Tag
 
-class PageEditView(elem:HTMLElement,val params:Map[String,Any]) extends AjaxModelView("PageModel",elem,params) with EditModelView
+class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends AjaxLoadView with EditModelView
 {
+  val name = "PageModel"
 
   this.saveClick.takeIf(dirty).handler{
     //dom.console.log("it should be saved right now")

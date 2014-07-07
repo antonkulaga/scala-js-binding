@@ -133,7 +133,7 @@ trait CollectionView extends OrdinaryView{
     this.addView(iv)
     itemViews = itemViews + (item->iv)
     iv.bindView(iv.viewElement)
-    dom.console.log(iv.viewElement.innerHTML)
+    //dom.console.log(iv.viewElement.innerHTML)
     iv
   }
 

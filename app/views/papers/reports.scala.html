@@ -1,0 +1,86 @@
+@(implicit request: UserRequestHeader)
+<article id="reportsView" data-view="ReportsView"
+class="ui vertical segment"
+xmlns="http://www.w3.org/1999/html"
+data-param-path="papers/explore"
+data-param-crud="papers/crud"
+data-param-shape="http://denigma.org/resource/article"
+data-param-query="http://denigma.org/query/sens"
+vocab="http://denigma.org/resource/"
+>
+
+
+<section class="ui teal segment">
+
+
+    <div class="ui four column grid">
+        <div class="row">
+
+            <span class="column"><div class="ui horizontal label">authors</div><input placeholder="authors" data-view="TestSelect" type="text"></span>
+            <span class="column"><div class="ui horizontal label">published by</div><input placeholder="published by" data-view="TestSelect" type="text"></span>
+            <span class="column"><div class="ui horizontal label">abstract</div><input  placeholder="abstract" type="text" class="ui input"></span>
+            <span class="column"><div class="ui horizontal label">excerp</div><input  placeholder="excerp" type="text" class="ui input"></span>
+        </div>
+
+    </div>
+
+
+
+</section>
+
+
+    <article data-template="true" class="ui blue segment" data-item-view="report" vocab="http://denigma.org/resource/">
+
+        <section class="ui horizontal segment" >
+
+            <h2  class="ui blue inverted header" property="http://purl.org/dc/elements/1.1/title"></h2>
+
+            <div class="ui horizontal label">authors:</div>
+            <input type="text"  property="is_authored_by">
+
+            <div class="ui horizontal label">published by</div>
+
+            <a property-href="is_published_in" data-name-of="is_published_in"> </a>
+
+
+
+        <div class="ui basic fluid vertical accordion">
+            <div class="title">
+                <i class="dropdown icon"></i>abstract
+            </div>
+            <div class="content">
+                <p class="ui segment" contenteditable="true" property="abstract">
+
+                </p>
+
+           </div>
+            <div class="active title">
+                <i class="dropdown icon"></i>
+                excerp
+            </div>
+            <div class="active content">
+                <p class="ui segment" contenteditable="true" property="excerpt">
+
+                </p>
+
+            </div>
+
+            <div class="active title">
+                <i class="dropdown icon"></i>tasks
+
+            </div>
+            <div class="active content">
+                @papers.tasks(request)
+
+            </div>
+
+        </div>
+
+
+
+    </article>
+
+
+
+</article>
+

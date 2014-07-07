@@ -1,13 +1,11 @@
 package org.denigma.binding.storages
 
-import org.denigma.binding.messages.ModelMessages
-import ModelMessages.SelectQuery
-import org.denigma.binding.picklers.rp
 import org.denigma.binding.extensions.sq
+import org.denigma.binding.messages.ModelMessages
+import org.denigma.binding.picklers.rp
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.spickling.PicklerRegistry
-import org.scalax.semweb.messages.Channeled
 import org.scalax.semweb.rdf.Res
 import org.scalax.semweb.shex.PropertyModel
 
@@ -15,35 +13,6 @@ import scala.concurrent.Future
 import scala.scalajs.js
 
 
-trait ReadOnlyModelStorage extends Channeled{
-
-  def read(shapeId: Res)(modelIds: Res*): Future[List[PropertyModel]]
-
-}
-
-trait ModelStorage extends ReadOnlyModelStorage {
-
-  def create(shapeId: Res)(models: PropertyModel*): Future[Boolean]
-
-  def update(shape: Res, overWrite: Boolean = true)(models: PropertyModel*): Future[Boolean]
-
-  def delete(shape: Res)(res: Res*): Future[Boolean]
-
-}
-
-class AjaxModelQueryStorage(path:String)(implicit registry:PicklerRegistry) extends AjaxModelStorage(path)(registry){
-
-  /**
-   * Select query
-   * @param query
-   * @param shape
-   * @return
-   */
-  def select(query:Res,shape:Res): Future[List[PropertyModel]] = {
-    val data: SelectQuery = ModelMessages.SelectQuery(shape,query, genId(),  channel = path)
-    sq.post(path,data):Future[List[PropertyModel]]
-  }
-}
 
 
 /**
@@ -52,9 +21,8 @@ class AjaxModelQueryStorage(path:String)(implicit registry:PicklerRegistry) exte
  */
 class AjaxModelStorage(path:String)(implicit registry:PicklerRegistry = rp) extends ModelStorage{
 
-  def genId(): String = js.eval(""" 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {var r = Math.random()*16|0,v=c=='x'?r:r&0x3|0x8;return v.toString(16);}); """).toString
-
   def channel:String = path
+
 
   override def create(shapeId: Res)(models: PropertyModel*): Future[Boolean] = {
     val data = ModelMessages.Create(shapeId,models.toSet, genId(), channel = channel)
@@ -131,5 +99,29 @@ class WebSocketConnector(wsUrl:String) {
     webSocket.send(js.JSON.stringify(pickle))
   }
 
+
+}
+
+trait ModelStorage extends ReadOnlyModelStorage {
+
+  def create(shapeId: Res)(models: PropertyModel*): Future[Boolean]
+
+  def update(shape: Res, overWrite: Boolean = true)(models: PropertyModel*): Future[Boolean]
+
+  def delete(shape: Res)(res: Res*): Future[Boolean]
+
+}
+
+
+trait ReadOnlyModelStorage extends Storage{
+
+  def read(shapeId: Res)(modelIds: Res*): Future[List[PropertyModel]]
+
+}
+
+trait Storage {
+  def genId(): String = js.eval(""" 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {var r = Math.random()*16|0,v=c=='x'?r:r&0x3|0x8;return v.toString(16);}); """).toString
+
+  def channel:String
 
 }

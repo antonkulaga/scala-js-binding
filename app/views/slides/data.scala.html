@@ -1,63 +1,13 @@
 @(title:String)(implicit request: UserRequestHeader)
 <article id="main_article" data-view="RdfSlide" class="ui blue piled segment" xmlns="http://www.w3.org/1999/html">
 
-
+    <input data-view="TestSelect" type="text">
 
     <h1 id="title"class="ui large header orange message">@title </h1>
 
-
-    <h1 class="ui header">PAGE IS IN DEVELOPMENT</h1>
-    <section class="ui segment">
-        <p><b>scala-js-binding</b> provides some controls for easier dealing with data (slide is in development)
-    </section>
-
-
     <div class="ui one column grid">
-        @*<section class="row">*@
-            @*You can edit html of views and see bindings updates*@
-
-                @*<section class="ui segment" data-view="TestModelView" vocab="http://webintelligence.eu/platform/" data-param-path="models/endpoint" data-param-resource="http://page.org" data-param-shape="http://shape.org">*@
-
-                    @*<h1>This is test rdf model that is kep in memory</h1>*@
-                    @*<div>*@
-                        @*<h1 property="title"></h1>*@
-                        @*<input property="title">*@
-                        @*<p property="text"></p>*@
-                        @*<textarea property="text"></textarea>*@
 
 
-                    @*</div>*@
-                    @*<div class="ui button" data-class-positive-if="dirty" data-event-click="saveClick">save</div>*@
-
-                @*</section>*@
-            @**@
-            @**@
-        @*</section>*@
-        <section class="row">
-            <div class="column">
-                Selection box with autosuggestion
-            </div>
-        </section>
-        <section class="row">
-            <div class="column">
-                <section data-view="SuggestView"  vocab="http://webintelligence.eu/" data-param-path="suggestions">
-                    <input list="values">
-                    <datalist id="values">
-                        <option data-template="true" property="value">
-
-                        </option>
-                    </datalist>
-
-
-                </section>
-            </div>
-        </section>
-
-        <datalist id="cardinality">
-            <option data-template="true" property="value">
-
-            </option>
-        </datalist>
         <section class="row">
             <div class="column">
                 <section id="ShapeEditor" data-view="ShapeEditor" vocab="http://webintelligence.eu/" data-path="shapes/endpoint" resource="http://webintelligence.eu/shapes/todo">
