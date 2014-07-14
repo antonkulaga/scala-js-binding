@@ -1,24 +1,21 @@
 package org.denigma.binding.frontend.tests
 
-import org.denigma.binding.views.OrdinaryView
-import org.scalajs.dom.{MouseEvent, HTMLElement}
-import scala.collection.immutable.Map
-import rx._
-import scalatags._
 import org.denigma.binding.extensions.sq
-import scala.util.{Failure, Success}
-
-import scalajs.concurrent.JSExecutionContext.Implicits.queue
-import scalatags.Text.Tag
 import org.denigma.binding.picklers.rp
+import org.denigma.binding.views.OrdinaryView
+import org.scalajs.dom.{HTMLElement, MouseEvent}
+import rx._
+
+import scala.collection.immutable.Map
+import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+import scala.util.{Failure, Success}
+import scalatags.Text.Tag
 
 /**
  * Class for testing purposes that makes a long list out of test element
  */
-class PicklerView(val elem:HTMLElement, params:Map[String,Any]) extends OrdinaryView{
+class PicklerView(val elem:HTMLElement, val params:Map[String,Any]) extends OrdinaryView{
   self=>
-
-  val name = "PicklerView"
 
   implicit def registry = rp
   //RegisterPicklers.registerPicklers()

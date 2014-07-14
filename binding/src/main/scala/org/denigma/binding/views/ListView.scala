@@ -15,7 +15,7 @@ object ListView {
    * @param el
    * @param props properties to bind to
    */
-  class JustMapView(el:HTMLElement,props:Map[String,Any]) extends MapView("justmapview",el,props){
+  class JustMapView(el:HTMLElement,props:Map[String,Any]) extends MapView(el,props){
     override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
     override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
@@ -23,6 +23,8 @@ object ListView {
     override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
 
     override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
+
+    override def params: Map[String, Any] = Map.empty
   }
 
 
@@ -34,7 +36,7 @@ object ListView {
 
 
 
-abstract class ListView(val name:String,val elem:HTMLElement, val params:Map[String,Any]) extends OrdinaryView
+abstract class ListView(val elem:HTMLElement, val params:Map[String,Any]) extends OrdinaryView
   //with CollectionBinding
   with CollectionView
 {

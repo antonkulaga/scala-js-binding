@@ -2,13 +2,17 @@ package org.denigma.binding.frontend.slides
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.semantic.{ActiveModelView, ModelInside}
-import org.denigma.controls.general.ShapeView
+import org.denigma.controls.semantic.AjaxModelCollection
 import org.scalajs.dom.{HTMLElement, MouseEvent}
-import rx.{Var, _}
+import rx.Var
+import rx.core.Rx
 
-import scala.collection.immutable._
 import scalatags.Text.Tag
-class ShapeEditor (element:HTMLElement,params:Map[String,Any]) extends ShapeView("ShapeEditor",element,params){
+
+class ShapeEditor (elem:HTMLElement,params:Map[String,Any]) extends AjaxModelCollection("ShapeEditor",elem,params)
+{
+
+
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def mouseEvents: Predef.Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
@@ -21,12 +25,14 @@ class ShapeEditor (element:HTMLElement,params:Map[String,Any]) extends ShapeView
   val addClick = Var(this.createMouseEvent())
 
   addClick handler {
-    this.addItem()
+    //this.addItem()
   }
 
 }
 
-class ShapeProperty(val elem:HTMLElement, params:Map[String,Any], val name:String = "property") extends ActiveModelView{
+class ShapeProperty(val elem:HTMLElement, val params:Map[String,Any]) extends ActiveModelView{
+
+
 
   val initial: Option[Var[ModelInside]] = params.get("model").collect{case mi:Var[ModelInside]=>mi}
 
@@ -47,6 +53,5 @@ class ShapeProperty(val elem:HTMLElement, params:Map[String,Any], val name:Strin
   removeClick.handler{
     this.die()
   }
-
 
 }

@@ -14,7 +14,6 @@ import scalatags.Text.Tag
 class TestModelView(val elem:HTMLElement,val params:Map[String,Any]) extends AjaxLoadView
 {
 
-  override val name:String = "TestModel"
 
   val saveClick: Var[MouseEvent] = Var(this.createMouseEvent())
 

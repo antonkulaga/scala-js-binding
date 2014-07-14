@@ -23,7 +23,7 @@ object ModelCollection
 
 
 
-  class JustModel(val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends ActiveModelView{
+  class JustModel(override val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends ActiveModelView{
 
 
     override val modelInside = slot
@@ -36,8 +36,7 @@ object ModelCollection
 
     override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
-
-
+    override def params: Map[String, Any] = Map.empty
   }
 
 }
@@ -79,14 +78,13 @@ trait ModelCollection extends OrdinaryView
   }
 
   override def bindElement(el: HTMLElement) = {
-
+    this.bindRdf(el)
     val ats: Map[String, String] = el.attributes.collect{
       case (key,attr) if key.contains("data-") && !key.contains("data-view") =>
         (key.replace("data-",""),attr.value.toString)
     }.toMap
     this.bindDataAttributes(el,ats)
 
-    this.bindRdf(el)
   }
 
   //val dirty = Rx{items().filterNot(_}

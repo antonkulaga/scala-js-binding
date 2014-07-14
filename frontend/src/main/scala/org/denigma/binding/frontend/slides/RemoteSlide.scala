@@ -1,16 +1,14 @@
 package org.denigma.binding.frontend.slides
 
 import org.denigma.binding.views.OrdinaryView
-import org.scalajs.dom.{MouseEvent, HTMLElement}
+import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx._
-import scalatags._
+
 import scalatags.Text.Tag
 
 
-class RemoteSlide(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView
+class RemoteSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView
 {
-
-  val name = "remote"
 
 
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)

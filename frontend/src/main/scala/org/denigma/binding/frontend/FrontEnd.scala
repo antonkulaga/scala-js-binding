@@ -24,8 +24,10 @@ import scalatags.Text.Tag
 object FrontEnd extends OrdinaryView with scalajs.js.JSApp
 {
 
-  val name = "main"
+  override val name = "main"
   lazy val elem:HTMLElement = dom.document.body
+
+  override val params:Map[String,Any] = Map.empty
 
   val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 

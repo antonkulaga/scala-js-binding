@@ -1,6 +1,7 @@
 package controllers
 
 import controllers.ProjectController._
+import org.denigma.binding.messages.ModelMessages
 import org.denigma.binding.messages.ModelMessages.ReadMessage
 import play.api.mvc.{Request, Result, Controller}
 import org.scalax.semweb.shex.PropertyModel
@@ -72,6 +73,8 @@ object PageController extends Controller with PickleController with AjaxModelEnd
         """.stripMargin))
     )
   )
+
+  def onSuggest(suggestMessage:ModelMessages.Suggest):ModelResult = ???
 
 
 

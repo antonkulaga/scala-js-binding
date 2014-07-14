@@ -1,17 +1,22 @@
 package controllers.literature
 
+import java.util.Date
+
+import org.denigma.binding.messages.ModelMessages
 import org.denigma.binding.messages.ModelMessages._
 import org.denigma.binding.picklers.rp
 import org.denigma.binding.play.{AjaxModelEndpoint, AuthRequest, PickleController, UserAction}
+import org.scalajs.spickling.playjson._
+import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.shex.PropertyModel
+import play.Logger
 import play.api.libs.json.Json
 import play.api.mvc.{Controller, Result}
-import org.scalajs.spickling.playjson._
 
 import scala.concurrent.Future
 
 
-trait ArticleModels extends AjaxModelEndpoint with ArticleItems with PickleController {
+trait ArticleModels extends AjaxModelEndpoint with ArticleItems with PickleController with TaskItems{
   self:Controller=>
 
 
@@ -53,4 +58,31 @@ trait ArticleModels extends AjaxModelEndpoint with ArticleItems with PickleContr
     Future.successful(TRUE)
   }
 
+  def suggestModels(items:List[PropertyModel], suggestMessage: Suggest): ModelResult  = {
+
+    val t = suggestMessage.typed
+    val list = for{
+      i<-items
+      p<-i.properties
+      v<-p._2
+      if v.isInstanceOf[IRI] && v.stringValue.contains(t)
+    } yield v
+
+   // val mes = ModelMessages.Suggestion(t,List[RDFValue](IRI("http://one"),IRI("http://tries"),IRI("http://something")),suggestMessage.id,suggestMessage.channel,new Date())
+    val mes = ModelMessages.Suggestion(t,list,suggestMessage.id,suggestMessage.channel,new Date())
+    val p = rp.pickle(mes)
+    Logger.info(p.toString())
+    Future.successful(Ok(p).as("application/json"))
+  }
+
+  override def onSuggest(suggestMessage: Suggest): ModelResult = {
+
+    suggestMessage.channel match {
+      case i if i.contains("task")=> suggestModels(this.tasks,suggestMessage)
+      case other=> suggestModels(articles,suggestMessage)
+
+    }
+
+
+  }
 }

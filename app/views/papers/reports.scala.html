@@ -16,13 +16,15 @@ vocab="http://denigma.org/resource/"
     <div class="ui four column grid">
         <div class="row">
 
-            <span class="column"><div class="ui horizontal label">authors</div><input placeholder="authors" data-view="TestSelect" type="text"></span>
-            <span class="column"><div class="ui horizontal label">published by</div><input placeholder="published by" data-view="TestSelect" type="text"></span>
-            <span class="column"><div class="ui horizontal label">abstract</div><input  placeholder="abstract" type="text" class="ui input"></span>
-            <span class="column"><div class="ui horizontal label">excerp</div><input  placeholder="excerp" type="text" class="ui input"></span>
+            <span class="column"><div class="ui horizontal label">authors</div><input  data-filter="is_authored_by" placeholder="authors" type="text"></span>
+            <span class="column"><div class="ui horizontal label">published by</div><input data-filter="is_published_in"  placeholder="published by" type="text"></span>
+            <span class="column"><div class="ui horizontal label">abstract</div><input data-filter="abstract"  placeholder="abstract" type="text" class="ui input"></span>
+            <span class="column"><div class="ui horizontal label">excerpt</div><input data-filter="excerpt"  placeholder="excerp" type="text" class="ui input"></span>
         </div>
 
     </div>
+    <div class="ui button" data-event-click="clearClick" data-show-if="dirtyFilters">Clear</div>
+    <div class="ui button" data-event-click="filterClick">Filter</div>
 
 
 

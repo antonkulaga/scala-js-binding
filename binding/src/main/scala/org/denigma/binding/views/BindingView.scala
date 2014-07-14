@@ -10,12 +10,24 @@ import scala.collection.immutable.Map
 import scala.reflect.ClassTag
 import scala.util.{Failure, Success}
 
-trait BindingView extends JustBinding
+
+trait BindingEvent{
+  val origin:BindingView
+  val latest:BindingView
+  val bubble:Boolean
+
+  def withCurrent(cur:BindingView):this.type
+
+}
+
+trait BindingView extends JustBinding with IView
 {
   def elem:dom.HTMLElement
 
-  def name:String
+  def name:String = this.getClass.getName
 
+
+  def params:Map[String,Any]
 
   require(elem!=null,s"html elemenet of view with $id must not be null!")
 
@@ -40,6 +52,24 @@ trait BindingView extends JustBinding
     }
     case Some(p)=> p.searchUp[TView](filter)
     case None=>None
+  }
+
+  /**
+   * Fires an event
+   * @param event
+   * @param startWithMe
+   */
+  def fire(event:BindingEvent,startWithMe:Boolean = false) = if(startWithMe) this.receive(event) else  this.propagate(event)
+
+  protected def propagate(event:BindingEvent) = if(this.parent.isDefined) this.parent.get.receive(event.withCurrent(this))
+
+
+  /**
+   * Event subsystem
+   * @return
+   */
+  def receive:PartialFunction[BindingEvent,Unit] = {
+    case event:BindingEvent=> this.propagate(event)
   }
 
   def hasParent = parent.isDefined
@@ -86,7 +116,7 @@ trait BindingView extends JustBinding
   }
 
   protected var _element = elem
-  def viewElement = _element
+  def viewElement: HTMLElement = _element
   def viewElement_=(value:HTMLElement): Unit = if(_element!=value) {
     this._element = value
     this.bind(value)
@@ -133,11 +163,38 @@ trait BindingView extends JustBinding
     bind(el)
   }
 
+  /**
+   * is overriden in parent views
+   * @param name
+   * @param params
+   * @return
+   */
+  protected def withParam(name:String,params:Map[String,Any]) = params
 
+
+  /**
+   * Turns data-param attribue into real param
+   * @param el
+   * @return
+   */
   protected def attributesToParams(el:HTMLElement): Map[String, Any] = el.attributes
    .collect{
       case (key,value) if key.contains("data-param-")=>
-        key.replace("data-param-", "") -> value.value.asInstanceOf[Any]
+        val k = key.replace("data-param-", "")
+        val v = value.value
+        if(v.startsWith("parent."))
+        {
+          val pn = v.replace("parent.","")
+          this.params.get(pn) match {
+            case Some(p)=>
+              k->p.asInstanceOf[Any]
+            case None=>
+              dom.console.log(s"could not find data-param $pn for child")
+              k -> pn
+          }
+        } else k -> v.asInstanceOf[Any]
+
+
     }.toMap
 
 

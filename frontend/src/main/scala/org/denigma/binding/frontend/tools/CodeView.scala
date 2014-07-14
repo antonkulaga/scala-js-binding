@@ -7,7 +7,7 @@ import rx.{Rx, Var}
 import scala.scalajs.js.Dynamic.{global => g}
 import scalatags.Text.Tag
 
-class CodeInsideView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorInsideView("CodeView",element,params)
+class CodeInsideView(elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorInsideView(elem,params)
 {
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
@@ -19,7 +19,7 @@ class CodeInsideView(element:HTMLElement,params:Map[String,Any] = Map.empty[Stri
 }
 
 
-class CodeView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorView("CodeView",element,params)
+class CodeView(elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorView(elem,params)
 {
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 

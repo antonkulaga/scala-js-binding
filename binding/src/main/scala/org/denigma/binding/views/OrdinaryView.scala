@@ -15,7 +15,7 @@ object OrdinaryView {
    * @param name of the view
    * @param elem dom element inside
    */
-  class JustView(val name:String,val elem:dom.HTMLElement) extends OrdinaryView
+  class JustView(override val name:String,val elem:dom.HTMLElement) extends OrdinaryView
   {
 
     override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
@@ -26,7 +26,7 @@ object OrdinaryView {
 
     override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 
-
+    override def params: Map[String, Any] = Map.empty
   }
 
   def apply(name:String,elem:dom.HTMLElement) = new JustView(name,elem)

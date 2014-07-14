@@ -24,7 +24,7 @@ abstract class EditableMenuView(name:String,el:HTMLElement, params:Map[String,An
 
 }
 
-abstract class AjaxMenuView(name:String,el:HTMLElement, params:Map[String,Any] = Map.empty) extends ListView(name,el,params) {
+abstract class AjaxMenuView(override val name:String,el:HTMLElement, params:Map[String,Any] = Map.empty) extends ListView(el,params) {
   self =>
 
   /**

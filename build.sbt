@@ -11,7 +11,7 @@ libraryDependencies ++= Seq(
   // WebJars pull in client-side web libraries
   "org.webjars" %% "webjars-play" % "2.3.0",
   "org.webjars" % "jquery" % "2.1.1",
-  "org.webjars" % "Semantic-UI" % "0.18.0",
+  "org.webjars" % "Semantic-UI" % "0.19",
   "org.webjars" % "codemirror" % "4.3",
   "org.webjars" % "ckeditor" % "4.4.1",
   "com.lihaoyi" %% "utest" % "0.1.7",

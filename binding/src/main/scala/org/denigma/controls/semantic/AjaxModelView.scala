@@ -12,7 +12,7 @@ import scala.util.{Failure, Success}
 trait  AjaxModelView extends ActiveModelView
 {
   def resource: Res
-  def shape: Res
+  def shapeRes: Res
 
 
 
@@ -27,7 +27,7 @@ trait  AjaxModelView extends ActiveModelView
       dom.console.log("trying to save unchanged model")
     }
     else {
-      storage.update(this.shape,overWrite = true)(modelInside.now.current).onComplete{
+      storage.update(this.shapeRes,overWrite = true)(modelInside.now.current).onComplete{
         case Failure(th)=>
           dom.console.error(s"failure in saving of movel with channel $storage.channel: \n ${th.getMessage} ")
         case Success(bool)=>

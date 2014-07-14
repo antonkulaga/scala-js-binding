@@ -10,17 +10,24 @@ import scala.collection.immutable.Map
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
-trait AjaxLoadView extends AjaxModelView with ModelParamsLoader {
+trait AjaxLoadView extends AjaxModelView {
 
 
   //  def params:Map[String,Any]
 
   //  def path:String
 
+  def params:Map[String,Any]
+
+  val path:String = params.get("path").map(v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)).get
+  val resource = IRI(params("resource").toString)
+  val shapeRes = IRI(params("shape").toString)
+
+  val storage:AjaxModelStorage = new AjaxModelStorage(path)
 
   override def bindView(el:HTMLElement)
   {
-    storage.read(shape)(resource).onComplete{
+    storage.read(shapeRes)(resource).onComplete{
       case Success(model) if model.size==0=>
         dom.console.log(s"empty model received from $path")
         super.bindView(el)
@@ -37,15 +44,4 @@ trait AjaxLoadView extends AjaxModelView with ModelParamsLoader {
 
   }
 
-}
-
-trait ModelParamsLoader{
-
-  def params:Map[String,Any]
-
-  val path:String = params.get("path").map(v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)).get
-  val resource = IRI(params("resource").toString)
-  val shape = IRI(params("shape").toString)
-
-  val storage:AjaxModelStorage = new AjaxModelStorage(path)
 }

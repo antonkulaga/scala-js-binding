@@ -14,7 +14,7 @@ import scalatags.Text.Tag
 
 class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends AjaxLoadView with EditModelView
 {
-  val name = "PageModel"
+
 
   this.saveClick.takeIf(dirty).handler{
     //dom.console.log("it should be saved right now")

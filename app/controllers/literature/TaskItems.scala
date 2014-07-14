@@ -2,7 +2,7 @@ package controllers.literature
 
 import org.scalax.semweb.rdf.vocabulary._
 import org.scalax.semweb.rdf.{BooleanLiteral, IRI, StringLiteral}
-import org.scalax.semweb.shex.PropertyModel
+import org.scalax.semweb.shex._
 
 trait TaskItems extends Items{
 
@@ -11,9 +11,19 @@ trait TaskItems extends Items{
   val completed = (WI.PLATFORM / "is_completed").iri
   val assigned = (WI.PLATFORM / "assigned_to").iri
   val task = (WI.PLATFORM / "Task").iri
-
   val Anton = de / "Anton_Kulaga"
+
   val Daniel = de / "Daniel_Wuttke"
+  val ts = new ShapeBuilder(task)
+  ts has de /"is_authored_by" occurs Star //occurs Plus
+  ts has title occurs Star //occurs ExactlyOne
+  //art has de / "date" occurs Star //occurs ExactlyOne
+  ts has desc of XSD.StringDatatypeIRI  occurs Star//occurs Star
+  ts has assigned occurs Star //occurs Plus
+  ts has completed of XSD.BooleanDatatypeIRI  occurs Star//occurs Star
+  val taskShape: Shape = ts.result
+
+
 
 
   val priority = (WI.PLATFORM / "has_priority").iri

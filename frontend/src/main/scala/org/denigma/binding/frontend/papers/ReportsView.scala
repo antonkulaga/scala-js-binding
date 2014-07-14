@@ -1,8 +1,9 @@
 package org.denigma.binding.frontend.papers
 
 import org.denigma.binding.extensions._
+import org.denigma.binding.messages.{Sort, Filters}
 import org.denigma.binding.storages.AjaxModelStorage
-import org.denigma.controls.semantic.{AjaxModelCollection, SelectableModelView}
+import org.denigma.controls.semantic.{ExplorableCollection, AjaxModelCollection, SelectableModelView}
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import org.scalajs.jquery._
 import org.scalax.semweb.rdf.{Res, IRI}
@@ -15,7 +16,9 @@ import scalatags.Text.Tag
 /**
  * Shows papers reports
  */
-class ReportsView(elem:HTMLElement,params:Map[String,Any]) extends AjaxModelCollection("ReportsView",elem,params){
+class ReportsView(elem:HTMLElement, params:Map[String,Any]) extends ExplorableCollection("ReportsView",elem:HTMLElement,params:Map[String,Any]){
+
+
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def mouseEvents: Predef.Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
@@ -31,8 +34,6 @@ class ReportsView(elem:HTMLElement,params:Map[String,Any]) extends AjaxModelColl
   )
 
 
-
-
   override def newItem(item:Item) = {
     val view = super.newItem(item)
 
@@ -46,14 +47,28 @@ class ReportsView(elem:HTMLElement,params:Map[String,Any]) extends AjaxModelColl
   }
 
 
+  val filterClick = Var(this.createMouseEvent())
+
+  this.filterClick handler {
+    this.loadData(this.explorer.now)
+  }
+
+  val clearClick = Var(this.createMouseEvent())
+  clearClick handler {
+    this.filters() = Map.empty[IRI,Filters.Filter]
+    this.searchTerms() = Map.empty[IRI,String]
+    this.sorts() = Map.empty[IRI,Sort]
+    this.loadData(this.explorer.now)
+
+  }
+
+  val dirtyFilters = Rx( !(this.filters().isEmpty && this.sorts().isEmpty && this.searchTerms().isEmpty) )
+
 }
 
 class Report(val elem:HTMLElement,val params:Map[String,Any]) extends SelectableModelView{
 
   require(params.contains("shape"),"there is not shape")
-
-
-  override val name = "Report"
 
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
@@ -62,11 +77,5 @@ class Report(val elem:HTMLElement,val params:Map[String,Any]) extends Selectable
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 
   override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-
-
-  override def bindView(el:HTMLElement) = this.bind(el)
-
-  //override def path: String = params.get("path").map(v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)).get
-
 
 }

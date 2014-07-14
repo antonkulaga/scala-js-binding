@@ -12,11 +12,7 @@ import scalatags.Text.Tag
  */
 trait ScalaTagsBinder extends JustBinding{
 
-  //type Tag = TypedTag[_]
-  //TODO: rewrite
-
-
-  def tags:Map[String,Rx[Tag]]
+   def tags:Map[String,Rx[Tag]]
 
 
   //def extractTags[T]:Map[String,Rx[Tag]] = macro Binder.htmlBindings_impl[T]

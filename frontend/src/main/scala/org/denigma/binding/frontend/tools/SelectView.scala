@@ -15,8 +15,7 @@ import org.scalajs.jquery.jQuery
 import scala.scalajs.js.{GlobalScope => g, JSON}
 
 
-class SelectView(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView {
-  val name = "SelectView"
+class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView {
 
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 

@@ -50,8 +50,11 @@ case class ModelInside(initial:PropertyModel, current:PropertyModel, wantsToDie:
   def replace(iri:IRI,text:String): ModelInside  = this.replace(iri,StringLiteral(text))
   def replace(iri:IRI,value:Double): ModelInside  = this.replace(iri,DoubleLiteral(value))
   def replace(iri:IRI,value:Long): ModelInside  = this.replace(iri,LongLiteral(value))
+  def replace(iri:IRI,values:Set[RDFValue]): ModelInside = this.copy(initial = this.initial,current = current.copy(properties = this.current.properties.updated(iri,values)))
 
-  def delete(iri:IRI) = this.copy()
+  //def delete(iri:IRI) = this.copy()
+  def delete(iri:IRI,value:RDFValue) = this.replace(iri,current.properties.get(iri).map(v=>v - value).getOrElse(Set.empty))
+  //def clear(iri:IRI) =  this.replace(iri,current.properties.get(iri).map(v=>v - iri).getOrElse(Set.empty))
   def refresh = this.copy(initial = current)
 
   def apoptosis: ModelInside = this.copy(wantsToDie = true)

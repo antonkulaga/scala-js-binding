@@ -10,9 +10,8 @@ import scalatags.Text.Tag
 /**
  * View for article with some text
  */
-class SlideView(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView{
+class SlideView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView{
 
-  val name = "slide"
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)

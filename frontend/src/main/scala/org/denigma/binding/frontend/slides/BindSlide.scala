@@ -1,9 +1,9 @@
 package org.denigma.binding.frontend.slides
 
 import org.denigma.binding.views.OrdinaryView
-import org.scalajs.dom.{MouseEvent, HTMLElement}
+import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx._
-import scalatags._
+
 import scalatags.Text.Tag
 
 /**
@@ -11,9 +11,8 @@ import scalatags.Text.Tag
  * @param elem html element
  * @param params
  */
-class BindSlide(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView{
+class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView{
 
-  val name = "bind"
 
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 

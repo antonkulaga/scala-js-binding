@@ -14,6 +14,9 @@ trait ModelPicklers {
     register[ModelMessages.Read]
     register[ModelMessages.Update]
     register[ModelMessages.Delete]
+    register[ModelMessages.Suggest]
+    register[ModelMessages.Suggestion]
+
 
     register[Menu]
     register[MenuItem]
@@ -28,11 +31,11 @@ trait ModelPicklers {
 
     register[Sort]
 
-    register[ExploreMessages.Suggest]
-    register[ExploreMessages.Suggestion]
-    //register[ExploreMessages.Explore]
+    register[ExploreMessages.ExploreSuggest]
+    register[ExploreMessages.ExploreSuggestion]
+    register[ExploreMessages.Explore]
     register[ExploreMessages.SelectQuery]
-    //register[ExploreMessages.Exploration]
+    register[ExploreMessages.Exploration]
 
 
   }

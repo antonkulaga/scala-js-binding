@@ -15,6 +15,7 @@ import scalatags.Text._
  */
 class TasksView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends AjaxModelCollection("Tasks",element,params)
 {
+
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
@@ -22,11 +23,6 @@ class TasksView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,An
   override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
 
   override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
-
-  override def bindView(el:HTMLElement) {
-    //jQuery(el).slideUp()
-    super.bindView(el)
-  }
 
 
   val addClick = Var(this.createMouseEvent())
@@ -38,13 +34,15 @@ class TasksView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,An
   val isDirty = Rx{  this.dirty().size>0  }
 
 
-
 }
+
 class Task(val elem:HTMLElement, val params:Map[String,Any]) extends SelectableModelView{
 
-  val name:String = "tasks"
+  override def name:String = "task"
 
   val initial: Option[Var[ModelInside]] = params.get("model").collect{case mi:Var[ModelInside]=>mi}
+
+
 
 
 

@@ -14,7 +14,7 @@ import scala.collection.immutable._
  * @param elem htmlelement to bind to
  * @param props properties to bind to
  */
-abstract class MapView(val name:String,val elem:HTMLElement,props:Map[String,Any]) extends OrdinaryView {
+abstract class MapView(val elem:HTMLElement,props:Map[String,Any]) extends OrdinaryView {
   val reactiveMap: Map[String, Var[String]] = props.map(kv => (kv._1, Var(kv._2.toString)))
 
   //TODO: rewrite props

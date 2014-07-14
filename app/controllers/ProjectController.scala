@@ -1,6 +1,6 @@
 package controllers
 
-import org.denigma.binding.messages.ExploreMessages
+import org.denigma.binding.messages.{ModelMessages, ExploreMessages}
 import org.denigma.binding.messages.ExploreMessages.{ExploreMessage, Explore}
 import org.denigma.binding.messages.ModelMessages._
 import org.denigma.binding.picklers.rp
@@ -79,7 +79,7 @@ object ProjectController  extends Controller with PickleController with AjaxMode
     Ok(data).as("application/json")
   }
 
-  override def onSuggest(suggestMessage: ExploreMessages.Suggest)(implicit request: ModelRequest): Result = ???
+  override def onExploreSuggest(suggestMessage: ExploreMessages.ExploreSuggest)(implicit request: ModelRequest): Result = ???
 
   override def onBadModelMessage(message: ModelMessage): Result= BadRequest(Json.obj("status" ->"KO","message"->"wrong message type!")).as("application/json")
 
@@ -87,6 +87,11 @@ object ProjectController  extends Controller with PickleController with AjaxMode
   override def onExplore(exploreMessage: Explore)(implicit request: ExploreRequest): ExploreResult = ???
 
   override def onBadExploreMessage(message: ExploreMessage)(implicit request: ExploreRequest): ExploreResult = BadRequest(Json.obj("status" ->"KO","message"->"wrong message type!")).as("application/json")
+
+
+
+
+  def onSuggest(suggestMessage:ModelMessages.Suggest):ModelResult = ???
 
 }
 

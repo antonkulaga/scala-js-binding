@@ -17,7 +17,7 @@ resolvers += Resolver.url(
 
 
 //scalajs plugin
-addSbtPlugin("org.scala-lang.modules.scalajs" % "scalajs-sbt-plugin" % "0.5.1")
+addSbtPlugin("org.scala-lang.modules.scalajs" % "scalajs-sbt-plugin" % "0.5.2")
 
 //dependency graph generation
 addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")

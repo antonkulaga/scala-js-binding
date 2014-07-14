@@ -13,7 +13,7 @@ import scala.collection.immutable._
 trait CollectionView extends OrdinaryView{
 
   type Item
-  type ItemView <: BindingView
+  type ItemView <: IView
 
 
   val items:Rx[List[Item]]
@@ -130,7 +130,9 @@ trait CollectionView extends OrdinaryView{
 
   def addItemView(item:Item,iv:ItemView):ItemView = {
     span.parentElement.insertBefore(iv.viewElement,span)
-    this.addView(iv)
+    iv match {
+      case b:BindingView=>  this.addView(b)
+    }
     itemViews = itemViews + (item->iv)
     iv.bindView(iv.viewElement)
     //dom.console.log(iv.viewElement.innerHTML)

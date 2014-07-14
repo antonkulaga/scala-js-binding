@@ -14,10 +14,9 @@ import scalatags.Text.Tag
  * @param elem html element to which view is attached
  * @param params
  */
-class RdfSlide(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView
+class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView
 {
 
-  val name = "rdf"
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
   override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
@@ -63,7 +62,7 @@ class Todos(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) 
 
 
 }
-class Todo(val elem:HTMLElement, params:Map[String,Any], val name:String = "todo") extends ActiveModelView{
+class Todo(val elem:HTMLElement, val params:Map[String,Any], override val name:String = "todo") extends ActiveModelView{
 
   val initial: Option[Var[ModelInside]] = params.get("model").collect{case mi:Var[ModelInside]=>mi}
 

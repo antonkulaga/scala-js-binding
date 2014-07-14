@@ -14,7 +14,6 @@ import scalatags.Text.Tag
 class SuggestView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends ModelCollection
 {
 
-  val name = "SuggestView"
 
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 

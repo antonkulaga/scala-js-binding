@@ -2,11 +2,12 @@ package org.denigma.binding.storages
 
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.messages.ModelMessages
+import org.denigma.binding.messages.ModelMessages.Suggestion
 import org.denigma.binding.picklers.rp
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.spickling.PicklerRegistry
-import org.scalax.semweb.rdf.Res
+import org.scalax.semweb.rdf.{IRI, Res}
 import org.scalax.semweb.shex.PropertyModel
 
 import scala.concurrent.Future
@@ -44,9 +45,16 @@ class AjaxModelStorage(path:String)(implicit registry:PicklerRegistry = rp) exte
     val data = ModelMessages.Read(shapeId, modelIds.toSet, genId(), channel = channel)
     sq.post(channel,data):Future[List[PropertyModel]]
   }
+
+  override def suggest(shape:Res,modelRes:Res,prop:IRI,typed:String): Future[Suggestion] = {
+    val data = ModelMessages.Suggest(shape,modelRes,prop:IRI, typed, this.genId(),channel = this.channel)
+    sq.post(channel,data):Future[ModelMessages.Suggestion]
+  }
 }
 
 class WebsocketModelStorage(val channel:String) extends ModelStorage {
+
+  override def suggest(shape:Res,modelRes:Res,prop:IRI,typed:String): Future[Suggestion] = ???
 
   override def create(shapeId: Res)(models: PropertyModel*): Future[Boolean] = ???
 
@@ -103,6 +111,8 @@ class WebSocketConnector(wsUrl:String) {
 }
 
 trait ModelStorage extends ReadOnlyModelStorage {
+
+  def suggest(shape:Res,modelRes:Res,prop:IRI,typed:String): Future[Suggestion]
 
   def create(shapeId: Res)(models: PropertyModel*): Future[Boolean]
 

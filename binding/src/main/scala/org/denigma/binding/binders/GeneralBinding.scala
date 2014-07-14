@@ -5,7 +5,6 @@ import org.scalajs.dom._
 import rx._
 
 import scala.collection.immutable._
-import scala.scalajs.js
 
 
 /**
@@ -29,7 +28,6 @@ trait GeneralBinding  extends JustBinding with VisibilityBinder with ClassBinder
 
 
 
-
   def makeTextHandler(el:HTMLElement,par:Rx[String]):(KeyboardEvent)=>Unit = this.makeEventHandler(el,par){ (ev,v,elem)=>
     if(elem.textContent.toString!=v.now) {
       v()=elem.textContent.toString
@@ -38,7 +36,6 @@ trait GeneralBinding  extends JustBinding with VisibilityBinder with ClassBinder
 
 
 
-  //TODO: rewrite
   def bindProperties(el:HTMLElement,ats:Map[String, String]): Unit = for {
     (key, value) <- ats
   }{

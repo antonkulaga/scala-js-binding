@@ -32,6 +32,7 @@ trait EditModelView extends AjaxModelView
   override val modelInside: Var[ModelInside] = this.params.get("model").map(m=>m.asInstanceOf[Var[ModelInside]]).getOrElse(Var(ModelInside.empty))
 
 
+
   val editMode = Var(false)
 
 

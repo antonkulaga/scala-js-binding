@@ -10,7 +10,7 @@ import rx.{Rx, Var}
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic.{global => g}
 
-abstract class CodeMirrorInsideView(name:String,elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorView(name,elem,params){
+abstract class CodeMirrorInsideView(elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorView(elem,params){
 
   override def bindView(el:HTMLElement) {
 
@@ -29,7 +29,7 @@ abstract class CodeMirrorInsideView(name:String,elem:HTMLElement,params:Map[Stri
 /**
  * View for article with some text
  */
-abstract class CodeMirrorView(val name:String,val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView{
+abstract class CodeMirrorView(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView{
 
 
 
