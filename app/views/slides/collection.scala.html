@@ -1,5 +1,5 @@
 @(title:String)(implicit request: UserRequestHeader)
-<article id="main_article" class="ui blue piled segment">
+<article id="main_article" class="ui blue piled segment" data-view="CollectionSlide">
 
 
 
@@ -24,7 +24,7 @@
 
             </div>
             <div class="column">
-                <nav class="ui large blue inverted menu" data-view="menu" data-param-path="menu/what">
+                <nav id="testmenu" class="ui large blue inverted menu" data-view="menu" data-param-path="menu/what">
                     <a data-template="true" class="active item header" data-item-bind-href="uri" data-item-bind="label" data-load-into="main">
                         <i class="ui-icon-home"></i>
                     </a>
@@ -48,7 +48,7 @@
 
             </div>
             <div class="column">
-                <textarea data-view="CodeInsideView" data-param-mode="htmlmixed">
+                <textarea id="codeinme" data-view="CodeInsideView" data-param-mode="htmlmixed">
                     <nav class="ui large blue inverted menu" data-view="menu" data-param-path="menu/what">
                         <a data-template="true" class="active item header" data-item-bind-href="uri" data-item-bind="label" data-load-into="main">
                             <i class="ui-icon-home"></i>
@@ -56,6 +56,8 @@
                     </nav>
                 </textarea>
             </div>
+            <div class="ui positive button" data-event-click="apply">Apply template</div>
+
         </section>
 
 

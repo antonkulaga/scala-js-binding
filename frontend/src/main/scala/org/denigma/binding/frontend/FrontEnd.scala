@@ -2,7 +2,7 @@ package org.denigma.binding.frontend
 
 import org.denigma.binding.frontend.papers.{Task, TasksView, Report, ReportsView}
 import org.denigma.binding.views.OrdinaryView
-import org.denigma.controls.general.{CodeMirrorEditor, CkEditor}
+import org.denigma.controls.general.{DatePairView, CodeMirrorEditor, CkEditor}
 
 import org.scalajs.dom
 import rx._
@@ -69,6 +69,11 @@ object FrontEnd extends OrdinaryView with scalajs.js.JSApp
     .register("ReportsView",(el, params) =>Try(new ReportsView(el,params)))
     .register("report",(el, params) =>Try(new Report(el,params)))
     .register("TestSelect",(el, params) =>Try(new SelectView(el,params)))
+    .register("CollectionSlide",(el, params) =>Try(new CollectionSlide(el,params)))
+    .register("SparqlSlide", (el,params)=>Try(new SparqlSlide(el,params)))
+    .register("GraphSlide", (el,params)=>Try(new GraphSlide(el,params)))
+    .register("DatepairView",(el,params)=>Try(new DatePairView(el,params)))
+
 
 
   org.denigma.binding.views

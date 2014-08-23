@@ -1,3 +1,4 @@
+import bintray.Opts
 import sbt.Keys._
 
 scalaJSSettings
@@ -5,6 +6,8 @@ scalaJSSettings
 Build.sameSettings
 
 name := "frontend"
+
+resolvers += Opts.resolver.repo("alexander-myltsev", "maven")
 
 //persistLauncher := true
 

@@ -1,0 +1,26 @@
+import bintray.Opts
+import sbt.Keys._
+
+scalaJSSettings
+
+Build.sameSettings
+
+name := "frontend"
+
+resolvers += Opts.resolver.repo("alexander-myltsev", "maven")
+
+resolvers +=  Resolver.url("maven",
+  url("http://dl.bintray.com/content/alexander-myltsev/maven"))(
+    Resolver.ivyStylePatterns)
+
+resolvers += bintray.Opts.resolver.repo("alexander-myltsev", "parboiled")
+
+libraryDependencies += "org.parboiled" %% "parboiled_sjs0.5_2.11" % "2.0.0"
+
+//persistLauncher := true
+
+//persistLauncher in Test := false
+
+scalacOptions ++= Seq( "-feature", "-language:_" )
+
+ScalaJSKeys.relativeSourceMaps := true

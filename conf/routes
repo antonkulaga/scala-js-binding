@@ -2,8 +2,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-
-GET           /                          controllers.Application.index()
+GET           /                          controllers.Slides.slide(slide:String ?= "collection")
 GET           /test                      controllers.Test.html()
 GET           /test/tuple2               controllers.Test.tuple2()
 GET           /test/map                  controllers.Test.map()

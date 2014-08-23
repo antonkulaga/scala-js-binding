@@ -79,7 +79,7 @@ trait BindingView extends JustBinding with IView
    */
   val id: String =this.makeId(elem,this.name)
 
-  var subviews = Map.empty[String,BindingView]
+  implicit var subviews = Map.empty[String,BindingView]
 
 
   def addView(view:BindingView) = {
@@ -128,7 +128,7 @@ trait BindingView extends JustBinding with IView
    * Binds element attributes
    * @param el
    */
-  protected def bindElement(el:HTMLElement) = {
+  protected def bindElement(el:HTMLElement): Unit = {
     val ats: Map[String, String] = el.attributes.collect{
       case (key,attr) if key.contains("data-") && !key.contains("data-view") =>
         (key.replace("data-",""),attr.value.toString)
@@ -215,15 +215,18 @@ trait BindingView extends JustBinding with IView
 
     }
 
+  def findSubView(viewName:String)(implicit where:Map[String,BindingView] = this.subviews):Option[BindingView] = if(where.isEmpty) None else
+    if(where.isEmpty) None else where.get(viewName)
+    .orElse{    findSubView(viewName)(subviews.flatMap(kv=>kv._2.subviews))  }
 
   /**
    * Finds view if it exists
    * @param viewName
    * @return
    */
-  def findView(viewName:String):Option[BindingView] = if(this.name==viewName) Some(this) else {
-    if(this.subviews.isEmpty) None else this.subviews.values.find(s=>s.findView(viewName).isDefined).flatMap(s=>s.findView(viewName))
-  }
+  def findView(viewName:String):Option[BindingView] = if(this.name==viewName) Some(this) else
+    this.findSubView(viewName)(this.subviews)
+
 
 
   /**
@@ -231,12 +234,20 @@ trait BindingView extends JustBinding with IView
    * @param nm view name to remove
    * */
   def removeView(nm:String): Unit = this.subviews.get(nm) match {
-    case Some(view)=>
-      view.unbindView()
-      view.viewElement.parentElement.removeChild(view.viewElement)
-      this.subviews = this.subviews - nm
+    case Some(view)=> this.removeView(view)
     case None=>
       dom.console.log(s"now subview to remove for $nm from ${this.id}")
+  }
+
+  /**
+   * Removes a view from subviews
+   * @param view
+   */
+  def removeView(view:BindingView): Unit = {
+    view.unbindView()
+    if(view.viewElement.parentElement!=null) view.viewElement.parentElement.removeChild(view.viewElement)
+    this.subviews = this.subviews - view.id
+
   }
 
   /**

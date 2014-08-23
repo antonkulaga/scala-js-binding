@@ -30,9 +30,6 @@ class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Strin
     super.bindView(el)
 
   }
-
-
-
 }
 
 class Todos(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends AjaxModelCollection("Todos",element,params)

@@ -15,7 +15,7 @@ trait AjaxExploreEndpoint {
 
   def onExploreSuggest(suggestMessage:  ExploreMessages.ExploreSuggest)(implicit request: ExploreRequest):ExploreResult
 
-  def onSelect(suggestMessage:  ExploreMessages.SelectQuery)(implicit request: ExploreRequest):ExploreResult
+  def onSelect(selectMessage:  ExploreMessages.SelectQuery)(implicit request: ExploreRequest):ExploreResult
 
   def onBadExploreMessage(message:ModelMessages.ModelMessage)(implicit request: ExploreRequest):ExploreResult
 

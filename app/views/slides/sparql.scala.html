@@ -1,0 +1,26 @@
+@(title:String)(implicit request: UserRequestHeader)
+<article id="main_article"  data-view="SparqlSlide" class="ui blue piled segment" >
+
+
+
+    <h1 id="title"class="ui large header orange message">@title </h1>
+
+    <div class="ui one column grid">
+        <section class="row">
+            Parser input
+            <div class="column">
+                <input id="inp" data-bind="input">
+            </div>
+        </section>
+        <section class="row">
+            Parser output
+            <div class="column">
+                <input data-bind="tree">
+            </div>
+        </section>
+
+    </div>
+
+
+</article>
+

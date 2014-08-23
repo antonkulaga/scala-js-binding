@@ -78,4 +78,5 @@ trait OrdinaryView extends OrganizedView with GeneralBinding
 
       }
   }
+
 }

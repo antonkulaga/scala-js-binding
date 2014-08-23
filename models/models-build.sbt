@@ -15,7 +15,7 @@ libraryDependencies += "org.scalajs" %%% "scalajs-pickling" % "0.3.1"
 
 libraryDependencies +=  "com.scalarx" %%% "scalarx" % "0.2.5"
 
-libraryDependencies +=  "com.lihaoyi" %% "utest" % "0.1.6" % "test"
+libraryDependencies +=  "com.lihaoyi" %% "utest" % "0.1.8" % "test"
 
 Build.publishSettings
 

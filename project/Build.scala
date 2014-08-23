@@ -20,7 +20,7 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.6.3"
+  val semWebVersion =  "0.6.5"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -91,9 +91,11 @@ object Build extends sbt.Build with UniversalKeys {
 
     version := "0.5.0",
 
-    scalaVersion := "2.11.1",
+    scalaVersion := "2.11.2",
 
     resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
+
+    resolvers += Opts.resolver.repo("alexander-myltsev", "maven"),
 
     // The Typesafe repository
     resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",

@@ -14,13 +14,21 @@ object Test extends Controller{
    * Test html
    * @return
    */
-  def html() = UserAction{
-    implicit request=>
+  def html() = UserAction {
+    implicit request =>
 
-      val v= views.html.test(request)
+      val v = views.html.test(request)
       Ok(v)
-
   }
+
+  def graph() = UserAction {
+    implicit request =>
+
+      val v = views.html.slides.graph("graph")
+      Ok(v)
+  }
+
+
   def tuple2()= UserAction{
     implicit request=>
       //val value = Seq("one"->"1","two"->"2","three"->"3")
