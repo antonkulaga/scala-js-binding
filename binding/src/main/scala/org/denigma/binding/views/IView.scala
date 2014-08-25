@@ -14,6 +14,8 @@ trait ILogged {
 
   def info(message:String) = dom.console.info(message:String)
 
+  def debug(message:String) = dom.console.log(message)
+
 }
 
 trait IView extends ILogged{

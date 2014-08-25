@@ -2,7 +2,7 @@ package org.denigma.binding.frontend.slides
 
 import org.denigma.binding.views.OrdinaryView
 import org.scalajs.dom.{HTMLElement, MouseEvent}
-import org.scalax.semweb.parsers.DateParser
+//import org.scalax.semweb.parsers.DateParser
 import rx._
 
 import scalatags.Text._
@@ -32,7 +32,8 @@ class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
   val input = Var("01.01.2010")
   val tree = Rx {
    // new Calculator(input()).InputLine.run().map(i=>i.toString).getOrElse("failure") // evaluates to `scala.util.Success(2)`
-    new DateParser(input()).InputLine.run().map(i=>i.toString).getOrElse("failure")
+  //  new DateParser(input()).InputLine.run().map(i=>i.toString).getOrElse("failure")
+    ""
   }
 
 

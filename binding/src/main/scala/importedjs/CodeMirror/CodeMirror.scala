@@ -7,80 +7,80 @@ import scala.scalajs.js._
 
 
 trait Editor extends js.Object {
-  def hasFocus(): js.Boolean = ???
-  def findPosH(start: Position, amount: js.Number, unit: js.String, visually: js.Boolean): js.Any = ???
-  def findPosV(start: Position, amount: js.Number, unit: js.String): js.Any = ???
-  def setOption(option: js.String, value: js.Any): Unit = ???
-  def getOption(option: js.String): js.Dynamic = ???
-  def addKeyMap(map: js.Any, bottom: js.Boolean = ???): Unit = ???
+  def hasFocus(): Boolean = ???
+  def findPosH(start: Position, amount: Double, unit: String, visually: Boolean): js.Any = ???
+  def findPosV(start: Position, amount: Double, unit: String): js.Any = ???
+  def setOption(option: String, value: js.Any): Unit = ???
+  def getOption(option: String): js.Dynamic = ???
+  def addKeyMap(map: js.Any, bottom: Boolean = ???): Unit = ???
   def removeKeyMap(map: js.Any): Unit = ???
   def addOverlay(mode: js.Any, options: js.Any = ???): Unit = ???
   def removeOverlay(mode: js.Any): Unit = ???
   def getDoc(): Doc = ???
   def swapDoc(doc: Doc): Doc = ???
-  def setGutterMarker(line: js.Any, gutterID: js.String, value: HTMLElement): LineHandle = ???
-  def clearGutter(gutterID: js.String): Unit = ???
-  def addLineClass(line: js.Any, where: js.String, _clazz: js.String): LineHandle = ???
-  def removeLineClass(line: js.Any, where: js.String, clazz: js.String): LineHandle = ???
+  def setGutterMarker(line: js.Any, gutterID: String, value: HTMLElement): LineHandle = ???
+  def clearGutter(gutterID: String): Unit = ???
+  def addLineClass(line: js.Any, where: String, _clazz: String): LineHandle = ???
+  def removeLineClass(line: js.Any, where: String, clazz: String): LineHandle = ???
   def lineInfo(line: js.Any): js.Any = ???
-  def addWidget(pos: Position, node: HTMLElement, scrollIntoView: js.Boolean): Unit = ???
+  def addWidget(pos: Position, node: HTMLElement, scrollIntoView: Boolean): Unit = ???
   def addLineWidget(line: js.Any, node: HTMLElement, options: js.Any = ???): LineWidget = ???
   def setSize(width: js.Any, height: js.Any): Unit = ???
-  def scrollTo(x: js.Number, y: js.Number): Unit = ???
+  def scrollTo(x: Double, y: Double): Unit = ???
   def getScrollInfo(): js.Any = ???
-  def scrollIntoView(pos: Position, margin: js.Number = ???): Unit = ???
-  def cursorCoords(where: js.Boolean, mode: js.String): js.Any = ???
-  def charCoords(pos: Position, mode: js.String): js.Any = ???
-  def coordsChar(`object`: js.Any, mode: js.String = ???): Position = ???
-  def defaultTextHeight(): js.Number = ???
-  def defaultCharWidth(): js.Number = ???
+  def scrollIntoView(pos: Position, margin: Double = ???): Unit = ???
+  def cursorCoords(where: Boolean, mode: String): js.Any = ???
+  def charCoords(pos: Position, mode: String): js.Any = ???
+  def coordsChar(`object`: js.Any, mode: String = ???): Position = ???
+  def defaultTextHeight(): Double = ???
+  def defaultCharWidth(): Double = ???
   def getViewport(): js.Any = ???
   def refresh(): Unit = ???
   def getTokenAt(pos: Position): js.Any = ???
-  def getStateAfter(line: js.Number = ???): js.Dynamic = ???
+  def getStateAfter(line: Double = ???): js.Dynamic = ???
   def operation[T](fn: js.Function0[T]): T = ???
-  def indentLine(line: js.Number, dir: js.String = ???): Unit = ???
+  def indentLine(line: Double, dir: String = ???): Unit = ???
   def focus(): Unit = ???
   def getInputField(): HTMLTextAreaElement = ???
   def getWrapperElement(): HTMLElement = ???
   def getScrollerElement(): HTMLElement = ???
   def getGutterElement(): HTMLElement = ???
-  def on(eventName: js.String, handler: js.Function1[Editor, Unit]): Unit = ???
-  def off(eventName: js.String, handler: js.Function1[Editor, Unit]): Unit = ???
+  def on(eventName: String, handler: js.Function1[Editor, Unit]): Unit = ???
+  def off(eventName: String, handler: js.Function1[Editor, Unit]): Unit = ???
 }
 
 @JSName("Doc")
 class Doc protected () extends js.Object {
-  def this(text: js.String, mode: js.Any = ???, firstLineNumber: js.Number = ???) = this()
-  def getValue(seperator: js.String = ???): js.String = ???
-  def setValue(content: js.String): Unit = ???
-  def getRange(from: Position, to: Position, seperator: js.String = ???): js.String = ???
-  def replaceRange(replacement: js.String, from: Position, to: Position): Unit = ???
-  def getLine(n: js.Number): js.String = ???
-  def setLine(n: js.Number, text: js.String): Unit = ???
-  def removeLine(n: js.Number): Unit = ???
-  def lineCount(): js.Number = ???
-  def firstLine(): js.Number = ???
-  def lastLine(): js.Number = ???
-  def getLineHandle(num: js.Number): LineHandle = ???
-  def getLineNumber(handle: LineHandle): js.Number = ???
+  def this(text: String, mode: js.Any = ???, firstLineNumber: Double = ???) = this()
+  def getValue(seperator: String = ???): String = ???
+  def setValue(content: String): Unit = ???
+  def getRange(from: Position, to: Position, seperator: String = ???): String = ???
+  def replaceRange(replacement: String, from: Position, to: Position): Unit = ???
+  def getLine(n: Double): String = ???
+  def setLine(n: Double, text: String): Unit = ???
+  def removeLine(n: Double): Unit = ???
+  def lineCount(): Double = ???
+  def firstLine(): Double = ???
+  def lastLine(): Double = ???
+  def getLineHandle(num: Double): LineHandle = ???
+  def getLineNumber(handle: LineHandle): Double = ???
   def eachLine(f: js.Function1[LineHandle, Unit]): Unit = ???
-  def eachLine(start: js.Number, end: js.Number, f: js.Function1[LineHandle, Unit]): Unit = ???
+  def eachLine(start: Double, end: Double, f: js.Function1[LineHandle, Unit]): Unit = ???
   def markClean(): Unit = ???
-  def isClean(): js.Boolean = ???
-  def getSelection(): js.String = ???
-  def replaceSelection(replacement: js.String, collapse: js.String = ???): Unit = ???
-  def getCursor(start: js.String = ???): Position = ???
-  def somethingSelected(): js.Boolean = ???
+  def isClean(): Boolean = ???
+  def getSelection(): String = ???
+  def replaceSelection(replacement: String, collapse: String = ???): Unit = ???
+  def getCursor(start: String = ???): Position = ???
+  def somethingSelected(): Boolean = ???
   def setCursor(pos: Position): Unit = ???
   def setSelection(anchor: Position, head: Position): Unit = ???
   def extendSelection(from: Position, to: Position = ???): Unit = ???
-  def setExtending(value: js.Boolean): Unit = ???
+  def setExtending(value: Boolean): Unit = ???
   def getEditor(): Editor = ???
-  def copy(copyHistory: js.Boolean): Doc = ???
+  def copy(copyHistory: Boolean): Doc = ???
   def linkedDoc(options: js.Any): Doc = ???
   def unlinkDoc(doc: Doc): Unit = ???
-  def iterLinkedDocs(fn: js.Function2[Doc, js.Boolean, Unit]): Unit = ???
+  def iterLinkedDocs(fn: js.Function2[Doc, Boolean, Unit]): Unit = ???
   def undo(): Unit = ???
   def redo(): Unit = ???
   def historySize(): js.Any = ???
@@ -92,18 +92,18 @@ class Doc protected () extends js.Object {
   def findMarksAt(pos: Position): js.Array[TextMarker] = ???
   def getAllMarks(): js.Array[TextMarker] = ???
   def getMode(): js.Dynamic = ???
-  def posFromIndex(index: js.Number): Position = ???
-  def indexFromPos(`object`: Position): js.Number = ???
+  def posFromIndex(index: Double): Position = ???
+  def indexFromPos(`object`: Position): Double = ???
 }
 
 trait LineHandle extends js.Object {
-  var text: js.String = ???
+  var text: String = ???
 }
 
 trait TextMarker extends js.Object {
   def clear(): Unit = ???
   def find(): Position = ???
-  def getOptions(copyWidget: js.Boolean): TextMarkerOptions = ???
+  def getOptions(copyWidget: Boolean): TextMarkerOptions = ???
 }
 
 trait LineWidget extends js.Object {
@@ -114,8 +114,8 @@ trait LineWidget extends js.Object {
 trait EditorChange extends js.Object {
   var from: Position = ???
   var to: Position = ???
-  var text: js.Array[js.String] = ???
-  var removed: js.String = ???
+  var text: js.Array[String] = ???
+  var removed: String = ???
 }
 
 trait EditorChangeLinkedList extends EditorChange {
@@ -123,65 +123,65 @@ trait EditorChangeLinkedList extends EditorChange {
 }
 
 trait EditorChangeCancellable extends EditorChange {
-  def update(from: Position = ???, to: Position = ???, text: js.String = ???): Unit = ???
+  def update(from: Position = ???, to: Position = ???, text: String = ???): Unit = ???
   def cancel(): Unit = ???
 }
 
 trait Position extends js.Object {
-  var ch: js.Number = ???
-  var line: js.Number = ???
+  var ch: Double = ???
+  var line: Double = ???
 }
 
 trait EditorConfiguration extends js.Object {
   var value: js.Any = ???
   var mode: js.Any = ???
-  var theme: js.String = ???
-  var indentUnit: js.Number = ???
-  var smartIndent: js.Boolean = ???
-  var tabSize: js.Number = ???
-  var indentWithTabs: js.Boolean = ???
-  var electricChars: js.Boolean = ???
-  var rtlMoveVisually: js.Boolean = ???
-  var keyMap: js.String = ???
+  var theme: String = ???
+  var indentUnit: Double = ???
+  var smartIndent: Boolean = ???
+  var tabSize: Double = ???
+  var indentWithTabs: Boolean = ???
+  var electricChars: Boolean = ???
+  var rtlMoveVisually: Boolean = ???
+  var keyMap: String = ???
   var extraKeys: js.Any = ???
-  var lineWrapping: js.Boolean = ???
-  var lineNumbers: js.Boolean = ???
-  var firstLineNumber: js.Number = ???
-  var lineNumberFormatter: js.Function1[js.Number, js.String] = ???
-  var gutters: js.Array[js.String] = ???
-  var fixedGutter: js.Boolean = ???
+  var lineWrapping: Boolean = ???
+  var lineNumbers: Boolean = ???
+  var firstLineNumber: Double = ???
+  var lineNumberFormatter: js.Function1[Double, String] = ???
+  var gutters: js.Array[String] = ???
+  var fixedGutter: Boolean = ???
   var readOnly: js.Any = ???
-  var showCursorWhenSelecting: js.Boolean = ???
-  var undoDepth: js.Number = ???
-  var historyEventDelay: js.Number = ???
-  var tabindex: js.Number = ???
-  var autofocus: js.Boolean = ???
-  var dragDrop: js.Boolean = ???
-  var onDragEvent: js.Function2[Editor, Event, js.Boolean] = ???
-  var onKeyEvent: js.Function2[Editor, Event, js.Boolean] = ???
-  var cursorBlinkRate: js.Number = ???
-  var cursorHeight: js.Number = ???
-  var workTime: js.Number = ???
-  var workDelay: js.Number = ???
-  var pollInterval: js.Number = ???
-  var flattenSpans: js.Boolean = ???
-  var maxHighlightLength: js.Number = ???
-  var viewportMargin: js.Number = ???
+  var showCursorWhenSelecting: Boolean = ???
+  var undoDepth: Double = ???
+  var historyEventDelay: Double = ???
+  var tabindex: Double = ???
+  var autofocus: Boolean = ???
+  var dragDrop: Boolean = ???
+  var onDragEvent: js.Function2[Editor, Event, Boolean] = ???
+  var onKeyEvent: js.Function2[Editor, Event, Boolean] = ???
+  var cursorBlinkRate: Double = ???
+  var cursorHeight: Double = ???
+  var workTime: Double = ???
+  var workDelay: Double = ???
+  var pollInterval: Double = ???
+  var flattenSpans: Boolean = ???
+  var maxHighlightLength: Double = ???
+  var viewportMargin: Double = ???
 }
 
 trait TextMarkerOptions extends js.Object {
-  var className: js.String = ???
-  var inclusiveLeft: js.Boolean = ???
-  var inclusiveRight: js.Boolean = ???
-  var atomic: js.Boolean = ???
-  var collapsed: js.Boolean = ???
-  var clearOnEnter: js.Boolean = ???
+  var className: String = ???
+  var inclusiveLeft: Boolean = ???
+  var inclusiveRight: Boolean = ???
+  var atomic: Boolean = ???
+  var collapsed: Boolean = ???
+  var clearOnEnter: Boolean = ???
   var replacedWith: HTMLElement = ???
-  var readOnly: js.Boolean = ???
-  var addToHistory: js.Boolean = ???
-  var startStyle: js.String = ???
-  var endStyle: js.String = ???
-  var shared: js.Boolean = ???
+  var readOnly: Boolean = ???
+  var addToHistory: Boolean = ???
+  var startStyle: String = ???
+  var endStyle: String = ???
+  var shared: Boolean = ???
 }
 import js.annotation._
 
@@ -191,11 +191,11 @@ object CodeMirror extends js.Object {
   def fromTextArea(host: HTMLTextAreaElement, options: EditorConfiguration = ???): Editor = ???
   //def fromTextArea(host: HTMLTextAreaElement, options: js.Any): Editor = ???
 
-  var version: js.String = ???
-  def defineExtension(name: js.String, value: js.Any): Unit = ???
-  def defineDocExtension(name: js.String, value: js.Any): Unit = ???
-  def defineOption(name: js.String, default: js.Any, updateFunc: js.Function): Unit = ???
+  var version: String = ???
+  def defineExtension(name: String, value: js.Any): Unit = ???
+  def defineDocExtension(name: String, value: js.Any): Unit = ???
+  def defineOption(name: String, default: js.Any, updateFunc: js.Function): Unit = ???
   def defineInitHook(func: js.Function): Unit = ???
-  def on(element: js.Any, eventName: js.String, handler: js.Function): Unit = ???
-  def off(element: js.Any, eventName: js.String, handler: js.Function): Unit = ???
+  def on(element: js.Any, eventName: String, handler: js.Function): Unit = ???
+  def off(element: js.Any, eventName: String, handler: js.Function): Unit = ???
 }

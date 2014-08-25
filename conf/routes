@@ -15,6 +15,7 @@ GET           /papers/                   controllers.literature.Literature.repor
 
 POST          /tasks/explore            controllers.literature.Literature.exploreEndpoint()
 POST          /tasks/crud               controllers.literature.Literature.modelEndpoint()
+POST          /graph/endpoint            controllers.graph.GraphController.graphEndpoint()
 
 
 

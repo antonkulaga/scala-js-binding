@@ -14,8 +14,9 @@ libraryDependencies ++= Seq(
   "org.webjars" % "Semantic-UI" % "0.19",
   "org.webjars" % "codemirror" % "4.3",
   "org.webjars" % "ckeditor" % "4.4.1",
-  "com.lihaoyi" %% "utest" % "0.2.0",
-  "org.scalax" %% "semweb" % Build.semWebVersion
+  "com.lihaoyi" %% "utest" % "0.2.2",
+  "org.scalax" %% "semweb" % Build.semWebVersion,
+  "com.assembla.scala-incubator" %% "graph-core" % "1.9.0"
 )
 
 // Apply RequireJS optimization, digest calculation and gzip compression to assets

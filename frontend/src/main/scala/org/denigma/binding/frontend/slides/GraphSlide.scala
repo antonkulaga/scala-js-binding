@@ -1,25 +1,35 @@
 package org.denigma.binding.frontend.slides
 
 
-
 import org.denigma.binding.views.OrdinaryView
 import org.denigma.controls.graph._
+import org.denigma.controls.sigma.{Sigma, SigmaGraphInit}
 import org.scalajs.dom
 import org.scalajs.dom.MouseEvent
+import org.scalax.semweb.rdf.{Res, Quad, IRI}
 import play.api.libs.json.JsArray
 import rx.Rx
 import org.scalajs.dom.HTMLElement
 import rx.Var
 import rx.core.Dynamic
 import scala.scalajs.js.annotation.JSExport
+import scala.util.{Failure, Success}
 import scalatags.Text.Tag
 import scalajs.js
 import scalajs.js.{GlobalScope=>g}
 import org.denigma.binding.extensions._
 
 
-class GraphSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView
+class GraphSlide(val elem:HTMLElement, val params:Map[String,Any]) extends GraphView
 {
+
+
+  lazy val path: String = this.params.get("path").map(_.toString).get
+
+  lazy val resource = this.params.get("resource").map(v=>IRI(v.toString)).get
+
+  //require(params.contains("path"))
+
 
   override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
@@ -30,59 +40,39 @@ class GraphSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Str
   override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 
 
-  protected def generateInit() = {
 
-    val cont: HTMLElement = dom.document.getElementById("graph-container")
-
-    val colors = List(
-      "#617db4",
-      "#668f3c",
-      "#c6583e",
-      "#b956af")
-
-    val g = SigmaGraphInit(List(
-      SigmaNode("n0","A node",0,0,4),
-      SigmaNode("n1","A node",2,1,4),
-      SigmaNode("n2","NEW NODE", 1, 2 , 4)
-    ),List(SigmaEdge("e0","n0","n1"),
-      SigmaEdge("e1","n1","n2"),
-      SigmaEdge("e2","n2","n0")))
-
-    //SigmaInit(dom.document.getElementById("graph-container"),g)
-
-
-    val renderer = js.Dynamic.literal(
-      container = cont,
-      `type` = "canvas"
-    )
-
-    js.Dynamic.literal(
-      graph = g.asInstanceOf[js.Dynamic],
-      renderer = renderer
-    )
-
-
-    //new SigmaInit(g,renderer)
-
-
-
-  }
-
-
-
-  override def bindView(el:HTMLElement) {
-    //jQuery(el).slideUp()
+  override def bindView(el:HTMLElement) = {
     super.bindView(el)
-    Sigma.utils.pkg("sigma.canvas.edges")
-    val init = this.generateInit()
-    val s = new Sigma(init)
-    s.graph.addNode(SigmaNode("n4","A node",0,0,4))
-    s.graph.addEdge(SigmaEdge("e4","n4","n0"))
-    s.startForceAtlas2()
+    this.draw()
+    //jQuery(el).slideUp()
+//    super.bindView(el)
+//    Sigma.utils.pkg("sigma.canvas.edges")
+//    this.sigma =  new Sigma(initial)
+//    this.storage.explore(this.resource).onComplete{
+//      case Success(data) =>
+//        this.loadData(data)
+//      case Failure(th)=>
+//        this.error(s"failure in read of model for $path: \n ${th.getMessage} ")
+//    }
 
   }
 
 
+  protected def draw() = {
+    js.eval (
+      """
+        |new Drawing.SimpleGraph({layout: '3d', numNodes: 10, showLabels:true, graphLayout:{attraction: 5, repulsion: 0.5}, showStats: true, showInfo: true})
+      """.stripMargin)
+
+  }
+
+
+//  override protected def loadData(data:List[Quad]) = {
+//    super.loadData(data)
+//    sigma.startForceAtlas2()
+//  }
+
+  override def container: HTMLElement = dom.document.getElementById("graph-container")
 
 }
 

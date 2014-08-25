@@ -1,21 +1,9 @@
 @(title:String)(implicit request: UserRequestHeader)
-<article id="main_article"  data-view="GraphSlide" class="ui blue piled segment" >
+<article id="main_article"  data-view="GraphSlide" class="ui blue piled segment" data-param-path="/graph/endpoint" data-param-resource="http://webintelligence.eu/resource/node_1" >
 
-@libs.sigma()
+@libs.graph3d()
 
-    <h1 id="title"class="ui large header orange message">@title </h1>
-    <div id="container">
-        <style>
-        #graph-container {
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        position: absolute;
-        min-height: 500px;
-        min-width: 500px;
-        }
-        </style>
-        <div id="graph-container"></div>
-    </div>
+
+
+
 </article>
