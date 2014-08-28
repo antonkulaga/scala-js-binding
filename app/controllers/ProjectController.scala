@@ -13,7 +13,7 @@ import play.api.libs.json.Json
 import play.api.mvc.{Controller, Result}
 
 /**
- *
+ * contains test data with project
  */
 object ProjectController  extends Controller with PickleController with AjaxModelEndpoint with AjaxExploreEndpoint
 {

@@ -12,7 +12,7 @@ import scala.collection.immutable.Map
  * Does binding for classes
  */
 trait PropertyBinder {
-  self:JustBinding=>
+  self:BasicBinding=>
   def strings:Map[String,Rx[String]]
   def bools:Map[String,Rx[Boolean]]
 
@@ -33,10 +33,10 @@ trait PropertyBinder {
 
   /**
    * Bind property
-   * @param el
-   * @param key
-   * @param att
-   * @param binder  binding view which collection we search, this by default
+   * @param el html element
+   * @param key name of the property
+   * @param att value of attribute
+   * @param binder  binding view where we search for property, this by default
    * @return
    */
   def bindProperty(el:HTMLElement,key:String,att:String)(implicit binder:PropertyBinder = this): Boolean = (key.toString,el.tagName.toLowerCase().toString) match

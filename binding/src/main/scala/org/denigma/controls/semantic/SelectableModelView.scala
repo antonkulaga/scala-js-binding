@@ -1,6 +1,6 @@
 package org.denigma.controls.semantic
 
-import org.denigma.binding.storages.AjaxModelStorage
+import org.denigma.storages.AjaxModelStorage
 import org.denigma.controls.general.EditModelView
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
@@ -11,8 +11,9 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
 
-
-
+/**
+ * View that binds with Selectize.js selectors
+ */
 trait SelectableModelView extends EditModelView  {
 
   lazy val shapeRes = params.get("shape").map{case sh=>sh.asInstanceOf[Res]}.get

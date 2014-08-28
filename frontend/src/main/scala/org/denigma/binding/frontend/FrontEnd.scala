@@ -2,7 +2,9 @@ package org.denigma.binding.frontend
 
 import org.denigma.binding.frontend.papers.{Task, TasksView, Report, ReportsView}
 import org.denigma.binding.views.OrdinaryView
-import org.denigma.controls.general.{DatePairView, CodeMirrorEditor, CkEditor}
+import org.denigma.binding.views.utils.ViewInjector
+import org.denigma.controls.editors.{CodeMirrorEditor, CkEditor, editors}
+import org.denigma.controls.general.DatePairView
 
 import org.scalajs.dom
 import rx._
@@ -24,7 +26,8 @@ import scalatags.Text.Tag
 object FrontEnd extends OrdinaryView with scalajs.js.JSApp
 {
 
-  override val name = "main"
+  override def name = "main"
+
   lazy val elem:HTMLElement = dom.document.body
 
   override val params:Map[String,Any] = Map.empty
@@ -42,7 +45,7 @@ object FrontEnd extends OrdinaryView with scalajs.js.JSApp
   /**
    * Register views
    */
-  org.denigma.binding.views
+  ViewInjector
     .register("menu", (el, params) =>Try(new MenuView(el,params)))
     .register("ArticleView", (el, params) =>Try(new ArticleView(el,params)))
     .register("sidebar", (el, params) =>Try(new SidebarView(el,params)))
@@ -76,7 +79,7 @@ object FrontEnd extends OrdinaryView with scalajs.js.JSApp
 
 
 
-  org.denigma.binding.views
+  editors
     .registerEditor("ckeditor",CkEditor)
     .registerEditor("codemirror",CodeMirrorEditor)
 
@@ -119,7 +122,6 @@ object FrontEnd extends OrdinaryView with scalajs.js.JSApp
   }
 //  val onMenuOver: Var[MouseEvent] = Var(this.createMouseEvent())
 //  val onMenuOut: Var[MouseEvent] = Var(this.createMouseEvent())
-
 
 
 }

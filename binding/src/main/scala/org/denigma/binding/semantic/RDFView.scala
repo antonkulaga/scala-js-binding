@@ -7,6 +7,9 @@ import org.scalax.semweb.rdf._
 
 import scala.collection.immutable.Map
 
+/**
+ * View that can do RDFa binding (binding to semantic properties)
+ */
 trait RDFView extends OrganizedView
 {
   /**
@@ -39,19 +42,30 @@ trait RDFView extends OrganizedView
 
   type RDFType = OrganizedView with RDFView
 
-  protected def nearestRDFParent(implicit current:BindingView = this):Option[RDFType] = current.parent match {
+  protected def nearestRDFParent(implicit current:ChildView = this):Option[RDFType] = current.parent match {
     case Some(par:RDFType)=>Some(par)
     case Some(par)=>this.nearestRDFParent(par)
     case _=> None
 
   }
 
+  protected def binded(str:String) = str.contains("data") && str.contains("bind")
 
-  protected def bindRdf(el: HTMLElement) = {
 
 
+  protected def updatePrefixes(el:HTMLElement) = {
     val rp = nearestRDFParent
     prefixes= rp.fold(Map.empty[String,IRI])(_.prefixes)++this.prefixes
+  }
+  /**
+   * Binds RDF properties to html tags
+   * @param el html element to bind to
+   */
+  protected def bindRdf(el: HTMLElement) = {
+
+    this.updatePrefixes(el)
+
+
     def binded(str:String) = str.contains("data") && str.contains("bind")
 
     val ats = el.attributes.collect { case (key, value) if !binded(value.value) => (key, value.value.toString)}.toMap
@@ -61,12 +75,17 @@ trait RDFView extends OrganizedView
 
     }
 
-
-
   }
 
 
-
+  /**
+   * Binds vocabs and previxes
+   * @param el html element to bind to
+   * @param key Key
+   * @param value Value
+   * @param ats attributes
+   * @return
+   */
   protected def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] = {
 
     case "vocab" if value.contains(":") => this.prefixes = prefixes + (":"-> IRI(value))

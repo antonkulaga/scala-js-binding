@@ -1,7 +1,7 @@
 package org.denigma.controls.semantic
 
 import org.denigma.binding.semantic.ActiveModelView
-import org.denigma.binding.storages.AjaxModelStorage
+import org.denigma.storages.AjaxModelStorage
 import org.scalajs.dom
 import org.scalax.semweb.rdf.Res
 import org.scalax.semweb.shex.PropertyModel
@@ -51,3 +51,4 @@ trait  AjaxModelView extends ActiveModelView
   }
 
 }
+

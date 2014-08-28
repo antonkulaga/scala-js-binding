@@ -1,6 +1,5 @@
 package org.denigma.controls.general
 
-import importedjs.CodeMirror.{EditorConfiguration, CodeMirror, Editor}
 import org.denigma.binding.views.OrdinaryView
 import org.scalajs.dom
 import org.scalajs.dom.{MouseEvent, HTMLElement}

@@ -3,7 +3,7 @@ package org.denigma.controls.semantic
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.{Filters, ExploreMessages}
 import org.denigma.binding.semantic.{ActiveModelView, ModelCollection, ModelInside}
-import org.denigma.binding.storages.{AjaxExploreStorage, AjaxModelStorage}
+import org.denigma.storages.{AjaxExploreStorage, AjaxModelStorage}
 import org.denigma.binding.views._
 import org.scalajs.dom
 import org.scalajs.dom._
@@ -68,11 +68,14 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
 
   val query = IRI(params("query").toString)
+
+
+
   val shapeRes = IRI(params("shape").toString)
 
-  val emptyShape = new Shape(IRILabel(shapeRes), AndRule(Set.empty[Rule]))
+  lazy val emptyShape = new Shape(IRILabel(shapeRes), AndRule(Set.empty[Rule]))
 
-  val shape = Var(emptyShape)
+  val shape:Var[Shape] = Var(emptyShape)
 
 
 
@@ -109,10 +112,6 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
         dom.console.error(s"Future data failure for view ${this.id} with exception: \n ${m.toString}")
     }
   }
-
-
-  override def inject(viewName:String,el:HTMLElement,params:Map[String,Any]): BindingView = super.inject(viewName,el,params) //TODO override
-
 
 
   //  val dirty = Rx{items().filterNot(_}

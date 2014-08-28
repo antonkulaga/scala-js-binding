@@ -10,7 +10,7 @@ import scala.collection.immutable.Map
  * Provides useful functions for visibility bindings (like showif/hideif)
  */
 trait VisibilityBinder {
-  self:JustBinding=>
+  self:BasicBinding=>
 
   def bools:Map[String,Rx[Boolean]]
 

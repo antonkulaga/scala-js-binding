@@ -10,7 +10,7 @@ import scalatags.Text.Tag
 /**
  * HTML binding to scalatagnode
  */
-trait ScalaTagsBinder extends JustBinding{
+trait ScalaTagsBinder extends BasicBinding{
 
    def tags:Map[String,Rx[Tag]]
 

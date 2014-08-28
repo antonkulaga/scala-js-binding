@@ -9,7 +9,7 @@ import rx._
 /**
  * Extracts various events
  */
-trait EventBinding  extends JustBinding
+trait EventBinding  extends BasicBinding
 {
   def extractEvents[T: EventMap](t: T): Map[String, Var[Event]] =  implicitly[EventMap[T]].asEventMap(t)
   def extractMouseEvents[T: MouseEventMap](t: T): Map[String, Var[MouseEvent]] =  implicitly[MouseEventMap[T]].asMouseEventMap(t)

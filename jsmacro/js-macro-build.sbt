@@ -24,9 +24,9 @@ ScalaJSKeys.relativeSourceMaps := true
 
 libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.6"
 
-libraryDependencies += "com.scalatags" %%% "scalatags" % "0.3.0"
+libraryDependencies += "com.scalatags" %%% "scalatags" % "0.4.0"
 
-libraryDependencies +=  "com.scalarx" %%% "scalarx" % "0.2.5"
+libraryDependencies +=  "com.scalarx" %%% "scalarx" % "0.2.6"
 
 
 bintraySettings

@@ -2,6 +2,7 @@ package org.denigma.binding.frontend.slides
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.views
+import org.denigma.controls.editors.editors
 import org.denigma.controls.general.EditModelView
 import org.denigma.controls.semantic.AjaxLoadView
 import org.scalajs.dom
@@ -37,7 +38,7 @@ class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends Ajax
     this.bindRx(key,el,this.editMode){ (el,model)=>
       el.contentEditable = editMode().toString
       dom.console.log(editor.now)
-      if(editMode.now) views.on(el,this)(editor.now) else views.offAll(el,this)
+      if(editMode.now) editors.on(el,this)(editor.now) else editors.offAll(el,this)
 
     }
   }

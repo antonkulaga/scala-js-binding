@@ -1,7 +1,7 @@
 package org.denigma.controls.general
 
-import importedjs.CodeMirror._
 import org.denigma.binding.views.OrdinaryView
+import org.scalajs.codemirror.{CodeMirror, EditorConfiguration, Editor}
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.jquery.jQuery

@@ -2,7 +2,7 @@ package org.denigma.controls.general
 
 import org.denigma.binding.models.MenuItem
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.storages.AjaxSimpleStorage
+import org.denigma.storages.AjaxSimpleStorage
 import org.denigma.binding.views.ListView
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement

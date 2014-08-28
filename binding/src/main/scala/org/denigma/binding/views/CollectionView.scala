@@ -131,7 +131,7 @@ trait CollectionView extends OrdinaryView{
   def addItemView(item:Item,iv:ItemView):ItemView = {
     span.parentElement.insertBefore(iv.viewElement,span)
     iv match {
-      case b:BindingView=>  this.addView(b)
+      case b:ChildView=>  this.addView(b)
     }
     itemViews = itemViews + (item->iv)
     iv.bindView(iv.viewElement)
@@ -142,7 +142,7 @@ trait CollectionView extends OrdinaryView{
   def removeItemView(r:Item) =  this.itemViews.get(r) match {
     case Some(rv)=>
       rv.unbindView()
-      this.removeView(rv.id)
+      this.removeViewByName(rv.id)
       this.itemViews = itemViews - r
     case None=>
       dom.console.error("cantot find the view for item: "+r.toString+" in map "+this.itemViews.toString())

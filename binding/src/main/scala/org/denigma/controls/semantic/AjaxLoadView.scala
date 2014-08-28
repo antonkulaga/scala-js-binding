@@ -1,7 +1,7 @@
 package org.denigma.controls.semantic
 
 import org.denigma.binding.extensions.sq
-import org.denigma.binding.storages.AjaxModelStorage
+import org.denigma.storages.AjaxModelStorage
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.IRI

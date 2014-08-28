@@ -89,7 +89,7 @@ object Build extends sbt.Build with UniversalKeys {
 
     organization := "org.denigma",
 
-    version := "0.5.1",
+    version := "0.5.2",
 
     scalaVersion := "2.11.2",
 
@@ -105,9 +105,7 @@ object Build extends sbt.Build with UniversalKeys {
       url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
         Resolver.ivyStylePatterns),
 
-    scalacOptions ++= Seq( "-feature", "-language:_" ),
-
-    incOptions := incOptions.value.withNameHashing(true)
+    scalacOptions ++= Seq( "-feature", "-language:_" )
 
   )
 

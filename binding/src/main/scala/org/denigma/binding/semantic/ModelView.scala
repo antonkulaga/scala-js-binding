@@ -36,8 +36,14 @@ trait ModelView extends RDFView{
    }
 
 
-
-
+  /**
+   * Returns partial function that binds to RDF
+   * @param el html element to bind to
+   * @param key Key
+   * @param value Value
+   * @param ats attributes
+   * @return
+   */
    protected override def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] = {
 
      case "vocab" if value.contains(":") => this.prefixes = prefixes + (":"-> IRI(value))
@@ -108,33 +114,48 @@ trait ModelView extends RDFView{
   }
 
 
-  protected def bindRdfInner(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
+  protected def bindRdfProperty(el: HTMLElement, key: IRI)(assign:(HTMLElement,String)=>Unit) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
     model.current.properties.get(key).map(values=>this.vals2String(values)) match {
       case None=>
         dom.console.log(s"${key.toString()} was not found in the model with properties = ${model.current.properties.toString()}")
       case
-        Some(value)=>el.innerHTML =  value
+        Some(value)=>assign(el,value)
     }
   }
 
-   protected def bindRdfText(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
-    model.current.properties.get(key).map(values=>this.vals2String(values)) match {
-       case None=>
-         dom.console.log(s"${key.toString()} was not found in the model of ${this.id} with model = ${model.current.resource}")
-       case Some(value)=>
-         el.textContent =  value
-     }
-   }
+  protected def bindRdfInner(el: HTMLElement, key: IRI) = bindRdfProperty(el,key)((el,value)=>el.innerHTML=value)
+  protected def bindRdfText(el: HTMLElement, key: IRI) = bindRdfProperty(el,key)((el,value)=>el.textContent=value)
+  protected def bindRdfInput(el: HTMLElement, key: IRI) = bindRdfProperty(el,key)((el,value)=>if (el.dyn.value != value) el.dyn.value = value)
 
 
-   protected def bindRdfInput(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
-      model.current.properties.get(key).map(values=>this.vals2String(values)) match {
-       case None=>  dom.console.log(s"${key.toString()} was not found in the model of ${this.id} with model = ${model.current.resource}")
 
-       case Some(value)=>     if (el.dyn.value != value) el.dyn.value = value
-     }
-
-   }
+//  protected def bindRdfInner(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
+//    model.current.properties.get(key).map(values=>this.vals2String(values)) match {
+//      case None=>
+//        dom.console.log(s"${key.toString()} was not found in the model with properties = ${model.current.properties.toString()}")
+//      case
+//        Some(value)=>el.innerHTML =  value
+//    }
+//  }
+//
+//   protected def bindRdfText(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
+//    model.current.properties.get(key).map(values=>this.vals2String(values)) match {
+//       case None=>
+//         dom.console.log(s"${key.toString()} was not found in the model of ${this.id} with model = ${model.current.resource}")
+//       case Some(value)=>
+//         el.textContent =  value
+//     }
+//   }
+//
+//
+//   protected def bindRdfInput(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
+//      model.current.properties.get(key).map(values=>this.vals2String(values)) match {
+//       case None=>  dom.console.log(s"${key.toString()} was not found in the model of ${this.id} with model = ${model.current.resource}")
+//
+//       case Some(value)=>     if (el.dyn.value != value) el.dyn.value = value
+//     }
+//
+//   }
 
   /**
    * Changes checkbox whenever binded property changes

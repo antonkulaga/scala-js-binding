@@ -41,17 +41,18 @@
                 <p>
                     Each item has data-load-into attribute. This attribute defined where the data should be loaded after menu is clicked. Usually
                     data is loaded with ajax into some html element to avoid whole page refreshing. For binding to item properties data-item-bind is used
-                    instead of ordinary data-bind. The only difference between tham is that data-bind binds to the whole view and data-item-bind binds
+                    instead of ordinary data-bind. The only difference between them is that data-bind binds to the whole view and data-item-bind binds
                     to current item.
 
                 </p>
+                <p>You can edit template on the right and push <b>apply template</b> and the template will be rerendered according new template</p>
 
             </div>
             <div class="column">
                 <textarea id="codeinme" data-view="CodeInsideView" data-param-mode="htmlmixed">
                     <nav class="ui large blue inverted menu" data-view="menu" data-param-path="menu/what">
-                        <a data-template="true" class="active item header" data-item-bind-href="uri" data-item-bind="label" data-load-into="main">
-                            <i class="ui-icon-home"></i>
+                        <a data-template="true" class="active item header" data-item-bind-href="uri"  data-load-into="main">
+                            <i class="ui-icon-home" data-item-bind="label"></i>
                         </a>
                     </nav>
                 </textarea>

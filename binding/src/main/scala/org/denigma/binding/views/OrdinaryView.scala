@@ -33,13 +33,18 @@ object OrdinaryView {
 
 }
 
-
+/**
+ * Trait that is inherited by most of the classes, contains binding to properties/events/html
+ */
 trait OrdinaryView extends OrganizedView with GeneralBinding
   with ScalaTagsBinder
   with EventBinding
 {
 
-  override def makeDefault(name:String,el:HTMLElement) = OrdinaryView(name:String,el)
+  override def makeDefault(name:String,el:HTMLElement) = {
+    //debug(s"NAME IS $name")
+    OrdinaryView(name:String,el)
+  }
 
   override def bindDataAttributes(el:HTMLElement,ats:Map[String, String]) = {
     this.bindHTML(el,ats)
@@ -48,6 +53,11 @@ trait OrdinaryView extends OrganizedView with GeneralBinding
   }
 
   //TODO: rewrite
+  /**
+   * Binds
+   * @param el
+   * @param ats
+   */
   override def bindProperties(el:HTMLElement,ats:Map[String, String]): Unit = for {
     (key, value) <- ats
   }{
@@ -63,7 +73,11 @@ trait OrdinaryView extends OrganizedView with GeneralBinding
     case bname if bname.startsWith("up-bind-")=>
       val my = key.replace("up-bind-","")
       this.strings.get(my) match {
-        case Some(str: rx.Var[String])=> this.searchUp[OrdinaryView](p=>p.strings.contains(value)) match {
+       case Some(str: rx.Var[String])=>
+         //this.searchUp[OrdinaryView](p=>p.strings.contains(value)) match {
+
+         this.nearestParentOf{   case view:OrdinaryView if view.strings.contains(value)=> view  } match
+         {
           case Some(p)=>
 
             val rs: rx.Rx[String] = p.strings(value)

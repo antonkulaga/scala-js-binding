@@ -1,93 +1,68 @@
 package org.denigma.binding.views
 
-import org.denigma.binding.binders.JustBinding
+import org.denigma.binding.binders.BasicBinding
 import org.denigma.binding.extensions._
+import org.denigma.binding.views.utils.ViewFactory
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.dom.extensions._
 
 import scala.collection.immutable.Map
 import scala.reflect.ClassTag
-import scala.util.{Failure, Success}
+import scala.util.{Try, Failure, Success}
 
 
-trait BindingEvent{
-  val origin:BindingView
-  val latest:BindingView
-  val bubble:Boolean
+trait Injector[ChildView<:BindingView] {
 
-  def withCurrent(cur:BindingView):this.type
-
+  def inject(viewName:String,element:HTMLElement,params:Map[String,Any]):Option[Try[ChildView]]
 }
 
-trait BindingView extends JustBinding with IView
+trait BindingView extends BasicBinding with IView
 {
+
+
+  type ChildView <: BindingView
+
+  //used by default as implicit value
+  implicit def defaultInjector:Injector[ChildView]
+
+  /**
+   * Works when injectors fails to create a view
+   * @param name
+   * @param el
+   * @return
+   */
+  def makeDefault(name:String,el:HTMLElement):ChildView
+
+
   def elem:dom.HTMLElement
 
-  def name:String = this.getClass.getName
+  def name:String = this.getClass.getName.split('.').last
 
 
   def params:Map[String,Any]
 
   require(elem!=null,s"html elemenet of view with $id must not be null!")
 
-  var topView:BindingView = this
-
-  var parent:Option[BindingView] = None
-
-  /**
-   * finds neares parent of appropriate type
-   * @tparam TView type that a parent should satisfy
-   * @return
-   */
-  def nearestParentOf[TView<:BindingView](implicit viewTag: ClassTag[TView]):Option[TView] = this.parent match {
-    case None=>None
-    case Some(par) if viewTag.runtimeClass.isInstance(par) => Some(par.asInstanceOf[TView])
-    case Some(par)=>par.nearestParentOf[TView]
-  }
-
-  def searchUp[TView<:BindingView](filter:TView=>Boolean)(implicit viewTag: ClassTag[TView]): Option[TView] = parent match {
-    case Some(p) if viewTag.runtimeClass.isInstance(p)=> p match {
-      case view:TView=> if(filter(view)) Some(p.asInstanceOf[TView]) else p.searchUp(filter)
-    }
-    case Some(p)=> p.searchUp[TView](filter)
-    case None=>None
-  }
-
-  /**
-   * Fires an event
-   * @param event
-   * @param startWithMe
-   */
-  def fire(event:BindingEvent,startWithMe:Boolean = false) = if(startWithMe) this.receive(event) else  this.propagate(event)
-
-  protected def propagate(event:BindingEvent) = if(this.parent.isDefined) this.parent.get.receive(event.withCurrent(this))
-
-
-  /**
-   * Event subsystem
-   * @return
-   */
-  def receive:PartialFunction[BindingEvent,Unit] = {
-    case event:BindingEvent=> this.propagate(event)
-  }
-
-  def hasParent = parent.isDefined
 
   /**
    * Id of this view
    */
-  val id: String =this.makeId(elem,this.name)
+  val id: String = this.makeId(elem,this.name)
 
-  implicit var subviews = Map.empty[String,BindingView]
+  implicit var subviews = Map.empty[String,ChildView]
 
 
-  def addView(view:BindingView) = {
+  /**
+   * Adds view to subviews
+   * @param view
+   * @return
+   */
+  def addView(view:ChildView) = {
     this.subviews = this.subviews + (view.id -> view)
-    view.parent = Some(this)
+    view
+    //view.parent = Some(this)
   }
-
-  def makeDefault(name:String,el:HTMLElement):BindingView
 
   /**
    * Extracts view by name from element
@@ -96,9 +71,12 @@ trait BindingView extends JustBinding with IView
    * @param params some other optional params needed to init the view
    * @return
    */
-  def inject(viewName:String,el:HTMLElement,params:Map[String,Any]): BindingView ={factories.get(viewName) match {
-    case Some(fun)=>
-      fun(el,params) match {
+  def inject(viewName:String,el:HTMLElement,params:Map[String,Any])(implicit injector:Injector[ChildView]): ChildView =
+  {
+    //factories.get(viewName)
+    injector.inject(viewName,el,params) match {
+    case Some(tr)=>
+      tr match {
         case Success(view)=>view
 
         case Failure(e)=>
@@ -198,6 +176,7 @@ trait BindingView extends JustBinding with IView
     }.toMap
 
 
+  
   /**
    * Creates view
    * @param el
@@ -207,34 +186,19 @@ trait BindingView extends JustBinding with IView
   protected def createView(el:HTMLElement,viewAtt:String) =     {
       val params = this.attributesToParams(el)
       val v = this.inject(viewAtt,el,params)
-      v.parent = Some(this)
-      v.topView = this.topView
-      v.bindView(el)
       this.addView(v) //the order is intentional
+      v.bindView(el)
       v
-
     }
-
-  def findSubView(viewName:String)(implicit where:Map[String,BindingView] = this.subviews):Option[BindingView] = if(where.isEmpty) None else
-    if(where.isEmpty) None else where.get(viewName)
-    .orElse{    findSubView(viewName)(subviews.flatMap(kv=>kv._2.subviews))  }
-
-  /**
-   * Finds view if it exists
-   * @param viewName
-   * @return
-   */
-  def findView(viewName:String):Option[BindingView] = if(this.name==viewName) Some(this) else
-    this.findSubView(viewName)(this.subviews)
-
-
 
   /**
    * Removes view
    * @param nm view name to remove
    * */
-  def removeView(nm:String): Unit = this.subviews.get(nm) match {
-    case Some(view)=> this.removeView(view)
+  def removeViewByName(nm:String): Unit = this.subviews.get(nm) match {
+    case Some(view)=>
+      this.removeView(view)
+
     case None=>
       dom.console.log(s"now subview to remove for $nm from ${this.id}")
   }
@@ -243,11 +207,10 @@ trait BindingView extends JustBinding with IView
    * Removes a view from subviews
    * @param view
    */
-  def removeView(view:BindingView): Unit = {
+  def removeView(view:ChildView): Unit = {
     view.unbindView()
     if(view.viewElement.parentElement!=null) view.viewElement.parentElement.removeChild(view.viewElement)
     this.subviews = this.subviews - view.id
-
   }
 
   /**
@@ -285,8 +248,6 @@ trait BindingView extends JustBinding with IView
             case _ => //skip
           }
       }
-
-  def isTopView = this.topView == this
 
 }
 

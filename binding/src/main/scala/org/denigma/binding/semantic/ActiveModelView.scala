@@ -31,4 +31,5 @@ trait ActiveModelView extends OrdinaryView with ModelView
 
   lazy val dirty = Rx{this.modelInside().isDirty}
 
+
 }

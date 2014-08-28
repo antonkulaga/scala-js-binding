@@ -10,7 +10,7 @@ import scala.collection.immutable._
 /**
  * Binds separate properties to HTML nodes
  */
-trait GeneralBinding  extends JustBinding with VisibilityBinder with ClassBinder with PropertyBinder{
+trait GeneralBinding  extends BasicBinding with VisibilityBinder with ClassBinder with PropertyBinder{
 
   def bools:Map[String,Rx[Boolean]]
   def strings:Map[String,Rx[String]]

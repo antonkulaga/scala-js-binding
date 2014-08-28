@@ -4,7 +4,7 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.messages.Filters
 import org.denigma.binding.messages.Filters.{ValueFilter, ContainsFilter}
 import org.denigma.binding.semantic.ModelInside
-import org.denigma.binding.storages.AjaxModelStorage
+import org.denigma.storages.AjaxModelStorage
 import org.denigma.controls.general.EditModelView
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement

@@ -63,17 +63,17 @@ resolvers += Resolver.url(
     url("http://dl.bintray.com/content/sbt/sbt-plugin-releases"))(
         Resolver.ivyStylePatterns)
 
-addSbtPlugin("me.lessis" % "bintray-sbt" % "0.1")
+addSbtPlugin("me.lessis" % "bintray-sbt" % "0.2")
 ```
 
 In your sbt config you should add resolver and dependency
 ```scala
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 
-libraryDependencies += "org.denigma" %%% "binding" % "0.4.4"
+libraryDependencies += "org.denigma" %%% "binding" % "0.5.2"
 ```
 
-NOTE: at the moment library is published only for scalajs 0.5 and scala 2.11.1 (there is no scala 2.10.x version as keeping it is an overhead for me)
+NOTE: at the moment library is published only for scalajs 0.5 and scala 2.11.2 (there is no scala 2.10.x version as keeping it is an overhead for me)
 
 
 Framework elements
@@ -226,11 +226,11 @@ View registration
 -----------------
 
 In order to know what view should be created for value of data-view attribute, some factories should be initialized. 
-So you also have to register the view somewhere in your main class by providing a functions that will create the view. 
+So you also have to register with ViewInspector somewhere by providing a factory function that will create it from parameters. 
 The best place for this is ScalaJS main object
 
 ```scala
-  org.denigma.binding.views.register("menu", (el, params) =>Try{ new MenuView(el,params) })
+  ViewInjector.register("menu", (el, params) =>Try{ new MenuView(el,params) })
 ```
 
 I hope to get rid of this in future when I will figure out what kind of dependency injection to choose for view creation.

@@ -12,7 +12,7 @@ import scala.collection.immutable.Map
  * Does binding for classes
  */
 trait ClassBinder {
-  self:JustBinding=>
+  self:BasicBinding=>
   def strings:Map[String,Rx[String]]
   def bools:Map[String,Rx[Boolean]]
 
