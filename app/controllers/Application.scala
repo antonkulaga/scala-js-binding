@@ -1,6 +1,9 @@
 package controllers
+
+import javax.annotation.Resource
+
 import org.scalax.semweb.sparql._
-import org.scalax.semweb.rdf.IRI
+import org.scalax.semweb.rdf.{Res, IRI}
 
 import scala.concurrent.Future
 import play.twirl.api.Html
@@ -19,6 +22,19 @@ object Application extends PJaxPlatformWith("index") {
 
       Future.successful{     Ok("assets/images/scala-js-logo.svg")    }
   }
+
+
+  def articleTemplate(text:String,page:Res) = {
+    Html(s"""
+            |<article id="main_article" data-view="ArticleView" class="ui teal piled segment">
+            |<h1 id="title" data-bind="title" class="ui large header"> ${page.stringValue} </h1>
+            |<div id="textfield" contenteditable="true" style="ui horizontal segment" data-html = "text">$text</div>
+            |</article>
+            """.stripMargin)
+  }
+
+
+
   def page(uri:String)= UserAction{
     implicit request=>
       val pg = IRI("http://"+request.domain)
@@ -27,13 +43,7 @@ object Application extends PJaxPlatformWith("index") {
       val text = ?("text")
       val title = ?("title")
       //val authors = ?("authors")
-      val pageHtml: Html = Html(
-        s"""
-            |<article id="main_article" data-view="ArticleView" class="ui teal piled segment">
-            |<h1 id="title" data-bind="title" class="ui large header"> ${page.stringValue} </h1>
-            |<div id="textfield" contenteditable="true" style="ui horizontal segment" data-html = "text">$text</div>
-            |</article>
-            """.stripMargin)
+      val pageHtml: Html = this.articleTemplate(text.toString(),page)
 
       this.pj(pageHtml)(request)
 

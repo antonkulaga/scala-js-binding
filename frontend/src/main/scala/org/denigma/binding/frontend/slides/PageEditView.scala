@@ -3,8 +3,7 @@ package org.denigma.binding.frontend.slides
 import org.denigma.binding.extensions._
 import org.denigma.binding.views
 import org.denigma.controls.editors.editors
-import org.denigma.controls.general.EditModelView
-import org.denigma.controls.semantic.AjaxLoadView
+import org.denigma.semantic.controls.{EditModelView, AjaxLoadView}
 import org.scalajs.dom
 import org.scalajs.dom._
 import rx._

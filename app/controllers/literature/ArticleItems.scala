@@ -1,44 +1,34 @@
 package controllers.literature
 
+import controllers.{ItemsMock, Items}
 import org.scalax.semweb.rdf.vocabulary.{RDF, XSD}
 import org.scalax.semweb.rdf.{IRI, RDFValue, StringLiteral, vocabulary}
 import org.scalax.semweb.shex.{Star, PropertyModel, ShapeBuilder}
 
 
-trait Items {
 
-  val de = IRI("http://denigma.org/resource/")
-  val rep = new ShapeBuilder(de / "Research_Support")
-
-
-  val pmid = IRI("http://denigma.org/resource/Pubmed/")
-  val dc = IRI(vocabulary.DCElements.namespace)
-
-  val article = de /"Article"
-  val authors =     de / "is_authored_by"
-  val abs = de / "abstract"
-  val published = de / "is_published_in"
-  val title = de / "title"
-  val excerpt = de / "excerpt"
-
-}
-trait ArticleItems extends Items{
+object ArticleItems extends ItemsMock{
 
 
 
-  val art = new ShapeBuilder(de / "Article_Shape")
+  private val art = new ShapeBuilder(de / "Article_Shape")
   art has de /"is_authored_by" occurs Star //occurs Plus
   art has de / "is_published_in" occurs Star //occurs Plus
   art has dc / "title" occurs Star //occurs ExactlyOne
   //art has de / "date" occurs Star //occurs ExactlyOne
   art has de / "abstract" of XSD.StringDatatypeIRI  occurs Star//occurs Star
   art has  de / "excerpt" of XSD.StringDatatypeIRI  occurs Star//occurs Star
-  val articleShape = art.result
+  val paperShape = art.result
+
+  def populate(holder:Items)  = {
+    holder.items = holder.items + ("papers"->papers)
+    holder.shapes = holder.shapes + ("papers"-> paperShape)
+  }
 
 
 
 
-  var articles = List(
+  var papers = List(
     PropertyModel(pmid / "17098929",Map(
       RDF.TYPE->Set[RDFValue](article),
       authors -> Set[RDFValue](de /"Jin-zhong_Chen", de / "Chao-neng_Ji", de / "Guan-lan_Xu",  de / "Rong-yan_Pang", de / "Ji-hua_Yao", de / "Huan-zhang_Zhu", de / "Jing-lun_Xue", de / "William_Jia"),

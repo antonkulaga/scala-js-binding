@@ -1,6 +1,8 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.binding.semantic.{ModelCollection, ModelInside}
+import org.denigma.binding.semantic.ModelInside
+import org.denigma.semantic.binding
+import org.denigma.semantic.binding.ModelCollection
 import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import org.scalax.semweb.rdf.vocabulary.WI
@@ -32,12 +34,12 @@ class SuggestView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
     this.subscribeUpdates()
     dom.console.log("collection prefixes = " + prefixes.toString())
 
-    val p1 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("one")) )
-    val p2= ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("two")))
-    val p3 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("three")))
-    val p4 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("four")))
-    val p5 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("five")))
-    val p6 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("six")))
+    val p1 =binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("one")) )
+    val p2= binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("two")))
+    val p3 =binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("three")))
+    val p4 =binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("four")))
+    val p5 =binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("five")))
+    val p6 =binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("six")))
 
     this.items() = List(Var(p1),Var(p2),Var(p3),Var(p4),Var(p5),Var(p6))
 

@@ -9,12 +9,13 @@ GET           /test/map                  controllers.Test.map()
 GET           /test/model                controllers.Test.model()
 
 GET           /papers/reports            controllers.literature.Literature.reports()
-POST          /papers/explore            controllers.literature.Literature.exploreEndpoint()
-POST          /papers/crud               controllers.literature.Literature.modelEndpoint()
 GET           /papers/                   controllers.literature.Literature.reports()
 
-POST          /tasks/explore            controllers.literature.Literature.exploreEndpoint()
-POST          /tasks/crud               controllers.literature.Literature.modelEndpoint()
+POST          /papers/explore            controllers.MainEndpoint.exploreEndpoint()
+POST          /papers/crud               controllers.MainEndpoint.modelEndpoint()
+
+POST          /tasks/explore             controllers.MainEndpoint.exploreEndpoint()
+POST          /tasks/crud                controllers.MainEndpoint.modelEndpoint()
 POST          /graph/endpoint            controllers.graph.GraphController.graphEndpoint()
 
 
@@ -26,8 +27,8 @@ DELETE        /menu/top/delete/id        controllers.TopMenu.delete()
 
 
 POST          /models/endpoint           controllers.PageController.endpoint()
-POST          /todos/endpoint            controllers.ProjectController.exploreEndpoint()
-POST          /data/endpoint             controllers.ProjectController.exploreEndpoint()
+#POST          /todos/endpoint            controllers.ProjectController.exploreEndpoint()
+#POST          /data/endpoint             controllers.ProjectController.exploreEndpoint()
 
 
 

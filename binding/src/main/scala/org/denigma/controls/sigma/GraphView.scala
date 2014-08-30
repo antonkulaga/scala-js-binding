@@ -3,10 +3,10 @@ package org.denigma.controls.sigma
 import org.denigma.binding.messages.{GraphMessages, ModelMessages}
 import org.denigma.binding.messages.ModelMessages.Suggestion
 import org.denigma.binding.picklers.rp
-import org.denigma.storages.Storage
 import org.denigma.binding.views.OrdinaryView
 import org.denigma.controls.graph.GraphStorage
 import org.denigma.controls.sigma.{SigmaGraphInit, SigmaEdge, SigmaNode, Sigma}
+import org.denigma.semantic.storages.Storage
 import org.scalajs.dom
 import org.scalajs.dom.MouseEvent
 import org.scalajs.spickling.PicklerRegistry

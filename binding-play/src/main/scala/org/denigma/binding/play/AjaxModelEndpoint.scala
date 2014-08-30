@@ -17,7 +17,11 @@ trait AjaxExploreEndpoint {
 
   def onSelect(selectMessage:  ExploreMessages.SelectQuery)(implicit request: ExploreRequest):ExploreResult
 
-  def onBadExploreMessage(message:ModelMessages.ModelMessage)(implicit request: ExploreRequest):ExploreResult
+  def onBadExploreMessage(message:ExploreMessages.ExploreMessage)(implicit request: ExploreRequest):ExploreResult= onBadExploreMessage(message,"wrong explore message type!")
+
+  def onBadExploreMessage(message:ExploreMessages.ExploreMessage, reason:String)(implicit request: ExploreRequest):ExploreResult
+
+
 
   def onExploreMessage(message:ExploreMessages.ExploreMessage)(implicit request:ExploreRequest):ExploreResult = message match {
     case m:ExploreMessages.Explore=>onExplore(m)
@@ -46,7 +50,8 @@ trait AjaxModelEndpoint {
   def onSuggest(suggestMessage:ModelMessages.Suggest):ModelResult
 
 
-  def onBadModelMessage(message:ModelMessages.ModelMessage):ModelResult
+  def onBadModelMessage(message:ModelMessages.ModelMessage):ModelResult  = onBadModelMessage(message,"wrong model message type!")
+  def onBadModelMessage(message:ModelMessages.ModelMessage, reason:String):ModelResult
 
   def onModelMessage(message:ModelMessages.ModelMessage)(implicit request:ModelRequest):ModelResult= message match {
     case m:ModelMessages.Create=>this.onCreate(m)

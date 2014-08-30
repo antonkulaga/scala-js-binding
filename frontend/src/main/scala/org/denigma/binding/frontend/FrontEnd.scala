@@ -1,5 +1,6 @@
 package org.denigma.binding.frontend
 
+import org.denigma.binding.frontend.controls.{ShapeProperty, ShapeEditor}
 import org.denigma.binding.frontend.papers.{Task, TasksView, Report, ReportsView}
 import org.denigma.binding.views.OrdinaryView
 import org.denigma.binding.views.utils.ViewInjector

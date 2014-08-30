@@ -1,8 +1,10 @@
 package org.denigma.binding.frontend.papers
 
 import org.denigma.binding.extensions._
-import org.denigma.binding.semantic.ModelInside
-import org.denigma.controls.semantic.{AjaxModelCollection, SelectableModelView}
+import org.denigma.controls.semantic.SelectableModelView
+import org.denigma.semantic.binding.ModelInside
+import org.denigma.semantic.controls
+import org.denigma.semantic.controls.AjaxModelCollection
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx._
 
@@ -36,7 +38,7 @@ class TasksView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,An
 
 }
 
-class Task(val elem:HTMLElement, val params:Map[String,Any]) extends SelectableModelView{
+class Task(val elem:HTMLElement, val params:Map[String,Any]) extends controls.SelectableModelView{
 
   override def name:String = "task"
 

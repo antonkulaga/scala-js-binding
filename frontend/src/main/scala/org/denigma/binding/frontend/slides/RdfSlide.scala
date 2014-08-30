@@ -1,9 +1,11 @@
 package org.denigma.binding.frontend.slides
 
 import org.denigma.binding.extensions._
-import org.denigma.binding.semantic.{ActiveModelView, ModelInside}
-import org.denigma.controls.semantic.{ AjaxModelCollection}
+import org.denigma.binding.semantic.ModelInside
 import org.denigma.binding.views.OrdinaryView
+import org.denigma.semantic.binding
+import org.denigma.semantic.binding.ActiveModelView
+import org.denigma.semantic.controls.AjaxModelCollection
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx._
 
@@ -61,7 +63,7 @@ class Todos(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) 
 }
 class Todo(val elem:HTMLElement, val params:Map[String,Any], override val name:String = "todo") extends ActiveModelView{
 
-  val initial: Option[Var[ModelInside]] = params.get("model").collect{case mi:Var[ModelInside]=>mi}
+  val initial: Option[Var[binding.ModelInside]] = params.get("model").collect{case mi:Var[binding.ModelInside]=>mi}
 
   require(initial.isDefined,"No model received!")
 

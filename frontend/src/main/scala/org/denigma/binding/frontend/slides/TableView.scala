@@ -1,7 +1,7 @@
 package org.denigma.binding.frontend.slides
 
-import org.denigma.controls.semantic.AjaxModelCollection
 import org.denigma.binding.views.OrdinaryView
+import org.denigma.semantic.controls.AjaxModelCollection
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx._
 

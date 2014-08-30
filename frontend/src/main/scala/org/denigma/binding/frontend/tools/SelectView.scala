@@ -2,7 +2,7 @@ package org.denigma.binding.frontend.tools
 
 import org.denigma.binding.views.OrdinaryView
 import org.denigma.controls.general.CodeMirrorInsideView
-import org.denigma.controls.semantic.Selectize
+import org.denigma.semantic.controls.Selectize
 import org.scalajs.dom
 import org.scalajs.dom.{MouseEvent, HTMLElement}
 import org.scalax.semweb.rdf.IRI

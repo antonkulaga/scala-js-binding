@@ -1,6 +1,5 @@
 package controllers
 
-import controllers.ProjectController._
 import org.denigma.binding.messages.ModelMessages
 import org.denigma.binding.messages.ModelMessages.ReadMessage
 import play.api.mvc.{Request, Result, Controller}
@@ -117,7 +116,8 @@ object PageController extends Controller with PickleController with AjaxModelEnd
   }
 
 
-  override def onBadModelMessage(message: ModelMessage): ModelResult = BadRequest(Json.obj("status" ->"KO","message"->"wrong message type!")).as("application/json")
+
+  override def onBadModelMessage(message: ModelMessage, reason:String): ModelResult = BadRequest(Json.obj("status" ->"KO","message"->reason)).as("application/json")
 
   def endpoint() = UserAction(this.pickle[ReadMessage]()){implicit request=>
     this.onModelMessage(request.body)

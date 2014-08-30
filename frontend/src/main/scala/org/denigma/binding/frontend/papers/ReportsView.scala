@@ -2,8 +2,10 @@ package org.denigma.binding.frontend.papers
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.{Sort, Filters}
-import org.denigma.storages.AjaxModelStorage
-import org.denigma.controls.semantic.{ExplorableCollection, AjaxModelCollection, SelectableModelView}
+import org.denigma.controls.semantic.SelectableModelView
+import org.denigma.semantic.controls
+import org.denigma.semantic.controls.ExplorableCollection
+import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import org.scalajs.jquery._
 import org.scalax.semweb.rdf.{Res, IRI}
@@ -66,7 +68,7 @@ class ReportsView(elem:HTMLElement, params:Map[String,Any]) extends ExplorableCo
 
 }
 
-class Report(val elem:HTMLElement,val params:Map[String,Any]) extends SelectableModelView{
+class Report(val elem:HTMLElement,val params:Map[String,Any]) extends controls.SelectableModelView{
 
   require(params.contains("shape"),"there is not shape")
 
