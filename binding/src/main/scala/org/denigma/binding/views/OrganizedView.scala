@@ -14,18 +14,18 @@ import dom.extensions._
 
 trait BindingEvent
 {
-  val origin:BindingView
-  val latest:BindingView
+  val origin:BasicView
+  val latest:BasicView
   val bubble:Boolean
 
-  def withCurrent(cur:BindingView):this.type
+  def withCurrent(cur:BasicView):this.type
 }
 
 
 /**
  * An abstract hirercial view that provides methods to work with hirercy
  */
-abstract class OrganizedView extends BindingView //with GeneralBinding
+abstract class OrganizedView extends BasicView //with GeneralBinding
 {
 
   type ParentView = OrganizedView
@@ -46,7 +46,7 @@ abstract class OrganizedView extends BindingView //with GeneralBinding
    * @param newInnerHTML new content of the inner html
    * @param uri uri (for push state)
    */
-  override def loadElementInto(el:HTMLElement, newInnerHTML:String,uri:String=""): Unit =  if(this.isTopView)
+  def loadElementInto(el:HTMLElement, newInnerHTML:String,uri:String=""): Unit =  if(this.isTopView)
   {
     val params = js.Dynamic.literal( "html" -> newInnerHTML)
     if(uri!="") dom.window.history.pushState(params,dom.document.title,uri)

@@ -11,11 +11,11 @@ GET           /test/model                controllers.Test.model()
 GET           /papers/reports            controllers.literature.Literature.reports()
 GET           /papers/                   controllers.literature.Literature.reports()
 
-POST          /papers/explore            controllers.MainEndpoint.exploreEndpoint()
-POST          /papers/crud               controllers.MainEndpoint.modelEndpoint()
+POST          /papers/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
+POST          /papers/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
 
-POST          /tasks/explore             controllers.MainEndpoint.exploreEndpoint()
-POST          /tasks/crud                controllers.MainEndpoint.modelEndpoint()
+POST          /models/explore             controllers.endpoints.MainEndpoint.exploreEndpoint()
+POST          /models/crud                controllers.endpoints.MainEndpoint.modelEndpoint()
 POST          /graph/endpoint            controllers.graph.GraphController.graphEndpoint()
 
 
@@ -37,17 +37,20 @@ POST          /models/endpoint           controllers.PageController.endpoint()
 GET           /menu/what                 controllers.SlidesMenu.all()
 #GET        /menu/how           controllers.Slides.howMenu()
 
-GET           /pages/:page               controllers.Application.page(page)
+GET           /pages/:page               controllers.endpoints.Application.page(page)
 GET           /slides/:slide             controllers.Slides.slide(slide)
 
 
-GET           /logo/:variant             controllers.Application.logo(variant)
+GET           /logo/:variant             controllers.endpoints.Application.logo(variant)
 
 # Map static resources from the /public folder to the /assets URL path
 GET           /assets/*file              controllers.Assets.at(path="/public", file)
 GET           /public/*file              controllers.Assets.at(path="/public", file)
 GET           /files/*file               controllers.Assets.at(path="/public", file)
 
+# Serve scala files under the scalajs subproject to be used by sourcemaps.
+# This route and its controller method should be removed for production
+GET     /scalajs/*file              controllers.Application.scalajsFile(file)
 
 # Map static resources from the /public folder to the /assets URL path
 GET           /assets/*file              controllers.Assets.at(path="/public", file)

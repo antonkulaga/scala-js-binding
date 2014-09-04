@@ -14,16 +14,11 @@ class ArticleView(val elem:HTMLElement, val params:Map[String,Any] = Map.empty[S
 
   override val name = "article"
 
-  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
-
-  override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
-
-  override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-
-  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
+    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
   val authors = Var("Anton Kulaga")
+
   val title = Var("ScalaJS and scalajs-binding presentation")
 
 

@@ -30,13 +30,7 @@ class PicklerView(val elem:HTMLElement, val params:Map[String,Any]) extends Ordi
   val value = Var("")
 
 
-  override lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
+    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  override lazy val strings: Map[String, Rx[String]] = this.extractStringRx(this)
 
-  override lazy val bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-
-  //override lazy val textEvents: Map[String, Var[TextEvent]] = this.extractTextEvents(this)
-
-  override lazy val mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 }

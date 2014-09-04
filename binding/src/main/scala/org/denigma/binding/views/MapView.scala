@@ -1,5 +1,6 @@
 package org.denigma.binding.views
 
+import org.denigma.binding.binders.{NavigationBinding, GeneralBinder, BasicBinding}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
@@ -8,14 +9,18 @@ import rx.Var
 import scala.collection.immutable._
 
 
-/**
- * View that binds to map, usually is used as items of ListViews
- * @param name name of the view
- * @param elem htmlelement to bind to
- * @param props properties to bind to
- */
+
 abstract class MapView(val elem:HTMLElement,props:Map[String,Any]) extends OrdinaryView {
+
   val reactiveMap: Map[String, Var[String]] = props.map(kv => (kv._1, Var(kv._2.toString)))
+
+  override protected def attachBinders() = {
+    binders = new ItemsBinder(this,reactiveMap)::new NavigationBinding(this)::Nil
+  }
+
+}
+
+class ItemsBinder(view:MapView, reactiveMap:Map[String,Var[String]]) extends GeneralBinder(view) {
 
   //TODO: rewrite props
   override def bindProperties(el: HTMLElement, ats: Map[String, String]) = for {
@@ -25,20 +30,13 @@ abstract class MapView(val elem:HTMLElement,props:Map[String,Any]) extends Ordin
       .orElse(this.classPartial(el, value))
       .orElse(this.itemPartial(el, key.toString, value))
       .orElse(this.propertyPartial(el, key.toString, value))
-      .orElse(this.loadIntoPartial(el, value))
       .orElse(this.otherPartial)(key.toString)
   }
 
-  protected def itemPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
-    case "item-bind" => this.bindItemProperty(el, key, value)
-    case bname if bname.startsWith("item-bind-") => this.bindAttribute(el, key.replace("item-bind-", ""), value, this.reactiveMap)
-  }
+
+  override def id: String = view.id
 
 
-  override def bindDataAttributes(el:HTMLElement,ats:Map[String,String]) ={
-    super.bindDataAttributes(el,ats)
-
-  }
 
   /**
    * Binds property value to attribute
@@ -46,7 +44,7 @@ abstract class MapView(val elem:HTMLElement,props:Map[String,Any]) extends Ordin
    * @param key name of the binding key
    * @param att binding attribute
    */
-  def bindItemProperty(el:HTMLElement,key:String,att:String) = (key.toString.replace("item-",""),el.tagName.toLowerCase().toString) match {
+  def bindItemProperty(el:HTMLElement,key:String,att:String) = (key.toString.replace("item-",""),el.tagName.toLowerCase) match {
     case ("bind","input")=>
       el.attributes.get("type").map(_.value.toString) match {
         case Some("checkbox") => //skip
@@ -70,5 +68,12 @@ abstract class MapView(val elem:HTMLElement,props:Map[String,Any]) extends Ordin
     case _=> dom.console.error(s"unknown binding")
 
   }
+
+
+  protected def itemPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
+    case "item-bind" => this.bindItemProperty(el, key, value)
+    case bname if bname.startsWith("item-bind-") => this.bindAttribute(el, key.replace("item-bind-", ""), value, this.reactiveMap)
+  }
+
 
 }

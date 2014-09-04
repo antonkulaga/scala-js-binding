@@ -13,13 +13,7 @@ import scalatags.Text.Tag
  */
 class MenuView(elem:HTMLElement, params:Map[String,Any] = Map.empty) extends EditableMenuView("menu",elem,params)
 {
+    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
-  override lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
-
-  override lazy val strings: Map[String, Rx[String]] = this.extractStringRx(this)
-
-  override lazy val bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-
-  override lazy val mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 }

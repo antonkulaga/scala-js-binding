@@ -1,6 +1,8 @@
 package org.denigma.semantic.controls
 
-import org.denigma.semantic.binding.ActiveModelView
+import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
+import org.denigma.binding.views.OrdinaryView
+import org.denigma.semantic.binding.{ModelBinder, ModelView}
 import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom
 import org.scalax.semweb.rdf.Res
@@ -9,7 +11,16 @@ import org.scalax.semweb.shex.PropertyModel
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
-trait  AjaxModelView extends ActiveModelView
+trait PropertyModelView extends ModelView with OrdinaryView {
+
+  override def attachBinders() = {
+    binders = new ModelBinder(this,this.modelInside)::new GeneralBinder(this)::new NavigationBinding(this)::Nil
+  }
+
+
+}
+
+trait  AjaxModelView extends PropertyModelView
 {
   def resource: Res
   def shapeRes: Res
@@ -17,7 +28,6 @@ trait  AjaxModelView extends ActiveModelView
 
 
   def storage:AjaxModelStorage
-
 
 
 

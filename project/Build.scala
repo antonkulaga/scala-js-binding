@@ -6,6 +6,7 @@ import bintray.Plugin.bintraySettings
 import bintray.Keys._
 import com.typesafe.sbt.packager.universal.UniversalKeys
 import play._
+import play.Play._
 
 import scala.scalajs.sbtplugin.ScalaJSPlugin.ScalaJSKeys._
 import scala.scalajs.sbtplugin.ScalaJSPlugin._
@@ -20,7 +21,7 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.6.5"
+  val semWebVersion =  "0.6.8"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -84,12 +85,24 @@ object Build extends sbt.Build with UniversalKeys {
     }
     )
 
+  // Use reflection to rename the 'start' command to 'play-start'
+  Option(play.Play.playStartCommand.getClass.getDeclaredField("name")) map { field =>
+    field.setAccessible(true)
+    field.set(playStartCommand, "play-start")
+  }
+
+  // The new 'start' command optimises the JS before calling the Play 'start' renamed 'play-start'
+  val preStartCommand = Command.args("start", "<port>") { (state: State, args: Seq[String]) =>
+    Project.runTask(fullOptJS in (frontend, Compile), state)
+    state.copy(remainingCommands = ("play-start " + args.mkString(" ")) +: state.remainingCommands)
+  }
+
 
   val sameSettings = bintraySettings ++Seq(
 
     organization := "org.denigma",
 
-    version := "0.5.2",
+    version := "0.5.3",
 
     scalaVersion := "2.11.2",
 

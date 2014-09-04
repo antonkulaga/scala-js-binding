@@ -1,7 +1,7 @@
 package org.denigma.binding.frontend.papers
 
 import org.denigma.binding.extensions._
-import org.denigma.controls.semantic.SelectableModelView
+import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.semantic.binding.ModelInside
 import org.denigma.semantic.controls
 import org.denigma.semantic.controls.AjaxModelCollection
@@ -15,19 +15,15 @@ import scalatags.Text._
  * @param element
  * @param params
  */
-class TasksView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends AjaxModelCollection("Tasks",element,params)
+class TasksBinder(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends AjaxModelCollection("Tasks",element,params)
 {
 
-  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
-
-  override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
-
-  override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-
-  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
+    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
-  val addClick = Var(this.createMouseEvent())
+
+
+  val addClick = Var(EventBinding.createMouseEvent())
 
   addClick handler {
     this.addItem()
@@ -44,19 +40,11 @@ class Task(val elem:HTMLElement, val params:Map[String,Any]) extends controls.Se
 
   val initial: Option[Var[ModelInside]] = params.get("model").collect{case mi:Var[ModelInside]=>mi}
 
+    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
 
-
-  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
-
-  override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
-
-  override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-
-  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
-
-  val removeClick = Var(this.createMouseEvent())
+  val removeClick = Var(EventBinding.createMouseEvent())
 
   removeClick.handler{
     this.die()

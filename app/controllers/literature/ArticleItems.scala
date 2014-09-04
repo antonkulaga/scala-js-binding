@@ -1,6 +1,6 @@
 package controllers.literature
 
-import controllers.{ItemsMock, Items}
+import controllers.endpoints.{ItemsMock, Items}
 import org.scalax.semweb.rdf.vocabulary.{RDF, XSD}
 import org.scalax.semweb.rdf.{IRI, RDFValue, StringLiteral, vocabulary}
 import org.scalax.semweb.shex.{Star, PropertyModel, ShapeBuilder}
@@ -21,8 +21,8 @@ object ArticleItems extends ItemsMock{
   val paperShape = art.result
 
   def populate(holder:Items)  = {
-    holder.items = holder.items + ("papers"->papers)
-    holder.shapes = holder.shapes + ("papers"-> paperShape)
+    holder.items = holder.items + (paperShape.id.asResource->papers)
+    holder.shapes = holder.shapes + (paperShape.id.asResource-> paperShape)
   }
 
 

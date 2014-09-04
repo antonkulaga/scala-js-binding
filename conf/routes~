@@ -1,0 +1,54 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET           /                          controllers.Slides.slide(slide:String ?= "collection")
+GET           /test                      controllers.Test.html()
+GET           /test/tuple2               controllers.Test.tuple2()
+GET           /test/map                  controllers.Test.map()
+GET           /test/model                controllers.Test.model()
+
+GET           /papers/reports            controllers.literature.Literature.reports()
+GET           /papers/                   controllers.literature.Literature.reports()
+
+POST          /papers/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
+POST          /papers/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
+
+POST          /models/explore             controllers.endpoints.MainEndpoint.exploreEndpoint()
+POST          /models/crud                controllers.endpoints.MainEndpoint.modelEndpoint()
+POST          /graph/endpoint            controllers.graph.GraphController.graphEndpoint()
+
+
+
+GET           /menu/top                  controllers.TopMenu.all()
+PUT           /menu/top/add              controllers.TopMenu.add()
+#DELETE        /menu/top/delete           controllers.TopMenu.deleteById()
+DELETE        /menu/top/delete/id        controllers.TopMenu.delete()
+
+
+POST          /models/endpoint           controllers.PageController.endpoint()
+#POST          /todos/endpoint            controllers.ProjectController.exploreEndpoint()
+#POST          /data/endpoint             controllers.ProjectController.exploreEndpoint()
+
+
+
+
+
+GET           /menu/what                 controllers.SlidesMenu.all()
+#GET        /menu/how           controllers.Slides.howMenu()
+
+GET           /pages/:page               controllers.endpoints.Application.page(page)
+GET           /slides/:slide             controllers.Slides.slide(slide)
+
+
+GET           /logo/:variant             controllers.endpoints.Application.logo(variant)
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file              controllers.Assets.at(path="/public", file)
+GET           /public/*file              controllers.Assets.at(path="/public", file)
+GET           /files/*file               controllers.Assets.at(path="/public", file)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file              controllers.Assets.at(path="/public", file)
+GET           /webjars/*file             controllers.WebJarAssets.at(file)

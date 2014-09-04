@@ -13,7 +13,7 @@ import scalatags.Text._
 
 object ModelCollection
 {
-  type ItemView = ActiveModelView
+  type ItemView = ModelView
 
   def apply(html:HTMLElement,item:Var[ModelInside]):ItemView= {
     //
@@ -23,18 +23,14 @@ object ModelCollection
 
 
 
-  class JustModel(override val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends ActiveModelView{
+  class JustModel(override val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends ModelView with OrdinaryView{
 
 
     override val modelInside = slot
 
-    override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
+    override def activateMacro(): Unit = {this.extractors.foreach(_.extractEverything(this))}
 
-    override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 
-    override def mouseEvents: Predef.Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
-
-    override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
     override def params: Map[String, Any] = Map.empty
   }
@@ -46,7 +42,6 @@ object ModelCollection
  */
 trait ModelCollection extends OrdinaryView
   with CollectionView
-  with RDFView
 {
   def params:Map[String,Any]
 
@@ -75,16 +70,6 @@ trait ModelCollection extends OrdinaryView
    */
   def addItem(item:Item = Var(this.defaultItem)) = {
     this.items() = items.now :+ item
-  }
-
-  override def bindElement(el: HTMLElement) = {
-    this.bindRdf(el)
-    val ats: Map[String, String] = el.attributes.collect{
-      case (key,attr) if key.contains("data-") && !key.contains("data-view") =>
-        (key.replace("data-",""),attr.value.toString)
-    }.toMap
-    this.bindDataAttributes(el,ats)
-
   }
 
   //val dirty = Rx{items().filterNot(_}
@@ -116,7 +101,8 @@ trait ModelCollection extends OrdinaryView
    * @param el
    */
   override def bindView(el: HTMLElement) = {
-    super.bindView(el)
+    activateMacro()
+    this.bind(el)
     this.subscribeUpdates()
   }
 

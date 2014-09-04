@@ -1,6 +1,6 @@
 package org.denigma.binding.views.utils
 
-import org.denigma.binding.views.{OrganizedView, Injector, BindingView}
+import org.denigma.binding.views.{OrganizedView, Injector, BasicView}
 
 /**
  * Injects views that are registered with this class

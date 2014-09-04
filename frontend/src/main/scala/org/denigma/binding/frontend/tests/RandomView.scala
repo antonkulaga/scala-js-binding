@@ -9,7 +9,10 @@ import rx.core.Var
 import scala.collection.immutable.Map
 import scala.util.Random
 import scalatags.Text.tags._
-import scalatags.Text.{attrs => a, styles => s, _}
+import scalatags.Text.{attrs => a}
+import scalatags.Text.Tag
+import scalatags.Text.implicits._
+
 /**
  * For test purposes only
  */
@@ -18,8 +21,8 @@ class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends Ordin
 
   val counting: Var[Tag] = Var{
 
-    div(a.`class`:="ui segment",
-      h1()("This is title"),
+    div(a.`class`:= "ui segment",
+      h1("This is title"),
       p("""value that changes: "START" """)
     )
   }
@@ -39,6 +42,9 @@ class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends Ordin
 
   }
 
+    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+
+
 
   dom.setInterval(update _, 100)
 
@@ -47,15 +53,15 @@ class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends Ordin
     */
   def square(x: Int): Int = x*x
 
-  lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
-
-  //val doubles: Map[String, Rx[Double]] = this.extractDoubles[this.type]
-
-  lazy val strings: Map[String, Rx[String]] = this.extractStringRx(this)
-
-  lazy val bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-
-  //override def textEvents:Map[String, rx.Var[TextEvent]] = this.extractTextEvents(this)
-
-  override def mouseEvents: Map[String, rx.Var[MouseEvent]] = this.extractMouseEvents(this)
+//  lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
+//
+//  //val doubles: Map[String, Rx[Double]] = this.extractDoubles[this.type]
+//
+//  lazy val strings: Map[String, Rx[String]] = this.extractStringRx(this)
+//
+//  lazy val bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
+//
+//  //override def textEvents:Map[String, rx.Var[TextEvent]] = this.extractTextEvents(this)
+//
+//  override def mouseEvents: Map[String, rx.Var[MouseEvent]] = this.extractMouseEvents(this)
 }

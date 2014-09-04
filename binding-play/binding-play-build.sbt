@@ -7,7 +7,7 @@ resolvers += Resolver.url("scala-js-releases",
     Resolver.ivyStylePatterns)
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play" % "2.3.0",
+  "com.typesafe.play" %% "play" % "2.3.4",
   "org.scalajs" %% "scalajs-pickling-play-json" % "0.3.1"
 )
 

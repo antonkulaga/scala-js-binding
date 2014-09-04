@@ -2,12 +2,13 @@ package org.denigma.semantic.controls
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.{ExploreMessages, Filters}
-import org.denigma.semantic.binding.{ActiveModelView, ModelCollection, ModelInside}
+import org.denigma.semantic.binding.{ModelView, ModelCollection, ModelInside}
 import org.denigma.semantic.controls.AjaxModelView
 import org.denigma.semantic.storages.{AjaxExploreStorage, AjaxModelStorage}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
+import org.scalax.semweb.rdf.vocabulary.WI
 import org.scalax.semweb.rdf.{IRI, Res}
 import org.scalax.semweb.shex._
 import rx.core.{Rx, Var}
@@ -17,10 +18,10 @@ import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 import scalatags.Text._
-
+import org.scalax.semweb.rdf.vocabulary
 object AjaxModelCollection
 {
-  type ItemView =  ActiveModelView
+  type ItemView =  ModelView
 
   def apply(html:HTMLElement,item:Var[ModelInside],storage:AjaxModelStorage, shape:Res):ItemView= {
     //
@@ -35,13 +36,9 @@ object AjaxModelCollection
 
     override val modelInside = slot
 
-    override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
+    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-    override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 
-    override def mouseEvents: Predef.Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
-
-    override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
 
     override def resource: Res = this.modelInside.now.current.id
 
@@ -73,7 +70,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
   val shapeRes = IRI(params("shape").toString)
 
-  lazy val emptyShape = new Shape(IRILabel(shapeRes), AndRule(Set.empty[Rule]))
+  lazy val emptyShape = new Shape(IRILabel(shapeRes), AndRule(Set.empty[Rule], IRILabel(WI.pl("empty")) ))
 
   val shape:Var[Shape] = Var(emptyShape)
 
@@ -86,9 +83,9 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
   //filters:List[Filters.Filter] = List.empty[Filters.Filter] , searchTerms:List[String] = List.empty[String], sortOrder:List[Sort] = List.empty[Sort]
 
   val propertyFilters = Var(Map.empty[IRI,Filters.Filter])
+
   val explorer:Rx[ExploreMessages.Explore] = Var(ExploreMessages.Explore(
-    this.query,
-    this.shapeRes, id= this.exploreStorage.genId(),channel = exploreStorage.channel
+    this.query, this.shapeRes, id= this.exploreStorage.genId(),channel = exploreStorage.channel
   )
   )
 
@@ -129,10 +126,11 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
         AjaxModelCollection.apply(el,item, this.crudStorage, this.shapeRes)
       case Some(v)=> this.inject(v.value,el,mp) match {
         case iv:ItemView=> iv
-        case iv if iv.isInstanceOf[ActiveModelView]=> iv.asInstanceOf[ActiveModelView]
+        case iv if iv.isInstanceOf[PropertyModelView]=> iv.asInstanceOf[PropertyModelView]
         case _=>
           dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
           ModelCollection.apply(el,item)
+          //AjaxModelCollection.apply(el,item, this.crudStorage, this.shapeRes) //TODO: check if works at all
       }
     }
     item.handler(onItemChange(item))

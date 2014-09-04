@@ -1,6 +1,6 @@
 package controllers.literature
 
-import controllers.{ItemsMock, Items}
+import controllers.endpoints.{ItemsMock, Items}
 import org.scalax.semweb.rdf.vocabulary._
 import org.scalax.semweb.rdf.{BooleanLiteral, IRI, StringLiteral}
 import org.scalax.semweb.shex._
@@ -35,8 +35,8 @@ object TaskItems extends ItemsMock{
 
 
   def populate(holder:Items)  = {
-    holder.items = holder.items + ("tasks"->this.tasks)
-    holder.shapes = holder.shapes + ("tasks"->taskShape)
+    holder.items = holder.items + (taskShape.id.asResource->this.tasks)
+    holder.shapes = holder.shapes + (taskShape.id.asResource->taskShape)
   }
 
   /**

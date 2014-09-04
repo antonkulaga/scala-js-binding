@@ -4,7 +4,8 @@ package org.denigma.binding.macroses
 import scala.collection.immutable._
 import scala.language.experimental.macros
 import rx._
-import scala.reflect.macros.Context
+import scala.reflect.macros.whitebox
+
 import org.scalajs.dom
 import scalatags.Text._
 /**
@@ -18,7 +19,7 @@ trait TypeClass[T,R]{
 object TypeClass extends BinderObject{
   implicit def materialize[T,R]: TypeClass[T,R] = macro impl[T,R]
 
-  def impl[T: c.WeakTypeTag,R: c.WeakTypeTag](c: Context): c.Expr[TypeClass[T,R]] = {
+  def impl[T: c.WeakTypeTag,R: c.WeakTypeTag](c: whitebox.Context): c.Expr[TypeClass[T,R]] = {
     import c.universe._
     val mapExpr = extract[T,R](c)
 
@@ -43,7 +44,7 @@ trait ClassToMap[T] {
 object ClassToMap extends BinderObject {
   implicit def materialize[T]: ClassToMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[ClassToMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[ClassToMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Any](c)
 
@@ -64,7 +65,7 @@ trait TagRxMap[T] {
 object TagRxMap extends BinderObject {
   implicit def materialize[T]: TagRxMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[TagRxMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[TagRxMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Rx[Tag]](c)
 
@@ -79,18 +80,18 @@ object TagRxMap extends BinderObject {
 
 
 class BinderObject  {
-  def extract[T: c.WeakTypeTag,TE:  c.WeakTypeTag](c: Context) = {
+  def extract[T: c.WeakTypeTag,TE:  c.WeakTypeTag](c: whitebox.Context) = {
     import c.universe._
 
-    val mapApply = Select(reify(Map).tree, newTermName("apply"))
+    val mapApply = Select(reify(Map).tree,TermName("apply"))
 
     val we = weakTypeOf[TE]
 
     val pairs = weakTypeOf[T].members.collect {
       case m: MethodSymbol if (m.isVal || m.isCaseAccessor || m.isGetter) && m.returnType.<:<(we) =>
         if(m.returnType.<:<(we)) true
-        val name = c.literal(m.name.decoded)
-        val value = c.Expr[T](Select(Ident(newTermName("t")), m.name))
+        val name = c.literal(m.name.decodedName.toString)
+        val value = c.Expr[T](Select(Ident(TermName("t")), m.name))
         reify(name.splice -> value.splice).tree
     }
 

@@ -71,6 +71,7 @@ abstract class AjaxMenuView(override val name:String,el:HTMLElement, params:Map[
    * @param el html element to which view is binded
    */
   override def bindView(el:HTMLElement) = {
+    activateMacro()
     this.bind(el)
     this.subscribeUpdates()
     val futureMenu = storage.all()

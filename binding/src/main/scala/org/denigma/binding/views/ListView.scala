@@ -16,15 +16,12 @@ object ListView {
    * @param props properties to bind to
    */
   class JustMapView(el:HTMLElement,props:Map[String,Any]) extends MapView(el,props){
-    override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
-
-    override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
-
-    override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-
-    override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
 
     override def params: Map[String, Any] = Map.empty
+
+    override def activateMacro(): Unit = { this.extractors.foreach(_.extractEverything(this))}
+
+
   }
 
 

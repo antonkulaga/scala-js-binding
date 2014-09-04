@@ -1,9 +1,5 @@
 package org.denigma.binding
 
-import scala.reflect.macros.Context
-import rx._
-import org.scalajs.dom.{KeyboardEvent, MouseEvent, Event, Attr}
-
 /**
  * Useful implicit classes
  */

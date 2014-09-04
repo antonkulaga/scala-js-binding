@@ -1,6 +1,8 @@
 package org.denigma.semantic.controls
 
+import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.extensions.sq
+import org.denigma.semantic.binding.ModelBinder
 import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement

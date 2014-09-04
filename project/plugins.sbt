@@ -26,7 +26,7 @@ addSbtPlugin("me.lessis" % "bintray-sbt" % "0.1.2")
 addSbtPlugin("com.lihaoyi" % "utest-js-plugin" % "0.2.3")
 
 // The Play plugin
-addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.3")
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.4")
 
 // web plugins
 

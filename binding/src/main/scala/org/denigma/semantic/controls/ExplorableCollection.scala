@@ -1,26 +1,28 @@
 package org.denigma.semantic.controls
 
+import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
 import org.denigma.binding.extensions._
+import org.denigma.binding.messages.ExploreMessages.{Explore, ExploreSuggestion}
 import org.denigma.binding.messages.{ExploreMessages, Filters, Sort}
+import org.denigma.binding.views.BindableView
+import org.denigma.semantic.binding.RDFBinder
+import org.denigma.semantic.selectors.FilterSelector
 import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, KeyboardEvent}
 import org.scalax.semweb.rdf._
 import rx.core.{Rx, Var}
 
 import scala.collection.immutable.Map
+import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 /**
  * Observable colelction
  */
-abstract class ExplorableCollection(name:String,elem:HTMLElement,params:Map[String,Any]) extends AjaxModelCollection(name,elem,params) {
-
-
-  val filters = Var(Map.empty[IRI,Filters.Filter])
-  val searchTerms = Var(Map.empty[IRI,String])
-  val sorts = Var(Map.empty[IRI,Sort])
-
-  override val explorer = Rx(ExploreMessages.Explore(
+abstract class ExplorableCollection(name:String,elem:HTMLElement,params:Map[String,Any]) extends AjaxModelCollection(name,elem,params)
+with ExplorableView
+{
+  lazy val defaultExplore = ExploreMessages.Explore(
     this.query,
     this.shapeRes,
     this.filters().values.toList,
@@ -29,7 +31,29 @@ abstract class ExplorableCollection(name:String,elem:HTMLElement,params:Map[Stri
     this.exploreStorage.genId(),
     exploreStorage.channel
   )
-  )
+
+  def loadTyped(key: IRI, typed:String): Future[ExploreSuggestion] = this.exploreStorage.suggest(typed,key,this.explorer.now)
+
+  override val explorer: Rx[Explore] = Rx( this.defaultExplore   )
+
+  override def attachBinders() = {
+    binders = new ExploreBinder(this)::new GeneralBinder(this)::new NavigationBinding(this)::binders
+  }
+
+}
+
+trait ExplorableView extends BindableView{
+
+  val filters = Var(Map.empty[IRI,Filters.Filter])
+  val searchTerms = Var(Map.empty[IRI,String])
+  val sorts = Var(Map.empty[IRI,Sort])
+
+  //val explorer: Rx[Explore]
+  def loadTyped(key: IRI, typed:String): Future[ExploreSuggestion]
+}
+
+class ExploreBinder(view:ExplorableView) extends RDFBinder(view) {
+
 
   var selectors = Map.empty[HTMLElement,FilterSelector]
 
@@ -38,7 +62,7 @@ abstract class ExplorableCollection(name:String,elem:HTMLElement,params:Map[Stri
     this.selectors.get(el) match
     {
       case Some(s)=>
-        this.exploreStorage.suggest(typed,key,this.explorer.now).onComplete{
+        view.loadTyped(key,typed).onComplete{
           case Success(sgs)=>
             //dom.console.log("options = "+sgs.options.toString())
             s.updateOptions(sgs.options)
@@ -49,14 +73,6 @@ abstract class ExplorableCollection(name:String,elem:HTMLElement,params:Map[Stri
       //dom.console.log("typed = "+str)
     }
 
-
-
-
-
-  override def bindDataAttributes(el:HTMLElement,ats:Map[String, String]) = {
-    super.bindDataAttributes(el,ats)
-    this.bindExplore(el,ats)
-  }
 
 
   protected def bindExplore(el:HTMLElement,ats:Map[String,String]) =for {
@@ -73,18 +89,18 @@ abstract class ExplorableCollection(name:String,elem:HTMLElement,params:Map[Stri
     case "filter"=>
       this.resolve(value) match {
         case Some(key)=>
-          this.bindRx(key.stringValue, el: HTMLElement, this.filters) { (e, ff) =>
+          this.bindRx(key.stringValue, el: HTMLElement, view.filters) { (e, ff) =>
             val sel = this.selectors.get(e) match {
-            case Some(s)=>
-              s
-            //dom.console.error("second binding is not required")
-            case None =>
-              val s = new FilterSelector(e,key,this.filters,this.filterTypeHandler(e,key))
-              this.selectors = this.selectors + (e-> s)
-              s
+              case Some(s)=>
+                s
+              //dom.console.error("second binding is not required")
+              case None =>
+                val s = new FilterSelector(e,key,view.filters,filterTypeHandler(e,key))
+                this.selectors = this.selectors + (e-> s)
+                s
+            }
+            sel.fillValues(ff)
           }
-          sel.fillValues(ff)
-        }
         case None=> dom.console.error(s"cannot resolve IRI for filter with $value in $id view")
       }
 
@@ -113,16 +129,9 @@ abstract class ExplorableCollection(name:String,elem:HTMLElement,params:Map[Stri
   protected def onSearchKeyUp(prop:IRI,el:HTMLElement)(event:KeyboardEvent) = {
     el \ "value" match {
       case Some(att) => val value:String =  el.dyn.value.toString
-        if(value=="") this.searchTerms() = this.searchTerms.now - prop else   this.searchTerms() = this.searchTerms.now + (prop->value)
+        if(value=="") view.searchTerms() = view.searchTerms.now - prop else   view.searchTerms() = view.searchTerms.now + (prop->value)
       case None=> dom.console.error(s"search term in ${this.id} view is put not to input/textarea!")
     }
   }
-
-
-
-
-
-
-
 
 }

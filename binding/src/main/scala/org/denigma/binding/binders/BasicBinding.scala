@@ -1,12 +1,13 @@
 package org.denigma.binding.binders
 
+import org.denigma.binding.commons.ILogged
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.ILogged
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
 import rx._
 
+import scala.collection.immutable.Map
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
 import scala.util.{Failure, Success}
@@ -15,53 +16,19 @@ import scala.util.{Failure, Success}
 /**
  *  A class that contains basic functions for all bindings
  */
-abstract class BasicBinding extends ILogged{
-
-  def id:String
-
-  /**
-   * Loads links into some view
-   * @param element
-   * @param into
-   */
-  def makeGoToHandler(element:HTMLElement,into: String, push:Boolean = true, relativeURI:Boolean = true):js.Function1[MouseEvent, _]  =  {event:MouseEvent=>{
-
-      event.preventDefault()
-      element.attributes.get("href") match {
-        case Some(url) =>
-          val uri = processUrl(url.value,relativeURI)
-
-          val pjax = ("X-PJAX",into)
-
-          Ajax.get(uri, headers = List(pjax)).onComplete {
-            case Success(req: XMLHttpRequest) =>
-              sq.byId(into) match {
-              case Some(el: HTMLElement) =>
-                this.loadElementInto(el,req.responseText,uri)
-
-              case None =>
-                dom.console.error(s"cannot find $into element")
-            }
-
-            case Failure(th) => dom.console.error(s"there is a problem with $uri ajax request")
-          }
+abstract class BasicBinding extends ILogged
+{
 
 
-        case None=> dom.console.error(s"there is not url here to load anything into")
-      }
-    false
-    }
+  def bindAttributes(el:HTMLElement,ats:Map[String, String] ):Unit
+
+  protected def dataAttributesOnly(ats:Map[String,String]): Map[String, String] = ats.collect{
+    case (key,value) if key.contains("data-") && !key.contains("data-view")=> (key.replace("data-",""),value)
   }
 
 
-  /**
-   *
-   * Loads element into another one
-   * @param el element
-   * @param uri uri (for push state)
-   * @param newInnerHTML new content of the inner html
-   */
-  def loadElementInto(el:HTMLElement, newInnerHTML:String,uri:String = ""):Unit
+  def id:String
+
 //  = {
 //    val params = js.Dynamic.literal( "html" -> newInnerHTML)
 //
@@ -141,5 +108,8 @@ abstract class BasicBinding extends ILogged{
     case _=> dom.console.error(s"rx is not Var")
   }
 
+
+
+  protected def otherPartial:PartialFunction[String,Unit] = {case _=>}
 
 }

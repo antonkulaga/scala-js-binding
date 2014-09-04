@@ -37,7 +37,7 @@ case class ModelInside(initial:PropertyModel, current:PropertyModel, wantsToDie:
   def add(iri:IRI,text:String,lang:String): ModelInside  = this.add(iri,StringLangLiteral(text,lang))
   def add(iri:IRI,text:String): ModelInside  = this.add(iri,StringLiteral(text))
   def add(iri:IRI,value:Double): ModelInside  = this.add(iri,DoubleLiteral(value))
-  def add(iri:IRI,value:Long): ModelInside  = this.add(iri,LongLiteral(value))
+  def add(iri:IRI,value:Int): ModelInside  = this.add(iri,IntLiteral(value))
 
   /**
    * Replaces to one value
@@ -49,7 +49,7 @@ case class ModelInside(initial:PropertyModel, current:PropertyModel, wantsToDie:
   def replace(iri:IRI,text:String,lang:String): ModelInside  = this.replace(iri,StringLangLiteral(text,lang))
   def replace(iri:IRI,text:String): ModelInside  = this.replace(iri,StringLiteral(text))
   def replace(iri:IRI,value:Double): ModelInside  = this.replace(iri,DoubleLiteral(value))
-  def replace(iri:IRI,value:Long): ModelInside  = this.replace(iri,LongLiteral(value))
+  def replace(iri:IRI,value:Int): ModelInside  = this.replace(iri,IntLiteral(value))
   def replace(iri:IRI,values:Set[RDFValue]): ModelInside = this.copy(initial = this.initial,current = current.copy(properties = this.current.properties.updated(iri,values)))
 
   //def delete(iri:IRI) = this.copy()

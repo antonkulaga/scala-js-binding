@@ -2,7 +2,7 @@ package org.denigma.binding.frontend.tools
 
 import org.denigma.binding.views.OrdinaryView
 import org.denigma.controls.general.CodeMirrorInsideView
-import org.denigma.semantic.controls.Selectize
+import org.denigma.semantic.selectors.Selectize
 import org.scalajs.dom
 import org.scalajs.dom.{MouseEvent, HTMLElement}
 import org.scalax.semweb.rdf.IRI
@@ -17,13 +17,10 @@ import scala.scalajs.js.{GlobalScope => g, JSON}
 
 class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView {
 
-  override def tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
+    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  override def strings: Map[String, Rx[String]] = this.extractStringRx(this)
 
-  override def bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
 
-  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvents(this)
   val spec= IRI("http://en.wikipedia.org/wiki/Spectrometers" )
   val star = IRI("http://en.wikipedia.org/wiki/Star_chart")
   val elec = IRI("http://en.wikipedia.org/wiki/Electrical_tape")

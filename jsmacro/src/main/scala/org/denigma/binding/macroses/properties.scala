@@ -2,7 +2,7 @@ package org.denigma.binding.macroses
 
 import scala.collection.immutable.Map
 import rx._
-import scala.reflect.macros.Context
+import scala.reflect.macros.whitebox.Context
 
 
 

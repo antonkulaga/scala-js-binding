@@ -170,7 +170,7 @@ In our case it may look like:
 class LoginView(element:HTMLElement, params:Map[String,Any]) extends OrdinaryView("login",element) 
 {
 val isSigned = Var(fale)
-val loginClick: Var[MouseEvent] = Var(this.createMouseEvent())
+val loginClick: Var[MouseEvent] = Var(EventBinding.createMouseEvent())
 //...some other code
 ```
 Each view takes html element and some arbitrary params as input. 
@@ -178,7 +178,7 @@ Each view takes html element and some arbitrary params as input.
 * To bind to a property data-bind-propertyname is used
 * To bind to an event data-even-eventvariablename is used
 
-In case of binding to events you should create them as reactive variables ( Var(this.createMouseEvent()) ) and than use observers to monitor changes.
+In case of binding to events you should create them as reactive variables ( Var(EventBinding.createMouseEvent()) ) and than use observers to monitor changes.
 There are several useful methods that allow to put observables/handlers to reactive variables, incl. those created from events.
 So in order to handle, for instance, logout click, you can:
 ```scala
@@ -207,16 +207,11 @@ That means that if you declared
 val strings = this.extractStringRx(this)
 ```
 to extract all properties of the view and than inherited from this view, you will have all only properties of parent class in the map, but not of the current one,
-That is why you should implement binding maps in your final class. So you will have to add something like this
+That is why you should override def activateMacro() in your code with a code that calls properties extraction
 
 ```scala
-  val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
+    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  val strings: Map[String, Rx[String]] = this.extractStringRx(this)
-
-  lazy val bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-
-  override def mouseEvents: Map[String, Var[MouseEvent]] = this.extractMouseEvens(this)
 ```
 The easiest way it so inherit from OrdinaryView (where this methods are not implemented and you can let your IDEA tell you what methods to implement)
 

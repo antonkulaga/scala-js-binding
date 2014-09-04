@@ -12,7 +12,7 @@ Build.sameSettings
 
 name := "js-macro"
 
-version := "0.1.4"
+version := "0.1.5"
 
 resolvers +=  Resolver.url("scala-js-releases",
   url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
@@ -21,6 +21,10 @@ resolvers +=  Resolver.url("scala-js-releases",
 libraryDependencies <+= (scalaVersion)("org.scala-lang" % "scala-reflect" % _)
 
 ScalaJSKeys.relativeSourceMaps := true
+
+ScalaJSKeys.persistLauncher := true
+
+ScalaJSKeys.persistLauncher in Test := false
 
 libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.6"
 

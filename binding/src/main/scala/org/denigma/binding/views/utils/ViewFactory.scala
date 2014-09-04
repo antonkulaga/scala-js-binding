@@ -1,6 +1,6 @@
 package org.denigma.binding.views.utils
 
-import org.denigma.binding.views.{utils, BindingView}
+import org.denigma.binding.views.{utils, BasicView}
 import org.scalajs.dom.HTMLElement
 
 import scala.util.Try
@@ -10,7 +10,7 @@ import scala.util.Try
  */
 class ViewFactory {
 
-  type ChildView<:BindingView
+  type ChildView<:BasicView
 
   type ViewFactory = (HTMLElement,Map[String,Any])=>Try[ChildView]
 

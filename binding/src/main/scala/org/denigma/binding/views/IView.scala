@@ -1,22 +1,13 @@
 package org.denigma.binding.views
 
+import org.denigma.binding.commons.{DOMParser, ILogged}
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.dom.extensions._
 import scala.scalajs.js
 import scala.util.{Failure, Success, Try}
 
-trait ILogged {
 
-  def error(errorText:String) = dom.console.error(errorText)
-
-  def warning(warning:String) = dom.console.warn(warning)
-
-  def info(message:String) = dom.console.info(message:String)
-
-  def debug(message:String) = dom.console.log(message)
-
-}
 
 trait IView extends ILogged{
 
@@ -49,11 +40,4 @@ trait IView extends ILogged{
 
 }
 
-class  DOMParser extends js.Object {
 
-  def parseFromString(string:String, tp:String):dom.Document = ???
-
-
-
-
-}

@@ -53,7 +53,8 @@ trait SigmaGraphView extends OrdinaryView
 
   override def bindView(el:HTMLElement) = {
     //jQuery(el).slideUp()
-    super.bindView(el)
+    activateMacro()
+    this.bind(el)
     Sigma.utils.pkg("sigma.canvas.edges")
     this.sigma =  new Sigma(initial)
     this.storage.explore(this.resource).onComplete{
