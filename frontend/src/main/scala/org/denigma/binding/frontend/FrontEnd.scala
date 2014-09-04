@@ -3,10 +3,10 @@ package org.denigma.binding.frontend
 import org.denigma.binding.extensions._
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.frontend.controls.{ShapeEditor, ShapeProperty}
-import org.denigma.binding.frontend.papers.{Report, ReportsVuew, Task, TasksBinder}
+import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksBinder}
 import org.denigma.binding.frontend.tests.{LongListView, PicklerView, RandomView}
 import org.denigma.binding.frontend.tools.{CodeInsideView, CodeView, SelectView}
-import org.denigma.binding.views.OrdinaryView
+import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
 import org.denigma.controls.editors.{CkEditor, CodeMirrorEditor, editors}
 import org.denigma.controls.general.DatePairView
@@ -22,7 +22,7 @@ import scala.util.Try
 
 
 @JSExport
-object FrontEnd extends OrdinaryView with scalajs.js.JSApp
+object FrontEnd extends BindableView with scalajs.js.JSApp
 {
 
   override def name = "main"
@@ -64,7 +64,7 @@ object FrontEnd extends OrdinaryView with scalajs.js.JSApp
     .register("task",(el,params)=>Try(new Task(el,params)))
 
     .register("SuggestView",(el,params)=>Try(new TestSuggestBinding(el,params)))
-    .register("ReportsView",(el, params) =>Try(new ReportsVuew(el,params)))
+    .register("ReportsView",(el, params) =>Try(new ReportsView(el,params)))
     .register("report",(el, params) =>Try(new Report(el,params)))
     .register("TestSelect",(el, params) =>Try(new SelectView(el,params)))
     .register("CollectionSlide",(el, params) =>Try(new CollectionSlide(el,params)))
@@ -110,7 +110,7 @@ object FrontEnd extends OrdinaryView with scalajs.js.JSApp
   }
 
 
-
+def attachBinders() = {this.binders = BindableView.defaultBinders(this)}
 
 
   val toggle: Var[MouseEvent] = Var(EventBinding.createMouseEvent())

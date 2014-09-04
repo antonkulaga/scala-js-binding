@@ -1,7 +1,7 @@
 package org.denigma.semantic.shapes
 
 import org.denigma.binding.extensions.sq
-import org.denigma.binding.views.{CollectionView, OrdinaryView}
+import org.denigma.binding.views.{CollectionView, BindableView}
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.shex.Shape
 import rx.core.{Var, Rx}

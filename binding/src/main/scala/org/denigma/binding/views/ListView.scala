@@ -21,7 +21,7 @@ object ListView {
 
     override def activateMacro(): Unit = { this.extractors.foreach(_.extractEverything(this))}
 
-
+    override protected def attachBinders(): Unit = binders = MapView.defaultBinders(this)
   }
 
 
@@ -33,7 +33,7 @@ object ListView {
 
 
 
-abstract class ListView(val elem:HTMLElement, val params:Map[String,Any]) extends OrdinaryView
+abstract class ListView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
   //with CollectionBinding
   with CollectionView
 {

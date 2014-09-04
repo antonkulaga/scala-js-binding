@@ -1,7 +1,7 @@
 package org.denigma.semantic.controls
 
 import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
-import org.denigma.binding.views.OrdinaryView
+import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binding.{ModelBinder, ModelView}
 import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom
@@ -11,14 +11,13 @@ import org.scalax.semweb.shex.PropertyModel
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
-trait PropertyModelView extends ModelView with OrdinaryView {
-
-  override def attachBinders() = {
-    binders = new ModelBinder(this,this.modelInside)::new GeneralBinder(this)::new NavigationBinding(this)::Nil
-  }
-
+object PropertyModelView
+{
+  def defaultBinders(view:PropertyModelView)  =new ModelBinder(view,view.modelInside)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
 
 }
+
+trait PropertyModelView extends ModelView with BindableView
 
 trait  AjaxModelView extends PropertyModelView
 {

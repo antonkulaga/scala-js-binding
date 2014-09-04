@@ -1,5 +1,6 @@
 package org.denigma.binding.frontend
 
+import org.denigma.binding.views.BindableView
 import org.denigma.controls.general.EditableMenuView
 import rx._
 import org.scalajs.dom._
@@ -15,5 +16,5 @@ class MenuView(elem:HTMLElement, params:Map[String,Any] = Map.empty) extends Edi
 {
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-
+  override protected def attachBinders(): Unit = BindableView.defaultBinders(this)
 }

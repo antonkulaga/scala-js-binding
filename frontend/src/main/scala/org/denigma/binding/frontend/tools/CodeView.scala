@@ -1,5 +1,6 @@
 package org.denigma.binding.frontend.tools
 
+import org.denigma.binding.views.BindableView
 import org.denigma.controls.general.{CodeMirrorInsideView, CodeMirrorView}
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx.{Rx, Var}
@@ -12,12 +13,18 @@ class CodeInsideView(elem:HTMLElement,val params:Map[String,Any] = Map.empty[Str
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
+  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
+
+
 }
 
 
 class CodeView(elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends CodeMirrorView(elem,params)
 {
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+
+
+  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 
 
 }

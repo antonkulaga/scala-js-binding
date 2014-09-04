@@ -1,10 +1,10 @@
 package org.denigma.semantic.controls
 
-import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
 import org.denigma.binding.binders.extractors.EventBinding
-import org.denigma.binding.views.{BindableView, OrdinaryView}
+import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
+import org.denigma.binding.views.BindableView
 import org.denigma.controls.editors.editors
-import org.denigma.semantic.binding.{ModelView, ModelBinder, ModelInside}
+import org.denigma.semantic.binding.{ModelBinder, ModelInside, ModelView}
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
 import org.scalax.semweb.rdf.IRI
@@ -15,8 +15,12 @@ import scala.scalajs.js
 import scala.scalajs.js.Dynamic.{global => g}
 import scalatags.Text.{attrs => a, styles => s}
 
+object EditModelView {
 
-trait EditModelView extends ModelView with OrdinaryView
+  implicit def defaultBinders(view:EditModelView) =   new EditModelBinder(view,view.modelInside,view.editMode)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
+}
+
+trait EditModelView extends ModelView with BindableView
 {
 
   def params:Map[String,Any]
@@ -36,9 +40,6 @@ trait EditModelView extends ModelView with OrdinaryView
 
   val saveClick = Var(EventBinding.createMouseEvent())
 
-  override def attachBinders() = {
-    binders = new EditModelBinder(this,this.modelInside,this.editMode)::new GeneralBinder(this)::new NavigationBinding(this)::Nil
-  }
 
 
 

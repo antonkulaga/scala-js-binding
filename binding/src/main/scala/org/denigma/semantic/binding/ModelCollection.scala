@@ -2,7 +2,8 @@ package org.denigma.semantic.binding
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.views.{CollectionView, OrdinaryView}
+import org.denigma.binding.views.{CollectionView, BindableView}
+import org.denigma.semantic.controls.PropertyModelView
 import org.scalajs.dom
 import org.scalajs.dom.extensions._
 import org.scalajs.dom.{HTMLElement, MouseEvent}
@@ -23,7 +24,7 @@ object ModelCollection
 
 
 
-  class JustModel(override val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends ModelView with OrdinaryView{
+  class JustModel(override val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends PropertyModelView{
 
 
     override val modelInside = slot
@@ -33,6 +34,8 @@ object ModelCollection
 
 
     override def params: Map[String, Any] = Map.empty
+
+    override protected def attachBinders(): Unit = PropertyModelView.defaultBinders(this)
   }
 
 }
@@ -40,7 +43,7 @@ object ModelCollection
 /**
  * This trait represents a view that is collection of models (Property models of RDFs)
  */
-trait ModelCollection extends OrdinaryView
+trait ModelCollection extends BindableView
   with CollectionView
 {
   def params:Map[String,Any]

@@ -4,7 +4,7 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.messages.{Sort, Filters}
 import org.denigma.semantic.controls
-import org.denigma.semantic.controls.ExplorableCollection
+import org.denigma.semantic.controls.{SelectableModelView, ExplorableCollection}
 import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import org.scalajs.jquery._
@@ -18,11 +18,12 @@ import scalatags.Text.Tag
 /**
  * Shows papers reports
  */
-class ReportsVuew(elem:HTMLElement, params:Map[String,Any]) extends ExplorableCollection("ReportsView",elem:HTMLElement,params:Map[String,Any]){
+class ReportsView(elem:HTMLElement, params:Map[String,Any]) extends ExplorableCollection("ReportsView",elem:HTMLElement,params:Map[String,Any]){
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
+  def attachBinders() = binders = ExplorableCollection.defaultBinders(this)
 
   val sidebarParams =  js.Dynamic.literal(exclusive = false)
 
@@ -68,6 +69,9 @@ class Report(val elem:HTMLElement,val params:Map[String,Any]) extends controls.S
   require(params.contains("shape"),"there is not shape")
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+
+  def attachBinders() = binders = SelectableModelView.defaultBinders(this)
+
 
 
 

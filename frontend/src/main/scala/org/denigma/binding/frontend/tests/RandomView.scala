@@ -1,6 +1,6 @@
 package org.denigma.binding.frontend.tests
 
-import org.denigma.binding.views.OrdinaryView
+import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx.Rx
@@ -16,7 +16,7 @@ import scalatags.Text.implicits._
 /**
  * For test purposes only
  */
-class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends OrdinaryView{
+class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{
 
 
   val counting: Var[Tag] = Var{
@@ -44,6 +44,7 @@ class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends Ordin
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
+  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 
 
   dom.setInterval(update _, 100)

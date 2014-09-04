@@ -8,16 +8,14 @@ import rx.Var
 
 import scala.collection.immutable._
 
+object MapView {
+  implicit def defaultBinders(view:MapView) =  new ItemsBinder(view,view.reactiveMap)::new NavigationBinding(view)::Nil
+}
 
 
-abstract class MapView(val elem:HTMLElement,props:Map[String,Any]) extends OrdinaryView {
+abstract class MapView(val elem:HTMLElement,props:Map[String,Any]) extends BindableView {
 
   val reactiveMap: Map[String, Var[String]] = props.map(kv => (kv._1, Var(kv._2.toString)))
-
-  override protected def attachBinders() = {
-    binders = new ItemsBinder(this,reactiveMap)::new NavigationBinding(this)::Nil
-  }
-
 }
 
 class ItemsBinder(view:MapView, reactiveMap:Map[String,Var[String]]) extends GeneralBinder(view) {

@@ -1,6 +1,6 @@
 package org.denigma.binding.frontend.tools
 
-import org.denigma.binding.views.OrdinaryView
+import org.denigma.binding.views.BindableView
 import org.denigma.controls.general.CodeMirrorInsideView
 import org.denigma.semantic.selectors.Selectize
 import org.scalajs.dom
@@ -15,7 +15,7 @@ import org.scalajs.jquery.jQuery
 import scala.scalajs.js.{GlobalScope => g, JSON}
 
 
-class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView {
+class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView {
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
@@ -56,6 +56,9 @@ class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Str
 
 
 
+  def attachBinders() = {
+    this.binders = BindableView.defaultBinders(this)
+  }
 
 
   override def bindView(el:HTMLElement) = {

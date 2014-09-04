@@ -2,9 +2,10 @@ package org.denigma.binding.frontend.papers
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.binders.extractors.EventBinding
+import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binding.ModelInside
 import org.denigma.semantic.controls
-import org.denigma.semantic.controls.AjaxModelCollection
+import org.denigma.semantic.controls.{SelectableModelView, AjaxModelCollection}
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx._
 
@@ -31,7 +32,7 @@ class TasksBinder(element:HTMLElement,params:Map[String,Any] = Map.empty[String,
 
   val isDirty = Rx{  this.dirty().size>0  }
 
-
+  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 }
 
 class Task(val elem:HTMLElement, val params:Map[String,Any]) extends controls.SelectableModelView{
@@ -50,5 +51,5 @@ class Task(val elem:HTMLElement, val params:Map[String,Any]) extends controls.Se
     this.die()
   }
 
-
+  override protected def attachBinders(): Unit = binders = SelectableModelView.defaultBinders(this)
 }

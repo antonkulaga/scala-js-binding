@@ -5,7 +5,7 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.messages.ExploreMessages.{Explore, ExploreSuggestion}
 import org.denigma.binding.messages.{ExploreMessages, Filters, Sort}
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binding.RDFBinder
+import org.denigma.semantic.binding.{ModelBinder, RDFBinder}
 import org.denigma.semantic.selectors.FilterSelector
 import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, KeyboardEvent}
@@ -16,6 +16,13 @@ import scala.collection.immutable.Map
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
+
+object ExplorableCollection {
+
+  def defaultBinders(view:ExplorableCollection)  =    new ExploreBinder(view)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
+
+}
+
 /**
  * Observable colelction
  */
@@ -36,9 +43,6 @@ with ExplorableView
 
   override val explorer: Rx[Explore] = Rx( this.defaultExplore   )
 
-  override def attachBinders() = {
-    binders = new ExploreBinder(this)::new GeneralBinder(this)::new NavigationBinding(this)::binders
-  }
 
 }
 

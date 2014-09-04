@@ -2,6 +2,7 @@ package org.denigma.binding.frontend.controls
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.binders.extractors.EventBinding
+import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binding
 import org.denigma.semantic.controls.EditModelView
 import org.denigma.semantic.shapes.ShapeView
@@ -47,7 +48,7 @@ class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends  Sha
     this.subscribeUpdates()
   }
 
-
+  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 }
 
 class ShapeProperty(val elem:HTMLElement, val params:Map[String,Any]) extends EditModelView{
@@ -68,5 +69,7 @@ class ShapeProperty(val elem:HTMLElement, val params:Map[String,Any]) extends Ed
   removeClick.handler{
     this.die()
   }
+
+  override protected def attachBinders(): Unit = binders = EditModelView.defaultBinders(this)
 
 }

@@ -1,6 +1,6 @@
 package org.denigma.controls.general
 
-import org.denigma.binding.views.OrdinaryView
+import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom.{MouseEvent, HTMLElement}
 import rx._
@@ -15,11 +15,10 @@ class DatePairView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[S
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-
-
+  override protected def attachBinders(): Unit = BindableView.defaultBinders(this)
 }
 
-abstract class BasicDatePairView extends OrdinaryView{
+abstract class BasicDatePairView extends BindableView{
 
 
 

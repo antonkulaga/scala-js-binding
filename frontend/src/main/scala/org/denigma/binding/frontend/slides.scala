@@ -2,7 +2,7 @@ package org.denigma.binding.frontend
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.binders.extractors.EventBinding
-import org.denigma.binding.views.OrdinaryView
+import org.denigma.binding.views.BindableView
 import org.denigma.controls.editors.editors
 import org.denigma.controls.general.CodeMirrorView
 import org.denigma.controls.graph.GraphView
@@ -27,7 +27,7 @@ import scala.scalajs.js
  * @param elem html element
  * @param params
  */
-class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView{
+class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
@@ -118,12 +118,11 @@ class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Stri
 
   }
 
-
-
+  override protected def attachBinders(): Unit =  BindableView.defaultBinders(this)
 }
 
 
-class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView{
+class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
@@ -133,7 +132,7 @@ class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empt
     this.collectFirstView{case v:CodeMirrorView=>v.code.now} match {
       case Some(code)=>
         this.findView("testmenu") match {
-          case Some(view:OrdinaryView)=>this.parseHTML(code).foreach(r=>view.refreshMe(r))
+          case Some(view:BindableView)=>this.parseHTML(code).foreach(r=>view.refreshMe(r))
           case _=>this.error("test menu not found")
         }
       case _=>error("no codemirror view found")
@@ -143,7 +142,7 @@ class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empt
 
   }
 
-
+  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
 
 
 }
@@ -198,7 +197,7 @@ class GraphSlide(val elem:HTMLElement, val params:Map[String,Any]) extends Graph
   //  }
 
   override def container: HTMLElement = dom.document.getElementById("graph-container")
-
+  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
 }
 
 
@@ -223,37 +222,37 @@ class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends Ajax
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-
+  override protected def attachBinders(): Unit = binders =  PropertyModelView.defaultBinders(this)
 }
 /**
  * Slide about RDF-related binding
  * @param elem html element to which view is attached
  * @param params
  */
-class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView
+class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView
 {
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-
+    override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
 }
 
 
-class RemoteSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView
+class RemoteSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView
 {
 
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-
+  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
 
 }
 
 /**
  * View for article with some text
  */
-class SlideView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView{
+class SlideView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-
+  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
 
 }
 /**
@@ -261,7 +260,7 @@ class SlideView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Stri
  * @param elem html element to which view is attached
  * @param params
  */
-class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView
+class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView
 {
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
@@ -273,7 +272,7 @@ class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
     //  new DateParser(input()).InputLine.run().map(i=>i.toString).getOrElse("failure")
     ""
   }
-
+  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
 
 
 }
@@ -284,7 +283,7 @@ class TestSuggestBinding(val elem:HTMLElement,val params:Map[String,Any] = Map.e
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
-
+  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
 
 
   override def bindView(el:HTMLElement) {
@@ -310,7 +309,7 @@ class TableBinder(element:HTMLElement,params:Map[String,Any] = Map.empty[String,
 {
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-
+  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
 }
 
 
@@ -326,6 +325,6 @@ class TestModelView(val elem:HTMLElement,val params:Map[String,Any]) extends Aja
   }
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-
+  override protected def attachBinders(): Unit = binders =  PropertyModelView.defaultBinders(this)
 
 }

@@ -17,6 +17,12 @@ import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
+object SelectableModelView {
+
+  def defaultBinders(view:SelectableModelView)  =     new SelectBinder(view,view.modelInside,view.suggest)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
+
+}
+
 
 /**
  * View that binds with Selectize.js selectors
@@ -35,13 +41,6 @@ trait SelectableModelView extends EditModelView with AjaxModelView  {
     storage.suggest(this.shapeRes,this.modelInside.now.current.id,key,str)
 
   }
-
-
-
-  override def attachBinders() = {
-    binders = new SelectBinder(this,this.modelInside,this.suggest)::new GeneralBinder(this)::new NavigationBinding(this)::Nil
-  }
-
 }
 
 class SelectBinder(view:BindableView, modelInside:Var[ModelInside], suggest:(IRI,String)=>Future[Suggestion]) extends ModelBinder(view,modelInside) {

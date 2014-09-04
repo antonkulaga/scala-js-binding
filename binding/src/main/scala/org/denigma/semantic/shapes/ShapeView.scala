@@ -2,7 +2,7 @@ package org.denigma.semantic.shapes
 
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.binders.extractors.EventBinding
-import org.denigma.binding.views.{CollectionView, IView, OrdinaryView}
+import org.denigma.binding.views.{Injector, CollectionView, IView, BindableView}
 import org.denigma.semantic.binding.{RDFBinder, ChangeSlot}
 import org.scalajs.dom
 import org.scalajs.dom.{MouseEvent, HTMLElement}
@@ -35,22 +35,24 @@ case class ShapeInside(initial:Shape,current:Shape,wantsToDie:Boolean = false) e
 }
 
 
-object ArcBinder {
+object ArcView {
 
   def apply(el:HTMLElement,params:Map[String,Any]) = {
-    new JustArcBinder(el,params)
+    new JustArcView(el,params)
   }
 
 
-  class JustArcBinder(val elem:HTMLElement, val params:Map[String,Any]) extends ArcBinder {
+  class JustArcView(val elem:HTMLElement, val params:Map[String,Any]) extends ArcView {
+
     override def activateMacro(): Unit = {extractors.foreach(_.extractEverything(this))}
 
+    override protected def attachBinders(): Unit = BindableView.defaultBinders(this)
 
   }
 
 }
 
-trait ArcBinder extends OrdinaryView
+trait ArcView extends BindableView
 {
 
   val arc = Var(params("item").asInstanceOf[ArcRule])
@@ -61,7 +63,7 @@ trait ArcBinder extends OrdinaryView
 
 }
 
-trait ShapeView extends OrdinaryView with CollectionView
+trait ShapeView extends BindableView with CollectionView
 {
 
 
@@ -74,7 +76,7 @@ trait ShapeView extends OrdinaryView with CollectionView
 
 
   override type Item = ArcRule
-  override type ItemView = ArcBinder
+  override type ItemView = ArcView
 
 
 
@@ -88,12 +90,12 @@ trait ShapeView extends OrdinaryView with CollectionView
 
     val view: ItemView = el.attributes.get("data-item-view") match {
       case None=>
-        ArcBinder.apply(el, mp)
+        ArcView.apply(el, mp)
       case Some(v)=> this.inject(v.value,el,mp) match {
         case iv:ItemView=> iv
         case _=>
           dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
-          ArcBinder.apply(el,mp)
+          ArcView.apply(el,mp)
       }
     }
     //item.handler(onItemChange(item))

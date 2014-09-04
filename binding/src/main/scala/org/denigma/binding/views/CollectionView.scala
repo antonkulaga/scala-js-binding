@@ -10,7 +10,7 @@ import rx.extensions.Moved
 import scala.collection.immutable._
 
 
-trait CollectionView extends OrdinaryView{
+trait CollectionView extends BindableView{
 
   type Item
   type ItemView <: IView

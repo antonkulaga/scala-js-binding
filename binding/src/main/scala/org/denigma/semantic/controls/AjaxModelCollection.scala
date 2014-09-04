@@ -43,6 +43,8 @@ object AjaxModelCollection
     override def resource: Res = this.modelInside.now.current.id
 
     override def params: Map[String, Any] = Map.empty
+
+    override protected def attachBinders(): Unit = binders = PropertyModelView.defaultBinders(this)
   }
 
 }

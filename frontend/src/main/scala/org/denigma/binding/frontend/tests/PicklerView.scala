@@ -2,7 +2,7 @@ package org.denigma.binding.frontend.tests
 
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.views.OrdinaryView
+import org.denigma.binding.views.BindableView
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx._
 
@@ -14,7 +14,7 @@ import scalatags.Text.Tag
 /**
  * Class for testing purposes that makes a long list out of test element
  */
-class PicklerView(val elem:HTMLElement, val params:Map[String,Any]) extends OrdinaryView{
+class PicklerView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{
   self=>
 
   implicit def registry = rp
@@ -32,5 +32,6 @@ class PicklerView(val elem:HTMLElement, val params:Map[String,Any]) extends Ordi
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
+  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 
 }

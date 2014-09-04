@@ -1,6 +1,6 @@
 package org.denigma.controls.general
 
-import org.denigma.binding.views.OrdinaryView
+import org.denigma.binding.views.BindableView
 import org.scalajs.codemirror.{CodeMirror, EditorConfiguration, Editor}
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
@@ -29,7 +29,7 @@ abstract class CodeMirrorInsideView(elem:HTMLElement,params:Map[String,Any] = Ma
 /**
  * View for article with some text
  */
-abstract class CodeMirrorView(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends OrdinaryView{
+abstract class CodeMirrorView(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
 
 

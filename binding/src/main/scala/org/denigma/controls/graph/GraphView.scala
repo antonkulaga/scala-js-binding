@@ -4,7 +4,7 @@ package org.denigma.controls.graph
 import org.denigma.binding.messages.{GraphMessages, ModelMessages}
 import org.denigma.binding.messages.ModelMessages.Suggestion
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.views.OrdinaryView
+import org.denigma.binding.views.BindableView
 import org.denigma.controls.sigma.{SigmaGraphInit, SigmaEdge, SigmaNode, Sigma}
 import org.denigma.semantic.storages.Storage
 import org.scalajs.dom
@@ -23,7 +23,7 @@ import scalatags.Text.Tag
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.denigma.binding.extensions._
 
-trait GraphView extends OrdinaryView
+trait GraphView extends BindableView
 {
 
   def path:String

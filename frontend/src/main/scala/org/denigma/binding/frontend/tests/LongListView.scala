@@ -1,6 +1,6 @@
 package org.denigma.binding.frontend.tests
 
-import org.denigma.binding.views.ListView
+import org.denigma.binding.views.{BindableView, ListView}
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx.{Rx, Var}
 
@@ -24,5 +24,6 @@ class LongListView(element:HTMLElement, params:Map[String,Any]) extends ListView
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
+  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 
 }
