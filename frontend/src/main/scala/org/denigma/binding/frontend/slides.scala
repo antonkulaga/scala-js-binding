@@ -69,10 +69,12 @@ class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Stri
       |/**
       | * For test purposes only
       | */
-      |class RandomView(el:HTMLElement, params:Map[String,Any]) extends OrdinaryView("random",el){
+      |class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{
+      |
       |
       |  val counting: Var[Tag] = Var{
-      |    div(`class`:="ui segment",
+      |
+      |    div(a.`class`:= "ui segment",
       |      h1("This is title"),
       |      p("value that changes: \"START\"")
       |    )
@@ -85,13 +87,17 @@ class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Stri
       |  val list = List("ONE","TWO","THREE","FOUR","SOME TEXT","THAT IS RANDOM")
       |
       |  def update():Unit ={
-      |    val value =  div(`class`:="ui segment",
+      |    val value =  div(a.`class`:="ui segment",
       |      h1("This is title"),
-      |      p(s"value that changes: \"${list(Random.nextInt(list.length))}\"")
+      |      p(s"value that changes: \"${list(Random.nextInt(list.length))}\" ")
       |    )
       |    counting() = value
       |
       |  }
+      |
+      |    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+      |
+      |  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
       |
       |
       |  dom.setInterval(update _, 100)
@@ -101,24 +107,12 @@ class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Stri
       |    */
       |  def square(x: Int): Int = x*x
       |
-      |  lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
-      |
-      |  //val doubles: Map[String, Rx[Double]] = this.extractDoubles[this.type]
-      |
-      |  lazy val strings: Map[String, Rx[String]] = this.extractStringRx(this)
-      |
-      |  lazy val bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-      |
-      |  //override def textEvents:Map[String, rx.Var[TextEvent]] = this.extractTextEvents(this)
-      |
-      |  override def mouseEvents: Map[String, rx.Var[MouseEvent]] = this.extractMouseEvens(this)
       |}
-      |
     """.stripMargin
 
   }
 
-  override protected def attachBinders(): Unit =  BindableView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders =   BindableView.defaultBinders(this)
 }
 
 

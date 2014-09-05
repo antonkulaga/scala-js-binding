@@ -79,18 +79,17 @@ class ExploreBinder(view:ExplorableView) extends RDFBinder(view) {
 
 
 
-  protected def bindExplore(el:HTMLElement,ats:Map[String,String]) =for {
-    (key, value) <- ats
-  }{
-    this.filterPartial(el,value).orElse(this.searchPartial(el,value)).orElse(this.sortPartial(el,value)).orElse(this.otherPartial)(key.toString)
+  override def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] = {
+    this.vocabPartial(value).orElse(filterPartial(el, value)).orElse(this.searchPartial(el, value)).orElse(this.sortPartial(el, value))
   }
 
 
 
 
 
+
   protected def filterPartial(el:HTMLElement,value:String):PartialFunction[String,Unit]= {
-    case "filter"=>
+    case "data-filter"=>
       this.resolve(value) match {
         case Some(key)=>
           this.bindRx(key.stringValue, el: HTMLElement, view.filters) { (e, ff) =>
@@ -112,12 +111,12 @@ class ExploreBinder(view:ExplorableView) extends RDFBinder(view) {
   }
 
   protected def sortPartial(el:HTMLElement,value:String):PartialFunction[String,Unit]= {
-    case "sort"=>
+    case "data-sort"=>
 
   }
 
   protected def searchPartial(el:HTMLElement,value:String):PartialFunction[String,Unit]= {
-    case "search"=>
+    case "data-search"=>
       this.resolve(value) match {
         case Some(key) =>
           el.tagName match {
@@ -130,6 +129,13 @@ class ExploreBinder(view:ExplorableView) extends RDFBinder(view) {
       }
   }
 
+  /**
+   * Is used on search
+   * @param prop
+   * @param el
+   * @param event
+   * @return
+   */
   protected def onSearchKeyUp(prop:IRI,el:HTMLElement)(event:KeyboardEvent) = {
     el \ "value" match {
       case Some(att) => val value:String =  el.dyn.value.toString

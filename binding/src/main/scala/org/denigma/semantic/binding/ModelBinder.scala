@@ -103,6 +103,7 @@ class ModelBinder(view:BindableView,modelInside:Var[ModelInside]) extends RDFBin
   }
 
 
+  //TODO: REHANE!
   protected def bindRdfProperty(el: HTMLElement, key: IRI)(assign:(HTMLElement,String)=>Unit) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
     model.current.properties.get(key).map(values=>this.vals2String(values)) match {
       case None=>
@@ -213,7 +214,7 @@ class ModelBinder(view:BindableView,modelInside:Var[ModelInside]) extends RDFBin
       el.onkeyup = this.makeRdfHandler(el, iri, "innerHTML")
       this.bindRdfInner(el, iri)
 
-    case _=> el.tagName.toLowerCase() match {
+    case _=> el.tagName.toLowerCase match {
       case "input" | "textarea" | "option" =>
 
         el.attributes.get("type").map(_.value.toString) match {
@@ -235,6 +236,7 @@ class ModelBinder(view:BindableView,modelInside:Var[ModelInside]) extends RDFBin
         this.bindRdfText(el, iri)
 
     }
+
 
 
   }

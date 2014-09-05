@@ -14,6 +14,8 @@ import scala.collection.immutable.Map
  */
 class RDFBinder(view:BindableView) extends BasicBinding
 {
+
+
   /**
    * Default vocabulary is ""
    */
@@ -46,32 +48,13 @@ class RDFBinder(view:BindableView) extends BasicBinding
   }.getOrElse(List.empty)
 
 
-  protected def binded(str:String) = str.contains("data") && str.contains("bind")
-
-
-
   protected def updatePrefixes(el:HTMLElement) = {
     val rps: List[RDFBinder] = this.nearestRDFBinders()
     prefixes = rps.foldLeft(Map.empty[String,IRI])((acc,el)=>acc++el.prefixes)++this.prefixes
   }
 
   protected def forBinding(str:String) = str.contains("data") && str.contains("bind")
-  /**
-   * Binds RDF properties to html tags
-   * @param el html element to bind to
-   */
-  protected def bindRdf(el: HTMLElement) = {
 
-    this.updatePrefixes(el)
-
-    val ats = el.attributes.collect { case (key, value) if !forBinding(value.value) => (key, value.value.toString)}.toMap
-
-    ats.foreach { case (key, value) =>
-      this.rdfPartial(el, key, value,ats).orElse(otherPartial)(key)
-
-    }
-
-  }
 
   protected def vocabPartial(value: String): PartialFunction[String, Unit] ={
 
@@ -94,8 +77,14 @@ class RDFBinder(view:BindableView) extends BasicBinding
 
 
 
-  override def bindAttributes(el: HTMLElement, ats: Map[String, String]): Unit = ats.foreach{
-    case (key,value)=>this.rdfPartial(el,key,value,ats)
+  override def bindAttributes(el: HTMLElement, ats: Map[String, String]): Unit = {
+
+    this.updatePrefixes(el)
+
+    ats.foreach { case (key, value) =>
+      this.rdfPartial(el, key, value,ats).orElse(otherPartial)(key)
+    }
+
   }
 
   override def id: String = view.id

@@ -21,9 +21,6 @@ class TasksBinder(element:HTMLElement,params:Map[String,Any] = Map.empty[String,
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-
-
-
   val addClick = Var(EventBinding.createMouseEvent())
 
   addClick handler {
@@ -41,7 +38,7 @@ class Task(val elem:HTMLElement, val params:Map[String,Any]) extends controls.Se
 
   val initial: Option[Var[ModelInside]] = params.get("model").collect{case mi:Var[ModelInside]=>mi}
 
-    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
 
@@ -52,4 +49,9 @@ class Task(val elem:HTMLElement, val params:Map[String,Any]) extends controls.Se
   }
 
   override protected def attachBinders(): Unit = binders = SelectableModelView.defaultBinders(this)
+
+  override def bindView(el: HTMLElement) = {
+    debug("task works!")
+    super.bindView(el)
+  }
 }

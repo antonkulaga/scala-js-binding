@@ -1,14 +1,17 @@
 ScalaJS Binding project
 #######################
 
-*scalajs-binding* is a scala-scala-js framework that provides:
+*scalajs-binding* is a scala-scala-js framework that let you
 
-* binding of HTML tags to ScalaJS classes
-* collection binding to html tags
-* storage classes that simplify CRUD operations with scalajs models
-* defining properties as reactive variables (Scala.Rx is used) that allows to make complex event flow in a reactive way
-* reactive-event flow (you can bind dom events to Scala.Rx definitions)
-* some play clases that make working for binding-framework easier
+* bind HTML tags to ScalaJS view classes and their properties
+* have a reactive-event flow (you can bind dom events to Scala.Rx definitions)
+* bind your collections to html element and have html elements as item templates
+* deal with the backend by means of convenient storage classes that simplify CRUD operations and search/filtering
+* define properties as reactive variables (Scala.Rx is used) that allows to make complex event flow in a reactive way
+* use some play clases that make working for binding-framework easier
+* have a tree of scala viewclasses in your app
+* some useful predifined controls (like select and codeview) that you can extend
+* work with linked data (rdf data) in a convenient way, bind html to RDF properties
 
 Bindings are done in a following way. For instance taken following html:
 ```html
@@ -24,6 +27,9 @@ Here at the beginning property *data-view="login"*  attaches LoginView scala cla
 Then each *data-bind-propertyname* property is binded to corresponding property of LoginView class.
 All bindings inside of children tags will be to properties of this view. There is a view hierarchy. Each view can have subviews. 
 Usually mains view attached to body tag is created. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
+
+Binders are the classes that bind ScalaJS view to html elements. Each view can have many different binders. 
+Common usage practise is extending one of abstract classes in binding or semantic package and adding binders by overriding def attachBinders() method.
 
 
 Getting started
@@ -70,14 +76,14 @@ In your sbt config you should add resolver and dependency
 ```scala
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 
-libraryDependencies += "org.denigma" %%% "binding" % "0.5.2"
+libraryDependencies += "org.denigma" %%% "binding" % "0.7.0"
 ```
 
-NOTE: at the moment library is published only for scalajs 0.5 and scala 2.11.2 (there is no scala 2.10.x version as keeping it is an overhead for me)
-
+NOTE: at the moment library is published only for scalajs 0.5.x and scala 2.11.2
 
 Framework elements
 =================
+
 
 Binding to properties
 ---------------------

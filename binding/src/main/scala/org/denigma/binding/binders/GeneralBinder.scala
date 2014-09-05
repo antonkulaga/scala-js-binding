@@ -72,18 +72,21 @@ class GeneralBinder(view:BindableView) extends PrimitivesBinder with ScalaTagsBi
 
 
   protected def upPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
-    case bname if bname.startsWith("up-bind-")=>
+    case bname if bname.startsWith("up-bind-")=>debug(key+" | string matches | "+value)
       val my = key.replace("up-bind-","")
       this.strings.get(my) match {
         case Some(str: rx.Var[String])=>
           //this.searchUp[OrdinaryView](p=>p.strings.contains(value)) match {
 
+          debug(key+" | string matches | "+value)
           view.nearestParentOf{
             case view:BindableView if view.binders.exists(b=>b.isInstanceOf[GeneralBinder])
             => view
           } match
           {
             case Some(p)=>
+              debug(key+" | parent found | "+value)
+
               val binder = p.binders.collectFirst{case b:GeneralBinder=>b}.get
 
               val rs: rx.Rx[String] = binder.strings(value)

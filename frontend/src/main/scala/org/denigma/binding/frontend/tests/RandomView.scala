@@ -23,7 +23,7 @@ class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends Binda
 
     div(a.`class`:= "ui segment",
       h1("This is title"),
-      p("""value that changes: "START" """)
+      p("value that changes: 'START'")
     )
   }
 
@@ -36,7 +36,7 @@ class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends Binda
   def update():Unit ={
     val value =  div(a.`class`:="ui segment",
       h1("This is title"),
-      p(s"""value that changes: "${list(Random.nextInt(list.length))}" """)
+      p(s"value that changes: '${list(Random.nextInt(list.length))}' ")
     )
     counting() = value
 
@@ -54,15 +54,4 @@ class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends Binda
     */
   def square(x: Int): Int = x*x
 
-//  lazy val tags: Map[String, Rx[Tag]] = this.extractTagRx(this)
-//
-//  //val doubles: Map[String, Rx[Double]] = this.extractDoubles[this.type]
-//
-//  lazy val strings: Map[String, Rx[String]] = this.extractStringRx(this)
-//
-//  lazy val bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(this)
-//
-//  //override def textEvents:Map[String, rx.Var[TextEvent]] = this.extractTextEvents(this)
-//
-//  override def mouseEvents: Map[String, rx.Var[MouseEvent]] = this.extractMouseEvents(this)
 }

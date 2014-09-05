@@ -104,6 +104,7 @@ trait ModelCollection extends BindableView
    * @param el
    */
   override def bindView(el: HTMLElement) = {
+    attachBinders()
     activateMacro()
     this.bind(el)
     this.subscribeUpdates()

@@ -62,6 +62,7 @@ class ReportsView(elem:HTMLElement, params:Map[String,Any]) extends ExplorableCo
 
   val dirtyFilters = Rx( !(this.filters().isEmpty && this.sorts().isEmpty && this.searchTerms().isEmpty) )
 
+
 }
 
 class Report(val elem:HTMLElement,val params:Map[String,Any]) extends controls.SelectableModelView{

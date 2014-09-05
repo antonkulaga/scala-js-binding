@@ -45,8 +45,7 @@ abstract class CodeMirrorView(val elem:HTMLElement,params:Map[String,Any] = Map.
 
 
   override def bindView(el:HTMLElement) {
-    activateMacro()
-    this.bind(el)
+    super.bindView(el)
     el match {
       case area:dom.HTMLTextAreaElement=>
 
