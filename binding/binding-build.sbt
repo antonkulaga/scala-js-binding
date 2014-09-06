@@ -21,6 +21,10 @@ resolvers  += "Online Play Repository" at  "http://repo.typesafe.com/typesafe/si
 
 libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-jquery" % "0.6"
 
+libraryDependencies += "org.scalajs" %%% "codemirror" % "4.5-0.1"
+
+libraryDependencies += "org.scalajs" %%% "threejs" % "0.0.68-0.1"
+
 autoCompilerPlugins := true
 
 bintraySettings

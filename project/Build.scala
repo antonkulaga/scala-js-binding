@@ -21,7 +21,7 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.6.8"
+  val semWebVersion =  "0.7.0"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -65,16 +65,15 @@ object Build extends sbt.Build with UniversalKeys {
 
       parallelExecution in Test := false,
 
-      //scalajsOutputDir     := (crossTarget in Compile).value / "classes" / "public" / "javascripts",
+      scalajsOutputDir := (crossTarget in Compile).value / "classes" / "public" / "javascripts",
 
-      scalajsOutputDir     := baseDirectory.value / "public" / "javascripts" / "scalajs",
-
-      //scalajsOutputDir     := (crossTarget in Compile).value / "classes" / "public" / "javascripts",
+      //scalajsOutputDir     := baseDirectory.value / "public" / "javascripts" / "scalajs",
 
       compile in Compile <<= (compile in Compile) dependsOn (fastOptJS in (frontend, Compile)),
 
-
       dist <<= dist dependsOn (fullOptJS in (frontend, Compile)),
+
+      stage <<= stage dependsOn (fullOptJS in (frontend, Compile)),
 
       //test in Test <<= (test in Test) dependsOn (test in (binding, Test)),
 

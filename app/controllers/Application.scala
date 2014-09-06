@@ -8,6 +8,9 @@ import play.api.mvc._
 
 object Application extends Controller {
 
-def scalajsFile(file: String) = Action {    Ok.sendFile(new File(s"scalajs/$file")) }
+  def bindingFile(file: String) = Action {    Ok.sendFile(new File(s"binding/$file")) }
+  def modelsFile(file: String) = Action {    Ok.sendFile(new File(s"models/$file")) }
+  def frontendFile(file: String) = Action {    Ok.sendFile(new File(s"frontend/$file")) }
+
 
 }

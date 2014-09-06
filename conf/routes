@@ -2,7 +2,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET           /                          controllers.Slides.slide(slide:String ?= "collection")
+GET           /                          controllers.Slides.slide(slide:String ?= "bind")
 GET           /test                      controllers.Test.html()
 GET           /test/tuple2               controllers.Test.tuple2()
 GET           /test/map                  controllers.Test.map()
@@ -14,8 +14,8 @@ GET           /papers/                   controllers.literature.Literature.repor
 POST          /papers/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
 POST          /papers/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
 
-POST          /models/explore             controllers.endpoints.MainEndpoint.exploreEndpoint()
-POST          /models/crud                controllers.endpoints.MainEndpoint.modelEndpoint()
+POST          /models/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
+POST          /models/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
 POST          /graph/endpoint            controllers.graph.GraphController.graphEndpoint()
 
 
@@ -48,9 +48,12 @@ GET           /assets/*file              controllers.Assets.at(path="/public", f
 GET           /public/*file              controllers.Assets.at(path="/public", file)
 GET           /files/*file               controllers.Assets.at(path="/public", file)
 
-# Serve scala files under the scalajs subproject to be used by sourcemaps.
+# Serve scala files under the scalajs subprojects to be used by sourcemaps.
 # This route and its controller method should be removed for production
-GET     /scalajs/*file              controllers.Application.scalajsFile(file)
+GET           /binding/*file             controllers.Application.bindingFile(file)
+GET           /models/*file              controllers.Application.modelsFile(file)
+GET           /frontend/*file            controllers.Application.frontendFile(file)
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET           /assets/*file              controllers.Assets.at(path="/public", file)
