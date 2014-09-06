@@ -76,7 +76,7 @@ In your sbt config you should add resolver and dependency
 ```scala
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 
-libraryDependencies += "org.denigma" %%% "binding" % "0.7.0"
+libraryDependencies += "org.denigma" %%% "binding" % "0.5.3"
 ```
 
 NOTE: at the moment library is published only for scalajs 0.5.x and scala 2.11.2
