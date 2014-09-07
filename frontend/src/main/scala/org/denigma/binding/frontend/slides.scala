@@ -1,16 +1,15 @@
 package org.denigma.binding.frontend
 
-import org.denigma.binding.extensions._
 import org.denigma.binding.binders.extractors.EventBinding
+import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.denigma.controls.editors.editors
 import org.denigma.controls.general.CodeMirrorView
-import org.denigma.controls.graph.GraphView
-import org.denigma.semantic.binding
-import org.denigma.semantic.binding.ModelCollection
-import org.denigma.semantic.controls._
+import org.denigma.graphs.GraphView
+import org.denigma.semantic.models._
+import org.denigma.semantic.rdf
+import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
-import org.scalajs.dom.{HTMLElement, MouseEvent, TextEvent}
+import org.scalajs.dom.{HTMLElement, MouseEvent}
 import org.scalax.semweb.rdf.vocabulary.WI
 import org.scalax.semweb.rdf.{IRI, StringLiteral}
 import org.scalax.semweb.shex.PropertyModel
@@ -286,12 +285,12 @@ class TestSuggestBinding(val elem:HTMLElement,val params:Map[String,Any] = Map.e
     this.subscribeUpdates()
     //dom.console.log("collection prefixes = " + prefixes.toString())
 
-    val p1 =binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("one")) )
-    val p2= binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("two")))
-    val p3 =binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("three")))
-    val p4 =binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("four")))
-    val p5 =binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("five")))
-    val p6 =binding.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("six")))
+    val p1 =ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("one")) )
+    val p2= rdf.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("two")))
+    val p3 =rdf.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("three")))
+    val p4 =rdf.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("four")))
+    val p5 =rdf.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("five")))
+    val p6 =rdf.ModelInside( PropertyModel(IRI("http://suggessions/one"),IRI(WI / "value")->StringLiteral("six")))
 
     this.items() = List(Var(p1),Var(p2),Var(p3),Var(p4),Var(p5),Var(p6))
 

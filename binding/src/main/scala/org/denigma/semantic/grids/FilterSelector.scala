@@ -1,18 +1,16 @@
-package org.denigma.semantic.selectors
+package org.denigma.semantic.grids
 
-import org.scalajs.dom.HTMLElement
-import org.scalax.semweb.rdf.IRI
-import rx._
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.Filters
 import org.denigma.binding.messages.Filters.ValueFilter
-import org.denigma.semantic.binding.ModelInside
+import org.denigma.semantic.rdf._
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.jquery._
-import org.scalax.semweb.rdf._
+import org.scalax.semweb.rdf.IRI
 import rx.Var
-import scalajs.js
+
+import scala.scalajs.js
 
 abstract class ModifierSelector[T](val el:HTMLElement, val key:IRI, val modifiers:Var[Map[IRI,T]], typeHandler:(String)=>Unit)  extends Selector{
 

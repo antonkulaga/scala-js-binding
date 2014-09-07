@@ -1,4 +1,4 @@
-package org.denigma.semantic.binding
+package org.denigma.semantic.rdf
 
 import org.scalax.semweb.rdf._
 import org.scalax.semweb.shex.PropertyModel

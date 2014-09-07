@@ -1,15 +1,12 @@
 package org.denigma.binding.frontend.papers
 
-import org.denigma.binding.extensions._
 import org.denigma.binding.binders.extractors.EventBinding
+import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binding.ModelInside
-import org.denigma.semantic.controls
-import org.denigma.semantic.controls.{SelectableModelView, AjaxModelCollection}
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.denigma.semantic.models.{AjaxModelCollection, SelectableModelView}
+import org.denigma.semantic.rdf.ModelInside
+import org.scalajs.dom.HTMLElement
 import rx._
-
-import scalatags.Text._
 
 /**
  * Tasks (about papers)
@@ -32,7 +29,7 @@ class TasksBinder(element:HTMLElement,params:Map[String,Any] = Map.empty[String,
   override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 }
 
-class Task(val elem:HTMLElement, val params:Map[String,Any]) extends controls.SelectableModelView{
+class Task(val elem:HTMLElement, val params:Map[String,Any]) extends SelectableModelView{
 
   override def name:String = "task"
 

@@ -1,19 +1,17 @@
 package org.denigma.binding.frontend.papers
 
-import org.denigma.binding.extensions._
 import org.denigma.binding.binders.extractors.EventBinding
-import org.denigma.binding.messages.{Sort, Filters}
-import org.denigma.semantic.controls
-import org.denigma.semantic.controls.{SelectableModelView, ExplorableCollection}
-import org.denigma.semantic.storages.AjaxModelStorage
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.denigma.binding.extensions._
+import org.denigma.binding.messages.{Filters, Sort}
+import org.denigma.semantic.grids.ExplorableCollection
+import org.denigma.semantic.models.SelectableModelView
+import org.scalajs.dom.HTMLElement
 import org.scalajs.jquery._
-import org.scalax.semweb.rdf.{Res, IRI}
+import org.scalax.semweb.rdf.IRI
 import rx.{Rx, Var}
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
-import scalatags.Text.Tag
 
 /**
  * Shows papers reports
@@ -65,7 +63,7 @@ class ReportsView(elem:HTMLElement, params:Map[String,Any]) extends ExplorableCo
 
 }
 
-class Report(val elem:HTMLElement,val params:Map[String,Any]) extends controls.SelectableModelView{
+class Report(val elem:HTMLElement,val params:Map[String,Any]) extends SelectableModelView{
 
   require(params.contains("shape"),"there is not shape")
 

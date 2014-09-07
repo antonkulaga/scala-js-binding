@@ -1,4 +1,4 @@
-package org.denigma.controls.sigma
+package org.scalajs.sigma
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.{JSExport, JSExportDescendentObjects, JSName}

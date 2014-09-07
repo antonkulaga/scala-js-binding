@@ -10,7 +10,8 @@ import scala.scalajs.js
 import scala.util.{Failure, Success}
 import org.denigma.binding.extensions._
 import org.scalajs.dom.extensions._
-import scalajs.concurrent.JSExecutionContext.Implicits.queue
+import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+
 
 
 class NavigationBinding(view:BindableView) extends BasicBinding{

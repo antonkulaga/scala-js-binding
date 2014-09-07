@@ -1,16 +1,16 @@
-package org.denigma.semantic.binding
+package org.denigma.semantic.models
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.views.{CollectionView, BindableView}
-import org.denigma.semantic.controls.PropertyModelView
+import org.denigma.binding.views.{BindableView, CollectionView}
+import org.denigma.semantic.models.binders.ModelView
+import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
+import org.scalajs.dom.HTMLElement
 import org.scalajs.dom.extensions._
-import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx.core.{Rx, Var}
 
 import scala.collection.immutable.{List, Map}
-import scalatags.Text._
 
 object ModelCollection
 {

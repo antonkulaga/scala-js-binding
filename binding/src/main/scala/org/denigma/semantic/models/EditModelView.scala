@@ -1,10 +1,11 @@
-package org.denigma.semantic.controls
+package org.denigma.semantic.models
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.BindableView
 import org.denigma.controls.editors.editors
-import org.denigma.semantic.binding.{ModelBinder, ModelInside, ModelView}
+import org.denigma.semantic.models.binders.{ModelView, ModelBinder}
+import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
 import org.scalax.semweb.rdf.IRI

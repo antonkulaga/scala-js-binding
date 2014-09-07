@@ -1,9 +1,10 @@
-package org.denigma.semantic.selectors
+package org.denigma.semantic.rdf
 
+import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
+import org.scalajs.selectize._
 import org.scalax.semweb.rdf._
-import org.denigma.binding.extensions._
 
 import scala.scalajs.js
 
@@ -69,40 +70,4 @@ trait Selector {
 
 
   }
-}
-
-//case class Selectable(el:HTMLElement,ss:Selectize, uri:IRI)
-//{
-//  var options =
-//}
-
-trait Selectize extends js.Object {
-
-  def addOption(option:js.Any):js.Any = ???
-
-  def updateOption(value:js.Any,data:js.Any):js.Any = ???
-
-  def clearOptions():Unit = ???
-
-  def addItem(value:Any):Unit = ???
-
-  def removeItem(value:Any):Unit = ???
-
-  //def createItem(value:js.Any):Unit = ???
-
-  def refreshItems():Unit = ???
-
-  def clear():Unit = ???
-
-  //var options:js.Dictionary[js.Dictionary[js.Object]] = ???
-
-  var options:js.Dictionary[js.Object] = ???
-
-
-  var items:js.Array[String] = ???
-
-  //  var settings_element:js.Any = ???
-
-
-
 }

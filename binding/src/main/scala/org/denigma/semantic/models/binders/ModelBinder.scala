@@ -1,8 +1,8 @@
-package org.denigma.semantic.binding
+package org.denigma.semantic.models.binders
 
-import org.denigma.binding.binders.BasicBinding
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.{BindableView, OrganizedView}
+import org.denigma.binding.views.BindableView
+import org.denigma.semantic.rdf.{ModelInside, RDFBinder}
 import org.scalajs.dom
 import org.scalajs.dom.extensions._
 import org.scalajs.dom.{Event, HTMLElement}
@@ -10,6 +10,7 @@ import org.scalax.semweb.rdf._
 import org.scalax.semweb.shex.PropertyModel
 import rx._
 import rx.core.Var
+import org.denigma.binding.extensions._
 
 import scala.collection.immutable.Map
 import scala.scalajs.js.Any

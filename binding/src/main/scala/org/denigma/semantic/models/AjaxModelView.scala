@@ -1,8 +1,8 @@
-package org.denigma.semantic.controls
+package org.denigma.semantic.models
 
-import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
+import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binding.{ModelBinder, ModelView}
+import org.denigma.semantic.models.binders.{ModelView, ModelBinder}
 import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom
 import org.scalax.semweb.rdf.Res

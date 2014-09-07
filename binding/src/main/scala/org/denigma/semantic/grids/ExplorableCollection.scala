@@ -1,12 +1,13 @@
-package org.denigma.semantic.controls
+package org.denigma.semantic.grids
 
-import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
+import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.ExploreMessages.{Explore, ExploreSuggestion}
 import org.denigma.binding.messages.{ExploreMessages, Filters, Sort}
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binding.{ModelBinder, RDFBinder}
-import org.denigma.semantic.selectors.FilterSelector
+import org.denigma.semantic.grids.FilterSelector
+import org.denigma.semantic.models.AjaxModelCollection
+import org.denigma.semantic.rdf.RDFBinder
 import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, KeyboardEvent}
 import org.scalax.semweb.rdf._

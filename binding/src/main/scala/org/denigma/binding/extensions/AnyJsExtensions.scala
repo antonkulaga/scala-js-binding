@@ -13,7 +13,7 @@ trait AnyJsExtensions {
    * Implicit class that adds some useful methods for any ScalaJS object
    * @param obj
    */
-  implicit class AnyJs(obj: scalajs.js.Any) {
+  implicit class AnyJs(obj: js.Any) {
 
     //def ===(other:Any): Boolean = if(other==null) obj==null || obj.isInstanceOf[Undefined] || obj=="" else obj==other
 
@@ -50,11 +50,13 @@ trait AnyJsExtensions {
     def \(key: String): Option[js.Dynamic] = opt.flatMap(_ \ key)
   }
 
+  /*
   implicit class AnyObj(obj: scalajs.js.Object) {
 
     def updateIfExist(key: String, value: String) = if (obj.hasOwnProperty(key) && obj.dyn.selectDynamic(key).toString != value)
       obj.dyn.updateDynamic(key)(value)
   }
+  */
 
 
 

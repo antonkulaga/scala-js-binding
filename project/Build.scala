@@ -21,7 +21,9 @@ object Build extends sbt.Build with UniversalKeys {
 
   val sharedSrcDir = "scala"
 
-  val semWebVersion =  "0.6.8"
+  val semWebVersion =  "0.6.9"
+
+  val macwireVersion = "0.7.1"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -101,7 +103,7 @@ object Build extends sbt.Build with UniversalKeys {
 
     organization := "org.denigma",
 
-    version := "0.5.3",
+    version := "0.5.4",
 
     scalaVersion := "2.11.2",
 

@@ -1,10 +1,9 @@
-package org.denigma.semantic.binding
+package org.denigma.semantic.rdf
 
 import org.denigma.binding.binders.BasicBinding
-import org.denigma.binding.views.{BindableView, OrganizedView}
+import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
-import org.scalajs.dom.extensions._
 import org.scalax.semweb.rdf._
 
 import scala.collection.immutable.Map
@@ -56,6 +55,11 @@ class RDFBinder(view:BindableView) extends BasicBinding
   protected def forBinding(str:String) = str.contains("data") && str.contains("bind")
 
 
+  /**
+   * Returns partial function that extracts vocabulary data (like prefixes) from html
+   * @param value
+   * @return
+   */
   protected def vocabPartial(value: String): PartialFunction[String, Unit] ={
 
     case "vocab" if value.contains(":") => this.prefixes = prefixes + (":"-> IRI(value))
@@ -66,7 +70,7 @@ class RDFBinder(view:BindableView) extends BasicBinding
 
 
   /**
-   * Binds vocabs and previxes
+   * Binds vocabs and prefixes
    * @param el html element to bind to
    * @param key Key
    * @param value Value

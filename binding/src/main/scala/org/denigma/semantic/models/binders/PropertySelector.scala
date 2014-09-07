@@ -1,20 +1,22 @@
-package org.denigma.semantic.selectors
+package org.denigma.semantic.models.binders
 
 import org.denigma.binding.extensions._
-import org.denigma.binding.messages.Filters
-import org.denigma.binding.messages.Filters.ValueFilter
-import org.denigma.semantic.binding.ModelInside
-import org.scalajs.dom
+import org.denigma.semantic.rdf.{Selector, ModelInside}
 import org.scalajs.dom.HTMLElement
 import org.scalajs.jquery._
 import org.scalax.semweb.rdf._
 import rx.Var
+import org.denigma.binding.extensions._
 
 import scala.scalajs.js
 
-
-
-
+/**
+ * Selects property from the model
+ * @param el
+ * @param key
+ * @param modelInside
+ * @param typeHandler
+ */
 class PropertySelector(val el:HTMLElement,val key:IRI,val modelInside:Var[ModelInside], typeHandler:(String)=>Unit) extends Selector
 {
 

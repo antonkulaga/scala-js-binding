@@ -1,27 +1,17 @@
-package org.denigma.controls.graph
+package org.denigma.graphs
 
-
-import org.denigma.binding.messages.{GraphMessages, ModelMessages}
-import org.denigma.binding.messages.ModelMessages.Suggestion
+import org.denigma.binding.extensions._
+import org.denigma.binding.messages.GraphMessages
 import org.denigma.binding.picklers.rp
 import org.denigma.binding.views.BindableView
-import org.denigma.controls.sigma.{SigmaGraphInit, SigmaEdge, SigmaNode, Sigma}
 import org.denigma.semantic.storages.Storage
-import org.scalajs.dom
-import org.scalajs.dom.MouseEvent
-import org.scalajs.spickling.PicklerRegistry
-import org.scalax.semweb.rdf.{Quad, Res, IRI}
-import org.scalax.semweb.shex.PropertyModel
-import org.scalax.semweb.sparql.Pat
-import rx.Rx
 import org.scalajs.dom.HTMLElement
-import rx.Var
+import org.scalajs.sigma.{SigmaEdge, SigmaNode}
+import org.scalajs.spickling.PicklerRegistry
+import org.scalax.semweb.rdf.{IRI, Quad, Res}
+import org.scalax.semweb.sparql.Pat
+
 import scala.concurrent.Future
-import scala.scalajs.js
-import scala.util.{Success, Failure}
-import scalatags.Text.Tag
-import scalajs.concurrent.JSExecutionContext.Implicits.queue
-import org.denigma.binding.extensions._
 
 trait GraphView extends BindableView
 {

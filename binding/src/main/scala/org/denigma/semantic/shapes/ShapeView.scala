@@ -1,12 +1,14 @@
 package org.denigma.semantic.shapes
 
+import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.views.{Injector, CollectionView, IView, BindableView}
-import org.denigma.semantic.binding.{RDFBinder, ChangeSlot}
+import org.denigma.semantic.rdf.{ShapeInside, ChangeSlot}
 import org.scalajs.dom
 import org.scalajs.dom.{MouseEvent, HTMLElement}
-import org.scalax.semweb.shex.{ArcRule, Shape}
+import org.scalax.semweb.rdf.{BlankNode, Res, IRI}
+import org.scalax.semweb.shex._
 import rx.Rx
 import rx.core.Var
 import rx.ops._
@@ -16,72 +18,54 @@ import org.scalajs.dom.extensions._
 
 import scala.Predef
 import scala.collection.immutable.Map
+import scala.util.{Success, Failure}
 import scalatags.Text.Tag
 
 
-object ShapeInside {
-
-  def apply(initial:Shape):ShapeInside = ShapeInside(initial,initial)
-
-}
-
-case class ShapeInside(initial:Shape,current:Shape,wantsToDie:Boolean = false) extends ChangeSlot
+object ShapeView
 {
-  override type Value = Shape
-
-  def updateArc(arc:ArcRule) = {
-    current.arcRules()
-  }
+  def defaultBinders(view:ShapeView) = new GeneralBinder(view)::new NavigationBinding(view)::Nil
 }
 
-
-object ArcView {
-
-  def apply(el:HTMLElement,params:Map[String,Any]) = {
-    new JustArcView(el,params)
-  }
-
-
-  class JustArcView(val elem:HTMLElement, val params:Map[String,Any]) extends ArcView {
-
-    override def activateMacro(): Unit = {extractors.foreach(_.extractEverything(this))}
-
-    override protected def attachBinders(): Unit = BindableView.defaultBinders(this)
-
-  }
-
-}
-
-trait ArcView extends BindableView
-{
-
-  val arc = Var(params("item").asInstanceOf[ArcRule])
-
- require(params.contains("item"), "ArcView should contain arc item inside")
-
-
-
-}
 
 trait ShapeView extends BindableView with CollectionView
 {
 
-
-  protected def getShape:Shape = {
-    require(params.contains("shape"),"ShapeView must contain shape in params")
-    this.params("shape").asInstanceOf[Shape]
+  lazy val initialShape = {
+    //require(params.contains("shape"),"ShapeView must contain shape in params")
+    this.params.get("shape").map{
+      case sh:Shape=> sh
+      case id:Res=> Shape(id,AndRule.empty)
+      case _ =>
+        debug("something else was found")
+        Shape.empty
+    }.getOrElse{
+      debug("no shape or shape resource in params")
+      Shape.empty
+    }
   }
 
-  lazy val shapeInside: Var[ShapeInside] = Var(ShapeInside(this.getShape))
+  val resource = Var(initialShape.id.asResource)
 
 
-  override type Item = ArcRule
+  val shapeInside = Var(ShapeInside(initialShape))
+
+
+
+  override type Item = Var[ArcRule]
   override type ItemView = ArcView
 
+  val removeClick = EventBinding.createMouseEvent()
 
+
+  val rules: Var[List[Var[ArcRule]]] = Var(List.empty[Var[ArcRule]])
+
+
+  override val items: Rx[List[Var[ArcRule]]] = Rx{rules().sortBy(r=>r().priority)}
 
   override def newItem(item:Item):ItemView =
   {
+
     //dom.console.log(template.outerHTML.toString)
     val el = template.cloneNode(true).asInstanceOf[HTMLElement]
 
@@ -103,11 +87,30 @@ trait ShapeView extends BindableView with CollectionView
 
   }
 
-  val removeClick = EventBinding.createMouseEvent()
+
+  protected def updateShape(shape:Shape) = {
+    resource() = shape.id.asResource
+    this.rules() = shape.arcSorted() map (Var(_))
+  }
+
+  def save() = {
+    val sh = shapeInside.now
+    shapeInside() = sh.copy(initial=sh.current)
+  }
 
 
-  val items: Rx[List[ArcRule]] = this.shapeInside.map(shi=>shi.current.arcSorted())
+  val currentShape = Rx{
+    val label = resource() match {
+      case iri:IRI=>IRILabel(iri)
+      case node:BlankNode=>BNodeLabel(node)
+    }
+    Shape(label,new AndRule(items().map(its=>its.now).toSet,label) )
+  }
 
+  currentShape.handler{
+    //TODO rewrite in a safer way
+    if(shapeInside.now.current!=currentShape.now) shapeInside() = shapeInside.now.copy(current =currentShape.now)
+  }
 
 }
 

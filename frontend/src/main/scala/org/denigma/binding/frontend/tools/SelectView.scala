@@ -1,18 +1,15 @@
 package org.denigma.binding.frontend.tools
 
-import org.denigma.binding.views.BindableView
-import org.denigma.controls.general.CodeMirrorInsideView
-import org.denigma.semantic.selectors.Selectize
-import org.scalajs.dom
-import org.scalajs.dom.{MouseEvent, HTMLElement}
-import org.scalax.semweb.rdf.IRI
-import rx._
 import org.denigma.binding.extensions._
+import org.denigma.binding.views.BindableView
+import org.scalajs.dom
+import org.scalajs.dom.HTMLElement
+import org.scalajs.jquery.jQuery
+import org.scalajs.selectize.Selectize
+import org.scalax.semweb.rdf.IRI
 
 import scala.scalajs.js
-import scalatags.Text._
-import org.scalajs.jquery.jQuery
-import scala.scalajs.js.{GlobalScope => g, JSON}
+import scala.scalajs.js.{GlobalScope => g}
 
 
 class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView {

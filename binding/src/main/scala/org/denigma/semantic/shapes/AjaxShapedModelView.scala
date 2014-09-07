@@ -1,8 +1,8 @@
 package org.denigma.semantic.shapes
 
 import org.denigma.binding.views.CollectionView
-import org.denigma.semantic.binding.ModelInside
-import org.denigma.semantic.controls.{AjaxModelCollection, SelectableModelView}
+import org.denigma.semantic.models.SelectableModelView
+import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
 import org.scalajs.dom.extensions._
 import org.scalajs.dom.{HTMLElement, MouseEvent}

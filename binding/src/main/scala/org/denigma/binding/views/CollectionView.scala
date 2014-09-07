@@ -10,6 +10,16 @@ import rx.extensions.Moved
 import scala.collection.immutable._
 
 
+trait CrudEvents {
+
+  type Id
+  type Element
+
+  case class Remove(value:List[Id])
+  case class Update(value:List[Element])
+  case class Select(ids:List[Id])
+}
+
 trait CollectionView extends BindableView{
 
   type Item

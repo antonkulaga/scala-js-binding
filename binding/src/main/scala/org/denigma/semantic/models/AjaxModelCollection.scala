@@ -1,9 +1,9 @@
-package org.denigma.semantic.controls
+package org.denigma.semantic.models
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.{ExploreMessages, Filters}
-import org.denigma.semantic.binding.{ModelView, ModelCollection, ModelInside}
-import org.denigma.semantic.controls.AjaxModelView
+import org.denigma.semantic.models.binders.ModelView
+import org.denigma.semantic.rdf.ModelInside
 import org.denigma.semantic.storages.{AjaxExploreStorage, AjaxModelStorage}
 import org.scalajs.dom
 import org.scalajs.dom._
@@ -17,8 +17,6 @@ import scala.collection.immutable._
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
-import scalatags.Text._
-import org.scalax.semweb.rdf.vocabulary
 object AjaxModelCollection
 {
   type ItemView =  ModelView
