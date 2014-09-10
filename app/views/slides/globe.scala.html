@@ -1,0 +1,25 @@
+@(title:String)(implicit request: UserRequestHeader)
+<article id="main_article" data-view="GlobeSlide"  class="ui blue piled segment" data-param-path="/graph/endpoint"
+data-param-resource="http://webintelligence.eu/resource/node_1" >
+
+    <script type="text/javascript" src="@routes.Assets.at("globe/third-party/Tween.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.at("globe/globe.js")"></script>
+
+    <link rel="stylesheet" href='@routes.Assets.at("globe/globe.css")' type="text/css">
+
+
+        <div id="container"></div>
+
+
+        <div id="currentInfo">
+            <span id="year1990" class="year">1990</span>
+            <span id="year1995" class="year">1995</span>
+            <span id="year2000" class="year">2000</span>
+        </div>
+
+        <div id="title">
+            World Population
+        </div>
+
+
+</article>

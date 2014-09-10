@@ -11,8 +11,8 @@ import scala.scalajs.js
 
 trait Selector {
 
-  val key:IRI
-  val el:HTMLElement
+  def key:IRI
+  def el:HTMLElement
 
   val sel: js.Dynamic
 
@@ -30,6 +30,7 @@ trait Selector {
     case s => StringLiteral(s)
 
   }
+
 
   protected def makeOption(v:RDFValue): js.Dynamic =  js.Dynamic.literal( id = v.stringValue, title = v.label)
 
@@ -57,7 +58,7 @@ trait Selector {
     }
 
 
-  def updateOptions(opts:List[RDFValue]) = {
+  def updateOptions(opts:List[RDFValue]): Unit = {
 
     val ss = selectizeFrom(el)
     for {

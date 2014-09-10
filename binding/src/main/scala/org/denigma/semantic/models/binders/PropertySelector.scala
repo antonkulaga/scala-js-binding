@@ -14,15 +14,15 @@ import scala.scalajs.js
  * Selects property from the model
  * @param el
  * @param key
- * @param modelInside
+ * @param model
  * @param typeHandler
  */
-class PropertySelector(val el:HTMLElement,val key:IRI,val modelInside:Var[ModelInside], typeHandler:(String)=>Unit) extends Selector
+class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside], typeHandler:(String)=>Unit) extends Selector
 {
 
   val sel: js.Dynamic = jQuery(el).dyn.selectize(selectParams(el))
 
-  override protected def selectParams(el: HTMLElement):js.Dynamic = {
+  protected def selectParams(el: HTMLElement):js.Dynamic = {
     js.Dynamic.literal(
       delimiter = "|",
       persist = false,
@@ -37,7 +37,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val modelInside:Var[ModelI
   }
 
   def makeOptions():js.Array[js.Dynamic] =
-    this.modelInside.now.current.properties.get(key) match {
+    this.model.now.current.properties.get(key) match {
       case Some(iris)=>
         val o: List[js.Dynamic] = iris.map(i=> makeOption(i)).toList
         js.Array( o:_* )
@@ -47,15 +47,15 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val modelInside:Var[ModelI
 
   protected def itemAddHandler(value:String, item:js.Any): Unit = {
     //dom.console.log("added = "+value)
-    val mod = modelInside.now
+    val mod = model.now
     mod.current.properties.get(key) match {
-      case None=> modelInside() = mod.add(key,parseRDF(value))
-      case Some(ps) => if(!ps.exists(p=>p.stringValue==value)) modelInside() = mod.add(key,parseRDF(value))
+      case None=> model() = mod.add(key,parseRDF(value))
+      case Some(ps) => if(!ps.exists(p=>p.stringValue==value)) model() = mod.add(key,parseRDF(value))
     }
   }
 
   protected def itemRemoveHandler(value:String): Unit = {
-    val mod =  modelInside.now
+    val mod =  model.now
     val remove: Option[Set[RDFValue]] =mod.current.properties.get(key).map{ps=>  ps.collect{case p if p.stringValue==value=>p}    }
     if(remove.nonEmpty) {
       val n = this.parseRDF(value)
@@ -63,7 +63,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val modelInside:Var[ModelI
       val md = mod.delete(key,n)
       val s2 = md.current.properties(key).size
       //dom.console.log(s"s1 = $s1 | s2 = $s2")
-      modelInside() = md
+      model() = md
     }
   }
 

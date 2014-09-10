@@ -3,7 +3,7 @@ package org.denigma.semantic.models
 import org.denigma.binding.extensions._
 import org.denigma.binding.picklers.rp
 import org.denigma.binding.views.{BindableView, CollectionView}
-import org.denigma.semantic.models.binders.ModelView
+import org.denigma.semantic.models.ModelView
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement

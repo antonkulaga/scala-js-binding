@@ -17,18 +17,11 @@ import scala.scalajs.js.Any
 
 
 
-trait ModelView extends BindableView{
 
-  var createIfNotExists:Boolean = true
 
-  val modelInside =  Var(ModelInside( PropertyModel.empty))
 
-  lazy val dirty = Rx{this.modelInside().isDirty}
 
-  def die() = this.modelInside() = this.modelInside.now.apoptosis
- }
-
-class ModelBinder(view:BindableView,modelInside:Var[ModelInside]) extends RDFBinder(view)
+class ModelBinder(view:BindableView,modelInside:Var[ModelInside]) extends RDFBinder(view) with PropertyPrinter
 {
 
   /**
@@ -60,35 +53,6 @@ class ModelBinder(view:BindableView,modelInside:Var[ModelInside]) extends RDFBin
   }
 
 
-  def prettyString(value:RDFValue) = value match {
-    case lit:Lit=>
-      lit.label
-    case other=>other.stringValue
-  }
-
-  /**
-   * Defines what to do with many rdf values
-   */
-  val onMany:Set[RDFValue]=>String = (values)=>{
-    values.foldLeft("") { case (acc, prop) => acc + this.prettyString(prop) + "; "}
-  }
-
-  /**
-   * Set of values to string
-   * @param values
-   * @return
-   */
-  def vals2String(values: Set[RDFValue],onZero:String="",onOne:RDFValue=>String = this.prettyString _, onMany:Set[RDFValue]=>String = this.onMany): String = values.size match {
-    case 0 => onZero
-    case 1 => onOne(values.head)
-    case _ => this.onMany(values)
-  }
-
-  protected def printProp(prop:Set[RDFValue],delimiter:String="; ") = {
-    prop.foldLeft("") { case (acc, prop) => acc + prop.label + delimiter}
-  }
-
-  protected val manyNames: Set[RDFValue]=>String = (values)=> printProp(values)
 
   protected def bindRdfName(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) {
     (el, model) =>

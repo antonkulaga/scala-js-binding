@@ -9,6 +9,7 @@ import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf._
+import org.scalax.semweb.shex.{ValueSet, ArcRule, Shape}
 import rx.Var
 
 import scala.collection.immutable.Map
@@ -28,16 +29,48 @@ object SelectableModelView {
  */
 trait SelectableModelView extends EditModelView with AjaxModelView  {
 
-  lazy val shapeRes = params.get("shape").map{case sh=>sh.asInstanceOf[Res]}.get
+  var shape:Option[Shape] = None
+
+  lazy val shapeRes = params.get("shape").map{
+    case sh:Res=>sh
+
+    case shex:Shape=>
+      shape = Some(shex)
+      shex.id.asResource
+
+  }.get
 
   override def storage: AjaxModelStorage =  params.get("storage").map{case sh=>sh.asInstanceOf[AjaxModelStorage]}.get
 
   def resource = this.modelInside.now.current.id
 
 
-  def suggest(key:IRI,str:String): Future[Suggestion] = {
+  def suggest(key:IRI,str:String): Future[List[RDFValue]] = {
 
-    storage.suggest(this.shapeRes,this.modelInside.now.current.id,key,str)
+    def send: () => Future[List[RDFValue]] = ()=>storage.suggest(this.shapeRes,this.modelInside.now.current.id,key,str).map(r=>r.options)
+
+    shape match {
+      case Some(sh)=>
+        //TODO: add changes to shape to make validation easier
+        sh.arcRules().find(r=>r.name.matches(key)) match {
+          case Some(arc:ArcRule)=>
+            //TODO: add validation
+            arc.value match {
+              case ValueSet(values)=>
+                Future.successful(values.toList)
+
+              case _ =>send()
+            }
+          case None=>
+            //TODO: if there is not shape everything is ok
+            send()
+        }
+      case None=> send()
+    }
+
+
+
+
 
   }
 }

@@ -72,6 +72,4 @@ class Report(val elem:HTMLElement,val params:Map[String,Any]) extends Selectable
   def attachBinders() = binders = SelectableModelView.defaultBinders(this)
 
 
-
-
 }

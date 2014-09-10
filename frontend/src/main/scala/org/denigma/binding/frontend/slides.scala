@@ -141,62 +141,6 @@ class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empt
 }
 
 
-
-class GraphSlide(val elem:HTMLElement, val params:Map[String,Any]) extends GraphView
-{
-
-
-  lazy val path: String = this.params.get("path").map(_.toString).get
-
-  lazy val resource = this.params.get("resource").map(v=>IRI(v.toString)).get
-
-  //require(params.contains("path"))
-
-
-    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-
-
-
-
-  override def bindView(el:HTMLElement) = {
-    super.bindView(el)
-    this.draw()
-    //jQuery(el).slideUp()
-    //    super.bindView(el)
-    //    Sigma.utils.pkg("sigma.canvas.edges")
-    //    this.sigma =  new Sigma(initial)
-    //    this.storage.explore(this.resource).onComplete{
-    //      case Success(data) =>
-    //        this.loadData(data)
-    //      case Failure(th)=>
-    //        this.error(s"failure in read of model for $path: \n ${th.getMessage} ")
-    //    }
-
-  }
-
-
-  protected def draw() = {
-    js.eval (
-      """
-        |new Drawing.SimpleGraph({layout: '3d', numNodes: 10, showLabels:true, graphLayout:{attraction: 5, repulsion: 0.5}, showStats: true, showInfo: true})
-      """.stripMargin)
-
-  }
-
-
-  //  override protected def loadData(data:List[Quad]) = {
-  //    super.loadData(data)
-  //    sigma.startForceAtlas2()
-  //  }
-
-  override def container: HTMLElement = dom.document.getElementById("graph-container")
-  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
-}
-
-
-
-
-
 class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends AjaxLoadView with EditModelView
 {
 

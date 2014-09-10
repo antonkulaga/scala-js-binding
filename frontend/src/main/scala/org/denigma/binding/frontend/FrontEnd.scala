@@ -31,11 +31,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   override val params:Map[String,Any] = Map.empty
 
-  override def activateMacro(): Unit = {
-    extractors.foreach(_.extractEverything(this))
-  }
-
-
 
 
   val sidebarParams =  js.Dynamic.literal(exclusive = false)
@@ -69,8 +64,11 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("TestSelect",(el, params) =>Try(new SelectView(el,params)))
     .register("CollectionSlide",(el, params) =>Try(new CollectionSlide(el,params)))
     .register("SparqlSlide", (el,params)=>Try(new SparqlSlide(el,params)))
-    .register("GraphSlide", (el,params)=>Try(new GraphSlide(el,params)))
     .register("DatepairView",(el,params)=>Try(new DatePairView(el,params)))
+
+    .register("GraphSlide", (el,params)=>Try(new GraphSlide(el,params)))
+    .register("GlobeSlide", (el,params)=>Try(new GlobeSlide(el,params)))
+
 
 
 
@@ -110,7 +108,11 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
   }
 
 
-def attachBinders() = {this.binders = BindableView.defaultBinders(this)}
+  override def activateMacro(): Unit = {
+    extractors.foreach(_.extractEverything(this))
+  }
+
+  def attachBinders() = {this.binders = BindableView.defaultBinders(this)}
 
 
   val toggle: Var[MouseEvent] = Var(EventBinding.createMouseEvent())

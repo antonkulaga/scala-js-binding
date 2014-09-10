@@ -1,12 +1,24 @@
 package org.denigma.semantic.shapes
 
+import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
+import org.denigma.semantic.models.binders.GeneralSelectBinder
 import org.denigma.semantic.rdf.RDFBinder
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.shex._
-import rx.core.Var
+import org.denigma.binding.extensions._
+import org.denigma.semantic.rdf.{Selector, ModelInside}
+import org.scalajs.dom.HTMLElement
+import org.scalajs.jquery._
+import org.scalax.semweb.rdf._
+import rx.Var
+import org.denigma.binding.extensions._
 
+import scala.scalajs.js
 import scala.collection.immutable.Map
+import scala.scalajs.js.Dynamic
+import org.scalax.semweb.shex.rs
+import rx.ops._
 
 
 object ArcView {
@@ -25,6 +37,24 @@ object ArcView {
   }
 
 }
+//
+//class OccursSelector(val el:HTMLElement,arc:Var[ArcRule]) extends Selector {
+//
+//
+//  val occurs = arc.map(a=>a.occurs)
+//
+//  override val key: IRI = rs / "occurs"
+//
+//  override protected def selectParams(el: HTMLElement): Dynamic = ???
+//
+//  override protected def itemRemoveHandler(value: String): Unit = {
+//    //arc() = arc.now.copy(occurs = )
+//  }
+//
+//  override protected def itemAddHandler(value: String, item: js.Any): Unit = ???
+//
+//
+//}
 
 
 trait ArcView extends BindableView
@@ -36,29 +66,3 @@ trait ArcView extends BindableView
 
 }
 
-class ArcBinder(view:ArcView, arc:Var[ArcRule]) extends RDFBinder(view) {
-
-  override protected def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] =
-    this.vocabPartial(value).orElse(this.arcPartial(value))
-
-  protected def arcPartial(value:String): PartialFunction[String,Unit] ={
-//    case class ArcRule(
-//                        id: Label =Rule.genRuleLabel(),
-//                        name: NameClass,
-//                        value: ValueClass,
-//                        occurs: Cardinality,
-//                        actions: Seq[Action] = List.empty,
-//                        priority:Option[Int] = None, //the smaller the more important
-//                        title:Option[String] = None
-//                        ) extends Rule
-
-
-    case "data-id"=>
-
-
-    case _ =>
-
-  }
-
-
-}
