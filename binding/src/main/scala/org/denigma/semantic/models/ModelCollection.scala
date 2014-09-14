@@ -27,7 +27,7 @@ object ModelCollection
   class JustModel(override val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends PropertyModelView{
 
 
-    override val modelInside = slot
+    override val model = slot
 
     override def activateMacro(): Unit = {this.extractors.foreach(_.extractEverything(this))}
 

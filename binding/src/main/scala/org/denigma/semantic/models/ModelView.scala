@@ -2,20 +2,32 @@ package org.denigma.semantic.models
 
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.rdf.ModelInside
-import org.scalax.semweb.shex.PropertyModel
+import org.scalax.semweb.shex.{Model, PropertyModel}
 import rx._
 import rx.core.Var
 
+
 /**
- * Created by antonkulaga on 9/10/14.
+ * Trait that contains info about model
  */
 trait ModelView extends BindableView{
 
   var createIfNotExists:Boolean = true
 
-  val modelInside =  Var(ModelInside( PropertyModel.empty))
+  private lazy val initial = params.get("model") match {
+    case Some(mod:PropertyModel)=> ModelInside( mod )
+    case Some(mis:ModelInside)=> mis
+    case None => ModelInside(PropertyModel.empty)
+  }
 
-  lazy val dirty = Rx{this.modelInside().isDirty}
+  val model: Var[ModelInside] = params.get("model") match {
+    case Some(mv:Var[ModelInside])=>mv
+    case Some(mod:PropertyModel)=> Var(ModelInside( mod ))
+    case Some(mis:ModelInside)=> Var(mis)
+    case None => Var(ModelInside(PropertyModel.empty))
+  }
 
-  def die() = this.modelInside() = this.modelInside.now.apoptosis
+  lazy val dirty = Rx{this.model().isDirty}
+
+  def die() = this.model() = this.model.now.apoptosis
  }

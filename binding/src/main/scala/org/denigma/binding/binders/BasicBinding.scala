@@ -61,6 +61,14 @@ abstract class BasicBinding extends ILogged
   }
 
 
+  def bindVar[T](key:String,el:HTMLElement ,v:Var[T])(assign:(HTMLElement,Var[T])=>Unit): Unit  = {
+
+    val eid = this.makeId(el, key) //assigns id
+    lazy val obs: Obs = Obs(v, eid, skipInitial = false) {  assign(el,v)  }
+    val o = obs //TO MAKE LAZY STUFF WORK
+  }
+
+
   /**
    * Binds value to reactive property
    * @param key key to witch to bind to

@@ -4,6 +4,7 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.messages.Filters
 import org.denigma.binding.messages.Filters.ValueFilter
 import org.denigma.semantic.rdf._
+import org.denigma.semantic.binders.selectors.Selector
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.jquery._

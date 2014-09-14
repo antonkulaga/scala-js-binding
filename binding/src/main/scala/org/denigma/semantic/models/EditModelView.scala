@@ -4,7 +4,7 @@ import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.BindableView
 import org.denigma.controls.editors.editors
-import org.denigma.semantic.models.binders.ModelBinder
+import org.denigma.semantic.binders.ModelBinder
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
@@ -18,7 +18,7 @@ import scalatags.Text.{attrs => a, styles => s}
 
 object EditModelView {
 
-  implicit def defaultBinders(view:EditModelView) =   new EditModelBinder(view,view.modelInside,view.editMode)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
+  implicit def defaultBinders(view:EditModelView) =   new EditModelBinder(view,view.model,view.editMode)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
 }
 
 trait EditModelView extends ModelView with BindableView
@@ -33,7 +33,7 @@ trait EditModelView extends ModelView with BindableView
     lineNumbers = true
   )
 
-  override val modelInside: Var[ModelInside] = this.params.get("model").map(m=>m.asInstanceOf[Var[ModelInside]]).getOrElse(Var(ModelInside.empty))
+  //override val model: Var[ModelInside] = this.params.get("model").map(m=>m.asInstanceOf[Var[ModelInside]]).getOrElse(Var(ModelInside.empty))
 
   val editMode = Var(false)
 

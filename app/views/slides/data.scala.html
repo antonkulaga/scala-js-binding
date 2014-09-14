@@ -20,10 +20,10 @@
                             <th>Save</th>
                             <th>Remove</th>
                         </tr>
-                        <tr data-template="true" id="template" item-view="ShapeProperty" vocab="http://open-services.net/ns/core#">
-                            <td property="property" contenteditable="true">Property name</td>
-                            <td property="value" contenteditable="true">Property value</td>
-                            <td><input list="cardinality" property="cardinality">   </td>
+                        <tr data-template="true" id="template" data-item-view="ShapeProperty" vocab="http://open-services.net/ns/core#">
+                            <td><input data="name">   </td>
+                            <td><input data="value">   </td>
+                            <td><input data="occurs">   </td>
                             <td><i class="ui save icon"></i></td>
                             <td><i class="ui remove sign icon" data-event-click="removeClick"></i></td>
                         </tr>

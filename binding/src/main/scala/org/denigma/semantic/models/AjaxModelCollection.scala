@@ -32,13 +32,13 @@ object AjaxModelCollection
   class JustAjaxModel(override val name:String,val elem:HTMLElement, slot:Var[ModelInside],val storage:AjaxModelStorage, val shapeRes:Res) extends AjaxModelView{
 
 
-    override val modelInside = slot
+    override val model = slot
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
 
-    override def resource: Res = this.modelInside.now.current.id
+    override def resource: Res = this.model.now.current.id
 
     override def params: Map[String, Any] = Map.empty
 
@@ -86,8 +86,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
   val explorer:Rx[ExploreMessages.Explore] = Var(ExploreMessages.Explore(
     this.query, this.shapeRes, id= this.exploreStorage.genId(),channel = exploreStorage.channel
-  )
-  )
+  )  )
 
   /**
    * Loads data fro the server

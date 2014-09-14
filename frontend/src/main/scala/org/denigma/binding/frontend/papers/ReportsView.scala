@@ -18,7 +18,7 @@ import scala.scalajs.js
  */
 class ReportsView(elem:HTMLElement, params:Map[String,Any]) extends ExplorableCollection("ReportsView",elem:HTMLElement,params:Map[String,Any]){
 
-    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+ override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
   def attachBinders() = binders = ExplorableCollection.defaultBinders(this)
@@ -67,7 +67,7 @@ class Report(val elem:HTMLElement,val params:Map[String,Any]) extends Selectable
 
   require(params.contains("shape"),"there is not shape")
 
-    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
   def attachBinders() = binders = SelectableModelView.defaultBinders(this)
 

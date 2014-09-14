@@ -6,6 +6,8 @@ resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/release
 
 resolvers += "Typesafe Maven Repository" at "http://repo.typesafe.com/typesafe/maven-releases/"
 
+resolvers += "bintray-alexander_myltsev" at "http://dl.bintray.com/alexander-myltsev/maven/"
+
 libraryDependencies ++= Seq(
   //filters, 
   // WebJars pull in client-side web libraries
