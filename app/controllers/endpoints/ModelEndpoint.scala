@@ -2,7 +2,7 @@ package controllers.endpoints
 
 import java.util.Date
 import controllers.endpoints.Items
-import org.denigma.binding.messages.ModelMessages
+import org.denigma.binding.messages.Suggestion
 import org.denigma.binding.messages.ModelMessages._
 import org.denigma.binding.picklers.rp
 import org.denigma.binding.play.{AjaxModelEndpoint, AuthRequest, PickleController, UserAction}
@@ -101,7 +101,7 @@ trait ModelEndpoint extends AjaxModelEndpoint with PickleController with Items{
     } yield v
 
    // val mes = ModelMessages.Suggestion(t,List[RDFValue](IRI("http://one"),IRI("http://tries"),IRI("http://something")),suggestMessage.id,suggestMessage.channel,new Date())
-    val mes = ModelMessages.Suggestion(t,list,suggestMessage.id,suggestMessage.channel,new Date())
+    val mes = Suggestion(t,list,suggestMessage.id,suggestMessage.channel,new Date())
     val p = rp.pickle(mes)
     Logger.info(p.toString())
     Future.successful(Ok(p).as("application/json"))

@@ -13,6 +13,8 @@ GET           /papers/                   controllers.literature.Literature.repor
 
 POST          /papers/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
 POST          /papers/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
+POST          /papers/shapes             controllers.endpoints.MainEndpoint.shapeEndpoint()
+
 
 POST          /models/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
 POST          /models/crud               controllers.endpoints.MainEndpoint.modelEndpoint()

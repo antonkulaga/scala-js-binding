@@ -131,9 +131,6 @@ trait CollectionView extends BindableView{
       }
   }
 
-
-
-
   def newItem(mp:Item):ItemView
 
   var itemViews = Map.empty[Item,ItemView]

@@ -1,9 +1,10 @@
-package org.denigma.semantic.binders.selectors
+package org.denigma.semantic.binders.shaped.selectors
 
+import org.denigma.binding.extensions._
+import org.denigma.semantic.binders.selectors.Selector
 import org.scalajs.jquery._
 import org.scalax.semweb.shex.ArcRule
 import rx.core.Var
-import org.denigma.binding.extensions._
 
 import scala.scalajs.js
 
@@ -11,6 +12,8 @@ import scala.scalajs.js
 abstract class ArcSelector(val arc:Var[ArcRule]) extends Selector{
 
    def fillValues(arc:Var[ArcRule]):this.type
+
+   type Value
 
    type Element //which element is changed by selector
 
@@ -22,6 +25,6 @@ abstract class ArcSelector(val arc:Var[ArcRule]) extends Selector{
     */
    def valueIntoElement(value:String):Element //transform value into an element
 
-   def elementIntoValue(element:Element):String
+   def elementIntoValue(element:Element):Value
 
  }

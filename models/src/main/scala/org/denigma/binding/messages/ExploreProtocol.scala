@@ -2,65 +2,11 @@ package org.denigma.binding.messages
 
 import java.util.Date
 
-import org.denigma.binding.messages.ExploreMessages.ExploreMessage
 import org.scalax.semweb.messages.{Channeled, StorageMessage}
-import org.scalax.semweb.rdf.vocabulary.WI
 import org.scalax.semweb.rdf._
-import org.scalax.semweb.shex.{Shape, PropertyModel}
+import org.scalax.semweb.shex.{PropertyModel, Shape}
 
 import scala.util.matching.Regex
-
-/**
- * Contains model messages
- */
-object ModelMessages  extends ModelProtocol {
-
-  type ModelMessage = StorageMessage
-
-  case class Create(shapeId:Res,models:Set[PropertyModel],id:String, rewriteIfExists:Boolean = true,context:Res = IRI(WI.RESOURCE)  , channel:String = Channeled.default, time:Date = new Date()) extends  ModelMessage
-
-  //TODO check if empty contexts work right
-  case class Read(shapeId:Res,resources:Set[Res], id:String , contexts:List[Res] = List.empty, channel:String = Channeled.default,time:Date = new Date()) extends  ModelMessage
-
-  case class Update(shapeId:Res,models:Set[PropertyModel], id:String, createIfNotExists:Boolean = true, channel:String = Channeled.default, time:Date = new Date() ) extends  ModelMessage
-
-  case class Delete(shape:Res,res:Set[Res], id:String  , channel:String = Channeled.default, time:Date = new Date())  extends  ModelMessage
-
-
-  case class Suggest(shape:Res,modelRes:Res,prop:IRI,typed:String,id:String  , channel:String = Channeled.default, time:Date = new Date()) extends ModelMessage
-
-  case class Suggestion(term:String, options:List[RDFValue],  id:String  , channel:String = Channeled.default, time:Date = new Date()) extends ExploreMessage
-
-
-  type CreateMessage = Create
-  type ReadMessage = Read
-  type UpdateMessage = Update
-  type DeleteMessage = Delete
-
-
-}
-
-/**
- * Just come constrains to keep CRUD protocols in order
- */
-trait ModelProtocol {
-
-  type ModelMessage
-
-  type CreateMessage<:ModelMessage
-
-  type ReadMessage<:ModelMessage
-
-  type UpdateMessage<:ModelMessage
-
-  type DeleteMessage<:ModelMessage
-
-  type SuggestMessage<:ModelMessage
-
-  type SuggestResult<:ModelMessage
-
-}
-
 
 
 object ExploreMessages {
@@ -97,17 +43,17 @@ object ExploreMessages {
 case class Sort(field:IRI,desc:Boolean = true)
 {
   def sort(sorts:List[Sort] = Nil)(a:PropertyModel,b:PropertyModel):Int =  (a.properties.get(field),b.properties.get(field)) match {
-      case (Some(fa), Some(fb))=>(fa,fb) match {
-        case (fa:IRI,fb:IRI)=> fa.stringValue.compareTo(fb.stringValue)
-        case (fa:IRI,fb:BlankNode)=>1
-        case (fa:Res,fb:Lit)=>1
-        case (fa:BlankNode,fb:IRI)=> -1
-        case (fa:Lit,fb:Res)=> -1
-        case _=> if(sorts.isEmpty) 0 else sorts.head.sort(sorts.tail)(a,b)
-      }
-      case (None,Some(fb)) => 2
-      case (Some(fa), None)=>1
-      case (None,None)=>  if(sorts.isEmpty) 0 else sorts.head.sort(sorts.tail)(a,b)
+    case (Some(fa), Some(fb))=>(fa,fb) match {
+      case (fa:IRI,fb:IRI)=> fa.stringValue.compareTo(fb.stringValue)
+      case (fa:IRI,fb:BlankNode)=>1
+      case (fa:Res,fb:Lit)=>1
+      case (fa:BlankNode,fb:IRI)=> -1
+      case (fa:Lit,fb:Res)=> -1
+      case _=> if(sorts.isEmpty) 0 else sorts.head.sort(sorts.tail)(a,b)
+    }
+    case (None,Some(fb)) => 2
+    case (Some(fa), None)=>1
+    case (None,None)=>  if(sorts.isEmpty) 0 else sorts.head.sort(sorts.tail)(a,b)
   }
 
 }

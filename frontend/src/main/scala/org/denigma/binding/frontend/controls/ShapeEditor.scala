@@ -2,19 +2,38 @@ package org.denigma.binding.frontend.controls
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.BindableView
+import org.denigma.binding.messages.Suggestion
+import org.denigma.binding.picklers.rp
+import org.denigma.binding.views.{JustPromise, PromiseEvent, BindableView}
 import org.denigma.semantic.models.EditModelView
 import org.denigma.semantic.rdf.ModelInside
 import org.denigma.semantic.shapes.{ArcView, ShapeView}
+import org.denigma.semantic.storages.{ShapeStorage, AjaxModelStorage}
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.vocabulary.XSD
-import org.scalax.semweb.rdf.{IRI, vocabulary}
+import org.scalax.semweb.rdf.{RDFValue, IRI, vocabulary}
 import org.scalax.semweb.shex.{Shape, ShapeBuilder, Star}
 import rx.Var
+import scalajs.concurrent.JSExecutionContext.Implicits.queue
+
+import scala.concurrent.{Promise, Future}
+import scala.util.{Success, Failure}
+
 
 class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends   ShapeView
 {
+
+
+  implicit val registry = rp
+
+  //require(params.contains("path"),"ShapeEditor should have path view-param") //is for exploration by default
+
+  val path:String = this.resolveKey("path"){
+    case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
+  }
+
+  val storage = new ShapeStorage(path)
 
  override lazy val initialShape: Shape =     {
     val de = IRI("http://denigma.org/resource/")
@@ -32,7 +51,7 @@ class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends   Sh
 
   val addClick = Var(EventBinding.createMouseEvent())
 
-  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders = ShapeView.defaultBinders(this)
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
@@ -45,6 +64,23 @@ class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends   Sh
     super.bindView(el)
     this.subscribeUpdates()
     updateShape(this.initialShape)
+  }
+
+  override def receiveFuture:PartialFunction[PromiseEvent[_,_],Unit] = {
+
+    case JustPromise(ArcView.SuggestNameTerm(typed),origin,latest,bubble,promise:Promise[List[RDFValue]])=>
+      storage.suggestProperty(typed).onComplete{
+      case Success(res)=>
+        promise.success(res.options)
+      case Failure(th)=>
+        promise.failure(th)
+        error("suggession is broken"+th)
+    }
+
+    case ev=>
+      debug("propogation")
+      this.propagateFuture(ev)
+
   }
 
 }

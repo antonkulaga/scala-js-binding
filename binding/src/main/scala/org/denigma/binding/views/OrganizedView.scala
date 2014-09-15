@@ -7,25 +7,18 @@ import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 
 import scala.collection.immutable.Map
+import scala.concurrent.{Promise, Future}
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic.{global => g}
 
 import dom.extensions._
 
-trait BindingEvent
-{
-  val origin:BasicView
-  val latest:BasicView
-  val bubble:Boolean
-
-  def withCurrent(cur:BasicView):this.type
-}
 
 
 /**
  * An abstract hirercial view that provides methods to work with hirercy
  */
-abstract class OrganizedView extends BasicView //with GeneralBinding
+abstract class OrganizedView extends BasicView
 {
 
   type ParentView = OrganizedView
@@ -75,26 +68,7 @@ abstract class OrganizedView extends BasicView //with GeneralBinding
     case Some(par)=>par.nearestParentOf(func)
   }
 
-  /**
-   * Event subsystem
-   * @return
-   */
-  def receive:PartialFunction[BindingEvent,Unit] = {
-    case event:BindingEvent=> this.propagate(event)
-  }
-
   def hasParent = parent.isDefined
-
-  /**
-   * Fires an event
-   * @param event
-   * @param startWithMe
-   */
-  def fire(event:BindingEvent,startWithMe:Boolean = false) = if(startWithMe) this.receive(event) else  this.propagate(event)
-
-  protected def propagate(event:BindingEvent) = if(this.parent.isDefined) this.parent.get.receive(event.withCurrent(this))
-
-
 
 
   def collectFirstSubView[B](pf: PartialFunction[OrganizedView, B])(implicit where:Seq[ChildView] = this.subviews.values.toSeq):Option[B] =

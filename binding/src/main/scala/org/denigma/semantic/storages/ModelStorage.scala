@@ -2,7 +2,7 @@ package org.denigma.semantic.storages
 
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.messages.ModelMessages
-import org.denigma.binding.messages.ModelMessages.Suggestion
+import org.denigma.binding.messages.Suggestion
 import org.denigma.binding.picklers.rp
 import org.scalajs.dom
 import org.scalajs.dom._
@@ -48,7 +48,7 @@ class AjaxModelStorage(path:String)(implicit registry:PicklerRegistry = rp) exte
 
   override def suggest(shape:Res,modelRes:Res,prop:IRI,typed:String): Future[Suggestion] = {
     val data = ModelMessages.Suggest(shape,modelRes,prop:IRI, typed, this.genId(),channel = this.channel)
-    sq.post(channel,data):Future[ModelMessages.Suggestion]
+    sq.post(channel,data):Future[Suggestion]
   }
 }
 

@@ -43,7 +43,6 @@ trait BasicView extends BasicBinding with IView
   def name:String = this.getClass.getName.split('.').last
 
 
-  def params:Map[String,Any]
 
   require(elem!=null,s"html elemenet of view with $id must not be null!")
 
@@ -150,7 +149,7 @@ trait BasicView extends BasicBinding with IView
 
 
   /**
-   * Turns data-param attribue into real param
+   * Turns data-param attribute into real param
    * @param el
    * @return
    */
@@ -159,17 +158,7 @@ trait BasicView extends BasicBinding with IView
       case (key,value) if key.contains("data-param-")=>
         val k = key.replace("data-param-", "")
         val v = value.value
-        if(v.startsWith("parent."))
-        {
-          val pn = v.replace("parent.","")
-          this.params.get(pn) match {
-            case Some(p)=>
-              k->p.asInstanceOf[Any]
-            case None=>
-              dom.console.log(s"could not find data-param $pn for child")
-              k -> pn
-          }
-        } else k -> v.asInstanceOf[Any]
+        k -> v.asInstanceOf[Any]
 
 
     }.toMap

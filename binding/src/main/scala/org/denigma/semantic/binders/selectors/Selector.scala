@@ -35,7 +35,8 @@ trait Selector extends ILogged{
   }
 
 
-  protected def makeOption(v:RDFValue): js.Dynamic =  js.Dynamic.literal( id = v.stringValue, title = v.label)
+  protected def makeOption(v:RDFValue): js.Dynamic =  this.makeOption(v.stringValue,v.label)
+  protected def makeOption(vid:String,title:String): js.Dynamic =  js.Dynamic.literal( id = vid, title = title)
 
 
   protected def itemAddHandler(value:String, item:js.Any): Unit

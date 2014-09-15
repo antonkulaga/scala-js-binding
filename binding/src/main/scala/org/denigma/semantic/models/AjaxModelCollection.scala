@@ -50,25 +50,23 @@ object AjaxModelCollection
 abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement,val params:Map[String,Any])
   extends ModelCollection
 {
-  require(params.contains("path"),"AjaxModelCollectionView should have path view-param") //is for exploration by default
-  //require(params.contains("path"),"AjaxModelCollectionView should have path view-param")
 
-  require(params.contains("query"),"AjaxModelCollectionView should have query query-param")
-  require(params.contains("shape"),"AjaxModelCollectionView should have shape shape-param")
-
-  require(params.contains("crud"),"AjaxModelCollectionView should have crud view-param")
 
   override type ItemView = AjaxModelCollection.ItemView
 
-  val path:String = params.get("path").map(v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)).get
-  val crud:String = params.get("crud").map(v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)).get
+  val query = this.resolveKey("query"){case q=>IRI(q.toString)} //IRI(params("query").toString)
+  val shapeRes = this.resolveKey("shape"){ case k=>IRI(k.toString)}
+
+  val path:String = this.resolveKey("path"){
+    case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
+  }
+  val crud:String = this.resolveKey("crud"){
+      case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
+    }
 
 
-  val query = IRI(params("query").toString)
 
 
-
-  val shapeRes = IRI(params("shape").toString)
 
   lazy val emptyShape = new Shape(IRILabel(shapeRes), AndRule(Set.empty[Rule], IRILabel(WI.pl("empty")) ))
 

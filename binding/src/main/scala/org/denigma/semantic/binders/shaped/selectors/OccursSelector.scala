@@ -1,4 +1,4 @@
-package org.denigma.semantic.binders.selectors
+package org.denigma.semantic.binders.shaped.selectors
 
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
@@ -19,6 +19,8 @@ class OccursSelector(val el:HTMLElement,arc:Var[ArcRule]) extends ArcSelector(ar
   protected val values = List(Star.obj,Plus.obj,ExactlyOne.obj)
 
   type Element = Cardinality
+
+  type Value = String
 
   def valueIntoElement(value:String):Element =  value match {
     case ExactlyOne.obj.stringValue=>ExactlyOne
@@ -79,7 +81,7 @@ class OccursSelector(val el:HTMLElement,arc:Var[ArcRule]) extends ArcSelector(ar
     val ss= this.selectizeFrom(el)
     ss.clear()
     val value = this.elementIntoValue(arc.now.occurs)
-    dom.console.info("value = "+value)
+    //dom.console.info("value = "+value)
     ss.addItem(value)
     this
 

@@ -21,6 +21,7 @@ object ArticleItems extends ItemsMock{
   val paperShape = art.result
 
   def populate(holder:Items)  = {
+    holder.properties = this.properties
     holder.items = holder.items + (paperShape.id.asResource->papers)
     holder.shapes = holder.shapes + (paperShape.id.asResource-> paperShape)
   }

@@ -1,21 +1,31 @@
 package org.denigma.semantic.shapes
 
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
-import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binders.shaped.OccursBinder
+import org.denigma.binding.extensions.sq
+import org.denigma.binding.messages.Suggestion
+import org.denigma.binding.messages.{ShapeMessages, ModelMessages}
+import org.denigma.binding.views.{JustPromise, BindableView}
+import org.denigma.semantic.binders.shaped._
+import org.denigma.semantic.models.SelectableModelView
+import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom.HTMLElement
+import org.scalax.semweb.rdf.{RDFValue, IRI}
 import org.scalax.semweb.shex._
 import rx.Var
 
 import scala.collection.immutable.Map
+import scala.concurrent.{Promise, Future}
 
 object ArcView {
+
+
+  case class SuggestNameTerm(typed:String)
 
   def apply(el:HTMLElement,params:Map[String,Any]) = {
     new JustArcView(el,params)
   }
 
-  implicit def defaultBinders(view:ArcView) = new OccursBinder(view,view.arc)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
+  implicit def defaultBinders(view:ArcView) = new NamesBinder(view,view.arc,view.suggestProperty)::new OccursBinder(view,view.arc)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
 
   class JustArcView(val elem:HTMLElement, val params:Map[String,Any]) extends ArcView {
 
@@ -29,12 +39,23 @@ object ArcView {
 
 
 
+
 trait ArcView extends BindableView
 {
 
-  val arc = params("item").asInstanceOf[Var[ArcRule]]
 
-  require(params.contains("item"), "ArcView should contain arc item inside")
+
+//  require(params.contains("item"), "ArcView should contain arc item inside")
+//  val arc = params("item").asInstanceOf[Var[ArcRule]]
+
+  val arc = this.resolveKey("item"){case k:Var[ArcRule]=>k}
+
+  //require(params.contains("storage"), "ArcView should contain storage inside")
+
+  def suggestProperty(str:String): Future[List[RDFValue]] = {
+    debug("arc suggest works!")
+    this.ask[ArcView.SuggestNameTerm,List[RDFValue]](ArcView.SuggestNameTerm(str))
+  }
 
 }
 

@@ -37,7 +37,7 @@ object BindableView {
 
 }
 
-trait BindableView extends OrganizedView
+trait BindableView extends ReactiveView
 {
   type Binder = BasicBinding
 

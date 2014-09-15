@@ -3,7 +3,7 @@ package org.denigma.semantic.shapes
 import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.binders.extractors.EventBinding
-import org.denigma.binding.views.{Injector, CollectionView, IView, BindableView}
+import org.denigma.binding.views._
 import org.denigma.semantic.rdf.{ShapeInside, ChangeSlot}
 import org.scalajs.dom
 import org.scalajs.dom.{MouseEvent, HTMLElement}
@@ -30,6 +30,8 @@ object ShapeView
 
 trait ShapeView extends BindableView with CollectionView
 {
+
+
 
   lazy val initialShape = {
     //require(params.contains("shape"),"ShapeView must contain shape in params")
@@ -65,7 +67,6 @@ trait ShapeView extends BindableView with CollectionView
 
   override def newItem(item:Item):ItemView =
   {
-
     //dom.console.log(template.outerHTML.toString)
     val el = template.cloneNode(true).asInstanceOf[HTMLElement]
 
@@ -111,6 +112,8 @@ trait ShapeView extends BindableView with CollectionView
     //TODO rewrite in a safer way
     if(shapeInside.now.current!=currentShape.now) shapeInside() = shapeInside.now.copy(current =currentShape.now)
   }
+
+
 
 }
 

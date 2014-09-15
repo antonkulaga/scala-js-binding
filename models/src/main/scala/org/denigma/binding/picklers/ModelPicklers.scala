@@ -15,7 +15,7 @@ trait ModelPicklers {
     register[ModelMessages.Update]
     register[ModelMessages.Delete]
     register[ModelMessages.Suggest]
-    register[ModelMessages.Suggestion]
+    register[Suggestion]
 
 
     register[Menu]

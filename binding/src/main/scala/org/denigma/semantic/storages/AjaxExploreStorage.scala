@@ -2,13 +2,14 @@ package org.denigma.semantic.storages
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.ExploreMessages
+import org.denigma.binding.picklers.rp
 import org.scalajs.spickling.PicklerRegistry
 import org.scalax.semweb.rdf.{IRI, Res}
 import org.scalax.semweb.shex.PropertyModel
 
 import scala.concurrent.Future
 
-class AjaxExploreStorage(path:String)(implicit registry:PicklerRegistry)  extends Storage{
+class AjaxExploreStorage(path:String)(implicit registry:PicklerRegistry = rp)  extends Storage{
 
   def channel = path
 

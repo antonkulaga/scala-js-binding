@@ -9,21 +9,27 @@ object rp extends BindingPicklers with GraphPicklers{
   this.register()
 
   override def register() = {
-    super.register()
+    this.registerCommon()
+    this.registerMessages()
+    this.registerRdf()
     this.registerModels()
     this.registerExploration()
+    this.registerShapeMessages()
     this.registerGraph()
 
   }
 
 }
 
-class BindingPicklers extends SemanticRegistry with ModelPicklers
+class BindingPicklers extends SemanticRegistry with ModelPicklers with ShapePicklers
 {
   override def register() = {
-    super.register()
+    this.registerCommon()
+    this.registerMessages()
+    this.registerRdf()
     this.registerModels()
     this.registerExploration()
+    this.registerShapeMessages()
 
   }
 }
