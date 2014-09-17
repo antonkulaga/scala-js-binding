@@ -28,7 +28,7 @@ class ShapeStorage(path:String)(implicit registry:PicklerRegistry)  extends Stor
   }
 
   def suggestProperty(typed:String):Future[Suggestion] = {
-    val data = ShapeMessages.SuggestProperty(typed,id = this.genId(),channel = this.channel, time = new Date())
+    val data: ShapeMessages.SuggestProperty = ShapeMessages.SuggestProperty(typed,id = this.genId(),channel = this.channel, time = new Date())
     sq.post(path,data):Future[Suggestion]
   }
 

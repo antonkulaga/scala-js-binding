@@ -8,6 +8,7 @@ import org.denigma.graphs.GraphView
 import org.denigma.semantic.models._
 import org.denigma.semantic.rdf
 import org.denigma.semantic.rdf.ModelInside
+import org.denigma.semantic.shapes.{ShapedModelView, PropertyView}
 import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import org.scalax.semweb.rdf.vocabulary.WI
@@ -18,6 +19,7 @@ import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
+import rx.ops._
 
 
 
@@ -141,7 +143,7 @@ class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empt
 }
 
 
-class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends AjaxLoadView with EditModelView
+class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends RemoteLoadView with EditModelView
 {
 
 
@@ -159,7 +161,7 @@ class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends Ajax
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  override protected def attachBinders(): Unit = binders =  PropertyModelView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders =  RemoteModelView.defaultBinders(this)
 }
 /**
  * Slide about RDF-related binding
@@ -242,15 +244,24 @@ class TestSuggestBinding(val elem:HTMLElement,val params:Map[String,Any] = Map.e
 
 }
 
-class TableBinder(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends AjaxModelCollection("Todos",element,params)
+class RowView(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends ShapedModelView(elem,params)
 {
-    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
+  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+
+  val addClick = Var(EventBinding.createMouseEvent())
+
+  addClick handler {
+    //this.addItem()
+  }
+
+  val isDirty = Rx{  this.dirty()  }
+
+  override protected def attachBinders(): Unit = binders = SelectableModelView.defaultBinders(this)
 }
 
 
-class TestModelView(val elem:HTMLElement,val params:Map[String,Any]) extends AjaxLoadView
+class TestModelView(val elem:HTMLElement,val params:Map[String,Any]) extends RemoteLoadView
 {
 
 
@@ -262,6 +273,6 @@ class TestModelView(val elem:HTMLElement,val params:Map[String,Any]) extends Aja
   }
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-  override protected def attachBinders(): Unit = binders =  PropertyModelView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders =  RemoteModelView.defaultBinders(this)
 
 }

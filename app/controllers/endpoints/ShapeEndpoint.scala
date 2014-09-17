@@ -30,7 +30,7 @@ trait ShapeEndpoint extends  PickleController with Items with AjaxShapeEndpoint{
   }
 
   override def onSuggestProperty(suggestMessage: ShapeMessages.SuggestProperty): ShapeResult = {
-    val t = suggestMessage.typed
+    val t = suggestMessage.typed.replace(" ","_")
     val list: List[IRI] = this.properties.filter(p=>p.stringValue.contains(t))
     val mes: Suggestion = Suggestion(t,list,suggestMessage.id,suggestMessage.channel,new Date())
     val p = rp.pickle(mes)

@@ -6,7 +6,7 @@ import org.denigma.binding.messages.Suggestion
 import org.denigma.binding.picklers.rp
 import org.denigma.binding.views.{JustPromise, PromiseEvent, BindableView}
 import org.denigma.semantic.models.EditModelView
-import org.denigma.semantic.rdf.ModelInside
+import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
 import org.denigma.semantic.shapes.{ArcView, ShapeView}
 import org.denigma.semantic.storages.{ShapeStorage, AjaxModelStorage}
 import org.scalajs.dom
@@ -20,22 +20,9 @@ import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.concurrent.{Promise, Future}
 import scala.util.{Success, Failure}
 
-
-class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends   ShapeView
+object ShapeEditor
 {
-
-
-  implicit val registry = rp
-
-  //require(params.contains("path"),"ShapeEditor should have path view-param") //is for exploration by default
-
-  val path:String = this.resolveKey("path"){
-    case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
-  }
-
-  val storage = new ShapeStorage(path)
-
- override lazy val initialShape: Shape =     {
+  lazy val testShape: Shape =  {
     val de = IRI("http://denigma.org/resource/")
     val dc = IRI(vocabulary.DCElements.namespace)
     val art = new ShapeBuilder(de / "Article_Shape")
@@ -47,9 +34,30 @@ class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends   Sh
     art has  de / "excerpt" of XSD.StringDatatypeIRI  occurs Star//occurs Star
     art.result
   }
+}
+
+
+class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends  ShapeView
+{
+
+  override lazy val shape = Var(ShapeInside(ShapeEditor.testShape))
+
+  implicit val registry = rp
+
+  //require(params.contains("path"),"ShapeEditor should have path view-param") //is for exploration by default
+
+  val path:String = this.resolveKey("path"){
+    case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
+  }
+
+  val storage = new ShapeStorage(path)
 
 
   val addClick = Var(EventBinding.createMouseEvent())
+
+
+  val applyShape = Var(EventBinding.createMouseEvent())
+
 
   override protected def attachBinders(): Unit = binders = ShapeView.defaultBinders(this)
 
@@ -63,7 +71,6 @@ class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends   Sh
   override def bindView(el: HTMLElement) = {
     super.bindView(el)
     this.subscribeUpdates()
-    updateShape(this.initialShape)
   }
 
   override def receiveFuture:PartialFunction[PromiseEvent[_,_],Unit] = {

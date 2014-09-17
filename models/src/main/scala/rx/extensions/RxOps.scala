@@ -47,6 +47,8 @@ trait RxOps {
     def is[R<:T]: rx.Rx[Boolean] = RxOps(source).map(_.isInstanceOf[R])
     def isnt[R<:T]: rx.Rx[Boolean] =RxOps(source).map(!_.isInstanceOf[R])
 
+    def unique() = new UniqueWatcher(source)
+
   }
 
   implicit class WrappedRx[TW<:Rx[Rx[T]],T](source:TW)

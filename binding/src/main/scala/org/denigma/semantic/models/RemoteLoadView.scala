@@ -10,7 +10,7 @@ import scala.collection.immutable.Map
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
-trait AjaxLoadView extends AjaxModelView {
+trait RemoteLoadView extends RemoteModelView {
 
 
   //  def params:Map[String,Any]
@@ -21,9 +21,8 @@ trait AjaxLoadView extends AjaxModelView {
 
   val path:String = params.get("path").map(v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)).get
   val resource = IRI(params("resource").toString)
-  val shapeRes = IRI(params("shape").toString)
 
-  val storage:AjaxModelStorage = new AjaxModelStorage(path)
+  override val storage:AjaxModelStorage = new AjaxModelStorage(path)
 
   override def bindView(el:HTMLElement)
   {

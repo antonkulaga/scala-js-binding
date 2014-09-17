@@ -53,7 +53,7 @@ trait ArcView extends BindableView
   //require(params.contains("storage"), "ArcView should contain storage inside")
 
   def suggestProperty(str:String): Future[List[RDFValue]] = {
-    debug("arc suggest works!")
+    //debug("arc suggest works!")
     this.ask[ArcView.SuggestNameTerm,List[RDFValue]](ArcView.SuggestNameTerm(str))
   }
 

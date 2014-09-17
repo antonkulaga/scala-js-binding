@@ -4,6 +4,7 @@ import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.views._
+import org.denigma.semantic.models.WithShapeView
 import org.denigma.semantic.rdf.{ShapeInside, ChangeSlot}
 import org.scalajs.dom
 import org.scalajs.dom.{MouseEvent, HTMLElement}
@@ -28,30 +29,8 @@ object ShapeView
 }
 
 
-trait ShapeView extends BindableView with CollectionView
+trait ShapeView extends WithShapeView with CollectionView
 {
-
-
-
-  lazy val initialShape = {
-    //require(params.contains("shape"),"ShapeView must contain shape in params")
-    this.params.get("shape").map{
-      case sh:Shape=> sh
-      case id:Res=> Shape(id,AndRule.empty)
-      case _ =>
-        debug("something else was found")
-        Shape.empty
-    }.getOrElse{
-      debug("no shape or shape resource in params")
-      Shape.empty
-    }
-  }
-
-  val resource = Var(initialShape.id.asResource)
-
-
-  val shapeInside = Var(ShapeInside(initialShape))
-
 
 
   override type Item = Var[ArcRule]
@@ -60,10 +39,14 @@ trait ShapeView extends BindableView with CollectionView
   val removeClick = EventBinding.createMouseEvent()
 
 
-  val rules: Var[List[Var[ArcRule]]] = Var(List.empty[Var[ArcRule]])
 
+  val rules: Rx[List[Var[ArcRule]]] = this.shape.map(sh=>sh.current.arcRules().map(a=>Var(a))) //TODO: fix in future
 
-  override val items: Rx[List[Var[ArcRule]]] = Rx{rules().sortBy(r=>r().priority)}
+  override val items: Rx[List[Var[ArcRule]]] = rules.map(rl=>rl.sortBy(r=>r.now.priority))
+
+  val newAnd: Rx[AndRule] = rules.map(r=>
+    AndRule(r.map(v=>v.now).toSet,this.shapeRes)
+  )
 
   override def newItem(item:Item):ItemView =
   {
@@ -89,30 +72,11 @@ trait ShapeView extends BindableView with CollectionView
   }
 
 
-  protected def updateShape(shape:Shape) = {
-    resource() = shape.id.asResource
-    this.rules() = shape.arcSorted() map (Var(_))
-  }
 
   def save() = {
-    val sh = shapeInside.now
-    shapeInside() = sh.copy(initial=sh.current)
+    val sh = shape.now
+    shape() = sh.copy(current = sh.current.copy(rule = newAnd.now))
   }
-
-
-  val currentShape = Rx{
-    val label = resource() match {
-      case iri:IRI=>IRILabel(iri)
-      case node:BlankNode=>BNodeLabel(node)
-    }
-    Shape(label,new AndRule(items().map(its=>its.now).toSet,label) )
-  }
-
-  currentShape.handler{
-    //TODO rewrite in a safer way
-    if(shapeInside.now.current!=currentShape.now) shapeInside() = shapeInside.now.copy(current =currentShape.now)
-  }
-
 
 
 }

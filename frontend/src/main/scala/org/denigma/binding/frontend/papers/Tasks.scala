@@ -13,10 +13,10 @@ import rx._
  * @param element
  * @param params
  */
-class TasksBinder(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends AjaxModelCollection("Tasks",element,params)
+class TasksView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends AjaxModelCollection("Tasks",element,params)
 {
 
-    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
   val addClick = Var(EventBinding.createMouseEvent())
 
@@ -47,8 +47,4 @@ class Task(val elem:HTMLElement, val params:Map[String,Any]) extends SelectableM
 
   override protected def attachBinders(): Unit = binders = SelectableModelView.defaultBinders(this)
 
-  override def bindView(el: HTMLElement) = {
-    debug("task works!")
-    super.bindView(el)
-  }
 }

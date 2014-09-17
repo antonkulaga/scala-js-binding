@@ -1,10 +1,11 @@
 package org.denigma.semantic.models
 
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
+import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.SelectBinder
-import org.denigma.semantic.storages.AjaxModelStorage
+import org.denigma.semantic.storages.{ModelStorage, AjaxModelStorage}
 import org.scalax.semweb.rdf._
-import org.scalax.semweb.shex.{ArcRule, Shape, ValueSet}
+import org.scalax.semweb.shex.{AndRule, ArcRule, Shape, ValueSet}
 
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -16,55 +17,38 @@ object SelectableModelView {
 }
 
 
+
 /**
  * View that binds with Selectize.js selectors
  */
-trait SelectableModelView extends AjaxModelView  {
+trait SelectableModelView extends RemoteModelView 
+{
 
-  var shape:Option[Shape] = None
+  def suggest(key: IRI, str: String): Future[List[RDFValue]] =  this.shape.now.current match {
+      case Shape.empty=> storage.suggest(this.shapeRes, this.model.now.current.id, key, str).map(r => r.options)
 
-  lazy val shapeRes = params.get("shape").map{
-    case sh:Res=>sh
+      case Shape(id,andrule) if andrule == AndRule.empty=>  storage.suggest(this.shapeRes, this.model.now.current.id, key, str).map(r => r.options)
 
-    case shex:Shape=>
-      shape = Some(shex)
-      shex.id.asResource
+      case sh=> this.suggest(sh)(key, str)
 
-  }.get
-
-  override def storage: AjaxModelStorage =  params.get("storage").map{case sh=>sh.asInstanceOf[AjaxModelStorage]}.get
-
-  def resource = this.model.now.current.id
-
-
-  def suggest(key:IRI,str:String): Future[List[RDFValue]] = {
-
-    def send: () => Future[List[RDFValue]] = ()=>storage.suggest(this.shapeRes,this.model.now.current.id,key,str).map(r=>r.options)
-
-    shape match {
-      case Some(sh)=>
-        //TODO: add changes to shape to make validation easier
-        sh.arcRules().find(r=>r.name.matches(key)) match {
-          case Some(arc:ArcRule)=>
-            //TODO: add validation
-            arc.value match {
-              case ValueSet(values)=>
-                Future.successful(values.toList)
-
-              case _ =>send()
-            }
-          case None=>
-            //TODO: if there is not shape everything is ok
-            send()
-        }
-      case None=> send()
     }
 
 
 
 
+  def suggest(shape:Shape)(key:IRI,str:String): Future[List[RDFValue]] =  shape
+    .arcRules().find(r=>r.name.matches(key)) match {
+      case Some(arc:ArcRule)=>
+        //TODO: add validation
+        arc.value match {
+          case ValueSet(values)=>
+            Future.successful(values.toList)
 
-  }
+          case _ => storage.suggest(shape.id.asResource, this.model.now.current.id, key, str).map(r => r.options)
+
+        }
+    }
+
 }
 
 

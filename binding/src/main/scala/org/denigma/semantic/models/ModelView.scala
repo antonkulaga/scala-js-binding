@@ -14,18 +14,15 @@ trait ModelView extends BindableView{
 
   var createIfNotExists:Boolean = true
 
-  private lazy val initial = params.get("model") match {
-    case Some(mod:PropertyModel)=> ModelInside( mod )
-    case Some(mis:ModelInside)=> mis
-    case None => ModelInside(PropertyModel.empty)
+  lazy val modelOption = params.get("model").map{
+    case mod:PropertyModel=> Var(ModelInside( mod ))
+    case mis:ModelInside=> Var(mis)
+    case mv:Var[ModelInside] if mv.now.isInstanceOf[ModelInside]=>mv //TODO: add type tag
+    case _ => Var(ModelInside(PropertyModel.empty))
   }
 
-  val model: Var[ModelInside] = params.get("model") match {
-    case Some(mv:Var[ModelInside])=>mv
-    case Some(mod:PropertyModel)=> Var(ModelInside( mod ))
-    case Some(mis:ModelInside)=> Var(mis)
-    case None => Var(ModelInside(PropertyModel.empty))
-  }
+
+  val model: Var[ModelInside] = this.modelOption.getOrElse(Var(ModelInside(PropertyModel.empty)))
 
   lazy val dirty = Rx{this.model().isDirty}
 

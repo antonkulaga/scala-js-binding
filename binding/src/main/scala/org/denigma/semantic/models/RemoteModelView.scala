@@ -3,30 +3,34 @@ package org.denigma.semantic.models
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.ModelBinder
-import org.denigma.semantic.storages.AjaxModelStorage
+import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
+import org.denigma.semantic.storages.{ModelStorage, AjaxModelStorage}
 import org.scalajs.dom
-import org.scalax.semweb.rdf.Res
-import org.scalax.semweb.shex.PropertyModel
+import org.scalax.semweb.rdf.{IRI, Res}
+import org.scalax.semweb.shex.{IRILabel, AndRule, Shape, PropertyModel}
+import rx.core.Var
 
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
-object PropertyModelView
+
+
+object RemoteModelView
 {
-  def defaultBinders(view:PropertyModelView)  =new ModelBinder(view,view.model)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
+  def defaultBinders(view:ModelView)  =new ModelBinder(view,view.model)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
 
 }
 
-trait PropertyModelView extends ModelView with BindableView
-
-trait  AjaxModelView extends PropertyModelView
+trait  RemoteModelView extends ModelView  with BindableView with WithShapeView
 {
-  def resource: Res
-  def shapeRes: Res
+
+  override val model = this.modelOption.orElse{
+    params.get("resource").map{ case res:Res=> Var(ModelInside(PropertyModel(res)))   }
+  }.getOrElse(Var(ModelInside(PropertyModel.empty)))
 
 
 
-  def storage:AjaxModelStorage
+  def storage:ModelStorage = this.resolveKey("storage"){case m:ModelStorage=>m}
 
 
 

@@ -9,14 +9,14 @@ import org.scalax.semweb.shex.ArcRule
 import rx.Rx
 import rx.core.Var
 import rx.ops._
-
+import org.denigma.binding.extensions._
 import scala.collection.immutable.Map
 import scala.concurrent.Future
 
 /**
  * Binder for properties
  */
-class PropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule, suggest:(IRI,String)=>Future[List[RDFValue]])
+class ShapePropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule, suggest:(IRI,String)=>Future[List[RDFValue]])
   extends SelectBinder(view,modelInside,suggest){
 
   /**
@@ -28,7 +28,7 @@ class PropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule
    * @return
    */
   protected override def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] =
-    this.vocabPartial(value).orElse( this.propertyPartial(el,key,value,ats))
+    this.vocabPartial(value).orElse(this.arcPartial(el,value)).orElse( this.propertyPartial(el,key,value,ats) )
 
   val arcProps: Rx[Map[IRI, Set[RDFValue]]] = model.map{  case m => m.current.properties.collect{ case (key,values) if arc.name.matches(key)=>
       (key,values)
@@ -47,13 +47,17 @@ class PropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule
       }
 
     case "data" if value=="name"=> arc.title match {
-      case Some(t)=>
+      case Some(tlt)=> this.setTitle(el,tlt)
+      case None=> setTitle(el,arcProps.now.keys.head.label)
+    }
+  }
 
-        this.bindRx("data-name",el,this.model){ (e,m)=>
-          //write something
-        }
+  def setTitle(el:HTMLElement,tlt:String) = {
+    if(this.elementHasValue(el)) {
+      el.dyn.value = tlt
 
-      case None=> arcProps.now.keys.head
+    } else {
+      el.textContent = tlt
     }
   }
 

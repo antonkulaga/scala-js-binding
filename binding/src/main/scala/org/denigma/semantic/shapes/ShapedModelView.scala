@@ -2,47 +2,19 @@ package org.denigma.semantic.shapes
 
 import org.denigma.binding.views.CollectionView
 import org.denigma.semantic.models.SelectableModelView
+import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.dom.extensions._
 import org.scalax.semweb.shex.ArcRule
 import rx.Var
+import rx.ops._
 
 import scala.collection.immutable.Map
-//
-object PropertyView {
-  def apply(el:HTMLElement,mp:Map[String,Any]) = {
-    new JustPropertyView(el,mp)
-  }
-
-}
-
-class JustPropertyView(val elem:HTMLElement,val params:Map[String,Any]) extends PropertyView
-{
-    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-
-  override protected def attachBinders(): Unit = {
-    //binders = new PropertyBinder(elem,this.model,arc,)::Nil
-    //NOT IMPLEMENTED
-  }
-}
-
-/**
-* View to display property and its name
-* TODO: refactor in Future
-*/
-trait PropertyView extends SelectableModelView {
-
-  require(params.contains("arc"),"Property view should contain ArcRule")
-
-  require(params.contains("model"),"PropertyView should contain Model")
-
-  val arc = params("arc").asInstanceOf[ArcRule]
 
 
-}
 
-abstract class AjaxShapedModelView extends SelectableModelView with  CollectionView{
+abstract class ShapedModelView(val el:HTMLElement,val params:Map[String,Any]) extends SelectableModelView with  CollectionView{
 
 
   type ItemView =  PropertyView
@@ -56,7 +28,7 @@ abstract class AjaxShapedModelView extends SelectableModelView with  CollectionV
     val el = template.cloneNode(true).asInstanceOf[HTMLElement]
 
     el.removeAttribute("data-template")
-    val mp: Map[String, Any] = Map[String,Any]("shape"->shape, "arc"->item, "model"->this.model)
+    val mp: Map[String, Any] = Map[String,Any]("shape"->shapeOption, "arc"->item, "model"->this.model)
 
     val view: ItemView = el.attributes.get("data-item-view") match {
       case None=> null
@@ -73,5 +45,5 @@ abstract class AjaxShapedModelView extends SelectableModelView with  CollectionV
   }
 
 
-  override val items =  Var(shape.map(sh=>sh.arcSorted()).getOrElse(Nil))
+  override val items =  shape.map(sh=>sh.current.arcSorted())
 }

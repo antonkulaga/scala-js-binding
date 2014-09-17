@@ -21,28 +21,17 @@ object AjaxModelCollection
 {
   type ItemView =  ModelView
 
-  def apply(html:HTMLElement,item:Var[ModelInside],storage:AjaxModelStorage, shape:Res):ItemView= {
+  def apply(html:HTMLElement,params:Map[String,Any]):ItemView= {
     //
-    new JustAjaxModel("item"+Math.random(),html,item,storage,shape)
+    new JustRemoteModel("item"+Math.random(),html,params)
   }
 
+  class JustRemoteModel(override val name:String,val elem:HTMLElement, val params:Map[String,Any]) extends RemoteModelView{
 
-
-
-  class JustAjaxModel(override val name:String,val elem:HTMLElement, slot:Var[ModelInside],val storage:AjaxModelStorage, val shapeRes:Res) extends AjaxModelView{
-
-
-    override val model = slot
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-
-
-    override def resource: Res = this.model.now.current.id
-
-    override def params: Map[String, Any] = Map.empty
-
-    override protected def attachBinders(): Unit = binders = PropertyModelView.defaultBinders(this)
+    override protected def attachBinders(): Unit = binders = RemoteModelView.defaultBinders(this)
   }
 
 }
@@ -66,8 +55,6 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
 
 
-
-
   lazy val emptyShape = new Shape(IRILabel(shapeRes), AndRule(Set.empty[Rule], IRILabel(WI.pl("empty")) ))
 
   val shape:Var[Shape] = Var(emptyShape)
@@ -75,6 +62,8 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
 
   val exploreStorage = new AjaxExploreStorage(path)(registry)
+
+
   val crudStorage= new AjaxModelStorage(crud)(registry)
 
 
@@ -95,7 +84,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
     models.onComplete {
       case Success(data) =>
         this.shape() = data.shape
-        val mod = data.models
+        val mod: scala.List[PropertyModel] = data.models
         items match {
           case its:Var[List[Var[ModelInside]]]=>
             its() = mod.map(d=>Var(ModelInside(d)))
@@ -116,14 +105,14 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
     val el = template.cloneNode(true).asInstanceOf[HTMLElement]
 
     el.removeAttribute("data-template")
-    val mp: Map[String, Any] = Map[String,Any]("model"->item, "storage"->crudStorage, "shape"->this.shapeRes)
+    val mp: Map[String, Any] = Map[String,Any]("model"->item, "storage"->crudStorage, "shape"->this.shape)
 
     val view: ItemView = el.attributes.get("data-item-view") match {
       case None=>
-        AjaxModelCollection.apply(el,item, this.crudStorage, this.shapeRes)
+        AjaxModelCollection.apply(el, mp)
       case Some(v)=> this.inject(v.value,el,mp) match {
         case iv:ItemView=> iv
-        case iv if iv.isInstanceOf[PropertyModelView]=> iv.asInstanceOf[PropertyModelView]
+        case iv if iv.isInstanceOf[RemoteModelView]=> iv.asInstanceOf[RemoteModelView]
         case _=>
           dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
           ModelCollection.apply(el,item)

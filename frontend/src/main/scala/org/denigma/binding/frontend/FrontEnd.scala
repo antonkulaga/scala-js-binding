@@ -3,7 +3,7 @@ package org.denigma.binding.frontend
 import org.denigma.binding.extensions._
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.frontend.controls.{ShapeEditor, ShapeProperty}
-import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksBinder}
+import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksView}
 import org.denigma.binding.frontend.tests.{LongListView, PicklerView, RandomView}
 import org.denigma.binding.frontend.tools.{CodeInsideView, CodeView, SelectView}
 import org.denigma.binding.views.BindableView
@@ -52,10 +52,13 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("PicklerView",(el,params)=>Try(new PicklerView(el,params)))
     .register("PageEditView",(el,params)=>Try(new PageEditView(el,params)))
     .register("CodeInsideView",(el,params)=>Try(new CodeInsideView(el,params)))
-    .register("TableView",  (el,params)=>Try(new TableBinder(el,params)))
+    //.register("TableView",  (el,params)=>Try(new TableBinder(el,params)))
     .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
     .register("ShapeProperty",(el,params)=>Try(new ShapeProperty(el,params)))
-    .register("Tasks",(el,params)=>Try(new TasksBinder(el,params)))
+
+    .register("Tasks",(el,params)=>Try(new TasksView(el,params)))
+    .register("row",(el,params)=>Try(new RowView(el,params)))
+
     .register("task",(el,params)=>Try(new Task(el,params)))
 
     .register("SuggestView",(el,params)=>Try(new TestSuggestBinding(el,params)))
