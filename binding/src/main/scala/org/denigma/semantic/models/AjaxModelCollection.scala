@@ -2,14 +2,12 @@ package org.denigma.semantic.models
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.{ExploreMessages, Filters}
-import org.denigma.semantic.models.ModelView
 import org.denigma.semantic.rdf.ModelInside
 import org.denigma.semantic.storages.{AjaxExploreStorage, AjaxModelStorage}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
-import org.scalax.semweb.rdf.vocabulary.WI
-import org.scalax.semweb.rdf.{IRI, Res}
+import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.shex._
 import rx.core.{Rx, Var}
 
@@ -107,7 +105,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
         case iv if iv.isInstanceOf[RemoteModelView]=> iv.asInstanceOf[RemoteModelView]
         case _=>
           dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
-          ModelCollection.apply(el,item)
+          AjaxModelCollection.apply(el,mp)
           //AjaxModelCollection.apply(el,item, this.crudStorage, this.shapeRes) //TODO: check if works at all
       }
     }

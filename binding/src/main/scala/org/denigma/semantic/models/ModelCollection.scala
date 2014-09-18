@@ -16,26 +16,19 @@ object ModelCollection
 {
   type ItemView = ModelView
 
-  def apply(html:HTMLElement,item:Var[ModelInside]):ItemView= {
+  def apply(html:HTMLElement,mp:Map[String,Any]):ItemView= {
     //
-    new JustModel("item"+Math.random(),item,html)
+    new JustModel("item"+Math.random(),html,mp)
   }
 
 
-
-
-  class JustModel(override val name:String,slot:Var[ModelInside],val elem:HTMLElement) extends PropertyModelView{
-
-
-    override val model = slot
+  class JustModel(override val name:String,val elem:HTMLElement,mp:Map[String,Any]) extends ModelView{
 
     override def activateMacro(): Unit = {this.extractors.foreach(_.extractEverything(this))}
 
-
-
     override def params: Map[String, Any] = Map.empty
 
-    override protected def attachBinders(): Unit = PropertyModelView.defaultBinders(this)
+    override protected def attachBinders(): Unit = binders = RemoteModelView.defaultBinders(this)
   }
 
 }
@@ -87,12 +80,12 @@ trait ModelCollection extends BindableView
 
     val view = el.attributes.get("data-item-view") match {
       case None=>
-        ModelCollection.apply(el,item)
+        ModelCollection.apply(el,mp)
       case Some(v)=> this.inject(v.value,el,mp) match {
         case iv:ItemView=> iv
         case _=>
           dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
-          ModelCollection.apply(el,item)
+          ModelCollection.apply(el,mp)
       }
     }
     item.handler(onItemChange(item))
