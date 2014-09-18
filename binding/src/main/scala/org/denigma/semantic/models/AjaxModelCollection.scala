@@ -37,14 +37,13 @@ object AjaxModelCollection
 }
 
 abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement,val params:Map[String,Any])
-  extends ModelCollection
+  extends ModelCollection with WithShapeView
 {
 
 
   override type ItemView = AjaxModelCollection.ItemView
 
   val query = this.resolveKey("query"){case q=>IRI(q.toString)} //IRI(params("query").toString)
-  val shapeRes = this.resolveKey("shape"){ case k=>IRI(k.toString)}
 
   val path:String = this.resolveKey("path"){
     case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
@@ -52,13 +51,6 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
   val crud:String = this.resolveKey("crud"){
       case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
     }
-
-
-
-  lazy val emptyShape = new Shape(IRILabel(shapeRes), AndRule(Set.empty[Rule], IRILabel(WI.pl("empty")) ))
-
-  val shape:Var[Shape] = Var(emptyShape)
-
 
 
   val exploreStorage = new AjaxExploreStorage(path)(registry)
@@ -83,7 +75,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
     models.onComplete {
       case Success(data) =>
-        this.shape() = data.shape
+        this.shape() = this.shape.now.copy(current = data.shape)
         val mod: scala.List[PropertyModel] = data.models
         items match {
           case its:Var[List[Var[ModelInside]]]=>

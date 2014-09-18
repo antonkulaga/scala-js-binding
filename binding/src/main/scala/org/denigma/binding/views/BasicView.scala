@@ -84,9 +84,9 @@ trait BasicView extends BasicBinding with IView
         case Failure(e)=>
           //dom.console.error(e.toString)
           if(e!=null)
-            dom.console.error(s"cannot initialize the view for $viewName because of ${e.toString}")
+            dom.console.error(s"cannot initialize the $viewName view in $id with params ${params.toString()} because of ${e.toString}")
           else
-            dom.console.error(s"Cannot initialize the view for $viewName")
+            dom.console.error(s"Cannot initialize the $viewName view in $id")
           makeDefault(name,el)
     }
     case _ =>

@@ -28,7 +28,9 @@ class ShapePropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:Ar
    * @return
    */
   protected override def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] =
-    this.vocabPartial(value).orElse(this.arcPartial(el,value)).orElse( this.propertyPartial(el,key,value,ats) )
+  {
+    this.vocabPartial(value).orElse(this.arcPartial(el, value)).orElse(this.propertyPartial(el, key, value, ats))
+  }
 
   val arcProps: Rx[Map[IRI, Set[RDFValue]]] = model.map{  case m => m.current.properties.collect{ case (key,values) if arc.name.matches(key)=>
       (key,values)
@@ -43,7 +45,7 @@ class ShapePropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:Ar
       this.arcProps.now.keys.headOption match {
         case Some(key)=>
           this.bindRDFProperty(el,key) //TODO: rewrite
-        case None=> error(s"no property found for the shape")
+        case None=> error(s"no property found for the shape in arc ${arc.name.toString}")
       }
 
     case "data" if value=="name"=> arc.title match {

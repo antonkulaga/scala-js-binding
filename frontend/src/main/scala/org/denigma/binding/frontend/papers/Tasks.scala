@@ -3,7 +3,7 @@ package org.denigma.binding.frontend.papers
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.models.{AjaxModelCollection, SelectableModelView}
+import org.denigma.semantic.models.{AjaxModelCollection, RemoteModelView}
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom.HTMLElement
 import rx._
@@ -29,7 +29,7 @@ class TasksView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,An
   override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 }
 
-class Task(val elem:HTMLElement, val params:Map[String,Any]) extends SelectableModelView{
+class Task(val elem:HTMLElement, val params:Map[String,Any]) extends RemoteModelView{
 
   override def name:String = "task"
 
@@ -45,6 +45,6 @@ class Task(val elem:HTMLElement, val params:Map[String,Any]) extends SelectableM
     this.die()
   }
 
-  override protected def attachBinders(): Unit = binders = SelectableModelView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders = RemoteModelView.selectableBinders(this)
 
 }

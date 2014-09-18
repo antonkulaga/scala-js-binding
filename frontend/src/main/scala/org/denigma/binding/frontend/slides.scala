@@ -2,18 +2,19 @@ package org.denigma.binding.frontend
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
+import org.denigma.binding.frontend.controls.ShapeEditor
 import org.denigma.binding.views.BindableView
 import org.denigma.controls.general.CodeMirrorView
 import org.denigma.graphs.GraphView
 import org.denigma.semantic.models._
 import org.denigma.semantic.rdf
-import org.denigma.semantic.rdf.ModelInside
+import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
 import org.denigma.semantic.shapes.{ShapedModelView, PropertyView}
 import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, MouseEvent}
-import org.scalax.semweb.rdf.vocabulary.WI
-import org.scalax.semweb.rdf.{IRI, StringLiteral}
-import org.scalax.semweb.shex.PropertyModel
+import org.scalax.semweb.rdf.vocabulary.{RDF, WI}
+import org.scalax.semweb.rdf.{vocabulary, BooleanLiteral, IRI, StringLiteral}
+import org.scalax.semweb.shex.{Star, Shape, ShapeBuilder, PropertyModel}
 import rx._
 import rx.core.Var
 
@@ -21,6 +22,7 @@ import scala.collection.immutable.Map
 import scala.scalajs.js
 import rx.ops._
 
+import scala.util.{Failure, Success}
 
 
 /**
@@ -31,7 +33,7 @@ import rx.ops._
 class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
 
-    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
   val html_code = Var{
@@ -120,7 +122,7 @@ class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Stri
 class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
 
-    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
   val apply = Var(EventBinding.createMouseEvent())
   this.apply.handler {
@@ -244,8 +246,10 @@ class TestSuggestBinding(val elem:HTMLElement,val params:Map[String,Any] = Map.e
 
 }
 
-class RowView(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends ShapedModelView(elem,params)
+class RowView(elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends ShapedModelView(elem,params)
 {
+
+  override def shapeOption = Some(Var(ShapeInside(taskShape)))
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
@@ -257,7 +261,51 @@ class RowView(val elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any
 
   val isDirty = Rx{  this.dirty()  }
 
-  override protected def attachBinders(): Unit = binders = SelectableModelView.defaultBinders(this)
+  override protected def attachBinders(): Unit = {}//binders = RemoteModelView.defaultBinders(this)
+
+  import org.scalax.semweb.rdf.vocabulary._
+
+  def de = IRI("http://denigma.org/resource/")
+  def dc = IRI(vocabulary.DCElements.namespace)
+
+  def pmid = IRI("http://denigma.org/resource/Pubmed/")
+
+  def article = de / "Article"
+  def authors =  de / "is_authored_by"
+  def abs = de / "abstract"
+  def published = de / "is_published_in"
+  def title = de / "title"
+  def excerpt = de / "excerpt"
+
+
+  def priority = (WI.PLATFORM / "has_priority").iri
+
+  def desc = (WI.PLATFORM / "has_description").iri
+  def completed = (WI.PLATFORM / "is_completed").iri
+  def assigned = (WI.PLATFORM / "assigned_to").iri
+  def task = (WI.PLATFORM / "Task").iri
+  def Anton = de / "Anton_Kulaga"
+
+  def Daniel = de / "Daniel_Wuttke"
+
+  lazy val taskIntegrase = PropertyModel(IRI(WI.PLATFORM /"Integrase"), title -> StringLiteral("Find more info"),  desc->StringLiteral("Find other papers on using PhiC31 integrase for genes insertion") , priority-> de / "high", assigned->Anton, completed->BooleanLiteral(false) , RDF.TYPE-> task)
+
+
+  override def modelOption = Some(Var(ModelInside(taskIntegrase)))
+
+  def taskShape() = {
+    val ts = new ShapeBuilder(task)
+
+    ts has de / "is_authored_by" occurs Star //occurs Plus
+    ts has title occurs Star //occurs ExactlyOne
+    //art has de / "date" occurs Star //occurs ExactlyOne
+    ts has desc of XSD.StringDatatypeIRI occurs Star //occurs Star
+    ts has assigned occurs Star //occurs Plus
+    ts has completed of XSD.BooleanDatatypeIRI occurs Star //occurs Star
+    ts.result
+  }
+
+
 }
 
 

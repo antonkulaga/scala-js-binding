@@ -14,7 +14,10 @@ trait ModelView extends BindableView{
 
   var createIfNotExists:Boolean = true
 
-  lazy val modelOption = params.get("model").map{
+  def modelOption = params.get("model").map{
+    case null =>
+      error("model cannot be null")
+      Var(ModelInside(PropertyModel.empty))
     case mod:PropertyModel=> Var(ModelInside( mod ))
     case mis:ModelInside=> Var(mis)
     case mv:Var[ModelInside] if mv.now.isInstanceOf[ModelInside]=>mv //TODO: add type tag

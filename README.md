@@ -76,7 +76,7 @@ In your sbt config you should add resolver and dependency
 ```scala
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 
-libraryDependencies += "org.denigma" %%% "binding" % "0.5.3"
+libraryDependencies += "org.denigma" %%% "binding" % "0.5.7"
 ```
 
 NOTE: at the moment library is published only for scalajs 0.5.x and scala 2.11.2
@@ -235,7 +235,14 @@ The best place for this is ScalaJS main object
 ```
 
 I hope to get rid of this in future when I will figure out what kind of dependency injection to choose for view creation.
- 
+
+
+ Semantic Web part
+ -----------------
+
+ A big part of the library is org.denigma.semantic It is part of the libarary devoted to binding to RDF properties.
+ In future it will be separated into separate (sub)project.
+
  
 Architecture
 ============

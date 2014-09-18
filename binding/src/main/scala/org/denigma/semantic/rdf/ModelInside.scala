@@ -5,7 +5,10 @@ import org.scalax.semweb.shex.PropertyModel
 
 object ModelInside
 {
-  def apply(initial:PropertyModel):ModelInside = ModelInside(initial,initial)
+  def apply(initial:PropertyModel):ModelInside = {
+    require(initial!=null,"initial value for ModelInside cannot be null!")
+    ModelInside(initial,initial)
+  }
 
   val empty = ModelInside(PropertyModel.empty)
 }

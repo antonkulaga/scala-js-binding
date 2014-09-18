@@ -1,20 +1,15 @@
 package org.denigma.semantic.shapes
 
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
-import org.denigma.binding.extensions.sq
-import org.denigma.binding.messages.Suggestion
-import org.denigma.binding.messages.{ShapeMessages, ModelMessages}
-import org.denigma.binding.views.{JustPromise, BindableView}
+import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.shaped._
-import org.denigma.semantic.models.SelectableModelView
-import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom.HTMLElement
-import org.scalax.semweb.rdf.{RDFValue, IRI}
+import org.scalax.semweb.rdf.RDFValue
 import org.scalax.semweb.shex._
 import rx.Var
 
 import scala.collection.immutable.Map
-import scala.concurrent.{Promise, Future}
+import scala.concurrent.Future
 
 object ArcView {
 

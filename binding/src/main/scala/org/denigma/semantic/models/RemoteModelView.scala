@@ -2,14 +2,15 @@ package org.denigma.semantic.models
 
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binders.ModelBinder
+import org.denigma.semantic.binders.{SelectBinder, ModelBinder}
 import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
 import org.denigma.semantic.storages.{ModelStorage, AjaxModelStorage}
 import org.scalajs.dom
-import org.scalax.semweb.rdf.{IRI, Res}
-import org.scalax.semweb.shex.{IRILabel, AndRule, Shape, PropertyModel}
+import org.scalax.semweb.rdf.{RDFValue, IRI, Res}
+import org.scalax.semweb.shex._
 import rx.core.Var
 
+import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
@@ -18,6 +19,8 @@ import scala.util.{Failure, Success}
 object RemoteModelView
 {
   def defaultBinders(view:ModelView)  =new ModelBinder(view,view.model)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
+
+  def selectableBinders(view:RemoteModelView)  =new SelectBinder(view,view.model,view.suggest)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
 
 }
 
@@ -50,6 +53,32 @@ trait  RemoteModelView extends ModelView  with BindableView with WithShapeView
 
       }
     }
+  }
+
+
+  def suggest(key: IRI, str: String): Future[List[RDFValue]] =  this.shape.now.current match {
+    case Shape.empty=> storage.suggest(this.shapeRes, this.model.now.current.id, key, str).map(r => r.options)
+
+    case Shape(id,andrule) if andrule == AndRule.empty=>  storage.suggest(this.shapeRes, this.model.now.current.id, key, str).map(r => r.options)
+
+    case sh=> this.suggest(sh)(key, str)
+
+  }
+
+
+
+
+  def suggest(shape:Shape)(key:IRI,str:String): Future[List[RDFValue]] =  shape
+    .arcRules().find(r=>r.name.matches(key)) match {
+    case Some(arc:ArcRule)=>
+      //TODO: add validation
+      arc.value match {
+        case ValueSet(values)=>
+          Future.successful(values.toList)
+
+        case _ => storage.suggest(shape.id.asResource, this.model.now.current.id, key, str).map(r => r.options)
+
+      }
   }
 
 

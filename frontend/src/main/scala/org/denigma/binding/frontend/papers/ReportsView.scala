@@ -4,8 +4,7 @@ import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.{Filters, Sort}
 import org.denigma.semantic.grids.ExplorableCollection
-import org.denigma.semantic.models.SelectableModelView
-import org.denigma.semantic.rdf.ModelInside
+import org.denigma.semantic.models.RemoteModelView
 import org.scalajs.dom.HTMLElement
 import org.scalajs.jquery._
 import org.scalax.semweb.rdf.IRI
@@ -64,11 +63,11 @@ class ReportsView(elem:HTMLElement, params:Map[String,Any]) extends ExplorableCo
 
 }
 
-class Report(val elem:HTMLElement,val params:Map[String,Any]) extends SelectableModelView{
+class Report(val elem:HTMLElement,val params:Map[String,Any]) extends RemoteModelView{
 
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  def attachBinders() = binders = SelectableModelView.defaultBinders(this)
+  def attachBinders() = binders = RemoteModelView.selectableBinders(this)
 
 }

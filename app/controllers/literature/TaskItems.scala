@@ -22,7 +22,7 @@ object TaskItems extends ItemsMock{
   ts has desc of XSD.StringDatatypeIRI  occurs Star//occurs Star
   ts has assigned occurs Star //occurs Plus
   ts has completed of XSD.BooleanDatatypeIRI  occurs Star//occurs Star
-  private val taskShape: Shape = ts.result
+  val taskShape: Shape = ts.result
 
 
 
@@ -38,20 +38,5 @@ object TaskItems extends ItemsMock{
     holder.items = holder.items + (taskShape.id.asResource->this.tasks)
     holder.shapes = holder.shapes + (taskShape.id.asResource->taskShape)
   }
-
-  /**
-  val shapeRes = new IRI("http://shape.org")
-  val title = (WI.PLATFORM / "title").iri
-  val text = (WI.PLATFORM / "text").iri
-  val completed = (WI.PLATFORM / "completed").iri
-  val task = (WI.PLATFORM / "task").iri
-
-
-  val writePaper = PropertyModel(IRI(WI.PLATFORM /"WritePaper"), title -> StringLiteral("Write paper"),  text->StringLiteral("I have to write agind as a disease paper") , completed->BooleanLiteral(false) , RDF.TYPE-> task)
-  val makeWebsite = PropertyModel(IRI(WI.PLATFORM /"MakeWebsite"), title -> StringLiteral("Make a website"),  text->StringLiteral("I have to make Longevity Ukraine website work") , completed->BooleanLiteral(true), RDF.TYPE-> task)
-  val doCRM = PropertyModel(IRI(WI.PLATFORM /"MakeCRM"), title -> StringLiteral("Make ILA CRM"),  text->StringLiteral("I have to make CRM for ILA") , completed->BooleanLiteral(false), RDF.TYPE-> task)
-
-    */
-
 
 }
