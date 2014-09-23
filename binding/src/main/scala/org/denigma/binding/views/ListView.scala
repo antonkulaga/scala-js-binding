@@ -1,5 +1,6 @@
 package org.denigma.binding.views
 
+import org.denigma.binding.binders.{NavigationBinding, ItemsBinder}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
@@ -10,14 +11,8 @@ import scalatags.Text.Tag
 
 object ListView {
 
-  /**
-   * View that is created for the items in case if no other view was specified
-   * @param el
-   * @param props properties to bind to
-   */
-  class JustMapView(el:HTMLElement,props:Map[String,Any]) extends MapView(el,props){
+  class JustMapView(el:HTMLElement,val params:Map[String,Any]) extends MapView(el,params){
 
-    override def params: Map[String, Any] = Map.empty
 
     override def activateMacro(): Unit = { this.extractors.foreach(_.extractEverything(this))}
 
@@ -28,6 +23,16 @@ object ListView {
   def apply(el:HTMLElement,props:Map[String,Any]):MapView = {
     new JustMapView(el,props)
   }
+}
+
+object MapView {
+  implicit def defaultBinders(view:MapView) =  new ItemsBinder(view,view.reactiveMap)::new NavigationBinding(view)::Nil
+}
+
+
+abstract class MapView(val elem:HTMLElement,props:Map[String,Any]) extends BindableView {
+
+  val reactiveMap: Map[String, Var[String]] = props.map(kv => (kv._1, Var(kv._2.toString)))
 }
 
 

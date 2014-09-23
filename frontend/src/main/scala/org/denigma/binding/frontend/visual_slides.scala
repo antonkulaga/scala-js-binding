@@ -1,17 +1,29 @@
 package org.denigma.binding.frontend
 
+import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.views.BindableView
 import org.denigma.graphs.GraphView
 import org.scalajs.dom
 import org.scalajs.dom.{Event, XMLHttpRequest, HTMLElement}
 import org.scalax.semweb.rdf.IRI
+import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
 import scala.scalajs.js.{Dynamic, JSON}
 import org.denigma.binding.extensions._
 
-class GraphSlide(val elem:HTMLElement, val params:Map[String,Any]) extends GraphView
+class Graph2Slide(elem:HTMLElement, params:Map[String,Any]) extends GraphView(elem:HTMLElement,params:Map[String,Any])
+{
+
+  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+
+  val apply = Var(EventBinding.createMouseEvent())
+
+  override protected def attachBinders(): Unit = binders =  Nil
+}
+
+class GraphSlide(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
 {
 
 
@@ -55,7 +67,7 @@ class GraphSlide(val elem:HTMLElement, val params:Map[String,Any]) extends Graph
   //    sigma.startForceAtlas2()
   //  }
 
-  override def container: HTMLElement = dom.document.getElementById("graph-container")
+  def container: HTMLElement = dom.document.getElementById("graph-container")
   override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
 }
 

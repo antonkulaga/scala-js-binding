@@ -19,8 +19,19 @@ trait RemoteLoadView extends RemoteModelView {
 
   def params:Map[String,Any]
 
-  val path:String = params.get("path").map(v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)).get
-  val resource = IRI(params("resource").toString)
+  val path:String = this.resolveKey("path"){
+    case v:String if v.contains(":") =>v
+    case v =>sq.withHost(v.toString)
+  }
+
+  val resource = this.resolveKey("resource")
+  {
+    case res:IRI=>res
+    case res:String=>IRI(res)
+    case other=>
+      error(s"unknown resource type in $id with tostring ${other.toString}")
+      IRI(other.toString)
+  }
 
   override val storage:AjaxModelStorage = new AjaxModelStorage(path)
 

@@ -7,6 +7,8 @@ scalaJSSettings
 
 Build.sameSettings
 
+version := Build.bindingVersion
+
 name := "binding"
 
 scalacOptions ++= Seq( "-feature", "-language:_" )

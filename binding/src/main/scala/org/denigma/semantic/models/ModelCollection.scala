@@ -70,27 +70,33 @@ trait ModelCollection extends BindableView
 
   //val dirty = Rx{items().filterNot(_}
 
-  override def newItem(item:Item):ItemView =
-  {
-    //dom.console.log(template.outerHTML.toString)
-    val el = template.cloneNode(true).asInstanceOf[HTMLElement]
-
-    el.removeAttribute("data-template")
-    val mp: Map[String, Any] = Map[String,Any]("model"->item)
-
-    val view = el.attributes.get("data-item-view") match {
-      case None=>
-        ModelCollection.apply(el,mp)
-      case Some(v)=> this.inject(v.value,el,mp) match {
-        case iv:ItemView=> iv
-        case _=>
-          dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
-          ModelCollection.apply(el,mp)
-      }
-    }
+  override def newItem(item:Item):ItemView = {
     item.handler(onItemChange(item))
-    view
+    this.constructItem(item,Map("model"->item)){ (el,mp)=>
+        item.handler(onItemChange(item))
+        ModelCollection.apply(el,mp)
+      }
   }
+//  {
+//    //dom.console.log(template.outerHTML.toString)
+//    val el = template.cloneNode(true).asInstanceOf[HTMLElement]
+//
+//    el.removeAttribute("data-template")
+//    val mp: Map[String, Any] = Map[String,Any]("model"->item)
+//
+//    val view = el.attributes.get("data-item-view") match {
+//      case None=>
+//        ModelCollection.apply(el,mp)
+//      case Some(v)=> this.inject(v.value,el,mp) match {
+//        case iv:ItemView=> iv
+//        case _=>
+//          dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
+//          ModelCollection.apply(el,mp)
+//      }
+//    }
+//    item.handler(onItemChange(item))
+//    view
+//  }
 
   /**
    * Fires when view was binded by default does the same as bind

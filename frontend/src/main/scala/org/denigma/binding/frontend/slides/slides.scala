@@ -1,28 +1,22 @@
-package org.denigma.binding.frontend
+package org.denigma.binding.frontend.slides
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
-import org.denigma.binding.frontend.controls.ShapeEditor
 import org.denigma.binding.views.BindableView
-import org.denigma.controls.general.CodeMirrorView
-import org.denigma.graphs.GraphView
+import org.denigma.controls.binders.CodeBinder
+import org.denigma.semantic.binders.editable.EditModelBinder
 import org.denigma.semantic.models._
 import org.denigma.semantic.rdf
-import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
-import org.denigma.semantic.shapes.{ShapedModelView, PropertyView}
-import org.scalajs.dom
+import org.denigma.semantic.rdf.{ModelInside, ShapeInside}
+import org.denigma.semantic.shapes.ShapedModelView
 import org.scalajs.dom.{HTMLElement, MouseEvent}
-import org.scalax.semweb.rdf.vocabulary.{RDF, WI}
-import org.scalax.semweb.rdf.{vocabulary, BooleanLiteral, IRI, StringLiteral}
-import org.scalax.semweb.shex.{Star, Shape, ShapeBuilder, PropertyModel}
+import org.scalax.semweb.rdf.vocabulary.WI
+import org.scalax.semweb.rdf.{BooleanLiteral, IRI, StringLiteral, vocabulary}
+import org.scalax.semweb.shex.{PropertyModel, ShapeBuilder, Star}
 import rx._
 import rx.core.Var
 
 import scala.collection.immutable.Map
-import scala.scalajs.js
-import rx.ops._
-
-import scala.util.{Failure, Success}
 
 
 /**
@@ -115,31 +109,30 @@ class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Stri
 
   }
 
-  override protected def attachBinders(): Unit = binders =   BindableView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders =   new CodeBinder(this)::Nil
 }
 
 
 class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
 
+
+  val code = Var("")
+
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
   val apply = Var(EventBinding.createMouseEvent())
   this.apply.handler {
-    this.collectFirstView{case v:CodeMirrorView=>v.code.now} match {
-      case Some(code)=>
-        this.findView("testmenu") match {
-          case Some(view:BindableView)=>this.parseHTML(code).foreach(r=>view.refreshMe(r))
-          case _=>this.error("test menu not found")
-        }
-      case _=>error("no codemirror view found")
-    }
+      this.findView("testmenu") match {
+        case Some(view:BindableView)=>this.parseHTML(code.now).foreach(r=>view.refreshMe(r))
+        case _=>this.error("test menu not found")
+  }
 
 
 
   }
 
-  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
 
 
 }
@@ -147,7 +140,6 @@ class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empt
 
 class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends RemoteLoadView with EditModelView
 {
-
 
   this.saveClick.takeIf(dirty).handler{
     //dom.console.log("it should be saved right now")
@@ -163,7 +155,7 @@ class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends Remo
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  override protected def attachBinders(): Unit = binders =  RemoteModelView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders =  new EditModelBinder(this,this.model,this.editMode)::new CodeBinder(this)::Nil
 }
 /**
  * Slide about RDF-related binding
@@ -174,7 +166,7 @@ class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Strin
 {
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-    override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
+    override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
 }
 
 
@@ -183,7 +175,7 @@ class RemoteSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
 
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
 
 }
 
@@ -193,7 +185,7 @@ class RemoteSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
 class SlideView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
 
 }
 /**
@@ -205,6 +197,7 @@ class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
 {
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+  val text = Var("")
 
 
   val input = Var("01.01.2010")
@@ -213,7 +206,7 @@ class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
     //  new DateParser(input()).InputLine.run().map(i=>i.toString).getOrElse("failure")
     ""
   }
-  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::BindableView.defaultBinders(this)
 
 
 }
@@ -224,7 +217,7 @@ class TestSuggestBinding(val elem:HTMLElement,val params:Map[String,Any] = Map.e
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
-  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
+  override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
 
 
   override def bindView(el:HTMLElement) {

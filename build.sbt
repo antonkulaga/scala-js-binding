@@ -2,6 +2,8 @@ name := """binding-preview"""
 
 Build.sameSettings
 
+version := Build.bindingVersion
+
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
 resolvers += "Typesafe Maven Repository" at "http://repo.typesafe.com/typesafe/maven-releases/"

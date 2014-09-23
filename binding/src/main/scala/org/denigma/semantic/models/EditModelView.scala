@@ -19,8 +19,6 @@ object EditModelView {
 trait EditModelView extends ModelView with BindableView
 {
 
-  def params:Map[String,Any]
-
   val mode: String = params.get("mode").fold("htmlmixed")(_.toString())
 
   val codeParams = js.Dynamic.literal(

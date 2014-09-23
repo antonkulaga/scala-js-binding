@@ -62,6 +62,7 @@ abstract class BasicBinding extends ILogged
 
 
   def bindVar[T](key:String,el:HTMLElement ,v:Var[T])(assign:(HTMLElement,Var[T])=>Unit): Unit  = {
+    //TODO: deprecate
 
     val eid = this.makeId(el, key) //assigns id
     lazy val obs: Obs = Obs(v, eid, skipInitial = false) {  assign(el,v)  }
@@ -79,6 +80,7 @@ abstract class BasicBinding extends ILogged
    * @return
    */
   def bindRx[T](key:String,el:HTMLElement ,rx:Rx[T])(assign:(HTMLElement,T)=>Unit): Unit = {
+    //TODO: deprecate
 
     val eid = this.makeId(el, key)
     lazy val obs: Obs = Obs(rx, eid, skipInitial = false) {

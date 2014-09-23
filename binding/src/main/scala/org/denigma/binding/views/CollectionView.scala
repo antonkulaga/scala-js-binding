@@ -1,11 +1,13 @@
 package org.denigma.binding.views
 
 import org.denigma.binding.extensions._
+import org.denigma.semantic.models.ModelCollection
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
 import rx.Rx
 import rx.extensions.Moved
+import org.denigma.binding.extensions._
 
 import scala.collection.immutable._
 
@@ -129,6 +131,34 @@ trait CollectionView extends BindableView{
       updates.now.removed.foreach(onRemove)
       updates.now.moved.foreach(onMove)
       }
+  }
+
+
+  /**
+   * Function to create Item. Often used for default item creation
+   * @param item
+   * @param construct
+   * @return
+   */
+  def constructItem(item:Item,mp:Map[String,Any] = Map.empty)
+                   ( construct:(HTMLElement,Map[String,Any])=>ItemView):ItemView =
+  {
+    //dom.console.log(template.outerHTML.toString)
+    val el = template.cloneNode(true).asInstanceOf[HTMLElement]
+
+    el.removeAttribute("data-template")
+
+    val view = el.attributes.get("data-item-view") match {
+      case None=>
+        construct(el,mp)
+      case Some(v)=> this.inject(v.value,el,mp) match {
+        case iv:ItemView=> iv
+        case _=>
+          dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
+          construct(el,mp)
+      }
+    }
+    view
   }
 
   def newItem(mp:Item):ItemView

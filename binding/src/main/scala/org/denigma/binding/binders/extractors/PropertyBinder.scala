@@ -16,6 +16,8 @@ trait PropertyBinder {
   self:BasicBinding=>
   def strings:Map[String,Rx[String]]
   def bools:Map[String,Rx[Boolean]]
+  
+  //def fillEmptyString = false
 
 
   /**
@@ -40,7 +42,7 @@ trait PropertyBinder {
    * @param binder  binding view where we search for property, this by default
    * @return
    */
-  def bindProperty(el:HTMLElement,key:String,att:String)(implicit binder:PropertyBinder = this): Boolean = (key.toString,el.tagName.toLowerCase().toString) match
+  def bindProperty(el:HTMLElement,key:String,att:String)(implicit binder:PropertyBinder = this): Boolean = (key.toString, el.tagName.toLowerCase()) match
   {
     case ("bind","input")=>
       el.attributes.get("type").map(_.value.toString) match {
@@ -88,7 +90,8 @@ trait PropertyBinder {
   }
 
   protected def bindInput(el:HTMLElement,key:String,str:Rx[String]): Unit = this.bindRx(key,el:HTMLElement,str){ (el,value)=>
-    if(el.dyn.value!=value) el.dyn.value=value
+    val v =el.dyn.value.toString
+    if(v!=value) el.dyn.value=value
   }
 
   protected def bindText(el:HTMLElement,key:String,str:Rx[String]) = this.bindRx(key,el:HTMLElement,str){ (el,value)=>

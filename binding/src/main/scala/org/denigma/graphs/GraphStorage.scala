@@ -17,23 +17,25 @@ import scala.concurrent.Future
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic
 
-
-abstract class GraphView(val elem:HTMLElement,val params:Map[String,Any]) extends BindableView
-{
-  lazy val containerId = this.resolveKeyOption("graph-container"){
-    case cont:String=>cont
-  }.getOrElse("graph-container")
-
-  lazy val container: HTMLElement  = dom.document.getElementById(containerId)
-
-  lazy val graph =     new GraphContainer(container,1000,1000)
+/**
+ * Created by antonkulaga on 9/23/14.
+ */
+class GraphStorage(path:String)(implicit registry:PicklerRegistry = rp) extends Storage {
 
 
-  override def bindView(el:HTMLElement) =
-  {
-    super.bindView(el)
-    graph.render()
+  def channel:String = path
+
+
+  /**
+   *
+   * @param resource resource to be explored
+   * @param props if empty then all props are ok
+   * @param patterns if empty then all paterns are ok
+   * @param depth is 1 by default
+   * @return
+   */
+  def explore(resource:Res,props:List[IRI] = List.empty,patterns:List[Pat] = List.empty, depth:Int = 1) = {
+    sq.post(path,GraphMessages.NodeExplore(resource,props,patterns,depth, id = genId())):Future[List[Quad]]
   }
-
 
 }

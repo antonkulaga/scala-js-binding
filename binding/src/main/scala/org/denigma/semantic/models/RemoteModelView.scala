@@ -27,9 +27,13 @@ object RemoteModelView
 trait  RemoteModelView extends ModelView  with BindableView with WithShapeView
 {
 
+
   override val model = this.modelOption.orElse{
-    params.get("resource").map{ case res:Res=> Var(ModelInside(PropertyModel(res)))   }
-  }.getOrElse(Var(ModelInside(PropertyModel.empty)))
+      this.resolveKeyOption("resource"){
+        case res:Res=>Var(ModelInside(PropertyModel(res)))
+        case str:String if str.contains(":")=>Var(ModelInside(PropertyModel(IRI(str))))
+      }
+    }.getOrElse(Var(ModelInside(PropertyModel.empty)))
 
 
 

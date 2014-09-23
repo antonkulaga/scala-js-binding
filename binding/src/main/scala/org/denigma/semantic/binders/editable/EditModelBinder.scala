@@ -4,12 +4,14 @@ import org.denigma.binding.views.BindableView
 import org.denigma.controls.editors.editors
 import org.denigma.semantic.binders.ModelBinder
 import org.denigma.semantic.rdf.ModelInside
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom
+import org.scalajs.dom.{Event, HTMLElement}
 import org.scalax.semweb.rdf.IRI
 import rx.core.{Rx, Var}
 import org.scalajs.dom.extensions._
 
 class EditModelBinder(view:BindableView, modelInside:Var[ModelInside], editMode:Rx[Boolean]) extends ModelBinder(view,modelInside) {
+
 
   /**
    * Binds editor to editable element
@@ -17,6 +19,8 @@ class EditModelBinder(view:BindableView, modelInside:Var[ModelInside], editMode:
    * @param key
    */
   def bindEditable(el:HTMLElement,key:String) = {
+    //dom.console.log(s"editmode works ${el.contentEditable}")
+
     this.bindRx(key,el,this.editMode){ (el,model)=>
       el.contentEditable = editMode().toString
       el.attributes.get("editor") match {
@@ -33,11 +37,15 @@ class EditModelBinder(view:BindableView, modelInside:Var[ModelInside], editMode:
    */
   override protected def bindRdfInner(el: HTMLElement, key: IRI) =
   {
+    dom.console.log(s"editmode works ${el.contentEditable}")
+    el.onblur = this.makeRdfHandler(el, key, "innerHTML")
     super.bindRdfInner(el, key)
     this.bindEditable(el,key.stringValue)
   }
 
   override protected def bindRdfText(el: HTMLElement, key: IRI) = {
+    dom.console.log(s"editmode works ${el.contentEditable}")
+    el.onblur = this.makeRdfHandler(el, key, "textContent")
     super.bindRdfText(el,key)
     this.bindEditable(el,key.stringValue)
   }

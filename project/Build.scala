@@ -19,11 +19,19 @@ object Build extends sbt.Build with UniversalKeys {
 
   override def rootProject = Some(preview)
 
-  val sharedSrcDir = "scala"
-
-  val semWebVersion =  "0.6.11"
-
   val macwireVersion = "0.7.1"
+
+  //val sharedSrcDir = "scala"
+
+  val semWebVersion =  "0.6.12"
+
+
+
+  //val modelsVersion = "0.5.9"
+
+  //val bindingPlayVersion = "0.5.9"
+
+  val bindingVersion = "0.6"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -67,9 +75,12 @@ object Build extends sbt.Build with UniversalKeys {
 
       parallelExecution in Test := false,
 
-      scalajsOutputDir := (crossTarget in Compile).value / "classes" / "public" / "javascripts",
+      scalajsOutputDir := (classDirectory in Compile).value  / "public" / "javascripts",
 
-      //scalajsOutputDir     := baseDirectory.value / "public" / "javascripts" / "scalajs",
+      //scalajsOutputDir := (crossTarget in Compile).value / "classes"  / "public" / "javascripts",
+
+
+    //scalajsOutputDir     := baseDirectory.value / "public" / "javascripts" / "scalajs",
 
       compile in Compile <<= (compile in Compile) dependsOn (fastOptJS in (frontend, Compile)),
 
@@ -81,7 +92,7 @@ object Build extends sbt.Build with UniversalKeys {
 
       watchSources <++= (sourceDirectory in (frontend, Compile)).map { path => (path ** "*.scala").get}
 
-    ) ++ (   Seq(packageExternalDepsJS, packageInternalDepsJS, packageExportedProductsJS, /*packageLauncher,*/ fastOptJS, fullOptJS) map { packageJSKey =>
+    ) ++ (   Seq( /*packageExternalDepsJS, packageInternalDepsJS, packageExportedProductsJS, packageLauncher,*/ fastOptJS, fullOptJS) map { packageJSKey =>
       crossTarget in (frontend, Compile, packageJSKey) := scalajsOutputDir.value
     }
     )
@@ -103,7 +114,7 @@ object Build extends sbt.Build with UniversalKeys {
 
     organization := "org.denigma",
 
-    version := "0.5.7",
+    version := "0.5.9",
 
     scalaVersion := "2.11.2",
 

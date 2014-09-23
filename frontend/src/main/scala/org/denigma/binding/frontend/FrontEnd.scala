@@ -1,11 +1,12 @@
 package org.denigma.binding.frontend
 
-import org.denigma.binding.extensions._
 import org.denigma.binding.binders.extractors.EventBinding
+import org.denigma.binding.extensions._
 import org.denigma.binding.frontend.controls.{ShapeEditor, ShapeProperty}
 import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksView}
+import org.denigma.binding.frontend.slides._
 import org.denigma.binding.frontend.tests.{LongListView, PicklerView, RandomView}
-import org.denigma.binding.frontend.tools.{CodeInsideView, CodeView, SelectView}
+import org.denigma.binding.frontend.tools.SelectView
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
 import org.denigma.controls.editors.{CkEditor, CodeMirrorEditor, editors}
@@ -47,11 +48,9 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("BindSlide",(el,params)=>Try(new BindSlide(el,params)))
     .register("RemoteSlide",(el,params)=>Try(new RemoteSlide(el,params)))
     .register("RdfSlide",(el,params)=>Try(new RdfSlide(el,params)))
-    .register("CodeView",(el,params)=>Try(new CodeView(el,params)))
     .register("TestModelView",(el,params)=>Try(new TestModelView(el,params)))
     .register("PicklerView",(el,params)=>Try(new PicklerView(el,params)))
     .register("PageEditView",(el,params)=>Try(new PageEditView(el,params)))
-    .register("CodeInsideView",(el,params)=>Try(new CodeInsideView(el,params)))
     //.register("TableView",  (el,params)=>Try(new TableBinder(el,params)))
     .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
     .register("ShapeProperty",(el,params)=>Try(new ShapeProperty(el,params)))
@@ -70,13 +69,15 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("DatepairView",(el,params)=>Try(new DatePairView(el,params)))
 
     .register("GraphSlide", (el,params)=>Try(new GraphSlide(el,params)))
+    .register("Graph2Slide", (el,params)=>Try(new Graph2Slide(el,params)))
+
     .register("GlobeSlide", (el,params)=>Try(new GlobeSlide(el,params)))
 
 
 
 
   editors
-    .registerEditor("ckeditor",CkEditor)
+    .registerEditor("ckeditor",CkEditor, true)
     .registerEditor("codemirror",CodeMirrorEditor)
 
 

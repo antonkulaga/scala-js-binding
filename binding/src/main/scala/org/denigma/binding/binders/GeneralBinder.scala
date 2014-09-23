@@ -15,6 +15,7 @@ import scalatags.Text._
 class GeneralBinder(view:BindableView) extends PrimitivesBinder with ScalaTagsBinder with EventBinding with Extractor
 {
 
+
   var bools: Map[String, Rx[Boolean]] = Map.empty
 
   var strings: Map[String, Rx[String]] = Map.empty

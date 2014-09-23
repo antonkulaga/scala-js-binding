@@ -16,7 +16,7 @@ resolvers += Resolver.url(
     Resolver.ivyStylePatterns)
 
 //scalajs plugin
-addSbtPlugin("org.scala-lang.modules.scalajs" % "scalajs-sbt-plugin" % "0.5.4")
+addSbtPlugin("org.scala-lang.modules.scalajs" % "scalajs-sbt-plugin" % "0.5.5")
 
 //dependency graph generation
 addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")

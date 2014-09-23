@@ -42,6 +42,17 @@ class RDFBinder(view:BindableView) extends BasicBinding
 
   }
 
+  /**
+   * Returns IRI in a nicely prefixed way
+   * @param iri
+   * @return
+   */
+  def prefixedIRIString(iri:IRI): String = prefixes.find{ case (key,value)=>iri.stringValue.contains(value)}.map
+  {
+    //TODO: test if it works and includes ":"
+    case (key,value)=> iri.stringValue.replace(value.stringValue,key)
+  }.getOrElse(iri.stringValue)
+
   def nearestRDFBinders(): List[RDFBinder] = view.nearestParentOf{
     case p:BindableView if p.binders.exists(b=>b.isInstanceOf[RDFBinder])=>p.binders.collect{case b:RDFBinder=>b}
   }.getOrElse(List.empty)

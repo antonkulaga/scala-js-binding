@@ -5,6 +5,8 @@ scalaJSSettings
 
 Build.sameSettings
 
+version := Build.bindingVersion
+
 name := "frontend"
 
 resolvers += Opts.resolver.repo("alexander-myltsev", "maven")

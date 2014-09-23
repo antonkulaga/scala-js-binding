@@ -1,6 +1,6 @@
 package org.denigma.controls.editors
 
-import org.denigma.binding.views.OrganizedView
+import org.denigma.binding.views.{BindableView, OrganizedView}
 import org.scalajs.codemirror.{CodeMirror, Editor, EditorConfiguration}
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
@@ -9,8 +9,6 @@ import scala.collection.immutable.Map
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic.{global => g}
 import scalatags.Text.{attrs => a, styles => s}
-
-import org.denigma.binding.views.OrganizedView
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 
@@ -21,8 +19,8 @@ import org.scalajs.dom.HTMLElement
 trait InlineEditor {
   //  def canEdit(el:HTMLElement,view:OrganizedView):Boolean
   //  def isActiveAt(el:HTMLElement,view:OrganizedView):Boolean
-  def on(el:HTMLElement,view:OrganizedView):Unit
-  def off(el:HTMLElement,view:OrganizedView):Unit
+  def on(el:HTMLElement,view:BindableView):Unit
+  def off(el:HTMLElement,view:BindableView):Unit
 
 }
 
@@ -33,13 +31,13 @@ object CkEditor extends InlineEditor{
 
   var editors = Map.empty[HTMLElement,js.Dynamic]
 
-  override def on(el: HTMLElement, view: OrganizedView): Unit = {
+  override def on(el: HTMLElement, view: BindableView): Unit = {
     val id = el.id
     val editor = g.CKEDITOR.inline( el )
     editors = editors + (el->editor)
   }
 
-  override def off(el: HTMLElement, view: OrganizedView): Unit = {
+  override def off(el: HTMLElement, view: BindableView): Unit = {
     editors.get(el) match {
       case Some(ed)=>
         this.editors = editors - el
@@ -59,7 +57,7 @@ object CodeMirrorEditor extends InlineEditor {
 
   var pairs = Map.empty[HTMLElement, CodeMirrorEditor]
 
-  override def on(el: HTMLElement, view: OrganizedView): Unit = {
+  override def on(el: HTMLElement, view: BindableView): Unit = {
 
     //
     //    val area = dom.document.createElement("textarea").asInstanceOf[dom.HTMLTextAreaElement]
@@ -76,7 +74,7 @@ object CodeMirrorEditor extends InlineEditor {
 
   }
 
-  override def off(el: HTMLElement, view: OrganizedView): Unit = pairs.get(el) match {
+  override def off(el: HTMLElement, view: BindableView): Unit = pairs.get(el) match {
     case Some(ed)=> dom.document.getElementById(el.id) match {
       case area:dom.HTMLTextAreaElement =>
         dom.console.log("closing "+el.id)

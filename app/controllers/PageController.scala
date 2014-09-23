@@ -31,6 +31,7 @@ object PageController extends Controller with PickleController with AjaxModelEnd
 
 
   val shapeRes = new IRI("http://shape.org")
+  val header = (WI.PLATFORM / "header").iri
   val title = (WI.PLATFORM / "title").iri
   val text = (WI.PLATFORM / "text").iri
 
@@ -49,6 +50,7 @@ object PageController extends Controller with PickleController with AjaxModelEnd
 
   val rybkaModel = PropertyModel(rybka,
     properties = Map(
+      header -> Set(StringLiteral("This is test rdf model that is kept in memory. You can switch on contenteditable mode and edit text directly")),
       title -> Set(StringLiteral("About Rybka Project")),
       text ->Set(StringLiteral(
         """

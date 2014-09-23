@@ -89,29 +89,14 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
   //  val dirty = Rx{items().filterNot(_}
 
-  override def newItem(item:Item):ItemView =
-  {
-    //dom.console.log(template.outerHTML.toString)
-    val el = template.cloneNode(true).asInstanceOf[HTMLElement]
-
-    el.removeAttribute("data-template")
-    val mp: Map[String, Any] = Map[String,Any]("model"->item, "storage"->crudStorage, "shape"->this.shape)
-
-    val view: ItemView = el.attributes.get("data-item-view") match {
-      case None=>
-        AjaxModelCollection.apply(el, mp)
-      case Some(v)=> this.inject(v.value,el,mp) match {
-        case iv:ItemView=> iv
-        case iv if iv.isInstanceOf[RemoteModelView]=> iv.asInstanceOf[RemoteModelView]
-        case _=>
-          dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
-          AjaxModelCollection.apply(el,mp)
-          //AjaxModelCollection.apply(el,item, this.crudStorage, this.shapeRes) //TODO: check if works at all
-      }
-    }
+  override def newItem(item:Item):ItemView = {
     item.handler(onItemChange(item))
-    view
+    this.constructItem(item,Map("model"->item, "storage"->crudStorage, "shape"->this.shape)){ (el,mp)=>
+      item.handler(onItemChange(item))
+      AjaxModelCollection.apply(el,mp)
+    }
   }
+
 
   /**
    * Fires when view was binded by default does the same as bind
