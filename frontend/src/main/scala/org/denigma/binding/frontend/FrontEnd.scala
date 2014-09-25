@@ -5,7 +5,7 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.frontend.controls.{ShapeEditor, ShapeProperty}
 import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksView}
 import org.denigma.binding.frontend.slides._
-import org.denigma.binding.frontend.tests.{LongListView, PicklerView, RandomView}
+import org.denigma.binding.frontend.tests.{HeadersView, LongListView, PicklerView, RandomView}
 import org.denigma.binding.frontend.tools.SelectView
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
@@ -72,6 +72,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("Graph2Slide", (el,params)=>Try(new Graph2Slide(el,params)))
 
     .register("GlobeSlide", (el,params)=>Try(new GlobeSlide(el,params)))
+    .register("headers", (el,params)=>Try(new HeadersView(el,params)))
 
 
 

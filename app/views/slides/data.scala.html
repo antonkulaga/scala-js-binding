@@ -38,8 +38,14 @@
 
         <section class="row">
             <div class="column">
-                <table data-view="row" id="rowview" vocab="http://open-services.net/ns/core#">
+                <table border="1" data-view="row" id="rowview" vocab="http://open-services.net/ns/core#">
                     <h1>TEST TABLE</h1>
+                    <tr data-view="headers">
+                        <td data-template="true">
+                            <label data-bind="key">key</label>
+                            <label data-bind="value">value</label>
+                        </td>
+                    </tr>
                     <tr data-template="true" id="rowTemplate">
                         <td data="value">Hello</td>
                     </tr>

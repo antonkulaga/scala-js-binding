@@ -7,19 +7,19 @@ import org.scalajs.threejs._
 import scala.scalajs.js.annotation.JSName
 
 @JSName("THREE.CSS3DObject")
-class CSS3DObject(element:HTMLElement) extends Object3D
+class HtmlObject(element:HTMLElement) extends Object3D
 {
 
 }
 
 @JSName("THREE.CSS3DSprite")
-class CSS3DSprite(element:HTMLElement) extends CSS3DObject(element){
+class HtmlSprite(element:HTMLElement) extends HtmlObject(element){
 
 }
 
 
 @JSName("THREE.CSS3DRenderer")
-class CSS3DRenderer extends Renderer {
+class HtmlRenderer extends Renderer {
 
 //  def render(scene: Scene, camera: Camera): Unit = ???
 //  def setSize(width: Double, height: Double, updateStyle: Boolean = ???): Unit = ???
@@ -34,7 +34,7 @@ class CSS3DRenderer extends Renderer {
 
   def getCameraCSSMatrix(matrix:threejs.Matrix3):String= ???
 
-  def renderObject(obj:CSS3DObject,camera:Camera):Unit = ???
+  def renderObject(obj:HtmlObject,camera:Camera):Unit = ???
 
 
 }

@@ -62,7 +62,7 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
   def values(key:IRI) = this.properties(key).map {   case values =>     this.vals2String(values,onOne = (v)=>v.label,onMany = manyNames)  }
 
   protected def keyWarning(key:IRI)=  {
-    this.debug(s"${key.toString()} was not found in the model with properties = ${model.now.current.properties.toString()}")
+    dom.console.info(s"${key.toString()} was not found in the model with properties = ${model.now.current.properties.toString()}")
   }
 
 

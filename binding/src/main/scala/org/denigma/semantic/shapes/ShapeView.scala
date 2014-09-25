@@ -4,6 +4,7 @@ import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.views._
+import org.denigma.binding.views.collections.CollectionView
 import org.denigma.semantic.models.WithShapeView
 import org.denigma.semantic.rdf.{ShapeInside, ChangeSlot}
 import org.scalajs.dom

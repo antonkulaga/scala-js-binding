@@ -71,7 +71,7 @@ abstract class ReactiveView extends OrganizedView{
   def resolveKey[Result](key:String)(fun:PartialFunction[Any,Result]):Result = this.resolveKeyOption(key)(fun) match {
     case Some(res) =>res
     case None=>
-      error(s"cannot find appropriate value for mandatory param $key in view $id")
+      dom.console.error(s"cannot find appropriate value for mandatory param $key in view $id")
       ???
   }
 

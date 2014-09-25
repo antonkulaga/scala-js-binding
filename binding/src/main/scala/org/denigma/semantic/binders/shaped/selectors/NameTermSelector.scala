@@ -1,5 +1,6 @@
 package org.denigma.semantic.binders.shaped.selectors
 
+import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.shex._
@@ -48,13 +49,13 @@ class NameTermSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)
 
    protected def nameClass2Value(name:NameClass) = name match {
      case NameTerm(iri)=>iri.stringValue
-     case NameStem(stem)=> this.error("name stem is not yet implemented"); ???
-     case NameAny(other)=> this.error("name any is not yet implemented"); ???
+     case NameStem(stem)=> dom.console.error("name stem is not yet implemented"); ???
+     case NameAny(other)=> dom.console.error("name any is not yet implemented"); ???
    }
 
    protected def value2NameClass(value:String) = value match {
      case value if value.contains(":") => NameTerm(IRI(value))
-     case _ => this.error("strange value for the name term") ; ???
+     case _ => dom.console.error("strange value for the name term") ; ???
    }
 
 
@@ -68,7 +69,7 @@ class NameTermSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)
 
    override protected def itemAddHandler(value: String, item: js.Any): Unit = {
      val nt = this.value2NameClass(value)
-     debug(s"VALUE = $value TERM + ${nt.toString}")
+     //dom.console.info(s"VALUE = $value TERM + ${nt.toString}")
      if(arc.now.name!=nt) {
        arc() = arc.now.copy(name = nt)
      }

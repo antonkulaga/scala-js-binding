@@ -2,7 +2,7 @@ package org.denigma.controls.general
 
 import org.denigma.binding.models.MenuItem
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.views.ListView
+import org.denigma.binding.views.collections.MapCollectionView
 import org.denigma.semantic.storages.AjaxSimpleStorage
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
@@ -24,7 +24,7 @@ abstract class EditableMenuView(name:String,el:HTMLElement, params:Map[String,An
 
 }
 
-abstract class AjaxMenuView(override val name:String,el:HTMLElement, params:Map[String,Any] = Map.empty) extends ListView(el,params) {
+abstract class AjaxMenuView(override val name:String,el:HTMLElement, params:Map[String,Any] = Map.empty) extends MapCollectionView(el,params) {
   self =>
 
   /**

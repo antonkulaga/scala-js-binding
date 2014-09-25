@@ -20,7 +20,16 @@ class Graph2Slide(elem:HTMLElement, params:Map[String,Any]) extends GraphView(el
 
   val apply = Var(EventBinding.createMouseEvent())
 
-  override protected def attachBinders(): Unit = binders =  Nil
+  override protected def attachBinders(): Unit = binders = Nil
+
+
+
+  override def bindView(el:HTMLElement) = {
+    super.bindView(el)
+
+  }
+
+
 }
 
 class GraphSlide(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
@@ -50,14 +59,13 @@ class GraphSlide(val elem:HTMLElement, val params:Map[String,Any]) extends Binda
     //      case Success(data) =>
     //        this.loadData(data)
     //      case Failure(th)=>
-    //        this.error(s"failure in read of model for $path: \n ${th.getMessage} ")
+    //        dom.console.error(s"failure in read of model for $path: \n ${th.getMessage} ")
     //    }
 
   }
 
 
   protected def draw() = {
-    Graph.init()
 
   }
 

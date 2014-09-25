@@ -33,10 +33,10 @@ class GeneralBinder(view:BindableView) extends PrimitivesBinder with ScalaTagsBi
   :TextEventMap :KeyEventMap
   :UIEventMap :WheelEventMap :FocusEventMap](value:T) =
   {
-    strings = this.extractStringRx(value)
-    tags = this.extractTagRx(value)
-    bools = this.extractBooleanRx(value)
-    mouseEvents = this.extractMouseEvents(value)
+    strings = strings ++ this.extractStringRx(value)
+    tags = tags ++ this.extractTagRx(value)
+    bools = bools ++ this.extractBooleanRx(value)
+    mouseEvents = mouseEvents ++ this.extractMouseEvents(value)
   }
 
 
@@ -73,20 +73,21 @@ class GeneralBinder(view:BindableView) extends PrimitivesBinder with ScalaTagsBi
 
 
   protected def upPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
-    case bname if bname.startsWith("up-bind-")=>debug(key+" | string matches | "+value)
+    case bname if bname.startsWith("up-bind-")=>
+      //debug(key+" | string matches | "+value)
       val my = key.replace("up-bind-","")
       this.strings.get(my) match {
         case Some(str: rx.Var[String])=>
           //this.searchUp[OrdinaryView](p=>p.strings.contains(value)) match {
 
-          debug(key+" | string matches | "+value)
+          //debug(key+" | string matches | "+value)
           view.nearestParentOf{
             case view:BindableView if view.binders.exists(b=>b.isInstanceOf[GeneralBinder])
             => view
           } match
           {
             case Some(p)=>
-              debug(key+" | parent found | "+value)
+            //  debug(key+" | parent found | "+value)
 
               val binder = p.binders.collectFirst{case b:GeneralBinder=>b}.get
 

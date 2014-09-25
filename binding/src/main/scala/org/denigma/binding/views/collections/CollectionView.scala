@@ -1,13 +1,12 @@
-package org.denigma.binding.views
+package org.denigma.binding.views.collections
 
 import org.denigma.binding.extensions._
-import org.denigma.semantic.models.ModelCollection
+import org.denigma.binding.views.{BindableView, IView}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.extensions._
 import rx.Rx
 import rx.extensions.Moved
-import org.denigma.binding.extensions._
 
 import scala.collection.immutable._
 
@@ -60,7 +59,9 @@ trait CollectionView extends BindableView{
    * @param oldChild oldchild
    * @return
    */
-  def replace(newChild:HTMLElement,oldChild:HTMLElement, switch:Boolean = false) = if(oldChild!=newChild)   (newChild.parentElement, oldChild.parentElement) match {
+  def replace(newChild:HTMLElement,oldChild:HTMLElement, switch:Boolean = false) = if(oldChild!=newChild)
+    (newChild.parentElement, oldChild.parentElement) match
+    {
      case (pn,null)=>
        console.error("old child has not parent")
        oldChild
@@ -90,25 +91,37 @@ trait CollectionView extends BindableView{
 
   }
 
+  override def bindView(el: HTMLElement) = {
+    attachBinders()
+    activateMacro()
+    this.bind(el)
+    this.subscribeUpdates()
+  }
+
   /**
    * Binds nodes to the element
    * @param el
    */
-  override def bind(el:HTMLElement):Unit =   if(el.attributes.contains("data-template")) {
-    el.removeAttribute("data-template")
-    this.template = el
-  } else this.viewFrom(el) match {
+  override def bind(el:HTMLElement):Unit =
+    if(el.attributes.contains("data-template"))
+    {
+      el.removeAttribute("data-template")
+      this.template = el
+    }
+    else
+      this.viewFrom(el) match
+      {
 
-    case Some(view) if el.id.toString!=this.id =>
-      this.subviews.getOrElse(el.id, this.createView(el,view))
+      case Some(view) if el.id.toString!=this.id =>
+        this.subviews.getOrElse(el.id, this.createView(el,view))
 
-    case _=>
-      this.bindElement(el)
-      if(el.hasChildNodes()) el.childNodes.foreach {
-        case el: HTMLElement => this.bind(el)
-        case _ => //skip
+      case _=>
+        this.bindElement(el)
+        if(el.hasChildNodes()) el.childNodes.foreach {
+          case el: HTMLElement => this.bind(el)
+          case _ => //skip
+        }
       }
-  }
 
   lazy val updates = Watcher(items).updates
 
@@ -152,7 +165,7 @@ trait CollectionView extends BindableView{
       case None=>
         construct(el,mp)
       case Some(v)=> this.inject(v.value,el,mp) match {
-        case iv:ItemView=> iv
+        case iv:ItemView if iv.isInstanceOf[ItemView]=> iv
         case _=>
           dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
           construct(el,mp)

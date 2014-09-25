@@ -31,7 +31,7 @@ object Build extends sbt.Build with UniversalKeys {
 
   //val bindingPlayVersion = "0.5.9"
 
-  val bindingVersion = "0.6"
+  val bindingVersion = "0.6.1"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 

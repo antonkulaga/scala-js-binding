@@ -9,7 +9,7 @@ import scala.util.{Failure, Success, Try}
 
 
 
-trait IView extends ILogged{
+trait IView extends /*ILogged*/{
 
   def id:String
 
@@ -30,7 +30,7 @@ trait IView extends ILogged{
         doc.body.children.collectFirst{case html:HTMLElement=>html}
 
       case Failure(th)=>
-        this.error(th.toString)
+        dom.console.error(th.toString)
         None
     }
   }

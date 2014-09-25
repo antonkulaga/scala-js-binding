@@ -29,7 +29,7 @@ trait RemoteLoadView extends RemoteModelView {
     case res:IRI=>res
     case res:String=>IRI(res)
     case other=>
-      error(s"unknown resource type in $id with tostring ${other.toString}")
+      dom.console.error(s"unknown resource type in $id with tostring ${other.toString}")
       IRI(other.toString)
   }
 

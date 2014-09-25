@@ -10,6 +10,7 @@ import org.scalajs.dom.extensions._
 import scala.collection.immutable.Map
 import scala.reflect.ClassTag
 import scala.util.{Try, Failure, Success}
+import scala.collection.JavaConversions
 
 
 trait Injector[ChildView<:BasicView] {
@@ -35,7 +36,7 @@ trait BasicView extends BasicBinding with IView
    * @param el
    * @return
    */
-  def makeDefault(name:String,el:HTMLElement):ChildView
+  def makeDefault(el:HTMLElement,props:Map[String,Any] = Map.empty):ChildView
 
 
   def elem:dom.HTMLElement
@@ -79,20 +80,28 @@ trait BasicView extends BasicBinding with IView
     injector.inject(viewName,el,params) match {
     case Some(tr)=>
       tr match {
-        case Success(view)=>view
+        case Success(view) => view
 
-        case Failure(e)=>
+        case Failure(e) =>
           //dom.console.error(e.toString)
-          if(e!=null)
-            dom.console.error(s"cannot initialize the $viewName view in $id with params ${params.toString()} because of ${e.toString}")
-          else
-            dom.console.error(s"Cannot initialize the $viewName view in $id")
-          makeDefault(name,el)
+          if (e != null){
+            dom.console.error(s"" +
+              s"cannot initialize the $viewName view inside $id with params ${params.toString()} because of ${e.toString}")
+            dom.console.error(stackToString(e))
+          }
+          else  dom.console.error(s"Cannot initialize the $viewName view in $id")
+          makeDefault(el,params)
     }
     case _ =>
       dom.console.error(s"cannot find view class for $viewName")
-      makeDefault(name,el)
+      makeDefault(el,params)
   }
+  }
+
+  protected def stackToString(e:Throwable) = {
+    val trace = e.getStackTrace.toList
+    trace.foldLeft("STACK TRACE = "){
+      case (acc,el)=>   acc+s"\n ${el.toString}"    }
   }
 
   protected var _element = elem

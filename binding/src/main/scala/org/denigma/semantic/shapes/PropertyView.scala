@@ -4,6 +4,7 @@ package org.denigma.semantic.shapes
 import org.denigma.binding.binders.GeneralBinder
 import org.denigma.semantic.binders.shaped.ShapePropertyBinder
 import org.denigma.semantic.models.RemoteModelView
+import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.shex.ArcRule
 
@@ -24,7 +25,7 @@ object PropertyView {
 class JustPropertyView(val elem:HTMLElement,val params:Map[String,Any]) extends PropertyView
 {
 
-  debug("MODEL ="+model.now.toString)
+  //dom.console.info("MODEL ="+model.now.toString)
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 

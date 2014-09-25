@@ -24,7 +24,7 @@ class NamesBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[R
     this.names.get(el) match
     {
       case Some(s)=>
-        debug(s"typing: $str")
+        //dom.console.info(s"typing: $str")
         this.suggest(str).onComplete{
           case Success(options)=>s.updateOptions(options)
           case Failure(th)=>dom.console.error(s"type handler failure for with failure ${th.toString}")

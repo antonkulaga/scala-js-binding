@@ -1,6 +1,7 @@
 package org.denigma.binding.frontend.tests
 
-import org.denigma.binding.views.{BindableView, ListView}
+import org.denigma.binding.views.BindableView
+import org.denigma.binding.views.collections.MapCollectionView
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import rx.{Rx, Var}
 
@@ -11,7 +12,7 @@ import scalatags.Text.Tag
 /**
  * Class for testing purposes that makes a long list out of test element
  */
-class LongListView(element:HTMLElement, params:Map[String,Any]) extends ListView(element,params){
+class LongListView(element:HTMLElement, params:Map[String,Any]) extends MapCollectionView(element,params){
 
 
 

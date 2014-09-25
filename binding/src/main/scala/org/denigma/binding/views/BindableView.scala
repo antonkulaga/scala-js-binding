@@ -13,27 +13,19 @@ import scala.collection.immutable.Map
 import scalatags.Text.Tag
 
 object BindableView {
-  /**
-   * created if we do not know the view at all
-   * @param name of the view
-   * @param elem dom element inside
-   */
-  class JustView(override val name:String,val elem:dom.HTMLElement) extends BindableView
+
+  class JustView(val elem:dom.HTMLElement, val params:Map[String,Any]) extends BindableView
   {
-
-
-    override def params: Map[String, Any] = Map.empty
-
-    override def activateMacro(): Unit = { 
+    override def activateMacro(): Unit = {
       this.extractors.foreach(_.extractEverything(this))
     }
 
-    override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
+    override protected def attachBinders(): Unit = this.withBinders( BindableView.defaultBinders(this))
   }
 
   implicit def defaultBinders(view:BindableView) = new GeneralBinder(view)::new NavigationBinding(view)::Nil
 
-  def apply(name:String,elem:dom.HTMLElement) = new JustView(name,elem)
+  def apply(elem:dom.HTMLElement,params:Map[String,Any] = Map.empty) = new JustView(elem,params)
 
 }
 
@@ -44,13 +36,21 @@ trait BindableView extends ReactiveView
   protected def attachBinders():Unit
 
   var binders:List[BasicBinding] = List.empty
-  
+
+  def withBinders(bns:List[BasicBinding]):this.type = {
+    this.binders = this.binders ++ bns
+    this
+  }
+
+  def withBinders(binder:BasicBinding*):this.type  = withBinders(binder.toList)
+
+
   def extractors = binders.view.collect{case b:Extractor=>b}
 
 
-  override def makeDefault(name:String,el:HTMLElement) = {
+  def makeDefault(el:HTMLElement,props:Map[String,Any] = Map.empty):ChildView = {
     //debug(s"NAME IS $name")
-    BindableView(name:String,el)
+    BindableView(el,props)
   }
 
   override def bindAttributes(el:HTMLElement,ats:Map[String, String]) = {

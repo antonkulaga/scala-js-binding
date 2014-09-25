@@ -69,14 +69,14 @@ resolvers += Resolver.url(
     url("http://dl.bintray.com/content/sbt/sbt-plugin-releases"))(
         Resolver.ivyStylePatterns)
 
-addSbtPlugin("me.lessis" % "bintray-sbt" % "0.2")
+addSbtPlugin("me.lessis" % "bintray-sbt" % "0.1.2")
 ```
 
 In your sbt config you should add resolver and dependency
 ```scala
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 
-libraryDependencies += "org.denigma" %%% "binding" % "0.5.7"
+libraryDependencies += "org.denigma" %%% "binding" % "0.6.1"
 ```
 
 NOTE: at the moment library is published only for scalajs 0.5.x and scala 2.11.2

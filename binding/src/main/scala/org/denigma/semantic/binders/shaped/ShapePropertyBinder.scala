@@ -3,6 +3,7 @@ package org.denigma.semantic.binders.shaped
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.SelectBinder
 import org.denigma.semantic.rdf.ModelInside
+import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.{RDFValue, IRI}
 import org.scalax.semweb.shex.ArcRule
@@ -45,7 +46,7 @@ class ShapePropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:Ar
       this.arcProps.now.keys.headOption match {
         case Some(key)=>
           this.bindRDFProperty(el,key) //TODO: rewrite
-        case None=> error(s"no property found for the shape in arc ${arc.name.toString}")
+        case None=>  dom.console.error(s"no property found for the shape in arc ${arc.name.toString}")
       }
 
     case "data" if value=="name"=> arc.title match {

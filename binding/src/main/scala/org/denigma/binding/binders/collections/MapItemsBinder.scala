@@ -1,6 +1,6 @@
-package org.denigma.binding.binders
+package org.denigma.binding.binders.collections
 
-import org.denigma.binding.binders.{NavigationBinding, GeneralBinder, BasicBinding}
+import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom._
@@ -10,7 +10,7 @@ import rx.Var
 import scala.collection.immutable._
 
 
-class ItemsBinder(view:BindableView, reactiveMap:Map[String,Var[String]]) extends GeneralBinder(view) {
+class MapItemsBinder(view:BindableView, reactiveMap:Map[String,Var[String]]) extends GeneralBinder(view) {
 
   //TODO: rewrite props
   override def bindProperties(el: HTMLElement, ats: Map[String, String]) = for {

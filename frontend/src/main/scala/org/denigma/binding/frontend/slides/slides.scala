@@ -6,9 +6,11 @@ import org.denigma.binding.views.BindableView
 import org.denigma.controls.binders.CodeBinder
 import org.denigma.semantic.binders.editable.EditModelBinder
 import org.denigma.semantic.models._
+import org.denigma.semantic.models.collections.ModelCollection
 import org.denigma.semantic.rdf
 import org.denigma.semantic.rdf.{ModelInside, ShapeInside}
 import org.denigma.semantic.shapes.ShapedModelView
+import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import org.scalax.semweb.rdf.vocabulary.WI
 import org.scalax.semweb.rdf.{BooleanLiteral, IRI, StringLiteral, vocabulary}
@@ -125,7 +127,7 @@ class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empt
   this.apply.handler {
       this.findView("testmenu") match {
         case Some(view:BindableView)=>this.parseHTML(code.now).foreach(r=>view.refreshMe(r))
-        case _=>this.error("test menu not found")
+        case _=>dom.console.error("test menu not found")
   }
 
 
@@ -167,6 +169,8 @@ class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Strin
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
     override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
+
+    val code = Var("")
 }
 
 
@@ -289,7 +293,7 @@ class RowView(elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) e
   def taskShape() = {
     val ts = new ShapeBuilder(task)
 
-    ts has de / "is_authored_by" occurs Star //occurs Plus
+    //ts has de / "is_authored_by" occurs Star //occurs Plus
     ts has title occurs Star //occurs ExactlyOne
     //art has de / "date" occurs Star //occurs ExactlyOne
     ts has desc of XSD.StringDatatypeIRI occurs Star //occurs Star

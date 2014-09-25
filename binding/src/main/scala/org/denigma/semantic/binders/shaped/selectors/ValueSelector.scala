@@ -1,5 +1,6 @@
 package org.denigma.semantic.binders.shaped.selectors
 
+import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.{Res, IRI}
 import org.scalax.semweb.shex._
@@ -20,7 +21,7 @@ class ValueSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)=>U
 
   def valueIntoElement(value:String):Element =value match {
     case value if value.contains(":") => ValueType(IRI(value))
-    case _ => this.error("strange value for the name term") ; ???
+    case _ => dom.console.error("strange value for the name term") ; ???
   }
 
   //TODO: rewrite
@@ -45,8 +46,8 @@ class ValueSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)=>U
 
   protected def nameClass2Value(name:ValueClass) = name match {
     case ValueType(res)=>res.stringValue
-    case ValueStem(stem)=> this.error("name stem is not yet implemented"); ???
-    case ValueAny(other)=> this.error("name any is not yet implemented"); ???
+    case ValueStem(stem)=> dom.console.error("name stem is not yet implemented"); ???
+    case ValueAny(other)=> dom.console.error("name any is not yet implemented"); ???
   }
 
 

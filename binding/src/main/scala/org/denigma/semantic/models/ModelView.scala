@@ -2,6 +2,7 @@ package org.denigma.semantic.models
 
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.rdf.ModelInside
+import org.scalajs.dom
 import org.scalax.semweb.shex.{Model, PropertyModel}
 import rx._
 import rx.core.Var
@@ -16,7 +17,7 @@ trait ModelView extends BindableView{
 
   def modelOption = params.get("model").map{
     case null =>
-      error("model cannot be null")
+      dom.console.error("model cannot be null")
       Var(ModelInside(PropertyModel.empty))
     case mod:PropertyModel=> Var(ModelInside( mod ))
     case mis:ModelInside=> Var(mis)

@@ -1,13 +1,12 @@
-package org.denigma.semantic.models
+package org.denigma.semantic.models.collections
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.views.{BindableView, CollectionView}
-import org.denigma.semantic.models.ModelView
+import org.denigma.binding.views.BindableView
+import org.denigma.binding.views.collections.CollectionView
+import org.denigma.semantic.models.{ModelView, RemoteModelView}
 import org.denigma.semantic.rdf.ModelInside
-import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
-import org.scalajs.dom.extensions._
 import rx.core.{Rx, Var}
 
 import scala.collection.immutable.{List, Map}
@@ -77,38 +76,4 @@ trait ModelCollection extends BindableView
         ModelCollection.apply(el,mp)
       }
   }
-//  {
-//    //dom.console.log(template.outerHTML.toString)
-//    val el = template.cloneNode(true).asInstanceOf[HTMLElement]
-//
-//    el.removeAttribute("data-template")
-//    val mp: Map[String, Any] = Map[String,Any]("model"->item)
-//
-//    val view = el.attributes.get("data-item-view") match {
-//      case None=>
-//        ModelCollection.apply(el,mp)
-//      case Some(v)=> this.inject(v.value,el,mp) match {
-//        case iv:ItemView=> iv
-//        case _=>
-//          dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
-//          ModelCollection.apply(el,mp)
-//      }
-//    }
-//    item.handler(onItemChange(item))
-//    view
-//  }
-
-  /**
-   * Fires when view was binded by default does the same as bind
-   * @param el
-   */
-  override def bindView(el: HTMLElement) = {
-    attachBinders()
-    activateMacro()
-    this.bind(el)
-    this.subscribeUpdates()
-  }
-
-
-
 }

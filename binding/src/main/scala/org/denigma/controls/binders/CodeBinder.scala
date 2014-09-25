@@ -70,7 +70,7 @@ class CodeBinder(view:BindableView) extends GeneralBinder(view:BindableView)
 
       this.makeCode(el,str,mode)
     case Some(str)=> this.makeCode(el,str,mode)
-    case None=> error(s"cannot find code string $value in $id")
+    case None=>  dom.console.error(s"cannot find code string $value in $id")
   }
 
 
@@ -86,7 +86,7 @@ class CodeBinder(view:BindableView) extends GeneralBinder(view:BindableView)
             if(str.now!="") ed.getDoc().setValue(str.now)
             str match {
               case s: Var[String] => ed.on("change", onChange(s) _)
-              case _ => this.info(s"$str.now is not reactive Var in $id")
+              case _ =>  dom.console.info(s"$str.now is not reactive Var in $id")
             }
             str.handler{
               val d = ed.getDoc()
@@ -95,7 +95,7 @@ class CodeBinder(view:BindableView) extends GeneralBinder(view:BindableView)
 
         }
 
-    case _=> error(s"cannot find code string ${str.now} in $id")
+    case _=>  dom.console.error(s"cannot find code string ${str.now} in $id")
   }
 
 

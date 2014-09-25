@@ -1,6 +1,6 @@
 package org.denigma.semantic.shapes
 
-import org.denigma.binding.views.CollectionView
+import org.denigma.binding.views.collections.CollectionView
 import org.denigma.semantic.models.RemoteModelView
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
@@ -48,11 +48,6 @@ abstract class ShapedModelView(val elem:HTMLElement,val params:Map[String,Any]) 
   }
 
   override val items =  shape.map(sh=>sh.current.arcSorted())
-
-  override def bindView(el:HTMLElement) = {
-    super.bindView(el)
-    this.subscribeUpdates()
-  }
 
 
 }

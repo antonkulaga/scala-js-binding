@@ -145,11 +145,11 @@ abstract class OrganizedView extends BasicView
   {
     val toRemove = this.subviews.collect{case (key,value) if value.isInside(element)=>key}.toSet
     toRemove.foreach(r=>this.removeViewByName(r))
-   // this.debug(s"removing subviews from $name: ${toRemove.toString()})")
-   // this.debug(s"remaining views in $name: ${this.subviews.toString()}")
-   // this.debug("========================================================\n")
-   // this.debug(this.writeTree())
-   // this.debug("========================================================\n")
+   // dom.console.info(s"removing subviews from $name: ${toRemove.toString()})")
+   // dom.console.info(s"remaining views in $name: ${this.subviews.toString()}")
+   // dom.console.info("========================================================\n")
+   // dom.console.info(this.writeTree())
+   // dom.console.info("========================================================\n")
   }
 
   /**
@@ -173,7 +173,7 @@ abstract class OrganizedView extends BasicView
     case Some(v:OrganizedView)=>
       v.refreshMe(newElement)
     case None=>
-      error(s"cannot find $viewId among childs")
+      dom.console.error(s"cannot find $viewId among childs")
     }
 
 
@@ -196,25 +196,25 @@ abstract class OrganizedView extends BasicView
   def refreshMe(newElement:HTMLElement) = this.parent match {
     case Some(pv)=>
 
-      info("before = "+pv.subviews.toString())
+      //dom.console.info("before = "+pv.subviews.toString())
       this.viewElement.parentElement match {
         case null=>
-          error(s"cannot replace element of ${viewElement.id}")
+          dom.console.error(s"cannot replace element of ${viewElement.id}")
           pv.viewElement.appendChild(newElement)
 
 
         case other=>
-          info("from =" + viewElement.outerHTML)
-          info("to = " + newElement.outerHTML)
+          //dom.console.info("from =" + viewElement.outerHTML)
+          //dom.console.info("to = " + newElement.outerHTML)
           other.replaceChild(newElement,this.viewElement)
       }
       newElement.setAttribute("id",this.id)
       pv.removeView(this:ChildView)
       pv.bind(newElement)
-      info("after = "+pv.subviews.toString())
+      //dom.console.info("after = "+pv.subviews.toString())
 
 
-    case None=> this.error("topview refresh is not supported yet")
+    case None=> dom.console.error("topview refresh is not supported yet")
   }
 
 

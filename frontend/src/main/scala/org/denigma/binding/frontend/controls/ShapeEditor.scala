@@ -63,16 +63,6 @@ class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends  Sha
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-
-  /**
-   * Fires when view was binded by default does the same as bind
-   * @param el
-   */
-  override def bindView(el: HTMLElement) = {
-    super.bindView(el)
-    this.subscribeUpdates()
-  }
-
   override def receiveFuture:PartialFunction[PromiseEvent[_,_],Unit] = {
 
     case JustPromise(ArcView.SuggestNameTerm(typed),origin,latest,bubble,promise:Promise[List[RDFValue]])=>
@@ -81,11 +71,11 @@ class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends  Sha
         promise.success(res.options)
       case Failure(th)=>
         promise.failure(th)
-        error("suggession is broken"+th)
+        dom.console.error("suggession is broken"+th)
     }
 
     case ev=>
-      debug("propogation")
+      //debug("propogation")
       this.propagateFuture(ev)
 
   }

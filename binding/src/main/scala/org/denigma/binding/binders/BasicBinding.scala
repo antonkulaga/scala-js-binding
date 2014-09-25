@@ -16,7 +16,7 @@ import scala.util.{Failure, Success}
 /**
  *  A class that contains basic functions for all bindings
  */
-abstract class BasicBinding extends ILogged
+abstract class BasicBinding //extends ILogged
 {
 
 

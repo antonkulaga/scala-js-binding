@@ -3,7 +3,8 @@ package org.denigma.binding.frontend.papers
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.models.{AjaxModelCollection, RemoteModelView}
+import org.denigma.semantic.models.RemoteModelView
+import org.denigma.semantic.models.collections.AjaxModelCollection
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom.HTMLElement
 import rx._

@@ -1,12 +1,12 @@
-package org.denigma.semantic.models
+package org.denigma.semantic.models.collections
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.{ExploreMessages, Filters}
+import org.denigma.semantic.models.{ModelView, RemoteModelView, WithShapeView}
 import org.denigma.semantic.rdf.ModelInside
 import org.denigma.semantic.storages.{AjaxExploreStorage, AjaxModelStorage}
 import org.scalajs.dom
 import org.scalajs.dom._
-import org.scalajs.dom.extensions._
 import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.shex._
 import rx.core.{Rx, Var}
