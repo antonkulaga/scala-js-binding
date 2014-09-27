@@ -1,13 +1,17 @@
 package org.denigma.graphs.core
 
+import scala.scalajs.js
+
 
 trait BasicGraph{
 
   type Node <:DataHolder
   type Edge <:EdgeLike[Node]
 
-  var nodes:List[Node]
-  var edges:List[Edge]
+
+  val nodes:js.Array[Node]  //optimized for speed
+  val edges:js.Array[Edge]  //optimized for speed
+
 
 }
 
@@ -25,5 +29,6 @@ trait DataHolder
   def data:Data
   type View
   val view:View
+
 
 }

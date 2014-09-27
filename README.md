@@ -10,7 +10,7 @@ ScalaJS Binding project
 * define properties as reactive variables (Scala.Rx is used) that allows to make complex event flow in a reactive way
 * use some play clases that make working for binding-framework easier
 * have a tree of scala viewclasses in your app
-* some useful predifined controls (like select and codeview) that you can extend
+* some useful predefined controls (like select and codeview) that you can extend
 * work with linked data (rdf data) in a convenient way, bind html to RDF properties
 
 Bindings are done in a following way. For instance taken following html:
@@ -25,11 +25,14 @@ Bindings are done in a following way. For instance taken following html:
 
 Here at the beginning property *data-view="login"*  attaches LoginView scala class to corresponding div tag.  
 Then each *data-bind-propertyname* property is binded to corresponding property of LoginView class.
-All bindings inside of children tags will be to properties of this view. There is a view hierarchy. Each view can have subviews. 
-Usually mains view attached to body tag is created. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
+All bindings inside of children tags will be binded tp properties of the view or its child views.
+Each view can have children (subviews). There is also a main, top view, that usually binds to body tag.
+Usually bindings are done to reactive variables (see further), but binders are separate from view classes,
+ so one can define whatever binder (s)he wants. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
 
 Binders are the classes that bind ScalaJS view to html elements. Each view can have many different binders. 
-Common usage practise is extending one of abstract classes in binding or semantic package and adding binders by overriding def attachBinders() method.
+Common usage practise is extending one of abstract classes in binding or semantic package and adding binders by defining them
+in overrides of def attachBinders() method.
 
 
 Getting started
@@ -76,7 +79,7 @@ In your sbt config you should add resolver and dependency
 ```scala
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 
-libraryDependencies += "org.denigma" %%% "binding" % "0.6.1"
+libraryDependencies += "org.denigma" %%% "binding" % "0.6.2"
 ```
 
 NOTE: at the moment library is published only for scalajs 0.5.x and scala 2.11.2
@@ -142,8 +145,8 @@ Link text will be taken from "label" properties of MenuItems (due to data-item-b
 Views
 -----
 
-The general idea of the library that you create scala View classes that are created according to data-view="ViewClassName" html attribute 
-and get reference to corresponding htmlelement.
+The general idea of the library that you deal with scala view classes that are connected to corresponding html elements
+and initiated according to data-view="ViewClassName" html attributes.
 Each view can also take some parameters defined by data-param="value" html attributes. For simplicity you may treat views as user interface components.
 Views have their hierarchy. Each view can have subviews and has parent view. There is also a recursive topParent method if you want to get top view.
 Each view has bindView and bind methods.
@@ -156,9 +159,8 @@ of this html element will be binded not by this view but by corresponding subvie
 How views and bindings work
 ---------------------------
 
-In order to benefit from html bindings you should create scalajs classes that inherit from views (for instance OrdinaryView) and connect them to html
- 
-For instance taken following html:
+In order to benefit from html bindings you should:
+Declare attributes for views and properties in html. For instance taken following html:
 ```html
 <div class="right menu" data-view="login">
     <div class="item"  data-showif="isSigned">
@@ -173,9 +175,9 @@ You can read about reactive variables/definitions (or at ScalaRx readme ( https:
 In our case it may look like:
 
 ```scala
-class LoginView(element:HTMLElement, params:Map[String,Any]) extends OrdinaryView("login",element) 
+class LoginView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
 {
-val isSigned = Var(fale)
+val isSigned = Var(false)
 val loginClick: Var[MouseEvent] = Var(EventBinding.createMouseEvent())
 //...some other code
 ```
@@ -191,6 +193,18 @@ So in order to handle, for instance, logout click, you can:
   val logoutHandler = logoutClick.handler{ //some actions inside }
 ```
 
+Then you should assign binders to your class. Binders are classes that bind your view to html. Each view can have multiple binders.
+In the simpliest case it looks like that:
+```scala
+ override protected def attachBinders(): Unit = this.withBinders(new GeneralBinder(this))
+```
+General binder is used to bind html propertries to reactive strings (Rx[String]),booleans and so on.
+
+3)  Declare  views in html and register view names by ViewInjector (in any place you want),like
+```scala
+  ViewInjector.register("login", (el, params) =>Try(new LoginView(el,params)))
+```
+
 Under the hood bindings are done with use of macroses. All rx variables (more about reactive variables are extracted by macroses into Map-s to make them accessible
 for binding views.
  
@@ -199,8 +213,17 @@ Storages
 --------
 
 In order to do CRUD on iterms rendered to collections of views we need some code that will send requests to the server and get responses.
-In order to abstract veiws from communication details storages have been created. Storages are just classes that do CRUD via ajax or websockets. 
+In order to abstract veiws from communication details storages have been created. Storages are just classes that do CRUD via ajax or websockets.
+In scala-js-binding there are several predefined storage classes that use scala-js-pickling and send/receive scala case classes to the server and back.
  
+Semantic web
+------------
+
+A big part of the code (whole  org.denigma.semantic package) is devoted to binding of semanticweb properties and resources to html.
+Semantic web stack is a great thing to deal with heterogeneous information and extracting knowledge from data. The data there is stored as
+as statements about different facts in a triplet/quad format (subject predicate object), usually RDF databases like Sesame, Jena, Bigdata
+are used. In future Semanticweb part of the library will be separated into separate subproject and published as separate artifact.
+
 Rough edges
 ===========
 
@@ -236,13 +259,6 @@ The best place for this is ScalaJS main object
 
 I hope to get rid of this in future when I will figure out what kind of dependency injection to choose for view creation.
 
-
- Semantic Web part
- -----------------
-
- A big part of the library is org.denigma.semantic It is part of the libarary devoted to binding to RDF properties.
- In future it will be separated into separate (sub)project.
-
  
 Architecture
 ============
@@ -254,6 +270,5 @@ The repo consists of several subprojects:
 
 * Demo code (play app root project, frontend subproject, shared subproject) //they are in the repo but they are not published
 * Library itself ( binding and jsmacro projects)
-
 
 The root project is play app with some samples. binding-preview project is not published but used only for preview purposes.

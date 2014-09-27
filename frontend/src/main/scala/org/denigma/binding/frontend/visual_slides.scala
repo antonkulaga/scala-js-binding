@@ -1,5 +1,6 @@
 package org.denigma.binding.frontend
 
+import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.views.BindableView
 import org.denigma.graphs.GraphView
@@ -13,71 +14,6 @@ import scala.scalajs.js
 import scala.scalajs.js.{Dynamic, JSON}
 import org.denigma.binding.extensions._
 
-class Graph2Slide(elem:HTMLElement, params:Map[String,Any]) extends GraphView(elem:HTMLElement,params:Map[String,Any])
-{
-
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-
-  val apply = Var(EventBinding.createMouseEvent())
-
-  override protected def attachBinders(): Unit = binders = Nil
-
-
-
-  override def bindView(el:HTMLElement) = {
-    super.bindView(el)
-
-  }
-
-
-}
-
-class GraphSlide(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
-{
-
-
-  lazy val path: String = this.params.get("path").map(_.toString).get
-
-  lazy val resource = this.params.get("resource").map(v=>IRI(v.toString)).get
-
-  //require(params.contains("path"))
-
-
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-
-
-
-
-  override def bindView(el:HTMLElement) = {
-    super.bindView(el)
-    this.draw()
-    //jQuery(el).slideUp()
-    //    super.bindView(el)
-    //    Sigma.utils.pkg("sigma.canvas.edges")
-    //    this.sigma =  new Sigma(initial)
-    //    this.storage.explore(this.resource).onComplete{
-    //      case Success(data) =>
-    //        this.loadData(data)
-    //      case Failure(th)=>
-    //        dom.console.error(s"failure in read of model for $path: \n ${th.getMessage} ")
-    //    }
-
-  }
-
-
-  protected def draw() = {
-
-  }
-
-
-  //  override protected def loadData(data:List[Quad]) = {
-  //    super.loadData(data)
-  //    sigma.startForceAtlas2()
-  //  }
-
-  def container: HTMLElement = dom.document.getElementById("graph-container")
-  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
-}
 
 
 

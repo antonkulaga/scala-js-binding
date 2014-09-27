@@ -5,6 +5,7 @@ import org.denigma.graphs.tools._
 import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, HTMLHeadingElement}
 import org.scalajs.threejs._
+import org.scalajs.threejs.extensions.Container3D
 
 import scala.scalajs.js.Dynamic
 import scalatags.JsDom.TypedTag

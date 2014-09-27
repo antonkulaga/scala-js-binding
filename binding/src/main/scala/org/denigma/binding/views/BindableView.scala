@@ -35,14 +35,14 @@ trait BindableView extends ReactiveView
 
   protected def attachBinders():Unit
 
-  var binders:List[BasicBinding] = List.empty
+  var binders:List[Binder] = List.empty
 
-  def withBinders(bns:List[BasicBinding]):this.type = {
+  def withBinders(bns:List[Binder]):this.type = {
     this.binders = this.binders ++ bns
     this
   }
 
-  def withBinders(binder:BasicBinding*):this.type  = withBinders(binder.toList)
+  def withBinders(binder:Binder*):this.type  = withBinders(binder.toList)
 
 
   def extractors = binders.view.collect{case b:Extractor=>b}

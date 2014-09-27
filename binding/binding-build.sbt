@@ -25,7 +25,7 @@ libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-jquery" % "
 
 libraryDependencies += "org.scalajs" %%% "codemirror" % "4.5-0.1"
 
-libraryDependencies += "org.scalajs" %%% "threejs" % "0.0.68-0.1"
+libraryDependencies += "org.scalajs" %%% "threejs" % "0.0.68-0.1.1"
 
 libraryDependencies += "com.softwaremill.macwire" %% "macros" % Build.macwireVersion
 

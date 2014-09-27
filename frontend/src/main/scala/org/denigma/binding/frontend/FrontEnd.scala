@@ -69,7 +69,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("DatepairView",(el,params)=>Try(new DatePairView(el,params)))
 
     .register("GraphSlide", (el,params)=>Try(new GraphSlide(el,params)))
-    .register("Graph2Slide", (el,params)=>Try(new Graph2Slide(el,params)))
 
     .register("GlobeSlide", (el,params)=>Try(new GlobeSlide(el,params)))
     .register("headers", (el,params)=>Try(new HeadersView(el,params)))

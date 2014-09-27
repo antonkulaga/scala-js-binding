@@ -32,7 +32,6 @@ trait BasicView extends BasicBinding with IView
 
   /**
    * Works when injectors fails to create a view
-   * @param name
    * @param el
    * @return
    */
@@ -159,6 +158,7 @@ trait BasicView extends BasicBinding with IView
 
   /**
    * Turns data-param attribute into real param
+   * NOTE: If you want to pass other params to child views, just override this function
    * @param el
    * @return
    */
@@ -168,8 +168,6 @@ trait BasicView extends BasicBinding with IView
         val k = key.replace("data-param-", "")
         val v = value.value
         k -> v.asInstanceOf[Any]
-
-
     }.toMap
 
 

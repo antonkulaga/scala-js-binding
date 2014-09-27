@@ -1,10 +1,13 @@
 package org.denigma.graphs.core
 
+import org.denigma.graphs.layouts.Layout
 import org.denigma.graphs.tools.HtmlSprite
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.threejs.{ArrowHelper, Vector3, Object3D}
 import rx._
+
+
 
 
 class GraphTypes
@@ -23,6 +26,8 @@ class GraphTypes
 
 
   class NodeView(val data:DataType,val tag:HTMLElement,val sprite:HtmlSprite, val color:Double = defColor) {
+
+    val layout = new Layout()
 
   }
 
@@ -43,18 +48,19 @@ class GraphTypes
     def targetPos: Vector3 = to.position
     def direction = new Vector3().subVectors(targetPos, sourcePos)
 
-    def posArrow() = {
+    protected def posArrow() = {
+      //arrow.position = sourcePos
       arrow.setDirection(direction.normalize())
-      arrow.setLength(direction.length())
+      arrow.setLength(direction.length(), lp.headLength, lp.headWidth)
     }
 
-    def posSprite() = {
+    protected def posSprite() = {
 
       sprite.position = this.middle
     }
 
     import lp._
-    val arrow =  new ArrowHelper(direction.clone().normalize(), sourcePos, direction.length(), lineColor, headLength, headWidth)
+    val arrow =  new ArrowHelper(direction.normalize(), sourcePos, direction.length(), lineColor, headLength, headWidth)
     arrow.addEventListener("mouseover",this.onLineMouseOver _)
     arrow.addEventListener("mouseout",this.onLineMouseOver _)
 
@@ -64,16 +70,22 @@ class GraphTypes
       this.sprite.visible = true
       dom.console.log("onMouseOver")
     }
+
     def onLineMouseOut(event:Any):Unit = {
       this.sprite.visible = false
       dom.console.log("onMouseOut")
+    }
+
+    def update() = {
+      posArrow()
+      posSprite()
     }
 
   }
 
   class Edge(val from:Node, val to:Node, val data:DataType, val view:EdgeView) extends EdgeLike[Node]
   {
-    type View = EdgeView
+    override type View = EdgeView
     override type Data = DataType
 
   }

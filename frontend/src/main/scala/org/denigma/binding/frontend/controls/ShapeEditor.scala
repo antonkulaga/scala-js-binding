@@ -59,7 +59,7 @@ class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends  Sha
   val applyShape = Var(EventBinding.createMouseEvent())
 
 
-  override protected def attachBinders(): Unit = binders = ShapeView.defaultBinders(this)
+  override protected def attachBinders(): Unit = this.withBinders(ShapeView.defaultBinders(this))
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 

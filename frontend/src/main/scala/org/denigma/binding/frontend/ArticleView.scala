@@ -32,5 +32,5 @@ class ArticleView(val elem:HTMLElement, val params:Map[String,Any] = Map.empty[S
   val published = Var("17/05/2014")
   val lastEdited = Var("17/05/2014")
 
-  override protected def attachBinders(): Unit = binders =  BindableView.defaultBinders(this)
+  override protected def attachBinders(): Unit =this.withBinders(BindableView.defaultBinders(this))
 }

@@ -111,7 +111,7 @@ class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Stri
 
   }
 
-  override protected def attachBinders(): Unit = binders =   new CodeBinder(this)::Nil
+  override protected def attachBinders(): Unit =this.withBinders(new CodeBinder(this))
 }
 
 
@@ -134,7 +134,7 @@ class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empt
 
   }
 
-  override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
+  override protected def attachBinders(): Unit = this.withBinders(new CodeBinder(this))
 
 
 }
@@ -157,7 +157,7 @@ class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends Remo
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  override protected def attachBinders(): Unit = binders =  new EditModelBinder(this,this.model,this.editMode)::new CodeBinder(this)::Nil
+  override protected def attachBinders(): Unit = binders =  this.withBinders(new EditModelBinder(this,this.model,this.editMode)::new CodeBinder(this)::Nil)
 }
 /**
  * Slide about RDF-related binding
@@ -168,7 +168,7 @@ class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Strin
 {
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-    override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
+    override protected def attachBinders(): Unit =  this.withBinders(new CodeBinder(this))
 
     val code = Var("")
 }
@@ -179,7 +179,7 @@ class RemoteSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
 
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-  override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
+  override protected def attachBinders(): Unit = this.withBinders(new CodeBinder(this))
 
 }
 
@@ -189,7 +189,7 @@ class RemoteSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
 class SlideView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-  override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
+  override protected def attachBinders(): Unit =  this.withBinders(new CodeBinder(this))
 
 }
 /**
@@ -210,7 +210,7 @@ class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
     //  new DateParser(input()).InputLine.run().map(i=>i.toString).getOrElse("failure")
     ""
   }
-  override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::BindableView.defaultBinders(this)
+  override protected def attachBinders(): Unit = withBinders( new CodeBinder(this)::BindableView.defaultBinders(this) )
 
 
 }
@@ -221,7 +221,7 @@ class TestSuggestBinding(val elem:HTMLElement,val params:Map[String,Any] = Map.e
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 
-  override protected def attachBinders(): Unit = binders =  new CodeBinder(this)::Nil
+  override protected def attachBinders(): Unit =  this.withBinders(new CodeBinder(this))
 
 
   override def bindView(el:HTMLElement) {
@@ -318,6 +318,6 @@ class TestModelView(val elem:HTMLElement,val params:Map[String,Any]) extends Rem
   }
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-  override protected def attachBinders(): Unit = binders =  RemoteModelView.defaultBinders(this)
+  override protected def attachBinders(): Unit = this.withBinders( RemoteModelView.defaultBinders(this))
 
 }

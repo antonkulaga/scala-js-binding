@@ -26,8 +26,7 @@ object Slides extends PJaxPlatformWith("index") {
         views.html.papers.reports(request)
         //views.html.slides.data("Provides some controls for working with data")(request)
       case "sparql"=>views.html.slides.sparql("It can do sparql parsing")(request)
-      case "graph"=>views.html.slides.graph("It can do sparql parsing")(request)
-      case "graph2"=>views.html.slides.graph2("It can do sparql parsing")(request)
+      case "graph"=>views.html.slides.graph("It can draw and bind 3D graphs")(request)
 
       case "globe"=>views.html.slides.globe("It can do sparql parsing")(request)
 
@@ -52,6 +51,7 @@ object SlidesMenu  extends Controller  with ItemsController{
     "slides/editing"->"Page editing",
     //"slides/data"->"Data editing",
     "slides/feed" -> "Feed",
+    "slides/graph" -> "3D Graph rendering",
     "slides/rdf"->"RDF views"
   //"slides/parse"->"Parsing example"
   ) map{ case (url,title)=> MenuItem(dom / url,title)}

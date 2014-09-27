@@ -62,12 +62,23 @@ abstract class OrganizedView extends BasicView
 
   var parent:Option[ParentView] = None
 
+  /**
+   * Take nearest parent that satisfy partial function conditions and maps it to arbitary result
+   * In other words you can find a parent that satisfy your needs and extract everything you want from it
+   * @param func
+   * @tparam TResult
+   * @return
+   */
   def nearestParentOf[TResult](func:PartialFunction[ParentView,TResult]):Option[TResult] =  parent match {
     case None=>None
     case Some(par) if func.isDefinedAt(par)=>Some(func(par))
     case Some(par)=>par.nearestParentOf(func)
   }
 
+  /**
+   * If this view has any parent. Usually top view as well as views that are not in dome yet do not have parents
+   * @return
+   */
   def hasParent = parent.isDefined
 
 
