@@ -11,11 +11,13 @@ import play.Play._
 import scala.scalajs.sbtplugin.ScalaJSPlugin.ScalaJSKeys._
 import scala.scalajs.sbtplugin.ScalaJSPlugin._
 
-object Build extends sbt.Build with UniversalKeys {
+import com.inthenow.sbt.scalajs.SbtScalajs
+import com.inthenow.sbt.scalajs.SbtScalajs._
+//import com.typesafe.sbt.SbtScalariform.defaultScalariformSettings
+
+object Build extends sbt.Build with UniversalKeys with ModelsBuild {
 
   val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")
-
-  protected val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
 
   override def rootProject = Some(preview)
 
@@ -24,32 +26,22 @@ object Build extends sbt.Build with UniversalKeys {
 
   val semWebVersion =  "0.6.13"
 
-
   val bindingVersion = "0.6.2"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
-  lazy val preview = (project in file(".")).enablePlugins(PlayScala) settings(previewSettings: _*) dependsOn shared dependsOn bindingPlay aggregate frontend
+  lazy val preview = (project in file(".")).enablePlugins(PlayScala) settings(previewSettings: _*) dependsOn bindingPlay aggregate frontend
 
   lazy val frontend = Project(
     id   = "frontend",
     base = file("frontend")
-  ) dependsOn shared dependsOn binding
+  ) dependsOn  binding
 
-  lazy val models = Project(
-    id = "models",
-    base = file("models")
-  )
-
-  lazy val shared = Project(
-    id = "shared",
-    base = file("shared")
-  ) settings (  sourceDirectory := (sourceDirectory in models).value )
 
   lazy val binding = Project(
     id = "binding",
     base = file("binding")
-  ) dependsOn jsmacro  dependsOn models
+  ) dependsOn jsmacro  dependsOn models_js
 
   lazy val jsmacro = Project(
     id = "js-macro",
@@ -59,7 +51,7 @@ object Build extends sbt.Build with UniversalKeys {
   lazy val bindingPlay = Project(
     id = "binding-play",
     base = file("binding-play")
-  ) dependsOn shared
+  ) dependsOn models_jvm aggregate models_jvm
 
   //lazy val sharedCode= unmanagedSourceDirectories in Compile += baseDirectory.value / "shared" / "src" / "main" / "scala"
 
@@ -102,51 +94,5 @@ object Build extends sbt.Build with UniversalKeys {
     Project.runTask(fullOptJS in (frontend, Compile), state)
     state.copy(remainingCommands = ("play-start " + args.mkString(" ")) +: state.remainingCommands)
   }
-
-
-  val sameSettings = bintraySettings ++Seq(
-
-    organization := "org.denigma",
-
-    version := "0.6.0",
-
-    scalaVersion := "2.11.2",
-
-    resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
-
-    resolvers += Opts.resolver.repo("alexander-myltsev", "maven"),
-
-    // The Typesafe repository
-    resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
-
-
-    resolvers +=  Resolver.url("scala-js-releases",
-      url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
-        Resolver.ivyStylePatterns),
-
-    scalacOptions ++= Seq( "-feature", "-language:_" )
-
-  )
-
-
-
-  lazy val publishSettings = Seq(
-    repository in bintray := "denigma-releases",
-
-    bintrayOrganization in bintray := Some("denigma"),
-
-    licenses += ("MPL-2.0", url("http://opensource.org/licenses/MPL-2.0")),
-
-    bintrayPublishIvyStyle := true
-  )
-
-  /**
-   * For parts of the project that we will not publish
-   */
-  lazy val noPublishSettings = Seq(
-    publish := (),
-    publishLocal := (),
-    publishArtifact := false
-  )
 
 }

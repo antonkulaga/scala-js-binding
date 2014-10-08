@@ -15,6 +15,8 @@ resolvers += Resolver.url(
   url("http://dl.bintray.com/content/sbt/sbt-plugin-releases"))(
     Resolver.ivyStylePatterns)
 
+resolvers += "JohnsonUSM snapshots" at "http://johnsonusm.com:8020/nexus/content/repositories/releases/"
+
 //scalajs plugin
 addSbtPlugin("org.scala-lang.modules.scalajs" % "scalajs-sbt-plugin" % "0.5.5")
 
@@ -30,10 +32,8 @@ addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.4")
 
 // web plugins
 
-//addSbtPlugin("com.typesafe.sbt" % "sbt-coffeescript" % "1.0.0")
-
-//addSbtPlugin("com.typesafe.sbt" % "sbt-less" % "1.0.0")
-
 addSbtPlugin("com.typesafe.sbt" % "sbt-digest" % "1.0.0")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-gzip" % "1.0.0")
+
+addSbtPlugin("com.github.inthenow" % "sbt-scalajs" % "0.1.0")
