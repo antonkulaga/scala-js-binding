@@ -2,7 +2,7 @@ package org.denigma.graphs.layouts
 
 import org.scalajs.threejs.Vector3
 
-class Layout
+class LayoutInfo
 {
 
   val pos:Vector3 = new Vector3(0,0,0)

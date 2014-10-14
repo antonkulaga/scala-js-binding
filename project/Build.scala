@@ -35,13 +35,19 @@ object Build extends sbt.Build with UniversalKeys with ModelsBuild {
   lazy val frontend = Project(
     id   = "frontend",
     base = file("frontend")
-  ) dependsOn  binding
+  ) dependsOn  binding dependsOn graphs
+
+  lazy val graphs = Project(
+    id = "graphs",
+    base = file("graphs")
+  ) dependsOn (binding)
 
 
   lazy val binding = Project(
     id = "binding",
     base = file("binding")
-  ) dependsOn jsmacro  dependsOn models_js
+  ) dependsOn (jsmacro, models_js)
+
 
   lazy val jsmacro = Project(
     id = "js-macro",
@@ -65,8 +71,7 @@ object Build extends sbt.Build with UniversalKeys with ModelsBuild {
 
       //scalajsOutputDir := (crossTarget in Compile).value / "classes"  / "public" / "javascripts",
 
-
-    //scalajsOutputDir     := baseDirectory.value / "public" / "javascripts" / "scalajs",
+      //scalajsOutputDir     := baseDirectory.value / "public" / "javascripts" / "scalajs",
 
       compile in Compile <<= (compile in Compile) dependsOn (fastOptJS in (frontend, Compile)),
 

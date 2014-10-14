@@ -1,18 +1,19 @@
 package org.denigma.graphs
 
 import org.denigma.binding.extensions._
-import org.denigma.binding.messages.GraphMessages
-import org.denigma.binding.picklers.rp
 import org.denigma.semantic.storages.Storage
 import org.scalajs.spickling.PicklerRegistry
 import org.scalax.semweb.rdf.{IRI, Quad, Res}
 import org.scalax.semweb.sparql.Pat
+import org.denigma.binding.models._
+import org.denigma.binding.picklers._
+import org.denigma.binding.messages._
+
+
+
 
 import scala.concurrent.Future
 
-/**
- * Created by antonkulaga on 9/23/14.
- */
 class GraphStorage(path:String)(implicit registry:PicklerRegistry = rp) extends Storage {
 
 
@@ -27,7 +28,7 @@ class GraphStorage(path:String)(implicit registry:PicklerRegistry = rp) extends 
    * @param depth is 1 by default
    * @return
    */
-  def explore(resource:Res,props:List[IRI] = List.empty,patterns:List[Pat] = List.empty, depth:Int = 1) = {
+  def explore(resource:Res,props:List[IRI] = List.empty,patterns:List[Pat] = List.empty, depth:Int = 1): Future[List[Quad]] = {
     sq.post(path,GraphMessages.NodeExplore(resource,props,patterns,depth, id = genId())):Future[List[Quad]]
   }
 

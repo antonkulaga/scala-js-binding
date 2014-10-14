@@ -9,7 +9,7 @@ Build.sameSettings
 
 version := Build.bindingVersion
 
-name := "binding"
+name := "graphs"
 
 scalacOptions ++= Seq( "-feature", "-language:_" )
 
@@ -21,18 +21,10 @@ ScalaJSKeys.persistLauncher in Test := false
 
 resolvers  += "Online Play Repository" at  "http://repo.typesafe.com/typesafe/simple/maven-releases/"
 
-libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-jquery" % "0.6"
-
-libraryDependencies += "org.scalajs" %%% "codemirror" % "4.5-0.1"
-
-libraryDependencies += "org.scalajs" %%% "threejs" % "0.0.68-0.1.2"
-
-libraryDependencies += "com.softwaremill.macwire" %% "macros" % Build.macwireVersion
-
-libraryDependencies += "com.softwaremill.macwire" %% "runtime" % Build.macwireVersion
-
 autoCompilerPlugins := true
 
 bintraySettings
+
+autoCompilerPlugins := true
 
 Build.publishSettings

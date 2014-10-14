@@ -7,8 +7,9 @@ import org.scalajs.threejs._
 import scala.scalajs.js.annotation.JSName
 
 @JSName("THREE.CSS3DObject")
-class HtmlObject(element:HTMLElement) extends Object3D
+class HtmlObject(var element:HTMLElement = ???) extends Object3D
 {
+
 
 }
 
