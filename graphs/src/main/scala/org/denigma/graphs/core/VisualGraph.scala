@@ -1,24 +1,21 @@
 package org.denigma.graphs.core
 
+import com.softwaremill.macwire.Wired
+import org.denigma.graphs.semantic.SemanticNode
+import org.denigma.graphs.visual.NodeView
+import org.scalajs.threejs.Object3D
 import org.scalajs.threejs.extensions.Container3D
 
 import org.denigma.graphs.layouts.GraphLayout
 import org.denigma.graphs.misc.Randomizable
 import org.denigma.graphs.tools.HtmlSprite
 import org.scalajs.dom
-import org.scalajs.dom.{HTMLElement, HTMLLabelElement}
+import org.scalajs.dom.{MouseEvent, Event, HTMLElement, HTMLLabelElement}
+import org.scalajs.threejs.extensions.controls.JumpCameraControls
 
-trait GraphTypes {
-  type NodeId
-  type EdgeId
-  type NodeData
-  type EdgeData
-  type ViewOfNode
-  type ViewOfEdge
-  type Node<:VisualNode[NodeData,ViewOfNode]
-  type Edge<:VisualEdge[Node,EdgeData,ViewOfEdge]
 
-}
+
+
 
 
 trait VisualGraph extends GraphTypes
@@ -48,8 +45,8 @@ trait VisualGraph extends GraphTypes
 
 
   type MyLayout = GraphLayout{
-      type Node = self.Node
-      type Edge = self.Edge
+      type Node >: self.Node
+      type Edge >: self.Edge
   }
 
   var layouts:List[MyLayout] = List.empty

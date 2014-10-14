@@ -1,15 +1,16 @@
 package org.denigma.graphs.layouts
 
 import org.denigma.graphs.core.{VisualEdge, VisualNode}
+import org.denigma.graphs.semantic.{SemanticEdge, SemanticNode}
 import org.denigma.graphs.simple.{SimpleNode, SimpleEdge}
 import org.scalajs.dom
 
 
-class ForceLayout(val width:Double = 1000, val height:Double = 1000, val attractionMult:Double =  5,val repulsionMult:Double =  0.5) extends GraphLayout
+class ForceLayout(val width:Double = 1000, val height:Double = 1000, val attractionMult:Double =  4, val repulsionMult:Double =  0.4) extends GraphLayout
 {
 
-  override type Node = SimpleNode
-  override type Edge = SimpleEdge
+  override type Node = SemanticNode
+  override type Edge = SemanticEdge
 
 
   var info = Map.empty[Node,LayoutInfo]
@@ -54,7 +55,6 @@ class ForceLayout(val width:Double = 1000, val height:Double = 1000, val attract
 
   def tick() = if(keepGoing(nodes.size))
   {
-    dom.console.info("tick me up")
     var forceConstant = Math.sqrt(this.height * this.width / nodes.size)
 
     val repulsion = this.repulsionMult * forceConstant

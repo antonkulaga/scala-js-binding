@@ -9,6 +9,7 @@ import rx._
 
 
 
+
 class VisualNode[Data,View](val data:Data,val view:View) extends DataHolder[Data,View]  with Subject
 {
 
