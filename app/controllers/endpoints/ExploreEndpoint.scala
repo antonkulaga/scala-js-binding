@@ -26,7 +26,7 @@ trait ExploreEndpoint extends PickleController with AjaxExploreEndpoint with Ite
 
   override type ExploreResult = Future[Result]
 
-  def exploreEndpoint() = UserAction.async(this.pickle[ExploreMessage]()){implicit request=>
+  def exploreEndpoint() = UserAction.async(this.unpickle[ExploreMessage]()){implicit request=>
     this.onExploreMessage(request.body)
 
   }

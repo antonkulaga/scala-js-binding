@@ -15,18 +15,23 @@ import com.inthenow.sbt.scalajs.SbtScalajs
 import com.inthenow.sbt.scalajs.SbtScalajs._
 //import com.typesafe.sbt.SbtScalariform.defaultScalariformSettings
 
-object Build extends sbt.Build with UniversalKeys with ModelsBuild {
+trait Versions {
+  val macwireVersion = "0.7.1"
+
+  val semWebVersion =  "0.6.13"
+
+  val bindingVersion = "0.6.4"
+
+  val graphVersion = "0.6.4"
+
+}
+
+object Build extends sbt.Build with UniversalKeys with ModelsBuild with Versions{
 
   val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")
 
   override def rootProject = Some(preview)
 
-  val macwireVersion = "0.7.1"
-
-
-  val semWebVersion =  "0.6.13"
-
-  val bindingVersion = "0.6.2"
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
@@ -83,7 +88,7 @@ object Build extends sbt.Build with UniversalKeys with ModelsBuild {
 
       watchSources <++= (sourceDirectory in (frontend, Compile)).map { path => (path ** "*.scala").get}
 
-    ) ++ (   Seq( /*packageExternalDepsJS, packageInternalDepsJS, packageExportedProductsJS, packageLauncher,*/ fastOptJS, fullOptJS) map { packageJSKey =>
+    ) ++ (   Seq( fastOptJS, fullOptJS) map { packageJSKey =>
       crossTarget in (frontend, Compile, packageJSKey) := scalajsOutputDir.value
     }
     )

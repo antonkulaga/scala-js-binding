@@ -36,7 +36,7 @@ trait ModelEndpoint extends AjaxModelEndpoint with PickleController with Items{
   }
 
 
-  def modelEndpoint() = UserAction.async(this.pickle[ModelMessage]()){implicit request=>
+  def modelEndpoint() = UserAction.async(this.unpickle[ModelMessage]()){implicit request=>
     this.onModelMessage(request.body)
 
   }

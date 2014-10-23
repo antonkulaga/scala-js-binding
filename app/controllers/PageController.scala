@@ -121,7 +121,7 @@ object PageController extends Controller with PickleController with AjaxModelEnd
 
   override def onBadModelMessage(message: ModelMessage, reason:String): ModelResult = BadRequest(Json.obj("status" ->"KO","message"->reason)).as("application/json")
 
-  def endpoint() = UserAction(this.pickle[ReadMessage]()){implicit request=>
+  def endpoint() = UserAction(this.unpickle[ReadMessage]()){implicit request=>
     this.onModelMessage(request.body)
 
   }

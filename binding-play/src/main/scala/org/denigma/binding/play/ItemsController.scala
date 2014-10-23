@@ -20,7 +20,7 @@ trait ItemsController extends PickleController{
       val pickle: JsValue = rp.pickle(items)
       Ok(pickle).as("application/json")
   }
-  def add() = UserAction(this.pickle[ModelType]()){implicit request=>
+  def add() = UserAction(this.unpickle[ModelType]()){implicit request=>
     val item = request.body
     this.items= items:::item::Nil
     Ok(rp.pickle(true)).as("application/json")
@@ -29,7 +29,7 @@ trait ItemsController extends PickleController{
 
 
 
-  def delete() = UserAction(this.pickle[ModelType]()){implicit request=>
+  def delete() = UserAction(this.unpickle[ModelType]()){implicit request=>
     val item = request.body
     this.items = this.items filterNot (_ == item)
     Ok(rp.pickle(true)).as("application/json")

@@ -7,7 +7,7 @@ scalaJSSettings
 
 Build.sameSettings
 
-version := Build.bindingVersion
+version := Build.graphVersion
 
 name := "graphs"
 

@@ -15,7 +15,7 @@ trait PickleController {
    * @tparam T
    * @return
    */
-  def pickle[T](implicit failMessage:String = "cannot unpickle json data")  = parse.tolerantJson.validate[T]{
+  def unpickle[T](implicit failMessage:String = "cannot unpickle json data")  = parse.tolerantJson.validate[T]{
     case value: JsValue =>
       rp.unpickle(value)  match {
         case null=>Left(BadRequest(Json.obj("status" ->"KO","message"->failMessage)).as("application/json"))

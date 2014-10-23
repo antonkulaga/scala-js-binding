@@ -81,7 +81,7 @@ abstract class SemanticGraphView(val elem:HTMLElement,val params:Map[String,Any]
 
   def updateLayout() = {
     this.graph.layouts = Nil
-    val repM = 0.3 + Math.sqrt(graph.nodes.size)/40
+    val repM = 0.4 + Math.sqrt(graph.nodes.size)/40
     val force = new ForceLayout(graph.width,graph.height, repulsionMult = repM)
     this.graph.addLayout(force,true)
   }

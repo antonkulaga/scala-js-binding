@@ -40,7 +40,7 @@ object GraphController extends PJaxPlatformWith("graph") with PickleController
   type GraphResult = Future[Result]
 
 
-  def graphEndpoint = UserAction.async(this.pickle[GraphMessages.GraphMessage]()){implicit request=>
+  def graphEndpoint = UserAction.async(this.unpickle[GraphMessages.GraphMessage]()){implicit request=>
     this.onGraphMessage(request.body)
   }
 

@@ -4,6 +4,8 @@ Build.sameSettings
 
 name := "binding-play"
 
+version := "0.6.2"
+
 resolvers += Resolver.url("scala-js-releases",
   url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
     Resolver.ivyStylePatterns)

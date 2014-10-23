@@ -40,7 +40,7 @@ trait ShapeEndpoint extends  PickleController with Items with AjaxShapeEndpoint{
 
   override type ShapeResult =  Future[Result]
 
-  def shapeEndpoint() = UserAction.async(this.pickle[ ShapeMessage]()){implicit request=>
+  def shapeEndpoint() = UserAction.async(this.unpickle[ ShapeMessage]()){implicit request=>
     this.onShapeMessage(request.body)
 
   }

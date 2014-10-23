@@ -6,15 +6,6 @@ import rx._
 
 import scala.collection.immutable.Map
 
-import jdk.internal.util.xml.impl.Input
-import org.denigma.binding.binders.GeneralBinder
-import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binders.RDFBinder
-import org.scalajs.dom.{HTMLTextAreaElement, HTMLElement}
-import org.scalax.semweb.messages.Results.SelectResults
-import org.scalax.semweb.rdf.{RDFValue, IRI}
-import org.denigma.binding.extensions._
-
 
 object KeyValue {
 
