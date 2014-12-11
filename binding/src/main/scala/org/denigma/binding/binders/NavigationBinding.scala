@@ -29,9 +29,7 @@ class NavigationBinding(view:BindableView) extends BasicBinding{
       case Some(url) =>
         val uri = processUrl(url.value,relativeURI)
 
-        val pjax = ("X-PJAX",into)
-
-        Ajax.get(uri, headers = List(pjax)).onComplete {
+        Ajax.get(uri, headers = Map("X-PJAX"->into)).onComplete {
           case Success(req: XMLHttpRequest) =>
             sq.byId(into) match {
               case Some(el: HTMLElement) =>

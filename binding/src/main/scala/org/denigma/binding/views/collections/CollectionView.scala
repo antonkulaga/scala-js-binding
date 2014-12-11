@@ -41,7 +41,7 @@ trait CollectionView extends BindableView{
     sq.byId(id) match {
       case Some(el)=>el
       case None=>
-        val sp = document.createElement("span")
+        val sp = document.createElement("span").asInstanceOf[HTMLElement]
         sp.id = id
         if(template==viewElement) {
           viewElement.appendChild(sp)

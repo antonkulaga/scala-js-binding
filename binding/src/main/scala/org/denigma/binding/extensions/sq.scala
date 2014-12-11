@@ -46,7 +46,8 @@ object sq{
   def byId(id:String): Option[HTMLElement] = dom.document.getElementById(id) match {
     case null=>None
     case v if v.isInstanceOf[Undefined] =>None
-    case el=>Some(el)
+    case el:HTMLElement=>Some(el)
+    case _=>dom.console.error(s"element for $id is not an html element");  None
   }
 
   def find(query:String): Option[Element] = dom.document.querySelector(query) match
@@ -70,18 +71,18 @@ object sq{
    * @return
    */
   def put[T](url:String,data:T,timeout:Int = 0,
-              headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
+              headers: Map[String, String] =Map("Content-Type"->"application/json;charset=UTF-8"),
               withCredentials:Boolean = false
                )(implicit registry:PicklerRegistry) : Future[XMLHttpRequest] = {
-    Ajax.apply("PUT", url, this.pack2String(data), timeout, headers, withCredentials)
+    Ajax.apply("PUT", url, this.pack2String(data), timeout, headers, withCredentials,"")
   }
 
 
   def delete[T](url:String,data:T,timeout:Int = 0,
-             headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
+             headers: Map[String, String] =Map("Content-Type" -> "application/json;charset=UTF-8"),
              withCredentials:Boolean = false
               )(implicit registry:PicklerRegistry) : Future[XMLHttpRequest] = {
-    Ajax.apply("DELETE", url, this.pack2String(data), timeout, headers, withCredentials)
+    Ajax.apply("DELETE", url, this.pack2String(data), timeout, headers, withCredentials,"")
   }
 
   /**
@@ -94,10 +95,10 @@ object sq{
    * @return value of appropriate type
    */
   def get[T](url:String,timeout:Int = 0,
-            headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
+            headers: Map[String, String] =Map("Content-Type" -> "application/json;charset=UTF-8"),
             withCredentials:Boolean = false
             )(implicit registry:PicklerRegistry) : Future[T] =
-    this.pickleRequest[T](Ajax.apply("GET", url, "", timeout, headers, withCredentials))(registry)
+    this.pickleRequest[T](Ajax.apply("GET", url, "", timeout, headers, withCredentials,""))(registry)
 
 
   /**
@@ -111,10 +112,10 @@ object sq{
    */
   def post[TIn,TOut](
             url:String,data:TIn,timeout:Int = 0,
-            headers: Seq[(String, String)] =("Content-Type", "application/json;charset=UTF-8")::Nil,
+            headers: Map[String, String] =Map("Content-Type" -> "application/json;charset=UTF-8"),
             withCredentials:Boolean = false
             )(implicit registry:PicklerRegistry) : Future[TOut] =
-    this.pickleRequest[TOut](Ajax.apply("POST", url,this.pack2String(data), timeout, headers, withCredentials))
+    this.pickleRequest[TOut](Ajax.apply("POST", url,this.pack2String(data), timeout, headers, withCredentials,""))
 
 
 

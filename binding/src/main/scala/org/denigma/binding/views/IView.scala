@@ -1,5 +1,7 @@
 package org.denigma.binding.views
 
+import javax.swing.text.html.HTMLDocument
+
 import org.denigma.binding.commons.{DOMParser, ILogged}
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement

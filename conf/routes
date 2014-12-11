@@ -18,9 +18,6 @@ POST          /papers/shapes             controllers.endpoints.MainEndpoint.shap
 
 POST          /models/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
 POST          /models/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
-POST          /graph/endpoint            controllers.graph.GraphController.graphEndpoint()
-
-
 
 GET           /menu/top                  controllers.TopMenu.all()
 PUT           /menu/top/add              controllers.TopMenu.add()
@@ -31,10 +28,6 @@ DELETE        /menu/top/delete/id        controllers.TopMenu.delete()
 POST          /models/endpoint           controllers.PageController.endpoint()
 #POST          /todos/endpoint            controllers.ProjectController.exploreEndpoint()
 #POST          /data/endpoint             controllers.ProjectController.exploreEndpoint()
-
-
-
-
 
 GET           /menu/what                 controllers.SlidesMenu.all()
 #GET        /menu/how           controllers.Slides.howMenu()

@@ -1,18 +1,11 @@
 package org.denigma.binding.frontend
 
-import org.denigma.binding.binders.GeneralBinder
-import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.views.BindableView
-import org.denigma.graphs.GraphView
-import org.scalajs.dom
-import org.scalajs.dom.{Event, XMLHttpRequest, HTMLElement}
+import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.IRI
-import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
-import scala.scalajs.js.{Dynamic, JSON}
-import org.denigma.binding.extensions._
 
 
 

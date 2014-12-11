@@ -4,7 +4,7 @@ import org.denigma.binding.extensions
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.utils.ViewInjector
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.{HTMLDocument, HTMLElement}
 
 import scala.collection.immutable.Map
 import scala.concurrent.{Promise, Future}
@@ -200,8 +200,13 @@ abstract class OrganizedView extends BasicView
    */
   def createHTML(string:String) = {
     val d = dom.document.implementation.createHTMLDocument("")
-    d.body.innerHTML = string
-    d.body
+    d match {
+      case doc:HTMLDocument=>
+        doc.body.innerHTML = string
+        doc.body
+
+      case _=> throw new Exception("dom.document.implementation.createHTMLDocument(\"\")")
+    }
   }
 
   def refreshMe(newElement:HTMLElement) = this.parent match {

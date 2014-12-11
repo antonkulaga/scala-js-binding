@@ -34,7 +34,11 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
 
 
-  val sidebarParams =  js.Dynamic.literal(exclusive = false)
+  val sidebarParams =  js.Dynamic.literal(
+    exclusive = false,
+    dimPage = false,
+    closable =  false
+  )
   /**
    * Register views
    */
@@ -68,8 +72,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("SparqlSlide", (el,params)=>Try(new SparqlSlide(el,params)))
     .register("DatepairView",(el,params)=>Try(new DatePairView(el,params)))
 
-    .register("GraphSlide", (el,params)=>Try(new GraphSlide(el,params)))
-
     .register("GlobeSlide", (el,params)=>Try(new GlobeSlide(el,params)))
     .register("headers", (el,params)=>Try(new HeadersView(el,params)))
 
@@ -101,14 +103,15 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   @JSExport
   def moveInto(from:String,into:String): Unit = {
-    val ins: HTMLElement = dom.document.getElementById(from)
+    for{
+      ins <- sq.byId(from)
+      intoElement <-sq.byId(into)
+    }
+    {
+      this.loadElementInto(intoElement,ins.innerHTML)
+      ins.parentNode.removeChild(ins)
+    }
 
-    val intoElement = dom.document.getElementById(into)
-    this.loadElementInto(intoElement,ins.innerHTML)
-
-
-    //dom.document.getElementById(into).innerHTML =ins.innerHTML
-    ins.parentNode.removeChild(ins)
   }
 
 

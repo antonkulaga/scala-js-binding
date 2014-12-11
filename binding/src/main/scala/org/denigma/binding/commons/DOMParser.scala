@@ -9,6 +9,6 @@ import scala.scalajs.js
  */
 class  DOMParser extends js.Object {
 
-  def parseFromString(string:String, tp:String):dom.Document = ???
+  def parseFromString(string:String, tp:String):dom.HTMLDocument= ???
 
 }

@@ -17,14 +17,7 @@ object Test extends Controller{
   def html() = UserAction {
     implicit request =>
 
-      val v = views.html.test(request)
-      Ok(v)
-  }
-
-  def graph() = UserAction {
-    implicit request =>
-
-      val v = views.html.slides.graph("graph")
+      val v = views.html.test(request,"main")
       Ok(v)
   }
 

@@ -1,6 +1,6 @@
 language: scala
 scala:
-  - 2.10.4
+  - 2.11.2
 notifications:
   # Email notifications are disabled to not annoy anybody.
   # See http://about.travis-ci.org/docs/user/build-configuration/ to learn more
