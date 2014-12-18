@@ -1,38 +1,33 @@
 package org.denigma.semantic.shapes
 
 
-import org.denigma.binding.binders.GeneralBinder
-import org.denigma.semantic.binders.shaped.ShapePropertyBinder
+import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
+import org.denigma.semantic.binders.{ShapedPropertyBinder, SelectBinder}
 import org.denigma.semantic.models.RemoteModelView
+import org.denigma.semantic.rdf.ShapeInside
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
-import org.scalax.semweb.shex.ArcRule
+import org.scalax.semweb.shex.{Shape, ArcRule}
+import rx.core.Var
 
 import scala.collection.immutable.Map
 //
 object PropertyView {
 
-  def apply(el:HTMLElement,mp:Map[String,Any]) = {
-    new JustPropertyView(el,mp)
-  }
+  def apply(el:HTMLElement,mp:Map[String,Any]) =   new JustPropertyView(el,mp)
 
-  def defaultBinders(view:PropertyView) = {
-    new ShapePropertyBinder(view,view.model,view.arc,suggest = view.suggest)::new GeneralBinder(view)::Nil
-  }
+  def selectableBinders(view:PropertyView)  = new ShapedPropertyBinder(view,view.model,view.arc,suggest = view.suggest)::Nil
 
-}
+  class JustPropertyView(val elem:HTMLElement,val params:Map[String,Any]) extends PropertyView
+  {
 
-class JustPropertyView(val elem:HTMLElement,val params:Map[String,Any]) extends PropertyView
-{
+    override def activateMacro(): Unit = {}
 
-  //dom.console.info("MODEL ="+model.now.toString)
+    override protected def attachBinders(): Unit =    binders =     new ShapedPropertyBinder(this,this.model,this.arc,suggest = this.suggest)::Nil
 
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-
-  override protected def attachBinders(): Unit = {
-    binders = PropertyView.defaultBinders(this)
   }
 }
+
 
 /**
  * View to display property and its name
@@ -41,6 +36,6 @@ class JustPropertyView(val elem:HTMLElement,val params:Map[String,Any]) extends 
 trait PropertyView extends RemoteModelView {
 
 
-  val arc = this.resolveKey("arc"){case a:ArcRule=>a}
+  lazy val arc = this.resolveKey("arc"){case a:ArcRule=>a}
 
 }

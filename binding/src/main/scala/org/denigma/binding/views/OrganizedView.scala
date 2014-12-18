@@ -5,6 +5,7 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.views.utils.ViewInjector
 import org.scalajs.dom
 import org.scalajs.dom.{HTMLDocument, HTMLElement}
+import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.concurrent.{Promise, Future}
@@ -13,6 +14,7 @@ import scala.scalajs.js.Dynamic.{global => g}
 
 import dom.extensions._
 
+import scala.util.{Failure, Success}
 
 
 /**
@@ -31,6 +33,37 @@ abstract class OrganizedView extends BasicView
 
   def isTopView = this.topView == this
 
+
+  /**
+   * Extracts view by name from element
+   * @param viewName name of the view
+   * @param el html element
+   * @param params some other optional params needed to init the view
+   * @return
+   */
+  def inject(viewName:String,el:HTMLElement,params:Map[String,Any])(implicit injector:Injector[ChildView]): ChildView =
+  {
+    //factories.get(viewName)
+    injector.inject(viewName,el,params,Some(this)) match {
+      case Some(tr)=>
+        tr match {
+          case Success(view) => view
+
+          case Failure(e) =>
+            //dom.console.error(e.toString)
+            if (e != null){
+              dom.console.error(s"" +
+                s"cannot initialize the $viewName view inside $id with params ${params.toString()} because of ${e.toString}")
+              dom.console.error(stackToString(e))
+            }
+            else  dom.console.error(s"Cannot initialize the $viewName view in $id")
+            makeDefault(el,params)
+        }
+      case _ =>
+        dom.console.error(s"cannot find view class for $viewName")
+        makeDefault(el,params)
+    }
+  }
 
   /**
    * Overrides for load element into that includes view switching

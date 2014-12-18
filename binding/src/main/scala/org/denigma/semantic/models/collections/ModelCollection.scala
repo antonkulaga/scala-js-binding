@@ -13,29 +13,23 @@ import scala.collection.immutable.{List, Map}
 
 object ModelCollection
 {
-  type ItemView = ModelView
-
-  def apply(html:HTMLElement,mp:Map[String,Any]):ItemView= {
+  def apply(html:HTMLElement,params:Map[String,Any]):ModelView= {
     //
-    new JustModel("item"+Math.random(),html,mp)
+    new JustModel("item"+Math.random(),html,params)
   }
 
+  class JustModel(override val name:String,val elem:HTMLElement, val params:Map[String,Any]) extends ModelView{
 
-  class JustModel(override val name:String,val elem:HTMLElement,mp:Map[String,Any]) extends ModelView{
-
-    override def activateMacro(): Unit = {this.extractors.foreach(_.extractEverything(this))}
-
-    override def params: Map[String, Any] = Map.empty
+    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
     override protected def attachBinders(): Unit = binders = RemoteModelView.defaultBinders(this)
   }
-
 }
 
 /**
  * This trait represents a view that is collection of models (Property models of RDFs)
  */
-trait ModelCollection extends BindableView
+abstract class ModelCollection extends BindableView
   with CollectionView
 {
   def params:Map[String,Any]
@@ -44,7 +38,7 @@ trait ModelCollection extends BindableView
 
 
   override type Item = Var[ModelInside]
-  override type ItemView =  ModelCollection.ItemView
+  override type ItemView =  ModelView
 
   def defaultItem = ModelInside.empty
 

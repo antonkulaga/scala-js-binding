@@ -3,8 +3,8 @@ package org.denigma.semantic.grids
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.Filters
 import org.denigma.binding.messages.Filters.ValueFilter
+import org.denigma.semantic.binders.{SemanticSelector, Selector}
 import org.denigma.semantic.rdf._
-import org.denigma.semantic.binders.selectors.Selector
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.jquery._
@@ -13,7 +13,8 @@ import rx.Var
 
 import scala.scalajs.js
 
-abstract class ModifierSelector[T](val el:HTMLElement, val key:IRI, val modifiers:Var[Map[IRI,T]], typeHandler:(String)=>Unit)  extends Selector{
+abstract class ModifierSelector[T](val el:HTMLElement, val key:IRI, val modifiers:Var[Map[IRI,T]], typeHandler:(String)=>Unit)
+  extends SemanticSelector{
 
   override def itemRemoveHandler(value:String): Unit = {
     this.modifiers() = this.modifiers.now - key
@@ -49,7 +50,7 @@ class FilterSelector(el:HTMLElement, key:IRI, modifiers:Var[Map[IRI,Filters.Filt
      )
    }
 
-   override def itemAddHandler(value:String, item:js.Any): Unit =
+   override def itemAddHandler(value:String, item:js.Dynamic): Unit =
    {
      val filters =  this.modifiers.now
      val v = this.parseRDF(value)

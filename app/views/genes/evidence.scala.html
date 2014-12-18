@@ -1,0 +1,37 @@
+@(implicit request: UserRequestHeader)
+<article
+class="ui vertical segment"
+vocab="http://denigma.org/resource/"
+>
+  <table border="1" data-view="Proofs"
+  xmlns="http://www.w3.org/1999/html"
+  class="ui compact striped collapsing table"
+  data-param-path="models/explore"
+  data-param-crud="models/crud"
+  data-param-shape="http://denigma.org/resource/Evidence_shape"
+  data-param-query="http://denigma.org/query/genes"
+  >
+
+    <thead>
+    <tr data-view="Headers">
+      <th data-template="true" data="name" >
+      </th>
+      <th></th>
+      <th></th>
+
+    </tr>
+    <thead>
+      <tbody>
+
+     <tr data-template="true" data-item-view="Evidence">
+      <td  data-template="true" data-view="evidence-property">
+        <input class = "ui fluid input" type="text" data="value">
+        </td>
+       <td><div class="ui small button" data-class-positive-if="dirty" ><i class="save icon"></i></div></td>
+       <td><div class="ui small button" data-event-click = "removeClick"><i class="remove sign icon"></i></div></td>
+    </tr>
+  </tbody>
+
+  </table>
+
+</article>

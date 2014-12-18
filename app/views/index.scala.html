@@ -1,4 +1,4 @@
-@(implicit request: UserRequestHeader, html:Option[Html] = None,into:String = "main")
+@(implicit request: UserRequestHeader, html:Option[Html] = None,into:String = "main", leftSidebar:Boolean = true)
 @import org.denigma.binding.play.UserRequestHeader
 <!DOCTYPE html>
 
@@ -25,15 +25,16 @@
     <body>
 
         @header(request)
+        @if(leftSidebar==true) {
+                @sidebar(request)
+                <div class="ui positive huge launch right attached button" style="width: 70px;" data-event-click="toggle">
+                <i class="icon list layout"></i>
+                <span class="text" style="display: none;">Sidebar</span>
+                </div>
+            }
 
-        <div class="ui positive huge launch right attached button" style="width: 70px;" data-event-click="toggle">
-            <i class="icon list layout"></i>
-            <span class="text" style="display: none;">Sidebar</span>
-        </div>
 
-
-
-        <main id="main" style="min-height: 90%;">
+        <main id="main"  style="min-height: 90%;">
 
             @if(html.isDefined) {
                 @{html.get}
@@ -44,9 +45,9 @@
 
         </main>
 
-        @sidebar(request)
+
     </body>
-    @init(request,into)
+    @init(request,into, leftSidebar)
 
 
 </html>

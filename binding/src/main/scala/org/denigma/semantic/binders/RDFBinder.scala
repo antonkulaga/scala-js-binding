@@ -5,7 +5,7 @@ import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf._
-
+import org.denigma.binding.extensions._
 import scala.collection.immutable.Map
 
 /**
@@ -100,6 +100,26 @@ class RDFBinder(view:BindableView) extends BasicBinding
       this.rdfPartial(el, key, value,ats).orElse(otherPartial)(key)
     }
 
+  }
+
+  /**
+   * If it has "value" property"
+   * @param el
+   * @return
+   */
+  protected def elementHasValue(el:HTMLElement) =  el.tagName.toLowerCase match {
+    case "input" | "textarea" | "option" =>true
+    case _ =>false
+  }
+
+
+  def setTitle(el:HTMLElement,tlt:String) = {
+    if(this.elementHasValue(el)) {
+      el.dyn.value = tlt
+
+    } else {
+      el.textContent = tlt
+    }
   }
 
   override def id: String = view.id

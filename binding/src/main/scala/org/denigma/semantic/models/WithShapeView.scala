@@ -14,7 +14,9 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
 
-trait WithShapeView extends BindableView {
+trait WithShapeView  {
+  self:BindableView=>
+
   def shapeOption: Option[Var[ShapeInside]] = this.resolveKeyOption("shape"){
     case sh:Shape=>Var(ShapeInside(sh))
     case sh:ShapeInside=>Var(sh)
@@ -26,10 +28,8 @@ trait WithShapeView extends BindableView {
     case _=> throw new Exception(s"shape param of unknown type in ShapeView $id")
   }
 
-  lazy val shape = shapeOption.getOrElse(
-    Var(ShapeInside(Shape.empty))
-  )
+  val shape: Var[ShapeInside]
+
 
   def shapeRes = shape.now.current.id.asResource
-
 }

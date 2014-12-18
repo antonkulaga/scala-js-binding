@@ -3,14 +3,16 @@ package org.denigma.binding.frontend
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.frontend.controls.{ShapeEditor, ShapeProperty}
+import org.denigma.binding.frontend.genes.{Proofs, Evidence}
 import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksView}
 import org.denigma.binding.frontend.slides._
-import org.denigma.binding.frontend.tests.{HeadersView, LongListView, PicklerView, RandomView}
+import org.denigma.binding.frontend.tests.{TestMacroView, LongListView, PicklerView, RandomView}
 import org.denigma.binding.frontend.tools.SelectView
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
 import org.denigma.controls.editors.{CkEditor, CodeMirrorEditor, editors}
 import org.denigma.controls.general.DatePairView
+import org.denigma.semantic.shapes.HeadersView
 import org.scalajs.dom
 import org.scalajs.dom.{HTMLElement, MouseEvent}
 import org.scalajs.jquery._
@@ -22,7 +24,7 @@ import scala.scalajs.js.annotation.JSExport
 import scala.util.Try
 
 
-@JSExport
+@JSExport("FrontEnd")
 object FrontEnd extends BindableView with scalajs.js.JSApp
 {
 
@@ -72,8 +74,13 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("SparqlSlide", (el,params)=>Try(new SparqlSlide(el,params)))
     .register("DatepairView",(el,params)=>Try(new DatePairView(el,params)))
 
+    .register("Evidence", (el,params)=>Try(new Evidence(el,params)))
+    .register("Headers",(el,params,parent)=>Try(new HeadersView(el,params,parent)))
+
+    .register("Proofs", (el,params)=>Try(new Proofs(el,params)))
+
     .register("GlobeSlide", (el,params)=>Try(new GlobeSlide(el,params)))
-    .register("headers", (el,params)=>Try(new HeadersView(el,params)))
+    .register("test-macro", (el,params)=>Try(new TestMacroView(el,params)))
 
 
 
@@ -89,10 +96,12 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   @JSExport
   def main(): Unit = {
-
-
     this.bindView(this.viewElement)
     jQuery(".top.sidebar").dyn.sidebar(sidebarParams).sidebar("show")
+  }
+
+  @JSExport
+  def showLeftSidebar() = {
     jQuery(".left.sidebar").dyn.sidebar(sidebarParams).sidebar("show")
   }
 

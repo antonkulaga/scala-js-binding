@@ -11,7 +11,8 @@ import rx.core.Var
 /**
  * Trait that contains info about model
  */
-trait ModelView extends BindableView{
+abstract class ModelView extends BindableView{
+
 
   var createIfNotExists:Boolean = true
 

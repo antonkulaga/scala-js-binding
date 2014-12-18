@@ -32,11 +32,19 @@ abstract class ReactiveView extends OrganizedView{
 
   def params:Map[String,Any]
 
+  protected var cache:Map[String,Any] = this.params //for resolutions
 
-  def resolveKeyOption[Result](key:String)(fun:PartialFunction[Any,Result]):Option[Result] = {
-    this.params.get(key).collectFirst(fun) match {
+  protected def cached[T](key:String,value:T) = { //TODO: delete from here
+    cache = cache + (key->value)
+    value
+  }
+
+  protected def resolveMyKey[Result](key:String)(fun:PartialFunction[Any,Result]) = cache.get(key).collectFirst(fun)
+
+  def resolveKeyOption[Result](key:String, who:ReactiveView = this)(fun:PartialFunction[Any,Result]):Option[Result] = {
+    who.resolveMyKey(key)(fun) match {
       case None=>
-        this.nearestParentOf{case p:ReactiveView=>p.resolveKeyOption(key)(fun)}.flatten
+        who.nearestParentOf{case p:ReactiveView=>p.resolveKeyOption(key)(fun)}.flatten
       case other=> other
     }
   }

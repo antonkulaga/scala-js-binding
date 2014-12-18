@@ -1,0 +1,145 @@
+package org.denigma.semantic.binders
+
+import org.denigma.binding.commons.ILogged
+import org.denigma.binding.extensions._
+import org.denigma.binding.views.BindableView
+import org.scalajs.dom.HTMLElement
+import org.scalajs.selectize._
+import org.scalax.semweb.rdf
+import org.scalax.semweb.rdf._
+import org.scalax.semweb.rdf.vocabulary.XSD
+import rx.core.Var
+
+import scala.collection.immutable.Map
+import scala.scalajs.js
+import scala.scalajs.js.ThisFunction1
+import scala.scalajs.js.annotation.JSExportAll
+import scalatags.Text.all._
+
+
+object SelectOption
+{
+  implicit def convert(op:SelectOption): js.Dynamic =op.asInstanceOf[js.Dynamic]
+}
+
+
+@JSExportAll
+case class SelectOption(id:String,title:String)
+
+@JSExportAll
+trait SelectRenderer{
+  val item: js.Function1[SelectOption,String]
+  val option: js.Function1[SelectOption,String]
+}
+
+
+trait SemanticSelector extends Selector {
+  protected val replacements = ("\"", "&#34;") ::("<", "&lt;") ::(">", "&gt;") ::("'", "&#39;") :: Nil
+
+  def escape(str: String) = replacements.foldLeft(str) {case (acc, (from,to))=>acc.replace(from,to) }
+
+  def unescape(str: String) = replacements.foldLeft(str) {case (acc, (from,to))=>acc.replace(to,from) }
+
+  protected def renderItemHandler(item:SelectOption): String =
+  {
+    import scalatags.Text.all._
+    div(`class`:= "name", item.title).render
+    //span(`class`:="iri", item.id.toString)
+  }
+
+  def renderOptionHandler(item:SelectOption) = if(item.id.contains(":") && !item.id.contains("^^")){
+    div(
+      div(`class` := "label", item.title),
+      div(`class` := "ui tiny blue header", escape(item.id)
+      )
+    ).render
+  } else div(`class` := "label", item.title).render
+
+  lazy val semanticRenderer = js.Dynamic.literal(
+    item = renderItemHandler _,
+    option = renderOptionHandler _
+  )
+
+  /**
+   * Parses string to get RDF value
+   * @param str
+   * @return
+   */
+  protected def parseRDF(str:String) =str match {
+    case st if str.contains("_:") => BlankNode(st)
+    case st if str.contains(":") => IRI(st)
+    case st if str.contains("^^") && str.contains(XSD.StringDatatypeIRI.stringValue)=>
+      StringLiteral(st.substring(0,st.indexOf("^^")))
+    case st if str.contains("^^")=>
+      val i = st.indexOf("^^")
+      val label = st.substring(0,i)
+      val dt = st.substring(i+2)
+      rdf.TypedLiteral(label,IRI(dt))
+    //AnyLit(str)
+    case st => StringLiteral(st)
+
+  }
+
+
+  protected def makeOption(v:RDFValue): SelectOption =  this.makeOption(v.stringValue,v.label)
+  protected def makeOption(vid:String,title:String): SelectOption = SelectOption(this.escape(vid),title) // js.Dynamic.literal( id = vid, title = title)
+
+
+  protected def makeOptions(properties:Map[IRI,Set[RDFValue]],iri:IRI) =
+    properties.get(iri) match {
+      case Some(iris)=>
+        val o = iris.map(i=> makeOption(i)).toList
+        js.Array( o:_* )
+      case None=> js.Array()
+    }
+
+
+  def updateOptions(opts:List[RDFValue]): Unit = {
+
+    val ss = selectizeFrom(el)
+    for {
+      r <- ss.options.keys.filter{case k => !ss.items.contains(k)}
+    } ss.options.remove(r)
+    opts.foreach { o =>
+      ss.addOption(makeOption(o))
+    }
+    ss.refreshItems()
+  }
+}
+
+
+trait Selector extends ILogged {
+
+  def key: IRI
+
+  def el: HTMLElement
+
+  val sel: js.Dynamic
+
+  protected def makeOption(vid:String,title:String): SelectOption
+
+  protected def itemAddHandler(value:String, item:js.Dynamic): Unit
+  protected def itemRemoveHandler(value:String): Unit
+
+
+  protected def selectParams(el: HTMLElement):js.Dynamic
+
+
+
+  protected def selectizeFrom(el:HTMLElement): Selectize = {
+    val s = el.dyn.selectize
+    s.asInstanceOf[Selectize]
+  }
+
+}
+
+trait GeneralSelectBinder
+{
+  type Element
+  type View<:BindableView
+  type Selector
+
+  val view:View
+  val model:Var[Element]
+  var selectors = Map.empty[HTMLElement,Selector]
+}

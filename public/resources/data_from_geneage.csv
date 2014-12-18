@@ -1,0 +1,171 @@
+cDB	DB.Object.ID	DB.Object.Symbol	ENTREZID	DB.Reference	Evidence.Code	With.or.From	DB.Object.Name	DB.Object.Synonym	DB.Object.Type	Date	Annotation.Extension	Gene.Product.Form.ID	Taxon	Tissue	Influence
+GeneAge	831	14-3-3epsilon	42186				CG31196 gene product from transcript CG31196-RA	14-3-3 14-3-3 epsilon 14-3-3-e 14-3-3-epsilon 14-3					Drosophila melanogaster		anti
+GeneAge	832	Akt1	41957				CG4006 gene product from transcript CG4006-RA	akt Akt AKT Akt/PKB AKT/PKB akt1 AKT1 Akt1|PKB CG4					Drosophila melanogaster		pro
+GeneAge	833	alpha-Man-I	31957				Alpha Mannosidase I	alpha-Man-l CG17809 CG18799 CG32682 CG32684 CG4227					Drosophila melanogaster		anti
+GeneAge	834	Atg2	38344				Autophagy-specific gene 2	atg2 ATG2 CG1241 Dmel\CG1241 EP3697					Drosophila melanogaster		pro
+GeneAge	21	Atg7	37141				Autophagy-specific gene 7	atg-7 atg7 CG5489 Dmel\CG5489					Drosophila melanogaster		pro
+GeneAge	21	Atg7	37141				Autophagy-specific gene 7	atg-7 atg7 CG5489 Dmel\CG5489					Drosophila melanogaster		pro
+GeneAge	22	Atg8a	32001				Autophagy-related 8a	atg8 Atg8 Atg8/LC3 atg8a Atg8A ATG8a BcDNA:LD05816					Drosophila melanogaster		pro
+GeneAge	22	Atg8a	32001				Autophagy-related 8a	atg8 Atg8 Atg8/LC3 atg8a Atg8A ATG8a BcDNA:LD05816					Drosophila melanogaster		pro
+GeneAge	22	Atg8a	32001				Autophagy-related 8a	atg8 Atg8 Atg8/LC3 atg8a Atg8A ATG8a BcDNA:LD05816					Drosophila melanogaster		pro
+GeneAge	835	Aut1	40044				Aut1 -CG6877 gene product from transcript CG6877-RA	atg3 Atg3 CG6877 Dmel\CG6877 Draut1					Drosophila melanogaster		pro
+GeneAge	836	bam	43038				bag of marbles	alpha Bam BAM Bam-C BamC BamF CG10422 Dmel\CG10422					Drosophila melanogaster		pro
+GeneAge	41	bchs	33819				blue cheese	alfy BcDNA:SD12984 bchd Bchs Beach1 CG14001 CG9011					Drosophila melanogaster		pro
+GeneAge	41	bchs	33819				blue cheese	alfy BcDNA:SD12984 bchd Bchs Beach1 CG14001 CG9011					Drosophila melanogaster		pro
+GeneAge	41	bchs	33819				blue cheese	alfy BcDNA:SD12984 bchd Bchs Beach1 CG14001 CG9011					Drosophila melanogaster		pro
+GeneAge	46	Bmcp	39322				Bmcp	bmcp CG7314 DmBMCP Dmel\CG7314 dmUCP5 DmUCP5 ucp5 					Drosophila melanogaster		anti
+GeneAge	837	bsk	44801				basket	Bsk BSK BSK/DJNK c-Jun CG5680 D-JNK D-junk DBSK/JN					Drosophila melanogaster		pro
+GeneAge	89	car	32947				carnation	Car carn CG12230 Dm-Vps33 Dmel\CG12230 l(1)G0447 V					Drosophila melanogaster		pro
+GeneAge	91	Cat	40048				Catalase	bs36h11.y1 cat CAT CatA CATA CG6871 CT21282 DMCATH					Drosophila melanogaster		pro
+GeneAge	1791	Cbs	33081				Cystathionine beta-synthase	CBS CG1753 dCBS Dmel\CG1753					Drosophila melanogaster		pro
+GeneAge	101	Cct1	117353				CTP:phosphocholine cytidylyltransferase 1	Cct cct1 CCT1 CG1049 CT41283 Dmel\CG1049					Drosophila melanogaster		pro
+GeneAge	108	Cdk5	36727				Cyclin-dependent kinase 5	cdk5 CDK5 CG8203 DmCdk5 Dmel\CG8203					Drosophila melanogaster		pro
+GeneAge	117	cert	38928				ceramide transfer protein	BcDNA:GH07688 CERT CG7207 dcert Dcert Dmel\CG7207					Drosophila melanogaster		pro
+GeneAge	838	CG17856	43369				CG17856 gene product from transcript CG17856-RA	Dmel\CG17856					Drosophila melanogaster		anti
+GeneAge	839	CG18809	59170				CG18809 gene product from transcript CG18809-RA	Dmel\CG18809					Drosophila melanogaster		anti
+GeneAge	857	CG3776	37996				Juvenile hormone esterase binding protein 29 (DmP29)	Dmel\CG3776 DmP29 EP(2)0835 Jhebp29 P29					Drosophila melanogaster		anti
+GeneAge	858	CG3776	37996				Juvenile hormone esterase binding protein 29 (DmP29)	Dmel\CG3776 DmP29 EP(2)0835 Jhebp29 P29					Drosophila melanogaster		pro
+GeneAge	840	CG5389	39761				CG5389 gene product from transcript CG5389-RA	Dmel\CG5389					Drosophila melanogaster		anti
+GeneAge	841	CG9172	32565				CG9172 gene product from transcript CG9172-RA	20 kDa Dmel\CG9172					Drosophila melanogaster		anti
+GeneAge	123	cher	42066				cheerio	CG3937 Cher Dmel\CG3937 Fil FLN joy sko					Drosophila melanogaster		pro
+GeneAge	124	chico	64880				Insulin receptor substrate-1	anon-WO0078940.1 anon-WO0078940.4 BcDNA.GH11263 Bc					Drosophila melanogaster		anti
+GeneAge	133	cm	31647				carmine	ap-3 AP-3 AP3mu3 cg3035 CG3035 CG32731 Dmel\CG3035					Drosophila melanogaster		pro
+GeneAge	178	DJ-1alpha	36543				DJ-1alpha	CG6646 DJ-1 DJ-1a DJ-1A Dmel\CG6646					Drosophila melanogaster		pro
+GeneAge	179	dj-1beta	43652				dj-1beta	CG1349 DJ-1 DJ-1b DJ-1B DJ-1beta Dmel\CG1349					Drosophila melanogaster		pro
+GeneAge	182	DLP	33906				Daxx-like protein	CG9537 Daxx Dmel\CG9537					Drosophila melanogaster		pro
+GeneAge	842	DNApol-gamma35	3772064				DNA polymerase Gamma	BG:DS00941.9 br16 CG33084 CG33650 CG8969 D-pol gam					Drosophila melanogaster		anti
+GeneAge	184	dnc	31309				dunce	CG10791 CG10792 CG10797 CG14267 CG14268 CG32498 Dm					Drosophila melanogaster		anti
+GeneAge	195	dor	31118				deep orange	CG3093 Deep-orange Dmel\CG3093 Dor dor1 EG:171E4.1					Drosophila melanogaster		pro
+GeneAge	843	Dys	42327				Dystrophin	CG17750 CG31175 CG34157 CG7240 CG7243 CG7344 det D					Drosophila melanogaster		pro
+GeneAge	844	E(z)	39203				Enhancer of zeste	CG6502 Dmel\CG6502 E(Z) E(z)1 Ez EZ E[z] l(3)1902 					Drosophila melanogaster		anti
+GeneAge	207	EcR	35540				Ecdysone receptor	anon-WO0229075.1 CG1765 CG8347 dECR DEcR Dhr23 dmE					Drosophila melanogaster		anti
+GeneAge	845	Edem1	31154				CG3810 gene product from transcript CG3810-RC	CG3810 DM-pI Dmel\CG3810 edem1 EDEM1 EG.86E4.2 EG:					Drosophila melanogaster		anti
+GeneAge	208	Ef1alpha48D	36271				Elongation factor 148D	1275 anon-EST:Liang-1.17 anon-EST:Liang-2.46 CG828					Drosophila melanogaster		pro
+GeneAge	215	Egm	36242				enigma	Acyl CoA DH CG9006 Dmel\CG9006 egm l(2)k14708					Drosophila melanogaster		anti
+GeneAge	445	Eip71CD	39675				Ecdysone-induced protein 28/29kD	CG7266 Dmel\CG7266 dmsrA DROZ60MEX Eip28 Eip28 /29					Drosophila melanogaster		pro
+GeneAge	445	Eip71CD	39675				Ecdysone-induced protein 28/29kD	CG7266 Dmel\CG7266 dmsrA DROZ60MEX Eip28 Eip28 /29					Drosophila melanogaster		pro
+GeneAge	846	elav	31000				embryonic lethal abnormal vision	44C11 9F8A9 CG4262 Dmel\CG4262 EC7 EG:65F1.2 Elav 					Drosophila melanogaster		pro
+GeneAge	847	esc	34595				extra sexcombs	CG14941 dESC Dmel\CG14941 Esc ESC L41867 sc					Drosophila melanogaster		anti
+GeneAge	848	fh	31845				frataxin homolog	BcDNA:AT09528 CG8971 dfh Dfh DFH Dmel\CG8971 X25					Drosophila melanogaster		pro
+GeneAge	286	foxo	41709				Forkhead box, sub-group O	3143 Afx anon-WO0118547.374 cg3143 CG3143 dfoxo dF					Drosophila melanogaster		pro
+GeneAge	286	foxo	41709				Forkhead box, sub-group O	3143 Afx anon-WO0118547.374 cg3143 CG3143 dfoxo dF					Drosophila melanogaster		pro
+GeneAge	286	foxo	41709				Forkhead box, sub-group O	3143 Afx anon-WO0118547.374 cg3143 CG3143 dfoxo dF					Drosophila melanogaster		pro
+GeneAge	289	fwd	45374				four wheel drive	anon-WO0118547.259 CG7004 Dmel\CG7004 PI4K					Drosophila melanogaster		pro
+GeneAge	291	g	44819				garnet	AP-3delta AP3delta CG10986 cg11197 CG11197 delta D					Drosophila melanogaster		pro
+GeneAge	849	Gadd45	35646				CG11086 gene product from transcript CG11086-RA	BcDNA:RH70774 CG11086 D-GADD45 Dmel\CG11086 GADD45					Drosophila melanogaster		pro
+GeneAge	293	Gclc	53581				Glutamate-cysteine ligase catalytic subunit	2259 CG2259 Dmel\CG2259 DmGCLC DmGCS DmGCSh GCL GC					Drosophila melanogaster		pro
+GeneAge	294	Gclm	248194				Glutamate-cysteine ligase modifier subunit	4919 box CG4919 Dmel\CG4919 DmGCLM DmGCSl GCLm Gcs					Drosophila melanogaster		pro
+GeneAge	304	gig	40201				gigas	6975 C1 CG6975 Dmel\CG6975 dTsc2 dTSC2 gig|Tsc2 l(					Drosophila melanogaster		pro
+GeneAge	305	GLaz	36447				Glial Lazarillo	CG4604 DGLaz Dmel\CG4604					Drosophila melanogaster		pro
+GeneAge	305	GLaz	36447				Glial Lazarillo	CG4604 DGLaz Dmel\CG4604					Drosophila melanogaster		pro
+GeneAge	850	Gr63a	38453				Gustatory receptor 63a	CG14979 Dmel\CG14979 DmGr63a GR63a Gr63F1					Drosophila melanogaster		anti
+GeneAge	851	GstS1	36927				Glutathione S transferase S1	CG8938 Dmel\CG8938 DmGst-2 DmGST-2 DmGST2 DmGSTS1 					Drosophila melanogaster		pro
+GeneAge	852	hebe	36011				hebe gene product from transcript hebe-RD 	CG1623 Dmel\CG1623					Drosophila melanogaster		pro
+GeneAge	337	hk	35169				hook	CG10653 dHk Dmel\CG10653					Drosophila melanogaster		pro
+GeneAge	1818	hop	32080				hopscotch	4 CG1594 d-jak Dm JAK Dmel\CG1594 DmHD-160 HD-160 					Drosophila melanogaster		pro
+GeneAge	1818	hop	32080				hopscotch	4 CG1594 d-jak Dm JAK Dmel\CG1594 DmHD-160 HD-160 					Drosophila melanogaster		pro
+GeneAge	853	Hsc70-3	32133				Heat shock protein cognate 3	anon-WO0138581.7 bip Bip BiP CG1579 CG4147 dhsc70 					Drosophila melanogaster		pro
+GeneAge	854	Hsp22	3772576				Heat shock protein 22	22 anon-WO0118547.50 anon-WO0140519.138 CG32041 CG					Drosophila melanogaster		anti
+GeneAge	854	Hsp22	3772576				Heat shock protein 22	22 anon-WO0118547.50 anon-WO0140519.138 CG32041 CG					Drosophila melanogaster		pro
+GeneAge	854	Hsp22	3772576				Heat shock protein 22	22 anon-WO0118547.50 anon-WO0140519.138 CG32041 CG					Drosophila melanogaster		pro
+GeneAge	854	Hsp22	3772576				Heat shock protein 22	22 anon-WO0118547.50 anon-WO0140519.138 CG32041 CG					Drosophila melanogaster		anti
+GeneAge	349	Hsp26	39075				Heat shock protein 26	26 26K CG4183 Dmel\CG4183 DmHsp26 hsp 26 hsp26 HSP					Drosophila melanogaster		pro
+GeneAge	350	Hsp27	39078				Heat shock protein 27	27 27K 28 anon-WO0140519.69 CG4466 Dhsp27 Dmel\CG4					Drosophila melanogaster		pro
+GeneAge	351	Hsp68	42852				Heat shock protein 68	68 CG5436 Dmel\CG5436 Hsp-68 hsp68 HSP68					Drosophila melanogaster		pro
+GeneAge	351	Hsp68	42852				Heat shock protein 68	68 CG5436 Dmel\CG5436 Hsp-68 hsp68 HSP68					Drosophila melanogaster		pro
+GeneAge	352	hsp70	NA				Heat Shock Protein						Drosophila melanogaster		pro
+GeneAge	1013	Hsp70Ba	44921				Heat shock 70kDa protein 1A	CG31449 dhsp70 dHsp70 Dm-hsp70 Dmel\CG31449 Hsp 70					Drosophila melanogaster		anti
+GeneAge	1013	Hsp70Ba	44921				Heat shock 70kDa protein 1A	CG31449 dhsp70 dHsp70 Dm-hsp70 Dmel\CG31449 Hsp 70					Drosophila melanogaster		pro
+GeneAge	855	Ilp2	39150				Insulin-related peptide   	CG8167 dilp Dilp DILP Dilp 2 dilp-2 dILP-2 Dilp-2 					Drosophila melanogaster		anti
+GeneAge	855	Ilp2	39150				Insulin-related peptide   	CG8167 dilp Dilp DILP Dilp 2 dilp-2 dILP-2 Dilp-2 					Drosophila melanogaster		anti
+GeneAge	1756	Ilp6	31220				Insulin-like peptide 6	CG14049 dilp Dilp DILP Dilp 6 dilp-6 dilp6 dILP6 D					Drosophila melanogaster		pro
+GeneAge	1830	ImpL2	38513				Ecdysone-inducible gene L2	CG15009 CT34862 Dmel\CG15009 GH28 Imp-12 Imp-L2 IM					Drosophila melanogaster		pro
+GeneAge	366	Indy	40049				'I''m not dead yet protein'	anon-EST:fe3A7 anon-WO0172774.70 BEST:LP01220 CG39					Drosophila melanogaster		anti
+GeneAge	366	Indy	40049				'I''m not dead yet protein'	anon-EST:fe3A7 anon-WO0172774.70 BEST:LP01220 CG39					Drosophila melanogaster		anti
+GeneAge	368	InR	42549				Insulin-like 1 receptor	18402 CG18402 DIHR DILR dinr dInr dInR dINR DInr D					Drosophila melanogaster		anti
+GeneAge	856	Jafrac1	53578				Thioredoxin peroxidase 1	1633 CG1633 cTPx Dmel\CG1633 DmTPx-1 dPrx I Dpx-47					Drosophila melanogaster		pro
+GeneAge	856	Jafrac1	53578				Thioredoxin peroxidase 1	1633 CG1633 cTPx Dmel\CG1633 DmTPx-1 dPrx I Dpx-47					Drosophila melanogaster		pro
+GeneAge	859	Keap1	42062				CG3962 gene product from transcript CG3962-RA	CG3962 dkeap1 dKeap1 dKEAP1 Dmel\CG3962 keap1 KEAP					Drosophila melanogaster		anti
+GeneAge	860	kermit	46027				CG11546	BEST:LD04728 CG11546 dGIPC dKermit Dmel\CG11546 l(					Drosophila melanogaster		pro
+GeneAge	861	kuk	42063				kugelkern	CG5175 char Dmel\CG5175 Kuk kuk/char					Drosophila melanogaster		anti
+GeneAge	198	l(3)DTS3	249462				lethal (3) DTS3	DTS-3 L(3)3[DTS] l(3)3[DTS]					Drosophila melanogaster		anti
+GeneAge	862	l(3)neo18	46260				l(3)neo18	CG9762 Dmel\CG9762					Drosophila melanogaster		anti
+GeneAge	863	LBR	37482				Lamin B receptor	CG17952 dLBR Dmel\CG17952					Drosophila melanogaster		anti
+GeneAge	864	Lnk	43130				CG17367 gene product from transcript CG17367-RC	CG 17367 CG17367 CG5908 Dmel\CG17367 dSH2B lnk					Drosophila melanogaster		anti
+GeneAge	864	Lnk	43130				CG17367 gene product from transcript CG17367-RC	CG 17367 CG17367 CG5908 Dmel\CG17367 dSH2B lnk					Drosophila melanogaster		anti
+GeneAge	865	loco	42672				locomotion defects	CG17229 CG5248 dLoco Dmel\CG5248 Loco					Drosophila melanogaster		anti
+GeneAge	866	loco	42672				locomotion defects	CG17229 CG5248 dLoco Dmel\CG5248 Loco					Drosophila melanogaster		anti
+GeneAge	419	lt	3355130				light	CG18028 Dm-lt(het) Dmel\CG18028 l(2)40Fb Lt					Drosophila melanogaster		pro
+GeneAge	867	magu	36048				magu  gene product from transcript magu -RD	CG2264 CT7504 Dmel\CG2264 pent PENT					Drosophila melanogaster		pro
+GeneAge	868	mle	35523				Maleless	CG11680 Dmel\CG11680 mak MLE mll mls nap nap[ts]					Drosophila melanogaster		pro
+GeneAge	869	Mlp84B	40849				Muscle LIM protein at 84B	CG1019 DLim-3 Dmel\CG1019 DmLIM-3 dMlp84B Mlmu84B 					Drosophila melanogaster		pro
+GeneAge	439	Mnt	31331				CG13316-PC, isoform C	bHLHe43 CG13316 CG2856 dMad Dmel\CG13316 DmMnt dmn					Drosophila melanogaster		pro
+GeneAge	1832	Mpk2	42866				CG5475-PA	CG5475 D-MPK2 D-p38 D-p38 MAPK D-p38a D-P38a Dmel\					Drosophila melanogaster		pro
+GeneAge	186	Mt2	34632				DNA methyltransferase 2	CG10692 dDNMT dDnmt2 dDNMT2 Dmel\CG10692 DmMT2 Dnm					Drosophila melanogaster		pro
+GeneAge	870	MTF-1	39089				Metal response element-binding Transcription Factor-1	anon-WO0118547.411 CG3743 Dmel\CG3743 dMTF-1 mtf-1					Drosophila melanogaster		pro
+GeneAge	447	mth	38058				methuselah	CG6936 Dmel\CG6936 Mth MTH					Drosophila melanogaster		anti
+GeneAge	451	mys	44885				myospheroid	beta-int beta-Int beta-integrin beta-PS beta1 beta					Drosophila melanogaster		anti
+GeneAge	871	Naam	42348				Naam gene product from transcript Naam-RA	AAM52663 anon-WO0172774.59 anon-WO0172774.60 CG312					Drosophila melanogaster		pro
+GeneAge	459	Nf1	43149				Neurofibromin 1	CG8318 Dmel\CG8318 dNF1 Nf-1 NF-1 nf1 NF1					Drosophila melanogaster		pro
+GeneAge	872	NLaz	33324				Neural Lazarillo	BcDNA:RE67583 CG16933 CG33126 CT33980 Dmel\CG33126					Drosophila melanogaster		pro
+GeneAge	483	Orco	40650				Odorant receptor co-receptor	83A.2 83b A45 CG10609 Dmel\CG10609 DOR45 DOR83b OR					Drosophila melanogaster		anti
+GeneAge	488	ovo	31429				CG6824-PA	CG15467 CG6824 Dmel\CG6824 Fs(1)K1103 fs(1)K1237 F					Drosophila melanogaster		anti
+GeneAge	1831	p38b	34780				CG7393-PA	186F5S anon-sts23 BG:DS00797.3 CG7393 D-p38 D-p38 					Drosophila melanogaster		pro
+GeneAge	489	p53	2768677				CG33336-PA	CG10873 CG31325 CG33336 D-p53 Dm-P53 Dmel\CG33336 					Drosophila melanogaster		anti
+GeneAge	489	p53	2768677				CG33336-PA	CG10873 CG31325 CG33336 D-p53 Dm-P53 Dmel\CG33336 					Drosophila melanogaster		anti
+GeneAge	1843	park	40336				parkin	CG10523 Dmel\CG10523 Dpark dpk SD01679					Drosophila melanogaster		pro
+GeneAge	498	Pcmt	40668				Protein-L-isoaspartate (D-aspartate) O-methyltransferase	CG2152 Dmel\CG2152 dPIMT pcmt Pimt PIMT					Drosophila melanogaster		pro
+GeneAge	498	Pcmt	40668				Protein-L-isoaspartate (D-aspartate) O-methyltransferase	CG2152 Dmel\CG2152 dPIMT pcmt Pimt PIMT					Drosophila melanogaster		pro
+GeneAge	873	Pex16	40293				peroxin 16	CG3947 DmelPex16 Dmel\CG3947 pex16					Drosophila melanogaster		pro
+GeneAge	874	Pi3K92E	42446				CG4141 gene product from transcript CG4141-RA	anon-92Ed CG4141 Dmel\CG4141 Dmp110 dp110 dP110 Dp					Drosophila melanogaster		pro
+GeneAge	507	Pka-C1	34284				cAMP-dependent protein kinase 1	6353 BG02142 C CdkA CG4379 Cos Cos-1 cos1 Cos1 Dc0					Drosophila melanogaster		pro
+GeneAge	514	POSH	36990				Plenty of SH3s	155116_at BEST:GM09451 CG4909 Dmel\CG4909 dPOSH DP					Drosophila melanogaster		pro
+GeneAge	875	Prx5	3771951				Peroxiredoxin 5	CG 32920 CG 7217 CG32920 CG7217 Dmel\CG7217 dprx5 					Drosophila melanogaster		pro
+GeneAge	876	Pten	43991				CG5671 gene product from transcript CG5671-RB	CG5671 Dmel\CG5671 dpten dPten dPTEN DPTEN pten PT					Drosophila melanogaster		pro
+GeneAge	522	puc	40958				puckered	0238/03 1351/08 CG7850 Dmel\CG7850 hrt JNK-DSP l(3					Drosophila melanogaster		anti
+GeneAge	541	rb	31381				ruby	AP-3beta beta3 cg11427 CG11427 Dmel\CG11427 Rb					Drosophila melanogaster		pro
+GeneAge	877	Rbp9	33498				RNA-binding protein 9	CG15402 CG3151 Dmel\CG3151 fes fs(2)B rbp Rbp10 rb					Drosophila melanogaster		pro
+GeneAge	543	Rdh	2769007				CG14975-PA	CG14975 Dmel\CG14975					Drosophila melanogaster		pro
+GeneAge	547	rho-7	36281				rhomboid-7	anon-WO0138581.3 CG8972 Dmel\CG8972 PARL Rhomboid-					Drosophila melanogaster		pro
+GeneAge	556	Rpd3	38565				CG7471-PA	CG7471 dHDAC-1 dHDAC1 DHDAC1 Dmel\CG7471 dmHDA401 					Drosophila melanogaster		anti
+GeneAge	1847	Rpi	246599				Ribose-5-phosphate isomerase	CG30410 CG9872 Dmel\CG30410 rpi					Drosophila melanogaster		anti
+GeneAge	581	rut	32406				rutabaga	AC Ac12F CG9533 Dmel\CG9533 EP1603 Rut RUT Rut-AC					Drosophila melanogaster		pro
+GeneAge	582	ry	41605				rosy	CG7642 Dmel\CG7642 xdh Xdh XDH Xdh/ry XOR					Drosophila melanogaster		pro
+GeneAge	583	S6k	38654				RPS6-p70-protein kinase	10539 7084 CG10539 Dmel\CG10539 dp70s6k Dp70s6k Dp					Drosophila melanogaster		anti
+GeneAge	589	Scgdelta	31129				Sarcoglycan delta	BEST:GH21860 CG14808 CT34621 Dmel\CG14808 DmSCG-ga					Drosophila melanogaster		pro
+GeneAge	593	SdhB	35590				Succinate dehydrogenase B	CG3283 Dmel\CG3283 Ip SDH SDH-Ip SDH-IP sdhB SDHb					Drosophila melanogaster		pro
+GeneAge	594	SdhC	41340				succinate dehydrogenase, cytochrome b556 subunit	BcDNA:RH04289 CG6666 Dmel\CG6666 sdhC					Drosophila melanogaster		pro
+GeneAge	605	Sir2	34708				CG5216-PA	BEST:LD38188 CG5216 D.mel1 Dmel\CG5216 dmSRT406 ds					Drosophila melanogaster		pro
+GeneAge	605	Sir2	34708				CG5216-PA	BEST:LD38188 CG5216 D.mel1 Dmel\CG5216 dmSRT406 ds					Drosophila melanogaster		pro
+GeneAge	605	Sir2	34708				CG5216-PA	BEST:LD38188 CG5216 D.mel1 Dmel\CG5216 dmSRT406 ds					Drosophila melanogaster		pro
+GeneAge	605	Sir2	34708				CG5216-PA	BEST:LD38188 CG5216 D.mel1 Dmel\CG5216 dmSRT406 ds					Drosophila melanogaster		none
+GeneAge	609	Sirt2	42414				CG5085-PA	CG5085 D.mel2 Dmel\CG5085 dSIRT2 SIRT2					Drosophila melanogaster		pro
+GeneAge	611	Sirt6	41254				CG6284-PB	CG6284 D.mel4 Dmel\CG6284 dmSRT408 dSIRT6					Drosophila melanogaster		pro
+GeneAge	1846	SNF1A	43904				SNF1A/AMP-activated protein kinase	ampk AMPK ampkalpha AMPKalpha CG3051 dAMPKa dAMPKa					Drosophila melanogaster		pro
+GeneAge	1846	SNF1A	43904				SNF1A/AMP-activated protein kinase	ampk AMPK ampkalpha AMPKalpha CG3051 dAMPKa dAMPKa					Drosophila melanogaster		pro
+GeneAge	878	SNF4Agamma	42515				SNF4/AMP-activated protein kinase gamma subunit	0050/42 0127/19 AMPgamma AMPKgamma anon-WO0118547.					Drosophila melanogaster		pro
+GeneAge	879	snz	31704				snazarus (sorting nexin lazarus)	CG1514 Dmel\CG1514 Snz					Drosophila melanogaster		anti
+GeneAge	622	Sod	39251				Superoxide dismutase	CG11793 cSod cSOD Cu Cu-Zn SOD Cu/Zn sod Cu/Zn SOD					Drosophila melanogaster		pro
+GeneAge	622	Sod	39251				Superoxide dismutase	CG11793 cSod cSOD Cu Cu-Zn SOD Cu/Zn sod Cu/Zn SOD					Drosophila melanogaster		pro
+GeneAge	622	Sod	39251				Superoxide dismutase	CG11793 cSod cSOD Cu Cu-Zn SOD Cu/Zn sod Cu/Zn SOD					Drosophila melanogaster		pro
+GeneAge	624	Sod2	36878				Superoxide dismutase 2 (Mn)	CG8905 Dmel\CG8905 dSOD2 Mito SOD mitSOD2 Mn SOD M					Drosophila melanogaster		pro
+GeneAge	624	Sod2	36878				Superoxide dismutase 2 (Mn)	CG8905 Dmel\CG8905 dSOD2 Mito SOD mitSOD2 Mn SOD M					Drosophila melanogaster		pro
+GeneAge	1740	Spargel	40562				Spargel	CG 9809 cg9809 CG9809 Dmel\CG9809 dPGC dPGC-1 PGC-					Drosophila melanogaster		pro
+GeneAge	1817	Stat92E	42428				Signal-transducer and activator of transcription protein at 92E	CG4257 d-STAT D-stat D-Stat D-STAT D-stat/stat92E 					Drosophila melanogaster		pro
+GeneAge	1816	Su(var)205	34119				Suppressor of variegation 205	CBX5 CG8409 dHP-1a dHP1 Dmel\CG8409 DmHP-1 DmHP1 E					Drosophila melanogaster		pro
+GeneAge	1816	Su(var)205	34119				Suppressor of variegation 205	CBX5 CG8409 dHP-1a dHP1 Dmel\CG8409 DmHP-1 DmHP1 E					Drosophila melanogaster		pro
+GeneAge	634	sug	36424				sugarbabe	CG3850 Dmel\CG3850					Drosophila melanogaster		pro
+GeneAge	635	sun	44046				Stunted	ATP5E BcDNA:RE19513 BcDNA:RH48911 CG9032 Dmel\CG90					Drosophila melanogaster		anti
+GeneAge	636	Surf1	44498				surfeit gene 1	BcDNA:GH23574 CG9943 Dmel\CG9943					Drosophila melanogaster		anti
+GeneAge	880	Thor	33569				CG8846 gene product from transcript CG8846-RA	153432_at 43-BP 4e-bp 4E-BP 4E-BP1 4ebp 4eBP 4EBP 					Drosophila melanogaster		pro
+GeneAge	880	Thor	33569				CG8846 gene product from transcript CG8846-RA	153432_at 43-BP 4e-bp 4E-BP 4E-BP1 4ebp 4eBP 4EBP 					Drosophila melanogaster		pro
+GeneAge	881	to	43036				takeout	CG11853 CT33074 Dmel\CG11853					Drosophila melanogaster		pro
+GeneAge	678	Tor	47396				Target of rapamycin	5092 CG5092 CT16317 CT24745 CT24817 Dmel\CG5092 Dm					Drosophila melanogaster		anti
+GeneAge	685	Trx-2	34281				thioredoxin-2	31884 anon-WO0118547.188 CG31884 CG3864 DmelTrx-2 					Drosophila melanogaster		pro
+GeneAge	327	Trxr-1	31760				Thioredoxin reductase-1	2151 anon-WO03040301.185 anon-WO03040301.187 CG215					Drosophila melanogaster		pro
+GeneAge	686	TrxT	31443				Thioredoxin T	3315 CG3315 DmelTrxT Dmel\CG3315 DmTrxT					Drosophila melanogaster		pro
+GeneAge	687	Tsc1	42862				CG6147-PA Tuberous sclerosis complex genes 1	CG6147 Dmel\CG6147 dTSC dTSC-1 dTsc1 dTSC1 rocky T					Drosophila melanogaster		pro
+GeneAge	695	UCP2	7351				uncoupling protein 2 (mitochondrial, proton carrier)	UCPH BMIQ4 SLC25A8					Drosophila melanogaster		pro
+GeneAge	716	VhaSFD	34997				Vacuolar H+-ATPase SFD subunit	144191_at ATP6V1H CG17332 Dmel\CG17332 V-ATPase vh					Drosophila melanogaster		pro
+GeneAge	882	yata	43508				CG1973 gene product from transcript CG1973-RA	CG1973 Dmel\CG1973 Yata					Drosophila melanogaster		pro
+GeneAge	883	Zw	32974				Zwischenferment	CG12529 Dmel\CG12529 G-6-PD G-6-pdh G-6pd G-6PD G6					Drosophila melanogaster		pro

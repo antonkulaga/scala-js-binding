@@ -24,8 +24,6 @@ object TaskItems extends ItemsMock{
   ts has completed of XSD.BooleanDatatypeIRI  occurs Star//occurs Star
   val taskShape: Shape = ts.result
 
-
-
   val priority = (WI.PLATFORM / "has_priority").iri
 
   val taskIntegrase = PropertyModel(IRI(WI.PLATFORM /"Integrase"), title -> StringLiteral("Find more info"),  desc->StringLiteral("Find other papers on using PhiC31 integrase for genes insertion") , priority-> de / "high", assigned->Anton, completed->BooleanLiteral(false) , RDF.TYPE-> task)

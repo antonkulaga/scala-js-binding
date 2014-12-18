@@ -3,7 +3,7 @@ package org.denigma.semantic.models.collections
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.{ExploreMessages, Filters}
 import org.denigma.semantic.models.{ModelView, RemoteModelView, WithShapeView}
-import org.denigma.semantic.rdf.ModelInside
+import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
 import org.denigma.semantic.storages.{AjaxExploreStorage, AjaxModelStorage}
 import org.scalajs.dom
 import org.scalajs.dom._
@@ -17,15 +17,13 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 object AjaxModelCollection
 {
-  type ItemView =  ModelView
 
-  def apply(html:HTMLElement,params:Map[String,Any]):ItemView= {
+  def apply(html:HTMLElement,params:Map[String,Any]):ModelView= {
     //
     new JustRemoteModel("item"+Math.random(),html,params)
   }
 
   class JustRemoteModel(override val name:String,val elem:HTMLElement, val params:Map[String,Any]) extends RemoteModelView{
-
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
@@ -38,8 +36,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
   extends ModelCollection with WithShapeView
 {
 
-
-  override type ItemView = AjaxModelCollection.ItemView
+  override type ItemView <: ModelView
 
   val query = this.resolveKey("query"){case q=>IRI(q.toString)} //IRI(params("query").toString)
 
@@ -49,6 +46,8 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
   val crud:String = this.resolveKey("crud"){
       case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
     }
+
+  val shape  =  shapeOption.getOrElse(  Var(ShapeInside(Shape.empty))    )
 
 
   val exploreStorage = new AjaxExploreStorage(path)(registry)

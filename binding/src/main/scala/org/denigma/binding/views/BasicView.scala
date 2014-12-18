@@ -15,7 +15,7 @@ import scala.collection.JavaConversions
 
 trait Injector[ChildView<:BasicView] {
 
-  def inject(viewName:String,element:HTMLElement,params:Map[String,Any]):Option[Try[ChildView]]
+  def inject(viewName:String,element:HTMLElement,params:Map[String,Any],parent:Option[OrganizedView]):Option[Try[ChildView]]
 }
 
 /**
@@ -73,29 +73,8 @@ trait BasicView extends BasicBinding with IView
    * @param params some other optional params needed to init the view
    * @return
    */
-  def inject(viewName:String,el:HTMLElement,params:Map[String,Any])(implicit injector:Injector[ChildView]): ChildView =
-  {
-    //factories.get(viewName)
-    injector.inject(viewName,el,params) match {
-    case Some(tr)=>
-      tr match {
-        case Success(view) => view
+  def inject(viewName:String,el:HTMLElement,params:Map[String,Any])(implicit injector:Injector[ChildView]): ChildView
 
-        case Failure(e) =>
-          //dom.console.error(e.toString)
-          if (e != null){
-            dom.console.error(s"" +
-              s"cannot initialize the $viewName view inside $id with params ${params.toString()} because of ${e.toString}")
-            dom.console.error(stackToString(e))
-          }
-          else  dom.console.error(s"Cannot initialize the $viewName view in $id")
-          makeDefault(el,params)
-    }
-    case _ =>
-      dom.console.error(s"cannot find view class for $viewName")
-      makeDefault(el,params)
-  }
-  }
 
   protected def stackToString(e:Throwable) = {
     val trace = e.getStackTrace.toList

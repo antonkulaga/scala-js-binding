@@ -168,16 +168,6 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
   }
 
   /**
-   * If it has "value" property"
-   * @param el
-   * @return
-   */
-  protected def elementHasValue(el:HTMLElement) =  el.tagName.toLowerCase match {
-    case "input" | "textarea" | "option" =>true
-    case _ =>false
-  }
-
-  /**
    * Binds property value to attribute
    * @param el Element
    * @param iri name of the binding key

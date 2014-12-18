@@ -1,6 +1,6 @@
 package org.denigma.semantic.shapes
 
-import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
+import org.denigma.binding.binders.{BasicBinding, GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.shaped._
 import org.scalajs.dom.HTMLElement
@@ -20,7 +20,7 @@ object ArcView {
     new JustArcView(el,params)
   }
 
-  implicit def defaultBinders(view:ArcView) = new NamesBinder(view,view.arc,view.suggestProperty)::new OccursBinder(view,view.arc)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
+  implicit def defaultBinders(view:ArcView): List[BasicBinding] = new NamesBinder(view,view.arc,view.suggestProperty)::new OccursBinder(view,view.arc)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
 
   class JustArcView(val elem:HTMLElement, val params:Map[String,Any]) extends ArcView {
 

@@ -45,7 +45,7 @@ trait CollectionView extends BindableView{
         sp.id = id
         if(template==viewElement) {
           viewElement.appendChild(sp)
-          alert(id)
+          dom.console.error(s"items are the same as $id")
         }
         else this.replace(sp,template)
         sp
@@ -92,6 +92,7 @@ trait CollectionView extends BindableView{
   }
 
   override def bindView(el: HTMLElement) = {
+    if(el.attributes.contains("data-item-view")) el.removeAttribute("data-item-view") //to avoid using self in nested views
     attachBinders()
     activateMacro()
     this.bind(el)
@@ -146,10 +147,12 @@ trait CollectionView extends BindableView{
       }
   }
 
+  protected def getItemView(el:HTMLElement) = el.attributes.get("data-item-view")//.orElse(el.attributes.get("data-view"))
+
 
   /**
    * Function to create Item. Often used for default item creation
-   * @param item
+   * @param item item that will be added
    * @param construct
    * @return
    */
@@ -161,7 +164,7 @@ trait CollectionView extends BindableView{
 
     el.removeAttribute("data-template")
 
-    val view = el.attributes.get("data-item-view") match {
+    val view = getItemView(el) match {
       case None=>
         construct(el,mp)
       case Some(v)=> this.inject(v.value,el,mp) match {

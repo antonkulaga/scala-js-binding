@@ -1,14 +1,13 @@
-package org.denigma.semantic.binders.shaped.selectors
+package org.denigma.semantic.binders.shaped
 
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
-import org.scalax.semweb.rdf.{Res, IRI}
+import org.scalax.semweb.rdf.{IRI, Res}
 import org.scalax.semweb.shex._
 import rx.Var
 import rx.ops._
 
 import scala.scalajs.js
-import scala.scalajs.js.{Dynamic, Any}
 
 class ValueSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)=>Unit) extends ArcSelector(arc){
 
@@ -59,7 +58,7 @@ class ValueSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)=>U
 
   }
 
-  override protected def itemAddHandler(value: String, item: js.Any): Unit = {
+  override protected def itemAddHandler(value: String, item: js.Dynamic): Unit = {
     val vt = valueIntoElement(value)
     //debug(s"VALUE = $value TERM + ${vt.toString}")
     if(arc.now.name!=vt) {

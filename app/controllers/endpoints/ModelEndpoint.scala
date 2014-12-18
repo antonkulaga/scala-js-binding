@@ -15,7 +15,9 @@ import play.api.mvc.{Controller, Result}
 
 import scala.concurrent.Future
 
-
+/**
+ * This endpoint is for operatins with property models (CRUD operations) as well as sugestions of new values
+ */
 trait ModelEndpoint extends AjaxModelEndpoint with PickleController with Items{
   self:Controller=>
 
@@ -97,20 +99,22 @@ trait ModelEndpoint extends AjaxModelEndpoint with PickleController with Items{
       i<-items
       p<-i.properties
       v<-p._2
-      if v.isInstanceOf[IRI] && v.stringValue.contains(t)
+      //if v.isInstanceOf[IRI] &&
+      if v.stringValue.contains(t)
+      if v.stringValue.length<256
     } yield v
 
    // val mes = ModelMessages.Suggestion(t,List[RDFValue](IRI("http://one"),IRI("http://tries"),IRI("http://something")),suggestMessage.id,suggestMessage.channel,new Date())
     val mes = Suggestion(t,list,suggestMessage.id,suggestMessage.channel,new Date())
     val p = rp.pickle(mes)
-    Logger.info(p.toString())
     Future.successful(Ok(p).as("application/json"))
   }
 
   override def onSuggest(suggestMessage: Suggest): ModelResult = {
 
     items.get(suggestMessage.shape)  match {
-      case Some(list)=>suggestModels(list,suggestMessage)
+      case Some(list)=>
+        suggestModels(list,suggestMessage)
       case None=> this.onBadModelMessage(suggestMessage)
     }
 

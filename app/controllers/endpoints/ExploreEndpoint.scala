@@ -40,7 +40,7 @@ trait ExploreEndpoint extends PickleController with AjaxExploreEndpoint with Ite
     exploreMessage.sortOrder match {
       case Nil=>list
       case s::xs=>
-        play.Logger.debug("sort takes place")
+        //play.Logger.debug("sort takes place")
 
         list.sortWith{case (a,b)=>s.sort(xs)(a,b) > -1}
     }

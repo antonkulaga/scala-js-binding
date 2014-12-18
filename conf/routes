@@ -11,6 +11,12 @@ GET           /test/model                controllers.Test.model()
 GET           /papers/reports            controllers.literature.Literature.reports()
 GET           /papers/                   controllers.literature.Literature.reports()
 
+GET           /test/macroses             controllers.Test.macroses()
+GET           /test/genes                controllers.genes.Genes.testGenes()
+GET           /genes/                     controllers.genes.Genes.reports()
+GET           /genes                     controllers.genes.Genes.reports()
+
+
 POST          /papers/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
 POST          /papers/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
 POST          /papers/shapes             controllers.endpoints.MainEndpoint.shapeEndpoint()

@@ -1,6 +1,7 @@
 import com.typesafe.sbt.digest.Import._
 import com.typesafe.sbt.gzip.Import._
 import com.typesafe.sbt.web.Import._
+import com.typesafe.sbt.web.SbtWeb
 import sbt.Keys._
 import sbt._
 import bintray.Opts
@@ -12,28 +13,35 @@ import play.Play._
 
 import scala.scalajs.sbtplugin.ScalaJSPlugin.ScalaJSKeys._
 import scala.scalajs.sbtplugin.ScalaJSPlugin._
+import com.typesafe.sbt.web.SbtWeb.autoImport._
+import com.typesafe.sbt.less.Import.LessKeys
 
+/**
+ * Different components have different version we keep them here
+ */
+object Versions {
 
-trait Versions {
-  val macwireVersion = "0.7.3"
+  val semWebVersion =  "0.6.16"
 
-  val semWebVersion =  "0.6.15"
+  val bindingVersion = "0.6.6"
 
-  val bindingVersion = "0.6.5"
+  val mainVersion = "0.6.3" //lowest version of whole stack
+
+  val bindingPlayVersion = "0.6.4"
+
+  val jsmacroVersion = "0.1.6"
 }
 
-object BindingBuild extends sbt.Build with UniversalKeys  with Versions{
+object BindingBuild extends sbt.Build with UniversalKeys {
 
   val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")
 
   override def rootProject = Some(preview)
 
   lazy val frontEndSettings = scalaJsSettings ++ Seq(
-    version := bindingVersion,
+    version := Versions.bindingVersion,
 
     name := "frontend",
-
-    resolvers += Opts.resolver.repo("alexander-myltsev", "maven"),
 
     scalacOptions ++= Seq( "-feature", "-language:_" ),
 
@@ -52,7 +60,7 @@ object BindingBuild extends sbt.Build with UniversalKeys  with Versions{
   ) dependsOn binding
 
   lazy val bindingSettings = scalaJsSettings++publishSettings ++ Seq(
-    version := bindingVersion,
+    version := Versions.bindingVersion,
 
     name := "binding",
 
@@ -60,13 +68,7 @@ object BindingBuild extends sbt.Build with UniversalKeys  with Versions{
 
     ScalaJSKeys.persistLauncher in Test := false,
 
-    resolvers  += "Online Play Repository" at  "http://repo.typesafe.com/typesafe/simple/maven-releases/",
-
-    libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-jquery" % "0.6",
-
-    libraryDependencies += "org.scalajs" %%% "codemirror" % "4.5-0.1",
-
-    libraryDependencies += "com.softwaremill.macwire" %% "macros" % macwireVersion
+    libraryDependencies ++= Dependencies.binding.value
   )
 
   lazy val binding = Project(
@@ -82,9 +84,8 @@ object BindingBuild extends sbt.Build with UniversalKeys  with Versions{
     ScalaJSKeys.relativeSourceMaps := true,
     ScalaJSKeys.persistLauncher := true,
     ScalaJSKeys.persistLauncher in Test := false,
-    libraryDependencies +=  "org.scalax" %%% "semweb" % semWebVersion,
-    libraryDependencies += "org.scalajs" %%% "scalajs-pickling" % "0.3.1",
-    libraryDependencies +=  "com.scalarx" %%% "scalarx" % "0.2.6"
+
+    libraryDependencies ++= Dependencies.models_js.value
   )
 
   /** `models_js`, a js only meta project. */
@@ -94,9 +95,7 @@ object BindingBuild extends sbt.Build with UniversalKeys  with Versions{
     settings = modelsJsSettings
   )
   lazy val modelsJvmSettings =  sameSettings ++ publishSettings ++ Seq(
-    libraryDependencies +=  "org.scalax" %% "semweb" % semWebVersion,
-    libraryDependencies += "org.scalajs" %% "scalajs-pickling-play-json" % "0.3.1",
-    libraryDependencies +=  "com.scalarx" %% "scalarx" % "0.2.6"
+    libraryDependencies ++= Dependencies.models_jvm.value
   )
 
   lazy val models_jvm = Project(
@@ -108,15 +107,12 @@ object BindingBuild extends sbt.Build with UniversalKeys  with Versions{
   lazy val jsMacroSettings = scalaJsSettings++ publishSettings ++ Seq(
     name := "js-macro",
 
-    version := "0.1.6",
+    version := Versions.jsmacroVersion,
 
-    libraryDependencies += "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.6.1",
-
-    libraryDependencies += "com.scalatags" %%% "scalatags" % "0.4.2",
-
-    libraryDependencies +=  "com.scalarx" %%% "scalarx" % "0.2.6",
+    libraryDependencies ++= Dependencies.macro_js.value,
 
     libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-reflect" % _)
+
   )
 
   lazy val jsmacro = Project(
@@ -128,15 +124,9 @@ object BindingBuild extends sbt.Build with UniversalKeys  with Versions{
   lazy val bindingPlaySettings = sameSettings ++ bintraySettings ++ publishSettings ++ Seq(
     name := "binding-play",
 
-    version := "0.6.3",
+    version := Versions.bindingPlayVersion,
 
-    libraryDependencies +="com.typesafe.play" %% "play" % "2.3.6",
-
-    libraryDependencies += "org.scalajs" %% "scalajs-pickling-play-json" % "0.3.1",
-
-    libraryDependencies += "com.softwaremill.macwire" %% "macros" % macwireVersion,
-
-    libraryDependencies += "com.softwaremill.macwire" %% "runtime" % macwireVersion
+    libraryDependencies ++= Dependencies.bindingPlay.value
   )
 
   lazy val bindingPlay = Project(
@@ -151,36 +141,21 @@ object BindingBuild extends sbt.Build with UniversalKeys  with Versions{
   lazy val previewSettings = sameSettings ++ Seq(
       name := """binding-preview""",
 
-      version := bindingVersion,
+      version := Versions.bindingVersion,
 
-      libraryDependencies += "org.webjars" %% "webjars-play" % "2.3.0-2",
+      resolvers += "Pellucid Bintray" at "http://dl.bintray.com/pellucid/maven",
 
-      libraryDependencies += "org.webjars" % "jquery" % "2.1.1",
+      libraryDependencies ++= Dependencies.preview.value,
 
-      libraryDependencies += "org.webjars" % "Semantic-UI" % "1.1.0",
+      includeFilter in (Assets, LessKeys.less) := "*.less",
 
-      //libraryDependencies += "org.webjars" % "Semantic-UI" % "0.19",
+      excludeFilter in (Assets, LessKeys.less) := "_*.less",
 
-      libraryDependencies += "org.webjars" % "codemirror" % "4.8",
-
-      libraryDependencies += "org.webjars" % "ckeditor" % "4.4.1",
-
-      libraryDependencies += "com.lihaoyi" %% "utest" % "0.2.4",
-
-      libraryDependencies += "org.webjars" % "three.js" % "r66",
-
-      libraryDependencies += "org.scalax" %% "semweb" % BindingBuild.semWebVersion,
-
-      // Apply RequireJS optimization, digest calculation and gzip compression to assets
       pipelineStages := Seq(digest, gzip),
 
       testFrameworks += new TestFramework("utest.runner.JvmFramework"),
 
       scalajsOutputDir := (classDirectory in Compile).value  / "public" / "javascripts",
-
-      //scalajsOutputDir := (crossTarget in Compile).value / "classes"  / "public" / "javascripts",
-
-      //scalajsOutputDir     := baseDirectory.value / "public" / "javascripts" / "scalajs",
 
       compile in Compile <<= (compile in Compile) dependsOn (fastOptJS in (frontend, Compile)),
 
@@ -214,7 +189,7 @@ object BindingBuild extends sbt.Build with UniversalKeys  with Versions{
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
   lazy val preview = (project in file("."))
-    .enablePlugins(PlayScala)
+    .enablePlugins(PlayScala,SbtWeb)
     .settings(previewSettings: _*)
     .dependsOn(bindingPlay).aggregate(frontend)
 
@@ -228,7 +203,7 @@ object BindingBuild extends sbt.Build with UniversalKeys  with Versions{
 
     organization := "org.denigma",
 
-    version := "0.6.2",
+    version := Versions.mainVersion,
 
     scalaVersion := "2.11.2",
 

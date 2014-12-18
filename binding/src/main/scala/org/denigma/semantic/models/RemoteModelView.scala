@@ -2,11 +2,11 @@ package org.denigma.semantic.models
 
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binders.{SelectBinder, ModelBinder}
+import org.denigma.semantic.binders.{ModelBinder, SelectBinder}
 import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
-import org.denigma.semantic.storages.{ModelStorage, AjaxModelStorage}
+import org.denigma.semantic.storages.ModelStorage
 import org.scalajs.dom
-import org.scalax.semweb.rdf.{RDFValue, IRI, Res}
+import org.scalax.semweb.rdf.{IRI, RDFValue, Res}
 import org.scalax.semweb.shex._
 import rx.core.Var
 
@@ -24,9 +24,10 @@ object RemoteModelView
 
 }
 
-trait  RemoteModelView extends ModelView  with BindableView with WithShapeView
+abstract class RemoteModelView extends ModelView   with WithShapeView
 {
 
+  lazy val shape  =  shapeOption.getOrElse(  Var(ShapeInside(Shape.empty))    )
 
   override val model = this.modelOption.orElse{
       this.resolveKeyOption("resource"){
@@ -63,7 +64,7 @@ trait  RemoteModelView extends ModelView  with BindableView with WithShapeView
   def suggest(key: IRI, str: String): Future[List[RDFValue]] =  this.shape.now.current match {
     case Shape.empty=> storage.suggest(this.shapeRes, this.model.now.current.id, key, str).map(r => r.options)
 
-    case Shape(id,andrule) if andrule == AndRule.empty=>  storage.suggest(this.shapeRes, this.model.now.current.id, key, str).map(r => r.options)
+    case Shape(shapeId,andRule) if andRule == AndRule.empty=>  storage.suggest(this.shapeRes, this.model.now.current.id, key, str).map(r => r.options)
 
     case sh=> this.suggest(sh)(key, str)
 

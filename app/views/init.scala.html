@@ -1,4 +1,4 @@
-@(implicit request: UserRequestHeader, into:String = "main")
+@(implicit request: UserRequestHeader, into:String = "main",leftSidebar:Boolean = true)
 @import org.denigma.binding.play.UserRequestHeader
 
 <script>
@@ -10,6 +10,10 @@ session = {}
     }
 
 FrontEnd().main();
+    @if(leftSidebar) {
+    FrontEnd ( ).showLeftSidebar ( )
+    }
+
 
 
 });
