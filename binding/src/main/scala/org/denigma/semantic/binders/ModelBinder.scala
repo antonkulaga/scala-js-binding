@@ -178,6 +178,7 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
       this.bindRdfInner(el, iri)
 
     case _=>
+      //it it is html element with "Value" property like input or textarea
       if(elementHasValue(el)) el.attributes.get("type").map(_.value.toString) match
       {
         case Some("checkbox") =>

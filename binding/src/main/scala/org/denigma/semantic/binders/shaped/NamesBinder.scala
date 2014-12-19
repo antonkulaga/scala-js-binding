@@ -70,7 +70,6 @@ import scala.scalajs.js
  */
 class NameTermSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)=>Unit) extends ArcSelector(arc) {
 
-  override def key: IRI = rs / "property"
 
   type Value = IRI
 

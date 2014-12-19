@@ -36,7 +36,7 @@ trait Selectize extends js.Object {
 
   def removeItem(value:Any):Unit = ???
 
-  //def createItem(value:js.Any):Unit = ???
+    //def createItem(value:js.Any):Unit = ???
 
   def refreshItems():Unit = ???
 

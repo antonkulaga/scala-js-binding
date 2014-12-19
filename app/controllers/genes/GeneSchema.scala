@@ -69,7 +69,7 @@ trait GeneSchema extends ItemsMock{
     evi / "protein_complex", evi / "protein", evi / "transcript",
       evi / "ncRNA", evi / "rRNA", evi / "tRNA", evi / "snRNA", evi / "snoRNA", evi / "gene_product")
   form has taxon isCalled "Organism" startsWith de occurs Cardinality(1,2) hasPriority 12
-  form has date isCalled "Date" occurs ExactlyOne hasPriority 13
+  form has date isCalled "Date" of XSD.Date occurs ExactlyOne hasPriority 13
   //form has assigned isCalled "Assigned by" occurs ExactlyOne hasPriority 14
   //form has extension isCalled "Annotation Ext/ension" occurs Star
   form has product isCalled "Gene Product Form ID" occurs Opt hasPriority 15

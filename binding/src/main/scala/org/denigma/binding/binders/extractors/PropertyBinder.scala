@@ -14,6 +14,7 @@ import scala.collection.immutable.Map
  */
 trait PropertyBinder {
   self:BasicBinding=>
+
   def strings:Map[String,Rx[String]]
   def bools:Map[String,Rx[Boolean]]
   

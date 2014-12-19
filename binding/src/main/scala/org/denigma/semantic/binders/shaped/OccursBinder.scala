@@ -51,7 +51,6 @@ import scala.scalajs.js
 class OccursSelector(val el:HTMLElement,arc:Var[ArcRule]) extends ArcSelector(arc) {
 
   //val sel: js.Dynamic = jQuery(el).dyn.selectize(selectParams(el))
-  override def key: IRI = rs / "occurs"
 
   protected val values = List(Star.obj,Plus.obj,ExactlyOne.obj)
 

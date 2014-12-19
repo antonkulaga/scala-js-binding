@@ -67,6 +67,7 @@ class SelectBinder(val view:BindableView, val model:Var[ModelInside], suggest:(I
   type Selector = PropertySelector
   var selectors = Map.empty[HTMLElement,Selector]
 
+
   protected override def bindRdfInput(el: HTMLElement, key: IRI): Unit =
    {
 
@@ -151,6 +152,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
     )
   }
 
+
   def makeOptions() =
     this.model.now.current.properties.get(key) match {
       case Some(iris)=>
@@ -161,6 +163,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
 
 
   protected def itemAddHandler(text:String, item:js.Dynamic): Unit = {
+    //dom.console.log("ADDED = "+text)
     val value = unescape(text)
     val mod = model.now
     mod.current.properties.get(key) match {
@@ -174,9 +177,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
     val remove: Option[Set[RDFValue]] =mod.current.properties.get(key).map{ps=>  ps.collect{case p if p.stringValue==value=>p}    }
     if(remove.nonEmpty) {
       val n = this.parseRDF(value)
-      val s1 = mod.current.properties(key).size
       val md = mod.delete(key,n)
-      val s2 = md.current.properties(key).size
       model() = md
     }
   }
@@ -189,6 +190,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
    */
   def fillValues(model: ModelInside):this.type = {
     val ss= this.selectizeFrom(el)
+    dom.console.log("SS ITEMS = "+ss.items)
     ss.clearOptions()
     model.current.properties.get(key).foreach{ps=>
       ps.foreach{p=>

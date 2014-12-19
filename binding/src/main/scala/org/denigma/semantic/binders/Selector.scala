@@ -53,7 +53,7 @@ trait SemanticSelector extends Selector with Escaper {
    * @param str
    * @return
    */
-  protected def parseRDF(str:String) =str match {
+  protected def parseRDF(str:String) = this.unescape(str) match {
     case st if str.contains("_:") => BlankNode(st)
     case st if str.contains(":") => IRI(st)
     case st if str.contains("^^") && str.contains(XSD.StringDatatypeIRI.stringValue)=>
@@ -98,7 +98,6 @@ trait SemanticSelector extends Selector with Escaper {
 
 trait Selector extends ILogged {
 
-  def key: IRI
 
   def el: HTMLElement
 
@@ -111,8 +110,6 @@ trait Selector extends ILogged {
 
 
   protected def selectParams(el: HTMLElement):js.Dynamic
-
-
 
   protected def selectizeFrom(el:HTMLElement): Selectize = {
     val s = el.dyn.selectize
