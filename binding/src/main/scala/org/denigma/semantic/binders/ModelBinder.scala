@@ -127,9 +127,9 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
 
   /**
    * Changes RDF property when value changes
-   * @param el
-   * @param iri
-   * @param pname
+   * @param el element
+   * @param iri IRI
+   * @param pname name of
    * @tparam T
    * @return
    */

@@ -13,15 +13,6 @@ import org.scalax.semweb.shex._
 
 object GenesItems extends LoadGenAge{
 
-  import Codes._
-/*
-
-  lazy val entrez = IRI("http://ncbi.nlm.nih.gov/gene/?term=")
-  lazy val pubmed = IRI("http://www.ncbi.nlm.nih.gov/pubmed")
-  lazy val GenAge = evi / "GenAge"
-*/
-
-
   lazy val genes:List[PropertyModel] = this.loadGenAge(10)
 
     /*List(   PropertyModel(entrezId,

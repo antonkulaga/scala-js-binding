@@ -14,7 +14,7 @@ import scala.collection.immutable.Map
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
-import scala.scalajs.js.{ThisFunction0, ThisFunction1}
+import scala.scalajs.js.{Function1, ThisFunction0, ThisFunction1}
 import scala.scalajs.js.annotation.JSExportAll
 import scala.util.{Failure, Success}
 import scalatags.Text.all._
@@ -31,7 +31,7 @@ object SelectBinder {
 
 
   def positionDropdown(self:js.Dynamic):Unit = {
-    dom.console.log("dropdown works!")
+    //dom.console.log("dropdown works!")
     val control = self.$control
     val offset = control.position
     offset.top = offset.top + control.outerHeight(true).asInstanceOf[Double]
@@ -49,6 +49,7 @@ object SelectBinder {
 
 
 }
+
 
 /**
  * Binds selecize selects to the property
@@ -95,6 +96,32 @@ class SelectBinder(val view:BindableView, val model:Var[ModelInside], suggest:(I
      }
 
  }
+
+
+case object SemanticRenderer extends SemanticRenderer
+class SemanticRenderer extends SelectRenderer with Escaper{
+  override val item: Function1[SelectOption, String] = renderItem _
+  override val option: Function1[SelectOption, String] = renderOption _
+
+
+  protected def renderItem(item:SelectOption): String =
+  {
+    import scalatags.Text.all._
+    div(`class`:= "name", item.title).render
+    //span(`class`:="iri", item.id.toString)
+  }
+
+  def renderOption(item:SelectOption) = if(item.id.contains(":") && !item.id.contains("^^")){
+    div(
+      div(`class` := "label", item.title),
+      div(`class` := "ui tiny blue item", escape(item.id)
+      )
+    ).render
+  } else div(`class` := "label", item.title).render
+}
+
+
+
 /**
  * Selects property from the model
  * @param el html element of the view from which there will be selection
@@ -107,12 +134,10 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
 
   val sel: js.Dynamic = jQuery(el).dyn.selectize(selectParams(el))
 
-
-
   protected def selectParams(el: HTMLElement):js.Dynamic = {
     js.Dynamic.literal(
       delimiter = "|",
-      persist = false,
+      persist = true,
       valueField = "id",
       labelField = "title",
       searchField = "title",
@@ -120,7 +145,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
       onItemAdd = itemAddHandler _,
       onItemRemove =  itemRemoveHandler _,
       options = makeOptions(),
-      render = semanticRenderer,
+      render =  SemanticRenderer.asInstanceOf[js.Any],
       copyClassesToDropdown = false,
       plugins = js.Array(SelectBinder.pluginName)
     )
@@ -137,8 +162,6 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
 
   protected def itemAddHandler(text:String, item:js.Dynamic): Unit = {
     val value = unescape(text)
-    //dom.console.log("ADDED = " + item+ " WITH VALUE = "+value)
-
     val mod = model.now
     mod.current.properties.get(key) match {
       case None=> model() = mod.add(key,parseRDF(value))
@@ -154,7 +177,6 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
       val s1 = mod.current.properties(key).size
       val md = mod.delete(key,n)
       val s2 = md.current.properties(key).size
-      //dom.console.log(s"s1 = $s1 | s2 = $s2")
       model() = md
     }
   }

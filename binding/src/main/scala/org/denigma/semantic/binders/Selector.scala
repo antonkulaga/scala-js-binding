@@ -12,7 +12,7 @@ import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
-import scala.scalajs.js.ThisFunction1
+import scala.scalajs.js.{Function1, ThisFunction1}
 import scala.scalajs.js.annotation.JSExportAll
 import scalatags.Text.all._
 
@@ -26,6 +26,7 @@ object SelectOption
 @JSExportAll
 case class SelectOption(id:String,title:String)
 
+
 @JSExportAll
 trait SelectRenderer{
   val item: js.Function1[SelectOption,String]
@@ -33,32 +34,19 @@ trait SelectRenderer{
 }
 
 
-trait SemanticSelector extends Selector {
+
+trait Escaper {
   protected val replacements = ("\"", "&#34;") ::("<", "&lt;") ::(">", "&gt;") ::("'", "&#39;") :: Nil
 
   def escape(str: String) = replacements.foldLeft(str) {case (acc, (from,to))=>acc.replace(from,to) }
 
   def unescape(str: String) = replacements.foldLeft(str) {case (acc, (from,to))=>acc.replace(to,from) }
 
-  protected def renderItemHandler(item:SelectOption): String =
-  {
-    import scalatags.Text.all._
-    div(`class`:= "name", item.title).render
-    //span(`class`:="iri", item.id.toString)
-  }
+}
 
-  def renderOptionHandler(item:SelectOption) = if(item.id.contains(":") && !item.id.contains("^^")){
-    div(
-      div(`class` := "label", item.title),
-      div(`class` := "ui tiny blue header", escape(item.id)
-      )
-    ).render
-  } else div(`class` := "label", item.title).render
+trait SemanticSelector extends Selector with Escaper {
 
-  lazy val semanticRenderer = js.Dynamic.literal(
-    item = renderItemHandler _,
-    option = renderOptionHandler _
-  )
+
 
   /**
    * Parses string to get RDF value
