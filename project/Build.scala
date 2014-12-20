@@ -23,11 +23,11 @@ object Versions {
 
   val semWebVersion =  "0.6.16"
 
-  val bindingVersion = "0.6.6"
+  val bindingVersion = "0.6.7"
 
   val mainVersion = "0.6.3" //lowest version of whole stack
 
-  val bindingPlayVersion = "0.6.4"
+  val bindingPlayVersion = "0.6.5"
 
   val jsmacroVersion = "0.1.6"
 }

@@ -1,5 +1,7 @@
 package org.scalajs.selectize
 
+import org.denigma.semantic.binders.SelectOption
+
 import scala.collection.immutable.Map
 import scala.scalajs.js
 import scala.scalajs.js.{ThisFunction2, ThisFunction1}
@@ -32,7 +34,11 @@ trait Selectize extends js.Object {
 
   def clearOptions():Unit = ???
 
+  def createItem():Any = ???
+
   def addItem(value:Any):Unit = ???
+
+  def addItems(values:js.Array[Any]) = ??? //add many items
 
   def removeItem(value:Any):Unit = ???
 

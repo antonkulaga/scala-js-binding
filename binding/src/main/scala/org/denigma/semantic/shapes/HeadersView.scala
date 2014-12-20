@@ -2,7 +2,7 @@ package org.denigma.semantic.shapes
 
 import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.views.OrganizedView
-import org.denigma.semantic.binders.shaped.ArcBinder
+import org.denigma.semantic.binders.shex.ArcBinder
 import org.denigma.semantic.models.WithShapeView
 import org.denigma.semantic.rdf.ShapeInside
 import org.scalajs.dom.HTMLElement

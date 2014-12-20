@@ -5,7 +5,7 @@ import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.ExploreMessages
 import org.denigma.binding.views.{ReactiveView, OrganizedView, BindableView}
-import org.denigma.semantic.binders.shaped.{ArcBinder, OccursBinder, NamesBinder}
+import org.denigma.semantic.binders.shex.{ArcBinder, OccursBinder, NamesBinder}
 import org.denigma.semantic.grids.{ExplorableCollection, ExplorableView}
 import org.denigma.semantic.models.{WithShapeView, RemoteModelView}
 import org.denigma.semantic.models.collections.AjaxModelCollection

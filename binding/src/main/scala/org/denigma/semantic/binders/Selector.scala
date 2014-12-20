@@ -31,6 +31,12 @@ case class SelectOption(id:String,title:String)
 trait SelectRenderer{
   val item: js.Function1[SelectOption,String]
   val option: js.Function1[SelectOption,String]
+  val option_create: js.Function1[InputHolder,  String]
+
+}
+
+class InputHolder extends js.Object{
+  val input:String = ???
 }
 
 

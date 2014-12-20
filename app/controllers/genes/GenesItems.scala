@@ -13,7 +13,7 @@ import org.scalax.semweb.shex._
 
 object GenesItems extends LoadGenAge{
 
-  lazy val genes:List[PropertyModel] = this.loadGenAge(10)
+  lazy val genes:List[PropertyModel] = this.loadGenAge.take(10)
 
     /*List(   PropertyModel(entrezId,
       Map[IRI,Set[RDFValue]](

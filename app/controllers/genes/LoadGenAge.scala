@@ -36,11 +36,12 @@ trait LoadGenAge extends GeneSchema{
     "Influence" ->influence)
 
 
-  def loadGenAge(page:Int): List[PropertyModel] = {
+  def loadGenAge: List[PropertyModel] = {
     val fileName = "public/resources/data_from_geneage.csv"
     val str = this.readFromFile(fileName)
-    testGenesTable(str).take(page)
+    testGenesTable(str)
   }
+
 
 
 
@@ -71,7 +72,7 @@ trait LoadGenAge extends GeneSchema{
           value
         }*/
       case ValueStem(stem) =>
-        if(string.startsWith(stem.stringValue)) IRI(string) else stem / string
+        if(string.startsWith(stem.stringValue)) IRI(string.replace(" ","_")) else stem / string.replace(" ","_")
 
       case ValueType(t) => t match {
         case RDFS.RESOURCE => str2RDFValue(string,base)
@@ -113,9 +114,9 @@ trait LoadGenAge extends GeneSchema{
           c <- colKeys
           cell = fr[String](r,c)
           if cell.isValue
-          col = IRI(c)
+          col = IRI(c.replace(" ","_"))
         } yield (col , parse(col,cell.get,Some(de))(formShape).get)).toSeq
-      PropertyModel(evi / r,values:_*)
+      PropertyModel(gero / r,values:_*)
     }.toList
   }
 

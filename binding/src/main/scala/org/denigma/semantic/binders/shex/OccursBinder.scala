@@ -1,4 +1,4 @@
-package org.denigma.semantic.binders.shaped
+package org.denigma.semantic.binders.shex
 
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom.HTMLElement

@@ -2,7 +2,8 @@ package org.denigma.semantic.shapes
 
 
 import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
-import org.denigma.semantic.binders.{ShapedPropertyBinder, SelectBinder}
+import org.denigma.semantic.binders.SelectBinder
+import org.denigma.semantic.binders.shaped.ShapedPropertyBinder
 import org.denigma.semantic.models.RemoteModelView
 import org.denigma.semantic.rdf.ShapeInside
 import org.scalajs.dom

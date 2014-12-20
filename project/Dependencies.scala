@@ -32,7 +32,11 @@ object Dependencies
 
     "org.scalax" %% "semweb" % Versions.semWebVersion,
 
-     "com.pellucid" %% "framian" % "0.3.3"
+    "org.scalax" %% "semweb-sesame" % Versions.semWebVersion,
+
+     "org.w3" %% "sesame" % "0.7.1", //sesame bunding to bananardf
+
+    "com.pellucid" %% "framian" % "0.3.3"
 
   ))
   val macro_js = Def.setting(shared.value++Seq(
