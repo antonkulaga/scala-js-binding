@@ -50,7 +50,7 @@ object Genes extends PJaxPlatformWith("literature") with LoadGenAge{
   }
 
   def testSchemaWriting() = UserAction {
-    val quads: Set[Quad] = this.formShape.asQuads(IRI("http://denigma.org/resource/"))
+    val quads: Set[Quad] = this.evidenceShape.asQuads(IRI("http://denigma.org/resource/"))
     val str = TurtleMaster.simpleWrite(quads)
     Ok(str)
   }

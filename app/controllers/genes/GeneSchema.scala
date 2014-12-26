@@ -1,6 +1,7 @@
 package controllers.genes
 
 import java.util.Date
+import javafx.scene.layout.Priority
 
 import controllers.endpoints.{Items, ItemsMock}
 import org.scalax.semweb.rdf._
@@ -35,7 +36,7 @@ trait GeneSchema extends ItemsMock{
 
   }
 
-  lazy val form = new ShapeBuilder(gero / "Evidence_Shape")
+  lazy val evidenceForm = new ShapeBuilder(gero / "Evidence_Shape")
 
   lazy val (entrezId:IRI,db:IRI,objId:IRI,symbol:IRI, qualifier:IRI, go:IRI,
   ref:IRI, code:IRI , from:IRI, aspect:IRI,  dbObjectName:IRI, synonym:IRI, tp:IRI,
@@ -54,31 +55,40 @@ trait GeneSchema extends ItemsMock{
   val cls = Ontology.classes.map(cl=>cl:IRI).toSeq
 
   import Codes._
-  form has entrezId isCalled "ENTREZID" startsWith entrez occurs ExactlyOne hasPriority 1
-  form has db isCalled "DB" occurs ExactlyOne hasPriority 2
-  form has objId isCalled "DB Object ID" occurs ExactlyOne hasPriority 3
-  form has symbol isCalled "DB Object Symbol" occurs ExactlyOne  hasPriority 4
+  evidenceForm has entrezId isCalled "ENTREZID" startsWith entrez occurs ExactlyOne hasPriority 1
+  evidenceForm has db isCalled "DB" occurs ExactlyOne hasPriority 2
+  evidenceForm has objId isCalled "DB Object ID" occurs ExactlyOne hasPriority 3
+  evidenceForm has symbol isCalled "DB Object Symbol" occurs ExactlyOne  hasPriority 4
   //form has qualifier isCalled "Qualifier" occurs Star hasPriority 5
   //form has go isCalled "GO ID" occurs ExactlyOne
-  form has ref isCalled "Publication" startsWith pmid occurs Plus hasPriority 5
-  form has code isCalled "Evidence Code" occurs ExactlyOne hasPriority 6  from(IMP code, IGI code, IPI code, IDA code, IEP code, TAS code,  NAS code,  IC code, ND code)
+  evidenceForm has ref isCalled "Publication" startsWith pmid occurs Plus hasPriority 5
+  evidenceForm has code isCalled "Evidence Code" occurs ExactlyOne hasPriority 6  from(IMP code, IGI code, IPI code, IDA code, IEP code, TAS code,  NAS code,  IC code, ND code)
   //form has from isCalled "With (or) From" occurs Star
   //form has aspect isCalled "Aspect" occurs ExactlyOne hasPriority 8
-  form has dbObjectName startsWith gero isCalled "DB object Name" occurs Opt hasPriority 9
+  evidenceForm has dbObjectName startsWith gero isCalled "DB object Name" occurs Opt hasPriority 9
   //form has synonym isCalled "synonim" occurs Star hasPriority 10
   //form has tp isCalled "DB Object Type" occurs ExactlyOne hasPriority 11
-  form has tp isCalled "Gene product type" startsWith gero occurs ExactlyOne hasPriority 11 from(
+  evidenceForm has tp isCalled "Gene product type" startsWith gero occurs ExactlyOne hasPriority 11 from(
     gero / "protein_complex", gero / "protein", gero / "transcript",
       gero / "ncRNA", gero / "rRNA", gero / "tRNA", gero / "snRNA", gero / "snoRNA", gero / "microRNA", gero / "gene_product")
-  form has taxon isCalled "Organism" startsWith gero occurs Cardinality(1,2) hasPriority 12
-  form has date isCalled "Date" of XSD.Date occurs ExactlyOne hasPriority 13
+  evidenceForm has taxon isCalled "Organism" startsWith gero occurs Cardinality(1,2) hasPriority 12
+  evidenceForm has date isCalled "Date" of XSD.Date occurs ExactlyOne hasPriority 13
   //form has assigned isCalled "Assigned by" occurs ExactlyOne hasPriority 14
   //form has extension isCalled "Annotation Ext/ension" occurs Star
-  form has product isCalled "Gene Product Form ID" occurs Opt hasPriority 15
-  form has clazz isCalled "Class" startsWith gero occurs ExactlyOne hasPriority 16 from(cls:_*)
+  evidenceForm has product isCalled "Gene Product Form ID" occurs Opt hasPriority 15
+  evidenceForm has clazz isCalled "Class" startsWith gero occurs ExactlyOne hasPriority 16 from(cls:_*)
   // form has tissue isCalled "Tissue" occurs Plus hasPriority 2
-  form has influence isCalled "Influence" occurs ExactlyOne hasPriority 17 from(gero / "pro", gero / "anti")
+  evidenceForm has influence isCalled "Influence" occurs ExactlyOne hasPriority 17 from(gero / "pro", gero / "anti")
 
-  lazy val formShape = form.result
+  lazy val evidenceShape = evidenceForm.result
+
+
+  val interventions = gero / "intervention"
+  val effect = gero / "intervention_effect"
+
+  lazy val interventionsForm = new ShapeBuilder(gero / "Interventions_Shape")
+  interventionsForm has symbol isCalled "Gene Symbol" occurs ExactlyOne hasPriority 1
+  interventionsForm has db
+
 
 }

@@ -1,12 +1,18 @@
 package org.denigma.semantic.binders
 import org.denigma.binding.extensions._
 import org.denigma.semantic.rdf.ModelInside
+import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.jquery._
+import org.scalax.semweb.rdf.vocabulary.XSD
 import org.scalax.semweb.rdf.{IRI, RDFValue}
+import org.scalax.semweb.shex.{ValueType, ValueStem}
 import rx.Var
 
 import scala.scalajs.js
+import scala.scalajs.js.Date
+import scala.util.Try
+
 /**
  * Selects property from the model
  * @param el html element of the view from which there will be selection
@@ -17,6 +23,11 @@ import scala.scalajs.js
 class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside])(typeHandler:(String)=>Unit) extends SemanticSelector
 {
 
+  def createItem(input:String):SelectOption =  this.makeOption(this.parseRDF(input))
+
+
+  protected val createHandler:js.Function1[String,SelectOption] = createItem _
+
   val sel: js.Dynamic = jQuery(el).dyn.selectize(selectParams(el))
 
   protected def selectParams(el: HTMLElement):js.Dynamic = {
@@ -24,6 +35,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
       delimiter = "|",
       persist = true,
       create = true,
+      createItem = createHandler _,
       valueField = "id",
       labelField = "title",
       searchField = "title",
@@ -40,14 +52,23 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
 
   def makeOptions(): js.Array[SelectOption] = js.Array(getValues.map(makeOption).toSeq:_*)
 
+  def createFilter(input:String):Boolean = true
+
+  def createFilterHandler :js.Function1[String,Boolean] = createFilter _
+
 
 
   protected def itemAddHandler(text:String, item:js.Dynamic): Unit = {
-    //dom.console.log("ADDED = "+text)
     val value = unescape(text)
     val mod = model.now
     val values = getValues
-    if(!values.exists(v=>v.stringValue==value))mod.add(key,parseRDF(value))
+    if(values.exists(v=>v.stringValue==value)){
+
+    }
+    else
+    {
+      model() = mod.add(key,parseRDF(value))
+    }
   }
 
   protected def itemRemoveHandler(text:String): Unit = {

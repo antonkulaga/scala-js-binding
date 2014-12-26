@@ -20,7 +20,7 @@ resolvers += "JohnsonUSM snapshots" at "http://johnsonusm.com:8020/nexus/content
 //scalajs plugin
 addSbtPlugin("org.scala-lang.modules.scalajs" % "scalajs-sbt-plugin" % "0.5.6")
 
-//addSbtPlugin("com.github.inthenow" % "sbt-scalajs" % "0.56.6")
+addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")
 
 addSbtPlugin("me.lessis" % "bintray-sbt" % "0.1.2")
 

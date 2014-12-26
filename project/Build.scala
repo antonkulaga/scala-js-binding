@@ -213,7 +213,9 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     resolvers += Opts.resolver.repo("alexander-myltsev", "maven"),
 
-    // The Typesafe repository
+    ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },
+
+      // The Typesafe repository
     resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
 
 

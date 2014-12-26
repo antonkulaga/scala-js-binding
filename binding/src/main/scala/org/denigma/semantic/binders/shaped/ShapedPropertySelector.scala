@@ -31,8 +31,13 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
                             (typeHandler:(String)=>Unit) extends PropertySelector(el,key,model)(typeHandler)
 {
 
-  def createFilter(self:js.Dynamic,input:String) = arc.value match {
-    case ValueType(dt)=> dt match {
+  override def createItem(input:String):SelectOption =  arc.value match {
+    case ValueStem(stem)=> this.makeOption(this.parseRDF(if(input.contains(stem.stringValue)) input else (stem / input).stringValue))
+    case other => this.makeOption(this.parseRDF(input))
+  }
+
+  override def createFilter(input:String):Boolean = arc.value match {
+    case ValueType(dtp)=> dtp match {
       case XSD.BooleanDatatypeIRI=> input.toLowerCase == "true"
       //case XSD.Date=> Date.
       case XSD.DecimalDatatypeIRI | XSD.DecimalDatatypeIRI => Try[Double](input.toDouble).isSuccess
@@ -42,26 +47,16 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
     }
 
     //case ValueStem(st)=>
-    case ValueSet(els)=> els.exists{   case v=>v.stringValue == input || v.label==input   }
+    case ValueSet(els)=>
+      val result = els.exists{   case v=>v.stringValue == input || v.label==input   }
+      dom.console.log(s"$input with VALUESET FOR:"+ els.toString+s" RESULT = $result")
+      result
 
     //case ValueAny(stem)=> !ex.exists{   case v=>v.stringValue == input || v.label==input   }
-  }
 
-  @JSName("createItem")
-  def createItem(input:String):SelectOption = {
-    dom.console.log("CREATE WORKS!")
-    val opt =arc.value match {
-      case  ValueStem(stem: IRI) =>
-        val value = if(input.startsWith(stem.stringValue)) IRI(input) else stem / input
-        this.makeOption(value)
-      case other=>
-        this.makeOption(this.parseRDF(input))
-    }
-    dom.alert("CREATE WORKS!")
-    opt
-  }
+    case other => true //TODO: figure out other cases
 
-  protected val createHandler:js.Function1[String,SelectOption] = createItem _
+  }
 
   override protected def selectParams(el: HTMLElement):js.Dynamic = {
     js.Dynamic.literal(
@@ -73,9 +68,9 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
       onType = typeHandler  ,
       onItemAdd = itemAddHandler _,
       onItemRemove =  itemRemoveHandler _,
-      create = createHandler,
-      //create = true,
-      //createFilter = createFilterHandler,
+      create = true,
+      createItem = this.createHandler,
+      createFilter = this.createFilterHandler,
       options = makeOptions(),
       render =  SemanticRenderer.asInstanceOf[js.Any],
       copyClassesToDropdown = false,
@@ -83,6 +78,5 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
     )
   }
 
-
-
 }
+

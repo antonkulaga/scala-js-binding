@@ -57,7 +57,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("TestModelView",(el,params)=>Try(new TestModelView(el,params)))
     .register("PicklerView",(el,params)=>Try(new PicklerView(el,params)))
     .register("PageEditView",(el,params)=>Try(new PageEditView(el,params)))
-    //.register("TableView",  (el,params)=>Try(new TableBinder(el,params)))
     .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
     .register("ShapeProperty",(el,params)=>Try(new ShapeProperty(el,params)))
 

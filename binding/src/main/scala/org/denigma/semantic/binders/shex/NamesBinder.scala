@@ -105,7 +105,7 @@ class NameTermSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)
     case NameAny(other)=> dom.console.error("name any is not yet implemented"); ???
   }
 
-  protected def value2NameClass(value:String) = value match {
+  protected def value2NameClass(value:String): NameTerm = value match {
     case value if value.contains(":") => NameTerm(IRI(value))
     case _ => dom.console.error("strange value for the name term") ; ???
   }

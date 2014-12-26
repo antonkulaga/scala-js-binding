@@ -33,8 +33,8 @@ object GenesItems extends LoadGenAge{
 
   def populate(holder:Items)  = {
     holder.properties = this.properties
-    holder.items = holder.items + (formShape.id.asResource->genes)
-    holder.shapes = holder.shapes + (formShape.id.asResource-> formShape)
+    holder.items = holder.items + (evidenceShape.id.asResource->genes)
+    holder.shapes = holder.shapes + (evidenceShape.id.asResource-> evidenceShape)
   }
   //DB	DB Object ID	DB Object Symbol	ENTREZID	DB:Reference	Evidence Code	With (or) From	DB Object Name	DB Object Synonym	DB Object Type	Class	Date	Annotation Extension	Gene Product Form ID	Model organism	Tissue	Influence	<- словесный идентификатор колонки
   //GenAge	22	Atg8a	32001	PMID:18059160	IMP		Autophagy-related 8a	atg8; Atg8; Atg8/LC3; atg8a; Atg8A; ATG8a; BcDNA:LD05816	protein	autophagy genes	20141127

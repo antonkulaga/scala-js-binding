@@ -108,14 +108,14 @@ trait LoadGenAge extends GeneSchema{
     val f = csv.toFrame
     val entrez = Cols(entrezId.stringValue).as[String]
     val fr:Frame[String,String]= f.mapColKeys[String]{  case col=>  pairs(col).stringValue  }.reindex(entrez)
-    val colKeys = filterKeys(fr.colKeys,this.formShape)
+    val colKeys = filterKeys(fr.colKeys,this.evidenceShape)
     fr.rowKeys.map{   case r=>
       val values =  (for{
           c <- colKeys
           cell = fr[String](r,c)
           if cell.isValue
           col = IRI(c.replace(" ","_"))
-        } yield (col , parse(col,cell.get,Some(de))(formShape).get)).toSeq
+        } yield (col , parse(col,cell.get,Some(de))(evidenceShape).get)).toSeq
       PropertyModel(gero / r,values:_*)
     }.toList
   }

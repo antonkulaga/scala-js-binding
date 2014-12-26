@@ -13,7 +13,6 @@ import scala.collection.immutable.Map
 import scala.scalajs.js.Any
 
 
-
 class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(view) with PropertyPrinter
 {
 

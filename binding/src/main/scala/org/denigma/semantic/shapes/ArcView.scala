@@ -20,7 +20,12 @@ object ArcView {
     new JustArcView(el,params)
   }
 
-  implicit def defaultBinders(view:ArcView): List[BasicBinding] = new NamesBinder(view,view.arc,view.suggestProperty)::new OccursBinder(view,view.arc)::new GeneralBinder(view)::new NavigationBinding(view)::Nil
+  implicit def defaultBinders(view:ArcView): List[BasicBinding] =
+    new NamesBinder(view,view.arc,view.suggestProperty)::
+      //new ValueBinder(view)
+      new OccursBinder(view,view.arc)::
+      new GeneralBinder(view)::
+      new NavigationBinding(view)::Nil
 
   class JustArcView(val elem:HTMLElement, val params:Map[String,Any]) extends ArcView {
 

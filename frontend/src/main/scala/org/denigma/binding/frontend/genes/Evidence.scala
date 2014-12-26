@@ -28,8 +28,6 @@ class Proofs( elem:HTMLElement, params:Map[String,Any])  extends ExplorableColle
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  val addClick = Var(EventBinding.createMouseEvent())
-
   val isDirty = Rx{  this.dirty().size>0  }
 
   override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
@@ -70,6 +68,13 @@ class Evidence( elem:HTMLElement, params:Map[String,Any]) extends ShapedModelVie
   }
 
   override protected def attachBinders(): Unit = binders = RemoteModelView.selectableBinders(this)
+
+  val saveClick = Var(EventBinding.createMouseEvent())
+
+  saveClick.takeIf(dirty).handler{
+    this.saveModel()
+  }
+
 
 }
 

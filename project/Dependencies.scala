@@ -34,7 +34,11 @@ object Dependencies
 
     "org.scalax" %% "semweb-sesame" % Versions.semWebVersion,
 
-     "org.w3" %% "sesame" % "0.7.1", //sesame bunding to bananardf
+     "org.w3" %% "sesame" % "0.7.1" excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
+
+    "org.openrdf.sesame" % "sesame-rio-rdfxml" % "2.7.12",
+
+    "org.openrdf.sesame" % "sesame-rio-turtle" % "2.7.12",
 
     "com.pellucid" %% "framian" % "0.3.3"
 
@@ -83,7 +87,7 @@ object Dependencies
     "com.softwaremill.macwire" %% "runtime" % macwireVersion
   ))
 
-  val ui = Def.setting(shared.value :+ "org.denigma" %%% "binding" % "0.6.5")
+  val ui = Def.setting(shared.value)
 
 
 

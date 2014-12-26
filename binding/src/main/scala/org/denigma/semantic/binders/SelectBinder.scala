@@ -19,23 +19,50 @@ import scala.scalajs.js.annotation.JSExportAll
 import scala.util.{Failure, Success}
 import scalatags.Text.all._
 
-object SelectBinder extends BetterCreate("select_binder")
+object SelectBinder extends BetterCreatePlugin("select_binder")
 
-class BetterCreate(pluginName:String) extends BetterDropdown(pluginName){
+/**
+ * 
+ * @param pluginName
+ */
+class BetterCreatePlugin(pluginName:String) extends BetterDropdownPlugin(pluginName){
   override def pluginHandler(self:js.Dynamic,settings:js.Dynamic):Unit =
   {
     val dropDown:ThisFunction0[js.Dynamic,Unit] = positionDropdown _
     self.positionDropdown = dropDown
+    val createItemHandler:js.Function1[Any,Boolean] = this.createItem(self.asInstanceOf[Selectize]) _
+    self.createItem = createItemHandler
     //self.onKeyPress = onKeyPress(self) _
+
 
     //self.onKeyPress = js.eval(  """ function(e) {  alert("works"); 	}   """)
   }
 
+  def createItem(self:Selectize)(triggerDropdown:Any):Boolean =  {
+    val input = if(self.$control_input==null) "" else self.$control_input.`val`().toString
+    if(self.canCreate(input)){
+      val caret = self.caretPos
+      self.lock()
+      val data:SelectOption =  if(self.settings.createItem!=null)
+        self.settings.createItem.asInstanceOf[js.Function1[String,SelectOption]](input)
+      else SelectOption(input,input)
 
+      self.setTextboxValue("")
+      self.addOption(data)
+      self.setCaret(caret)
+      self.addItem(data.id)
+      //dom.console.log("CREATE works: "+data.toString)
+
+      self.refreshOptions(/*triggerDropdown &&*/ self.settings.mode.asInstanceOf[String] != "single")
+      self.unlock()
+      true
+    } else false
+
+  }
 
 }
 
-class BetterDropdown(val pluginName:String) {
+class BetterDropdownPlugin(val pluginName:String) {
 
   def pluginHandler(self:js.Dynamic,settings:js.Dynamic):Unit =
   {

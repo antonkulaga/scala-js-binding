@@ -98,8 +98,6 @@ class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:A
   }).toSeq
 
 
-
-
   protected override def bindRdfInput(el: HTMLElement, key: IRI): Unit =
   {
 
