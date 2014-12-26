@@ -7,11 +7,13 @@ import org.scalajs.dom
 import org.scalajs.dom.extensions._
 import org.scalajs.dom.{Event, HTMLElement}
 import org.scalax.semweb.rdf._
+import rx.Rx
 import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.scalajs.js.Any
-
+import rx.extensions._
+import rx.ops._
 
 class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(view) with PropertyPrinter
 {

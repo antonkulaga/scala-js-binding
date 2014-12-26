@@ -5,7 +5,7 @@ vocab="http://denigma.org/resource/"
 >
   <table border="1" data-view="Proofs"
   xmlns="http://www.w3.org/1999/html"
-  class="ui compact striped collapsing table"
+  class="ui compact table"
   data-param-path="models/explore"
   data-param-crud="models/crud"
   data-param-shape="http://gero.longevityalliance.org/Evidence_Shape"
@@ -14,10 +14,8 @@ vocab="http://denigma.org/resource/"
 
     <thead>
     <tr data-view="Headers">
-      <th data-template="true" data="name" >
-      </th>
-      <th></th>
-      <th></th>
+      <th data-template="true" data="name" >  </th>
+      <th colspan="2"><div data-up-class-positive-if="isDirty" data-up-event-click="saveAll"  class="ui small button"><i class="save icon"></i>Save ALL</div></th>
 
     </tr>
     <thead>
@@ -30,8 +28,7 @@ vocab="http://denigma.org/resource/"
        <td><div class="ui small button" data-class-positive-if="dirty" data-event-click = "saveClick"><i class="save icon"></i></div></td>
        <td><div class="ui small button" data-event-click = "removeClick"><i class="remove sign icon"></i></div></td>
     </tr>
+
   </tbody>
-
   </table>
-
 </article>

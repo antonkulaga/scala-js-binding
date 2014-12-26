@@ -30,5 +30,5 @@ class SemanticRenderer extends SelectRenderer with Escaper{
 
   override val item: js.Function1[SelectOption, String] = renderItem _
   override val option: js.Function1[SelectOption, String] = renderOption _
-  override val option_create:js.Function1[InputHolder,  String] = optionCreate _
+ // override val option_create:js.Function1[InputHolder,  String] = optionCreate _
 }

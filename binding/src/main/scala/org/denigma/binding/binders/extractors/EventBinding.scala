@@ -30,28 +30,25 @@ trait EventBinding  extends BasicBinding
 
   //def textEvents:Map[String,Var[TextEvent]]
 
-  def bindEvents(el:HTMLElement,ats:Map[String, String]) = for {
-    (key, value) <- ats
-    }
-    {
-      key.toString match {
-        case "event-click" => this.mouseEvents.get(value) match {
-          case Some(ev)=>this.bindClick(el,key,ev)
-          case _ =>
-            dom.console.error(s"cannot bind click event of ${this.id} to $value")
-            dom.console.log("current events =" + this.mouseEvents.keys.toString())
+  def eventsPartial(el:HTMLElement,value:String):PartialFunction[String,Unit] = {
+    case key if key =="event-click" =>
+      this.mouseEvents.get(value) match {
+      case Some(ev)=>this.bindClick(el,key,ev)
+      case _ =>
+        dom.console.error(s"cannot bind click event of ${this.id} to $value")
+        dom.console.log("current events =" + this.mouseEvents.keys.toString())
 
-        }
-
-        case _ => //some other thing to do
-      }
     }
+
+    case _ => //some other thing to do
+  }
+
+  def bindEvents(el:HTMLElement,ats:Map[String, String]) = for {  (key, value) <- ats  }  { this.eventsPartial(el,value)(key) }
+
 
   def bindClick(el:HTMLElement,key:String,ev:Var[MouseEvent]) {
 
-    def clickHandler(m:MouseEvent) = {
-      ev()= m
-    }
+    def clickHandler(m:MouseEvent) = {  ev()= m   }
 
     el.onclick = clickHandler _
   }

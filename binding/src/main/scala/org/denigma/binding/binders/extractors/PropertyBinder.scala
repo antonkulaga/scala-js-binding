@@ -43,38 +43,38 @@ trait PropertyBinder {
    * @param binder  binding view where we search for property, this by default
    * @return
    */
-  def bindProperty(el:HTMLElement,key:String,att:String)(implicit binder:PropertyBinder = this): Boolean = (key.toString, el.tagName.toLowerCase()) match
+  def bindProperty(el:HTMLElement,key:String,att:String): Boolean = (key.toString, el.tagName.toLowerCase()) match
   {
     case ("bind","input")=>
       el.attributes.get("type").map(_.value.toString) match {
-        case Some("checkbox") =>binder.bools.get(att) match {
-          case Some(b)=>  binder.bindCheckBox(el,key,b)
+        case Some("checkbox") =>this.bools.get(att) match {
+          case Some(b)=>  this.bindCheckBox(el,key,b)
             true
           case None => false
         }
 
-        case _ => binder.strings.get(att) match {
+        case _ => this.strings.get(att) match {
           case Some(str)=>
-            el.onkeyup =binder.makePropHandler[KeyboardEvent](el,str,"value")
-            binder.bindInput(el,key,str)
+            el.onkeyup =this.makePropHandler[KeyboardEvent](el,str,"value")
+            this.bindInput(el,key,str)
             true
           case None=>false
         }
 
       }
     case ("bind","textarea")=>
-      binder.strings.get(att) match {
+      this.strings.get(att) match {
         case Some(str)=>
-          el.onkeyup = binder.makePropHandler(el,str,"value")
+          el.onkeyup = this.makePropHandler(el,str,"value")
           this.bindText(el,key,str)
           true
 
         case None=>false
       }
-    case ("bind",other)=> binder.strings.get(att) match {
+    case ("bind",other)=> this.strings.get(att) match {
       case Some(str) =>
-        el.onkeyup = binder.makePropHandler(el,str,"value")
-        binder.bindText(el,key,str)
+        el.onkeyup = this.makePropHandler(el,str,"value")
+        this.bindText(el,key,str)
         true
       case None=>false
     }

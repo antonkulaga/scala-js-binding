@@ -25,10 +25,26 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 class Proofs( elem:HTMLElement, params:Map[String,Any])  extends ExplorableCollection("Proof",elem,params)
 {
 
+  val saveAll= Var(EventBinding.createMouseEvent())
+
+  saveAll.takeIf(isDirty).handler{
+
+    dom.console.log("SAVE DOES WORK")
+
+    this.crudStorage.update(this.shapeRes,overWrite = true)(this.dirty.now.map(m=>m.now.current):_*).onComplete{
+      case Failure(th)=>
+        dom.console.error(s"failure in saving of movel with channel ${crudStorage.channel}: \n ${th.getMessage} ")
+      case Success(bool)=>
+        dom.console.log(s"response received $bool")
+        if(bool) for{ms <-this.dirty.now}  ms() = ms.now.refresh else dom.console.log(s"All changed models cannot be savedthe model was not saved")
+
+
+  }}
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  val isDirty = Rx{  this.dirty().size>0  }
+  lazy val isDirty = Rx{  this.dirty().size>0  }
+
 
   override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 

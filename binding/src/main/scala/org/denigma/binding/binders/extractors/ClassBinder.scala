@@ -23,14 +23,14 @@ trait ClassBinder {
    * @param className name of the class that will be added if conditional is true
    * @param cond conditional rx
    */
-  def classIf(element:HTMLElement,className: String, cond:String) = for ( b<-bools.getOrError(cond) ) this.bindRx(className,element,b){
+  protected def classIf(element:HTMLElement,className: String, cond:String) = for ( b<-bools.getOrError(cond) ) this.bindRx(className,element,b){
     case (el,cl) if el.classList.contains(className)=>
       if(!cl) el.classList.remove(className)
     case (el,cl) =>
       if(cl) el.classList.add(className)
   }
 
-  def classUnless(element:HTMLElement,className: String, cond:String) = for ( b<-bools.getOrError(cond) ) this.bindRx(className,element,b){
+  protected def classUnless(element:HTMLElement,className: String, cond:String) = for ( b<-bools.getOrError(cond) ) this.bindRx(className,element,b){
     case (el,cl) if el.classList.contains(className)=>if(cl) el.classList.remove(className)
     case (el,cl) =>if(!cl) el.classList.add(className)
   }
@@ -51,7 +51,6 @@ trait ClassBinder {
         this.classUnless(el,cl.replace("-unless",""),value)
       case _ =>
         dom.console.error(s"other class bindings are not implemented yet for $str")
-
     }
   }
 

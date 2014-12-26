@@ -31,7 +31,7 @@ case class SelectOption(id:String,title:String)
 trait SelectRenderer{
   val item: js.Function1[SelectOption,String]
   val option: js.Function1[SelectOption,String]
-  val option_create: js.Function1[InputHolder,  String]
+  //val option_create: js.Function1[InputHolder,  String]
 
 }
 
@@ -60,16 +60,16 @@ trait SemanticSelector extends Selector with Escaper {
    * @return
    */
   protected def parseRDF(str:String) = this.unescape(str) match {
-    case st if str.contains("_:") => BlankNode(st)
-    case st if str.contains(":") => IRI(st)
     case st if str.contains("^^") && str.contains(XSD.StringDatatypeIRI.stringValue)=>
       StringLiteral(st.substring(0,st.indexOf("^^")))
     case st if str.contains("^^")=>
       val i = st.indexOf("^^")
       val label = st.substring(0,i)
-      val dt = st.substring(i+2)
+      val dt = st.substring(i+2,st.length)
       rdf.TypedLiteral(label,IRI(dt))
     //AnyLit(str)
+    case st if str.contains("_:") => BlankNode(st)
+    case st if str.contains(":") => IRI(st)
     case st => StringLiteral(st)
 
   }

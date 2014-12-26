@@ -33,6 +33,8 @@ class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:A
     this.selectors.get(el) match
     {
       case Some(sel)=>
+        //dom.console.log("SUGGEST KEY"+key.stringValue+" AND VALUE = "+str)
+
         this.suggest(key,str).onComplete{
           case Success(options)=>
             //options.foreach{ case o=> dom.console.info(s"STRING = ${o.stringValue} AND label = ${o.label}") }

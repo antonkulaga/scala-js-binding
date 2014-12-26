@@ -96,6 +96,7 @@ object PageController extends Controller with PickleController with AjaxModelEnd
 
   override def onUpdate(updateMessage: Update)(implicit request:ModelRequest): Result = {
     val models:Map[Res,PropertyModel] =  updateMessage.models.map(m=> m.resource -> m).toMap
+    play.Logger.info("UPDATE = \n"+models.map(m=>m._1.stringValue+" => "+m._2.properties.toString).mkString("\n"))
     if(updateMessage.createIfNotExists) {
       items = this.items ++ models
     }

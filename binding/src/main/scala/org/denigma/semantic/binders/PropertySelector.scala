@@ -33,7 +33,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
   protected def selectParams(el: HTMLElement):js.Dynamic = {
     js.Dynamic.literal(
       delimiter = "|",
-      persist = true,
+      persist = false,
       create = true,
       createItem = createHandler _,
       valueField = "id",
@@ -91,7 +91,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
    */
   def fillValues(model: ModelInside):this.type = {
     val ss= this.selectizeFrom(el)
-    val values = this.getValues
+    val values: Set[RDFValue] = this.getValues
     val its = ss.items.toSeq.map(i=>unescape(i))
     val changed = values.exists{case v=> !its.contains(v.stringValue)}
     if(changed) {

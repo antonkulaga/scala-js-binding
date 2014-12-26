@@ -25,4 +25,5 @@ abstract class ShapedModelView(val elem:HTMLElement,val params:Map[String,Any]) 
 
   override val items =  shape.map(sh=>sh.current.arcSorted())
 
+
 }

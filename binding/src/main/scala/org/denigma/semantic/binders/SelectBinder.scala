@@ -39,13 +39,13 @@ class BetterCreatePlugin(pluginName:String) extends BetterDropdownPlugin(pluginN
   }
 
   def createItem(self:Selectize)(triggerDropdown:Any):Boolean =  {
-    val input = if(self.$control_input==null) "" else self.$control_input.`val`().toString
+    val input =  if(self.$control_input==null) "" else self.$control_input.`val`().toString
     if(self.canCreate(input)){
       val caret = self.caretPos
       self.lock()
       val data:SelectOption =  if(self.settings.createItem!=null)
         self.settings.createItem.asInstanceOf[js.Function1[String,SelectOption]](input)
-      else SelectOption(input,input)
+      else SelectOption(this.escape(input),input)
 
       self.setTextboxValue("")
       self.addOption(data)
@@ -62,7 +62,7 @@ class BetterCreatePlugin(pluginName:String) extends BetterDropdownPlugin(pluginN
 
 }
 
-class BetterDropdownPlugin(val pluginName:String) {
+class BetterDropdownPlugin(val pluginName:String) extends Escaper{
 
   def pluginHandler(self:js.Dynamic,settings:js.Dynamic):Unit =
   {

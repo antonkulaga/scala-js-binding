@@ -70,36 +70,53 @@ class GeneralBinder(view:BindableView) extends PrimitivesBinder with ScalaTagsBi
     case _=> false
   }
 
+  protected def parentGeneralBinder =  view.nearestParentOf{
+    case view:BindableView if view.binders.exists(b=>b.isInstanceOf[GeneralBinder]) =>
+      view.binders.collectFirst{case b:GeneralBinder=>b}.get}
 
 
   protected def upPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
-    case bname if bname.startsWith("up-bind-")=>
-      //debug(key+" | string matches | "+value)
-      val my = key.replace("up-bind-","")
-      this.strings.get(my) match {
-        case Some(str: rx.Var[String])=>
-          //this.searchUp[OrdinaryView](p=>p.strings.contains(value)) match {
-
+    case prop if prop.startsWith("up-")=>
+      prop.replace("up-","") match {
+        case bname if bname.startsWith("bind-")=>
           //debug(key+" | string matches | "+value)
-          view.nearestParentOf{
-            case view:BindableView if view.binders.exists(b=>b.isInstanceOf[GeneralBinder])
-            => view
-          } match
-          {
-            case Some(p)=>
-            //  debug(key+" | parent found | "+value)
+          val my = key.replace("bind-","")
+          this.strings.get(my) match {
+            case Some(str: rx.Var[String])=>
+              this.parentGeneralBinder match {
+                case Some(binder)=>
+                  val rs: rx.Rx[String] = binder.strings(value)
+                  str() = rs.now
+                  Obs(rs){ str()=rs.now }
+                case None =>dom.console.log("failed to find upper binding")
+              }
+            case None=>dom.console.error(s"binding to unkown variable $my")
 
-              val binder = p.binders.collectFirst{case b:GeneralBinder=>b}.get
-
-              val rs: rx.Rx[String] = binder.strings(value)
-              str() = rs.now
-              Obs(rs){ str()=rs.now }
-
-            case Some(other)=>dom.console.error(s"$my is not a Var")
-
-            case None=>dom.console.log("failed to find upper binding")
           }
-        case None=>dom.console.error(s"binding to unkown variable $my")
+
+        case "class" =>
+          //this.bindClass(el,value)
+          this.parentGeneralBinder.foreach{b=>b.bindClass(el,key)} //TODO REWRITE COMPLETELY
+        case str if str.startsWith("class-")=>
+          str.replace("class-","") match {
+          case cl if cl.endsWith("-if")=>
+            //this.classIf(el,cl.replace("-if",""),value)
+            this.parentGeneralBinder.foreach{b=>b.classIf(el,cl.replace("-if",""),value)} //TODO REWRITE COMPLETELY
+          case cl if cl.endsWith("-unless")=>
+            //this.classUnless(el,cl.replace("-unless",""),value)
+            this.parentGeneralBinder.foreach{b=>b.classUnless(el,cl.replace("-unless",""),value)} //TODO REWRITE COMPLETELY
+        }
+        case "event-click"=>
+          this.parentGeneralBinder.foreach{case b=>
+            //b.eventsPartial(el,value)(prop)
+            b.mouseEvents.get(value) match {
+              case Some(ev)=>b.bindClick(el,key,ev)
+              case _ =>
+                dom.console.error(s"cannot bind click event of ${this.id} to $value")
+                dom.console.log("current events =" + this.mouseEvents.keys.toString())
+
+            }
+          }
 
       }
   }
