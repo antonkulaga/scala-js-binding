@@ -16,11 +16,13 @@ trait ItemsMock
 
   protected val de = IRI("http://denigma.org/resource/")
   protected val dc = IRI(vocabulary.DCElements.namespace)
+  protected val pmid = de / "Pubmed"
+
 
   protected val rep = new ShapeBuilder(de / "Research_Support")
 
 
-  protected val pmid = addProperty(  IRI("http://denigma.org/resource/Pubmed/") )
+  //protected val pmid = addProperty(  IRI("http://denigma.org/resource/Pubmed/") )
 
   protected val article = addProperty( de /"Article")
   protected val authors =   addProperty(  de / "is_authored_by")

@@ -1,24 +1,15 @@
 package controllers.genes
 
+import java.io.ByteArrayOutputStream
+
 import org.scalax.semweb.rdf.BasicTriplet
+import org.scalax.semweb.sesame._
+import org.w3.banana._
 import org.w3.banana.io.{RDFReader, RDFWriter, Syntax, Turtle}
 import org.w3.banana.sesame.Sesame
-import org.w3.banana._
-import framian.csv.{Csv, LabeledCsv}
-import org.denigma.binding.play.UserAction
-import org.scalax.semweb.shex._
-import play.api.Play
-import play.api.mvc.{RequestHeader, Controller}
-import play.twirl.api.Html
-import play.api.Play.current
-import scala.io.Source
-import framian._
-import framian.csv.Csv
 import spire.implicits._
-import org.scalax.semweb.rdf.vocabulary.{RDFS, RDF, XSD}
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.sesame._
 
+import scala.collection.parallel.immutable
 import scala.util.{Failure, Success, Try}
 
 
@@ -32,6 +23,7 @@ abstract class Store[Rdf <: RDF, M[+_] , Sin, Sout](implicit
 {
   def write[T <:BasicTriplet](trips: Set[T]): Try[String]
 
+
   def simpleWrite[T <:BasicTriplet](trips: Set[T]) = this.write(trips) match {
     case Success(str)=> str
     case Failure(th)=> th.toString
@@ -41,6 +33,23 @@ object TurtleMaster extends TurtleStore
 class TurtleStore extends Store[Sesame,Try,Turtle,Turtle]
 {
 
+  def complexWrite[T<:BasicTriplet](trips:Set[T],namespaces:(String,String)*): String = {
+    import org.openrdf.rio.turtle._
+
+    val stream = new ByteArrayOutputStream()
+    val wr = new TurtleWriter(stream)
+    wr.startRDF()
+    for((pr,n)<-namespaces) wr.handleNamespace(pr,n)
+    val sorted = trips.toSeq.sortWith( (a,b)=> {
+      val (as,bs) = (a.sub.stringValue,b.sub.stringValue)
+      val (aps,bps) = (a.pred.stringValue,b.pred.stringValue)
+      if(as==bs) aps>bps  else  as > bs
+    }).foreach(st=>wr.handleStatement(this.ops.makeTriple(st.sub,st.pred,st.obj)))
+    wr.endRDF()
+    stream.toString
+
+  }
+
 
 
   override def write[T <:BasicTriplet](trips: Set[T]): Try[String] = {
@@ -48,7 +57,7 @@ class TurtleStore extends Store[Sesame,Try,Turtle,Turtle]
 
     val triplets = for{t <- trips}  yield Triple(t.sub,  t.pred,  t.obj)
     val g = Graph(triplets)
-    writer.asString(g,"http://webintelligence.eu/")
+    writer.asString(g,"http://longevityalliance.org/resource/")
   }
 
 }
@@ -60,12 +69,12 @@ abstract class OntologyClasses[Rdf <: RDF, M[+_] , Sin, Sout](implicit
                                                               wrSyn: Syntax[Sout]
                                                                ) extends Store[Rdf,M,Sin,Sout](
 
-)
-{
-  import ops._
-  import org.w3.banana.diesel._
+) {
 
-  object gero extends PrefixBuilder("gero", "http://denigma.org/resource/")(ops)
+  object gero extends PrefixBuilder("gero", "http://gero.longevityalliance.org/")(ops)
+
+  object go extends PrefixBuilder("gero", "http://gero.longevityalliance.org/")(ops)
+
   val owl = OWLPrefix[Rdf]
   val rdf = RDFPrefix[Rdf]
   val rdfs = RDFSPrefix[Rdf]
@@ -89,12 +98,12 @@ abstract class OntologyClasses[Rdf <: RDF, M[+_] , Sin, Sout](implicit
 
   val longevityEffector = gero("Longevity_Effector")
   val apoptosisGene = gero("Apoptosis_Gene")
-  val cellSenescenceGene = gero("Cell_Senescence_Gene")
+  val cellSenescenceGene = gero("Cellular_Senescence_Gene")
   val antiOxidantEnzyme = gero("Anti-oxidant_Enzyme")
   val houseKeepingGene = gero("House_Keeping_Gene")
   val unfoldedProteinResponse = gero("Unfolded_Protein_Response_Gene")
   val autophagyGene = gero("Autophagy_Gene")
-  val longProtease = gero("LON_Protease")
+  val longProtease = gero("Protease")
   val detoxification = gero("Detoxification")
   val detoxificationPhaseI = gero("Detoxification_phase_I")
   val detoxificationPhaseII = gero("Detoxification_phase_II")
@@ -102,23 +111,82 @@ abstract class OntologyClasses[Rdf <: RDF, M[+_] , Sin, Sout](implicit
   val innateImmunityGene = gero("Innate_Immunity_Gene")
   val heatShockProtein = gero("Heat_Shocke_Protein")
 
+  val longevityInfluence = gero("has_influence")
+  val (anti, pro) = (gero("Pro-Longevity"), gero("Anti-Longevity"))
+
+  val longevityRestriction = ops.makeBNode()
+  val geneRestriction = ops.makeBNode()
+
+
+  val tissue = gero("in_tissue")
+
   val classes = Set(
-    ageRelatedGene,agingBiomarker,longevityGene,agingRegulator,circadianGene,cytokine,growthFactor,
-    microRNA,decetulases,transcriptionFactor,longevityEffector,apoptosisGene,cellSenescenceGene,
-  antiOxidantEnzyme, houseKeepingGene,unfoldedProteinResponse,autophagyGene,longProtease,
-    detoxificationPhaseI , detoxificationPhaseII, proteasome,innateImmunityGene, heatShockProtein
+    ageRelatedGene, agingBiomarker, longevityGene, agingRegulator, circadianGene, cytokine, growthFactor,
+    microRNA, decetulases, transcriptionFactor, longevityEffector, apoptosisGene, cellSenescenceGene,
+    antiOxidantEnzyme, houseKeepingGene, unfoldedProteinResponse, autophagyGene, longProtease,
+    detoxificationPhaseI, detoxificationPhaseII, proteasome, innateImmunityGene, heatShockProtein
   )
 
+  //обратите внимание что мы заменяем LON protease на Protease, Cell senescence на Cellulra senescence
 
 
+  val gene = gero("Gene")
 
   val foaf = FOAFPrefix[Rdf]
 
+  lazy val allFacts: List[PointedGraph[Rdf]] = {
+    import org.w3.banana.diesel._
 
+    val g: List[PointedGraph[Rdf]] = List (
+        agingGene.a(gene)   -- rdfs.subClassOf ->- gene  ,
 
+        ageRelatedGene.a(gene)  -- rdfs.subClassOf ->- agingGene,
+
+        agingBiomarker -- rdfs.subClassOf ->- ageRelatedGene,
+
+      longevityInfluence.a(rdf.Property)
+        -- rdfs.domain ->- longevityGene ,
+
+      longevityRestriction.a(owl.Restriction)
+        -- owl.onProperty ->- longevityInfluence
+        -- owl.someValuesFrom ->-(anti, pro)  ,
+
+      longevityGene.a(gene) -- rdfs.subClassOf ->-(agingGene, longevityRestriction),
+
+      agingRegulator -- rdfs.subClassOf ->- longevityGene,
+      circadianGene.a(gene) -- rdfs.subClassOf ->- agingRegulator,
+      cytokine -- rdfs.subClassOf ->- agingRegulator,
+      growthFactor -- rdfs.subClassOf ->- agingRegulator,
+
+      mediator -- rdfs.subClassOf ->- longevityGene,
+
+      microRNA -- rdfs.subClassOf ->- mediator,
+      decetulases -- rdfs.subClassOf ->- mediator,
+      transcriptionFactor -- rdfs.subClassOf ->- mediator,
+      longevityEffector -- rdfs.subClassOf ->- longevityGene,
+
+      apoptosisGene -- rdfs.subClassOf ->- longevityEffector,
+      cellSenescenceGene -- rdfs.subClassOf ->- longevityEffector,
+      antiOxidantEnzyme -- rdfs.subClassOf ->- longevityEffector,
+      houseKeepingGene -- rdfs.subClassOf ->- longevityEffector,
+      unfoldedProteinResponse -- rdfs.subClassOf ->- longevityEffector,
+      autophagyGene -- rdfs.subClassOf ->- longevityEffector,
+      longProtease -- rdfs.subClassOf ->- longevityEffector,
+      detoxification -- rdfs.subClassOf ->- longevityEffector,
+      detoxificationPhaseI -- rdfs.subClassOf ->- longevityEffector,
+      detoxificationPhaseII -- rdfs.subClassOf ->- longevityEffector,
+      proteasome -- rdfs.subClassOf ->- longevityEffector,
+      innateImmunityGene -- rdfs.subClassOf ->- longevityEffector,
+      heatShockProtein -- rdfs.subClassOf ->- longevityEffector
+
+      )
+
+    g
+  }
 }
+object Ontology extends OntologyClasses[Sesame,Try,Turtle,Turtle] {
 
-object Ontology extends OntologyClasses[Sesame,Try,Turtle,Turtle]{
+
 
 
   override def write[T <:BasicTriplet](trips: Set[T]): Try[String] = {
@@ -126,7 +194,7 @@ object Ontology extends OntologyClasses[Sesame,Try,Turtle,Turtle]{
 
     val triplets = for{t <- trips}  yield Triple(t.sub,  t.pred,  t.obj)
     val g = Graph(triplets)
-    writer.asString(g,"http://webintelligence.eu/")
+    writer.asString(g,"http://gero.longevityalliance.org/resource/")
   }
 
 }

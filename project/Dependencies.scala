@@ -34,7 +34,7 @@ object Dependencies
 
     "org.scalax" %% "semweb-sesame" % Versions.semWebVersion,
 
-     "org.w3" %% "sesame" % "0.7.1" excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
+    "org.w3" %% "sesame" % "0.7.2-SNAPSHOT" excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
 
     "org.openrdf.sesame" % "sesame-rio-rdfxml" % "2.7.12",
 

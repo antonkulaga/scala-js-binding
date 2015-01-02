@@ -6,7 +6,7 @@ import org.denigma.binding.messages.ExploreMessages.ExploreMessage
 import org.scalax.semweb.messages.{Channeled, StorageMessage}
 import org.scalax.semweb.rdf.vocabulary.WI
 import org.scalax.semweb.rdf._
-import org.scalax.semweb.shex.{Shape, PropertyModel}
+import org.scalax.semweb.shex.{ArcRule, Shape, PropertyModel}
 
 import scala.util.matching.Regex
 
@@ -26,7 +26,7 @@ object ModelMessages  extends ModelProtocol {
 
   case class Delete(shape:Res,res:Set[Res], id:String  , channel:String = Channeled.default, time:Date = new Date())  extends  ModelMessage
 
-  case class Suggest(shape:Res,modelRes:Res,prop:IRI,typed:String,id:String  , channel:String = Channeled.default, time:Date = new Date()) extends ModelMessage
+  case class Suggest(shape:Res,modelRes:Res,ruleOrProp:Res,typed:String,id:String  , channel:String = Channeled.default, time:Date = new Date()) extends ModelMessage
 
 
   type CreateMessage = Create

@@ -97,46 +97,57 @@ class BetterDropdownPlugin(val pluginName:String) extends Escaper{
  * @param model our property model
  * @param suggest suggession handler
  */
-class SelectBinder(val view:BindableView, val model:Var[ModelInside], suggest:(IRI,String)=>Future[List[RDFValue]])
-  extends ModelBinder(view,model)
+class SelectBinder(val view:BindableView, val model:Var[ModelInside], val suggest:(IRI,String)=>Future[List[RDFValue]])
+  extends ModelBinder(view,model) with BinderWithSelection[PropertySelector]
 {
 
   SelectBinder.activatePlugin()
 
 
-  type Selector = PropertySelector
-  var selectors = Map.empty[HTMLElement,Selector]
-
-
   protected override def bindRdfInput(el: HTMLElement, key: IRI): Unit =
    {
-
-     this.bindRx(key.stringValue, el: HTMLElement, model) { (e, mod) =>
-          val sel = this.selectors.getOrElse(e, {
-            val s = new PropertySelector(e, key, model)( typeHandler(e, key) )
-            this.selectors = this.selectors + (e -> s)
-            s
-          })
-
-       sel.fillValues(mod)
-     }
+     this.bindRx(key.stringValue, el: HTMLElement, model) { (e, mod) =>  updateSelector(key, e, mod)  }
    }
 
-   def typeHandler(el: HTMLElement, key: IRI)(str:String) =
-   //this.storage.read()
-     this.selectors.get(el) match
-     {
-       case Some(sel)=>
-         this.suggest(key,str).onComplete{
-           case Success(options)=>
-             //options.foreach{ case o=> dom.console.info(s"STRING = ${o.stringValue} AND label = ${o.label}") }
-             sel.updateOptions(options)
-           case Failure(thr)=>dom.console.error(s"type handler failure for ${key.toString()} with failure ${thr.toString}")
-         }
-       case None=>dom.console.error(s"cannot find selector for ${key.stringValue}")
-     }
+  /**
+   * Loads data to selector
+   * @param key
+   * @param e
+   * @param mod
+   */
+  protected def updateSelector(key: IRI, e: HTMLElement, mod: ModelInside): Unit = {
+    val sel = this.selectors.getOrElse(e, {
+      val s = new PropertySelector(e, key, model)(typeHandler(e, key))
+      this.selectors = this.selectors + (e -> s)
+      s
+    })
+    sel.fillValues(mod)
+  }
 
- }
+
+}
+
+trait BinderWithSelection[Selector<:PropertySelector] {
+
+  def suggest:(IRI,String)=>Future[List[RDFValue]]
+
+  var selectors = Map.empty[HTMLElement,Selector]
+
+  def typeHandler(el: HTMLElement, key: IRI)(str:String) =
+  //this.storage.read()
+    this.selectors.get(el) match
+    { case Some(sel)=> suggestHandler(sel)(key, str)
+    case None=>dom.console.error(s"cannot find selector for ${key.stringValue}")  }
+
+  protected def suggestHandler(sel:Selector)(key: IRI, str: String): Unit = {
+    this.suggest(key, str).onComplete {
+      case Success(options) =>
+        //options.foreach{ case o=> dom.console.info(s"STRING = ${o.stringValue} AND label = ${o.label}") }
+        sel.updateOptions(options)
+      case Failure(thr) => dom.console.error(s"type handler failure for ${key.toString()} with failure ${thr.toString}")
+    }
+  }
+}
 
 
 

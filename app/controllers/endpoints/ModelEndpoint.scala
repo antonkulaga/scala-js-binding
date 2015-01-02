@@ -92,16 +92,17 @@ trait ModelEndpoint extends AjaxModelEndpoint with PickleController with Items{
     }
   }
 
-  def suggestModels(items:List[PropertyModel], suggestMessage: Suggest): ModelResult  = {
-
+  def suggestModels(items:List[PropertyModel], suggestMessage: Suggest): ModelResult  =
+  {
     val t = suggestMessage.typed
     val list = for{
-      i<-items
-      p<-i.properties
-      v<-p._2
+      i <- items
+      p <- i.properties
+      v <- p._2
       //if v.isInstanceOf[IRI] &&
       if v.stringValue.contains(t)
       if v.stringValue.length<256
+
     } yield v
 
    // val mes = ModelMessages.Suggestion(t,List[RDFValue](IRI("http://one"),IRI("http://tries"),IRI("http://something")),suggestMessage.id,suggestMessage.channel,new Date())

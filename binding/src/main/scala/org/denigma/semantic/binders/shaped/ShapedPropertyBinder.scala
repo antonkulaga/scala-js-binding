@@ -1,7 +1,7 @@
 package org.denigma.semantic.binders.shaped
 
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binders.{ModelBinder, SelectBinder}
+import org.denigma.semantic.binders.{BinderWithSelection, ModelBinder, SelectBinder}
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
@@ -19,31 +19,11 @@ import scala.util.{Failure, Success}
 /**
  * Binder for properties
  */
-class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule, suggest:(IRI,String)=>Future[List[RDFValue]])
-  extends ModelBinder(view,modelInside)
+class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule, val suggest:(IRI,String)=>Future[List[RDFValue]])
+  extends ModelBinder(view,modelInside) with BinderWithSelection[ShapedPropertySelector]
 {
 
   SelectBinder.activatePlugin()
-  type Selector = ShapedPropertySelector
-  var selectors = Map.empty[HTMLElement,Selector]
-
-
-  def typeHandler(el: HTMLElement, key: IRI)(str:String) =
-  //this.storage.read()
-    this.selectors.get(el) match
-    {
-      case Some(sel)=>
-        //dom.console.log("SUGGEST KEY"+key.stringValue+" AND VALUE = "+str)
-
-        this.suggest(key,str).onComplete{
-          case Success(options)=>
-            //options.foreach{ case o=> dom.console.info(s"STRING = ${o.stringValue} AND label = ${o.label}") }
-            sel.updateOptions(options)
-          case Failure(thr)=>dom.console.error(s"type handler failure for ${key.toString()} with failure ${thr.toString}")
-        }
-      case None=>dom.console.error(s"cannot find selector for ${key.stringValue}")
-    }
-
 
   protected def withTerm(mod:PropertyModel,term:IRI): PropertyModel = if(mod.properties.contains(term)) mod else
     mod.copy(properties = mod.properties.updated(term,Set.empty))

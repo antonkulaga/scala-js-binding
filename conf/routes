@@ -13,7 +13,10 @@ GET           /papers/                   controllers.literature.Literature.repor
 
 GET           /test/macroses             controllers.Test.macroses()
 GET           /test/genes                controllers.genes.Genes.testGenes()
+GET           /test/genetable            controllers.genes.Genes.genesTable()
 GET           /test/shape                controllers.genes.Genes.testSchemaWriting()
+GET           /test/ontology                controllers.genes.Genes.ontology()
+
 
 GET           /genes/                    controllers.genes.Genes.reports()
 GET           /genes                     controllers.genes.Genes.reports()

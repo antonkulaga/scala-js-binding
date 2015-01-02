@@ -1,5 +1,6 @@
 package org.denigma.semantic.binders.shaped
 
+import java.text.SimpleDateFormat
 import java.util.Date
 
 import org.denigma.semantic.binders.{SelectOption, PropertySelector, SelectBinder, SemanticRenderer}
@@ -33,7 +34,7 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
                             (typeHandler:(String)=>Unit) extends PropertySelector(el,key,model)(typeHandler)
 {
 
-
+  
   /**
    * Parses string to get RDF value
    * @param str
@@ -41,26 +42,25 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
    */
   override protected def parseRDF(str:String) ={
     val input = unescape(str)
-      arc.value match { //TODO: rewrite
+    arc.value match { //TODO: rewrite
       case ValueStem(stem)=>
         if (input.contains(stem.stringValue)) IRI(input) else stem / input
       //case lit:DatatypeLiteral(content,tp)
       case ValueType(tp) if !input.contains("^^")=> tp match {
-        case  XSD.DecimalDatatypeIRI =>DoubleLiteral(input.toDouble)
+        case XSD.DecimalDatatypeIRI =>DoubleLiteral(input.toDouble)
         case XSD.IntDatatypeIRI=> IntLiteral(input.toInt)
         case XSD.Date =>DateLiteral(new Date(input))
         case XSD.DateTime => DateLiteral(new Date(input))
         case XSD.StringDatatypeIRI =>StringLiteral(input)
-        case other => AnyLit(input)
+        case other => StringLiteral(input)//AnyLit(input)
       }
       case _ if input.contains("^^")=>
-        val i = input.indexOf("^^")
-        val label = input.substring(1,i-1)
-        val dt = input.substring(i+2,input.length)
-        rdf.TypedLiteral(label,IRI(dt))
+        val dt = input.substring(input.indexOf("^^")+2,input.length)
+        rdf.TypedLiteral(labelOf(input),IRI(dt))
       case _ if input.contains("_:") =>BlankNode(input)
       case _ if input.contains(":")=>IRI(input)
-      case _=> AnyLit(input)
+      case _=>  StringLiteral(input)
+        //AnyLit(input)
     }
   }
 

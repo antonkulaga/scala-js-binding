@@ -53,26 +53,37 @@ trait Escaper {
 trait SemanticSelector extends Selector with Escaper {
 
 
+  /**
+   * Extracts literal's label
+   * @param str
+   * @return
+   */
+  protected def labelOf(str:String) = str.indexOf("^^") match {
+    case -1 =>str
+    case i=>str.substring(1,i-1)
+  }
+
+
 
   /**
    * Parses string to get RDF value
    * @param str
    * @return
    */
-  protected def parseRDF(str:String) = this.unescape(str) match {
-    case st if str.contains("^^") && str.contains(XSD.StringDatatypeIRI.stringValue)=>
-      StringLiteral(st.substring(0,st.indexOf("^^")))
-    case st if str.contains("^^")=>
-      val i = st.indexOf("^^")
-      val label = st.substring(0,i)
-      val dt = st.substring(i+2,st.length)
-      rdf.TypedLiteral(label,IRI(dt))
-    //AnyLit(str)
-    case st if str.contains("_:") => BlankNode(st)
-    case st if str.contains(":") => IRI(st)
-    case st => StringLiteral(st)
+  protected def parseRDF(str:String) =
+    this.unescape(str) match {
+      case st if str.contains("^^") && str.contains(XSD.StringDatatypeIRI.stringValue)=>
+        StringLiteral(labelOf(st))
+      case st if str.contains("^^")=>
+        val dt = st.substring(st.indexOf("^^")+2,st.length)
+        rdf.TypedLiteral(labelOf(st),IRI(dt))
+      //AnyLit(str)
+      case st if str.contains("_:") => BlankNode(st)
+      case st if str.contains(":") => IRI(st)
+      case st => StringLiteral(st)
 
-  }
+    }
+
 
 
   protected def makeOption(v:RDFValue): SelectOption =  this.makeOption(v.stringValue,v.label)

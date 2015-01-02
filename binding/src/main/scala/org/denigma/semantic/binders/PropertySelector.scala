@@ -23,7 +23,10 @@ import scala.util.Try
 class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside])(typeHandler:(String)=>Unit) extends SemanticSelector
 {
 
-  def createItem(input:String):SelectOption =  this.makeOption(this.parseRDF(input))
+  def createItem(input:String):SelectOption =  {
+    val value = this.parseRDF(input)
+    this.makeOption(value)
+  }
 
 
   protected val createHandler:js.Function1[String,SelectOption] = createItem _
@@ -72,12 +75,13 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
   }
 
   protected def itemRemoveHandler(text:String): Unit = {
+    //dom.console.log("DELETE == "+text)
     val mod =  model.now
     val value = unescape(text)
-    val remove = this.getValues.filter(v=>v.stringValue==value)
+    val remove: Set[RDFValue] = this.getValues.filter(v=>v.stringValue==value)
     for(r<-remove) {//TODO:rewrite in more effective way
-      val n = this.parseRDF(value)
-      val md = mod.delete(key,n)
+      //val n = this.parseRDF(value)
+      val md = mod.delete(key,r)
       model() = md
     }
   }

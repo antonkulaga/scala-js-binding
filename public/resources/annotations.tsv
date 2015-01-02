@@ -1,0 +1,10 @@
+DB	DB Object ID	DB Object Symbol	ENTREZID	DB:Reference	Evidence Code	DB Object Name	DB Object Synonym	Gene product	Class	Date	Model organism	Tissue	Influence
+GenAge	22	Atg8a	32001	PMID:18059160	IMP	Autophagy-related 8a	atg8; Atg8; Atg8/LC3; atg8a; Atg8A; ATG8a; BcDNA:LD05816	protein	autophagy genes	2014.11.27	Drosophila melanogaster	nervous system	Pro-Longevity
+GenAge	294	Gclc	53581	PMID:16148000	IMP	Glutamate-cysteine ligase catalytic subunit	4919; box; CG4919; Dmel\CG4919; DmGCLM; DmGCSl; GCLm; Gcs	protein	anti-oxidant enzymes	2014.11.27	Drosophila melanogaster	body|nervous system	Pro-Longevity
+GenAge	848	fn	31845	PMID:18258192	IMP	frataxin homolog	BcDNA:AT09528; CG8971; dfh; Dfh; DFH; Dmel\CG8971; X25	protein	anti-oxidant enzymes	2014.11.27	Drosophila melanogaster	body	Pro-Longevity
+GenAge	286	foxo	41709	PMID:15192154	IMP	Forkhead box, sub-group O	3143; Afx; anon-WO0118547.374; cg3143; CG3143; dfoxo; dF	protein	transcription factors	2014.11.27	Drosophila melanogaster	fat body	Pro-Longevity
+GenAge	294	Gclm	248194	PMID:16148000	IMP	Glutamate-cysteine ligase modifier subunit	4919; box; CG4919; Dmel\CG4919; DmGCLM; DmGCSl; GCLm; Gcs	protein	anti-oxidant enzymes	2014.11.27	Drosophila melanogaster	body	Pro-Longevity
+FlyBase	FBgn0003068	per	31251	PMID:9850008	IMP	Period	dper, Clk, EG:155E2.4	protein	circadian genes	2014.11.27	Drosophila melanogaster	body	Anti-Longevity
+GenAge	1756	Ilp6	31220	PMID:22935001	IMP	Insulin-like peptide 6	CG14049; dilp; Dilp; DILP; Dilp; 6; dilp-6; dilp6; dILP6; D	protein	growth factors	2014.11.27	Drosophila melanogaster	abdominal fat body	Pro-Longevity
+FlyBase	FBgn0023169	AMPK	43904	PMID:25199830	IMP	AMP-activated protein kinase alpha subunit	AMPK, snf1a, EG:132E8.2, AMPKalpha, dAMPKα	protein	kinases	2014.11.27	Drosophila melanogaster	nervous system	Pro-Longevity
+GenAge	1843	park	40336	PMID:23650379	IMP	parkin	CG10523; Dmel\CG10523; Dpark; dpk; SD01679	protein	ubiquitin ligases	2014.11.27	Drosophila melanogaster	body|nervous system	Pro-Longevity

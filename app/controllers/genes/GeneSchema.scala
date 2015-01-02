@@ -56,29 +56,29 @@ trait GeneSchema extends ItemsMock{
 
   import Codes._
   evidenceForm has entrezId isCalled "ENTREZID" startsWith entrez occurs ExactlyOne hasPriority 1
-  evidenceForm has db isCalled "DB" occurs ExactlyOne hasPriority 2
-  evidenceForm has objId isCalled "DB Object ID" occurs ExactlyOne hasPriority 3
-  evidenceForm has symbol isCalled "DB Object Symbol" occurs ExactlyOne  hasPriority 4
+  evidenceForm has clazz isCalled "Class" startsWith gero occurs ExactlyOne hasPriority 2// from(cls:_*)
+  evidenceForm has db isCalled "DB" occurs ExactlyOne hasPriority 3
+  evidenceForm has objId isCalled "DB Object ID" occurs ExactlyOne hasPriority 4
+  evidenceForm has symbol isCalled "DB Object Symbol" occurs ExactlyOne  hasPriority 5
   //form has qualifier isCalled "Qualifier" occurs Star hasPriority 5
   //form has go isCalled "GO ID" occurs ExactlyOne
-  evidenceForm has ref isCalled "Publication" startsWith pmid occurs Plus hasPriority 5
-  evidenceForm has code isCalled "Evidence Code" occurs ExactlyOne hasPriority 6  from(IMP code, IGI code, IPI code, IDA code, IEP code, TAS code,  NAS code,  IC code, ND code)
+  evidenceForm has ref isCalled "Publication"  occurs Plus hasPriority 6
+  evidenceForm has code isCalled "Evidence Code" occurs ExactlyOne hasPriority 7  from(IMP code, IGI code, IPI code, IDA code, IEP code, TAS code,  NAS code,  IC code, ND code)
   //form has from isCalled "With (or) From" occurs Star
   //form has aspect isCalled "Aspect" occurs ExactlyOne hasPriority 8
-  evidenceForm has dbObjectName startsWith gero isCalled "DB object Name" occurs Opt hasPriority 9
-  //form has synonym isCalled "synonim" occurs Star hasPriority 10
+  evidenceForm has dbObjectName startsWith gero isCalled "DB object Name" occurs Opt hasPriority 8
+ // evidenceForm has synonym isCalled "synonym" occurs Star hasPriority 9
   //form has tp isCalled "DB Object Type" occurs ExactlyOne hasPriority 11
   evidenceForm has tp isCalled "Gene product type" startsWith gero occurs ExactlyOne hasPriority 11 from(
     gero / "protein_complex", gero / "protein", gero / "transcript",
       gero / "ncRNA", gero / "rRNA", gero / "tRNA", gero / "snRNA", gero / "snoRNA", gero / "microRNA", gero / "gene_product")
   evidenceForm has taxon isCalled "Organism" startsWith gero occurs Cardinality(1,2) hasPriority 12
   evidenceForm has date isCalled "Date" of XSD.Date occurs ExactlyOne hasPriority 13
-  //form has assigned isCalled "Assigned by" occurs ExactlyOne hasPriority 14
+  //evidenceForm has assigned isCalled "Assigned by" occurs ExactlyOne hasPriority 14
   //form has extension isCalled "Annotation Ext/ension" occurs Star
-  evidenceForm has product isCalled "Gene Product Form ID" occurs Opt hasPriority 15
-  evidenceForm has clazz isCalled "Class" startsWith gero occurs ExactlyOne hasPriority 16 from(cls:_*)
-  // form has tissue isCalled "Tissue" occurs Plus hasPriority 2
-  evidenceForm has influence isCalled "Influence" occurs ExactlyOne hasPriority 17 from(gero / "pro", gero / "anti")
+  //evidenceForm has product isCalled "Gene Product Form ID" occurs Opt hasPriority 15
+  evidenceForm has tissue isCalled "Tissue" occurs Plus hasPriority 17
+  evidenceForm has influence isCalled "Influence" occurs ExactlyOne hasPriority 18 from(gero / "Pro-Longevity", gero / "Anti-Longevity")
 
   lazy val evidenceShape = evidenceForm.result
 

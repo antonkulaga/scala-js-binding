@@ -1,5 +1,8 @@
 package controllers.genes
 
+import java.text.SimpleDateFormat
+import java.util.Date
+
 import framian.csv.{Csv, LabeledCsv}
 import org.denigma.binding.play.UserAction
 import org.scalax.semweb.shex._
@@ -13,12 +16,24 @@ import framian.csv.Csv
 import spire.implicits._
 import org.scalax.semweb.rdf.vocabulary.{RDFS, RDF, XSD}
 import org.scalax.semweb.rdf._
+import scala.collection.JavaConversions._
+import scala.collection.immutable._
 
 import scala.util.Try
 
 trait LoadGenAge extends GeneSchema{
 
-  lazy val pairs: Map[String, IRI] = Map("cDB" ->db,
+  val formats:List[SimpleDateFormat] = List(
+    new SimpleDateFormat("dd/MM/yyyy"),
+    new SimpleDateFormat("dd-MM-yyyy"),
+    new SimpleDateFormat("dd.MM.yyyy"),
+    new SimpleDateFormat("yyyy/MM/dd"),
+    new SimpleDateFormat("yyyy-MM-dd"),
+    new SimpleDateFormat("yyyy.MM.dd")
+  )
+
+
+  lazy val genAgePairs: Map[String, IRI] = Map("cDB" ->db,
     "DB.Object.ID"-> dbObjectName,
     "DB.Object.Symbol"->symbol,
     "ENTREZID"-> entrezId,
@@ -35,9 +50,27 @@ trait LoadGenAge extends GeneSchema{
     "Tissue" ->tissue,
     "Influence" ->influence)
 
+  lazy val annotationPairs: Map[String, IRI] = Map("DB" ->db,
+    "DB Object Name" ->dbObjectName,
+    "DB Object ID"-> objId,
+    "DB Object Symbol"->symbol,
+    "ENTREZID"-> entrezId,
+    "DB:Reference"->ref,
+    "Evidence Code" ->code,
+   // "With.or.From"->from,
+    "DB Object Synonym"->synonym,
+    "Gene product"->tp,
+    "Date"->date,
+    "Class" -> clazz,
+    "Gene.Product.Form.ID" ->product,
+    "Model organism" ->taxon,
+    "Tissue" ->tissue,
+    "Influence" ->influence)
 
-  def loadGenAge: List[PropertyModel] = {
-    val fileName = "public/resources/data_from_geneage.csv"
+
+
+  def loadData: List[PropertyModel] = {
+    val fileName = "public/resources/annotations.tsv"
     val str = this.readFromFile(fileName)
     testGenesTable(str)
   }
@@ -56,21 +89,22 @@ trait LoadGenAge extends GeneSchema{
    * @param shape
    * @return
    */
-  def parse(property:IRI,string:String,base:Option[IRI])(implicit shape:Shape):Option[RDFValue] =  shape.arcRules().collect{
+  def parse(property:IRI,string:String,base:Option[IRI])(implicit shape:Shape):Option[RDFValue] =  {
+   val v = shape.arcRules().collect{
       case rule if rule.name.isInstanceOf[NameTerm]
         && rule.name.asInstanceOf[NameTerm].property==property=> rule.value
     }.collectFirst{
       case ValueSet(results) if results.exists(r=>r.label==string  || r.stringValue==string) =>
         results.find(r=>r.label==string  || r.stringValue==string).get
-        /*val value: RDFValue = str2RDFValue(string,base)
-        results.collectFirst{
-          case r if r==value || r.label==string
-        }.get
+      /*val value: RDFValue = str2RDFValue(string,base)
+      results.collectFirst{
+        case r if r==value || r.label==string
+      }.get
 
-        if(results.exists(r=>r==value || r.label==value)) value else {
-          play.Logger.info(s"$string is not in the valueset")
-          value
-        }*/
+      if(results.exists(r=>r==value || r.label==value)) value else {
+        play.Logger.info(s"$string is not in the valueset")
+        value
+      }*/
       case ValueStem(stem) =>
         if(string.startsWith(stem.stringValue)) IRI(string.replace(" ","_")) else stem / string.replace(" ","_")
 
@@ -85,14 +119,23 @@ trait LoadGenAge extends GeneSchema{
             .recover{case result=> play.Logger.info(s"error in parsing Double of $string") ; StringLiteral(string)}.get:RDFValue
 
         case XSD.Date =>
-          Try(DateLiteral(new  java.util.Date(string)))
-          .recover{case result=> play.Logger.info(s"error in parsing Date of $string") ; StringLiteral(string)}.get:RDFValue
+          formats.collectFirst{
+            case format if Try(format.parse(string)).isSuccess=>
+              val d: Date = format.parse(string)
+              //play.api.Logger.info(d.toString)
+              new DateLiteral(d)
+          }.getOrElse(StringLiteral(string))
 
         case XSD.StringDatatypeIRI=>StringLiteral(string):RDFValue
 
         case other if !other.isInstanceOf[ValueSet] => StringLiteral(string):RDFValue
+
       }
     }
+    if(v.isEmpty)  play.Logger.error("DOES NOT WORK WIth"+property.stringValue+" with value = "+string)
+
+    v
+  }
 
   def filterKeys(keys:Set[String],shape:Shape): List[String] = {
     shape.arcRules().collect{
@@ -107,7 +150,7 @@ trait LoadGenAge extends GeneSchema{
     val csv = readTSV(table)
     val f = csv.toFrame
     val entrez = Cols(entrezId.stringValue).as[String]
-    val fr:Frame[String,String]= f.mapColKeys[String]{  case col=>  pairs(col).stringValue  }.reindex(entrez)
+    val fr:Frame[String,String]= f.mapColKeys[String]{  case col=>  annotationPairs(col).stringValue  }.reindex(entrez)
     val colKeys = filterKeys(fr.colKeys,this.evidenceShape)
     fr.rowKeys.map{   case r=>
       val values =  (for{
@@ -115,7 +158,10 @@ trait LoadGenAge extends GeneSchema{
           cell = fr[String](r,c)
           if cell.isValue
           col = IRI(c.replace(" ","_"))
-        } yield (col , parse(col,cell.get,Some(de))(evidenceShape).get)).toSeq
+        } yield (col ,
+          parse(col,cell.get,Some(gero))(evidenceShape).get
+          )
+        ).toSeq
       PropertyModel(gero / r,values:_*)
     }.toList
   }
