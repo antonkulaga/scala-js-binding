@@ -56,8 +56,8 @@ trait ClassBinder {
 
   def bindClass(element:HTMLElement,prop: String) = for ( str<-strings.get(prop) ) this.bindRx(prop,element,str.zip){
     case (el,(oldVal,newVal)) =>
-      if(el.classList.contains(oldVal))el.classList.remove(oldVal)
-      el.classList.add(newVal)
+      for(o<-oldVal.split(" ") if el.classList.contains(o)) el.classList.remove(o)
+      for(n<-newVal.split(" ") if !el.classList.contains(n))  el.classList.add(n)
     case _ => dom.console.error(s"error in bindclass for ${prop}")
   }
 }

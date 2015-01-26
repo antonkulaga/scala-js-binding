@@ -2,11 +2,14 @@ import com.typesafe.sbt.digest.Import._
 import com.typesafe.sbt.gzip.Import._
 import com.typesafe.sbt.web.Import._
 import com.typesafe.sbt.web.SbtWeb
+
 import sbt.Keys._
 import sbt._
+
 import bintray.Opts
 import bintray.Plugin._
 import bintray.Keys._
+
 import com.typesafe.sbt.packager.universal.UniversalKeys
 import play._
 import play.Play._
@@ -21,13 +24,15 @@ import com.typesafe.sbt.less.Import.LessKeys
  */
 object Versions {
 
-  val semWebVersion =  "0.6.16"
+  val snap = "-SNAPSHOT"
 
-  val bindingVersion = "0.6.7"
+  val semWebVersion =  "0.6.18"
 
-  val mainVersion = "0.6.3" //lowest version of whole stack
+  val bindingVersion = "0.7"//+snap
 
-  val bindingPlayVersion = "0.6.5"
+  val mainVersion = "0.7" //lowest version of whole stack
+
+  val bindingPlayVersion = "0.7"//+snap
 
   val jsmacroVersion = "0.1.6"
 }
@@ -145,6 +150,10 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
       resolvers += "Pellucid Bintray" at "http://dl.bintray.com/pellucid/maven",
 
+      resolvers += Opts.resolver.repo("markatta", "markatta-releases"),
+
+      resolvers += Resolver.sonatypeRepo("snapshots"),
+
       libraryDependencies ++= Dependencies.preview.value,
 
       includeFilter in (Assets, LessKeys.less) := "*.less",
@@ -205,7 +214,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     version := Versions.mainVersion,
 
-    scalaVersion := "2.11.2",
+    scalaVersion := "2.11.5",
 
     resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
 

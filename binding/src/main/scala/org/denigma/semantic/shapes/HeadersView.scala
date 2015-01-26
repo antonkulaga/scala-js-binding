@@ -7,10 +7,12 @@ import org.denigma.semantic.models.WithShapeView
 import org.denigma.semantic.rdf.ShapeInside
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
-import org.scalax.semweb.shex.Shape
-import rx.core.Var
-
+import org.scalax.semweb.shex.{ArcRule, Shape}
+import rx._
+import org.denigma.binding.views.collections.CollectionView
 import scala.collection.immutable.Map
+import rx.extensions._
+import rx.ops._
 
 object HeadersView{
   def apply(el:HTMLElement,params:Map[String,Any]) = new JustHeaderView(el,params)
@@ -28,12 +30,21 @@ object HeadersView{
 }
 
 
-class HeadersView(val elem:HTMLElement, val params:Map[String,Any],father:Option[OrganizedView]) extends ShapeView
+class HeadersView(val elem:HTMLElement, val params:Map[String,Any],father:Option[OrganizedView]) extends CollectionView with WithShapeView
 {
+  type Item = Var[ArcRule]
 
-  lazy val shape = father.collectFirst{   case s:WithShapeView=>s.shape  }.getOrElse(  shapeOption.getOrElse(  Var(ShapeInside(Shape.empty))    ))
+  type ItemView = ArcView
 
-  override def newItem(item:Item):ItemView = this.constructItem(item,Map("item"->item)) { (e,m)=> HeadersView.apply(e,m) }
+  override lazy val shapeInside:Var[ShapeInside] = this.shapeOption.orElse {
+    father.collectFirst{
+      case s:WithShapeView=>s.shapeInside
+    }
+  }.getOrElse(   Var(ShapeInside.apply(Shape.empty))  )
+
+  lazy val items = shapeInside.map(sh=>sh.current.arcRules().map(r=>Var(r)))
+
+  override def newItem(item:Item):ItemView = this.constructItem(item,Map("item"->Var(item))) { (e,m)=> HeadersView.apply(e,m) }
 
   override protected def attachBinders(): Unit = binders =  new GeneralBinder(this)::new NavigationBinding(this)::Nil
 

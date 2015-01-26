@@ -8,8 +8,8 @@ import org.denigma.semantic.storages.{ModelStorage, AjaxModelStorage}
 import org.scalajs.dom
 import org.scalax.semweb.rdf.{IRI, Res}
 import org.scalax.semweb.shex.{IRILabel, AndRule, Shape, PropertyModel}
-import rx.core.Var
-
+import rx.core.{Rx, Var}
+import rx.ops._
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
@@ -28,8 +28,8 @@ trait WithShapeView  {
     case _=> throw new Exception(s"shape param of unknown type in ShapeView $id")
   }
 
-  val shape: Var[ShapeInside]
+  lazy val shapeInside: Var[ShapeInside] =  shapeOption.getOrElse(  Var(ShapeInside(Shape.empty))    )
 
 
-  def shapeRes = shape.now.current.id.asResource
+  def shapeRes: Rx[Res] = shapeInside.map(sh=>sh.current.id.asResource)
 }

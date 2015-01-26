@@ -29,6 +29,9 @@ object BindableView {
 
 }
 
+/**
+ * View that can have binders attached to it
+ */
 trait BindableView extends ReactiveView
 {
   type Binder = BasicBinding
@@ -45,7 +48,7 @@ trait BindableView extends ReactiveView
   def withBinders(binder:Binder*):this.type  = withBinders(binder.toList)
 
 
-  def extractors = binders.view.collect{case b:Extractor=>b}
+  def extractors = binders.view.collect{case b:Extractor=>b} //extractors that extract properties from this class
 
 
   def makeDefault(el:HTMLElement,props:Map[String,Any] = Map.empty):ChildView = {

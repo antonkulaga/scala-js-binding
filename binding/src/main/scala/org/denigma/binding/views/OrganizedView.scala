@@ -242,6 +242,10 @@ abstract class OrganizedView extends BasicView
     }
   }
 
+  /**
+   * Replaces viewElement of the view and rebinds it
+   * @param newElement
+   */
   def refreshMe(newElement:HTMLElement) = this.parent match {
     case Some(pv)=>
 
@@ -267,6 +271,11 @@ abstract class OrganizedView extends BasicView
   }
 
 
+  /**
+   * Adds view to children
+   * @param view
+   * @return
+   */
   override def addView(view:ChildView) = {
     super.addView(view)
     view.parent = Some(this)

@@ -46,7 +46,6 @@ abstract class ModelCollection extends BindableView
 
   val dirty = Rx{items().filterNot(i=>i().isUnchanged)} //TODO check how it works
 
-
   def onItemChange(item:Item) = if(item.now.wantsToDie){
     //dom.alert("WORKS")
     val i = items.now

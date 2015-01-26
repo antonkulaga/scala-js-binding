@@ -27,19 +27,21 @@ trait PromiseEvent[Value,Result] extends BindingEvent
 }
 
 
-
+/**
+ * View that supports resolving some data from params as well as pattern matching on parents and events
+ */
 abstract class ReactiveView extends OrganizedView{
 
   def params:Map[String,Any]
-
+/*
   protected var cache:Map[String,Any] = this.params //for resolutions
 
   protected def cached[T](key:String,value:T) = { //TODO: delete from here
     cache = cache + (key->value)
     value
-  }
+  }*/
 
-  protected def resolveMyKey[Result](key:String)(fun:PartialFunction[Any,Result]) = cache.get(key).collectFirst(fun)
+  protected def resolveMyKey[Result](key:String)(fun:PartialFunction[Any,Result]) = params.get(key).collectFirst(fun)
 
   def resolveKeyOption[Result](key:String, who:ReactiveView = this)(fun:PartialFunction[Any,Result]):Option[Result] = {
     who.resolveMyKey(key)(fun) match {
@@ -79,7 +81,7 @@ abstract class ReactiveView extends OrganizedView{
   def resolveKey[Result](key:String)(fun:PartialFunction[Any,Result]):Result = this.resolveKeyOption(key)(fun) match {
     case Some(res) =>res
     case None=>
-      dom.console.error(s"cannot find appropriate value for mandatory param $key in view $id")
+      dom.console.error(s"cannot find appropriate value for mandatory param $key in view $id with the following HTML:\n${elem.outerHTML}\n")
       ???
   }
 
@@ -98,7 +100,11 @@ abstract class ReactiveView extends OrganizedView{
   }
 
 
-
+  /**
+   * Propogates future to the top for some reason
+   * @param event
+   * @return
+   */
   protected def propagateFuture(event:PromiseEvent[_,_]) =
     this.nearestParentOf{  case p:ReactiveView=>p  } match {
       case Some(p)=> p.receiveFuture(event.withCurrent(this))

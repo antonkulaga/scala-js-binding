@@ -11,11 +11,11 @@ import rx.Rx
 import rx.core.Var
 
 import scala.collection.immutable.Map
-import scala.scalajs.js.Any
+import scala.scalajs.js.{Dynamic, Any}
 import rx.extensions._
 import rx.ops._
 
-class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(view) with PropertyPrinter
+class ModelBinder(view:BindableView,modelInside:Var[ModelInside],subjectOf:Set[IRI] = Set.empty[IRI]) extends RDFBinder(view) with PropertyPrinter
 {
 
   /**
@@ -50,6 +50,7 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
       val att = key.replace("property-", "")
 
       this.resolve(value).foreach(iri=> this.bindRdfAttribute(el, iri, att))
+
   }
 
 
@@ -58,16 +59,16 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
    * @param key
    * @return
    */
-  def properties(key:IRI): Option[Set[RDFValue]] = this.model.now.current.properties.get(key)
+  def properties(key:IRI): Option[Set[RDFValue]] = this.modelInside.now.current.properties.get(key)
 
   def values(key:IRI) = this.properties(key).map {   case values =>     this.vals2String(values,onOne = (v)=>v.label,onMany = manyNames)  }
 
   protected def keyWarning(key:IRI)=  {
-    dom.console.info(s"${key.toString()} was not found in the model with properties = ${model.now.current.properties.toString()}")
+    dom.console.info(s"${key.toString()} was not found in the model with properties = ${modelInside.now.current.properties.toString()}")
   }
 
 
-  protected def bindRdfName(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, model) {
+  protected def bindRdfName(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) {
     (el, model) =>
       this.properties(key)
         .map{case values=>vals2String(values,onOne = (v)=>v.label,onMany = manyNames)  }
@@ -78,7 +79,7 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
 
 
   //TODO: REHANE!
-  protected def bindRdfElement(el: HTMLElement, key: IRI)(assign:(HTMLElement,String)=>Unit) = this.bindRx(key.stringValue, el: HTMLElement, model) { (el, model) =>
+  protected def bindRdfElement(el: HTMLElement, key: IRI)(assign:(HTMLElement,String)=>Unit) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, model) =>
     this.values(key)   match {
       case None => this.keyWarning (key)
       case Some (value) => assign (el, value)
@@ -95,7 +96,7 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
    * @param el html element of checkbox
    * @param key
    */
-  protected def bindRdfCheckBox(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, model) { (el, mod) =>
+  protected def bindRdfCheckBox(el: HTMLElement, key: IRI) = this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (el, mod) =>
     this.properties(key).map(_.head) match {
       case None =>         dom.console.log(s"${key.toString()} was not found in the model of ${this.id} with model = ${mod.current.resource}")
       case Some(value:BooleanLiteral)=> el.dyn.checked match {
@@ -126,6 +127,24 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
           el.dyn.updateDynamic(att)(value)
   }
 
+/*
+  protected def updateModel(prop:IRI,pvalue:String) = {
+    this.properties(prop).headOption match {
+      case Some(value) if value == pvalue => //nothing
+      case Some(value) if subjectOf.contains(prop) && pvalue.contains(":")   =>
+        val curr = model.now.current
+        val changed = curr.copy(resource = IRI(pvalue))
+         model() = this.model.now.replace(prop, pvalue.toString)
+
+      case Some(value) =>
+          model() = this.model.now.replace(prop, pvalue.toString)
+
+      case None =>
+        model() = this.model.now.add(prop, pvalue.toString)
+    }
+  }
+*/
+
   /**
    * Changes RDF property when value changes
    * @param el element
@@ -141,8 +160,10 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
         case Some(pvalue) =>
           this.properties(iri).headOption match {
             case Some(value) if value == pvalue => //nothing
-            case Some(value) => model() = this.model.now.replace(iri, pvalue.toString)
-            case None => model() = this.model.now.add(iri, pvalue.toString)
+            case Some(value) =>
+              modelInside() = this.modelInside.now.replace(iri, pvalue.toString)
+            case None =>
+              modelInside() = this.modelInside.now.add(iri, pvalue.toString)
           }
 
         case None => dom.console.error(s"no attributed for $pname")
@@ -154,7 +175,7 @@ class ModelBinder(view:BindableView,model:Var[ModelInside]) extends RDFBinder(vi
         case v if value.isInstanceOf[Boolean]=>
           val b = v.asInstanceOf[Boolean]
           el.dyn.checked = b
-          model() = model.now.replace(iri,BooleanLiteral(b))
+          modelInside() = modelInside.now.replace(iri,BooleanLiteral(b))
         case _=>dom.console.log("checked is not boolean")
       }
       case None=> dom.console.log(s" ${iri.stringValue} not a checkbox")

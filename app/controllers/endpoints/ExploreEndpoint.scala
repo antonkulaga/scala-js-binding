@@ -65,20 +65,21 @@ trait ExploreEndpoint extends PickleController with AjaxExploreEndpoint with Ite
   protected def suggest(suggestMessage: ExploreMessages.ExploreSuggest, items:List[PropertyModel])(implicit request: ExploreRequest): ExploreResult = {
     //play.Logger.debug("original = "+suggestMessage.toString)
     val t = suggestMessage.typed
-    val prop = suggestMessage.prop
-    val list = exploreItems(items,suggestMessage.explore)
+    val name = suggestMessage.nameClass
+    val list: List[PropertyModel] = exploreItems(items,suggestMessage.explore)
     //play.Logger.debug("basic list = "+suggestMessage.toString)
 
-    val result = list
-      .collect { case item if item.properties.contains(prop) =>
-      item.properties(prop).collect {
+/*    val result = list.collect { case item  =>
+      item.properties.collect{case (key,values) if name.matches(key)=> values.filter(v=>v.contains(t))
+        /*.collect {
         case p if p.stringValue.contains(t) => p
       }
     }.flatten
-
+*/
       val mes = ExploreMessages.ExploreSuggestion(t, result, suggestMessage.id, suggestMessage.channel, new Date())
       val p = rp.pickle(mes)
-      Future.successful(Ok(p).as("application/json"))
+      Future.successful(Ok(p).as("application/json"))*/
+    ???
 
   }
 

@@ -47,8 +47,6 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
       case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
     }
 
-  val shape  =  shapeOption.getOrElse(  Var(ShapeInside(Shape.empty))    )
-
 
   val exploreStorage = new AjaxExploreStorage(path)(registry)
 
@@ -61,7 +59,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
   val propertyFilters = Var(Map.empty[IRI,Filters.Filter])
 
   val explorer:Rx[ExploreMessages.Explore] = Var(ExploreMessages.Explore(
-    this.query, this.shapeRes, id= this.exploreStorage.genId(),channel = exploreStorage.channel
+    this.query, this.shapeRes.now, id= this.exploreStorage.genId(),channel = exploreStorage.channel
   )  )
 
   /**
@@ -72,7 +70,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
     models.onComplete {
       case Success(data) =>
-        this.shape() = this.shape.now.copy(current = data.shape)
+        this.shapeInside() = this.shapeInside.now.copy(current = data.shape)
         val mod: scala.List[PropertyModel] = data.models
         items match {
           case its:Var[List[Var[ModelInside]]]=>
@@ -90,7 +88,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
   override def newItem(item:Item):ItemView = {
     item.handler(onItemChange(item))
-    this.constructItem(item,Map("model"->item, "storage"->crudStorage, "shape"->this.shape)){ (el,mp)=>
+    this.constructItem(item,Map("model"->item, "storage"->crudStorage, "shape"->this.shapeInside)){ (el,mp)=>
       item.handler(onItemChange(item))
       AjaxModelCollection.apply(el,mp)
     }

@@ -1,0 +1,39 @@
+@(shape:String = "http://gero.longevityalliance.org/Evidence_Shape",query:String="http://gero.longevityalliance.org/query/genes")(implicit request: UserRequestHeader)
+<article
+class="ui vertical segment"
+vocab="http://denigma.org/resource/"
+data-view="DataGrid"
+data-param-path="models/explore"
+data-param-crud="models/crud"
+data-param-shape="@shape"
+data-param-query="@query"
+>
+
+
+
+    <table border="1"
+    xmlns="http://www.w3.org/1999/html"
+    class="ui compact striped collapsing table"
+    >
+
+        <thead>
+            <tr data-view="Headers">
+                <th data-template="true" data="name" >
+                </th>
+                <th colspan="2"><div data-up-class-positive-if="isDirty" data-up-event-click="saveAll"  class="ui small button"><i class="save icon"></i>Save ALL</div></th>
+            </tr>
+        <thead>
+    <tbody>
+
+        <tr data-template="true" data-item-view="GridRow">
+            <td  data-template="true" data-view="GridCell">
+                <input class = "ui fluid input" type="text" data="value">
+            </td>
+            <td><div class="ui small button" data-class-positive-if="dirty" ><i class="save icon"></i></div></td>
+            <td><div class="ui small button" data-event-click = "removeClick"><i class="remove sign icon"></i></div></td>
+        </tr>
+    </tbody>
+    </table>
+    <div class="ui button" data-click="add">Add</div>
+
+</article>

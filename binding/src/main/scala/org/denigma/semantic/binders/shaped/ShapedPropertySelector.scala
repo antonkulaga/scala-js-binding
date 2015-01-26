@@ -34,7 +34,7 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
                             (typeHandler:(String)=>Unit) extends PropertySelector(el,key,model)(typeHandler)
 {
 
-  
+
   /**
    * Parses string to get RDF value
    * @param str
@@ -49,8 +49,17 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
       case ValueType(tp) if !input.contains("^^")=> tp match {
         case XSD.DecimalDatatypeIRI =>DoubleLiteral(input.toDouble)
         case XSD.IntDatatypeIRI=> IntLiteral(input.toInt)
-        case XSD.Date =>DateLiteral(new Date(input))
-        case XSD.DateTime => DateLiteral(new Date(input))
+        case XSD.Date =>
+          DateTimeFormats.parseDate(input).map(d=>DateLiteral(d)).getOrElse{
+            dom.console.error(s"cannot parse date = "+input)
+            StringLiteral(input)
+          }
+        case XSD.DateTime =>
+          DateTimeFormats.parseDate(input).map(d=>DateLiteral(d)).getOrElse{
+            dom.console.error(s"cannot parse datetime = "+input)
+            dom.console.error(s"time parsing has not been implemented yet = "+input)
+            StringLiteral(input)
+          }
         case XSD.StringDatatypeIRI =>StringLiteral(input)
         case other => StringLiteral(input)//AnyLit(input)
       }
@@ -72,38 +81,48 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
   protected val DateOnly = dateRegex.r
   protected val DateTime = (dateRegex + " " + timeRegex).r
 
-
-  override def createFilter(input:String):Boolean = arc.value match {
-    case ValueType(dtp)=> dtp match {
-      case XSD.BooleanDatatypeIRI=> input.toLowerCase match{
-        case "true" | "false"=> true
-        case _=>false}
-      //case XSD.Date=> Date.
-      case XSD.DecimalDatatypeIRI | XSD.DecimalDatatypeIRI => Try[Double](input.toDouble).isSuccess
-      case XSD.IntDatatypeIRI | XSD.IntegerDatatypeIRI => Try(input.toInt).isSuccess
-      case XSD.Date => input match {
-        case DateOnly(d)=> true
-        case _=>false
-      }
-      case XSD.DateTime => input match {
-        case DateTime(d)=> true
-        case _=>false
+  protected def cardinalityFilter(input:String):Boolean =    arc.occurs match
+     {
+        case card:Cardinality =>
+          //TODO:rewrite
+          true
       }
 
-      case _=> input!=""
+
+
+  protected def valueFilter(input:String):Boolean =    arc.value match {
+        case ValueType(dtp)=> dtp match {
+          case XSD.BooleanDatatypeIRI=> input.toLowerCase match{
+            case "true" | "false"=> true
+            case _=>false}
+          //case XSD.Date=> Date.
+          case XSD.DecimalDatatypeIRI | XSD.DecimalDatatypeIRI => Try[Double](input.toDouble).isSuccess
+          case XSD.IntDatatypeIRI | XSD.IntegerDatatypeIRI => Try(input.toInt).isSuccess
+          case XSD.Date => input match {
+            case DateOnly(d)=> true
+            case _=>false
+          }
+          case XSD.DateTime => input match {
+            case DateTime(d)=> true
+            case _=>false
+          }
+
+          case _=> input!=""
+        }
+
+        //case ValueStem(st)=>
+        case ValueSet(els)=>
+          val result = els.exists{   case v=>v.stringValue == input || v.label==input   }
+          //dom.console.log(s"$input with VALUESET FOR:"+ els.toString+s" RESULT = $result")
+          result
+
+        //case ValueAny(stem)=> !ex.exists{   case v=>v.stringValue == input || v.label==input   }
+
+        case other => true //TODO: figure out other cases
     }
 
-    //case ValueStem(st)=>
-    case ValueSet(els)=>
-      val result = els.exists{   case v=>v.stringValue == input || v.label==input   }
-      //dom.console.log(s"$input with VALUESET FOR:"+ els.toString+s" RESULT = $result")
-      result
 
-    //case ValueAny(stem)=> !ex.exists{   case v=>v.stringValue == input || v.label==input   }
-
-    case other => true //TODO: figure out other cases
-
-  }
+  override def createFilter(input:String):Boolean =this.cardinalityFilter(input) && this.valueFilter(input)
 
   override protected def selectParams(el: HTMLElement):js.Dynamic = {
     js.Dynamic.literal(

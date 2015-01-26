@@ -62,6 +62,7 @@ class OccursSelector(val el:HTMLElement,arc:Var[ArcRule]) extends ArcSelector(ar
     case ExactlyOne.obj.stringValue=>ExactlyOne
     case Plus.obj.stringValue=>Plus
     case Star.obj.stringValue=>Star
+    case Opt.obj.stringValue=>Opt
     case other => dom.console.error("unknown cardinality value ="+other)
       Star
   }
@@ -70,6 +71,7 @@ class OccursSelector(val el:HTMLElement,arc:Var[ArcRule]) extends ArcSelector(ar
     case ExactlyOne=>ExactlyOne.obj.stringValue
     case Plus=>Plus.obj.stringValue
     case Star=>Star.obj.stringValue
+    case Opt=>Opt.obj.stringValue
     case other => dom.console.error("unknown cardinality value ="+other)
       Star.obj.stringValue
   }
@@ -91,7 +93,9 @@ class OccursSelector(val el:HTMLElement,arc:Var[ArcRule]) extends ArcSelector(ar
 
   def makeOptions()=
   {
-    val o =    List(Star.obj,Plus.obj,ExactlyOne.obj).map(i=> makeOption(i)).toList
+    val o =    List(Star.obj,Plus.obj,ExactlyOne.obj,Opt.obj).map{case i=>
+      makeOption(i)
+    }.toList
     js.Array( o:_* )
   }
 
@@ -117,7 +121,8 @@ class OccursSelector(val el:HTMLElement,arc:Var[ArcRule]) extends ArcSelector(ar
     val ss= this.selectizeFrom(el)
     ss.clear()
     val value = this.elementIntoValue(arc.now.occurs)
-    //dom.console.info("value = "+value)
+    dom.console.info("value = "+value)
+    ss.addOption(this.makeOption(value))
     ss.addItem(value)
     this
 

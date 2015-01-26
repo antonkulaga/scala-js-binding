@@ -19,7 +19,7 @@ import scala.util.{Failure, Success}
 /**
  * Binder for properties
  */
-class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule, val suggest:(IRI,String)=>Future[List[RDFValue]])
+class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule)(val suggest:(IRI,String)=>Future[List[RDFValue]])
   extends ModelBinder(view,modelInside) with BinderWithSelection[ShapedPropertySelector]
 {
 
@@ -85,7 +85,6 @@ class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:A
 
     this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (e, mod) =>
 
-
       val sel = this.selectors.getOrElse(e, {
 
         val s = new ShapedPropertySelector(e, key,modelInside,arc)( typeHandler(e, key) )
@@ -101,8 +100,8 @@ class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:A
 
     case "data" if value=="value"=>
       this.arcProps.now.keys.headOption match {
-        case Some(key)=>
-          this.bindRDFProperty(el,key) //TODO: rewrite
+        case Some(k)=>
+          this.bindRDFProperty(el,k) //TODO: rewrite
         case None=>  //dom.console.error(s"no property found for the shape in arc ${arc.name.toString}")
       }
 

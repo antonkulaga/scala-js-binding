@@ -26,7 +26,7 @@ with ExplorableView
 {
   lazy val defaultExplore = ExploreMessages.Explore(
     this.query,
-    this.shapeRes,
+    this.shapeRes.now,
     this.filters().values.toList,
     this.searchTerms().values.toList,
     this.sorts().values.toList,

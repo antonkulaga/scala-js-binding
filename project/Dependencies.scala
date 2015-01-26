@@ -8,6 +8,18 @@ object Dependencies
 {
   val macwireVersion = "0.7.3"
 
+  val scaleniumVersion = "1.0.1"
+
+  val scalaRxVersion = "0.2.6"
+
+  val semanticUIVersion = "1.7.3"
+
+  val codeMirrorVersion = "4.11"
+
+  val selectizeVersion = "0.11.2"
+
+  val sesameVersion = "2.7.12"
+
 
   val shared = Def.setting(Seq())
 
@@ -16,11 +28,9 @@ object Dependencies
 
     "org.webjars" % "jquery" % "2.1.1",
 
-    "org.webjars" % "Semantic-UI" % "1.2.0",
+    "org.webjars" % "Semantic-UI" % semanticUIVersion,
 
-    //"org.webjars" % "Semantic-UI" % "0.19",
-
-    "org.webjars" % "codemirror" % "4.8",
+    "org.webjars" % "codemirror" % "4.11",
 
     "org.webjars" % "ckeditor" % "4.4.1",
 
@@ -28,7 +38,7 @@ object Dependencies
 
     "org.webjars" % "three.js" % "r66",
 
-    "org.webjars" % "selectize.js" % "0.11.2",
+    "org.webjars" % "selectize.js" % selectizeVersion,
 
     "org.scalax" %% "semweb" % Versions.semWebVersion,
 
@@ -36,11 +46,13 @@ object Dependencies
 
     "org.w3" %% "sesame" % "0.7.2-SNAPSHOT" excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
 
-    "org.openrdf.sesame" % "sesame-rio-rdfxml" % "2.7.12",
+    "org.openrdf.sesame" % "sesame-rio-rdfxml" % sesameVersion,
 
-    "org.openrdf.sesame" % "sesame-rio-turtle" % "2.7.12",
+    "org.openrdf.sesame" % "sesame-rio-turtle" % sesameVersion,
 
-    "com.pellucid" %% "framian" % "0.3.3"
+    "com.pellucid" %% "framian" % "0.3.3",
+
+    "com.markatta" %% "scalenium" % scaleniumVersion % "test"
 
   ))
   val macro_js = Def.setting(shared.value++Seq(
@@ -48,7 +60,7 @@ object Dependencies
 
      "com.scalatags" %%% "scalatags" % "0.4.2",
 
-      "com.scalarx" %%% "scalarx" % "0.2.6"
+      "com.scalarx" %%% "scalarx" % scalaRxVersion
   ))
 
   val models_js = Def.setting(shared.value++Seq(
@@ -61,7 +73,7 @@ object Dependencies
 
       "org.scalax" %% "semweb" % Versions.semWebVersion,
      "org.scalajs" %% "scalajs-pickling-play-json" % "0.3.1",
-      "com.scalarx" %% "scalarx" % "0.2.6"
+      "com.scalarx" %% "scalarx" % scalaRxVersion
 
   ))
 
@@ -71,14 +83,17 @@ object Dependencies
 
     "org.scalajs" %%% "codemirror" % "4.5-0.1",
 
-    "com.softwaremill.macwire" %% "macros" % macwireVersion
+    "com.softwaremill.macwire" %% "macros" % macwireVersion,
+
+    "com.markatta" %% "scalenium" % scaleniumVersion % "test"
+
   )
   )
 
 
   val bindingPlay = Def.setting(shared.value++Seq(
 
-    "com.typesafe.play" %% "play" % "2.3.6",
+    "com.typesafe.play" %% "play" % "2.3.7",
 
     "org.scalajs" %% "scalajs-pickling-play-json" % "0.3.1",
 

@@ -4,7 +4,7 @@ import java.util.Date
 
 import org.scalax.semweb.messages.{Channeled, StorageMessage}
 import org.scalax.semweb.rdf._
-import org.scalax.semweb.shex.{PropertyModel, Shape}
+import org.scalax.semweb.shex.{NameClass, PropertyModel, Shape}
 
 import scala.util.matching.Regex
 
@@ -24,7 +24,7 @@ object ExploreMessages {
 
   case class Exploration(shape:Shape,models:List[PropertyModel], explore:Explore)
 
-  case class ExploreSuggest(typed:String,prop:IRI,explore:Explore,  id:String  , time:Date = new Date()) extends ExploreMessage {
+  case class ExploreSuggest(typed:String,nameClass:NameClass,explore:Explore,  id:String  , time:Date = new Date()) extends ExploreMessage {
     def channel = explore.channel
   }
 

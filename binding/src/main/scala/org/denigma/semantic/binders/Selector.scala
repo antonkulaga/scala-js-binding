@@ -50,6 +50,9 @@ trait Escaper {
 
 }
 
+/**
+ * Selector that has some features of converting RDF values
+ */
 trait SemanticSelector extends Selector with Escaper {
 
 
@@ -81,7 +84,6 @@ trait SemanticSelector extends Selector with Escaper {
       case st if str.contains("_:") => BlankNode(st)
       case st if str.contains(":") => IRI(st)
       case st => StringLiteral(st)
-
     }
 
 

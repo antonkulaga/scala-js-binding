@@ -4,47 +4,75 @@ import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.collections.CollectionView
 import org.denigma.semantic.models.WithShapeView
+import org.denigma.semantic.rdf.{ModelInside, ShapeInside}
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalajs.dom.extensions._
+import org.scalax.semweb.rdf.{IRI, Res}
+import org.scalax.semweb.rdf.vocabulary.WI
 import org.scalax.semweb.shex._
-import rx.Rx
+import rx._
 import rx.core.Var
 import rx.ops._
-
-import scala.collection.immutable.Map
-
-
+import scala.collection.immutable.{TreeSet, SortedSet, Map}
+import rx.extensions._
+import scala.util.Sorting
 object ShapeView
 {
   def defaultBinders(view:ShapeView) = new GeneralBinder(view)::new NavigationBinding(view)::Nil
+
+  implicit object ArcOrdering extends Ordering[Var[ArcRule]]{
+    override def compare(x: Var[ArcRule], y: Var[ArcRule]): Int = {
+      val (a,b) = (x.now,y.now)
+      if(a==b) 0 else if(a.priority.getOrElse(0)<b.priority.getOrElse(0)) -1 else 1
+    }
+  }
+
 }
 
 
-trait ShapeView extends CollectionView with WithShapeView
+trait ShapeView extends CollectionView //with WithShapeView
 {
   override type Item = Var[ArcRule]
   override type ItemView = ArcView
 
   val removeClick = EventBinding.createMouseEvent()
 
-  lazy val rules: Rx[List[Var[ArcRule]]] = this.shape.map(sh=>sh.current.arcRules().map(a=>Var(a))) //TODO: fix in future
+  val rules:Var[SortedSet[Item]] = Var(SortedSet.empty[Var[ArcRule]](ShapeView.ArcOrdering))
 
-  override lazy  val items: Rx[List[Var[ArcRule]]] = rules.map(rl=>rl.sortBy(r=>r.now.priority))
+  //val rules:Var[Set[Item]] = Var(Set.empty[Var[ArcRule]])
 
-  val newAnd: Rx[AndRule] = rules.map(r=>
-    AndRule(r.map(v=>v.now).toSet,this.shapeRes)
-  )
 
-  protected def makeDefaultItem(el:HTMLElement,mp:Map[String,Any]):ItemView =    ArcView.apply(el,mp)
 
-  override def newItem(item:Item):ItemView = this.constructItem(item,Map("item"->item)) { (e,m)=> ArcView.apply(e,m) }
-
-  def save() = {
-    val sh = shape.now
-    shape() = sh.copy(current = sh.current.copy(rule = newAnd.now))
+  def updateShape(sh:Shape) = {
+    val rs: Set[ArcRule] = sh.arcRules().toSet
+    val insert: Set[rx.Var[ArcRule]] = (rs diff arcs.now).map(r=>Var(r))
+    val its = rules.now.filter(i=>rs.contains(i.now))
+    rules() =  its++insert
   }
 
+
+  lazy val items: Rx[List[Item]] = rules.map(r=>r.toList)
+
+  lazy val arcs: Rx[Set[ArcRule]] = rules.map(ru=>ru.map(r=>r.now))
+
+  def shapeRes: Rx[Res]// = shapeResOption.getOrElse(Var(WI.PLATFORM.EMPTY))
+
+  lazy val shape = Rx{
+    val and = AndRule(rules().map(r=>r.now).toSet,shapeRes())
+    Shape.apply(and.id,and)
+  }
+
+/*
+  protected def shapeResOption: Option[Var[Res]] = this.resolveKeyOption("shape-resource"){
+    case sh:String if sh.contains(":") =>Var(IRI(sh))
+    case sh:Res =>Var(sh)
+    case sh:Var[Res] => sh
+    case _=> throw new Exception(s"shape param of unknown type in ShapeView $id")
+  }
+*/
+
+  override def newItem(item:Item):ItemView = this.constructItem(item,Map("item"->item)) { (e,m)=> ArcView.apply(e,m) }
 
 }
 

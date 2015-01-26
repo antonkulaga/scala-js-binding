@@ -1,27 +1,32 @@
 package org.denigma.binding.frontend.controls
 
-import org.denigma.binding.binders.extractors.EventBinding
-import org.denigma.binding.extensions._
-import org.denigma.binding.messages.Suggestion
+import java.util
+
+import org.denigma.binding.binders.GeneralBinder
+import org.denigma.binding.extensions.sq
 import org.denigma.binding.picklers.rp
 import org.denigma.binding.views.{JustPromise, PromiseEvent, BindableView}
-import org.denigma.semantic.models.EditModelView
-import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
+import org.denigma.binding.views.collections.CollectionView
+import org.denigma.semantic.rdf.ShapeInside
 import org.denigma.semantic.shapes.{ArcView, ShapeView}
-import org.denigma.semantic.storages.{ShapeStorage, AjaxModelStorage}
+import org.denigma.semantic.storages.ShapeStorage
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.vocabulary.XSD
-import org.scalax.semweb.rdf.{RDFValue, IRI, vocabulary}
-import org.scalax.semweb.shex.{Shape, ShapeBuilder, Star}
-import rx.Var
+import org.scalax.semweb.rdf.{Res, RDFValue, vocabulary, IRI}
+import org.scalax.semweb.shex.{Star, ShapeBuilder, Shape}
+import rx.Rx
+import rx.core.Var
+import scala.collection.immutable.Map
+import org.scalax.semweb.shex
+
+import scala.concurrent.Promise
+import scala.util.{Failure, Success}
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
+object ShapeEditor{
 
-import scala.concurrent.{Promise, Future}
-import scala.util.{Success, Failure}
+  def apply(el:HTMLElement,mp:Map[String,Any]):ShapeView = new EditableShape(el,mp)
 
-object ShapeEditor
-{
   lazy val testShape: Shape =  {
     val de = IRI("http://denigma.org/resource/")
     val dc = IRI(vocabulary.DCElements.namespace)
@@ -36,43 +41,53 @@ object ShapeEditor
   }
 }
 
+class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends CollectionView{
 
-class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends  ShapeView
-{
+  type Item = Var[ShapeInside]
+  type ItemView = ShapeView
 
-  override lazy val shape = Var(ShapeInside(ShapeEditor.testShape))
 
   implicit val registry = rp
-
-  //require(params.contains("path"),"ShapeEditor should have path view-param") //is for exploration by default
 
   val path:String = this.resolveKey("path"){
     case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
   }
 
+  val query:Option[Res] = this.resolveKeyOption("query"){
+    case v=>IRI(if(v.toString.contains(":")) v.toString else sq.withHost(v.toString))
+  }
+
   val storage = new ShapeStorage(path)
 
+  override lazy val items:Var[List[Item]] = Var(List.empty[Item])
 
-  val addClick = Var(EventBinding.createMouseEvent())
+  override def newItem(item:Item):ItemView = this.constructItem(item,Map("shape"->item)){
+    (el,mp)=>ShapeEditor(el,mp)
+  }
 
+  override def bindView(el:HTMLElement) = {
+    super.bindView(el)
+    storage.getShapes(this.query).onComplete{
+      case Success(shapes)=>
+        //dom.console.log(s"SHAPES = "+shapes.mkString)
+        this.items() = shapes.map(sh=>Var(ShapeInside(sh)))
+      case Failure(th)=>
+        dom.console.error(s"shape request to ${this.path} ${this.query.map(q=>"with "+q).getOrElse("")} failed because of\n ${th.toString}")
+    }
+  }
 
-  val applyShape = Var(EventBinding.createMouseEvent())
-
-
-  override protected def attachBinders(): Unit = this.withBinders(ShapeView.defaultBinders(this))
-
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
   override def receiveFuture:PartialFunction[PromiseEvent[_,_],Unit] = {
 
     case JustPromise(ArcView.SuggestNameTerm(typed),origin,latest,bubble,promise:Promise[List[RDFValue]])=>
-      storage.suggestProperty(typed).onComplete{
-      case Success(res)=>
-        promise.success(res.options)
-      case Failure(th)=>
-        promise.failure(th)
-        dom.console.error("suggession is broken"+th)
-    }
+      storage.suggestProperty(typed).onComplete
+      {
+        case Success(res)=>
+          promise.success(res.options)
+        case Failure(th)=>
+          promise.failure(th)
+          dom.console.error("suggession is broken"+th)
+      }
 
     case ev=>
       //debug("propogation")
@@ -80,22 +95,7 @@ class ShapeEditor (val elem:HTMLElement,val params:Map[String,Any]) extends  Sha
 
   }
 
-}
+  protected override def attachBinders(): Unit =  this.withBinders(new GeneralBinder(this))
 
-class ShapeProperty(val elem:HTMLElement, val params:Map[String,Any]) extends ArcView
-{
-
-  override protected def attachBinders(): Unit = binders =  ArcView.defaultBinders(this)
-
-  override def activateMacro(): Unit = {extractors.foreach(_.extractEverything(this))}
-
-
-
-  val removeClick = Var(EventBinding.createMouseEvent())
-
-  removeClick.handler{
-    //this.die()
-  }
-
-
+  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 }

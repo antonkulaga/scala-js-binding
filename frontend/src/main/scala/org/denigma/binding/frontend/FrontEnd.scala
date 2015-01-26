@@ -2,11 +2,11 @@ package org.denigma.binding.frontend
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
-import org.denigma.binding.frontend.controls.{ShapeEditor, ShapeProperty}
-import org.denigma.binding.frontend.genes.{Proofs, Evidence}
+import org.denigma.binding.frontend.controls.{ShapeEditor, EditableShape, EditableShape$, ShapeProperty}
+import org.denigma.binding.frontend.datagrids.{DataGrid, GridCell, GridRow}
 import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksView}
 import org.denigma.binding.frontend.slides._
-import org.denigma.binding.frontend.tests.{TestMacroView, LongListView, PicklerView, RandomView}
+import org.denigma.binding.frontend.tests.{LongListView, PicklerView, RandomView, TestMacroView}
 import org.denigma.binding.frontend.tools.SelectView
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
@@ -39,7 +39,9 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
   val sidebarParams =  js.Dynamic.literal(
     exclusive = false,
     dimPage = false,
-    closable =  false
+    closable =  false,
+    useLegacy = false
+
   )
   /**
    * Register views
@@ -57,8 +59,8 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("TestModelView",(el,params)=>Try(new TestModelView(el,params)))
     .register("PicklerView",(el,params)=>Try(new PicklerView(el,params)))
     .register("PageEditView",(el,params)=>Try(new PageEditView(el,params)))
-    .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
-    .register("ShapeProperty",(el,params)=>Try(new ShapeProperty(el,params)))
+
+
 
     .register("Tasks",(el,params)=>Try(new TasksView(el,params)))
     .register("row",(el,params)=>Try(new RowView(el,params)))
@@ -68,21 +70,24 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("SuggestView",(el,params)=>Try(new TestSuggestBinding(el,params)))
     .register("ReportsView",(el, params) =>Try(new ReportsView(el,params)))
     .register("report",(el, params) =>Try(new Report(el,params)))
-    .register("TestSelect",(el, params) =>Try(new SelectView(el,params)))
+
+
     .register("CollectionSlide",(el, params) =>Try(new CollectionSlide(el,params)))
     .register("SparqlSlide", (el,params)=>Try(new SparqlSlide(el,params)))
     .register("DatepairView",(el,params)=>Try(new DatePairView(el,params)))
-
-    .register("Evidence", (el,params)=>Try(new Evidence(el,params)))
-    .register("Headers",(el,params,parent)=>Try(new HeadersView(el,params,parent)))
-
-    .register("Proofs", (el,params)=>Try(new Proofs(el,params)))
-
     .register("GlobeSlide", (el,params)=>Try(new GlobeSlide(el,params)))
     .register("test-macro", (el,params)=>Try(new TestMacroView(el,params)))
 
+  ViewInjector //register shapes
+    .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
+    .register("EditableShape",(el,params)=>Try(new EditableShape(el,params)))
+    .register("ShapeProperty",(el,params)=>Try(new ShapeProperty(el,params)))
 
-
+  ViewInjector //register datagrids
+    .register("Headers",(el,params,parent)=>Try(new HeadersView(el,params,parent)))
+    .register("DataGrid",(el,params) => Try(new DataGrid(el,params)))
+    .register("GridRow",(el,params) => Try(new GridRow(el,params)))
+    .register("GridCell",(el,params) => Try(new GridCell(el,params)))
 
   editors
     .registerEditor("ckeditor",CkEditor, true)
@@ -96,7 +101,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
   @JSExport
   def main(): Unit = {
     this.bindView(this.viewElement)
-    jQuery(".top.sidebar").dyn.sidebar(sidebarParams).sidebar("show")
   }
 
   @JSExport

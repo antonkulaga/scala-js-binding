@@ -1,67 +1,29 @@
 @(title:String)(implicit request: UserRequestHeader)
 <article id="main_article" data-view="RdfSlide" class="ui blue piled segment" xmlns="http://www.w3.org/1999/html">
 
-    <input data-view="TestSelect" type="text">
-
     <h1 id="title"class="ui large header orange message">@title </h1>
 
-    <div class="ui one column grid">
-
-
-        <section class="row">
-            <div class="column">
-                <section id="ShapeEditor" data-view="ShapeEditor" vocab="http://webintelligence.eu/"
-                data-param-path="papers/shapes" resource="http://webintelligence.eu/shapes/todo">
-                <table class="ui sortable table segment">
-                        <tr>
-                            <th>Property</th>
-                            <th>Value</th>
-                            <th>Occurs</th>
-                            <th>Priority</th>
-                            <th>Save</th>
-                            <th>Remove</th>
-                        </tr>
-                        <tr data-template="true" id="template" data-item-view="ShapeProperty" vocab="http://open-services.net/ns/core#">
-                            <td><input data="name">   </td>
-                            <td><input data="value">   </td>
-                            <td><input data="occurs">   </td>
-                            <td><input data="priority">   </td>
-                            <td><i class="ui save icon"></i></td>
-                            <td><i class="ui remove sign icon" data-event-click="removeClick"></i></td>
-                        </tr>
-
-                    </table>
+    <div data-view="ShapeEditor"
+    vocab="http://webintelligence.eu/"  data-param-path="papers/shapes" resource="http://webintelligence.eu/shapes/todo">
+        <div class="ui equal width stackable celled grid">
+            <div class="row" data-view="EditableShape" data-template="true">
+                <div class="column"  data-view="ShapeProperty" data-template="true">
+                    <div data="name"> </div>
+                    <div data="value"> </div>
+                    <div data="occurs"> </div>
+                    <div data="priority"> </div>
+                </div>
+                <div class="one wide column">
+                    <div class="ui positive button" data-event-click="applyShape">Apply</div>
                     <div class="ui positive button" data-event-click="addClick">Add</div>
-                    <div class="ui positive button" data-event-click="applyShape">Apply shape</div>
-                </section>
-
-            </div>
-        </section>
-
-        <section class="row">
-            <div class="column">
-                <table border="1" data-view="row" id="rowview" vocab="http://open-services.net/ns/core#">
-                    <h1>TEST TABLE</h1>
-                    <tr data-view="headers">
-                        <td data-template="true">
-                            <label data-bind="key">key</label>
-                            <label data-bind="value">value</label>
-                        </td>
-                    </tr>
-                    <tr data-template="true" id="rowTemplate">
-                        <td data="value">Hello</td>
-                    </tr>
-                </table>
+                </div>
             </div>
 
-        </section>
 
-
-
-
-
-
+        </div>
     </div>
+
+
 
 
 </article>

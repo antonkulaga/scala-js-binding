@@ -37,7 +37,7 @@ trait RemoteLoadView extends RemoteModelView {
 
   override def bindView(el:HTMLElement)
   {
-    storage.read(shapeRes)(resource).onComplete{
+    storage.read(shapeRes.now)(resource).onComplete{
       case Success(model) if model.size==0=>
         dom.console.log(s"empty model received from $path")
         super.bindView(el)

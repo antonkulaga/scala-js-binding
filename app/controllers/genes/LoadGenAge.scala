@@ -76,12 +76,21 @@ trait LoadGenAge extends GeneSchema{
   }
 
 
+  /**
+   * Adds prefixes
+   * @param str
+   * @return
+   */
+  protected def resolve(str:String): String = prefixes.collectFirst{
+    case (key,value) if str.startsWith(key+":")=>str.replace(key+":",value)
+  }.getOrElse(str)
 
-
-  def str2RDFValue(string:String,base:Option[IRI] = None):RDFValue = if(string.contains("_:"))
-    BlankNode(string) else if(string.contains(":")) IRI(string) else base.fold[RDFValue](StringLiteral(string))(b=>b / string)
-
-
+  def str2RDFValue(string:String,base:Option[IRI] = None):RDFValue = resolve(string) match
+  {
+    case str if str.contains("_:") => BlankNode(string.replace(" ","_"))
+    case str if str.contains(":") =>  IRI(this.resolve(string.replace(" ","_")))
+    case other=> base.fold[RDFValue](StringLiteral(string))(b=>b / string.replace(" ","_"))
+  }
   /**
    * Note: buggy way to parse literal
    * @param property
@@ -109,7 +118,10 @@ trait LoadGenAge extends GeneSchema{
         if(string.startsWith(stem.stringValue)) IRI(string.replace(" ","_")) else stem / string.replace(" ","_")
 
       case ValueType(t) => t match {
-        case RDFS.RESOURCE => str2RDFValue(string,base)
+
+        case RDFS.RESOURCE =>
+          str2RDFValue(string,base)
+
         case XSD.IntDatatypeIRI | XSD.IntegerDatatypeIRI =>
           Try(IntLiteral(string.toInt))
             .recover{case result=> play.Logger.info(s"error in parsing Int of $string") ; StringLiteral(string)}.get:RDFValue
@@ -119,16 +131,17 @@ trait LoadGenAge extends GeneSchema{
             .recover{case result=> play.Logger.info(s"error in parsing Double of $string") ; StringLiteral(string)}.get:RDFValue
 
         case XSD.Date =>
-          formats.collectFirst{
-            case format if Try(format.parse(string)).isSuccess=>
-              val d: Date = format.parse(string)
-              //play.api.Logger.info(d.toString)
-              new DateLiteral(d)
-          }.getOrElse(StringLiteral(string))
+          DateTimeFormats.parseDate(string).map{
+            case dt=>
+              DateLiteral(dt)
+          }.getOrElse{
+            play.api.Logger.error("cannot parse following date: "+string)
+            StringLiteral(string)
+          }
 
         case XSD.StringDatatypeIRI=>StringLiteral(string):RDFValue
 
-        case other if !other.isInstanceOf[ValueSet] => StringLiteral(string):RDFValue
+        case other if !other.isInstanceOf[ValueSet] => str2RDFValue(string)
 
       }
     }
@@ -146,23 +159,22 @@ trait LoadGenAge extends GeneSchema{
   }
 
 
-  protected def testGenesTable(table:String):List[PropertyModel] = {
+  protected def testGenesTable(table:String, sep:Char='|'):List[PropertyModel] = {
     val csv = readTSV(table)
     val f = csv.toFrame
-    val entrez = Cols(entrezId.stringValue).as[String]
-    val fr:Frame[String,String]= f.mapColKeys[String]{  case col=>  annotationPairs(col).stringValue  }.reindex(entrez)
+    val ent = Cols(entrezId.stringValue).as[String]
+    val fr:Frame[String,String]= f.mapColKeys[String]{  case col=>  annotationPairs(col).stringValue  }.reindex(ent)
     val colKeys = filterKeys(fr.colKeys,this.evidenceShape)
-    fr.rowKeys.map{   case r=>
-      val values =  (for{
+    fr.rowKeys.map{
+      case r=>
+      val values: Map[IRI, Set[RDFValue]] =  (for{
           c <- colKeys
           cell = fr[String](r,c)
           if cell.isValue
-          col = IRI(c.replace(" ","_"))
-        } yield (col ,
-          parse(col,cell.get,Some(gero))(evidenceShape).get
-          )
-        ).toSeq
-      PropertyModel(gero / r,values:_*)
+          col = IRI(this.resolve(c.replace(" ","_")))
+        } yield col->cell.get.split(sep).map(c=>parse(col,c,Some(gero))(evidenceShape).get ).toSet
+        ).toMap
+    PropertyModel(entrez / r,values)
     }.toList
   }
 

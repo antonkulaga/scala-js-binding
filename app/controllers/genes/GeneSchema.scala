@@ -1,17 +1,13 @@
 package controllers.genes
 
-import java.util.Date
-import javafx.scene.layout.Priority
-
-import controllers.endpoints.{Items, ItemsMock}
+import controllers.endpoints.ItemsMock
 import org.scalax.semweb.rdf._
-import org.scalax.semweb.rdf.vocabulary.{RDFS, RDF, XSD}
-import org.scalax.semweb.shex
+import org.scalax.semweb.rdf.vocabulary.{RDF, RDFS, WI, XSD}
 import org.scalax.semweb.shex._
 
 trait GeneSchema extends ItemsMock{
 
-  val entrez = IRI("http://www.ncbi.nlm.nih.gov/gene/?term=")
+  val entrez = IRI("http://ncbi.nlm.nih.gov/gene/")
 
   lazy val gero = IRI("http://gero.longevityalliance.org/")
 
@@ -53,6 +49,19 @@ trait GeneSchema extends ItemsMock{
 
   import org.scalax.semweb.sesame._
   val cls = Ontology.classes.map(cl=>cl:IRI).toSeq
+
+  val prefixes: Seq[(String, String)] =       Seq("rdf"->RDF.namespace,
+  "rdfs"->RDFS.namespace,
+  "xsd"->XSD.namespace,
+  "owl"->vocabulary.OWL.namespace,
+  "dc"->vocabulary.DCElements.namespace,
+  "pl"->(WI.PLATFORM.namespace+"/"),
+  "shex"-> org.scalax.semweb.shex.rs.stringValue,
+  "def"->org.scalax.semweb.shex.se.stringValue,
+  "pmid"->"http://ncbi.nlm.nih.gov/pubmed/",
+  "gero"->gero.stringValue,
+  "entrez"->entrez.stringValue
+  )
 
   import Codes._
   evidenceForm has entrezId isCalled "ENTREZID" startsWith entrez occurs ExactlyOne hasPriority 1

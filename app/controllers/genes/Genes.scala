@@ -44,7 +44,7 @@ object Genes extends PJaxPlatformWith("literature") with LoadGenAge{
 
 
   def reports() = UserAction{implicit request=>
-    this.pj(views.html.genes.evidence(request))
+    this.pj(views.html.genes.datagrid()(request))
   }
 
 
@@ -62,28 +62,20 @@ object Genes extends PJaxPlatformWith("literature") with LoadGenAge{
         obj <-values
       } yield Trip(id,prop,obj)).toSet
 
-
-      Ok(this.writeTurtle(trips))
+      Ok(this.writeTurtle(trips,this.prefixes))
 
     //    Ok(trips.toString)
   }
 
-  def writeTurtle[T<:BasicTriplet](trips:Set[T]): String = {
-    import org.scalax.semweb.shex
-    import org.scalax.semweb.rdf.vocabulary
+  /**
+   * Writes turtle to string
+   * @param trips
+   * @param prefs
+   * @tparam T
+   * @return
+   */
+  def writeTurtle[T<:BasicTriplet](trips:Set[T],prefs:Seq[(String,String)]): String =  TurtleMaster.write(trips,prefs:_*).get
 
-
-    TurtleMaster.complexWrite(trips,
-      "rdf"->RDF.namespace,
-      "rdfs"->RDFS.namespace,
-      "xsd"->XSD.namespace,
-      "owl"->vocabulary.OWL.namespace,
-      "dc"->vocabulary.DCElements.namespace,
-      "pl"->(WI.PLATFORM.namespace+"/"),
-      "shex"-> shex.rs.stringValue,
-      "def"->shex.se.stringValue,
-      "gero"->gero.stringValue)
-  }
 
 
   def ontology() = UserAction {
@@ -95,37 +87,16 @@ object Genes extends PJaxPlatformWith("literature") with LoadGenAge{
 
       val sts = statements.map(st=>Trip(st.getSubject,st.getPredicate,st.getObject))
       val facts:Set[Trip] = Set(sts:_*)
+
         //.map(st:Statement=>Trip(st.getSubject,st.getPredicate,st.getObject))
-      Ok(this.writeTurtle[Trip](facts))
+      Ok(this.writeTurtle[Trip](facts,this.prefixes))
 
   }
-
-
-   def genesTable() = UserAction{implicit request=>
-    val fileName = "resources/annotations.tsv"
-    val table = readFrom(fileName)(request)
-
-    val csv = readTSV(table)
-    val f = csv.toFrame
-    val entrez = Cols(entrezId.stringValue).as[String]
-    val fr:Frame[String,String]= f.mapColKeys[String]{  case col=>  annotationPairs(col).stringValue  }.reindex(entrez)
-    val colKeys = filterKeys(fr.colKeys,this.evidenceShape)
-     val y = fr.rowKeys.map{   case r=>
-       for{
-         c <- colKeys
-         cell = fr[String](r,c)
-         if cell.isValue
-         col = IRI(c.replace(" ","_"))
-       } yield cell.get
-     }.flatten
-    Ok(y.toString).as("text/plain")
-  }
-
 
 
   def testSchemaWriting() = UserAction {
     val quads: Set[Quad] = this.evidenceShape.asQuads(IRI("http://denigma.org/resource/"))
-    val str = this.writeTurtle(quads)//TurtleMaster.simpleWrite(quads)
+    val str = this.writeTurtle(quads,this.prefixes)//TurtleMaster.simpleWrite(quads)
     Ok(str)
   }
 

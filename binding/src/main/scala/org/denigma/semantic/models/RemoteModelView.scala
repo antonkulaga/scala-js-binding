@@ -27,8 +27,6 @@ object RemoteModelView
 abstract class RemoteModelView extends ModelView   with WithShapeView
 {
 
-  lazy val shape  =  shapeOption.getOrElse(  Var(ShapeInside(Shape.empty))    )
-
   override val model = this.modelOption.orElse{
       this.resolveKeyOption("resource"){
         case res:Res=>Var(ModelInside(PropertyModel(res)))
@@ -48,7 +46,7 @@ abstract class RemoteModelView extends ModelView   with WithShapeView
       dom.console.log("trying to save unchanged model")
     }
     else {
-      storage.update(this.shapeRes,overWrite = true)(model.now.current).onComplete{
+      storage.update(this.shapeRes.now,overWrite = true)(model.now.current).onComplete{
         case Failure(th)=>
           dom.console.error(s"failure in saving of movel with channel $storage.channel: \n ${th.getMessage} ")
         case Success(bool)=>
@@ -61,10 +59,10 @@ abstract class RemoteModelView extends ModelView   with WithShapeView
   }
 
 
-  def suggest(key: IRI, str: String): Future[List[RDFValue]] =  this.shape.now.current match {
-    case Shape.empty=> storage.suggest(this.shapeRes, this.model.now.current.id, key, str).map(r => r.options)
+  def suggest(key: IRI, str: String): Future[List[RDFValue]] =  this.shapeInside.now.current match {
+    case Shape.empty=> storage.suggest(this.shapeRes.now, this.model.now.current.id, key, str).map(r => r.options)
 
-    case Shape(shapeId,andRule) if andRule == AndRule.empty=>  storage.suggest(this.shapeRes, this.model.now.current.id, key, str).map(r => r.options)
+    case Shape(shapeId,andRule) if andRule == AndRule.empty=>  storage.suggest(this.shapeRes.now, this.model.now.current.id, key, str).map(r => r.options)
 
     case sh=> this.suggest(sh)(key, str)
 

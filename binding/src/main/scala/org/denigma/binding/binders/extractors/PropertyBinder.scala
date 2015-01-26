@@ -43,7 +43,7 @@ trait PropertyBinder {
    * @param binder  binding view where we search for property, this by default
    * @return
    */
-  def bindProperty(el:HTMLElement,key:String,att:String): Boolean = (key.toString, el.tagName.toLowerCase()) match
+  def bindProperty(el:HTMLElement,key:String,att:String): Boolean = (key.toString, el.tagName.toLowerCase) match
   {
     case ("bind","input")=>
       el.attributes.get("type").map(_.value.toString) match {

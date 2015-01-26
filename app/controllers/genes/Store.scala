@@ -1,6 +1,6 @@
 package controllers.genes
 
-import java.io.ByteArrayOutputStream
+import java.io.{StringWriter, ByteArrayOutputStream}
 
 import org.scalax.semweb.rdf.BasicTriplet
 import org.scalax.semweb.sesame._
@@ -21,7 +21,7 @@ abstract class Store[Rdf <: RDF, M[+_] , Sin, Sout](implicit
                                                     val writerSyn: Syntax[Sout]
                                                      )
 {
-  def write[T <:BasicTriplet](trips: Set[T]): Try[String]
+  def write[T <:BasicTriplet](trips: Set[T],namespaces:(String,String)*): Try[String]
 
 
   def simpleWrite[T <:BasicTriplet](trips: Set[T]) = this.write(trips) match {
@@ -29,14 +29,14 @@ abstract class Store[Rdf <: RDF, M[+_] , Sin, Sout](implicit
     case Failure(th)=> th.toString
   }
 }
-object TurtleMaster extends TurtleStore
-class TurtleStore extends Store[Sesame,Try,Turtle,Turtle]
-{
+object TurtleMaster extends Store[Sesame,Try,Turtle,Turtle] with TurtleStore
+trait TurtleStore{
+  self:Store[Sesame,Try,Turtle,Turtle]=>
 
-  def complexWrite[T<:BasicTriplet](trips:Set[T],namespaces:(String,String)*): String = {
+/*  def complexWrite[T<:BasicTriplet](trips:Set[T],namespaces:(String,String)*): String = {
     import org.openrdf.rio.turtle._
 
-    val stream = new ByteArrayOutputStream()
+    /*val stream = new ByteArrayOutputStream()
     val wr = new TurtleWriter(stream)
     wr.startRDF()
     for((pr,n)<-namespaces) wr.handleNamespace(pr,n)
@@ -46,17 +46,19 @@ class TurtleStore extends Store[Sesame,Try,Turtle,Turtle]
       if(as==bs) aps>bps  else  as > bs
     }).foreach(st=>wr.handleStatement(this.ops.makeTriple(st.sub,st.pred,st.obj)))
     wr.endRDF()
-    stream.toString
+    stream.toString*/
 
-  }
+  }*/
 
 
 
-  override def write[T <:BasicTriplet](trips: Set[T]): Try[String] = {
+  override def write[T <:BasicTriplet](trips: Set[T],namespaces:(String,String)*): Try[String] = {
     import ops._
-
     val triplets = for{t <- trips}  yield Triple(t.sub,  t.pred,  t.obj)
     val g = Graph(triplets)
+    val str = new StringWriter()
+    for(n<-namespaces)g.setNamespace(n._1,n._2)
+    //writer.write(g,str,"http://longevityalliance.org/resource/")
     writer.asString(g,"http://longevityalliance.org/resource/")
   }
 
@@ -184,17 +186,7 @@ abstract class OntologyClasses[Rdf <: RDF, M[+_] , Sin, Sout](implicit
     g
   }
 }
-object Ontology extends OntologyClasses[Sesame,Try,Turtle,Turtle] {
+object Ontology extends OntologyClasses[Sesame,Try,Turtle,Turtle] with TurtleStore {
 
-
-
-
-  override def write[T <:BasicTriplet](trips: Set[T]): Try[String] = {
-    import ops._
-
-    val triplets = for{t <- trips}  yield Triple(t.sub,  t.pred,  t.obj)
-    val g = Graph(triplets)
-    writer.asString(g,"http://gero.longevityalliance.org/resource/")
-  }
 
 }

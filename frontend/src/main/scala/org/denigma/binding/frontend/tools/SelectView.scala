@@ -7,6 +7,7 @@ import org.scalajs.dom.HTMLElement
 import org.scalajs.jquery.jQuery
 import org.scalajs.selectize.Selectize
 import org.scalax.semweb.rdf.IRI
+import rx.core.Var
 
 import scala.scalajs.js
 import scala.scalajs.js.{GlobalScope => g}
@@ -16,6 +17,7 @@ class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Str
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
+  val columns = Var("ui page grid")
 
 
   val spec= IRI("http://en.wikipedia.org/wiki/Spectrometers" )

@@ -1,4 +1,5 @@
-package org.denigma.binding.frontend.genes
+package org.denigma.binding.frontend.datagrids
+
 
 import org.denigma.binding.binders.{NavigationBinding, GeneralBinder, BasicBinding}
 import org.denigma.binding.binders.extractors.EventBinding
@@ -22,16 +23,16 @@ import scala.concurrent.Future
 import scala.util.{Failure, Success}
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
-class Proofs( elem:HTMLElement, params:Map[String,Any])  extends ExplorableCollection("Proof",elem,params)
+class DataGrid( elem:HTMLElement, params:Map[String,Any])  extends ExplorableCollection("DataGrid",elem,params)
 {
 
   val saveAll= Var(EventBinding.createMouseEvent())
 
   saveAll.takeIf(isDirty).handler{
 
-    dom.console.log("SAVE DOES WORK")
+    //dom.console.log("SAVE DOES WORK")
 
-    this.crudStorage.update(this.shapeRes,overWrite = true)(this.dirty.now.map(m=>m.now.current):_*).onComplete{
+    this.crudStorage.update(this.shapeRes.now,overWrite = true)(this.dirty.now.map(m=>m.now.current):_*).onComplete{
       case Failure(th)=>
         dom.console.error(s"failure in saving of movel with channel ${crudStorage.channel}: \n ${th.getMessage} ")
       case Success(bool)=>
@@ -39,7 +40,7 @@ class Proofs( elem:HTMLElement, params:Map[String,Any])  extends ExplorableColle
         if(bool) for{ms <-this.dirty.now}  ms() = ms.now.refresh else dom.console.log(s"All changed models cannot be savedthe model was not saved")
 
 
-  }}
+    }}
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
@@ -50,12 +51,12 @@ class Proofs( elem:HTMLElement, params:Map[String,Any])  extends ExplorableColle
 
   override def loadData(explore:ExploreMessages.Explore) = {
 
-   val models:Future[ExploreMessages.Exploration] = exploreStorage.explore(explore)
+    val models:Future[ExploreMessages.Exploration] = exploreStorage.explore(explore)
 
     models.onComplete {
       case Success(data) =>
 
-        this.shape() = this.shape.now.copy(current = data.shape)
+        this.shapeInside() = this.shapeInside.now.copy(current = data.shape)
         val mod: scala.List[PropertyModel] = data.models
         items match {
           case its:Var[List[Var[ModelInside]]]=>
@@ -68,12 +69,20 @@ class Proofs( elem:HTMLElement, params:Map[String,Any])  extends ExplorableColle
     }
   }
 
+  lazy val add = Var(EventBinding.createMouseEvent())
+
+  add.handler{
+    dom.console.log("ADD CLICK WORKS!")
+    //val element = Var(ModelInside())
+    //this.addItem(Var())
+  }
+
 }
 
 
-class Evidence( elem:HTMLElement, params:Map[String,Any]) extends ShapedModelView(elem,params){
+class GridRow( elem:HTMLElement, params:Map[String,Any]) extends ShapedModelView(elem,params){
 
-  override def name:String = "evidence"
+  override def name:String = "grid_row"
 
   override def activateMacro(): Unit = extractors.foreach(_.extractEverything(this))
 
@@ -94,7 +103,7 @@ class Evidence( elem:HTMLElement, params:Map[String,Any]) extends ShapedModelVie
 
 }
 
-class EvidenceProperty(val elem:HTMLElement, val params:Map[String,Any]) extends PropertyView {
+class GridCell(val elem:HTMLElement, val params:Map[String,Any]) extends PropertyView {
 
   override protected def attachBinders(): Unit = binders = PropertyView.selectableBinders(this)
 

@@ -13,12 +13,11 @@ GET           /papers/                   controllers.literature.Literature.repor
 
 GET           /test/macroses             controllers.Test.macroses()
 GET           /test/genes                controllers.genes.Genes.testGenes()
-GET           /test/genetable            controllers.genes.Genes.genesTable()
+#GET           /test/genetable            controllers.genes.Genes.genesTable()
 GET           /test/shape                controllers.genes.Genes.testSchemaWriting()
-GET           /test/ontology                controllers.genes.Genes.ontology()
+GET           /test/ontology             controllers.genes.Genes.ontology()
 
 
-GET           /genes/                    controllers.genes.Genes.reports()
 GET           /genes                     controllers.genes.Genes.reports()
 
 
@@ -29,6 +28,7 @@ POST          /papers/shapes             controllers.endpoints.MainEndpoint.shap
 
 POST          /models/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
 POST          /models/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
+POST          /models/crud               controllers.endpoints.MainEndpoint.shapeEndpoint()
 
 GET           /menu/top                  controllers.TopMenu.all()
 PUT           /menu/top/add              controllers.TopMenu.add()

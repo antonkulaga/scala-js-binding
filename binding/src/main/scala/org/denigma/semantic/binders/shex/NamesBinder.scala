@@ -1,6 +1,6 @@
 package org.denigma.semantic.binders.shex
 
-import org.denigma.semantic.binders.SelectOption
+import org.denigma.semantic.binders.{SemanticSelector, SelectOption}
 import org.denigma.semantic.shapes.ArcView
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
@@ -16,7 +16,7 @@ import scala.util.{Failure, Success}
 class NamesBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[RDFValue]]) extends ArcBinder(view,arc){
 
 
-  var names = Map.empty[HTMLElement,NameTermSelector]
+  var names = Map.empty[HTMLElement,NameClassSelector]
 
   def nameTypeHandler(el: HTMLElement)(str:String) =
   //this.storage.read()
@@ -40,15 +40,13 @@ class NamesBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[R
     case "data" if value=="name" =>
       this.bindVar("name", el: HTMLElement, this.arc) { (e,a)=>
         val sel = this.names.getOrElse(el, {
-          val s = new NameTermSelector(el,a,nameTypeHandler(el) )
+          val s = new NameClassSelector(el,a,nameTypeHandler(el) )
           names = names+ (el -> s)
           s
         })
         sel.fillValues(arc)
 
       }
-
-    case "data" if value=="value"=>
 
   }
 }
@@ -68,13 +66,13 @@ import scala.scalajs.js
  * @param arc
  * @param typeHandler
  */
-class NameTermSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)=>Unit) extends ArcSelector(arc) {
-
+class NameClassSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)=>Unit) extends ArcSelector(arc)
+  with SemanticSelector
+{
 
   type Value = IRI
 
   type Element = NameClass
-
 
 
   def valueIntoElement(value:String):Element = this.value2NameClass(value)
@@ -106,7 +104,7 @@ class NameTermSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)
   }
 
   protected def value2NameClass(value:String): NameTerm = value match {
-    case value if value.contains(":") => NameTerm(IRI(value))
+    case v if v.contains(":") => NameTerm(IRI(value))
     case _ => dom.console.error("strange value for the name term") ; ???
   }
 

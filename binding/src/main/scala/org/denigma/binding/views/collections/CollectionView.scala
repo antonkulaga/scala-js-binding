@@ -153,7 +153,7 @@ trait CollectionView extends BindableView{
   /**
    * Function to create Item. Often used for default item creation
    * @param item item that will be added
-   * @param construct
+   * @param construct function that does construction
    * @return
    */
   def constructItem(item:Item,mp:Map[String,Any] = Map.empty)
@@ -177,7 +177,7 @@ trait CollectionView extends BindableView{
     view
   }
 
-  def newItem(mp:Item):ItemView
+  def newItem(item:Item):ItemView
 
   var itemViews = Map.empty[Item,ItemView]
 
@@ -198,7 +198,7 @@ trait CollectionView extends BindableView{
       this.removeViewByName(rv.id)
       this.itemViews = itemViews - r
     case None=>
-      dom.console.error("cantot find the view for item: "+r.toString+" in map "+this.itemViews.toString())
+      dom.console.error("cantot find the view for item: "+r.toString+" in item view "+this.itemViews.toString+"\n")
 
   }
 

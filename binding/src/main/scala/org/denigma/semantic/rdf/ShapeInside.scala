@@ -15,5 +15,6 @@ case class ShapeInside(initial:Shape,current:Shape,wantsToDie:Boolean = false) e
   def updateArc(arc:ArcRule) = {
     current.arcRules()
   }
+
 }
 
