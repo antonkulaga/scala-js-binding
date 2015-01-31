@@ -1,65 +1,75 @@
 package org.denigma.binding
 
-
+import org.denigma.endpoints.UserAction
+import org.openqa.selenium.By.ById
+import org.openqa.selenium.WebDriver
+import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
-import org.specs2.mutable.Specification
+import play.api.GlobalSettings
+import play.api.mvc.{Handler, _}
+import play.api.test.{FakeApplication, PlaySpecification, WithServer}
+import play.twirl.api.Html
 import com.markatta.scalenium._
-import org.openqa.selenium.htmlunit.HtmlUnitDriver
-import org.specs2.specification.AfterExample
+import JqueryStyle._
 
 
 
-class GeneralBindingSpec extends Specification {
+class GeneralBindingSpec extends PlaySpecification with Controller
+{
+self=>
 
-  var httpServer: Option[HttpTestServer] = None
+  implicit var browser:Browser = null
 
-  step {
-    httpServer = Some(new HttpTestServer(8080, "/test", someSimpleHtml))
+  step{
+    browser = new Browser(new ChromeDriver())
   }
 
-  import Specs2Integration.specs2FailureHandler
+  val routes : PartialFunction[(String,String), Handler] = {
 
-  "markup search" should {
+      case ("GET", "/general") => UserAction{implicit request =>
+          val html:Html = twirl.html.general(request)
+          Ok(twirl.html.test(html)(request))
+        }
 
-    "find elements from css selector" in {
-      withBrowser { browser =>
-        browser.find("h1") should haveSize(1)
-        browser.find("ul") should haveSize(1)
-        browser.find("li") should haveSize(2)
-        browser.find("li") should haveSize(2)
-        browser.all("li") should haveSize(2)
-        browser.select("li") should haveSize(2)
-        browser.first("li") should beSome
-      }
+        case ("GET", "/collection") => UserAction{implicit request =>
+          val html:Html = twirl.html.collection(request)
+          Ok(twirl.html.test(html)(request))
+        }
+
+   // case other =>Action{implicit request=> BadRequest(s"test router does not have ${other._2}")}
+  }
+
+  object TestGlobal extends GlobalSettings{
+    override def onRouteRequest(request: RequestHeader): Option[Handler] = {
+      if(routes.isDefinedAt((request.method,request.path)))
+        Some(routes(request.method->request.path))
+      else
+        super.onRouteRequest(request)
     }
-
-    "handle missing elements gracefully" in {
-      withBrowser { browser =>
-        browser.find("a") should beEmpty
-        browser.first("a") should beNone
-      }
-    }
   }
 
-  def withBrowser[T](testBlock: Browser => T): T = {
-    val browser = new Browser(new FirefoxDriver())
-    browser.goTo("http://localhost:8080/test")
-    testBlock(browser)
+  val testPort = 3333
+
+  "test general binding" in new WithServer(app = FakeApplication(withGlobal = Some(TestGlobal))
+    , port = testPort) {
+
+    browser.goTo(s"http://localhost:$testPort/general")
+    val div = browser.first(s"#div1")
+    val input = browser.first(s"#input1")
+    val basic = "string1works!"
+    browser.waitAtMost(10).secondsFor{
+      div.forall{  case d=>d.text ==basic}      &&
+      input.forall{  case i=>i.value == basic}
+    }.toBecomeTrue
+    val additional = "this string is changing"
+    browser.waitAtMost(5).secondsFor{
+      browser.driver.findElement(new ById("input1")).sendKeys(additional)
+      div.forall{  case d=>d.text ==basic + additional} &&       input.forall{  case i=>i.value == basic+additional}
+    }.toBecomeTrue
   }
 
-  step {
-    httpServer.foreach(_.stop())
-  }
 
-  def someSimpleHtml =
-    """
-      |<html><head><title>the page</title></head>
-      |<body>
-      |  <h1>The header</h1>
-      |  <ul>
-      |   <li id="firstLi">first</li>
-      |   <li>second</li>
-      |  </ul>
-      |</body>
-    """.stripMargin
+  step{
+    browser.close()
+  }
 }

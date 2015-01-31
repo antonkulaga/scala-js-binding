@@ -2,6 +2,7 @@ import com.typesafe.sbt.digest.Import._
 import com.typesafe.sbt.gzip.Import._
 import com.typesafe.sbt.web.Import._
 import com.typesafe.sbt.web.SbtWeb
+import play.twirl.sbt.Import.TwirlKeys
 
 import sbt.Keys._
 import sbt._
@@ -28,11 +29,11 @@ object Versions {
 
   val semWebVersion =  "0.6.18"
 
-  val bindingVersion = "0.7"//+snap
+  val bindingVersion = "0.7.1"//+snap
 
-  val mainVersion = "0.7" //lowest version of whole stack
+  val mainVersion = "0.7.1" //lowest version of whole stack
 
-  val bindingPlayVersion = "0.7"//+snap
+  val bindingPlayVersion = "0.7.1"//+snap
 
   val jsmacroVersion = "0.1.6"
 }
@@ -168,11 +169,13 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
       compile in Compile <<= (compile in Compile) dependsOn (fastOptJS in (frontend, Compile)),
 
+      compile in Test <<= (compile in Test) dependsOn (fastOptJS in (frontend, Test)),
+
       dist <<= dist dependsOn (fullOptJS in (frontend, Compile)),
 
       stage <<= stage dependsOn (fullOptJS in (frontend, Compile)),
 
-      //test in Test <<= (test in Test) dependsOn (test in (binding, Test)),
+      TwirlKeys.templateImports += "org.denigma.endpoints._",
 
       watchSources <++= (sourceDirectory in (frontend, Compile)).map { path => (path ** "*.scala").get}
 
@@ -231,6 +234,8 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     resolvers +=  Resolver.url("scala-js-releases",
       url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
         Resolver.ivyStylePatterns),
+
+    requiresDOM := true,
 
     scalacOptions ++= Seq( "-feature", "-language:_" ),
 

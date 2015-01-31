@@ -24,6 +24,9 @@ object Dependencies
   val shared = Def.setting(Seq())
 
   val preview = Def.setting(shared.value ++ Seq(
+
+    "org.scala-lang.modules" %% "scala-async" % "0.9.2",
+
     "org.webjars" %% "webjars-play" % "2.3.0-2",
 
     "org.webjars" % "jquery" % "2.1.1",
@@ -52,7 +55,7 @@ object Dependencies
 
     "com.pellucid" %% "framian" % "0.3.3",
 
-    "com.markatta" %% "scalenium" % scaleniumVersion % "test"
+    "com.markatta" %% "scalenium" % scaleniumVersion % "test"  excludeAll ExclusionRule(organization = "org.specs2")
 
   ))
   val macro_js = Def.setting(shared.value++Seq(

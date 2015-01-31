@@ -1,18 +1,16 @@
 @()(implicit request: UserRequestHeader)
-@import org.denigma.binding.play.UserRequestHeader
 
 
 <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
 
 <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
 
-@*
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("semantic.js"))'></script>
-<link rel="stylesheet" href='@routes.WebJarAssets.at(WebJarAssets.locate("semantic.css"))' type="text/css">
-*@
 
-<script type="text/javascript" src="@routes.Assets.at("semantic/semantic.min.js")"></script>
-<link rel="stylesheet" href="@routes.Assets.at("semantic/semantic.min.css")" type="text/css">
+<link rel="stylesheet" href='@routes.WebJarAssets.at(WebJarAssets.locate("semantic.css"))' type="text/css">
+<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("semantic.js"))'></script>
+
+@*<script type="text/javascript" src="@routes.Assets.at("semantic/semantic.min.js")"></script>
+<link rel="stylesheet" href="@routes.Assets.at("semantic/semantic.min.css")" type="text/css">*@
 
 
 <script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("codemirror.js"))'></script>

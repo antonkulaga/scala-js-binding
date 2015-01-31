@@ -4,13 +4,13 @@ import java.io.{InputStreamReader, File}
 
 import controllers.genes.{LoadGenAge, routes}
 import framian.csv.{Csv, LabeledCsv}
+import org.denigma.endpoints.UserAction
 import org.scalajs.spickling.playjson._
 import play.api.Play
 import play.api.mvc.{RequestHeader, Controller}
 import org.scalax.semweb.shex.PropertyModel
 import org.scalax.semweb.rdf.{StringLiteral, IRI}
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.play.UserAction
 import play.twirl.api.Html
 import play.api.Play.current
 import scala.io.Source

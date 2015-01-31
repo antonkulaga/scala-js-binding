@@ -5,7 +5,7 @@ import controllers.endpoints.Items
 import org.denigma.binding.messages.Suggestion
 import org.denigma.binding.messages.ModelMessages._
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.play.{AjaxModelEndpoint, AuthRequest, PickleController, UserAction}
+import org.denigma.endpoints.{AjaxModelEndpoint, AuthRequest, UserAction, PickleController}
 import org.scalajs.spickling.playjson._
 import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.shex.PropertyModel

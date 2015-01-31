@@ -1,7 +1,7 @@
 package controllers.endpoints
 
 import controllers.PJaxPlatformWith
-import org.denigma.binding.play.UserAction
+import org.denigma.endpoints.UserAction
 import org.scalax.semweb.rdf.{IRI, Res}
 import org.scalax.semweb.sparql._
 import play.twirl.api.Html

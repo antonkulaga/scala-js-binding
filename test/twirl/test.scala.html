@@ -1,0 +1,13 @@
+@(html:Html)(implicit request:UserRequestHeader)
+<html>
+    <head>
+        @include(request)
+        @runner(request)
+
+    </head>
+    <body>
+    @html
+
+    </body>
+
+</html>

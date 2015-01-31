@@ -121,7 +121,7 @@ class OccursSelector(val el:HTMLElement,arc:Var[ArcRule]) extends ArcSelector(ar
     val ss= this.selectizeFrom(el)
     ss.clear()
     val value = this.elementIntoValue(arc.now.occurs)
-    dom.console.info("value = "+value)
+    //dom.console.info("value = "+value)
     ss.addOption(this.makeOption(value))
     ss.addItem(value)
     this

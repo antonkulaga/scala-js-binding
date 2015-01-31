@@ -1,7 +1,7 @@
 package controllers.literature
 
 import controllers.PJaxPlatformWith
-import org.denigma.binding.play.UserAction
+import org.denigma.endpoints.UserAction
 
 /**
  * Literature controller

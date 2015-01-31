@@ -1,4 +1,4 @@
-package org.denigma.binding.play
+package org.denigma.endpoints
 
 import org.denigma.binding.messages.ShapeMessages
 import org.denigma.binding.messages.ShapeMessages.ShapeMessage

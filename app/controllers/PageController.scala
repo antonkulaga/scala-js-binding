@@ -2,6 +2,7 @@ package controllers
 
 import org.denigma.binding.messages.ModelMessages
 import org.denigma.binding.messages.ModelMessages.ReadMessage
+import org.denigma.endpoints.{PickleController, AjaxModelEndpoint, AuthRequest, UserAction}
 import play.api.mvc.{Request, Result, Controller}
 import org.scalax.semweb.shex.PropertyModel
 import org.scalax.semweb.rdf._
@@ -15,7 +16,6 @@ import play.api.libs.json.Json
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import org.scalajs.spickling.playjson._
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.play.{AjaxModelEndpoint, PickleController, AuthRequest, UserAction}
 import play.api.http
 import org.scalax.semweb.shex._
 

@@ -1,4 +1,4 @@
-package org.denigma.binding.play
+package org.denigma.endpoints
 
 import play.api.mvc._
 import play.api.libs.json.JsValue

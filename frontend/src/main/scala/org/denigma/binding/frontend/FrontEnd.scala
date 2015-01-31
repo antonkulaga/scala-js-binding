@@ -2,7 +2,7 @@ package org.denigma.binding.frontend
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
-import org.denigma.binding.frontend.controls.{ShapeEditor, EditableShape, EditableShape$, ShapeProperty}
+import org.denigma.binding.frontend.controls.{ShapeEditor, EditableShape, ShapeProperty}
 import org.denigma.binding.frontend.datagrids.{DataGrid, GridCell, GridRow}
 import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksView}
 import org.denigma.binding.frontend.slides._

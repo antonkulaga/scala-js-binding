@@ -1,4 +1,4 @@
-package org.denigma.binding.play
+package org.denigma.endpoints
 
 import org.denigma.binding.messages._
 import play.api.mvc.{Controller, Request}

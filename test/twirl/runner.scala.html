@@ -1,7 +1,5 @@
-@(implicit request: UserRequestHeader, into:String = "main",leftSidebar:Boolean = true)
-
-
-
+@(request:UserRequestHeader)
+<script src="@routes.Assets.at("javascripts/frontend-test-fastopt.js")" type="text/javascript"></script>
 <script>
 $( document ).ready(function() {
 // Handler for .ready() called.
@@ -10,9 +8,6 @@ session = {}
         session.user = "@Html(s"${request.username.get.stringValue}")";
     }
 
-FrontEnd().main();
-    @if(leftSidebar) {
-    FrontEnd ( ).showLeftSidebar ( )
-    }
+FrontEndSpec().main();
 });
 </script>

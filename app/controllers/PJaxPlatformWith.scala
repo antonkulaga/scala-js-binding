@@ -1,10 +1,10 @@
 package controllers
 
+import org.denigma.endpoints.{UserRequestHeader, UserAction}
 import play.api.mvc._
 
 import play.api.libs.json.Json
 import play.twirl.api.Html
-import org.denigma.binding.play.{AuthRequest, UserAction, UserRequestHeader}
 
 /**
  * Just a class for P-Jax

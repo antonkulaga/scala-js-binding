@@ -1,6 +1,7 @@
 package controllers
 
 import org.denigma.binding.models._
+import org.denigma.endpoints.ItemsController
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.mvc._
 import org.scalax.semweb.rdf.{Res, IRI}
@@ -12,7 +13,6 @@ import org.scalajs.spickling.PicklerRegistry
 import org.denigma.binding.models._
 
 import org.scalax.semweb.rdf.IRI
-import org.denigma.binding.play.ItemsController
 
 
 object TopMenu  extends Controller  with ItemsController{

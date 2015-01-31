@@ -6,7 +6,7 @@ import java.util.Date
 import org.denigma.binding.messages.ShapeMessages.{ShapeMessage, GetShapes}
 import org.denigma.binding.messages.{ShapeMessages, Suggestion}
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.play._
+import org.denigma.endpoints.{PickleController, AjaxShapeEndpoint, AuthRequest, UserAction}
 import org.scalajs.spickling.playjson._
 import org.scalax.semweb.rdf.IRI
 import play.api.libs.json.Json

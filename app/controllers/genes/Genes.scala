@@ -1,7 +1,7 @@
 package controllers.genes
 
 import framian.csv.{Csv, LabeledCsv}
-import org.denigma.binding.play.UserAction
+import org.denigma.endpoints.{UserRequestHeader, UserAction}
 import org.openrdf.model.Statement
 import org.scalax.semweb.shex._
 import play.api.Play
@@ -19,7 +19,6 @@ import org.scalax.semweb.rdf._
 import scala.util.Try
 import controllers._
 import framian.{Cols, Frame}
-import org.denigma.binding.play.UserAction
 import org.scalax.semweb.rdf.{Trip, BasicTriplet, IRI, Quad}
 import org.scalax.semweb.sesame._
 import org.scalax.semweb.shex.{PropertyModel, Shape}

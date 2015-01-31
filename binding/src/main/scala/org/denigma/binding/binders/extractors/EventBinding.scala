@@ -31,7 +31,7 @@ trait EventBinding  extends BasicBinding
   //def textEvents:Map[String,Var[TextEvent]]
 
   def eventsPartial(el:HTMLElement,value:String):PartialFunction[String,Unit] = {
-    case key if key =="event-click" =>
+    case key if key =="event-click" | key=="click" | key == "event-mouse-click" =>
       this.mouseEvents.get(value) match {
       case Some(ev)=>this.bindClick(el,key,ev)
       case _ =>

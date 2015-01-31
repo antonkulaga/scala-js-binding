@@ -6,7 +6,7 @@ import controllers.PJaxPlatformWith
 import org.denigma.binding.messages.ExploreMessages
 import org.denigma.binding.messages.ExploreMessages.ExploreMessage
 import org.denigma.binding.picklers.rp
-import org.denigma.binding.play.{AjaxExploreEndpoint, AuthRequest, PickleController, UserAction}
+import org.denigma.endpoints.{AuthRequest, UserAction, AjaxExploreEndpoint, PickleController}
 import org.scalajs.spickling.playjson._
 import org.scalax.semweb.shex.PropertyModel
 import play.api.libs.json.Json

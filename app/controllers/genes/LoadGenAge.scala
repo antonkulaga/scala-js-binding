@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 import framian.csv.{Csv, LabeledCsv}
-import org.denigma.binding.play.UserAction
+import org.denigma.endpoints.UserAction
 import org.scalax.semweb.shex._
 import play.api.Play
 import play.api.mvc.{RequestHeader, Controller}
