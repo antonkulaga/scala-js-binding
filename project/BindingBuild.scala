@@ -20,24 +20,6 @@ import scala.scalajs.sbtplugin.ScalaJSPlugin._
 import com.typesafe.sbt.web.SbtWeb.autoImport._
 import com.typesafe.sbt.less.Import.LessKeys
 
-/**
- * Different components have different version we keep them here
- */
-object Versions {
-
-  val snap = "-SNAPSHOT"
-
-  val semWebVersion =  "0.6.18"
-
-  val bindingVersion = "0.7.1"//+snap
-
-  val mainVersion = "0.7.1" //lowest version of whole stack
-
-  val bindingPlayVersion = "0.7.1"//+snap
-
-  val jsmacroVersion = "0.1.6"
-}
-
 object BindingBuild extends sbt.Build with UniversalKeys {
 
   val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")

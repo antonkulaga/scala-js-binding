@@ -16,6 +16,7 @@ GET           /test/genes                controllers.genes.Genes.testGenes()
 #GET           /test/genetable            controllers.genes.Genes.genesTable()
 GET           /test/shape                controllers.genes.Genes.testSchemaWriting()
 GET           /test/ontology             controllers.genes.Genes.ontology()
+GET           /test/prickle             controllers.Test.prickle()
 
 
 GET           /genes                     controllers.genes.Genes.reports()

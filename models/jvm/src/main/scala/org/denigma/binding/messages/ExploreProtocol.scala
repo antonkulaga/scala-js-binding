@@ -13,16 +13,11 @@ object ExploreMessages {
 
   type ExploreMessage = StorageMessage
 
+  type ResourceQuery = SelectQuery
 
   case class SelectQuery(shapeId:Res,query:Res, id:String , context:List[Res] = List() , channel:String = Channeled.default, time:Date = new Date()) extends ExploreMessage
 
-
-  case class StringContainsFilter(field:IRI,value:String)
-
-
   case class Explore(query:Res,  shape:Res, filters:List[Filters.Filter] = List.empty[Filters.Filter] , searchTerms:List[String] = List.empty[String], sortOrder:List[Sort] = List.empty[Sort],id:String  , channel:String = Channeled.default, time:Date = new Date()) extends ExploreMessage
-
-  case class Exploration(shape:Shape,models:List[PropertyModel], explore:Explore)
 
   case class ExploreSuggest(typed:String,nameClass:NameClass,explore:Explore,  id:String  , time:Date = new Date()) extends ExploreMessage {
     def channel = explore.channel
@@ -33,10 +28,13 @@ object ExploreMessages {
     def fromSuggest(suggest:ExploreSuggest,list:List[RDFValue]) = ExploreSuggestion(suggest.typed,list,suggest.id,suggest.channel,new Date())
   }
 
+  case class Exploration(shape:Shape,models:List[PropertyModel], explore:Explore) extends ExploreMessage{
+    def time = explore.time
+    def id = explore.id //TEMP
+    override def channel: String = explore.channel
+  }
 
-
-  type ResourceQuery = SelectQuery
-
+  case class StringContainsFilter(field:IRI,value:String)
 
 }
 

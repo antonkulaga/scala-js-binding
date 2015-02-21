@@ -12,6 +12,5 @@ object GraphMessages {
 
   case class NodeExplore(resource:Res,props:List[IRI],patterns:List[Pat] = List.empty, depth:Int = 1,id:String,channel:String = Channeled.default,time:Date = new Date()) extends GraphMessage
 
-  case class Collapse(resource:Res)
 
 }

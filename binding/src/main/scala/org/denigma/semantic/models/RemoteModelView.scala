@@ -9,7 +9,6 @@ import org.scalajs.dom
 import org.scalax.semweb.rdf.{IRI, RDFValue, Res}
 import org.scalax.semweb.shex._
 import rx.core.Var
-
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
@@ -59,19 +58,19 @@ abstract class RemoteModelView extends ModelView   with WithShapeView
   }
 
 
-  def suggest(key: IRI, str: String): Future[List[RDFValue]] =  this.shapeInside.now.current match {
+  def suggest(key: IRI, str: String): Future[Seq[RDFValue]] =  this.shapeInside.now.current match {
     case Shape.empty=> storage.suggest(this.shapeRes.now, this.model.now.current.id, key, str).map(r => r.options)
 
     case Shape(shapeId,andRule) if andRule == AndRule.empty=>  storage.suggest(this.shapeRes.now, this.model.now.current.id, key, str).map(r => r.options)
 
-    case sh=> this.suggest(sh)(key, str)
+    case sh=> this.suggestByShape(sh)(key, str)
 
   }
 
 
 
 
-  def suggest(shape:Shape)(key:IRI,str:String): Future[List[RDFValue]] =  shape
+  def suggestByShape(shape:Shape)(key:IRI,str:String): Future[Seq[RDFValue]] =  shape
     .arcRules().find(r=>r.name.matches(key)) match {
     case Some(arc:ArcRule)=>
       //TODO: add validation

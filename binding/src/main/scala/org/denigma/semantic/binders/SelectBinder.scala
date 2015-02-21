@@ -10,7 +10,7 @@ import org.scalajs.selectize.{SelectizePlugin, Selectize}
 import org.scalax.semweb.rdf.{IRI, RDFValue}
 import rx.Var
 
-import scala.collection.immutable.{Seq, Map}
+import scala.collection.immutable.{ Map}
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
@@ -97,7 +97,7 @@ class BetterDropdownPlugin(val pluginName:String) extends Escaper{
  * @param model our property model
  * @param suggest suggession handler
  */
-class SelectBinder(val view:BindableView, val model:Var[ModelInside], val suggest:(IRI,String)=>Future[List[RDFValue]])
+class SelectBinder(val view:BindableView, val model:Var[ModelInside], val suggest:(IRI,String)=>Future[Seq[RDFValue]])
   extends ModelBinder(view,model) with BinderWithSelection[PropertySelector]
 {
 
@@ -129,7 +129,7 @@ class SelectBinder(val view:BindableView, val model:Var[ModelInside], val sugges
 
 trait BinderWithSelection[Selector<:PropertySelector] {
 
-  def suggest:(IRI,String)=>Future[List[RDFValue]]
+  def suggest:(IRI,String)=>Future[Seq[RDFValue]]
 
   var selectors = Map.empty[HTMLElement,Selector]
 

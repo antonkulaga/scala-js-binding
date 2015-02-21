@@ -145,7 +145,7 @@ trait LoadGenAge extends GeneSchema{
 
       }
     }
-    if(v.isEmpty)  play.Logger.error("DOES NOT WORK WIth"+property.stringValue+" with value = "+string)
+    if(v.isEmpty)  play.Logger.error("DOES NOT WORK WITH"+property.stringValue+" with value = "+string)
 
     v
   }

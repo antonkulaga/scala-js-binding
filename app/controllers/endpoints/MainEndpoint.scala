@@ -10,7 +10,8 @@ import scala.util.Try
 /**
  * Tools like sparql and paper viewer
  */
-object MainEndpoint extends PJaxPlatformWith("literature") with ExploreEndpoint with ModelEndpoint with ShapeEndpoint
+object MainEndpoint extends PJaxPlatformWith("literature")
+with ExploreEndpoint with ModelEndpoint with ShapeEndpoint
 {
   ArticleItems.populate(this)
   TaskItems.populate(this)

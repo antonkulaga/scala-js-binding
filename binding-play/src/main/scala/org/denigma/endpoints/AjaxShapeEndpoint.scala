@@ -1,7 +1,7 @@
 package org.denigma.endpoints
 
-import org.denigma.binding.messages.ShapeMessages
-import org.denigma.binding.messages.ShapeMessages.ShapeMessage
+import org.scalax.semweb.messages.ShapeMessages
+import org.scalax.semweb.messages.ShapeMessages.ShapeMessage
 import play.api.mvc.{Controller, Request}
 
 /**

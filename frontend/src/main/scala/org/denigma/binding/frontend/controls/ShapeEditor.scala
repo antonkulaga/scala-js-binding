@@ -79,7 +79,7 @@ class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends Colle
 
   override def receiveFuture:PartialFunction[PromiseEvent[_,_],Unit] = {
 
-    case JustPromise(ArcView.SuggestNameTerm(typed),origin,latest,bubble,promise:Promise[List[RDFValue]])=>
+    case JustPromise(ArcView.SuggestNameTerm(typed),origin,latest,bubble,promise:Promise[collection.Seq[RDFValue]])=>
       storage.suggestProperty(typed).onComplete
       {
         case Success(res)=>

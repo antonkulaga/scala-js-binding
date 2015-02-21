@@ -10,7 +10,7 @@ import org.scalax.semweb.shex._
 import rx._
 import rx.core.Var
 import rx.ops._
-
+import scala.collection
 import scala.collection.immutable._
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -19,7 +19,7 @@ import scala.util.{Failure, Success}
 /**
  * Binder for properties
  */
-class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule)(val suggest:(IRI,String)=>Future[List[RDFValue]])
+class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule)(val suggest:(IRI,String)=>Future[collection.Seq[RDFValue]])
   extends ModelBinder(view,modelInside) with BinderWithSelection[ShapedPropertySelector]
 {
 

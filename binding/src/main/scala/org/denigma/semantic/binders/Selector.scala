@@ -101,7 +101,7 @@ trait SemanticSelector extends Selector with Escaper {
     }
 
 
-  def updateOptions(opts:List[RDFValue]): Unit = {
+  def updateOptions(opts:Seq[RDFValue]): Unit = {
 
     val ss = selectizeFrom(el)
     for {

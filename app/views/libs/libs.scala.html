@@ -1,40 +1,32 @@
 @()(implicit request: UserRequestHeader)
 
-
 <link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
 
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))'></script>
+<script type='text/javascript' src="@routes.Assets.at("lib/jquery/jquery.min.js")"></script>
+
+<link rel="stylesheet" href='@routes.Assets.at("lib/Semantic-UI/semantic.css")' type="text/css">
+<script type='text/javascript' src='@routes.Assets.at("lib/Semantic-UI/semantic.js")'></script>
+
+<link rel="stylesheet" href='@routes.Assets.at("lib/codemirror/lib/codemirror.css")' type="text/css">
+<script type='text/javascript' src='@routes.Assets.at("lib/codemirror/lib/codemirror.js")'></script>
+
+<script type='text/javascript' src='@routes.Assets.at("lib/codemirror/mode/clike/clike.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("lib/codemirror/mode/xml/xml.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("lib/codemirror/mode/css/css.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("lib/codemirror/mode/javascript/javascript.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("lib/codemirror/mode/htmlmixed/htmlmixed.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("lib/codemirror/mode/sparql/sparql.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("lib/codemirror/mode/turtle/turtle.js")'></script>
 
 
-<link rel="stylesheet" href='@routes.WebJarAssets.at(WebJarAssets.locate("semantic.css"))' type="text/css">
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("semantic.js"))'></script>
-
-@*<script type="text/javascript" src="@routes.Assets.at("semantic/semantic.min.js")"></script>
-<link rel="stylesheet" href="@routes.Assets.at("semantic/semantic.min.css")" type="text/css">*@
-
-
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("codemirror.js"))'></script>
-<link rel="stylesheet" href='@routes.WebJarAssets.at(WebJarAssets.locate("codemirror.css"))' type="text/css">
-
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("mode/clike/clike.js"))'></script>
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("mode/xml/xml.js"))'></script>
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("mode/css/css.js"))'></script>
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("mode/javascript/javascript.js"))'></script>
-
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("mode/htmlmixed/htmlmixed.js"))'></script>
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("mode/sparql/sparql.js"))'></script>
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("mode/turtle/turtle.js"))'></script>
-
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("three.js"))'></script>
-
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("ckeditor.js"))'></script>
+<script type='text/javascript' src='@routes.Assets.at("lib/three.js/three.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("lib/ckeditor/ckeditor.js")'></script>
 
 <script type="text/javascript" src="@routes.Assets.at("3d/CSS3DRenderer.js")"></script>
-@*<script type="text/javascript" src="@routes.Assets.at("3d/OrbitControls.js")"></script>*@
 
-<link rel="stylesheet" href='@routes.WebJarAssets.at(WebJarAssets.locate("css/selectize.css"))' type="text/css">
-<link rel="stylesheet" href='@routes.WebJarAssets.at(WebJarAssets.locate("css/selectize.default.css"))' type="text/css">
-<script type='text/javascript' src='@routes.WebJarAssets.at(WebJarAssets.locate("js/standalone/selectize.js"))'></script>
+<link rel="stylesheet" href='@routes.Assets.at("lib/selectize.js/css/selectize.css")' type="text/css">
+<link rel="stylesheet" href='@routes.Assets.at("lib/selectize.js/css/selectize.default.css")' type="text/css">
+<script type='text/javascript' src='@routes.Assets.at("lib/selectize.js/js/standalone/selectize.js")'></script>
 
 <script>
     // Turn off automatic editor creation first.

@@ -14,14 +14,14 @@ object rp extends BindingPicklers with GraphPicklers{
     this.registerRdf()
     this.registerModels()
     this.registerExploration()
-    this.registerShapeMessages()
+
     this.registerGraph()
 
   }
 
 }
 
-class BindingPicklers extends SemanticRegistry with ModelPicklers with ShapePicklers
+class BindingPicklers extends SemanticRegistry with ModelPicklers
 {
   override def register() = {
     this.registerCommon()
@@ -29,7 +29,7 @@ class BindingPicklers extends SemanticRegistry with ModelPicklers with ShapePick
     this.registerRdf()
     this.registerModels()
     this.registerExploration()
-    this.registerShapeMessages()
+
 
   }
 }

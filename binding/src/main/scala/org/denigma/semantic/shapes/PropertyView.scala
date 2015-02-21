@@ -17,7 +17,7 @@ object PropertyView {
 
   def apply(el:HTMLElement,mp:Map[String,Any]) =   new JustPropertyView(el,mp)
 
-  def selectableBinders(view:PropertyView)  = new ShapedPropertyBinder(view,view.model,view.arc)(suggest = view.suggest)::Nil
+  def selectableBinders(view:PropertyView): List[ShapedPropertyBinder] = new ShapedPropertyBinder(view,view.model,view.arc)(suggest = view.suggest)::Nil
 
   class JustPropertyView(val elem:HTMLElement,val params:Map[String,Any]) extends PropertyView
   {

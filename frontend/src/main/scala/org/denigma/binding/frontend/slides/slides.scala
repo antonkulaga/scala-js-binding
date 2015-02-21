@@ -170,7 +170,6 @@ class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Strin
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
     override protected def attachBinders(): Unit =  this.withBinders(new CodeBinder(this))
 
-    val code = Var("")
 }
 
 
