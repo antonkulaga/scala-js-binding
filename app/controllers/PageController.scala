@@ -1,31 +1,24 @@
 package controllers
 
+import org.denigma.binding.composites.BindingComposites
 import org.denigma.binding.messages.ModelMessages
-import org.denigma.binding.messages.ModelMessages.ReadMessage
-import org.denigma.endpoints.{PickleController, AjaxModelEndpoint, AuthRequest, UserAction}
-import play.api.mvc.{Request, Result, Controller}
-import org.scalax.semweb.shex.PropertyModel
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.rdf.vocabulary._
 import org.denigma.binding.messages.ModelMessages._
-
-import org.scalax.semweb.rdf.vocabulary.WI
-import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.rdf.StringLiteral
+import org.denigma.endpoints.{AjaxModelEndpoint, AuthRequest, UserAction}
+import org.scalax.semweb.rdf.{IRI, StringLiteral, _}
+import org.scalax.semweb.rdf.vocabulary.{WI, _}
+import org.scalax.semweb.shex.PropertyModel
 import play.api.libs.json.Json
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-import org.scalajs.spickling.playjson._
-import org.denigma.binding.picklers.rp
-import play.api.http
-import org.scalax.semweb.shex._
-
-import scala.concurrent.Future
+import play.api.mvc.{Controller, Result}
+import prickle.{Pickle, Unpickle}
 
 
-object PageController extends Controller with PickleController with AjaxModelEndpoint
+object PageController extends Controller with PrickleController with AjaxModelEndpoint
 {
+  import org.denigma.binding.composites.BindingComposites
+  import BindingComposites._
+  //override type ModelRequest = AuthRequest[ReadMessage]
+  override type ModelRequest = AuthRequest[  ModelMessage ]
 
-  override type ModelRequest = AuthRequest[ReadMessage]
 
   override type ModelResult = Result
 
@@ -78,8 +71,6 @@ object PageController extends Controller with PickleController with AjaxModelEnd
   def onSuggest(suggestMessage:ModelMessages.Suggest):ModelResult = ???
 
 
-
-
   var items: Map[Res, PropertyModel] = Map(hello->helloModel, rybka->rybkaModel   )
 
   override def onCreate(createMessage: Create)(implicit request:ModelRequest): Result = {
@@ -91,7 +82,7 @@ object PageController extends Controller with PickleController with AjaxModelEnd
     {
       items  = items ++ models.filterNot{case (key,value)=>items.contains(key)}
     }
-    Ok(rp.pickle(true)).as("application/json")
+    pTRUE
   }
 
   override def onUpdate(updateMessage: Update)(implicit request:ModelRequest): Result = {
@@ -104,25 +95,29 @@ object PageController extends Controller with PickleController with AjaxModelEnd
     {
       items  = items ++ models.filter{case (key,value)=>items.contains(key)}
     }
-    Ok(rp.pickle(true)).as("application/json")
+    pTRUE
   }
 
   override def onRead(readMessage: Read)(implicit request:ModelRequest): Result = {
-    val res = items.foldLeft(List.empty[PropertyModel]){ case (acc,(key,value))=> if(readMessage.resources.contains(key)) value::acc else acc  }
-    Ok(rp.pickle(res)).as("application/json")
+    val res: Seq[PropertyModel] = items.foldLeft(List.empty[PropertyModel]){ case (acc,(key,value))=> if(readMessage.resources.contains(key)) value::acc else acc  }
+    this.pack(Pickle.intoString(res))
   }
 
   override def onDelete(deleteMessage: Delete)(implicit request:ModelRequest): Result = {
     items = items.filterNot(kv=>deleteMessage.res.contains(kv._1))
-    Ok(rp.pickle(true)).as("application/json")
+    pTRUE
 
   }
 
 
-
   override def onBadModelMessage(message: ModelMessage, reason:String): ModelResult = BadRequest(Json.obj("status" ->"KO","message"->reason)).as("application/json")
 
-  def endpoint() = UserAction(this.unpickle[ReadMessage]()){implicit request=>
+ def modelEndpoint() = UserAction(this.unpickleWith{
+   str=>
+     //play.api.Logger.error(s"PARSING: $str")
+     val mes = Unpickle[ModelMessage](BindingComposites.modelsMessages.unpickler).fromString(str)
+     mes
+ }){implicit request=>
     this.onModelMessage(request.body)
 
   }

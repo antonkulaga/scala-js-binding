@@ -88,7 +88,7 @@ abstract class RemoteModelView extends ModelView   with WithShapeView
    * Handler on model load
    * @param items
    */
-  protected def onLoadModel(items:List[PropertyModel]) = {
+  protected def onLoadModel(items:Seq[PropertyModel]) = {
     if(items.size>1) dom.console.error(s"more than one model received from ${storage.channel} for onemodel binding")
     val m = items.head
     this.model() = this.model.now.copy(m,m)

@@ -51,7 +51,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
   val exploreStorage = new AjaxExploreStorage(path)(registry)
 
 
-  val crudStorage= new AjaxModelStorage(crud)(registry)
+  val crudStorage= new AjaxModelStorage(crud)
 
 
   //filters:List[Filters.Filter] = List.empty[Filters.Filter] , searchTerms:List[String] = List.empty[String], sortOrder:List[Sort] = List.empty[Sort]

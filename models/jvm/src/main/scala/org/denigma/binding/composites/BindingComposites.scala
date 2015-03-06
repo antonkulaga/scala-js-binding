@@ -1,7 +1,7 @@
 package org.denigma.binding.composites
 
 import org.denigma.binding.messages.{Filters, ExploreMessages, ModelMessages}
-import org.denigma.binding.messages.ModelMessages.Suggest
+import org.denigma.binding.messages.ModelMessages.{ModelMessage, Suggest}
 import org.scalax.semweb.composites.{MessagesComposites, ShapePicklers}
 import prickle._
 import scala.reflect.classTag
@@ -29,7 +29,7 @@ class BindingMessageComposites extends ShapePicklers with MessagesComposites
   implicit lazy val suggestUnpickler: Unpickler[Suggest] = Unpickler.materializeUnpickler[ModelMessages.Suggest]
 
 
-  implicit lazy val modelsMessages = CompositePickler[ModelMessages.ModelMessage]
+  implicit lazy val modelsMessages: PicklerPair[ModelMessage] = CompositePickler[ModelMessages.ModelMessage]
     .concreteType[ModelMessages.Read].concreteType[ModelMessages.Create]
     .concreteType[ModelMessages.Suggest].concreteType[ModelMessages.Update]
     .concreteType[ModelMessages.Delete]
@@ -82,4 +82,4 @@ class BindingMessageComposites extends ShapePicklers with MessagesComposites
 
 }
 
-object BindingComposites extends BindingMessageComposites// with ShapePicklers with MessagesComposites
+object BindingComposites extends BindingMessageComposites with ShapePicklers with MessagesComposites

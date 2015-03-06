@@ -16,6 +16,7 @@ import org.scalajs.spickling.jsany._
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.scalajs.spickling._
 import scala.scalajs.js.prim.Undefined
+import scala.util.{Failure, Success, Try}
 
 
 /**
@@ -126,6 +127,34 @@ object sq{
   def pack2String[T](data:T)(implicit registry:PicklerRegistry) = {
     val p: js.Any = registry.pickle(data)
     g.JSON.stringify(p).toString
+
+  }
+
+  /**
+   * Posts with pickling and unpickling (with Prickle)
+   * @param url URL of the request
+   * @param data
+   * @param timeout
+   * @param headers
+   * @param withCredentials
+   * @param pickle
+   * @param unpickle
+   * @tparam TIn
+   * @tparam TOut
+   * @return
+   */
+  def tryPost[TIn,TOut]( url:String,data:TIn,timeout:Int = 0,
+                         headers: Map[String, String] =       Map("Content-Type" -> "text/plain;charset=UTF-8"),
+                         withCredentials:Boolean = false)(pickle:TIn=>String)(unpickle:String=>Try[TOut]) = {
+    val request: Future[XMLHttpRequest] = Ajax.apply("POST", url,pickle(data), timeout, headers, withCredentials,"text/plain;charset=UTF-8")
+    request.flatMap{r=>
+      unpickle(r.responseText) match {
+        case Success(v)=> Future.successful(v)
+        case Failure(f)=>
+          dom.console.error(s"cannot unpickle result of $url with ${f.getMessage} error")
+          Future.failed(f)
+      }
+    }
 
   }
 

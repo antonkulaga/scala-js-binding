@@ -3,52 +3,66 @@ package org.denigma.semantic.storages
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.messages.ModelMessages
 import org.denigma.binding.messages.Suggestion
-import org.denigma.binding.picklers.rp
 import org.scalajs.dom
 import org.scalajs.dom._
-import org.scalajs.spickling.PicklerRegistry
 import org.scalax.semweb.rdf.{IRI, Res}
 import org.scalax.semweb.shex.PropertyModel
+import prickle.{Pickler, PConfig, Pickle, Unpickle}
 
 import scala.concurrent.Future
 import scala.scalajs.js
 
-
-
-
+import org.denigma.binding.composites.BindingComposites
+import BindingComposites._
+import Pickle._
+import Pickler._
+import prickle._
 /**
  * ModelAjax Storage
  * @param path
  */
-class AjaxModelStorage(path:String)(implicit registry:PicklerRegistry = rp) extends ModelStorage{
+class AjaxModelStorage(path:String) extends ModelStorage{
 
   def channel:String = path
+
+  protected def post(data:ModelMessages.ModelMessage) =   sq.tryPost(path,data)
+  {  d=>  Pickle.intoString(data)(BindingComposites.modelsMessages.pickler,PConfig.Default)  }
+  {   s=>     Unpickle[Boolean].fromString(s)   }
+
+  protected def postBackModelsList(data:ModelMessages.ModelMessage) = sq.tryPost[ModelMessages.ModelMessage,Seq[PropertyModel]](path,data){
+    d=> Pickle.intoString[ModelMessages.ModelMessage](data)(BindingComposites.modelsMessages.pickler,PConfig.Default)
+  }{   s=>   Unpickle[Seq[PropertyModel]].fromString(s) }
+
+  protected def postBackSuggestion(data:ModelMessages.ModelMessage) = sq.tryPost(path,data){
+    d=> Pickle.intoString[ModelMessages.ModelMessage](data)(BindingComposites.modelsMessages.pickler,PConfig.Default)
+  }{   s=>   Unpickle[Suggestion].fromString(s) }
 
 
   override def create(shapeId: Res)(models: PropertyModel*): Future[Boolean] = {
     val data = ModelMessages.Create(shapeId,models.toSet, genId(), channel = channel)
-    sq.post(path,data):Future[Boolean]
+    this.post(data)
   }
 
   override def update(shapeId: Res, overWrite: Boolean)(models: PropertyModel*): Future[Boolean] = {
     val data = ModelMessages.Create(shapeId,models.toSet,  genId(), channel = channel)
-    sq.post(path,data):Future[Boolean]
+    this.post(data)
   }
 
   override def delete(shape:Res)(res: Res*): Future[Boolean] = {
     val data = ModelMessages.Delete(shape,res.toSet, genId(),channel = channel)
-    sq.post(path,data):Future[Boolean]
-
+    this.post(data)
   }
 
-  override def read(shapeId: Res)(modelIds: Res*): Future[List[PropertyModel]] = {
+  override def read(shapeId: Res)(modelIds: Res*): Future[Seq[PropertyModel]] = {
     val data = ModelMessages.Read(shapeId, modelIds.toSet, genId(), channel = channel)
-    sq.post(channel,data):Future[List[PropertyModel]]
+    //sq.post(channel,data):Future[List[PropertyModel]]
+    this.postBackModelsList(data)
   }
 
   override def suggest(shape:Res,modelRes:Res,prop:IRI,typed:String): Future[Suggestion] = {
     val data = ModelMessages.Suggest(shape,modelRes,prop:IRI, typed, this.genId(),channel = this.channel)
-    sq.post(channel,data):Future[Suggestion]
+    //sq.post(channel,data):Future[Suggestion]
+    this.postBackSuggestion(data)
   }
 }
 
@@ -125,7 +139,7 @@ trait ModelStorage extends ReadOnlyModelStorage {
 
 trait ReadOnlyModelStorage extends Storage{
 
-  def read(shapeId: Res)(modelIds: Res*): Future[List[PropertyModel]]
+  def read(shapeId: Res)(modelIds: Res*): Future[Seq[PropertyModel]]
 
 }
 
