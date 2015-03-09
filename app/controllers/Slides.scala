@@ -1,9 +1,13 @@
 package controllers
 
-import org.denigma.endpoints.{ItemsController, UserAction}
+import controllers.TopMenu._
+import org.denigma.endpoints.{ UserAction}
 import org.scalax.semweb.rdf.IRI
 import org.denigma.binding.models._
 import play.api.mvc.Controller
+import prickle.Pickle
+
+import scala.concurrent.Future
 
 
 object Slides extends PJaxPlatformWith("index") {
@@ -33,9 +37,11 @@ object Slides extends PJaxPlatformWith("index") {
 
 }
 
-object SlidesMenu  extends Controller  with ItemsController{
+object SlidesMenu  extends Controller  {
 
   type ModelType = MenuItem
+  import org.denigma.binding.composites.BindingComposites
+  import BindingComposites._
 
 
   val dom =  IRI(s"http://domain")
@@ -50,5 +56,8 @@ object SlidesMenu  extends Controller  with ItemsController{
   //"slides/parse"->"Parsing example"
   ) map{ case (url,title)=> MenuItem(dom / url,title)}
 
+  def all() = UserAction.async { implicit request=>
+    Future.successful(pack(Pickle.intoString(items)))
+  }
 
 }

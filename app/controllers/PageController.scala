@@ -3,7 +3,7 @@ package controllers
 import org.denigma.binding.composites.BindingComposites
 import org.denigma.binding.messages.ModelMessages
 import org.denigma.binding.messages.ModelMessages._
-import org.denigma.endpoints.{AjaxModelEndpoint, AuthRequest, UserAction}
+import org.denigma.endpoints.{PrickleController, AjaxModelEndpoint, AuthRequest, UserAction}
 import org.scalax.semweb.rdf.{IRI, StringLiteral, _}
 import org.scalax.semweb.rdf.vocabulary.{WI, _}
 import org.scalax.semweb.shex.PropertyModel

@@ -1,32 +1,36 @@
 package controllers.endpoints
 
-import java.util.Date
-
 import controllers.PJaxPlatformWith
 import org.denigma.binding.messages.ExploreMessages
 import org.denigma.binding.messages.ExploreMessages.ExploreMessage
-import org.denigma.binding.picklers.rp
-import org.denigma.endpoints.{AuthRequest, UserAction, AjaxExploreEndpoint, PickleController}
-import org.scalajs.spickling.playjson._
+import org.denigma.endpoints.{PrickleController, AjaxExploreEndpoint, AuthRequest, UserAction}
 import org.scalax.semweb.shex.PropertyModel
 import play.api.libs.json.Json
 import play.api.mvc.Result
+import prickle.{Pickle, Unpickle}
 
 import scala.concurrent.Future
 
 /**
  * Explore articles trait
  */
-trait ExploreEndpoint extends PickleController with AjaxExploreEndpoint with Items
+trait ExploreEndpoint extends PrickleController with AjaxExploreEndpoint with Items
 {
   self:PJaxPlatformWith=>
-
+  import org.denigma.binding.composites.BindingComposites
+  import org.denigma.binding.composites.BindingComposites._
 
   override type ExploreRequest = AuthRequest[ExploreMessage]
 
   override type ExploreResult = Future[Result]
 
-  def exploreEndpoint() = UserAction.async(this.unpickle[ExploreMessage]()){implicit request=>
+
+
+
+  def exploreEndpoint() = UserAction.async(this.unpickleWith{
+    str=>
+      Unpickle[ExploreMessage](BindingComposites.exploreMessages.unpickler).fromString(str)
+  }){implicit request=>
     this.onExploreMessage(request.body)
 
   }
@@ -42,7 +46,9 @@ trait ExploreEndpoint extends PickleController with AjaxExploreEndpoint with Ite
       case s::xs=>
         //play.Logger.debug("sort takes place")
 
-        list.sortWith{case (a,b)=>s.sort(xs)(a,b) > -1}
+        if(!list.isEmpty) list.head::Nil
+        else list.sortWith{case (a,b)=>s.sort(xs)(a,b) > -1}
+
     }
 
   }
@@ -52,8 +58,12 @@ trait ExploreEndpoint extends PickleController with AjaxExploreEndpoint with Ite
     this.items.get( exploreMessage.shape)  match {
       case Some(list)=> this.shapes.get(exploreMessage.shape) match {
         case Some(shape)=>
-          val res = rp.pickle( ExploreMessages.Exploration(shape,list,exploreMessage) )
-          Future.successful(Ok(res).as("application/json"))
+
+          //val res = rp.pickle( ExploreMessages.Exploration(shape,list,exploreMessage) )
+          //Future.successful(Ok(res).as("application/json"))
+          val res = Pickle.intoString(ExploreMessages.Exploration(shape,list,exploreMessage) )
+          (BindingComposites.explorationPickler,BindingComposites.config)
+          Future.successful(this.pack(res))
 
         case None=> this.onBadExploreMessage(exploreMessage,s"cannot find items for ${exploreMessage.channel}")
       }
@@ -66,7 +76,8 @@ trait ExploreEndpoint extends PickleController with AjaxExploreEndpoint with Ite
     //play.Logger.debug("original = "+suggestMessage.toString)
     val t = suggestMessage.typed
     val name = suggestMessage.nameClass
-    val list: List[PropertyModel] = exploreItems(items,suggestMessage.explore)
+    val list: Seq[PropertyModel] = exploreItems(items,suggestMessage.explore)
+
     //play.Logger.debug("basic list = "+suggestMessage.toString)
 
 /*    val result = list.collect { case item  =>
@@ -104,7 +115,8 @@ trait ExploreEndpoint extends PickleController with AjaxExploreEndpoint with Ite
     this.items.get( suggestMessage.shapeId)  match {
 
       case Some(list)=>
-        Future.successful(Ok(rp.pickle(list)).as("application/json"))
+        val l = Pickle.intoString(list)
+        Future.successful(pack(l))
 
       case None=> this.onBadExploreMessage(suggestMessage,"cannot find shape for the message")
     }

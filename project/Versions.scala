@@ -6,7 +6,7 @@ object Versions {
 
   val snap = "-SNAPSHOT"
 
-  val semWebVersion =  "0.6.20"
+  val semWebVersion =  "0.6.21"
 
   val bindingVersion = "0.7.1"//+snap
 

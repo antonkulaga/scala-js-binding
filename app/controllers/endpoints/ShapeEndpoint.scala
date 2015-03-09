@@ -2,22 +2,19 @@ package controllers.endpoints
 
 
 import java.util.Date
-import controllers.PrickleController
+import org.denigma.binding.composites.BindingComposites._
 import org.denigma.binding.messages.Suggestion
-import org.denigma.endpoints.{PickleController, AjaxShapeEndpoint, AuthRequest, UserAction}
+import org.denigma.endpoints.{PrickleController, AjaxShapeEndpoint, AuthRequest, UserAction}
 import org.scalax.semweb.messages.ShapeMessages
 import org.scalax.semweb.messages.ShapeMessages.{GetShapes, ShapeMessage}
 import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.rdf.vocabulary._
-import org.scalax.semweb.shex.{Shape, IRILabel, ShEx}
+import org.scalax.semweb.shex.{IRILabel, ShEx}
 import play.api.libs.json.Json
 import play.api.mvc._
-import prickle.{Unpickle, Pickle}
+import prickle.{Pickle, Unpickle}
 
 import scala.concurrent.Future
-import org.denigma.binding.composites.BindingComposites._
-import scala.concurrent.ExecutionContext.global
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
 
 trait ShapeEndpoint extends   Items with AjaxShapeEndpoint with PrickleController{
   self:Controller=>

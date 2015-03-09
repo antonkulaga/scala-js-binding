@@ -26,15 +26,15 @@ class AjaxModelStorage(path:String) extends ModelStorage{
   def channel:String = path
 
   protected def post(data:ModelMessages.ModelMessage) =   sq.tryPost(path,data)
-  {  d=>  Pickle.intoString(data)(BindingComposites.modelsMessages.pickler,PConfig.Default)  }
+  {  d=>  Pickle.intoString(data)(BindingComposites.modelsMessages.pickler,BindingComposites.config)  }
   {   s=>     Unpickle[Boolean].fromString(s)   }
 
   protected def postBackModelsList(data:ModelMessages.ModelMessage) = sq.tryPost[ModelMessages.ModelMessage,Seq[PropertyModel]](path,data){
-    d=> Pickle.intoString[ModelMessages.ModelMessage](data)(BindingComposites.modelsMessages.pickler,PConfig.Default)
+    d=> Pickle.intoString[ModelMessages.ModelMessage](data)(BindingComposites.modelsMessages.pickler,BindingComposites.config)
   }{   s=>   Unpickle[Seq[PropertyModel]].fromString(s) }
 
   protected def postBackSuggestion(data:ModelMessages.ModelMessage) = sq.tryPost(path,data){
-    d=> Pickle.intoString[ModelMessages.ModelMessage](data)(BindingComposites.modelsMessages.pickler,PConfig.Default)
+    d=> Pickle.intoString[ModelMessages.ModelMessage](data)(BindingComposites.modelsMessages.pickler,BindingComposites.config)
   }{   s=>   Unpickle[Suggestion].fromString(s) }
 
 

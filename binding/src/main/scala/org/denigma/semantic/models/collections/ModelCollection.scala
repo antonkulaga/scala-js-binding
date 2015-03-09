@@ -1,7 +1,6 @@
 package org.denigma.semantic.models.collections
 
 import org.denigma.binding.extensions._
-import org.denigma.binding.picklers.rp
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.collections.CollectionView
 import org.denigma.semantic.models.{ModelView, RemoteModelView}
@@ -34,7 +33,6 @@ abstract class ModelCollection extends BindableView
 {
   def params:Map[String,Any]
 
-  implicit val registry = rp
 
 
   override type Item = Var[ModelInside]

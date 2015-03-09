@@ -10,11 +10,9 @@ import dom.extensions._
 import scala.scalajs.js.Dynamic.{global => g}
 import scala.scalajs.js
 import scala.concurrent.Future
-import org.scalajs.spickling.jsany._
 
 
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-import org.scalajs.spickling._
 import scala.scalajs.js.prim.Undefined
 import scala.util.{Failure, Success, Try}
 
@@ -22,7 +20,8 @@ import scala.util.{Failure, Success, Try}
 /**
  * "ScalaQuery" helper for convenient DOM manipulation and other useful things
  */
-object sq{
+object sq
+{
 
 
   /** *
@@ -61,74 +60,51 @@ object sq{
   def query(query:String): NodeList = dom.document.querySelectorAll(query)
 
 
-  /**
-   * Puts pickled value
-   * @param url
-   * @param data
-   * @param timeout
-   * @param headers
-   * @param withCredentials
-   * @tparam T
-   * @return
-   */
-  def put[T](url:String,data:T,timeout:Int = 0,
-              headers: Map[String, String] =Map("Content-Type"->"application/json;charset=UTF-8"),
-              withCredentials:Boolean = false
-               )(implicit registry:PicklerRegistry) : Future[XMLHttpRequest] = {
-    Ajax.apply("PUT", url, this.pack2String(data), timeout, headers, withCredentials,"")
-  }
-
-
-  def delete[T](url:String,data:T,timeout:Int = 0,
-             headers: Map[String, String] =Map("Content-Type" -> "application/json;charset=UTF-8"),
-             withCredentials:Boolean = false
-              )(implicit registry:PicklerRegistry) : Future[XMLHttpRequest] = {
-    Ajax.apply("DELETE", url, this.pack2String(data), timeout, headers, withCredentials,"")
-  }
-
-  /**
-   * Get method that does pickling,
-   * WARNING: always make sure that picklers are registered before calling it
-   * @param url address
-   * @param timeout timeout
-   * @param headers headers of the request
-   * @param withCredentials
-   * @return value of appropriate type
-   */
-  def get[T](url:String,timeout:Int = 0,
-            headers: Map[String, String] =Map("Content-Type" -> "application/json;charset=UTF-8"),
-            withCredentials:Boolean = false
-            )(implicit registry:PicklerRegistry) : Future[T] =
-    this.pickleRequest[T](Ajax.apply("GET", url, "", timeout, headers, withCredentials,""))(registry)
-
-
-  /**
-   * Post method that does nice thing
-   * @param url
-   * @param data
-   * @param timeout
-   * @param headers
-   * @param withCredentials
-   * @return
-   */
-  def post[TIn,TOut](
-            url:String,data:TIn,timeout:Int = 0,
-            headers: Map[String, String] =Map("Content-Type" -> "application/json;charset=UTF-8"),
-            withCredentials:Boolean = false
-            )(implicit registry:PicklerRegistry) : Future[TOut] =
-    this.pickleRequest[TOut](Ajax.apply("POST", url,this.pack2String(data), timeout, headers, withCredentials,""))
-
-
-
   def withHost(str:String): String = {
     "http://"+dom.location.host+(if(str.startsWith("/") || str.startsWith("#")) str else "/"+str)
   }
 
-  def pack2String[T](data:T)(implicit registry:PicklerRegistry) = {
-    val p: js.Any = registry.pickle(data)
-    g.JSON.stringify(p).toString
 
+  /**
+   * Unpickles request result
+   * @param url
+   * @param request
+   * @param unpickle
+   * @tparam TOut
+   * @return
+   */
+  def unpickleRequestResult[TOut](url:String,request:Future[XMLHttpRequest])(unpickle:String=>Try[TOut]): Future[TOut] =
+    request.flatMap{r=>
+      unpickle(r.responseText) match {
+        case Success(v)=> Future.successful(v)
+        case Failure(f)=>
+          dom.console.error(s"cannot unpickle result of $url with ${f.getMessage} error")
+          Future.failed(f)
+      }
+    }
+
+  def tryGet[TOut]( url:String,timeout:Int = 0, headers: Map[String, String] =  Map.empty, withCredentials:Boolean = false)
+                  (unpickle:String=>Try[TOut]): Future[TOut] = {
+
+    val request: Future[XMLHttpRequest] =Ajax.apply("GET", url, "",  timeout,headers , withCredentials,"")
+    this.unpickleRequestResult(url,request)(unpickle)
   }
+
+  def tryPut[TIn]( url:String,data:TIn,timeout:Int = 0,
+                   headers: Map[String, String] =  Map("Content-Type" -> "text/plain;charset=UTF-8"),
+                   withCredentials:Boolean = false)
+                  (pickle:TIn=>String): Future[XMLHttpRequest] =   Ajax.apply("PUT", url, pickle(data),  timeout,headers , withCredentials,"")
+
+
+  def tryDelete[TIn](url:String,data:TIn,timeout:Int = 0,
+                headers: Map[String, String] =Map("Content-Type" -> "application/json;charset=UTF-8"),
+                withCredentials:Boolean = false
+                 )(pickle:TIn=>String): Future[XMLHttpRequest] = {
+    Ajax.apply("DELETE", url, pickle(data), timeout, headers, withCredentials,"")
+  }
+
+
+
 
   /**
    * Posts with pickling and unpickling (with Prickle)
@@ -145,30 +121,12 @@ object sq{
    */
   def tryPost[TIn,TOut]( url:String,data:TIn,timeout:Int = 0,
                          headers: Map[String, String] =       Map("Content-Type" -> "text/plain;charset=UTF-8"),
-                         withCredentials:Boolean = false)(pickle:TIn=>String)(unpickle:String=>Try[TOut]) = {
+                         withCredentials:Boolean = false)(pickle:TIn=>String)(unpickle:String=>Try[TOut]): Future[TOut] = {
     val request: Future[XMLHttpRequest] = Ajax.apply("POST", url,pickle(data), timeout, headers, withCredentials,"text/plain;charset=UTF-8")
-    request.flatMap{r=>
-      unpickle(r.responseText) match {
-        case Success(v)=> Future.successful(v)
-        case Failure(f)=>
-          dom.console.error(s"cannot unpickle result of $url with ${f.getMessage} error")
-          Future.failed(f)
-      }
-    }
+    unpickleRequestResult(url,request)(unpickle)
 
   }
 
-  def pickleRequest[T](req:Future[XMLHttpRequest])(implicit registry:PicklerRegistry) : Future[T] = req.map{case r=>
-    val v = js.JSON.parse(r.responseText).asInstanceOf[js.Any]
-
-   registry.unpickle(v) match {
-      case value:T=>value
-      case _=>
-        val ex = s"unpickling problem with $v"
-        console.error(ex)
-        throw new Exception(ex)
-    }
-  }
 
 
 }

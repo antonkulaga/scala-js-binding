@@ -29,7 +29,7 @@ object TaskItems extends ItemsMock{
   val taskIntegrase = PropertyModel(IRI(WI.PLATFORM /"Integrase"), title -> StringLiteral("Find more info"),  desc->StringLiteral("Find other papers on using PhiC31 integrase for genes insertion") , priority-> de / "high", assigned->Anton, completed->BooleanLiteral(false) , RDF.TYPE-> task)
   val fungi = PropertyModel(IRI(WI.PLATFORM /"Learn_fungi"), title -> StringLiteral("Strong interaction between DAXX and PhiC"),  desc->StringLiteral("Look at possible interactions") , assigned->Daniel , priority-> de / "low", completed->BooleanLiteral(true), RDF.TYPE-> task)
 
-  private val tasks: List[PropertyModel] = taskIntegrase::fungi::Nil
+ val tasks: List[PropertyModel] = taskIntegrase::fungi::Nil
 
 
   def populate(holder:Items)  = {

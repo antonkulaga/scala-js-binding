@@ -1,23 +1,20 @@
 package org.denigma.binding.frontend.tests
 
 import org.denigma.binding.extensions.sq
-import org.denigma.binding.picklers.rp
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.scalajs.dom.HTMLElement
 import rx._
 
 import scala.collection.immutable.Map
-import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
-import scalatags.Text.Tag
 
 /**
  * Class for testing purposes that makes a long list out of test element
  */
+/*
 class PicklerView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{
   self=>
 
-  implicit def registry = rp
   //RegisterPicklers.registerPicklers()
 
   val path: String = params.get("path").fold("test/map"){case (acc,v)=>v.toString}
@@ -35,3 +32,4 @@ class PicklerView(val elem:HTMLElement, val params:Map[String,Any]) extends Bind
   override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 
 }
+*/

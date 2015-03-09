@@ -1,14 +1,10 @@
-package controllers
+package org.denigma.endpoints
 
-import org.denigma.binding.messages.Suggestion
-
-import scala.concurrent.Future
-import scala.util.Success
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
 import play.api.mvc.{BodyParser, Controller}
 import prickle._
-import scala.concurrent.ExecutionContext.global
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-import scala.util.{Failure, Try}
+
+import scala.util.{Failure, Success, Try}
 
 
 trait PrickleController {

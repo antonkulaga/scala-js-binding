@@ -4,9 +4,6 @@
 
 GET           /                          controllers.Slides.slide(slide:String ?= "bind")
 GET           /test                      controllers.Test.html()
-GET           /test/tuple2               controllers.Test.tuple2()
-GET           /test/map                  controllers.Test.map()
-GET           /test/model                controllers.Test.model()
 
 GET           /papers/reports            controllers.literature.Literature.reports()
 GET           /papers/                   controllers.literature.Literature.reports()
@@ -16,7 +13,7 @@ GET           /test/genes                controllers.genes.Genes.testGenes()
 #GET           /test/genetable            controllers.genes.Genes.genesTable()
 GET           /test/shape                controllers.genes.Genes.testSchemaWriting()
 GET           /test/ontology             controllers.genes.Genes.ontology()
-GET           /test/prickle             controllers.Test.prickle()
+GET           /test/prickle              controllers.Test.prickle()
 
 
 GET           /genes                     controllers.genes.Genes.reports()
@@ -28,10 +25,11 @@ POST          /papers/shapes             controllers.endpoints.MainEndpoint.shap
 
 
 POST          /models/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
-POST          /models/crud              controllers.endpoints.MainEndpoint.modelEndpoint()
-POST          /models/shapes               controllers.endpoints.MainEndpoint.shapeEndpoint()
+POST          /models/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
+POST          /models/shapes             controllers.endpoints.MainEndpoint.shapeEndpoint()
 
 GET           /menu/top                  controllers.TopMenu.all()
+GET           /menu/top/all              controllers.TopMenu.all()
 PUT           /menu/top/add              controllers.TopMenu.add()
 #DELETE        /menu/top/delete           controllers.TopMenu.deleteById()
 DELETE        /menu/top/delete/id        controllers.TopMenu.delete()
@@ -42,6 +40,8 @@ POST          /models/endpoint           controllers.PageController.modelEndpoin
 #POST          /data/endpoint             controllers.ProjectController.exploreEndpoint()
 
 GET           /menu/what                 controllers.SlidesMenu.all()
+GET           /menu/what/all             controllers.SlidesMenu.all()
+
 #GET        /menu/how           controllers.Slides.howMenu()
 
 GET           /pages/:page               controllers.endpoints.Application.page(page)

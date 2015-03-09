@@ -6,7 +6,7 @@ import org.denigma.binding.frontend.controls.{ShapeEditor, EditableShape, ShapeP
 import org.denigma.binding.frontend.datagrids.{DataGrid, GridCell, GridRow}
 import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksView}
 import org.denigma.binding.frontend.slides._
-import org.denigma.binding.frontend.tests.{LongListView, PicklerView, RandomView, TestMacroView}
+import org.denigma.binding.frontend.tests.{LongListView, RandomView, TestMacroView}
 import org.denigma.binding.frontend.tools.SelectView
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
@@ -57,7 +57,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("RemoteSlide",(el,params)=>Try(new RemoteSlide(el,params)))
     .register("RdfSlide",(el,params)=>Try(new RdfSlide(el,params)))
     .register("TestModelView",(el,params)=>Try(new TestModelView(el,params)))
-    .register("PicklerView",(el,params)=>Try(new PicklerView(el,params)))
+    //.register("PicklerView",(el,params)=>Try(new PicklerView(el,params)))
     .register("PageEditView",(el,params)=>Try(new PageEditView(el,params)))
 
 

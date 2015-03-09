@@ -1,10 +1,8 @@
 package controllers.endpoints
 
 import java.util.Date
-
-import controllers.PrickleController
 import org.denigma.binding.messages.Suggestion
-import org.denigma.endpoints.{AjaxModelEndpoint, AuthRequest, UserAction}
+import org.denigma.endpoints.{PrickleController, AjaxModelEndpoint, AuthRequest, UserAction}
 import org.scalax.semweb.shex.PropertyModel
 import play.api.libs.json.Json
 import play.api.mvc.{Controller, Result}
@@ -41,11 +39,10 @@ trait ModelEndpoint extends AjaxModelEndpoint with PrickleController with Items{
 
   def modelEndpoint() = UserAction.async(this.unpickleWith{
     str=>
-      //play.api.Logger.error("\n"+str)
       Unpickle[ModelMessage](BindingComposites.modelsMessages.unpickler).fromString(str)
   })
-  {implicit request=>
-    this.onModelMessage(request.body)
+  {
+    implicit request=>  this.onModelMessage(request.body)
 
   }
 
@@ -76,13 +73,15 @@ trait ModelEndpoint extends AjaxModelEndpoint with PrickleController with Items{
       case Some(its)=>
         val res: Seq[PropertyModel] = its.filter(i=>readMessage.resources.contains(i.id))
         val p = Pickle.intoString[Seq[PropertyModel]](res)
-        Future.successful(Ok(p).as("application/json"))
+        Future.successful(this.pack(p))
+        //Future.successful(Ok(p).as("application/json"))
 
       case None=>
         
         val p = Pickle.intoString(Seq.empty[PropertyModel])//rp.pickle(List.empty)
 
-        Future.successful(Ok(p).as("application/json"))
+        //Future.successful(Ok(p).as("application/json"))
+        Future.successful(this.pack(p))
     }
   }
 

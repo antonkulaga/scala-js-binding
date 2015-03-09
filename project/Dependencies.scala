@@ -6,17 +6,17 @@ import scala.scalajs.sbtplugin.ScalaJSPlugin._
 
 object Dependencies
 {
-  val macwireVersion = "0.7.3"
+  val macwireVersion = "0.8.0"
 
   val scaleniumVersion = "1.0.1"
 
   val scalaRxVersion = "0.2.6"
 
-  val semanticUIVersion = "1.7.3"
+  val semanticUIVersion = "1.11.2"
 
   val codeMirrorVersion = "4.11"
 
-  val selectizeVersion = "0.11.2"
+  val selectizeVersion = "0.12.0"
 
   val sesameVersion = "2.7.12"
 
@@ -68,14 +68,12 @@ object Dependencies
 
   val models_js = Def.setting(shared.value++Seq(
       "org.scalax" %%% "semweb" % Versions.semWebVersion,
-     "org.scalajs" %%% "scalajs-pickling" % "0.3.1",
       "com.scalarx" %%% "scalarx" % "0.2.6"
   ))
 
   val models_jvm = Def.setting(shared.value++Seq(
 
       "org.scalax" %% "semweb" % Versions.semWebVersion,
-     "org.scalajs" %% "scalajs-pickling-play-json" % "0.3.1",
       "com.scalarx" %% "scalarx" % scalaRxVersion
 
   ))
@@ -97,8 +95,6 @@ object Dependencies
   val bindingPlay = Def.setting(shared.value++Seq(
 
     "com.typesafe.play" %% "play" % "2.3.7",
-
-    "org.scalajs" %% "scalajs-pickling-play-json" % "0.3.1",
 
     "com.softwaremill.macwire" %% "macros" % macwireVersion,
 

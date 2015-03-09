@@ -1,6 +1,7 @@
 package org.denigma.semantic.models.collections
 
 import org.denigma.binding.extensions._
+import org.denigma.binding.messages.ExploreMessages.Exploration
 import org.denigma.binding.messages.{ExploreMessages, Filters}
 import org.denigma.semantic.models.{ModelView, RemoteModelView, WithShapeView}
 import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
@@ -48,7 +49,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
     }
 
 
-  val exploreStorage = new AjaxExploreStorage(path)(registry)
+  val exploreStorage = new AjaxExploreStorage(path)
 
 
   val crudStorage= new AjaxModelStorage(crud)
@@ -66,7 +67,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
    * Loads data fro the server
    */
   def loadData(explore:ExploreMessages.Explore) = {
-    val models:Future[ExploreMessages.Exploration] = exploreStorage.explore(explore)
+    val models: Future[Exploration] = exploreStorage.explore(explore)
 
     models.onComplete {
       case Success(data) =>

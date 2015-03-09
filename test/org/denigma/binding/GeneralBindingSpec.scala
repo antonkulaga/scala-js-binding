@@ -12,7 +12,7 @@ import play.twirl.api.Html
 import com.markatta.scalenium._
 import JqueryStyle._
 
-
+/*
 
 class GeneralBindingSpec extends PlaySpecification with Controller
 {
@@ -73,3 +73,4 @@ self=>
     browser.close()
   }
 }
+*/

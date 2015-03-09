@@ -1,8 +1,6 @@
 package org.denigma.semantic.storages
 
-import org.denigma.binding.extensions.sq
 import org.scalajs.dom.XMLHttpRequest
-import org.scalajs.spickling.PicklerRegistry
 import org.scalax.semweb.rdf.Res
 import org.scalax.semweb.shex.Model
 
@@ -28,6 +26,7 @@ trait SimpleStorage
 
 }
 
+/*
 
 trait AjaxSimpleStorage extends SimpleStorage{
 
@@ -35,7 +34,9 @@ trait AjaxSimpleStorage extends SimpleStorage{
 
   def path:String
 
-  override def all() = sq.get[List[MyModel]](sq.withHost(path))
+  override def all() = {
+    sq.get[List[MyModel]](sq.withHost(path))
+  }
 
   override def update(MyModel: MyModel): Future[XMLHttpRequest] = sq.put(sq.withHost(s"$path/update"),MyModel)
 
@@ -46,4 +47,4 @@ trait AjaxSimpleStorage extends SimpleStorage{
   override def read(id: Res): Future[MyModel] = sq.post[Res,MyModel](sq.withHost(s"$path/id"),id)
 
   override def add(MyModel: MyModel): Future[XMLHttpRequest] = sq.put(sq.withHost(s"$path/add"),MyModel)
-}
+}*/

@@ -1,21 +1,16 @@
 package controllers
 
+import org.denigma.binding.composites.BindingComposites
+import org.denigma.binding.composites.BindingComposites._
 import org.denigma.binding.models._
-import org.denigma.endpoints.ItemsController
-import play.api.libs.concurrent.Execution.Implicits.defaultContext
-import play.api.mvc._
-import org.scalax.semweb.rdf.{Res, IRI}
-import play.api.libs.json.{Json, JsValue}
-import org.scalajs.spickling.PicklerRegistry
-import org.scalajs.spickling.playjson._
-import org.scalax.semweb.sparql._
-import org.scalajs.spickling.PicklerRegistry
-import org.denigma.binding.models._
-
+import org.denigma.endpoints.{PrickleController, UserAction}
 import org.scalax.semweb.rdf.IRI
+import play.api.mvc._
+import prickle.{Pickle, Unpickle}
 
+import scala.concurrent.Future
 
-object TopMenu  extends Controller  with ItemsController{
+object TopMenu  extends Controller with PrickleController{
 
   type ModelType = MenuItem
 
@@ -28,6 +23,27 @@ object TopMenu  extends Controller  with ItemsController{
     "slides/scalajs"->"About benefits of ScalaJS"
 
   ) map{ case (url,title)=> MenuItem(dom / url,title)}
+
+  def add() = UserAction.async(this.unpickleWith{
+    st => Unpickle[MenuItem].fromString(st)
+  }){ implicit request=>
+
+    items = request.body::items
+    Future.successful(this.pTRUE)
+  }
+
+  def delete() = UserAction.async(this.unpickleWith{
+    st => Unpickle[MenuItem].fromString(st)
+  }){ implicit request=>
+
+    items = items.filterNot(i=>i==request.body)
+    Future.successful(this.pTRUE)
+  }
+
+
+  def all() = UserAction.async { implicit request=>
+    Future.successful(pack(Pickle.intoString(items)))
+  }
 
 
 }

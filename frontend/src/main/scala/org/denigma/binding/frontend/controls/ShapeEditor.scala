@@ -1,28 +1,23 @@
 package org.denigma.binding.frontend.controls
 
-import java.util
-
 import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.extensions.sq
-import org.denigma.binding.picklers.rp
-import org.denigma.binding.views.{JustPromise, PromiseEvent, BindableView}
 import org.denigma.binding.views.collections.CollectionView
+import org.denigma.binding.views.{JustPromise, PromiseEvent}
 import org.denigma.semantic.rdf.ShapeInside
 import org.denigma.semantic.shapes.{ArcView, ShapeView}
 import org.denigma.semantic.storages.ShapeStorage
 import org.scalajs.dom
 import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.vocabulary.XSD
-import org.scalax.semweb.rdf.{Res, RDFValue, vocabulary, IRI}
-import org.scalax.semweb.shex.{Star, ShapeBuilder, Shape}
-import rx.Rx
+import org.scalax.semweb.rdf.{IRI, RDFValue, Res, vocabulary}
+import org.scalax.semweb.shex.{Shape, ShapeBuilder, Star}
 import rx.core.Var
-import scala.collection.immutable.Map
-import org.scalax.semweb.shex
 
+import scala.collection.immutable.Map
 import scala.concurrent.Promise
+import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
-import scalajs.concurrent.JSExecutionContext.Implicits.queue
 object ShapeEditor{
 
   def apply(el:HTMLElement,mp:Map[String,Any]):ShapeView = new EditableShape(el,mp)
@@ -46,8 +41,6 @@ class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends Colle
   type Item = Var[ShapeInside]
   type ItemView = ShapeView
 
-
-  implicit val registry = rp
 
   val path:String = this.resolveKey("path"){
     case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)

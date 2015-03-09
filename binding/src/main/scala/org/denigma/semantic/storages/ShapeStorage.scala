@@ -3,21 +3,16 @@ package org.denigma.semantic.storages
 import java.util.Date
 
 import org.denigma.binding.extensions.sq
-import org.denigma.binding.messages.{Suggestion}
+import org.denigma.binding.messages.Suggestion
 import org.scalajs.dom
-import org.scalajs.spickling.PicklerRegistry
 import org.scalax.semweb.messages.ShapeMessages
-import org.scalax.semweb.rdf.{RDFValue, Res}
+import org.scalax.semweb.rdf.Res
 import org.scalax.semweb.shex.Shape
 
 import scala.concurrent.Future
 
-/**
- * Shape storage for shape editing
- * @param path
- * @param registry
- */
-class ShapeStorage(path:String)(implicit registry:PicklerRegistry)  extends Storage {
+
+class ShapeStorage(path:String)  extends Storage {
   override def channel: String = this.path
 
   def getShapes(query:Option[Res] = None,id:String = this.genId(),channel:String = this.channel, time:Date = new Date()):Future[List[Shape]] = {
@@ -33,7 +28,8 @@ class ShapeStorage(path:String)(implicit registry:PicklerRegistry)  extends Stor
 
   def suggestProperty(typed:String):Future[Suggestion] = {
     val data: ShapeMessages.SuggestProperty = ShapeMessages.SuggestProperty(typed,id = this.genId(),channel = this.channel, time = new Date())
-    sq.post(path,data):Future[Suggestion]
+    //sq.post(path,data):Future[Suggestion]
+    ???
   }
 
 }
