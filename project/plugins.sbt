@@ -17,25 +17,16 @@ resolvers += Resolver.url(
 
 resolvers += "JohnsonUSM snapshots" at "http://johnsonusm.com:8020/nexus/content/repositories/releases/"
 
-//scalajs plugin
-addSbtPlugin("org.scala-lang.modules.scalajs" % "scalajs-sbt-plugin" % "0.5.6")
-
-addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.4")
-
-addSbtPlugin("me.lessis" % "bintray-sbt" % "0.1.2")
-
-addSbtPlugin("com.lihaoyi" % "utest-js-plugin" % "0.2.4")
+addSbtPlugin("me.lessis" % "bintray-sbt" % "0.2.0")
 
 // The Play plugin
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.3.8")
 
+addSbtPlugin("com.vmunier" % "sbt-play-scalajs" % "0.2.3")
+
 // web plugins
-addSbtPlugin("com.typesafe.sbt" % "sbt-less" % "1.0.4")
+addSbtPlugin("com.typesafe.sbt" % "sbt-less" % "1.0.6")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-digest" % "1.1.0")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-gzip" % "1.0.0")
-
-resolvers += "jgit-repo" at "http://download.eclipse.org/jgit/maven"
-
-addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "0.6.4")

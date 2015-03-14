@@ -6,13 +6,13 @@ object Versions {
 
   val snap = "-SNAPSHOT"
 
-  val semWebVersion =  "0.6.21"
+  val semWebVersion =  "0.6.3"
 
-  val bindingVersion = "0.7.1"//+snap
+  val bindingVersion = "0.7.2"//+snap
 
-  val mainVersion = "0.7.1" //lowest version of whole stack
+  val mainVersion = "0.7.2" //lowest version of whole stack
 
-  val bindingPlayVersion = "0.7.1"//+snap
+  val bindingPlayVersion = "0.7.2"//+snap
 
-  val jsmacroVersion = "0.1.6"
+  val jsmacroVersion = "0.1.7"
 }

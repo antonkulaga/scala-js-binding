@@ -3,6 +3,8 @@ import com.typesafe.sbt.gzip.Import._
 import com.typesafe.sbt.web.Import._
 import com.typesafe.sbt.web.SbtWeb
 import play.twirl.sbt.Import.TwirlKeys
+import sbt.Project.projectToRef
+import playscalajs._
 
 import sbt.Keys._
 import sbt._
@@ -15,27 +17,31 @@ import com.typesafe.sbt.packager.universal.UniversalKeys
 import play._
 import play.Play._
 
-import scala.scalajs.sbtplugin.ScalaJSPlugin.ScalaJSKeys._
-import scala.scalajs.sbtplugin.ScalaJSPlugin._
 import com.typesafe.sbt.web.SbtWeb.autoImport._
 import com.typesafe.sbt.less.Import.LessKeys
+import org.scalajs.sbtplugin.ScalaJSPlugin
+import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
+import org.scalajs.sbtplugin.cross.CrossProject
+import sbt.Project.projectToRef
+import playscalajs.PlayScalaJS.autoImport._
+import playscalajs.ScalaJSPlay.autoImport._
+import sbt.Project.projectToRef
+
 
 object BindingBuild extends sbt.Build with UniversalKeys {
+
+  lazy val clients = Seq(frontend,binding,modelsJs)
 
   val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")
 
   override def rootProject = Some(preview)
 
-  lazy val frontEndSettings = scalaJsSettings ++ Seq(
+  lazy val frontEndSettings = sameSettings ++ Seq(
     version := Versions.bindingVersion,
 
     name := "frontend",
 
-    scalacOptions ++= Seq( "-feature", "-language:_" ),
-
-    ScalaJSKeys.persistLauncher := true,
-
-    ScalaJSKeys.persistLauncher in Test := false
+    scalacOptions ++= Seq( "-feature", "-language:_" )
   )
 
   lazy val frontend = Project(
@@ -45,16 +51,12 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     settings = frontEndSettings
 
-  ) dependsOn binding
+  ) enablePlugins(ScalaJSPlugin, ScalaJSPlay)  dependsOn binding
 
-  lazy val bindingSettings = scalaJsSettings++publishSettings ++ Seq(
+  lazy val bindingSettings = sameSettings++publishSettings ++ Seq(
     version := Versions.bindingVersion,
 
     name := "binding",
-
-    ScalaJSKeys.persistLauncher := true,
-
-    ScalaJSKeys.persistLauncher in Test := false,
 
     libraryDependencies ++= Dependencies.binding.value
   )
@@ -63,36 +65,26 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     id = "binding",
     base = file("binding"),
     settings = bindingSettings
-  ) dependsOn (jsmacro, models_js)
+  ) dependsOn (jsmacro, modelsJs)
 
 
-
-  lazy val modelsJsSettings =  scalaJsSettings ++ publishSettings++ Seq(
-    name := "models",
-    ScalaJSKeys.relativeSourceMaps := true,
-    ScalaJSKeys.persistLauncher := true,
-    ScalaJSKeys.persistLauncher in Test := false,
-
+  lazy val modelsJsSettings =  sameSettings ++ publishSettings++ Seq(
     libraryDependencies ++= Dependencies.models_js.value
-  )
-
-  /** `models_js`, a js only meta project. */
-  lazy val models_js = Project(
-    id = "models_js",
-    base = file("models/js"),
-    settings = modelsJsSettings
   )
   lazy val modelsJvmSettings =  sameSettings ++ publishSettings ++ Seq(
     libraryDependencies ++= Dependencies.models_jvm.value
   )
+  lazy val models = CrossProject("models",new File("models"),CrossType.Full).
+    settings(sameSettings: _*).
+    jsConfigure(_ enablePlugins ScalaJSPlugin).
+    jsSettings(modelsJvmSettings: _* ).
+    jvmSettings(modelsJsSettings: _* )
 
-  lazy val models_jvm = Project(
-    id = "models_jvm",
-    base = file("models/jvm"),
-    settings = modelsJvmSettings
-  )
+  lazy val modelsJs = models.js
+  lazy val modelsJvm   = models.jvm
 
-  lazy val jsMacroSettings = scalaJsSettings++ publishSettings ++ Seq(
+
+  lazy val jsMacroSettings = sameSettings++ publishSettings ++ Seq(
     name := "js-macro",
 
     version := Versions.jsmacroVersion,
@@ -107,7 +99,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     id = "js-macro",
     base = file("jsmacro"),
     settings = jsMacroSettings
-  )
+  ) enablePlugins ScalaJSPlugin
 
   lazy val bindingPlaySettings = sameSettings ++ bintraySettings ++ publishSettings ++ Seq(
     name := "binding-play",
@@ -121,10 +113,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     id = "binding-play",
     base = file("binding-play"),
     settings = bindingPlaySettings
-  ) dependsOn models_jvm
-   //aggregate models_jvm
-
-  //lazy val sharedCode= unmanagedSourceDirectories in Compile += baseDirectory.value / "shared" / "src" / "main" / "scala"
+  ) dependsOn modelsJvm
 
   lazy val previewSettings = sameSettings ++ Seq(
       name := """binding-preview""",
@@ -133,7 +122,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
       resolvers += "Pellucid Bintray" at "http://dl.bintray.com/pellucid/maven",
 
-      resolvers += Opts.resolver.repo("markatta", "markatta-releases"),
+      resolvers += sbt.Resolver.bintrayRepo("markatta", "markatta-releases"),
 
       resolvers += Resolver.sonatypeRepo("snapshots"),
 
@@ -143,41 +132,14 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
       excludeFilter in (Assets, LessKeys.less) := "_*.less",
 
-      pipelineStages := Seq(digest, gzip),
+      pipelineStages := Seq(scalaJSProd,digest, gzip),
 
-      testFrameworks += new TestFramework("utest.runner.JvmFramework"),
+      scalaJSProjects := clients,
 
-      scalajsOutputDir := (classDirectory in Compile).value  / "public" / "javascripts",
+      TwirlKeys.templateImports += "org.denigma.endpoints._"
 
-      compile in Compile <<= (compile in Compile) dependsOn (fastOptJS in (frontend, Compile)),
-
-      compile in Test <<= (compile in Test) dependsOn (fastOptJS in (frontend, Test)),
-
-      dist <<= dist dependsOn (fullOptJS in (frontend, Compile)),
-
-      stage <<= stage dependsOn (fullOptJS in (frontend, Compile)),
-
-      TwirlKeys.templateImports += "org.denigma.endpoints._",
-
-      watchSources <++= (sourceDirectory in (frontend, Compile)).map { path => (path ** "*.scala").get}
-
-    ) ++ (   Seq( fastOptJS, fullOptJS) map { packageJSKey =>
-      crossTarget in (frontend, Compile, packageJSKey) := scalajsOutputDir.value
-    }
     )
 
-  // Use reflection to rename the 'start' command to 'play-start'
-  Option(play.Play.playStartCommand.getClass.getDeclaredField("name")) map { field =>
-    field.setAccessible(true)
-    field.set(playStartCommand, "play-start")
-  }
-
-
-  // The new 'start' command optimises the JS before calling the Play 'start' renamed 'play-start'
-  lazy val preStartCommand = Command.args("start", "<port>") { (state: State, args: Seq[String]) =>
-    Project.runTask(fullOptJS in (frontend, Compile), state)
-    state.copy(remainingCommands = ("play-start " + args.mkString(" ")) +: state.remainingCommands)
-  }
 
 
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
@@ -185,7 +147,8 @@ object BindingBuild extends sbt.Build with UniversalKeys {
   lazy val preview = (project in file("."))
     .enablePlugins(PlayScala,SbtWeb)
     .settings(previewSettings: _*)
-    .dependsOn(bindingPlay).aggregate(frontend)
+    .dependsOn(bindingPlay)
+    .aggregate(clients.map(projectToRef): _*)
 
 
 
@@ -199,13 +162,11 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     version := Versions.mainVersion,
 
-    scalaVersion := "2.11.5",
+    scalaVersion := "2.11.6",
 
-    resolvers += Opts.resolver.repo("scalax", "scalax-releases"),
+    resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"),
 
-    resolvers += Opts.resolver.repo("denigma", "denigma-releases"),
-
-    resolvers += Opts.resolver.repo("alexander-myltsev", "maven"),
+    resolvers += sbt.Resolver.bintrayRepo("alexander-myltsev", "maven"),
 
     ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },
 
@@ -224,17 +185,6 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     parallelExecution in Test := false
 
   )
-
-  lazy val scalaJsSettings = scalaJSSettings ++ sameSettings ++ bintraySettings++
-    Seq(
-      resolvers +=  Resolver.url("scala-js-releases",
-        url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
-          Resolver.ivyStylePatterns),
-      resolvers += Opts.resolver.repo("alexander-myltsev", "maven"),
-      ScalaJSKeys.relativeSourceMaps := true
-    )
-
-
 
 
   lazy val publishSettings = Seq(

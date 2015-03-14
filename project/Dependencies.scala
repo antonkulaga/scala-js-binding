@@ -1,8 +1,9 @@
 import bintray.Opts
 import sbt.Keys._
 import sbt._
-
-import scala.scalajs.sbtplugin.ScalaJSPlugin._
+import org.scalajs.sbtplugin.ScalaJSPlugin
+import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
+import sbt.Project.projectToRef
 
 object Dependencies
 {
@@ -10,7 +11,9 @@ object Dependencies
 
   val scaleniumVersion = "1.0.1"
 
-  val scalaRxVersion = "0.2.6"
+  val scalaRxVersion = "0.2.8"
+
+  val scalaTagsVersion = "0.4.6"
 
   val semanticUIVersion = "1.11.2"
 
@@ -20,10 +23,14 @@ object Dependencies
 
   val sesameVersion = "2.7.12"
 
+  lazy val codeMirrorFacade = "4.8-0.4"
+
 
   val shared = Def.setting(Seq())
 
   val preview = Def.setting(shared.value ++ Seq(
+
+    "com.vmunier" %% "play-scalajs-scripts" % "0.1.0",
 
     "org.scala-lang.modules" %% "scala-async" % "0.9.2",
 
@@ -37,15 +44,15 @@ object Dependencies
 
     "org.webjars" % "ckeditor" % "4.4.1",
 
-    "com.lihaoyi" %% "utest" % "0.2.4",
+    "com.lihaoyi" %% "utest" % "0.3.1",
 
     "org.webjars" % "three.js" % "r66",
 
     "org.webjars" % "selectize.js" % selectizeVersion,
 
-    "org.scalax" %% "semweb" % Versions.semWebVersion,
+    "org.denigma" %% "semweb" % Versions.semWebVersion,
 
-    "org.scalax" %% "semweb-sesame" % Versions.semWebVersion,
+    "org.denigma" %% "semweb-sesame" % Versions.semWebVersion,
 
     "org.w3" %% "sesame" % "0.7.2-SNAPSHOT" excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
 
@@ -59,30 +66,32 @@ object Dependencies
 
   ))
   val macro_js = Def.setting(shared.value++Seq(
-     "org.scala-lang.modules.scalajs" %%% "scalajs-dom" % "0.6.1",
+      "org.scala-js" %%% "scalajs-dom" % "0.8.0",
 
-     "com.scalatags" %%% "scalatags" % "0.4.2",
+      "com.lihaoyi" %%% "scalatags" % scalaTagsVersion,
 
-      "com.scalarx" %%% "scalarx" % scalaRxVersion
+      "com.lihaoyi" %%% "scalarx" % scalaRxVersion
   ))
 
   val models_js = Def.setting(shared.value++Seq(
-      "org.scalax" %%% "semweb" % Versions.semWebVersion,
-      "com.scalarx" %%% "scalarx" % "0.2.6"
+      "org.denigma" %%% "semweb" % Versions.semWebVersion,
+
+      "com.lihaoyi" %%% "scalarx" % scalaRxVersion
   ))
 
   val models_jvm = Def.setting(shared.value++Seq(
 
-      "org.scalax" %% "semweb" % Versions.semWebVersion,
-      "com.scalarx" %% "scalarx" % scalaRxVersion
+      "org.denigma" %% "semweb" % Versions.semWebVersion,
+
+      "com.lihaoyi" %% "scalarx" % scalaRxVersion
 
   ))
 
   val binding = Def.setting(shared.value++Seq(
 
-    "org.scala-lang.modules.scalajs" %%% "scalajs-jquery" % "0.6",
+    "be.doeraene" %%% "scalajs-jquery" % "0.8.0",
 
-    "org.scalajs" %%% "codemirror" % "4.5-0.1",
+    "org.denigma" %%% "codemirror" % codeMirrorFacade,
 
     "com.softwaremill.macwire" %% "macros" % macwireVersion,
 
@@ -94,7 +103,7 @@ object Dependencies
 
   val bindingPlay = Def.setting(shared.value++Seq(
 
-    "com.typesafe.play" %% "play" % "2.3.7",
+    "com.typesafe.play" %% "play" % "2.3.8",
 
     "com.softwaremill.macwire" %% "macros" % macwireVersion,
 
