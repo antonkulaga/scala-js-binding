@@ -5,6 +5,7 @@ import org.denigma.binding.binders.extractors.Extractor
 import org.denigma.binding.macroses._
 import org.scalajs.dom
 import org.scalajs.dom._
+import org.scalajs.dom.raw.HTMLElement
 import rx._
 import rx.core.{Obs, Var}
 
@@ -14,7 +15,7 @@ import scalatags.Text.Tag
 
 object BindableView {
 
-  class JustView(val elem:dom.HTMLElement, val params:Map[String,Any]) extends BindableView
+  class JustView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
   {
     override def activateMacro(): Unit = {
       this.extractors.foreach(_.extractEverything(this))
@@ -23,9 +24,9 @@ object BindableView {
     override protected def attachBinders(): Unit = this.withBinders( BindableView.defaultBinders(this))
   }
 
-  implicit def defaultBinders(view:BindableView) = new GeneralBinder(view)::new NavigationBinding(view)::Nil
+  implicit def defaultBinders(view:BindableView): List[BasicBinding] = new GeneralBinder(view)::new NavigationBinding(view)::Nil
 
-  def apply(elem:dom.HTMLElement,params:Map[String,Any] = Map.empty) = new JustView(elem,params)
+  def apply(elem:HTMLElement,params:Map[String,Any] = Map.empty) = new JustView(elem,params)
 
 }
 

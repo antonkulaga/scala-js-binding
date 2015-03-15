@@ -6,7 +6,7 @@ import org.denigma.semantic.binders.shex.ArcBinder
 import org.denigma.semantic.models.WithShapeView
 import org.denigma.semantic.rdf.ShapeInside
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.shex.{ArcRule, Shape}
 import rx._
 import org.denigma.binding.views.collections.CollectionView

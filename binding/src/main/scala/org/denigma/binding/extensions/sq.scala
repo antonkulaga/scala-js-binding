@@ -1,19 +1,21 @@
 package org.denigma.binding.extensions
 
+import org.scalajs.dom.ext.Ajax
+import org.scalajs.dom.raw.HTMLElement
+
 import scala.Some
+import scalajs.js.UndefOr
 
 import org.scalajs.dom._
 
 import org.scalajs.dom.Attr
 import org.scalajs.dom
-import dom.extensions._
 import scala.scalajs.js.Dynamic.{global => g}
 import scala.scalajs.js
 import scala.concurrent.Future
 
 
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-import scala.scalajs.js.prim.Undefined
 import scala.util.{Failure, Success, Try}
 
 
@@ -45,7 +47,7 @@ object sq
 
   def byId(id:String): Option[HTMLElement] = dom.document.getElementById(id) match {
     case null=>None
-    case v if v.isInstanceOf[Undefined] =>None
+    //case v if v.isInstanceOf[Undefined] =>None
     case el:HTMLElement=>Some(el)
     case _=>dom.console.error(s"element for $id is not an html element");  None
   }

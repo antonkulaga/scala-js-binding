@@ -3,7 +3,7 @@ package org.denigma.binding.frontend.tests
 import org.denigma.binding.macroses.ClassToMap
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.collections.MapCollectionView
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.dom
 import rx._
 

@@ -4,7 +4,7 @@ import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.{SemanticSelector, RDFBinder}
 import org.denigma.semantic.rdf.PropertyPrinter
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.shex.{NameTerm, ArcRule}
 import rx.core.Var
 

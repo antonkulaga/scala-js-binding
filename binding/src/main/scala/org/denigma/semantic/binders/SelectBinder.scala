@@ -1,23 +1,19 @@
 package org.denigma.semantic.binders
 
-import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
-import org.scalajs.dom.{KeyboardEvent, Event, HTMLElement}
-import org.scalajs.jquery._
-import org.scalajs.selectize.{SelectizePlugin, Selectize}
+import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.selectize.{Selectize, SelectizePlugin}
 import org.scalax.semweb.rdf.{IRI, RDFValue}
 import rx.Var
 
-import scala.collection.immutable.{ Map}
+import scala.collection.immutable.Map
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
-import scala.scalajs.js.{Function1, ThisFunction0, ThisFunction1}
-import scala.scalajs.js.annotation.JSExportAll
+import scala.scalajs.js.{ThisFunction0, ThisFunction1}
 import scala.util.{Failure, Success}
-import scalatags.Text.all._
 
 object SelectBinder extends BetterCreatePlugin("select_binder")
 
@@ -75,7 +71,7 @@ class BetterDropdownPlugin(val pluginName:String) extends Escaper{
     //dom.console.log("dropdown works!")
     val control = self.$control
     val offset = control.position
-    offset.top = offset.top + control.outerHeight(true).asInstanceOf[Double]
+    offset.top = offset.top.asInstanceOf[Double] + control.outerHeight(true).asInstanceOf[Double]
     self.$dropdown.css(js.Dynamic.literal(
       //width = control.outerWidth(),
       top   = offset.top,

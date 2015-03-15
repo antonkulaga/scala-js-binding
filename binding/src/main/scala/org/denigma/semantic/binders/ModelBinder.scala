@@ -4,12 +4,11 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.rdf.{ModelInside, PropertyPrinter}
 import org.scalajs.dom
-import org.scalajs.dom.extensions._
-import org.scalajs.dom.{Event, HTMLElement}
+import org.scalajs.dom.raw.{Event, HTMLElement}
 import org.scalax.semweb.rdf._
 import rx.Rx
 import rx.core.Var
-
+import org.scalajs.dom.ext._
 import scala.collection.immutable.Map
 import scala.scalajs.js.{Dynamic, Any}
 import rx.extensions._
@@ -120,11 +119,11 @@ class ModelBinder(view:BindableView,modelInside:Var[ModelInside],subjectOf:Set[I
    */
   protected def bindRdfAttribute(el: HTMLElement, key: IRI, att: String) = this.bindRdfElement(el,key)
   {
-    case (el,value)=> 
+    case (elem,value)=>
           val at = dom.document.createAttribute(att)
-          at.value = Any.fromString(value)
-          el.attributes.setNamedItem(at)
-          el.dyn.updateDynamic(att)(value)
+          at.value = value
+          elem.attributes.setNamedItem(at)
+          elem.dyn.updateDynamic(att)(value)
   }
 
 /*

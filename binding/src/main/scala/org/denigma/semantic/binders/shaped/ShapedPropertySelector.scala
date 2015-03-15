@@ -1,12 +1,9 @@
 package org.denigma.semantic.binders.shaped
 
-import java.text.SimpleDateFormat
-import java.util.Date
-
-import org.denigma.semantic.binders.{SelectOption, PropertySelector, SelectBinder, SemanticRenderer}
+import org.denigma.semantic.binders.{PropertySelector, SelectBinder, SemanticRenderer}
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf
 import org.scalax.semweb.rdf._
 import org.scalax.semweb.rdf.vocabulary.XSD
@@ -14,9 +11,7 @@ import org.scalax.semweb.shex._
 import rx.core.Var
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSName
 import scala.util.Try
-import scalatags.Text.all._
 
 /*class ShapedRenderer extends SemanticRenderer {
 

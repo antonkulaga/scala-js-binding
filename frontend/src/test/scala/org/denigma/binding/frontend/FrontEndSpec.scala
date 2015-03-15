@@ -3,7 +3,7 @@ package org.denigma.binding.frontend
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 
 import scala.collection.immutable.Map
 import scala.scalajs.js.annotation.JSExport

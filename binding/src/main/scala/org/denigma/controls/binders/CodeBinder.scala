@@ -2,12 +2,11 @@ package org.denigma.controls.binders
 
 import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.views.BindableView
-import org.scalajs.codemirror.{EditorConfiguration, CodeMirror, Editor}
+import org.denigma.codemirror.{EditorConfiguration, CodeMirror, Editor}
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.{HTMLTextAreaElement, HTMLElement}
 import org.scalajs.jquery._
 import rx._
-import org.scalajs.codemirror.{CodeMirror, EditorConfiguration, Editor}
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
@@ -42,7 +41,7 @@ class CodeBinder(view:BindableView) extends GeneralBinder(view:BindableView)
     case "bind-code-sparql"=> makeCode(el,value,"application/x-sparql-query")
   }
 
-  def makeEditor(area:dom.HTMLTextAreaElement,textValue:String,codeMode:String) = {
+  def makeEditor(area:HTMLTextAreaElement,textValue:String,codeMode:String) = {
     val params = js.Dynamic.literal(
       mode = codeMode,
       lineNumbers = true,
@@ -75,7 +74,7 @@ class CodeBinder(view:BindableView) extends GeneralBinder(view:BindableView)
 
 
   def makeCode(el:HTMLElement, str:Rx[String], mode:String):Unit = el match {
-      case area: dom.HTMLTextAreaElement =>
+      case area: HTMLTextAreaElement =>
         this.editors.get(area) match {
           case Some(ed) =>
             ed.getDoc().setValue(str.now)

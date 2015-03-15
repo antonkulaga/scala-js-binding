@@ -4,7 +4,7 @@ import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.{BinderWithSelection, ModelBinder, SelectBinder}
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.{IRI, RDFValue}
 import org.scalax.semweb.shex._
 import rx._

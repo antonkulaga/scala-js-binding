@@ -3,7 +3,8 @@ package org.denigma.semantic.binders
 import org.denigma.binding.extensions._
 import org.denigma.semantic.grids.{ExplorableView, FilterSelector}
 import org.scalajs.dom
-import org.scalajs.dom.{HTMLElement, KeyboardEvent}
+import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.{ KeyboardEvent}
 import org.scalax.semweb.rdf.IRI
 
 import scala.collection.immutable.Map

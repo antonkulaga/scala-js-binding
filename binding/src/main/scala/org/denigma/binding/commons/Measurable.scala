@@ -1,7 +1,5 @@
 package org.denigma.binding.commons
 
-import scala.scalajs.js.Number
-
 import scala.scalajs.js
 import org.scalajs.dom
 

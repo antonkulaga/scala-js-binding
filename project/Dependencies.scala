@@ -54,7 +54,7 @@ object Dependencies
 
     "org.denigma" %% "semweb-sesame" % Versions.semWebVersion,
 
-    "org.w3" %% "sesame" % "0.7.2-SNAPSHOT" excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
+    "org.w3" % "banana-sesame_2.11" % "0.8.0" excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
 
     "org.openrdf.sesame" % "sesame-rio-rdfxml" % sesameVersion,
 
@@ -93,9 +93,7 @@ object Dependencies
 
     "org.denigma" %%% "codemirror" % codeMirrorFacade,
 
-    "com.softwaremill.macwire" %% "macros" % macwireVersion,
-
-    "com.markatta" %% "scalenium" % scaleniumVersion % "test"
+    "com.softwaremill.macwire" %% "macros" % macwireVersion
 
   )
   )
@@ -103,11 +101,7 @@ object Dependencies
 
   val bindingPlay = Def.setting(shared.value++Seq(
 
-    "com.typesafe.play" %% "play" % "2.3.8",
-
-    "com.softwaremill.macwire" %% "macros" % macwireVersion,
-
-    "com.softwaremill.macwire" %% "runtime" % macwireVersion
+    "com.typesafe.play" %% "play" % "2.3.8"
   ))
 
   val ui = Def.setting(shared.value)

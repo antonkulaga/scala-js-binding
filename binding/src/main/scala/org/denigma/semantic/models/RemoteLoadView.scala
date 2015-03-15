@@ -3,7 +3,7 @@ package org.denigma.semantic.models
 import org.denigma.binding.extensions.sq
 import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.IRI
 
 import scala.collection.immutable.Map

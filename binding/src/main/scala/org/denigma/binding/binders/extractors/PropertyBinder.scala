@@ -3,8 +3,9 @@ package org.denigma.binding.binders.extractors
 import org.denigma.binding.binders.BasicBinding
 import org.denigma.binding.extensions._
 import org.scalajs.dom
-import org.scalajs.dom.extensions._
-import org.scalajs.dom.{Event, HTMLElement, KeyboardEvent}
+import org.scalajs.dom.ext._
+import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.{Event, KeyboardEvent}
 import rx._
 
 import scala.collection.immutable.Map

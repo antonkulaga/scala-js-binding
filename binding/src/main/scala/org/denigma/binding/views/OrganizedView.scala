@@ -4,7 +4,7 @@ import org.denigma.binding.extensions
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.utils.ViewInjector
 import org.scalajs.dom
-import org.scalajs.dom.{HTMLDocument, HTMLElement}
+import org.scalajs.dom.raw.{HTMLDocument, HTMLElement}
 import rx.core.Var
 
 import scala.collection.immutable.Map
@@ -12,7 +12,6 @@ import scala.concurrent.{Promise, Future}
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic.{global => g}
 
-import dom.extensions._
 
 import scala.util.{Failure, Success}
 

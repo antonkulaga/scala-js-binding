@@ -3,20 +3,13 @@ package org.denigma.semantic.shapes
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.collections.CollectionView
-import org.denigma.semantic.models.WithShapeView
-import org.denigma.semantic.rdf.{ModelInside, ShapeInside}
-import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
-import org.scalajs.dom.extensions._
-import org.scalax.semweb.rdf.{IRI, Res}
-import org.scalax.semweb.rdf.vocabulary.WI
+import org.scalax.semweb.rdf.Res
 import org.scalax.semweb.shex._
 import rx._
 import rx.core.Var
 import rx.ops._
-import scala.collection.immutable.{TreeSet, SortedSet, Map}
-import rx.extensions._
-import scala.util.Sorting
+
+import scala.collection.immutable.{Map, SortedSet}
 object ShapeView
 {
   def defaultBinders(view:ShapeView) = new GeneralBinder(view)::new NavigationBinding(view)::Nil

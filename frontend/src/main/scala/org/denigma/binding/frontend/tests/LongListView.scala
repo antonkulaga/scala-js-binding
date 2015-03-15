@@ -2,7 +2,7 @@ package org.denigma.binding.frontend.tests
 
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.collections.MapCollectionView
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.scalajs.dom.raw.HTMLElement
 import rx.{Rx, Var}
 
 import scala.collection.immutable.Map

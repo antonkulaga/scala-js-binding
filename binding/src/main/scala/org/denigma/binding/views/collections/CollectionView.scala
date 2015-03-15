@@ -4,10 +4,10 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.views.{BindableView, IView}
 import org.scalajs.dom
 import org.scalajs.dom._
-import org.scalajs.dom.extensions._
+import org.scalajs.dom.raw.HTMLElement
 import rx.Rx
 import rx.extensions.Moved
-
+import org.scalajs.dom.ext._
 import scala.collection.immutable._
 
 

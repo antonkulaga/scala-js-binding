@@ -3,7 +3,8 @@ package org.denigma.binding.frontend.controls
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.semantic.models.WithShapeView
 import org.denigma.semantic.shapes.{ArcView, ShapeView}
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.scalajs.dom.MouseEvent
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.vocabulary.RDF
 import org.scalax.semweb.shex._
 import rx._

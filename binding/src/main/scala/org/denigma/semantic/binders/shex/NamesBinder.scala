@@ -3,7 +3,7 @@ package org.denigma.semantic.binders.shex
 import org.denigma.semantic.binders.{SemanticSelector, SelectOption}
 import org.denigma.semantic.shapes.ArcView
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.RDFValue
 import org.scalax.semweb.shex.ArcRule
 import rx.Var
@@ -53,7 +53,6 @@ class NamesBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[R
 
 
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.shex._
 import rx.ops._

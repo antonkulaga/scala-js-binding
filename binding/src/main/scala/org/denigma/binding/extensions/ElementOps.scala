@@ -1,6 +1,7 @@
 package org.denigma.binding.extensions
 
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
+
 import scala.scalajs.js
 
 /**

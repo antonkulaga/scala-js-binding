@@ -2,8 +2,8 @@ package org.denigma.binding.frontend
 
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.extensions.Ajax
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.scalajs.dom.ext.Ajax
+import org.scalajs.dom.raw.HTMLElement
 import rx._
 
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue

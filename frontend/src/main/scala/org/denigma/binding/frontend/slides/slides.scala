@@ -11,7 +11,8 @@ import org.denigma.semantic.rdf
 import org.denigma.semantic.rdf.{ModelInside, ShapeInside}
 import org.denigma.semantic.shapes.ShapedModelView
 import org.scalajs.dom
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.scalajs.dom.MouseEvent
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.vocabulary.WI
 import org.scalax.semweb.rdf.{BooleanLiteral, IRI, StringLiteral, vocabulary}
 import org.scalax.semweb.shex.{PropertyModel, ShapeBuilder, Star}

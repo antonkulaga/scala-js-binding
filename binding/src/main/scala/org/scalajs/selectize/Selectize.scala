@@ -1,7 +1,6 @@
 package org.scalajs.selectize
 
 import org.denigma.semantic.binders.SelectOption
-import org.scalajs.dom.HTMLElement
 import org.scalajs.jquery.JQuery
 
 import scala.collection.immutable.Map

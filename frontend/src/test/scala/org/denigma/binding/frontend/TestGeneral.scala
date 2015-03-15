@@ -1,7 +1,7 @@
 package org.denigma.binding.frontend
 
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import rx.core.Var
 
 class TestGeneral(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView

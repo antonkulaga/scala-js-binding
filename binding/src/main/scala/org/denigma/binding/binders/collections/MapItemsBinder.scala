@@ -4,9 +4,9 @@ import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom._
-import org.scalajs.dom.extensions._
+import org.scalajs.dom.raw.HTMLElement
 import rx.Var
-
+import org.scalajs.dom.ext._
 import scala.collection.immutable._
 
 

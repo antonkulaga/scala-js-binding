@@ -1,17 +1,15 @@
 package org.denigma.controls.editors
 
-import org.denigma.binding.views.{BindableView, OrganizedView}
-import org.scalajs.codemirror.{CodeMirror, Editor, EditorConfiguration}
-import org.scalajs.dom._
-import org.scalajs.dom.extensions._
+import org.denigma.binding.views.BindableView
+import org.denigma.codemirror.{CodeMirror, Editor, EditorConfiguration}
+import org.scalajs.dom
+import org.scalajs.dom.ext._
+import org.scalajs.dom.raw.{HTMLElement, HTMLTextAreaElement}
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic.{global => g}
 import scalatags.Text.{attrs => a, styles => s}
-import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
-
 
 /**
  * trait that on/offs inline editor when content editable is changed
@@ -76,7 +74,7 @@ object CodeMirrorEditor extends InlineEditor {
 
   override def off(el: HTMLElement, view: BindableView): Unit = pairs.get(el) match {
     case Some(ed)=> dom.document.getElementById(el.id) match {
-      case area:dom.HTMLTextAreaElement =>
+      case area:HTMLTextAreaElement =>
         dom.console.log("closing "+el.id)
         val p =  area.parentElement
         p.appendChild(el)
@@ -105,7 +103,7 @@ class CodeMirrorEditor(val el:HTMLElement)
 
   lazy val area: HTMLTextAreaElement = {
     val p = el.parentElement
-    val ar =  dom.document.createElement("textarea").asInstanceOf[dom.HTMLTextAreaElement]
+    val ar =  dom.document.createElement("textarea").asInstanceOf[HTMLTextAreaElement]
     p.appendChild(ar)
     p.replaceChild(ar,el)
     ar.id = el.id

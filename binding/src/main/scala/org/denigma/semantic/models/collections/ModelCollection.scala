@@ -5,7 +5,7 @@ import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.collections.CollectionView
 import org.denigma.semantic.models.{ModelView, RemoteModelView}
 import org.denigma.semantic.rdf.ModelInside
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import rx.core.{Rx, Var}
 
 import scala.collection.immutable.{List, Map}

@@ -4,8 +4,10 @@ import javax.swing.text.html.HTMLDocument
 
 import org.denigma.binding.commons.{DOMParser, ILogged}
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
-import org.scalajs.dom.extensions._
+import org.scalajs.dom.ext._
+import org.scalajs.dom.raw._
+import org.scalajs.dom.document
+
 import scala.scalajs.js
 import scala.util.{Failure, Success, Try}
 
@@ -29,7 +31,7 @@ trait IView extends /*ILogged*/{
       p.parseFromString(string, "text/html")
     } match {
       case Success(doc)=>
-        doc.body.children.collectFirst{case html:HTMLElement=>html}
+        document.body.children.collectFirst{case html:HTMLElement=>html}
 
       case Failure(th)=>
         dom.console.error(th.toString)

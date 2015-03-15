@@ -1,7 +1,7 @@
 package org.denigma.binding.views.utils
 
 import org.denigma.binding.views.{OrganizedView, Injector, utils, BasicView}
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 
 import scala.util.Try
 

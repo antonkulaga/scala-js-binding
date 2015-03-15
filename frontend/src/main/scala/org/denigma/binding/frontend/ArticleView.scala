@@ -1,7 +1,7 @@
 package org.denigma.binding.frontend
 
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.scalajs.dom.raw.HTMLElement
 import rx.{Rx, Var}
 
 import scalatags.Text.Tag

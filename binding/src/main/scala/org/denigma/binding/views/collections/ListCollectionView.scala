@@ -3,7 +3,6 @@ package org.denigma.binding.views.collections
 import org.denigma.binding.binders.collections.KeyValue
 import org.denigma.binding.binders.collections.KeyValue.StringBinder
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.HTMLElement
 
 
 abstract class ListCollectionView extends BindableView  with CollectionView

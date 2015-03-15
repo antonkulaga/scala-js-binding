@@ -3,15 +3,15 @@ package org.denigma.binding.binders
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
-import org.scalajs.dom.extensions.Ajax
-import org.scalajs.dom.{XMLHttpRequest, MouseEvent, HTMLElement}
+import org.scalajs.dom.MouseEvent
+import org.scalajs.dom.ext.Ajax
+import org.scalajs.dom.raw.{XMLHttpRequest, HTMLElement}
 
 import scala.scalajs.js
 import scala.util.{Failure, Success}
 import org.denigma.binding.extensions._
-import org.scalajs.dom.extensions._
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-
+import org.scalajs.dom.ext._
 
 
 class NavigationBinding(view:BindableView) extends BasicBinding{

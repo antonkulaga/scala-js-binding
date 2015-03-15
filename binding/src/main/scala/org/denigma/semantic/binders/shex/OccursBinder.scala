@@ -1,7 +1,7 @@
 package org.denigma.semantic.binders.shex
 
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.shex.ArcRule
 import rx.core.Var
 
@@ -38,7 +38,6 @@ class OccursBinder(view:BindableView, arc:Var[ArcRule]) extends ArcBinder(view,a
 
 
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
 import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.shex.{ArcRule, _}
 import rx.core.Var

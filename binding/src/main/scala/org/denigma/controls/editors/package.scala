@@ -1,9 +1,8 @@
 package org.denigma.controls.editors
 
-import org.denigma.binding.views.{BindableView, OrganizedView}
-import org.denigma.controls.editors.InlineEditor
+import org.denigma.binding.views.BindableView
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 
 import scala.collection.immutable.Map
 

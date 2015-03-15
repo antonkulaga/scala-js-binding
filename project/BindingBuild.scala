@@ -1,38 +1,29 @@
-import com.typesafe.sbt.digest.Import._
-import com.typesafe.sbt.gzip.Import._
-import com.typesafe.sbt.web.Import._
 import com.typesafe.sbt.web.SbtWeb
-import play.twirl.sbt.Import.TwirlKeys
+import playscalajs.ScalaJSPlay.autoImport._
+import playscalajs.{PlayScalaJS, ScalaJSPlay}
 import sbt.Project.projectToRef
-import playscalajs._
-
 import sbt.Keys._
 import sbt._
-
-import bintray.Opts
 import bintray.Plugin._
 import bintray.Keys._
-
-import com.typesafe.sbt.packager.universal.UniversalKeys
-import play._
-import play.Play._
-
-import com.typesafe.sbt.web.SbtWeb.autoImport._
+import com.typesafe.sbt.digest.Import._
+import com.typesafe.sbt.gzip.Import._
 import com.typesafe.sbt.less.Import.LessKeys
+import com.typesafe.sbt.packager.universal.UniversalKeys
 import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
-import org.scalajs.sbtplugin.cross.CrossProject
-import sbt.Project.projectToRef
+import com.typesafe.sbt.web.SbtWeb.autoImport._
 import playscalajs.PlayScalaJS.autoImport._
-import playscalajs.ScalaJSPlay.autoImport._
-import sbt.Project.projectToRef
+
+import org.scalajs.sbtplugin.cross.CrossProject
+
+import play._
+import play.twirl.sbt.Import.TwirlKeys
 
 
 object BindingBuild extends sbt.Build with UniversalKeys {
 
-  lazy val clients = Seq(frontend,binding,modelsJs)
-
-  val scalajsOutputDir = Def.settingKey[File]("directory for javascript files output by scalajs")
+  lazy val clients = Seq(frontend/*,binding,modelsJs*/)
 
   override def rootProject = Some(preview)
 
@@ -41,7 +32,15 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     name := "frontend",
 
-    scalacOptions ++= Seq( "-feature", "-language:_" )
+    scalacOptions ++= Seq( "-feature", "-language:_" ),
+
+    persistLauncher := true,
+
+    persistLauncher in Test := false,
+
+    sourceMapsDirectories += binding.base / "..",
+
+    unmanagedSourceDirectories in Compile := Seq((scalaSource in Compile).value)
   )
 
   lazy val frontend = Project(
@@ -51,6 +50,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     settings = frontEndSettings
 
+
   ) enablePlugins(ScalaJSPlugin, ScalaJSPlay)  dependsOn binding
 
   lazy val bindingSettings = sameSettings++publishSettings ++ Seq(
@@ -58,14 +58,16 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     name := "binding",
 
-    libraryDependencies ++= Dependencies.binding.value
+    libraryDependencies ++= Dependencies.binding.value,
+
+    resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases")
   )
 
   lazy val binding = Project(
     id = "binding",
     base = file("binding"),
     settings = bindingSettings
-  ) dependsOn (jsmacro, modelsJs)
+  )  enablePlugins ScalaJSPlugin dependsOn (jsmacro, modelsJs)
 
 
   lazy val modelsJsSettings =  sameSettings ++ publishSettings++ Seq(
@@ -76,9 +78,8 @@ object BindingBuild extends sbt.Build with UniversalKeys {
   )
   lazy val models = CrossProject("models",new File("models"),CrossType.Full).
     settings(sameSettings: _*).
-    jsConfigure(_ enablePlugins ScalaJSPlugin).
-    jsSettings(modelsJvmSettings: _* ).
-    jvmSettings(modelsJsSettings: _* )
+    jsSettings(modelsJsSettings: _* ).
+    jvmSettings(modelsJvmSettings: _* )
 
   lazy val modelsJs = models.js
   lazy val modelsJvm   = models.jvm
@@ -120,11 +121,6 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
       version := Versions.bindingVersion,
 
-      resolvers += "Pellucid Bintray" at "http://dl.bintray.com/pellucid/maven",
-
-      resolvers += sbt.Resolver.bintrayRepo("markatta", "markatta-releases"),
-
-      resolvers += Resolver.sonatypeRepo("snapshots"),
 
       libraryDependencies ++= Dependencies.preview.value,
 
@@ -145,8 +141,9 @@ object BindingBuild extends sbt.Build with UniversalKeys {
   // JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
   lazy val preview = (project in file("."))
-    .enablePlugins(PlayScala,SbtWeb)
+    .enablePlugins(PlayScala,SbtWeb,PlayScalaJS)
     .settings(previewSettings: _*)
+    .settings(scalaJSProjects :=  clients)
     .dependsOn(bindingPlay)
     .aggregate(clients.map(projectToRef): _*)
 
@@ -168,17 +165,18 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     resolvers += sbt.Resolver.bintrayRepo("alexander-myltsev", "maven"),
 
+    resolvers += sbt.Resolver.bintrayRepo("markatta", "markatta-releases"),
+
+    resolvers += "Pellucid Bintray" at "http://dl.bintray.com/pellucid/maven",
+
+    resolvers += Resolver.sonatypeRepo("snapshots"),
+
+    resolvers += "Sonatype OSS Releases" at "https://oss.sonatype.org/content/repositories/releases",
+
     ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },
 
       // The Typesafe repository
     resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
-
-
-    resolvers +=  Resolver.url("scala-js-releases",
-      url("http://dl.bintray.com/content/scala-js/scala-js-releases"))(
-        Resolver.ivyStylePatterns),
-
-    requiresDOM := true,
 
     scalacOptions ++= Seq( "-feature", "-language:_" ),
 

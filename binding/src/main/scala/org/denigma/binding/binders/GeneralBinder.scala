@@ -4,7 +4,7 @@ import org.denigma.binding.binders.extractors.{EventBinding, ScalaTagsBinder, Ex
 import org.denigma.binding.macroses._
 import org.denigma.binding.views.{BindableView, OrganizedView}
 import org.scalajs.dom
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.scalajs.dom.raw.{MouseEvent, HTMLElement}
 import rx._
 import rx.core.Obs
 

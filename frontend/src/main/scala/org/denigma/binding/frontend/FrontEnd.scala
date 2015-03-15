@@ -14,7 +14,8 @@ import org.denigma.controls.editors.{CkEditor, CodeMirrorEditor, editors}
 import org.denigma.controls.general.DatePairView
 import org.denigma.semantic.shapes.HeadersView
 import org.scalajs.dom
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.{MouseEvent}
 import org.scalajs.jquery._
 import rx._
 

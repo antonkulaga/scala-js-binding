@@ -4,8 +4,8 @@ import org.denigma.binding.binders.BasicBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.utils.ViewFactory
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
-import org.scalajs.dom.extensions._
+import org.scalajs.dom.ext._
+import org.scalajs.dom.raw.HTMLElement
 
 import scala.collection.immutable.Map
 import scala.reflect.ClassTag
@@ -38,7 +38,7 @@ trait BasicView extends BasicBinding with IView
   def makeDefault(el:HTMLElement,props:Map[String,Any] = Map.empty):ChildView
 
 
-  def elem:dom.HTMLElement
+  def elem:HTMLElement
 
   def name:String = this.getClass.getName.split('.').last
 

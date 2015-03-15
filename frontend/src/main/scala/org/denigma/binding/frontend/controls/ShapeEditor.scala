@@ -8,7 +8,7 @@ import org.denigma.semantic.rdf.ShapeInside
 import org.denigma.semantic.shapes.{ArcView, ShapeView}
 import org.denigma.semantic.storages.ShapeStorage
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.vocabulary.XSD
 import org.scalax.semweb.rdf.{IRI, RDFValue, Res, vocabulary}
 import org.scalax.semweb.shex.{Shape, ShapeBuilder, Star}

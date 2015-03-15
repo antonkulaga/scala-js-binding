@@ -3,7 +3,7 @@ package org.denigma.semantic.shapes
 import org.denigma.binding.binders.{BasicBinding, GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.shex._
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.RDFValue
 import org.scalax.semweb.shex._
 import rx.Var

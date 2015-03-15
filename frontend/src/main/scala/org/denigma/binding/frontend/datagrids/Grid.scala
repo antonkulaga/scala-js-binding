@@ -13,7 +13,7 @@ import org.denigma.semantic.models.collections.AjaxModelCollection
 import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
 import org.denigma.semantic.shapes.{PropertyView, ArcView, ShapeView, ShapedModelView}
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.shex.{Shape, PropertyModel}
 import rx._
 import rx.core.Var

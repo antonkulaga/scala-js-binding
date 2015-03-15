@@ -1,9 +1,6 @@
 package org.denigma.binding.extensions
 
 import scala.scalajs.js
-import org.scalajs.dom
-import scala.scalajs.js.prim.Undefined
-
 /**
  * Is mixed in to be used in extensions
  */
@@ -15,9 +12,7 @@ trait AnyJsExtensions {
    */
   implicit class AnyJs(obj: js.Any) {
 
-    //def ===(other:Any): Boolean = if(other==null) obj==null || obj.isInstanceOf[Undefined] || obj=="" else obj==other
-
-    def isNullOrUndef: Boolean = obj == null || obj.isInstanceOf[js.Undefined] || obj == ""
+    def isNullOrUndef: Boolean = obj == null || js.isUndefined(obj)|| obj == ""
 
     /**
      * Just a shorter conversion to dynamic object
@@ -33,8 +28,6 @@ trait AnyJsExtensions {
     def \(key: String): Option[js.Dynamic] = dyn.selectDynamic(key) match {
       case null =>
         None
-
-      case v if v.isInstanceOf[Undefined] => None
 
       case validValue => Some(validValue)
     }

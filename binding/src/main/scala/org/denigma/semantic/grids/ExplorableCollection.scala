@@ -5,7 +5,7 @@ import org.denigma.binding.messages.ExploreMessages
 import org.denigma.binding.messages.ExploreMessages.{Explore, ExploreSuggestion}
 import org.denigma.semantic.binders.ExploreBinder
 import org.denigma.semantic.models.collections.AjaxModelCollection
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf._
 import rx.core.Rx
 

@@ -2,7 +2,7 @@ package org.denigma.binding.binders.extractors
 
 import org.denigma.binding.binders.BasicBinding
 import org.denigma.binding.macroses.TagRxMap
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import rx._
 
 import scala.collection.immutable._
@@ -33,7 +33,7 @@ trait ScalaTagsBinder extends BasicBinding{
    * @param rtag tag to update from
    * @return
    */
-  def updateAttrByRx(key:String,el:org.scalajs.dom.HTMLElement ,rtag:Rx[Tag]) = this.bindRx[Tag](key,el,rtag){
+  def updateAttrByRx(key:String,el:HTMLElement ,rtag:Rx[Tag]) = this.bindRx[Tag](key,el,rtag){
     case (elem,tg)=>
 
 //      tg.attrs.foreach {

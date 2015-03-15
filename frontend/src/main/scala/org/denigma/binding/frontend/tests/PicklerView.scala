@@ -2,7 +2,7 @@ package org.denigma.binding.frontend.tests
 
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import rx._
 
 import scala.collection.immutable.Map

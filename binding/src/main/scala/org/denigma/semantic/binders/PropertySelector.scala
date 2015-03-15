@@ -2,7 +2,7 @@ package org.denigma.semantic.binders
 import org.denigma.binding.extensions._
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery._
 import org.scalax.semweb.rdf.vocabulary.XSD
 import org.scalax.semweb.rdf.{IRI, RDFValue}

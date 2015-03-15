@@ -3,6 +3,8 @@ package org.denigma.binding.binders
 import org.denigma.binding.binders.extractors.{PropertyBinder, VisibilityBinder, ClassBinder}
 import org.denigma.binding.macroses.{BooleanRxMap, ClassToMap, StringRxMap}
 import org.scalajs.dom._
+import org.scalajs.dom.raw._
+
 import rx._
 
 import scala.collection.immutable._

@@ -4,7 +4,8 @@ import org.denigma.binding.commons.ILogged
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom._
-import org.scalajs.dom.extensions._
+import org.scalajs.dom.ext._
+import org.scalajs.dom.raw.HTMLElement
 import rx._
 
 import scala.collection.immutable.Map
@@ -51,7 +52,7 @@ abstract class BasicBinding //extends ILogged
    * @return
    */
   def makeId(el:HTMLElement,title:String): String = el.id match {
-    case s if s=="" ||  s==null || s.isInstanceOf[js.prim.Undefined]=>
+    case s if s=="" ||  s==null /*|| s.isInstanceOf[js.prim.Undefined] */=>
       el.id = title + "#" +  math.round(10000*math.random) //to make length shorter
       el.id
 

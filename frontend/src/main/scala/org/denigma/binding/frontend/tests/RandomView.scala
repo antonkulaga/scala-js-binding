@@ -2,15 +2,15 @@ package org.denigma.binding.frontend.tests
 
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
-import org.scalajs.dom.{HTMLElement, MouseEvent}
+import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.{ MouseEvent}
 import rx.Rx
 import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.util.Random
 import scalatags.Text.tags._
-import scalatags.Text.{attrs => a}
-import scalatags.Text.Tag
+import scalatags.Text.{attrs => a, TypedTag}
 import scalatags.Text.implicits._
 
 /**
@@ -19,7 +19,7 @@ import scalatags.Text.implicits._
 class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{
 
 
-  val counting: Var[Tag] = Var{
+  val counting: Var[TypedTag[String]] = Var{
 
     div(a.`class`:= "ui segment",
       h1("This is title"),

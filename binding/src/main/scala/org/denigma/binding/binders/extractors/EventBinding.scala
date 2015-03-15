@@ -4,6 +4,7 @@ import org.denigma.binding.binders.BasicBinding
 import org.denigma.binding.macroses._
 import org.scalajs.dom
 import org.scalajs.dom._
+import org.scalajs.dom.raw.HTMLElement
 import rx._
 
 object EventBinding {

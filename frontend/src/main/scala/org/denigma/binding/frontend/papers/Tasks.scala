@@ -6,7 +6,7 @@ import org.denigma.binding.views.BindableView
 import org.denigma.semantic.models.RemoteModelView
 import org.denigma.semantic.models.collections.AjaxModelCollection
 import org.denigma.semantic.rdf.ModelInside
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import rx._
 
 /**

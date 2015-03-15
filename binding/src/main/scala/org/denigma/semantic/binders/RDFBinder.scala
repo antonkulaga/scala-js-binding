@@ -3,7 +3,7 @@ package org.denigma.semantic.binders
 import org.denigma.binding.binders.BasicBinding
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf._
 import org.denigma.binding.extensions._
 import scala.collection.immutable.Map

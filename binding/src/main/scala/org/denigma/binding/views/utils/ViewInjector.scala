@@ -1,9 +1,6 @@
 package org.denigma.binding.views.utils
 
 import org.denigma.binding.views.{OrganizedView, Injector, BasicView}
-import org.scalajs.dom.HTMLElement
-
-import scala.util.Try
 
 /**
  * Injects views that are registered with this class

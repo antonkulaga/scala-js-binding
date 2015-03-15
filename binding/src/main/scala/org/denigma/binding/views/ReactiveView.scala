@@ -1,12 +1,11 @@
 package org.denigma.binding.views
 
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 
 import scala.collection.immutable.Map
 import scala.concurrent.{Future, Promise}
-import org.scalajs.dom.extensions._
-
+import org.scalajs.dom.ext._
 trait BindingEvent
 {
   val origin:BasicView

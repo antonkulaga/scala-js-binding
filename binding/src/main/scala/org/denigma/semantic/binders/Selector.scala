@@ -3,7 +3,7 @@ package org.denigma.semantic.binders
 import org.denigma.binding.commons.ILogged
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.selectize._
 import org.scalax.semweb.rdf
 import org.scalax.semweb.rdf._

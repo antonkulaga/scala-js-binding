@@ -5,11 +5,11 @@ import org.denigma.controls.editors.editors
 import org.denigma.semantic.binders.ModelBinder
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
-import org.scalajs.dom.{Event, HTMLElement}
+import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.{Event}
 import org.scalax.semweb.rdf.IRI
 import rx.core.{Rx, Var}
-import org.scalajs.dom.extensions._
-
+import org.scalajs.dom.ext._
 class EditModelBinder(view:BindableView, modelInside:Var[ModelInside], editMode:Rx[Boolean]) extends ModelBinder(view,modelInside) {
 
 

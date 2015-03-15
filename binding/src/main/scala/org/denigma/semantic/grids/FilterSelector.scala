@@ -6,7 +6,7 @@ import org.denigma.binding.messages.Filters.ValueFilter
 import org.denigma.semantic.binders.{SemanticSelector, Selector}
 import org.denigma.semantic.rdf._
 import org.scalajs.dom
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery._
 import org.scalax.semweb.rdf.IRI
 import rx.Var
@@ -30,7 +30,8 @@ abstract class ModifierSelector[T](val el:HTMLElement, val key:IRI, val modifier
   * @param modifiers
   * @param typeHandler
   */
-class FilterSelector(el:HTMLElement, key:IRI, modifiers:Var[Map[IRI,Filters.Filter]], typeHandler:(String)=>Unit) extends ModifierSelector[Filters.Filter](el,key,modifiers,typeHandler){
+class FilterSelector(el:HTMLElement, key:IRI, modifiers:Var[Map[IRI,Filters.Filter]], typeHandler:(String)=>Unit)
+  extends ModifierSelector[Filters.Filter](el,key,modifiers,typeHandler){
    val sel: js.Dynamic = jQuery(el).dyn.selectize(selectParams(el))
 
 

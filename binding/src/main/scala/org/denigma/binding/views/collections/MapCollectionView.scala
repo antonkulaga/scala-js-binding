@@ -4,6 +4,7 @@ import org.denigma.binding.binders.NavigationBinding
 import org.denigma.binding.binders.collections.MapItemsBinder
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom._
+import org.scalajs.dom.raw.HTMLElement
 import rx.Var
 
 import scala.collection.immutable._

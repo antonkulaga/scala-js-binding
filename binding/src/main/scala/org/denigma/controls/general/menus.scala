@@ -5,7 +5,7 @@ import org.denigma.binding.models.MenuItem
 import org.denigma.binding.views.collections.MapCollectionView
 import org.denigma.semantic.storages.SimpleStorage
 import org.scalajs.dom
-import org.scalajs.dom.{HTMLElement, XMLHttpRequest}
+import org.scalajs.dom.raw.{XMLHttpRequest, HTMLElement}
 import org.scalax.semweb.rdf.Res
 import prickle.{Pickle, Unpickle}
 import rx._

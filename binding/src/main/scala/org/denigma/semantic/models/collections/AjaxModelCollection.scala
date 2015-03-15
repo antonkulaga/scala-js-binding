@@ -8,6 +8,7 @@ import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
 import org.denigma.semantic.storages.{AjaxExploreStorage, AjaxModelStorage}
 import org.scalajs.dom
 import org.scalajs.dom._
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.shex._
 import rx.core.{Rx, Var}

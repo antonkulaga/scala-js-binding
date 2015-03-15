@@ -2,7 +2,8 @@ package org.denigma.controls.general
 
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
-import org.scalajs.dom.{MouseEvent, HTMLElement}
+import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.{MouseEvent}
 import rx._
 import org.scalajs.jquery.jQuery
 

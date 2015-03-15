@@ -1,7 +1,7 @@
 package org.denigma.binding.frontend
 
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.HTMLElement
+import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.IRI
 
 import scala.collection.immutable.Map
