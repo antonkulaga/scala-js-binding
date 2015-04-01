@@ -23,7 +23,6 @@ POST          /papers/explore            controllers.endpoints.MainEndpoint.expl
 POST          /papers/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
 POST          /papers/shapes             controllers.endpoints.MainEndpoint.shapeEndpoint()
 
-
 POST          /models/explore            controllers.endpoints.MainEndpoint.exploreEndpoint()
 POST          /models/crud               controllers.endpoints.MainEndpoint.modelEndpoint()
 POST          /models/shapes             controllers.endpoints.MainEndpoint.shapeEndpoint()
@@ -50,11 +49,6 @@ GET           /slides/:slide             controllers.Slides.slide(slide)
 
 GET           /logo/:variant             controllers.endpoints.Application.logo(variant)
 
-# Map static resources from the /public folder to the /assets URL path
-GET           /assets/*file              controllers.Assets.at(path="/public", file)
-GET           /public/*file              controllers.Assets.at(path="/public", file)
-GET           /files/*file               controllers.Assets.at(path="/public", file)
-
 # Serve scala files under the scalajs subprojects to be used by sourcemaps.
 # This route and its controller method should be removed for production
 GET           /binding/*file             controllers.Application.bindingFile(file)
@@ -64,4 +58,6 @@ GET           /frontend/*file            controllers.Application.frontendFile(fi
 
 # Map static resources from the /public folder to the /assets URL path
 GET           /assets/*file              controllers.Assets.at(path="/public", file)
+GET           /public/*file              controllers.Assets.at(path="/public", file)
+GET           /files/*file               controllers.Assets.at(path="/public", file)
 GET           /webjars/*file             controllers.WebJarAssets.at(file)

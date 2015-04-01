@@ -5,7 +5,7 @@ import java.io.{StringWriter, ByteArrayOutputStream}
 import org.scalax.semweb.rdf.BasicTriplet
 import org.scalax.semweb.sesame._
 import org.w3.banana._
-import org.w3.banana.io.{RDFReader, RDFWriter, Syntax, Turtle}
+import org.w3.banana.io.{RDFReader, RDFWriter, Turtle}
 import org.w3.banana.sesame.Sesame
 import spire.implicits._
 
@@ -16,9 +16,7 @@ import scala.util.{Failure, Success, Try}
 abstract class Store[Rdf <: RDF, M[+_] , Sin, Sout](implicit
                                                     val ops: RDFOps[Rdf],
                                                     val reader: RDFReader[Rdf, M, Sin],
-                                                    val readerSyn: Syntax[Sin],
-                                                    val writer: RDFWriter[Rdf, M, Sout],
-                                                    val writerSyn: Syntax[Sout]
+                                                    val writer: RDFWriter[Rdf, M, Sout]
                                                      )
 {
   def write[T <:BasicTriplet](trips: Set[T],namespaces:(String,String)*): Try[String]
@@ -66,16 +64,14 @@ trait TurtleStore{
 abstract class OntologyClasses[Rdf <: RDF, M[+_] , Sin, Sout](implicit
                                                               o: RDFOps[Rdf],
                                                               r: RDFReader[Rdf, M, Sin],
-                                                              rSyn: Syntax[Sin],
-                                                              wr: RDFWriter[Rdf, M, Sout],
-                                                              wrSyn: Syntax[Sout]
+                                                              wr: RDFWriter[Rdf, M, Sout]
                                                                ) extends Store[Rdf,M,Sin,Sout](
 
 ) {
 
-  object gero extends PrefixBuilder("gero", "http://gero.longevityalliance.org/")(ops)
+  lazy val gero = Prefix("gero", "http://gero.longevityalliance.org/")(ops)
 
-  object go extends PrefixBuilder("gero", "http://gero.longevityalliance.org/")(ops)
+  lazy val go =  Prefix("gero", "http://gero.longevityalliance.org/")(ops)
 
   val owl = OWLPrefix[Rdf]
   val rdf = RDFPrefix[Rdf]
@@ -138,6 +134,7 @@ abstract class OntologyClasses[Rdf <: RDF, M[+_] , Sin, Sout](implicit
 
   lazy val allFacts: List[PointedGraph[Rdf]] = {
     import org.w3.banana.diesel._
+    import org.w3.banana.syntax.DieselSyntax._
 
     val g: List[PointedGraph[Rdf]] = List (
         agingGene.a(gene)   -- rdfs.subClassOf ->- gene  ,

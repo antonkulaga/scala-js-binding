@@ -61,6 +61,11 @@ trait BindableView extends ReactiveView
     binders.foreach(b=>b.bindAttributes(el,ats))
   }
 
+
+  override def unbind(el:HTMLElement)= {
+    //this.binders.foreach(b=>b.bindAttributes())
+    //is required for those view that need some unbinding
+  }
   /**
    * is used to fill in all variables extracted by macro
    * usually it is just

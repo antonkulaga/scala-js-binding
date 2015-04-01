@@ -3,7 +3,7 @@ package org.denigma.binding.frontend
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.frontend.controls.{ShapeEditor, EditableShape, ShapeProperty}
-import org.denigma.binding.frontend.datagrids.{DataGrid, GridCell, GridRow}
+import org.denigma.semantic.controls.datagrids.{DataGrid, GridCell, GridRow}
 import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksView}
 import org.denigma.binding.frontend.slides._
 import org.denigma.binding.frontend.tests.{LongListView, RandomView, TestMacroView}
@@ -15,7 +15,7 @@ import org.denigma.controls.general.DatePairView
 import org.denigma.semantic.shapes.HeadersView
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.dom.{MouseEvent}
+import org.scalajs.dom.{Event, MouseEvent}
 import org.scalajs.jquery._
 import rx._
 
@@ -61,17 +61,13 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     //.register("PicklerView",(el,params)=>Try(new PicklerView(el,params)))
     .register("PageEditView",(el,params)=>Try(new PageEditView(el,params)))
 
-
-
     .register("Tasks",(el,params)=>Try(new TasksView(el,params)))
     .register("row",(el,params)=>Try(new RowView(el,params)))
-
     .register("task",(el,params)=>Try(new Task(el,params)))
 
     .register("SuggestView",(el,params)=>Try(new TestSuggestBinding(el,params)))
     .register("ReportsView",(el, params) =>Try(new ReportsView(el,params)))
     .register("report",(el, params) =>Try(new Report(el,params)))
-
 
     .register("CollectionSlide",(el, params) =>Try(new CollectionSlide(el,params)))
     .register("SparqlSlide", (el,params)=>Try(new SparqlSlide(el,params)))
@@ -83,6 +79,8 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
     .register("EditableShape",(el,params)=>Try(new EditableShape(el,params)))
     .register("ShapeProperty",(el,params)=>Try(new ShapeProperty(el,params)))
+    .register("ValueClass",(el,params)=>Try(new ShapeProperty(el,params)))
+
 
   ViewInjector //register datagrids
     .register("Headers",(el,params,parent)=>Try(new HeadersView(el,params,parent)))
@@ -99,9 +97,15 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   //    .register("righ-menu", (el, params) =>Try(new RightMenuView(el,params)))
 
+/*  protected def onReady(event:Event) = {
+    dom.console.log("document is ready")
+    this.bindView(this.viewElement)
+  }
+  */
+
   @JSExport
   def main(): Unit = {
-    this.bindView(this.viewElement)
+   this.bindView(this.viewElement)
   }
 
   @JSExport

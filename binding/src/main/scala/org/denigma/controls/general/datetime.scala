@@ -1,16 +1,11 @@
 package org.denigma.controls.general
 
+import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.dom.{MouseEvent}
-import rx._
 import org.scalajs.jquery.jQuery
 
 import scala.scalajs.js
-import org.denigma.binding.extensions._
-
-import scalatags.Text.Tag
 
 class DatePairView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any])  extends BasicDatePairView {
 

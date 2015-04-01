@@ -22,7 +22,7 @@ import framian.{Cols, Frame}
 import org.scalax.semweb.rdf.{Trip, BasicTriplet, IRI, Quad}
 import org.scalax.semweb.sesame._
 import org.scalax.semweb.shex.{PropertyModel, Shape}
-import org.w3.banana.io.{RDFReader, RDFWriter, Syntax, Turtle}
+import org.w3.banana.io.{RDFReader, RDFWriter, Turtle}
 import org.w3.banana.sesame.Sesame
 import org.w3.banana.{FOAFPrefix, RDF, RDFOps}
 import play.api.mvc.{RequestHeader, Result}

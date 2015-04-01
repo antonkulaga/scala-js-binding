@@ -32,10 +32,19 @@ trait ShapeEndpoint extends   Items with AjaxShapeEndpoint with PrickleControlle
 
     import org.scalax.semweb.composites.SemanticComposites._
     val shs = this.shapes.values.toList
-    val shapes = ShEx(allShapes,shs,shs.headOption.map(_.id),Some(allShapes.iri.label),defaultPrefixes)
+    val shapes: ShEx = ShEx(allShapes,shs,shs.headOption.map(_.id),Some(allShapes.iri.label),defaultPrefixes)
     val p = Pickle.intoString[ShEx](shapes)
     //val p = rp.pickle(this.shapes.values.toList)
-    Future.successful(Ok(p).as("text/plain"))
+    Future.successful(this.pack(p))
+  }
+
+  def getShex(shex:ShapeMessages.GetShEx) = {
+    import org.scalax.semweb.composites.SemanticComposites._
+    val shs = this.shapes.values.toList
+    val shapes: ShEx = ShEx(allShapes,shs,shs.headOption.map(_.id),Some(allShapes.iri.label),defaultPrefixes)
+    val p = Pickle.intoString[ShEx](shapes)
+    //val p = rp.pickle(this.shapes.values.toList)
+    Future.successful(this.pack(p))
   }
 
   override def onBadShapeMessage(message: ShapeMessage, reason: String): ShapeResult = {
@@ -60,6 +69,7 @@ trait ShapeEndpoint extends   Items with AjaxShapeEndpoint with PrickleControlle
     request.body match {
       case sp:ShapeMessages.SuggestProperty=> this.onSuggestProperty(sp)
       case gs:ShapeMessages.GetShapes=> this.getShapes(gs)
+      case gs:ShapeMessages.GetShEx=> this.getShex(gs)
       case other => badMessage("I HAVE NOT IMPLEMENTED SUPPORT FOR OTHER MESSAGES YET!")
     }
   }

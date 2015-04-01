@@ -1,9 +1,8 @@
 package controllers
 
-import org.denigma.endpoints.{UserRequestHeader, UserAction}
-import play.api.mvc._
-
+import org.denigma.endpoints.UserAction
 import play.api.libs.json.Json
+import play.api.mvc._
 import play.twirl.api.Html
 
 /**

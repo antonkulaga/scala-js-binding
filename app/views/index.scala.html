@@ -1,19 +1,11 @@
 @(implicit request: UserRequestHeader, html:Option[Html] = None,into:String = "main", leftSidebar:Boolean = true)
 
 <!DOCTYPE html>
-
-
-@isProd = @{
-    // This is true if we are running a production build, created using dist or stage. In that
-    // case, use the -opt.js file, which is much more optimized, instead of -fastopt.js.
-    play.api.Play.isProd(play.api.Play.current)
-}
-
 <html xmlns="http://www.w3.org/1999/html">
     <head>
         <title>Binding scala-js library</title>
         @libs.libs()
-        @playscalajs.html.scripts("/assets", projectName = "frontend")
+        @playscalajs.html.selectScript("/assets", projectName = "frontend")
 
 
     </head>

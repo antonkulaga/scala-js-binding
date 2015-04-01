@@ -41,7 +41,6 @@ trait PropertyBinder {
    * @param el html element
    * @param key name of the property
    * @param att value of attribute
-   * @param binder  binding view where we search for property, this by default
    * @return
    */
   def bindProperty(el:HTMLElement,key:String,att:String): Boolean = (key.toString, el.tagName.toLowerCase) match
@@ -66,8 +65,9 @@ trait PropertyBinder {
     case ("bind","textarea")=>
       this.strings.get(att) match {
         case Some(str)=>
-          el.onkeyup = this.makePropHandler(el,str,"value")
-          this.bindText(el,key,str)
+          el.onkeyup = this.makePropHandler[KeyboardEvent](el,str,"value")
+          //this.bindText(el,key,str)
+          this.bindInput(el,key,str)
           true
 
         case None=>false

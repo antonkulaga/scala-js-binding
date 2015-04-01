@@ -23,6 +23,8 @@ abstract class BasicBinding //extends ILogged
 
   def bindAttributes(el:HTMLElement,ats:Map[String, String] ):Unit
 
+  //def unbindAttributes(el:HTMLElement,ats:Map[String, String] ):Unit
+
   protected def dataAttributesOnly(ats:Map[String,String]): Map[String, String] = ats.collect{
     case (key,value) if key.contains("data-") && !key.contains("data-view")=> (key.replace("data-",""),value)
   }

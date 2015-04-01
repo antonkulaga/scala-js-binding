@@ -1,5 +1,6 @@
 package org.denigma.binding.frontend
 
+import org.denigma.binding.frontend.slides.RowView
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
 import org.scalajs.dom
@@ -8,6 +9,7 @@ import org.scalajs.dom.raw.HTMLElement
 import scala.collection.immutable.Map
 import scala.scalajs.js.annotation.JSExport
 import scala.util.Try
+import org.denigma.binding.frontend.papers.{Task, TasksView}
 
 @JSExport("FrontEndSpec")
 object FrontEndSpec extends BindableView with scalajs.js.JSApp{
@@ -24,7 +26,13 @@ object FrontEndSpec extends BindableView with scalajs.js.JSApp{
    */
   ViewInjector
     .register("test-general", (el, params) =>Try(new TestGeneral(el,params)))
-    .register("test-collection", (el, params) =>Try(new TestCollection(el,params)))
+
+  ViewInjector
+    .register("Tasks",(el,params)=>Try(new TasksView(el,params)))
+    .register("row",(el,params)=>Try(new RowView(el,params)))
+    .register("task",(el,params)=>Try(new Task(el,params)))
+
+
 
 
   @JSExport

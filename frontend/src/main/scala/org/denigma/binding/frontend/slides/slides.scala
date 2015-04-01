@@ -167,6 +167,7 @@ class PageEditView(val elem:HTMLElement,val params:Map[String,Any]) extends Remo
  */
 class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView
 {
+  val code = Var("")
 
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
     override protected def attachBinders(): Unit =  this.withBinders(new CodeBinder(this))

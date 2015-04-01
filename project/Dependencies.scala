@@ -1,44 +1,23 @@
-import bintray.Opts
-import sbt.Keys._
-import sbt._
-import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
-import sbt.Project.projectToRef
+import sbt._
+
 
 object Dependencies
 {
-  val macwireVersion = "0.8.0"
-
-  val scaleniumVersion = "1.0.1"
-
-  val scalaRxVersion = "0.2.8"
-
-  val scalaTagsVersion = "0.4.6"
-
-  val semanticUIVersion = "1.11.2"
-
-  val codeMirrorVersion = "4.11"
-
-  val selectizeVersion = "0.12.0"
-
-  val sesameVersion = "2.7.12"
-
-  lazy val codeMirrorFacade = "4.8-0.4"
-
 
   val shared = Def.setting(Seq())
 
   val preview = Def.setting(shared.value ++ Seq(
 
-    "com.vmunier" %% "play-scalajs-scripts" % "0.1.0",
+    "com.vmunier" %% "play-scalajs-scripts" %  Versions.playScripts,
 
     "org.scala-lang.modules" %% "scala-async" % "0.9.2",
 
-    "org.webjars" %% "webjars-play" % "2.3.0-2",
+    "org.webjars" %% "webjars-play" % "2.3.0-3",
 
-    "org.webjars" % "jquery" % "2.1.1",
+    "org.webjars" % "jquery" % Versions.jquery,
 
-    "org.webjars" % "Semantic-UI" % semanticUIVersion,
+    "org.webjars" % "Semantic-UI" % Versions.semanticUI,
 
     "org.webjars" % "codemirror" % "4.11",
 
@@ -46,44 +25,49 @@ object Dependencies
 
     "com.lihaoyi" %% "utest" % "0.3.1",
 
-    "org.webjars" % "three.js" % "r66",
+    "org.webjars" % "three.js" % Versions.threeJS,
 
-    "org.webjars" % "selectize.js" % selectizeVersion,
+    "org.webjars" % "selectize.js" % Versions.selectize,
 
-    "org.denigma" %% "semweb" % Versions.semWebVersion,
+    "org.denigma" %% "semweb" % Versions.semWeb,
 
-    "org.denigma" %% "semweb-sesame" % Versions.semWebVersion,
+    "org.denigma" %% "semweb-sesame" % Versions.semWeb,
 
-    "org.w3" % "banana-sesame_2.11" % "0.8.0" excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
+    "org.w3" %% "banana-sesame" % Versions.banana excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
 
-    "org.openrdf.sesame" % "sesame-rio-rdfxml" % sesameVersion,
+    "org.openrdf.sesame" % "sesame-rio-rdfxml" % Versions.sesame,
 
-    "org.openrdf.sesame" % "sesame-rio-turtle" % sesameVersion,
+    "org.openrdf.sesame" % "sesame-rio-turtle" % Versions.sesame,
 
-    "com.pellucid" %% "framian" % "0.3.3",
+    "com.pellucid" %% "framian" % Versions.framian,
 
-    "com.markatta" %% "scalenium" % scaleniumVersion % "test"  excludeAll ExclusionRule(organization = "org.specs2")
+    "com.markatta" %% "scalenium" % Versions.scalenium % "test"  excludeAll ExclusionRule(organization = "org.specs2"),
+
+
+    "org.specs2" %% "specs2-core" % Versions.specs2 % "test",
+
+    "org.scalaz" %% "scalaz-core" % Versions.scalaz
 
   ))
   val macro_js = Def.setting(shared.value++Seq(
-      "org.scala-js" %%% "scalajs-dom" % "0.8.0",
+      "org.scala-js" %%% "scalajs-dom" % Versions.dom,
 
-      "com.lihaoyi" %%% "scalatags" % scalaTagsVersion,
+      "com.lihaoyi" %%% "scalatags" % Versions.scalaTags,
 
-      "com.lihaoyi" %%% "scalarx" % scalaRxVersion
+      "com.lihaoyi" %%% "scalarx" % Versions.scalaRx
   ))
 
   val models_js = Def.setting(shared.value++Seq(
-      "org.denigma" %%% "semweb" % Versions.semWebVersion,
+      "org.denigma" %%% "semweb" % Versions.semWeb,
 
-      "com.lihaoyi" %%% "scalarx" % scalaRxVersion
+      "com.lihaoyi" %%% "scalarx" % Versions.scalaRx
   ))
 
   val models_jvm = Def.setting(shared.value++Seq(
 
-      "org.denigma" %% "semweb" % Versions.semWebVersion,
+      "org.denigma" %% "semweb" % Versions.semWeb,
 
-      "com.lihaoyi" %% "scalarx" % scalaRxVersion
+      "com.lihaoyi" %% "scalarx" % Versions.scalaRx
 
   ))
 
@@ -91,17 +75,17 @@ object Dependencies
 
     "be.doeraene" %%% "scalajs-jquery" % "0.8.0",
 
-    "org.denigma" %%% "codemirror" % codeMirrorFacade,
+    "org.denigma" %%% "codemirror" % Versions.codeMirrorFacade
+  )  )
 
-    "com.softwaremill.macwire" %% "macros" % macwireVersion
-
-  )
-  )
+  val semanticBinding = Def.setting(shared.value++Seq(
+    "com.lihaoyi" %%% "scalarx" % Versions.scalaRx
+  ))
 
 
   val bindingPlay = Def.setting(shared.value++Seq(
 
-    "com.typesafe.play" %% "play" % "2.3.8"
+    "com.typesafe.play" %% "play" %  Versions.play
   ))
 
   val ui = Def.setting(shared.value)

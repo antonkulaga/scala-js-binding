@@ -44,7 +44,7 @@ trait BasicView extends BasicBinding with IView
 
 
 
-  require(elem!=null,s"html elemenet of view with $id must not be null!")
+  require(elem!=null,s"html elemenet of view of class ${this.getClass.getName} with id $id  must not be null!")
 
 
   /**
@@ -113,8 +113,7 @@ trait BasicView extends BasicBinding with IView
   }
 
   def unbind(el:HTMLElement)= {
-    //is required for thos view that do need some unbinding
-
+    //is required for those view that need some unbinding
   }
   /**
    * Changes inner HTML removing redundant views

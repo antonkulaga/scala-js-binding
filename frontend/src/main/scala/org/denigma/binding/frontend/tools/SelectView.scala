@@ -2,10 +2,10 @@ package org.denigma.binding.frontend.tools
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
+import org.denigma.selectize.Selectize
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery.jQuery
-import org.scalajs.selectize.Selectize
 import org.scalax.semweb.rdf.IRI
 import rx.core.Var
 

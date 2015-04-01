@@ -9,7 +9,7 @@ import org.denigma.semantic.shapes.{ArcView, ShapeView}
 import org.denigma.semantic.storages.ShapeStorage
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.vocabulary.XSD
+import org.scalax.semweb.rdf.vocabulary.{WI, XSD}
 import org.scalax.semweb.rdf.{IRI, RDFValue, Res, vocabulary}
 import org.scalax.semweb.shex.{Shape, ShapeBuilder, Star}
 import rx.core.Var
@@ -18,8 +18,16 @@ import scala.collection.immutable.Map
 import scala.concurrent.Promise
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
+
+
 object ShapeEditor{
 
+  /**
+   * Creates children Shape
+   * @param el
+   * @param mp
+   * @return
+   */
   def apply(el:HTMLElement,mp:Map[String,Any]):ShapeView = new EditableShape(el,mp)
 
   lazy val testShape: Shape =  {
@@ -60,10 +68,12 @@ class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends Colle
 
   override def bindView(el:HTMLElement) = {
     super.bindView(el)
-    storage.getShapes(this.query).onComplete{
-      case Success(shapes)=>
+    storage.getShex(this.query.getOrElse(WI.PLATFORM.HAS_SHAPE)).onComplete{
+      case Success(shex)=>
+
         //dom.console.log(s"SHAPES = "+shapes.mkString)
-        this.items() = shapes.map(sh=>Var(ShapeInside(sh)))
+        this.items() = shex.rules.map(sh=>Var(ShapeInside(sh))).toList
+
       case Failure(th)=>
         dom.console.error(s"shape request to ${this.path} ${this.query.map(q=>"with "+q).getOrElse("")} failed because of\n ${th.toString}")
     }

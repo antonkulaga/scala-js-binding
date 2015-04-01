@@ -1,4 +1,4 @@
-import com.typesafe.sbt.web.SbtWeb
+import com.typesafe.sbt.web.{PathMapping, SbtWeb}
 import playscalajs.ScalaJSPlay.autoImport._
 import playscalajs.{PlayScalaJS, ScalaJSPlay}
 import sbt.Project.projectToRef
@@ -23,20 +23,16 @@ import play.twirl.sbt.Import.TwirlKeys
 
 object BindingBuild extends sbt.Build with UniversalKeys {
 
-  lazy val clients = Seq(frontend/*,binding,modelsJs*/)
+  lazy val clients = Seq(frontend/*,semanticBinding,binding,modelsJs*/)
 
   override def rootProject = Some(preview)
 
   lazy val frontEndSettings = sameSettings ++ Seq(
-    version := Versions.bindingVersion,
+    version := Versions.binding,
 
     name := "frontend",
 
-    scalacOptions ++= Seq( "-feature", "-language:_" ),
-
-    persistLauncher := true,
-
-    persistLauncher in Test := false,
+    jsDependencies += RuntimeDOM % "test",
 
     sourceMapsDirectories += binding.base / "..",
 
@@ -51,16 +47,29 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     settings = frontEndSettings
 
 
-  ) enablePlugins(ScalaJSPlugin, ScalaJSPlay)  dependsOn binding
+  ) enablePlugins(ScalaJSPlugin, ScalaJSPlay)  dependsOn  semanticBinding
+
+  lazy val semanticBindingSettings = sameSettings++publishSettings ++Seq(
+
+    version := Versions.semanticBinding,
+
+    name := "semantic-binding",
+
+    libraryDependencies ++= Dependencies.binding.value
+  )
+
+  lazy val semanticBinding = Project(
+    id = "semantic",
+    base = file("semantic"),
+    settings = semanticBindingSettings
+  )  enablePlugins ScalaJSPlugin dependsOn (binding, modelsJs)
 
   lazy val bindingSettings = sameSettings++publishSettings ++ Seq(
-    version := Versions.bindingVersion,
+    version := Versions.binding,
 
     name := "binding",
 
-    libraryDependencies ++= Dependencies.binding.value,
-
-    resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases")
+    libraryDependencies ++= Dependencies.binding.value
   )
 
   lazy val binding = Project(
@@ -68,6 +77,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     base = file("binding"),
     settings = bindingSettings
   )  enablePlugins ScalaJSPlugin dependsOn (jsmacro, modelsJs)
+
 
 
   lazy val modelsJsSettings =  sameSettings ++ publishSettings++ Seq(
@@ -88,7 +98,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
   lazy val jsMacroSettings = sameSettings++ publishSettings ++ Seq(
     name := "js-macro",
 
-    version := Versions.jsmacroVersion,
+    version := Versions.jsmacro,
 
     libraryDependencies ++= Dependencies.macro_js.value,
 
@@ -105,7 +115,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
   lazy val bindingPlaySettings = sameSettings ++ bintraySettings ++ publishSettings ++ Seq(
     name := "binding-play",
 
-    version := Versions.bindingPlayVersion,
+    version := Versions.bindingPlay,
 
     libraryDependencies ++= Dependencies.bindingPlay.value
   )
@@ -116,11 +126,11 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     settings = bindingPlaySettings
   ) dependsOn modelsJvm
 
+
   lazy val previewSettings = sameSettings ++ Seq(
       name := """binding-preview""",
 
-      version := Versions.bindingVersion,
-
+      version := Versions.binding,
 
       libraryDependencies ++= Dependencies.preview.value,
 
@@ -129,6 +139,10 @@ object BindingBuild extends sbt.Build with UniversalKeys {
       excludeFilter in (Assets, LessKeys.less) := "_*.less",
 
       pipelineStages := Seq(scalaJSProd,digest, gzip),
+
+      //scalaJSTest:= scalaJSTestTask.value,
+
+      resourceGenerators in Test <+= PlayScalaJS.copyMappings(scalaJSTest, WebKeys.public in Assets).map(_ => Seq[File]()),
 
       scalaJSProjects := clients,
 
@@ -143,21 +157,20 @@ object BindingBuild extends sbt.Build with UniversalKeys {
   lazy val preview = (project in file("."))
     .enablePlugins(PlayScala,SbtWeb,PlayScalaJS)
     .settings(previewSettings: _*)
-    .settings(scalaJSProjects :=  clients)
     .dependsOn(bindingPlay)
     .aggregate(clients.map(projectToRef): _*)
 
 
 
 
-  protected val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
+  protected lazy val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
 
 
   lazy val sameSettings = bintraySettings ++Seq(
 
     organization := "org.denigma",
 
-    version := Versions.mainVersion,
+    version := Versions.main,
 
     scalaVersion := "2.11.6",
 
@@ -167,16 +180,11 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     resolvers += sbt.Resolver.bintrayRepo("markatta", "markatta-releases"),
 
-    resolvers += "Pellucid Bintray" at "http://dl.bintray.com/pellucid/maven",
+    resolvers += sbt.Resolver.bintrayRepo("pellucid", "maven"),
 
     resolvers += Resolver.sonatypeRepo("snapshots"),
 
-    resolvers += "Sonatype OSS Releases" at "https://oss.sonatype.org/content/repositories/releases",
-
-    ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },
-
-      // The Typesafe repository
-    resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/",
+    resolvers += Resolver.sonatypeRepo("releases"),
 
     scalacOptions ++= Seq( "-feature", "-language:_" ),
 
