@@ -13,21 +13,7 @@ object Dependencies
 
     "org.scala-lang.modules" %% "scala-async" % "0.9.2",
 
-    "org.webjars" %% "webjars-play" % "2.3.0-3",
-
-    "org.webjars" % "jquery" % Versions.jquery,
-
-    "org.webjars" % "Semantic-UI" % Versions.semanticUI,
-
-    "org.webjars" % "codemirror" % "4.11",
-
-    "org.webjars" % "ckeditor" % "4.4.1",
-
     "com.lihaoyi" %% "utest" % "0.3.1",
-
-    "org.webjars" % "three.js" % Versions.threeJS,
-
-    "org.webjars" % "selectize.js" % Versions.selectize,
 
     "org.denigma" %% "semweb" % Versions.semWeb,
 
@@ -43,12 +29,39 @@ object Dependencies
 
     "com.markatta" %% "scalenium" % Versions.scalenium % "test"  excludeAll ExclusionRule(organization = "org.specs2"),
 
-
     "org.specs2" %% "specs2-core" % Versions.specs2 % "test",
 
-    "org.scalaz" %% "scalaz-core" % Versions.scalaz
+    "org.scalaz" %% "scalaz-core" % Versions.scalaz,
 
-  ))
+    "com.github.cb372" %% "scalacache-lrumap" % Versions.lruMap
+
+   /* "com.github.japgolly.scalacss" %% "core" % Versions.scalaCSS excludeAll(
+      ExclusionRule(organization = "com.chuusai"),
+      ExclusionRule(organization = "org.scalaz")
+      )*/
+
+
+  )++webjars)
+
+
+  protected lazy val webjars: Seq[ModuleID] = Seq(
+    "org.webjars" %% "webjars-play" % "2.3.0-3",
+
+    "org.webjars" % "jquery" % Versions.jquery,
+
+    "org.webjars" % "Semantic-UI" % Versions.semanticUI,
+
+    "org.webjars" % "codemirror" % "4.11",
+
+    "org.webjars" % "ckeditor" % "4.4.1",
+
+    "org.webjars" % "N3.js" % Versions.N3,
+
+    "org.webjars" % "three.js" % Versions.threeJS,
+
+    "org.webjars" % "selectize.js" % Versions.selectize
+  )
+
   val macro_js = Def.setting(shared.value++Seq(
       "org.scala-js" %%% "scalajs-dom" % Versions.dom,
 
@@ -79,7 +92,10 @@ object Dependencies
   )  )
 
   val semanticBinding = Def.setting(shared.value++Seq(
-    "com.lihaoyi" %%% "scalarx" % Versions.scalaRx
+    "com.lihaoyi" %%% "scalarx" % Versions.scalaRx,
+
+    "org.w3" %%% "banana-n3-js" % Versions.banana
+
   ))
 
 

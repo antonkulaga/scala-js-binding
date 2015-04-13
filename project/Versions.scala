@@ -4,21 +4,17 @@
  */
 object Versions extends LibVersions {
 
-val semanticBinding = "0.76"
-
+  val main = "0.7.5"
 
   val semWeb = "0.6.4"
 
-  val binding = "0.7.6"
+  val binding = "0.7.8"
 
-  val main = "0.7.5"
+  val semanticBinding = "0.7.7"
 
   val bindingPlay = "0.7.5"
 
-
-
   val jsmacro = "0.1.8"
-
 
 }
 
@@ -27,6 +23,7 @@ trait LibVersions {
 
   val framian: String = "0.3.3"
 
+  val lruMap = "0.6.2"
 
   val threeJS = "r66"
 
@@ -63,4 +60,6 @@ trait LibVersions {
   val banana = "0.8.1"
 
   val playScripts = "0.1.0"
+
+  val N3 = "799fee7697"
 }

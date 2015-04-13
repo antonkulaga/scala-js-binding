@@ -2,20 +2,19 @@ package org.denigma.binding.frontend
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
-import org.denigma.binding.frontend.controls.{ShapeEditor, EditableShape, ShapeProperty}
-import org.denigma.semantic.controls.datagrids.{DataGrid, GridCell, GridRow}
+import org.denigma.binding.frontend.controls.{EditShapeView, ShapeEditor, ShapeProperty}
 import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksView}
 import org.denigma.binding.frontend.slides._
 import org.denigma.binding.frontend.tests.{LongListView, RandomView, TestMacroView}
-import org.denigma.binding.frontend.tools.SelectView
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
 import org.denigma.controls.editors.{CkEditor, CodeMirrorEditor, editors}
 import org.denigma.controls.general.DatePairView
+import org.denigma.semantic.controls.datagrids.{DataGrid, GridCell, GridRow}
 import org.denigma.semantic.shapes.HeadersView
 import org.scalajs.dom
+import org.scalajs.dom.MouseEvent
 import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.dom.{Event, MouseEvent}
 import org.scalajs.jquery._
 import rx._
 
@@ -77,7 +76,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   ViewInjector //register shapes
     .register("ShapeEditor",(el,params)=>Try(new ShapeEditor(el,params)))
-    .register("EditableShape",(el,params)=>Try(new EditableShape(el,params)))
+    .register("EditShapeView",(el,params)=>Try(new EditShapeView(el,params)))
     .register("ShapeProperty",(el,params)=>Try(new ShapeProperty(el,params)))
     .register("ValueClass",(el,params)=>Try(new ShapeProperty(el,params)))
 

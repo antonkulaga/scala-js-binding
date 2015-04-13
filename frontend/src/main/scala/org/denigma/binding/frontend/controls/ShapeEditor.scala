@@ -28,26 +28,15 @@ object ShapeEditor{
    * @param mp
    * @return
    */
-  def apply(el:HTMLElement,mp:Map[String,Any]):ShapeView = new EditableShape(el,mp)
-
-  lazy val testShape: Shape =  {
-    val de = IRI("http://denigma.org/resource/")
-    val dc = IRI(vocabulary.DCElements.namespace)
-    val art = new ShapeBuilder(de / "Article_Shape")
-    art has de /"is_authored_by" occurs Star //*/occurs Plus
-    art has de / "is_published_in" occurs Star //occurs Plus
-    art has dc / "title" occurs Star //occurs ExactlyOne
-    //art has de / "date" occurs Star //occurs ExactlyOne
-    art has de / "abstract" of XSD.StringDatatypeIRI  occurs Star//occurs Star
-    art has  de / "excerpt" of XSD.StringDatatypeIRI  occurs Star//occurs Star
-    art.result
-  }
+  def createItem(el:HTMLElement,mp:Map[String,Any]):ShapeView = new EditShapeView(el,mp)
 }
 
-class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends CollectionView{
+class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends CollectionView
+{
 
   type Item = Var[ShapeInside]
   type ItemView = ShapeView
+
 
 
   val path:String = this.resolveKey("path"){
@@ -63,7 +52,7 @@ class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends Colle
   override lazy val items:Var[List[Item]] = Var(List.empty[Item])
 
   override def newItem(item:Item):ItemView = this.constructItem(item,Map("shape"->item)){
-    (el,mp)=>ShapeEditor(el,mp)
+    (el,mp)=> ShapeEditor.createItem(el,mp)
   }
 
   override def bindView(el:HTMLElement) = {

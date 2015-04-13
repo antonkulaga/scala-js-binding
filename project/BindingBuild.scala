@@ -55,7 +55,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     name := "semantic-binding",
 
-    libraryDependencies ++= Dependencies.binding.value
+    libraryDependencies ++= Dependencies.semanticBinding.value
   )
 
   lazy val semanticBinding = Project(

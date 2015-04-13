@@ -5,10 +5,11 @@ import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.collections.CollectionView
 import org.scalax.semweb.rdf.Res
 import org.scalax.semweb.shex._
+import prickle.Pickle
 import rx._
 import rx.core.Var
 import rx.ops._
-
+import org.denigma.binding.extensions._
 import scala.collection.immutable.{Map, SortedSet}
 object ShapeView
 {
@@ -23,19 +24,25 @@ object ShapeView
 
 }
 
-
+/**
+ * View that deals with Semantic shapes
+ */
 trait ShapeView extends CollectionView //with WithShapeView
 {
   override type Item = Var[ArcRule]
   override type ItemView = ArcView
 
-  val removeClick = EventBinding.createMouseEvent()
+  val removeClick = Var(EventBinding.createMouseEvent())
 
   val rules:Var[SortedSet[Item]] = Var(SortedSet.empty[Var[ArcRule]](ShapeView.ArcOrdering))
 
-  //val rules:Var[Set[Item]] = Var(Set.empty[Var[ArcRule]])
-
-
+  /**
+   * Transformts
+   */
+  def shapeString: String = {
+    import org.denigma.binding.composites.BindingComposites._
+    Pickle.intoString[Shape](this.shape.now)
+  }
 
   def updateShape(sh:Shape) = {
     val rs: Set[ArcRule] = sh.arcRules().toSet
@@ -51,7 +58,7 @@ trait ShapeView extends CollectionView //with WithShapeView
 
   def shapeRes: Rx[Res]// = shapeResOption.getOrElse(Var(WI.PLATFORM.EMPTY))
 
-  lazy val shape = Rx{
+  lazy val shape: Rx[Shape] = Rx{
     val and = AndRule(rules().map(r=>r.now).toSet,shapeRes())
     Shape.apply(and.id,and)
   }

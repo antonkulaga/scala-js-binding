@@ -1,7 +1,10 @@
 package org.denigma.binding
+
+import java.util.concurrent.TimeUnit
+
 import org.denigma.endpoints.UserAction
 import org.openqa.selenium.By.ById
-import org.openqa.selenium.WebDriver
+import org.openqa.selenium.{By, WebDriver}
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import play.api.GlobalSettings
@@ -12,6 +15,8 @@ import com.markatta.scalenium._
 import JqueryStyle._
 import scala.concurrent.duration._
 import org.specs2.mutable._
+
+import scala.util.{Success, Failure, Try}
 
 /**
  * Basic binding spec that is used to test with webdriver
@@ -38,6 +43,14 @@ trait BindingSpec extends PlaySpecification with Controller  {
   }
 
   lazy val TestGlobal: GlobalSettings = initSettings(routes)
+
+  def safe(something: =>Boolean) =  Try(something) match {
+    case Success(res)=> res
+    case Failure(th)=>
+      println("ERROR: "+th.getMessage)
+      false
+
+  }
 
 
 }

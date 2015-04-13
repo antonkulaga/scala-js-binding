@@ -180,7 +180,7 @@ class Selectize extends js.Object {
    *
    * @param {string} value
    */
-  def addItems(values:js.Array[Any]) = js.native //add many items
+  def addItems(values:js.Array[Any]):Unit = js.native //add many items
 
   /**
    * Removes the selected item matching

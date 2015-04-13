@@ -30,6 +30,7 @@ trait WithShapeView  {
 
   lazy val shapeInside: Var[ShapeInside] =  shapeOption.getOrElse(  Var(ShapeInside(Shape.empty))    )
 
+  lazy val shapeDirty: rx.Rx[Boolean] = shapeInside.map(sh=>sh.isDirty)
 
   def shapeRes: Rx[Res] = shapeInside.map(sh=>sh.current.id.asResource)
 }

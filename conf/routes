@@ -51,6 +51,7 @@ GET           /logo/:variant             controllers.endpoints.Application.logo(
 
 # Serve scala files under the scalajs subprojects to be used by sourcemaps.
 # This route and its controller method should be removed for production
+#GET           /mystyles.css             controllers.Application.myStyles()
 GET           /binding/*file             controllers.Application.bindingFile(file)
 GET           /models/*file              controllers.Application.modelsFile(file)
 GET           /frontend/*file            controllers.Application.frontendFile(file)

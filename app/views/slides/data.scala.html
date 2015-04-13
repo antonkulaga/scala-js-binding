@@ -4,33 +4,46 @@
     <h1 id="title"class="ui large header orange message">@title </h1>
 
     <div data-view="ShapeEditor"
-    vocab="http://webintelligence.eu/"  data-param-path="papers/shapes" resource="http://webintelligence.eu/shapes/todo">
-        <div class="ui equal width stackable celled grid">
-            <div class="row" data-view="EditableShape" data-template="true">
-                <div class="column"  data-view="ShapeProperty" data-template="true">
-                    <div class="ui label">Name</div>
-                    <div class="ui label">Value class</div>
-                    <div class="ui label">Value class property</div>
-                    <div class="ui label">Occurs</div>
+    vocab="http://webintelligence.eu/"  data-param-path="papers/shapes">
+        <div class="ui padded divided  grid">
+            <section class="ui row" data-view="EditShapeView" data-template="true">
+                <div class="ui top attached segment">
+                    <h3 class="ui inverted green header"><div class="ui small button" data-event-click="saveFileClick"><i class="file text icon"></i></div><span data-bind="title"></span>  <div class="ui  button" data-class-positive-if="shapeDirty" data-event-click="saveClick"><i class="save icon"></i></div></h3>
+                    <a class="ui right red corner label">
+                        <i class="remove sign icon" data-event-click = "removeClick"></i>
+                    </a>
                 </div>
-                <div class="column"  data-view="ShapeProperty" data-template="true">
-                    <div data="name"> </div>
-                    <div data="value-type"> </div>
-                    <div data="value"> </div>
-                    <div data="occurs"> </div>
+                <div class="ui padded grid segment">
+                    <section class="ui four wide column"  data-view="ShapeProperty" data-template="true">
+                        <table class="ui collapsed padded table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="ui label">Name</div>
+                                    </td>
+                                    <td>
+                                        <div data="name"> </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div data="value-type"> </div>
+                                    </td>
+                                    <td>
+                                        <div data="value"> </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a class="ui tiny right red corner label">
+                            <i class="remove sign icon"></i>
+                        </a>
+                    </section>
+                    <div  class="ui  button" data-event-click="addClick"><i class="green add circle icon"></i>Add rule</div>
                 </div>
-                <div class="one wide column">
-                    <div class="ui positive button" data-event-click="applyShape">Apply</div>
-                    <div class="ui positive button" data-event-click="addClick">Add</div>
-                </div>
-            </div>
-
-
+            </section>
         </div>
     </div>
-
-
-
 
 </article>
 

@@ -41,13 +41,18 @@ class BetterCreatePlugin(pluginName:String) extends BetterDropdownPlugin(pluginN
     //self.onKeyPress = js.eval(  """ function(e) {  alert("works"); 	}   """)
   }
 
-  def createItem(self:Selectize)(triggerDropdown:Any):Boolean =  {
-    val input =  if(self.$control_input==null) "" else self.$control_input.`val`().toString
+  def createItem(self:Selectize)(triggerDropdown:Any)=  {
+    val input: String =  if(self.$control_input==null) "" else self.$control_input.`val`().toString
     if(self.canCreate(input)){
       val caret = self.caretPos
       self.lock()
-      val data:SelectOption =  if(self.settings.createItem!=null)
-        self.settings.createItem.asInstanceOf[js.Function1[String,SelectOption]](input)
+      val data:SelectOption =  if( !js.isUndefined(self.settings.createItem) &&   self.settings.createItem!=null
+      ){
+        val r = self.settings.createItem(input)
+        //dom.console.error("OUTPUT = "+r)
+        val fun = self.settings.createItem.asInstanceOf[js.Function1[String,SelectOption]]
+        fun(input)
+      }
       else SelectOption(this.escape(input),input)
 
       self.setTextboxValue("")

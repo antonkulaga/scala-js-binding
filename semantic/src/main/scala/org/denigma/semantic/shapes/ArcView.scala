@@ -6,6 +6,7 @@ import org.denigma.semantic.binders.shex._
 import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.RDFValue
 import org.scalax.semweb.shex._
+import prickle.Pickle
 import rx.Var
 
 import scala.collection.immutable.Map
@@ -16,6 +17,7 @@ object ArcView {
 
   case class SuggestNameTerm(typed:String)
 
+
   def apply(el:HTMLElement,params:Map[String,Any]) = {
     new JustArcView(el,params)
   }
@@ -23,7 +25,7 @@ object ArcView {
   implicit def defaultBinders(view:ArcView): List[BasicBinding] = //new ArcRuleBinder(view,view.arc,view.suggestProperty)::Nil
     new NamesBinder(view,view.arc,view.suggestProperty)::
       new ValueBinder(view,view.arc,view.suggestProperty)::
-      new OccursBinder(view,view.arc)::
+      //new OccursBinder(view,view.arc)::
       new GeneralBinder(view)::
       new NavigationBinding(view)::Nil
 
@@ -43,6 +45,13 @@ object ArcView {
 trait ArcView extends BindableView
 {
 
+  /**
+   * Pickles ArcRule to string, useful for debugging
+   */
+  def arcString: String = {
+    import org.denigma.binding.composites.BindingComposites._
+    Pickle.intoString[ArcRule](this.arc.now)
+  }
 
 
 //  require(params.contains("item"), "ArcView should contain arc item inside")
@@ -53,6 +62,11 @@ trait ArcView extends BindableView
   //require(params.contains("storage"), "ArcView should contain storage inside")
 
   def suggestProperty(str:String): Future[List[RDFValue]] = {
+    //debug("arc suggest works!")
+    this.ask[ArcView.SuggestNameTerm,List[RDFValue]](ArcView.SuggestNameTerm(str))
+  }
+
+  def suggestValue(str:String): Future[List[RDFValue]] = {
     //debug("arc suggest works!")
     this.ask[ArcView.SuggestNameTerm,List[RDFValue]](ArcView.SuggestNameTerm(str))
   }

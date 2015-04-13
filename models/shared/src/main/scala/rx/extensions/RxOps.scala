@@ -8,7 +8,12 @@ import rx.ops._
 trait RxOps {
 
 
+  implicit class AnyVar[T,M](source:Var[T]) {
 
+    def set(newValue:T) = {
+      if(source.now!=newValue) source() = newValue
+    }
+  }
 
   implicit class AnyRx[T,M](source:Rx[T])
   {
@@ -19,10 +24,11 @@ trait RxOps {
 
     def takeIfAny(bools:Rx[Boolean]*) = RxOps(source).filter(el=>bools.exists(b=>b.now))
 
-
     def observeIf(b:Rx[Boolean])(callback: => Unit) = Obs(takeIf(b),skipInitial = true)(callback)
 
     def handler(callback: => Unit) = Obs(source, skipInitial = true)(callback)
+
+    def onchange(callback: T=> Unit) = Obs(source, skipInitial = true)(callback)
 
      /**
        * Creates a new [[Rx]] which zips the values of the source [[Rx]] according
@@ -47,10 +53,20 @@ trait RxOps {
 
       def is(value:T): rx.Rx[Boolean] = RxOps(source).map(_==value)
       def isnt(value:T): rx.Rx[Boolean] = RxOps(source).map(_!=value)
-      def is[R<:T]: rx.Rx[Boolean] = RxOps(source).map(_.isInstanceOf[R])
-      def isnt[R<:T]: rx.Rx[Boolean] =RxOps(source).map(!_.isInstanceOf[R])
+/*      def is[R<:T]: rx.Rx[Boolean] = RxOps(source).map(_.isInstanceOf[R])
+      def isnt[R<:T]: rx.Rx[Boolean] =RxOps(source).map(!_.isInstanceOf[R])*/
 
-      def unique() = new UniqueWatcher(source)
+      def unique():Rx[T] = new UniqueWatcher(source)
+
+    /**
+     * Note: not yeat stable
+     * @param partial
+     * @tparam TOut
+     * @return
+     */
+      def collect[TOut](partial:PartialFunction[T,TOut]) = {
+        source.filter(partial.isDefinedAt).map(partial)
+      }
 
   }
 

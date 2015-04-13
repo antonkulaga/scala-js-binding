@@ -10,7 +10,7 @@ import org.scalax.semweb.rdf.RDFValue
 import org.scalax.semweb.rdf.vocabulary.{RDFS, RDF}
 import org.scalax.semweb.shex.ArcRule
 import rx.{Rx, Var}
-
+import org.denigma.binding.extensions._
 import scala.collection.immutable.{Set, Map}
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -26,6 +26,7 @@ class ValueBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[R
   val valueSelector = new ValueClassSelector(arc,valueTypeHandler)
 
   def valueTypeHandler(el: HTMLElement)(str:String) = {
+
   }
 
 
@@ -56,7 +57,7 @@ import scala.scalajs.js
  */
 class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>Unit) extends ModeSelector
 {
-  lazy val modes: Seq[String] = Seq("ValueType", "ValueSet", "ValueStem", "ValueReference", "ValueAny")
+  lazy val modes: Seq[String] = Seq("ValueType", "ValueSet", "ValueStem"/*, "ValueReference", "ValueAny"*/)
 
   lazy val mode = Var("ValueType")
 
@@ -67,46 +68,48 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
    * Handlers that fires on ark valueclass change
    * @param vc
    */
-  def onArcValueChange(vc:ValueClass) = vc match {
-    case v: ValueType =>
-      values.updateSilent(Set(v.v))
-      mode() = "ValueType"
-    case v: ValueAny =>
-      values.updateSilent(Set(v.stem.s))
-      mode() = "ValueAny"
-    case v: ValueSet =>
-      values.updateSilent(v.s)
-      mode() =  "ValueSet"
-    case v: ValueStem =>
-      values.updateSilent(Set(v.s))
-      mode() = "ValueStem"
-    case v: ValueReference =>
-      values.updateSilent(Set(v.l.asResource))
-      mode() = "ValueReference"
+  protected def onArcValueClassChange(vc:ValueClass) = {
+    vc match {
+      case v: ValueType =>
+        values.set(Set(v.v))
+        mode.set("ValueType")
+
+      case v: ValueAny =>
+        values.set(Set(v.stem.s))
+        mode.set("ValueAny")
+
+      case v: ValueSet =>
+        values.set(v.s)
+        mode.set("ValueSet")
+
+      case v: ValueStem =>
+        values.set(Set(v.s))
+        mode.set("ValueStem")
+
+      case v: ValueReference =>
+        values.set(Set(v.l.asResource))
+        mode.set("ValueReference")
+    }
+    modeSelectors.values.foreach(s=>fillModeValues(mode.now,s))
+    valueSelectors.values.foreach(s=>fillValues(values.now,s))
   }
 
-  arc.foreach{a=>
-    onArcValueChange(a.value)
-  }
-
-  values.foreach{v=>
-    dom.console.log("CHANGING VALUE SELECTORS")
-    this.valueSelectors.values.foreach { case sel =>   fillValues(sel,v) }
-  }
-
-  def fillValues(sel:Selectize,v:Set[RDFValue] = values.now) = {
+  protected def fillValues(vals:Set[RDFValue],sel:Selectize) = {
     sel.clear()
     sel.clearOptions()
-    for (v <- modes) {
+    for (v <- vals) {
       sel.addOption(this.makeOption(v))
     }
-    val escaped = v.map(r=>escape(r.stringValue)).toSeq
+    val escaped = vals.map(r=>escape(r.stringValue)).toSeq
     val its:js.Array[Any] = js.Array(escaped:_*)
     sel.addItems(its)
-    this
   }
 
-  val valueClass: Rx[ValueClass] = Rx {
+
+  val valueClass:Rx[ValueClass] = arc.filter(a=>a!=arc.now.value).map(a=>a.value)//arc.collect{case a if a.value!=arc.now.value=>arc.now.value  }
+  valueClass.foreach(onArcValueClassChange)
+
+  val currentValueClass: Rx[ValueClass] = Rx {
     mode() match {
       case "ValueType" => values() match {
         case v if v.isEmpty => ValueType(RDF.VALUE)
@@ -145,17 +148,24 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
     ValueType(RDF.VALUE)
   }
 
-  valueClass.filter(vc=>this.arc.now.value!=vc).foreach{vc=>
-    arc() = arc.now.copy(value = vc)
+  def onCurrentValueChange(vc:ValueClass) = {
+    if(arc.now.value!=vc)  arc() = arc.now.copy(value = vc)
   }
+
+  currentValueClass.foreach(onCurrentValueChange)
 
    val key = ValueType.property
 
 
+  /**
+   * add selectize selector to the element
+   * and updates valueSelectors map with this pair
+   * @param html
+   */
   def registerValue(html: HTMLElement) = if (!valueSelectors.contains(html)) {
     val ss = this.initSelectize(html)
     valueSelectors = valueSelectors + (html -> ss)
-    fillValues(ss)
+    fillValues(values.now,ss)
   }
 
   def unregisterValue(html:HTMLElement) = valueSelectors = valueSelectors - html
@@ -165,13 +175,18 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
   }
 
 
+  /**
+   * Created an RDF item
+   * @param input
+   * @return
+   */
   def createRDFItem(input:String):SelectOption =  {
     val value = this.parseRDF(input)
     this.makeOption(value)
   }
 
 
-  protected val createHandler:js.Function1[String,SelectOption] = createRDFItem _
+  protected lazy val createHandler:js.Function1[String,SelectOption] = createRDFItem _
 
 
   protected def createFilter(input:String):Boolean = true
@@ -180,16 +195,7 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
 
 
   override protected def itemRemoveHandler(value: String): Unit = {
-    //nothing is needed
-    val v = this.parseRDF(value)
-    if(values.now.contains(v)){
-      values() = values.now + v
-    } else {
-      dom.console.log("adding element that already exists")
-    }
-  }
 
-  override protected def itemAddHandler(value: String, item: js.Dynamic): Unit = {
     val v = this.parseRDF(value)
     if(values.now.contains(v)){
 
@@ -198,7 +204,17 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
     else {
       dom.console.error(s"deleting $value that is not in the selector")
     }
+  }
 
+  override protected def itemAddHandler(value: String, item: js.Dynamic): Unit =
+  {
+    //nothing is needed
+    val v = this.parseRDF(value)
+    if(!values.now.contains(v)){
+      values() = values.now + v
+    } else {
+      //dom.console.log("adding element that already exists")
+    }
   }
 
 
@@ -215,7 +231,7 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
       onItemAdd = itemAddHandler _,
       onItemRemove =  itemRemoveHandler _,
       create = true,
-      createItem = this.createHandler _,
+      createItem = this.createHandler,
       createFilter = this.createFilterHandler,
       options = makeOptions(),
       render =  SemanticRenderer.asInstanceOf[js.Any],
@@ -243,16 +259,11 @@ trait ModeSelector extends SemanticSelector{
 
   var modeSelectors = Map.empty[HTMLElement, Selectize]
 
-  mode.foreach{case m=>
-    this.modeSelectors.values.foreach { case sel =>  this.fillModeValues(sel,m) }
-  }
-
-
 
   protected def modeItemAddHandler(value: String, item: js.Dynamic): Unit = {
     val v = unescape(value)
-    dom.console.log(v)
-    if(mode.now!=v)  mode() = v
+    mode.set(v)
+    //dom.console.log(s"adding mode element that is $value")
   }
 
   protected def modeItemRemoveHandler(value: String, item: js.Dynamic): Unit = {
@@ -264,12 +275,15 @@ trait ModeSelector extends SemanticSelector{
     js.Dynamic.literal(
       onItemAdd = modeItemAddHandler _,
       onItemRemove = modeItemRemoveHandler _,
+      persist = false,
       maxItems = 1,
-      value = escape(mode.now),
       valueField = "id",
-      labelField = "title",
+      labelField = "id",
       searchField = "title",
-      options = this.makeModeOptions()
+      options = this.makeModeOptions(),
+      render =  SemanticRenderer.asInstanceOf[js.Any],
+      copyClassesToDropdown = false,
+      plugins = js.Array(SelectBinder.pluginName)
     )
   }
 
@@ -278,34 +292,29 @@ trait ModeSelector extends SemanticSelector{
 
   def registerMode(html: HTMLElement) = if (!modeSelectors.contains(html)) {
     val ss = this.initSelectize(html,this.modeSelectParams)
+    //dom.console.log("one more mode")
     modeSelectors = modeSelectors + (html -> ss)
-    this.fillModeValues(ss)
+    this.fillModeValues(mode.now,ss)
   }
 
 
 
 
-  /**
-   * Fill values of the selector
-   * @param md
-   * @return
-   */
 
-  def fillModeValues(sel:Selectize,md:String = mode.now):this.type = {
+  protected def fillModeValues(md:String,sel:Selectize):this.type = {
     sel.clear()
     sel.clearOptions()
     for (v <- modes) {
-      val opt = this.makeOption(v)
-      //dom.console.log(opt.toString)
-      sel.addOption(opt)
+      sel.addOption(this.makeOption(v,v))
     }
-    val its: js.Array[Any] = js.Array(escape(md))
+    //dom.console.log(s"${escape(md)} IDS: ${sel.options.values.map(s=>s.dyn.id).mkString(" ")}")
+    //val value = escape(md)
+    val its:js.Array[Any] = js.Array(md)
     sel.addItems(its)
+    //dom.console.log(s"add mode value: $value where options are\n ${js.JSON.stringify(sel.options)} \n AND items are:\n ${js.JSON.stringify(sel.items)}")
+
     this
   }
-
-
-
 
 
 }
