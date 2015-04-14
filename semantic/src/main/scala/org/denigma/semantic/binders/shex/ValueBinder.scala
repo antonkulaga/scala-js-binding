@@ -71,24 +71,25 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
   protected def onArcValueClassChange(vc:ValueClass) = {
     vc match {
       case v: ValueType =>
-        values.set(Set(v.v))
         mode.set("ValueType")
+        values.set(Set(v.v))
+
 
       case v: ValueAny =>
-        values.set(Set(v.stem.s))
         mode.set("ValueAny")
+        values.set(Set(v.stem.s))
 
       case v: ValueSet =>
-        values.set(v.s)
         mode.set("ValueSet")
+        values.set(v.s)
 
       case v: ValueStem =>
-        values.set(Set(v.s))
         mode.set("ValueStem")
+        values.set(Set(v.s))
 
       case v: ValueReference =>
-        values.set(Set(v.l.asResource))
         mode.set("ValueReference")
+        values.set(Set(v.l.asResource))
     }
     modeSelectors.values.foreach(s=>fillModeValues(mode.now,s))
     valueSelectors.values.foreach(s=>fillValues(values.now,s))
@@ -106,7 +107,7 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
   }
 
 
-  val valueClass:Rx[ValueClass] = arc.filter(a=>a!=arc.now.value).map(a=>a.value)//arc.collect{case a if a.value!=arc.now.value=>arc.now.value  }
+  val valueClass:Rx[ValueClass] = arc.filter(a=>a.value!=arc.now.value).map(a=>a.value)//arc.collect{case a if a.value!=arc.now.value=>arc.now.value  }
   valueClass.foreach(onArcValueClassChange)
 
   val currentValueClass: Rx[ValueClass] = Rx {
@@ -311,6 +312,7 @@ trait ModeSelector extends SemanticSelector{
     //val value = escape(md)
     val its:js.Array[Any] = js.Array(md)
     sel.addItems(its)
+    //dom.console.log("ITEMS = "+sel.items)
     //dom.console.log(s"add mode value: $value where options are\n ${js.JSON.stringify(sel.options)} \n AND items are:\n ${js.JSON.stringify(sel.items)}")
 
     this

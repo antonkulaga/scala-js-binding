@@ -37,7 +37,7 @@ object SemanticJS extends RDFModule
 with RDFOpsModule
 with RecordBinderModule
 //with TurtleReaderModule
-with TurtleWriterModule
+//with TurtleWriterModule
 {
 
   type Rdf = SemanticJS
@@ -47,6 +47,6 @@ with TurtleWriterModule
   implicit val recordBinder: binder.RecordBinder[SemanticJS] = binder.RecordBinder[SemanticJS]
 
   implicit val turtleReader:org.w3.banana.io.RDFReader[SemanticJS,Future,Turtle] = new n3js.io.N3jsTurtleParser[SemanticJS]
-  override implicit val turtleWriter: RDFWriter[Rdf, Try, Turtle] = new TurtleWriter
+  implicit val turtleWriter: RDFWriter[Rdf, Future, Turtle] = new TurtleWriter
 }
 

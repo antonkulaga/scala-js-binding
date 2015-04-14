@@ -4,6 +4,7 @@ import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.frontend.FrontEndStore
 import org.denigma.semantic.models.WithShapeView
 import org.denigma.semantic.shapes.{ArcView, ShapeView}
+import org.scalajs.dom
 import org.scalajs.dom.MouseEvent
 import org.scalajs.dom.raw.HTMLElement
 import org.scalax.semweb.rdf.vocabulary.{WI, RDF}
@@ -12,6 +13,9 @@ import rx._
 import rx.core.Var
 import rx.ops._
 import org.denigma.binding.extensions._
+import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+import scala.util.{Failure, Success}
+
 object EditShapeView
 {
 
@@ -64,22 +68,21 @@ class EditShapeView (val elem:HTMLElement,val params:Map[String,Any]) extends  S
 
 
 
-  protected def onSaveClick(): Unit= {/*
-    val str = this.shapeString
-    val sid = shape.now.id.asResource.stringValue
-    val id = sid
-    saveAs(sid.substring(sid.indexOf(":")+2),str)*/
+  protected def onSaveFileClick(): Unit= {
     val sid = this.shapeRes.now
     val quads = this.shape.now.asQuads(this.shapeRes.now)
-    val str = FrontEndStore.write(quads)
-    saveAs(sid.stringValue.substring(sid.stringValue.indexOf(":")+2),str.get)
+    FrontEndStore.write(quads).onComplete{
+      case Success(str)=>
+        saveAs(sid.stringValue.substring(sid.stringValue.indexOf(":")+2)+".ttl",str)
+      case Failure(th)=> dom.console.error("TURTLE DOWNLOAD ERROR: " +th)
+    }
   }
 
 
   val saveFileClick= Var(EventBinding.createMouseEvent())
 
   saveFileClick.handler{
-    onSaveClick()
+    onSaveFileClick()
   }
 
 
