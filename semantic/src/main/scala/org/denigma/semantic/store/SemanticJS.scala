@@ -47,6 +47,7 @@ with RecordBinderModule
   implicit val recordBinder: binder.RecordBinder[SemanticJS] = binder.RecordBinder[SemanticJS]
 
   implicit val turtleReader:org.w3.banana.io.RDFReader[SemanticJS,Future,Turtle] = new n3js.io.N3jsTurtleParser[SemanticJS]
+
   implicit val turtleWriter: RDFWriter[Rdf, Future, Turtle] = new TurtleWriter
 }
 

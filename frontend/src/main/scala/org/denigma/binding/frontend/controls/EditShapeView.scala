@@ -2,6 +2,7 @@ package org.denigma.binding.frontend.controls
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.frontend.FrontEndStore
+import org.denigma.semantic.binders.RDFBinder
 import org.denigma.semantic.models.WithShapeView
 import org.denigma.semantic.shapes.{ArcView, ShapeView}
 import org.scalajs.dom
@@ -71,7 +72,7 @@ class EditShapeView (val elem:HTMLElement,val params:Map[String,Any]) extends  S
   protected def onSaveFileClick(): Unit= {
     val sid = this.shapeRes.now
     val quads = this.shape.now.asQuads(this.shapeRes.now)
-    FrontEndStore.write(quads).onComplete{
+    FrontEndStore.write(quads,RDFBinder.defaultPrefixes.map(kv=>(kv._1,kv._2.stringValue)).toSeq:_*).onComplete{ //TODO: rewrite prefixes in views
       case Success(str)=>
         saveAs(sid.stringValue.substring(sid.stringValue.indexOf(":")+2)+".ttl",str)
       case Failure(th)=> dom.console.error("TURTLE DOWNLOAD ERROR: " +th)

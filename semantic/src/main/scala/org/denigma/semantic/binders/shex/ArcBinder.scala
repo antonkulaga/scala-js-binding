@@ -7,6 +7,7 @@ import org.denigma.semantic.binders.{SemanticSelector, RDFBinder}
 import org.denigma.semantic.rdf.PropertyPrinter
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
+import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.shex.{NameTerm, ArcRule}
 import rx.core.Var
 
@@ -17,7 +18,7 @@ import scala.collection.immutable.Map
  * @param view
  * @param arc
  */
-class ArcBinder(val view:BindableView, val arc:Var[ArcRule]) extends RDFBinder(view)  with PropertyPrinter{
+class ArcBinder(val view:BindableView, val arc:Var[ArcRule],prefs:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes)) extends RDFBinder(view,prefs)  with PropertyPrinter{
 
   override protected def rdfPartial(el: HTMLElement, key: String, value: String, ats:Map[String,String]): PartialFunction[String, Unit] = {
     this.vocabPartial(value).orElse(this.arcPartial(el:HTMLElement,value.toLowerCase))
@@ -47,7 +48,8 @@ import scala.scalajs.js
  * Parent Selector for all selectors that bind
  * @param arc
  */
-abstract class ArcSelector(val arc:Var[ArcRule]) extends SemanticSelector{
+abstract class ArcSelector(val arc:Var[ArcRule],val prefixes:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes))
+  extends SemanticSelector{
 
   def fillValues(arc:Var[ArcRule]):this.type
 

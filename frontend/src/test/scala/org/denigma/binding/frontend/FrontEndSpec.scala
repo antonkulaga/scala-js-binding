@@ -24,14 +24,6 @@ class TestShapeEditor(el:HTMLElement,params:Map[String,Any]) extends ShapeEditor
 
 class EditShapeTestView(el:HTMLElement,params:Map[String,Any]) extends EditShapeView(el,params){
 
-  override protected def onSaveClick(): Unit= {
-    val str = this.shapeString
-    val sid = shape.now.id.asResource.stringValue
-    val id = sid
-    saveAs(sid.substring(sid.indexOf(":")+2),str)
-  }
-
-
 }
 
 @JSExport("FrontEndSpec")

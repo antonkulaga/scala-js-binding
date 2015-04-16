@@ -1,6 +1,6 @@
 package org.denigma.semantic.binders.shaped
 
-import org.denigma.semantic.binders.{PropertySelector, SelectBinder, SemanticRenderer}
+import org.denigma.semantic.binders._
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
@@ -32,8 +32,8 @@ object ShapedPropertySelector {
  * @param arc
  * @param typeHandler handler that react on typing
  */
-class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], val arc:ArcRule)
-                            (typeHandler:(String)=>Unit) extends PropertySelector(el,key,model)(typeHandler)
+class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], val arc:ArcRule,  prefs:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes))
+                            (typeHandler:(String)=>Unit) extends PropertySelector(el,key,model,prefs)(typeHandler)
 {
 
 
@@ -43,7 +43,7 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
    * @return
    */
   override protected def parseRDF(str:String): RDFValue ={
-    val input = unescape(str)
+    val input = str//unescape(str)
     arc.value match { //TODO: rewrite
       case ValueStem(stem)=>
         if (input.contains(stem.stringValue)) IRI(input) else stem / input
@@ -154,7 +154,7 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
       createItem = this.createHandler,
       createFilter = this.createFilterHandler,
       options = makeOptions(),
-      render =  SemanticRenderer.asInstanceOf[js.Any],
+      render = PrefixedRenderer(prefixes).asInstanceOf[js.Any],
       copyClassesToDropdown = false,
       plugins = js.Array(SelectBinder.pluginName)
     )

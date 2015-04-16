@@ -1,14 +1,26 @@
-package org.denigma.binding
+package org.denigma.semantic
+
+import org.denigma.binding.{BindingSpec, Browser, GeneralRouters}
 import org.denigma.endpoints.UserAction
-import org.openqa.selenium.By.ById
 import org.openqa.selenium.chrome.ChromeDriver
 import play.api.mvc.Handler
 import play.api.test.{FakeApplication, WithServer}
-import play.twirl.api.Html
 
 class ShapedCollectionsSpec extends BindingSpec with GeneralRouters
 {
 self=>
+
+  lazy val semanticRoutes: PartialFunction[(String,String), Handler] = {
+    case ("GET", "/editor") => UserAction{implicit request =>
+      //val html:Html = twirl.html.collection(request)
+      val html = twirl.html.editor(request)
+      Ok(twirl.html.test(html)(request))
+    }
+
+  }
+
+
+  override lazy val routes : PartialFunction[(String,String), Handler] = super.routes.orElse(semanticRoutes)
 
   step {
     browser = new Browser(new ChromeDriver())
@@ -18,7 +30,6 @@ self=>
   "binding to collection" in  new WithServer(app = FakeApplication(withGlobal = Some(TestGlobal)), port = testPort)
   {
     import com.markatta.scalenium._
-    import JqueryStyle._
 
     val hasTitle = "http://denigma.org/resource/title"
 

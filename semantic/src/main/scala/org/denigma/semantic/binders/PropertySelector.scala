@@ -18,7 +18,7 @@ import scala.scalajs.js
  * @param model property model with props and vals
  * @param typeHandler handler that react on typing
  */
-class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside])(typeHandler:(String)=>Unit) extends SemanticSelector
+class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside],val prefixes:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes))(typeHandler:(String)=>Unit) extends SemanticSelector
 {
 
   val sel= this.initSelectize(el)// jQuery(el).dyn.selectize(selectParams(el)).asInstanceOf[Selectize]
@@ -46,7 +46,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
       onItemAdd = itemAddHandler _,
       onItemRemove =  itemRemoveHandler _,
       options = makeOptions(),
-      render =  SemanticRenderer.asInstanceOf[js.Any],
+      render = PrefixedRenderer(prefixes).asInstanceOf[js.Any],
       copyClassesToDropdown = false,
       plugins = js.Array(SelectBinder.pluginName)
     )
@@ -63,7 +63,8 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
 
 
   protected def itemAddHandler(text:String, item:js.Dynamic): Unit = {
-    val value = unescape(text)
+    //val value = unescape(text)
+    val value = text
     val mod = model.now
     val values = getValues
     if(values.exists(v=>v.stringValue==value)){
@@ -78,7 +79,8 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
   protected def itemRemoveHandler(text:String): Unit = {
     //dom.console.log("DELETE == "+text)
     val mod =  model.now
-    val value = unescape(text)
+    //val value = unescape(text)
+    val value = text
     val remove: Set[RDFValue] = this.getValues.filter(v=>v.stringValue==value)
     for(r<-remove) {//TODO:rewrite in more effective way
       //val n = this.parseRDF(value)
@@ -97,12 +99,12 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
   def fillValues(model: ModelInside):this.type = {
      val values: Set[RDFValue] = this.getValues
     //val sel =    this.selectizeFrom(el)
-    val its = sel.items.toSeq.map(i=>unescape(i))
+    val its = sel.items//.toSeq.map(i=>unescape(i))
     val changed = values.exists{case v=> !its.contains(v.stringValue)}
     if(changed) {
       sel.clearOptions()
       for(v<-values){     sel.addOption(this.makeOption(v))      }
-      val its = values.map(v=>escape(v.stringValue)).toSeq
+      val its = values.map(v=>/*escape*/(v.stringValue)).toSeq
       sel.addItems(js.Array(its:_*))
     }
     this

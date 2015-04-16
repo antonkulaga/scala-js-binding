@@ -5,6 +5,7 @@ import org.denigma.selectize.Selectize
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery._
+import org.scalax.semweb.rdf.IRI
 import org.scalax.semweb.shex.{ArcRule, _}
 import rx.core.Var
 import rx.ops._
@@ -13,7 +14,7 @@ import scala.collection.immutable.Map
 import scala.scalajs.js
 
 
-class OccursBinder(view:BindableView, arc:Var[ArcRule]) extends ArcBinder(view,arc){
+class OccursBinder(view:BindableView, arc:Var[ArcRule],prefs:Var[Map[String,IRI]] = Var(Map.empty)) extends ArcBinder(view,arc,prefs){
   var occurs = Map.empty[HTMLElement,OccursSelector]
 
 
@@ -37,15 +38,13 @@ class OccursBinder(view:BindableView, arc:Var[ArcRule]) extends ArcBinder(view,a
       }
   }
 
-
-
 }
 
 
 
 
 
-class OccursSelector(val el:HTMLElement,arc:Var[ArcRule]) extends ArcSelector(arc) {
+class OccursSelector(val el:HTMLElement,arc:Var[ArcRule],prefs:Var[Map[String,IRI]]= Var(Map.empty)) extends ArcSelector(arc, prefs) {
 
 
   val sel= this.initSelectize(el)

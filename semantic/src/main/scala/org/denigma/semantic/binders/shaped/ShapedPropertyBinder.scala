@@ -1,7 +1,7 @@
 package org.denigma.semantic.binders.shaped
 
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binders.{BinderWithSelection, ModelBinder, SelectBinder}
+import org.denigma.semantic.binders.{RDFBinder, BinderWithSelection, ModelBinder, SelectBinder}
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
@@ -19,7 +19,9 @@ import scala.util.{Failure, Success}
 /**
  * Binder for properties
  */
-class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule)(val suggest:(IRI,String)=>Future[collection.Seq[RDFValue]])
+class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule,
+                           prefixes:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes)
+                            )(val suggest:(IRI,String)=>Future[collection.Seq[RDFValue]])
   extends ModelBinder(view,modelInside) with BinderWithSelection[ShapedPropertySelector]
 {
 
@@ -86,7 +88,7 @@ class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:A
     this.bindRx(key.stringValue, el: HTMLElement, modelInside) { (e, mod) =>
 
       val sel = this.selectors.getOrElse(e, {
-        val s = new ShapedPropertySelector(e, key,modelInside,arc)( typeHandler(e, key) )
+        val s = new ShapedPropertySelector(e, key,modelInside,arc,prefixes)( typeHandler(e, key) )
         this.selectors = this.selectors + (e -> s)
         s
       })

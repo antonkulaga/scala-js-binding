@@ -20,7 +20,7 @@ object SimpleSelector {
  * @param el
  * @param options
  */
-class SimpleSelector(val el:HTMLElement,options:Seq[(String,String)]) extends Selector with Escaper
+class SimpleSelector(val el:HTMLElement,options:Seq[(String,String)]) extends Selector //with Escaper
 {
 
   val selected = Var("")
@@ -51,6 +51,6 @@ class SimpleSelector(val el:HTMLElement,options:Seq[(String,String)]) extends Se
   }
 
   override protected def itemAddHandler(value: String, item: Dynamic): Unit = {
-    selected() = unescape(value)
+    selected() = value
   }
 }

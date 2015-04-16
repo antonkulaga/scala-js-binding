@@ -2,12 +2,13 @@ package org.denigma.binding.frontend
 
 import java.io.StringWriter
 
-import org.denigma.semantic.store.SemanticJS
+import org.denigma.semantic.store.{TurtleJSWriter, SemanticJS}
 import org.scalax.semweb.rdf._
 import org.w3.banana.{RDF, RDFOps, RDFStore}
 import org.w3.banana.io.{RDFReader, RDFWriter, Turtle}
 
-import scala.concurrent.Future
+import scala.concurrent.{Promise, Future}
+import scala.scalajs.js
 import scala.util.{Failure, Success, Try}
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
@@ -35,9 +36,33 @@ object FrontEndStore
     case lit:Lit =>lit2ValueJS(lit)
   }
 
+
   def write[T <: BasicTriplet](trips: Set[T], namespaces: (String, String)*): Future[String] = {
       val triplets = for{t <- trips}  yield ops.Triple(res2ValueJS(t.sub),  t.pred.stringValue,  rdfValue2JS(t.obj))
-      val g = Graph(triplets)
-      writer.asString(g,"http://longevityalliance.org/resource/")
-  }
+      val graph = Graph(triplets)
+      //      writer.asString(g,"http://longevityalliance.org/resource/")
+      def onParse(some:Any):Unit = { /*just a mandatory handler*/  }
+      val promise = Promise[String]()
+      /**
+       * Finish callback
+       * @param errors list of errors that occured during execution
+       * @param output string with turtle
+       */
+      def finishedWriting(errors:Any,output:String):Unit = {
+        promise.success(output)
+      }
+      val writer: TurtleJSWriter = new TurtleJSWriter()
+      lazy val fun:js.Function1[Any,Unit] = onParse _
+      namespaces.foreach{
+        case (key,value)=>
+          writer.addPrefix(key,value,fun)
+      }
+
+      graph.triples.foreach{
+        case (sub,pred,obj)=>
+          writer.addTriple(sub,pred,obj,fun)
+      }
+      writer.end(finishedWriting _)
+      promise.future
+    }
 }

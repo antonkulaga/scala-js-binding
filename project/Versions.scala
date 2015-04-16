@@ -8,9 +8,9 @@ object Versions extends LibVersions {
 
   val semWeb = "0.6.4"
 
-  val binding = "0.7.8"
+  val binding = "0.7.9"
 
-  val semanticBinding = "0.7.7"
+  val semanticBinding = "0.7.9"
 
   val bindingPlay = "0.7.5"
 

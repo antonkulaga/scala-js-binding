@@ -1,12 +1,12 @@
 package org.denigma.semantic.binders.shex
 
 import org.denigma.selectize.Selectize
-import org.denigma.semantic.binders.SemanticSelector
+import org.denigma.semantic.binders.{PrefixedRenderer, RDFBinder, SemanticSelector}
 import org.denigma.semantic.shapes.ArcView
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery._
-import org.scalax.semweb.rdf.RDFValue
+import org.scalax.semweb.rdf.{IRI, RDFValue}
 import org.scalax.semweb.shex.ArcRule
 import rx.Var
 
@@ -15,7 +15,7 @@ import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
-class NamesBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[RDFValue]]) extends ArcBinder(view,arc){
+class NamesBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[RDFValue]], prefs:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes)) extends ArcBinder(view,arc,prefs){
 
 
   var names = Map.empty[HTMLElement,NameClassSelector]
@@ -69,7 +69,7 @@ import org.denigma.binding.extensions._
  * @param arc
  * @param typeHandler
  */
-class NameClassSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)=>Unit) extends ArcSelector(arc)
+class NameClassSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String)=>Unit,prefs:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes)) extends ArcSelector(arc,prefs)
   with SemanticSelector
 {
   lazy val sel= this.initSelectize(el)
@@ -96,6 +96,7 @@ class NameClassSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String
       //maxItems = 1,
       create = true,
       value = this.elementIntoValue(arc.map(a=>a.name).now).stringValue,
+      render =  PrefixedRenderer(prefixes).asInstanceOf[js.Any],
       valueField = "id",
       labelField = "title",
       searchField = "title"

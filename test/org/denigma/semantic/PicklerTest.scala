@@ -1,15 +1,12 @@
-package org.denigma.binding
+package org.denigma.semantic
 
-import controllers.genes.GenesItems
 import controllers.literature.{ArticleItems, TaskItems}
-import org.denigma.binding.messages.ExploreMessages
-import org.denigma.binding.messages.ExploreMessages.{Exploration, ExploreMessage, Explore}
-import org.scalax.semweb.rdf.{StringLiteral, Lit, IRI}
-import org.scalax.semweb.shex.{PropertyModel, Shape}
+import org.denigma.binding.messages.ExploreMessages.{Exploration, Explore}
+import org.scalax.semweb.rdf.IRI
+import org.scalax.semweb.shex.Shape
 import org.specs2.matcher.ShouldMatchers
 import org.specs2.mutable.Specification
-import prickle.{PConfig, Unpickle, Pickle}
-import org.specs2.execute._
+import prickle.{PConfig, Pickle, Unpickle}
 
 class PicklerTest extends Specification with ShouldMatchers{
   import org.denigma.binding.composites.BindingComposites

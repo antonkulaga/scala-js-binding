@@ -81,6 +81,10 @@ abstract class RemoteModelView extends ModelView   with WithShapeView
         case _ => storage.suggest(shape.id.asResource, this.model.now.current.id, key, str).map(r => r.options)
 
       }
+    case None=>
+      val mes = s"cannot find a rule in shape for property ${key.stringValue} which nameterm matches well"
+      dom.console.error(mes)
+      Future.failed(new Error(mes))
   }
 
 

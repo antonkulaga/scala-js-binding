@@ -2,11 +2,11 @@ package org.denigma.semantic.binders.shex
 
 import org.denigma.selectize.Selectize
 import org.denigma.selectors.SelectOption
-import org.denigma.semantic.binders.{SelectBinder, SemanticRenderer, SemanticSelector}
+import org.denigma.semantic.binders._
 import org.denigma.semantic.shapes.ArcView
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.RDFValue
+import org.scalax.semweb.rdf.{IRI, RDFValue}
 import org.scalax.semweb.rdf.vocabulary.{RDFS, RDF}
 import org.scalax.semweb.shex.ArcRule
 import rx.{Rx, Var}
@@ -17,13 +17,13 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
 import scala.util.{Failure, Success}
 import org.scalajs.jquery._
-class ValueBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[RDFValue]]) extends ArcBinder(view,arc)
+class ValueBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[RDFValue]], prefs:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes) ) extends ArcBinder(view,arc,prefs)
 {
 
   SelectBinder.activatePlugin()
 
 
-  val valueSelector = new ValueClassSelector(arc,valueTypeHandler)
+  val valueSelector = new ValueClassSelector(arc,valueTypeHandler,prefixes = this.prefs)
 
   def valueTypeHandler(el: HTMLElement)(str:String) = {
 
@@ -55,7 +55,7 @@ import scala.scalajs.js
  * @param arc
  * @param typeHandler
  */
-class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>Unit) extends ModeSelector
+class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>Unit, val prefixes:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes)) extends ModeSelector
 {
   lazy val modes: Seq[String] = Seq("ValueType", "ValueSet", "ValueStem"/*, "ValueReference", "ValueAny"*/)
 
@@ -101,7 +101,7 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
     for (v <- vals) {
       sel.addOption(this.makeOption(v))
     }
-    val escaped = vals.map(r=>escape(r.stringValue)).toSeq
+    val escaped = vals.map(r=>/*escape*/(r.stringValue)).toSeq
     val its:js.Array[Any] = js.Array(escaped:_*)
     sel.addItems(its)
   }
@@ -127,12 +127,12 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
       case "ValueStem" =>
         values() match {
           case v if v.isEmpty => ValueStem(IRI(""))
-          case st if st.head.isInstanceOf[IRI] => ValueStem(st.head.asInstanceOf[IRI])
           case st if st.size > 1 =>
             dom.console.error(s"WARNING ValueStem with more than 1 value, only head is used")
             st.collectFirst {
               case iri: IRI => ValueStem(iri)
             }.getOrElse(ValueStem(IRI("")))
+          case st if st.head.isInstanceOf[IRI] => ValueStem(st.head.asInstanceOf[IRI])
         }
 
       case "ValueReference" =>
@@ -164,7 +164,7 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
    * @param html
    */
   def registerValue(html: HTMLElement) = if (!valueSelectors.contains(html)) {
-    val ss = this.initSelectize(html)
+    val ss = this.initSelectize(html,this.selectParams)
     valueSelectors = valueSelectors + (html -> ss)
     fillValues(values.now,ss)
   }
@@ -235,7 +235,7 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
       createItem = this.createHandler,
       createFilter = this.createFilterHandler,
       options = makeOptions(),
-      render =  SemanticRenderer.asInstanceOf[js.Any],
+      render =  PrefixedRenderer(prefixes).asInstanceOf[js.Any],
       copyClassesToDropdown = false,
       plugins = js.Array(SelectBinder.pluginName)
     )
@@ -262,7 +262,7 @@ trait ModeSelector extends SemanticSelector{
 
 
   protected def modeItemAddHandler(value: String, item: js.Dynamic): Unit = {
-    val v = unescape(value)
+    val v = value//unescape(value)
     mode.set(v)
     //dom.console.log(s"adding mode element that is $value")
   }
@@ -282,7 +282,7 @@ trait ModeSelector extends SemanticSelector{
       labelField = "id",
       searchField = "title",
       options = this.makeModeOptions(),
-      render =  SemanticRenderer.asInstanceOf[js.Any],
+      render =  PrefixedRenderer(prefixes).asInstanceOf[js.Any],
       copyClassesToDropdown = false,
       plugins = js.Array(SelectBinder.pluginName)
     )

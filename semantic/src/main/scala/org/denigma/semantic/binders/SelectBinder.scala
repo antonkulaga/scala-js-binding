@@ -53,7 +53,7 @@ class BetterCreatePlugin(pluginName:String) extends BetterDropdownPlugin(pluginN
         val fun = self.settings.createItem.asInstanceOf[js.Function1[String,SelectOption]]
         fun(input)
       }
-      else SelectOption(this.escape(input),input)
+      else SelectOption(input,input)
 
       self.setTextboxValue("")
       self.addOption(data)
@@ -70,7 +70,8 @@ class BetterCreatePlugin(pluginName:String) extends BetterDropdownPlugin(pluginN
 
 }
 
-class BetterDropdownPlugin(val pluginName:String) extends Escaper{
+class BetterDropdownPlugin(val pluginName:String)
+{
 
   def pluginHandler(self:js.Dynamic,settings:js.Dynamic):Unit =
   {
