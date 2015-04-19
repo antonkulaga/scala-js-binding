@@ -8,7 +8,7 @@ import org.denigma.semantic.binders.{RDFBinder, SemanticSelector}
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery._
-import org.scalax.semweb.rdf.IRI
+import org.denigma.semweb.rdf.IRI
 import rx.Var
 
 import scala.collection.immutable.Map

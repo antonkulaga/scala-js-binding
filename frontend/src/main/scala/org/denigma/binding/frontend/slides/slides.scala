@@ -13,9 +13,9 @@ import org.denigma.semantic.shapes.ShapedModelView
 import org.scalajs.dom
 import org.scalajs.dom.MouseEvent
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.vocabulary.WI
-import org.scalax.semweb.rdf.{BooleanLiteral, IRI, StringLiteral, vocabulary}
-import org.scalax.semweb.shex.{PropertyModel, ShapeBuilder, Star}
+import org.denigma.semweb.rdf.vocabulary.WI
+import org.denigma.semweb.rdf.{BooleanLiteral, IRI, StringLiteral, vocabulary}
+import org.denigma.semweb.shex.{PropertyModel, ShapeBuilder, Star}
 import rx._
 import rx.core.Var
 
@@ -261,7 +261,7 @@ class RowView(elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) e
 
   override protected def attachBinders(): Unit = {}//binders = RemoteModelView.defaultBinders(this)
 
-  import org.scalax.semweb.rdf.vocabulary._
+  import org.denigma.semweb.rdf.vocabulary._
 
   def de = IRI("http://denigma.org/resource/")
   def dc = IRI(vocabulary.DCElements.namespace)

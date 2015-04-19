@@ -2,9 +2,9 @@ package org.denigma.binding.messages
 
 import java.util.Date
 
-import org.scalax.semweb.messages.{Channeled, StorageMessage}
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.shex.{NameClass, PropertyModel, Shape}
+import org.denigma.semweb.messages.{Channeled, StorageMessage}
+import org.denigma.semweb.rdf._
+import org.denigma.semweb.shex.{NameClass, PropertyModel, Shape}
 
 import scala.util.matching.Regex
 

@@ -1,13 +1,13 @@
 package controllers.literature
 
 import controllers.endpoints.{ItemsMock, Items}
-import org.scalax.semweb.rdf.vocabulary._
-import org.scalax.semweb.rdf.{BooleanLiteral, IRI, StringLiteral}
-import org.scalax.semweb.shex._
+import org.denigma.semweb.rdf.vocabulary._
+import org.denigma.semweb.rdf.{BooleanLiteral, IRI, StringLiteral}
+import org.denigma.semweb.shex._
 
 object TaskItems extends ItemsMock{
 
-  val shapeRes = new IRI("http://shape.org")
+  lazy val shapeRes = new IRI("http://shape.org")
   val desc = (WI.PLATFORM / "has_description").iri
   val completed = (WI.PLATFORM / "is_completed").iri
   val assigned = (WI.PLATFORM / "assigned_to").iri

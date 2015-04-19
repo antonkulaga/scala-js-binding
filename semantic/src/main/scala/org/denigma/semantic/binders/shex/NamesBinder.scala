@@ -6,8 +6,8 @@ import org.denigma.semantic.shapes.ArcView
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery._
-import org.scalax.semweb.rdf.{IRI, RDFValue}
-import org.scalax.semweb.shex.ArcRule
+import org.denigma.semweb.rdf.{IRI, RDFValue}
+import org.denigma.semweb.shex.ArcRule
 import rx.Var
 
 import scala.collection.immutable.Map
@@ -56,8 +56,8 @@ class NamesBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[R
 
 
 import org.scalajs.dom
-import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.shex._
+import org.denigma.semweb.rdf.IRI
+import org.denigma.semweb.shex._
 import rx.ops._
 
 import scala.scalajs.js

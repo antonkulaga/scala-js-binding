@@ -1,8 +1,8 @@
 package org.denigma.semantic.storages
 
 import org.scalajs.dom.XMLHttpRequest
-import org.scalax.semweb.rdf.Res
-import org.scalax.semweb.shex.Model
+import org.denigma.semweb.rdf.Res
+import org.denigma.semweb.shex.Model
 
 import scala.concurrent.Future
 

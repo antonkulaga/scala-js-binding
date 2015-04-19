@@ -2,7 +2,7 @@ package org.denigma.semantic.binders
 
 import org.denigma.selectors.{Escaper, InputHolder, SelectRenderer, SelectOption}
 import org.scalajs.dom
-import org.scalax.semweb.rdf.IRI
+import org.denigma.semweb.rdf.IRI
 import rx.core.Var
 
 import scala.None

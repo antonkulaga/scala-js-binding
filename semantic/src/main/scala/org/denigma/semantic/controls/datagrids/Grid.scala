@@ -1,27 +1,24 @@
 package org.denigma.semantic.controls.datagrids
 
 
-import org.denigma.binding.binders.{NavigationBinding, GeneralBinder, BasicBinding}
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.ExploreMessages
-import org.denigma.binding.views.{ReactiveView, OrganizedView, BindableView}
-import org.denigma.semantic.binders.shex.{ArcBinder, OccursBinder, NamesBinder}
-import org.denigma.semantic.grids.{ExplorableCollection, ExplorableView}
-import org.denigma.semantic.models.{WithShapeView, RemoteModelView}
-import org.denigma.semantic.models.collections.AjaxModelCollection
-import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
-import org.denigma.semantic.shapes.{PropertyView, ArcView, ShapeView, ShapedModelView}
+import org.denigma.binding.views.BindableView
+import org.denigma.semantic.grids.ExplorableCollection
+import org.denigma.semantic.models.RemoteModelView
+import org.denigma.semantic.rdf.ModelInside
+import org.denigma.semantic.shapes.{PropertyView, ShapedModelView}
+import org.denigma.semweb.shex.PropertyModel
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.shex.{Shape, PropertyModel}
 import rx._
 import rx.core.Var
 
-import scala.collection.immutable.{Map, List}
+import scala.collection.immutable.{List, Map}
 import scala.concurrent.Future
-import scala.util.{Failure, Success}
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+import scala.util.{Failure, Success}
 
 class DataGrid( elem:HTMLElement, params:Map[String,Any])  extends ExplorableCollection("DataGrid",elem,params)
 {
@@ -60,6 +57,7 @@ class DataGrid( elem:HTMLElement, params:Map[String,Any])  extends ExplorableCol
         val mod: scala.List[PropertyModel] = data.models
         items match {
           case its:Var[List[Var[ModelInside]]]=>
+            //dom.console.error("ITEMS = \n"+its.now.mkString("\n"))
             its() = mod.map(d=>Var(ModelInside(d)))
 
           case _=>dom.console.error("items is not Var")

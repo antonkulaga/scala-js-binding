@@ -1,12 +1,7 @@
 package controllers.genes
 
-import java.util.Date
-
-import controllers.endpoints.{Items, ItemsMock}
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.rdf.vocabulary.{RDF, XSD}
-import org.scalax.semweb.shex
-import org.scalax.semweb.shex._
+import controllers.endpoints.Items
+import org.denigma.semweb.shex._
 
 
 

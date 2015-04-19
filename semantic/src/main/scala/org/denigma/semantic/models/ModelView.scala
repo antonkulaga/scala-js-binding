@@ -3,7 +3,7 @@ package org.denigma.semantic.models
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
-import org.scalax.semweb.shex.{Model, PropertyModel}
+import org.denigma.semweb.shex.{Model, PropertyModel}
 import rx._
 import rx.core.Var
 

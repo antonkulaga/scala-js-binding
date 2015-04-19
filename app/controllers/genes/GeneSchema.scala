@@ -1,9 +1,9 @@
 package controllers.genes
 
 import controllers.endpoints.ItemsMock
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.rdf.vocabulary.{RDF, RDFS, WI, XSD}
-import org.scalax.semweb.shex._
+import org.denigma.semweb.rdf._
+import org.denigma.semweb.rdf.vocabulary.{RDF, RDFS, WI, XSD}
+import org.denigma.semweb.shex._
 
 trait GeneSchema extends ItemsMock{
 
@@ -47,7 +47,7 @@ trait GeneSchema extends ItemsMock{
       RDFS.SUBCLASSOF, gero / "from_tissue", gero / "has_influence"
       )
 
-  import org.scalax.semweb.sesame._
+  import org.denigma.semweb.sesame._
   val cls = Ontology.classes.map(cl=>cl:IRI).toSeq
 
   val prefixes: Seq[(String, String)] =       Seq("rdf"->RDF.namespace,
@@ -56,8 +56,8 @@ trait GeneSchema extends ItemsMock{
   "owl"->vocabulary.OWL.namespace,
   "dc"->vocabulary.DCElements.namespace,
   "pl"->(WI.PLATFORM.namespace+"/"),
-  "shex"-> org.scalax.semweb.shex.rs.stringValue,
-  "def"->org.scalax.semweb.shex.se.stringValue,
+  "shex"-> org.denigma.semweb.shex.rs.stringValue,
+  "def"->org.denigma.semweb.shex.se.stringValue,
   "pmid"->"http://ncbi.nlm.nih.gov/pubmed/",
   "gero"->gero.stringValue,
   "entrez"->entrez.stringValue

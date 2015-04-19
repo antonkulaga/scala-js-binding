@@ -1,7 +1,7 @@
 package org.denigma.binding.models
 
-import org.scalax.semweb.rdf.{Res, IRI}
-import org.scalax.semweb.shex.Model
+import org.denigma.semweb.rdf.{Res, IRI}
+import org.denigma.semweb.shex.Model
 
 case class TestMenu(uri:IRI,title:String)
 

@@ -2,8 +2,8 @@ package controllers.endpoints
 
 import controllers.PJaxPlatformWith
 import org.denigma.endpoints.UserAction
-import org.scalax.semweb.rdf.{IRI, Res}
-import org.scalax.semweb.sparql._
+import org.denigma.semweb.rdf.{IRI, Res}
+import org.denigma.semweb.sparql._
 import play.twirl.api.Html
 
 import scala.concurrent.Future

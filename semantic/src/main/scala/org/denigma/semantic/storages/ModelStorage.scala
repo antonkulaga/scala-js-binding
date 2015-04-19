@@ -5,8 +5,8 @@ import org.denigma.binding.messages.ModelMessages
 import org.denigma.binding.messages.Suggestion
 import org.scalajs.dom
 import org.scalajs.dom._
-import org.scalax.semweb.rdf.{IRI, Res}
-import org.scalax.semweb.shex.PropertyModel
+import org.denigma.semweb.rdf.{IRI, Res}
+import org.denigma.semweb.shex.PropertyModel
 import prickle.{Pickler, PConfig, Pickle, Unpickle}
 
 import scala.concurrent.Future

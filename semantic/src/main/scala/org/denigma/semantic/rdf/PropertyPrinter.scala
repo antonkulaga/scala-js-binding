@@ -1,6 +1,6 @@
 package org.denigma.semantic.rdf
 
-import org.scalax.semweb.rdf._
+import org.denigma.semweb.rdf._
 
 /**
  * Contains some functions that print properties in a nice way

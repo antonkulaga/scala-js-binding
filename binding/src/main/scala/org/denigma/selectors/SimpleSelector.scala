@@ -4,7 +4,7 @@ import org.denigma.selectize.Selectize
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery._
 import org.denigma.binding.extensions._
-import org.scalax.semweb.rdf.RDFValue
+import org.denigma.semweb.rdf.RDFValue
 import rx.core.Var
 
 import scala.scalajs.js

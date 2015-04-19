@@ -8,7 +8,7 @@ import org.denigma.semantic.models.RemoteModelView
 import org.denigma.semantic.rdf.ShapeInside
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.shex.{Shape, ArcRule}
+import org.denigma.semweb.shex.{Shape, ArcRule}
 import rx.core.Var
 
 import scala.collection.immutable.Map

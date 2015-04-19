@@ -4,7 +4,7 @@ import org.denigma.binding.views.collections.CollectionView
 import org.denigma.semantic.models.RemoteModelView
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.shex.ArcRule
+import org.denigma.semweb.shex.ArcRule
 import rx.Rx
 import rx.ops._
 

@@ -3,7 +3,7 @@ package controllers.endpoints
 import java.util.Date
 import org.denigma.binding.messages.Suggestion
 import org.denigma.endpoints.{PrickleController, AjaxModelEndpoint, AuthRequest, UserAction}
-import org.scalax.semweb.shex.PropertyModel
+import org.denigma.semweb.shex.PropertyModel
 import play.api.libs.json.Json
 import play.api.mvc.{Controller, Result}
 import prickle._

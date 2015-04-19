@@ -3,8 +3,8 @@ package org.denigma.semantic.shapes
 
 import org.denigma.binding.views._
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.shex.ArcRule
-import org.scalax.semweb.shex._
+import org.denigma.semweb.shex.ArcRule
+import org.denigma.semweb.shex._
 import rx._
 
 object ValuesClassView {

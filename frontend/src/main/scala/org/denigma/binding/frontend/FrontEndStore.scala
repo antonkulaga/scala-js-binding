@@ -3,7 +3,7 @@ package org.denigma.binding.frontend
 import java.io.StringWriter
 
 import org.denigma.semantic.store.{TurtleJSWriter, SemanticJS}
-import org.scalax.semweb.rdf._
+import org.denigma.semweb.rdf._
 import org.w3.banana.{RDF, RDFOps, RDFStore}
 import org.w3.banana.io.{RDFReader, RDFWriter, Turtle}
 

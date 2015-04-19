@@ -4,7 +4,7 @@ import org.denigma.binding.composites.BindingComposites
 import org.denigma.binding.composites.BindingComposites._
 import org.denigma.binding.models._
 import org.denigma.endpoints.{PrickleController, UserAction}
-import org.scalax.semweb.rdf.IRI
+import org.denigma.semweb.rdf.IRI
 import play.api.mvc._
 import prickle.{Pickle, Unpickle}
 

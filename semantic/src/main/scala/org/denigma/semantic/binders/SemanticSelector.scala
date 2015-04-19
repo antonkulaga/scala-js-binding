@@ -4,9 +4,9 @@ import org.denigma.selectize.Selectize
 import org.denigma.selectors.{Escaper, SelectOption, Selector}
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.rdf.vocabulary.XSD
+import org.denigma.semweb.rdf
+import org.denigma.semweb.rdf._
+import org.denigma.semweb.rdf.vocabulary.XSD
 import rx.core.Var
 
 import scala.collection.immutable.Map

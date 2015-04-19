@@ -1,8 +1,8 @@
 package org.denigma.semantic.storages
 
-import org.scalax.semweb.rdf.Res
-import org.scalax.semweb.shex.{PropertyModel, Shape}
-import org.scalax.semweb.sparql.SelectQuery
+import org.denigma.semweb.rdf.Res
+import org.denigma.semweb.shex.{PropertyModel, Shape}
+import org.denigma.semweb.sparql.SelectQuery
 
 
 object SemanticMessages{

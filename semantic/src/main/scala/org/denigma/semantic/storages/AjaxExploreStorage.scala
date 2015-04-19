@@ -4,8 +4,8 @@ import org.denigma.binding.composites.BindingComposites
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.ExploreMessages
 import org.scalajs.dom
-import org.scalax.semweb.rdf.{IRI, Res}
-import org.scalax.semweb.shex.PropertyModel
+import org.denigma.semweb.rdf.{IRI, Res}
+import org.denigma.semweb.shex.PropertyModel
 import prickle.{Pickle, Unpickle}
 
 import scala.concurrent.Future

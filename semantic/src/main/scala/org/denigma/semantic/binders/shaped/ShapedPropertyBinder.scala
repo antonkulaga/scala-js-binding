@@ -5,8 +5,8 @@ import org.denigma.semantic.binders.{RDFBinder, BinderWithSelection, ModelBinder
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.{IRI, RDFValue}
-import org.scalax.semweb.shex._
+import org.denigma.semweb.rdf.{IRI, RDFValue}
+import org.denigma.semweb.shex._
 import rx._
 import rx.core.Var
 import rx.ops._

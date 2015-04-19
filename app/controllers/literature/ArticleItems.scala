@@ -1,9 +1,9 @@
 package controllers.literature
 
 import controllers.endpoints.{ItemsMock, Items}
-import org.scalax.semweb.rdf.vocabulary.{RDF, XSD}
-import org.scalax.semweb.rdf.{IRI, RDFValue, StringLiteral, vocabulary}
-import org.scalax.semweb.shex.{Star, PropertyModel, ShapeBuilder}
+import org.denigma.semweb.rdf.vocabulary.{RDF, XSD}
+import org.denigma.semweb.rdf.{IRI, RDFValue, StringLiteral, vocabulary}
+import org.denigma.semweb.shex.{Star, PropertyModel, ShapeBuilder}
 
 
 
@@ -11,7 +11,7 @@ object ArticleItems extends ItemsMock{
 
 
 
-  private val art = new ShapeBuilder(de / "Article_Shape")
+  private lazy val art = new ShapeBuilder(de / "Article_Shape")
   art has de /"is_authored_by" occurs Star //occurs Plus
   art has de / "is_published_in" occurs Star //occurs Plus
   art has dc / "title" occurs Star //occurs ExactlyOne

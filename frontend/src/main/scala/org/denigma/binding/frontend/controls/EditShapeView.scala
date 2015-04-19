@@ -8,8 +8,8 @@ import org.denigma.semantic.shapes.{ArcView, ShapeView}
 import org.scalajs.dom
 import org.scalajs.dom.MouseEvent
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.vocabulary.{WI, RDF}
-import org.scalax.semweb.shex._
+import org.denigma.semweb.rdf.vocabulary.{WI, RDF}
+import org.denigma.semweb.shex._
 import rx._
 import rx.core.Var
 import rx.ops._

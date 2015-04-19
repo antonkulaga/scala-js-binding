@@ -5,7 +5,7 @@ import org.denigma.semantic.grids.{ExplorableView, FilterSelector}
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.dom.{ KeyboardEvent}
-import org.scalax.semweb.rdf.IRI
+import org.denigma.semweb.rdf.IRI
 
 import scala.collection.immutable.Map
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue

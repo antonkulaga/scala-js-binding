@@ -2,10 +2,10 @@ package org.denigma.binding.messages
 
 import java.util.Date
 
-import org.scalax.semweb.messages.{Channeled, StorageMessage}
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.rdf.vocabulary.WI
-import org.scalax.semweb.shex.PropertyModel
+import org.denigma.semweb.messages.{Channeled, StorageMessage}
+import org.denigma.semweb.rdf._
+import org.denigma.semweb.rdf.vocabulary.WI
+import org.denigma.semweb.shex.PropertyModel
 
 /**
  * Contains model messages

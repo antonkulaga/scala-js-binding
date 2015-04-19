@@ -6,7 +6,7 @@ import org.denigma.selectize.Selectize
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery.jQuery
-import org.scalax.semweb.rdf.IRI
+import org.denigma.semweb.rdf.IRI
 import rx.core.Var
 
 import scala.scalajs.js

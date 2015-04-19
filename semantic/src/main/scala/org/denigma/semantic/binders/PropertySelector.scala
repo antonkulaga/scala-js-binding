@@ -5,7 +5,7 @@ import org.denigma.selectors.SelectOption
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.{IRI, RDFValue}
+import org.denigma.semweb.rdf.{IRI, RDFValue}
 import rx.Var
 import org.scalajs.jquery._
 import org.denigma.binding.extensions._

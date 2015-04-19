@@ -2,12 +2,12 @@ package controllers.genes
 
 import java.io.{StringWriter, ByteArrayOutputStream}
 
-import org.scalax.semweb.rdf.BasicTriplet
-import org.scalax.semweb.sesame._
+import org.denigma.semweb.rdf.BasicTriplet
+import org.denigma.semweb.sesame._
 import org.w3.banana._
 import org.w3.banana.io.{RDFReader, RDFWriter, Turtle}
 import org.w3.banana.sesame.Sesame
-import spire.implicits._
+//import spire.implicits._
 
 import scala.collection.parallel.immutable
 import scala.util.{Failure, Success, Try}

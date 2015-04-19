@@ -7,7 +7,7 @@ import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.dom.{Event}
-import org.scalax.semweb.rdf.IRI
+import org.denigma.semweb.rdf.IRI
 import rx.core.{Rx, Var}
 import org.scalajs.dom.ext._
 class EditModelBinder(view:BindableView, modelInside:Var[ModelInside], editMode:Rx[Boolean]) extends ModelBinder(view,modelInside) {

@@ -3,8 +3,8 @@ package org.denigma.semantic.shapes
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.collections.CollectionView
-import org.scalax.semweb.rdf.Res
-import org.scalax.semweb.shex._
+import org.denigma.semweb.rdf.Res
+import org.denigma.semweb.shex._
 import prickle.Pickle
 import rx._
 import rx.core.Var

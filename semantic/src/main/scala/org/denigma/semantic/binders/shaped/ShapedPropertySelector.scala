@@ -4,10 +4,10 @@ import org.denigma.semantic.binders._
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.rdf.vocabulary.XSD
-import org.scalax.semweb.shex._
+import org.denigma.semweb.rdf
+import org.denigma.semweb.rdf._
+import org.denigma.semweb.rdf.vocabulary.XSD
+import org.denigma.semweb.shex._
 import rx.core.Var
 
 import scala.scalajs.js

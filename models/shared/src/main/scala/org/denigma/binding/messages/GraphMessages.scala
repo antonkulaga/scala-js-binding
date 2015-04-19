@@ -2,9 +2,9 @@ package org.denigma.binding.messages
 
 import java.util.Date
 
-import org.scalax.semweb.messages.{Channeled, StorageMessage}
-import org.scalax.semweb.rdf.{IRI, Res}
-import org.scalax.semweb.sparql.Pat
+import org.denigma.semweb.messages.{Channeled, StorageMessage}
+import org.denigma.semweb.rdf.{IRI, Res}
+import org.denigma.semweb.sparql.Pat
 
 object GraphMessages {
 

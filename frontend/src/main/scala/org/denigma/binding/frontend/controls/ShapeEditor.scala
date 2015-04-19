@@ -11,9 +11,9 @@ import org.denigma.semantic.shapes.{ArcView, ShapeView}
 import org.denigma.semantic.storages.ShapeStorage
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.vocabulary.{WI, XSD}
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.shex.{Shape, ShapeBuilder, Star}
+import org.denigma.semweb.rdf.vocabulary.{WI, XSD}
+import org.denigma.semweb.rdf._
+import org.denigma.semweb.shex.{Shape, ShapeBuilder, Star}
 import rx.core.Var
 
 import scala.collection.immutable.Map

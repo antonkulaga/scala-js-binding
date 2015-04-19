@@ -20,7 +20,10 @@ self=>
   }
 
 
-  override lazy val routes : PartialFunction[(String,String), Handler] = super.routes.orElse(semanticRoutes)
+  override lazy val routes : PartialFunction[(String,String), Handler] =
+    this.generalRoutes
+      .orElse(this.endpointRoutes)
+      .orElse(semanticRoutes)
 
   step {
     browser = new Browser(new ChromeDriver())

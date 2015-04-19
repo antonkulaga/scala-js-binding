@@ -5,8 +5,8 @@ import org.denigma.selectize.Selectize
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery._
-import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.shex.{ArcRule, _}
+import org.denigma.semweb.rdf.IRI
+import org.denigma.semweb.shex.{ArcRule, _}
 import rx.core.Var
 import rx.ops._
 import org.denigma.binding.extensions._
@@ -68,7 +68,7 @@ class OccursSelector(val el:HTMLElement,arc:Var[ArcRule],prefs:Var[Map[String,IR
     case Plus=>Plus.obj.stringValue
     case Star=>Star.obj.stringValue
     case Opt=>Opt.obj.stringValue
-    case org.scalax.semweb.shex.Range(from,to)=> (from,to) match {
+    case org.denigma.semweb.shex.Range(from,to)=> (from,to) match {
       case (0,1)=> Opt.obj.stringValue
       case (1,1)=> ExactlyOne.obj.stringValue
       case (0,Int.MaxValue)=> Star.obj.stringValue

@@ -4,7 +4,7 @@ import controllers.PJaxPlatformWith
 import org.denigma.binding.messages.ExploreMessages
 import org.denigma.binding.messages.ExploreMessages.ExploreMessage
 import org.denigma.endpoints.{PrickleController, AjaxExploreEndpoint, AuthRequest, UserAction}
-import org.scalax.semweb.shex.PropertyModel
+import org.denigma.semweb.shex.PropertyModel
 import play.api.libs.json.Json
 import play.api.mvc.Result
 import prickle.{Pickle, Unpickle}

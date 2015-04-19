@@ -1,36 +1,14 @@
 package controllers.genes
 
-import framian.csv.{Csv, LabeledCsv}
-import org.denigma.endpoints.{UserRequestHeader, UserAction}
-import org.openrdf.model.Statement
-import org.scalax.semweb.shex._
-import play.api.Play
-import play.api.mvc.{RequestHeader, Controller}
-import play.twirl.api.Html
-import play.api.Play.current
-import scala.collection.{mutable, GenSet}
-import scala.io.Source
-import framian._
-import framian.csv.Csv
-import spire.implicits._
-import org.scalax.semweb.rdf.vocabulary.{WI, RDFS, RDF, XSD}
-import org.scalax.semweb.rdf._
-
-import scala.util.Try
 import controllers._
-import framian.{Cols, Frame}
-import org.scalax.semweb.rdf.{Trip, BasicTriplet, IRI, Quad}
-import org.scalax.semweb.sesame._
-import org.scalax.semweb.shex.{PropertyModel, Shape}
-import org.w3.banana.io.{RDFReader, RDFWriter, Turtle}
-import org.w3.banana.sesame.Sesame
-import org.w3.banana.{FOAFPrefix, RDF, RDFOps}
+import org.denigma.endpoints.{UserAction, UserRequestHeader}
+import org.denigma.semweb.rdf.{BasicTriplet, IRI, Quad, Trip}
+import org.denigma.semweb.shex.PropertyModel
+import org.openrdf.model.Statement
 import play.api.mvc.{RequestHeader, Result}
 import play.twirl.api.Html
 
 import scala.io.Source
-import scala.util.{Failure, Success, Try}
-import scalaz.{Comonad, Monad}
 
 /**
  * Literature controller
@@ -79,7 +57,8 @@ object Genes extends PJaxPlatformWith("literature") with LoadGenAge{
 
   def ontology() = UserAction {
     implicit request=>
-      import org.scalax.semweb.sesame._
+      import org.denigma.semweb.sesame._
+
       import scala.collection.JavaConversions._
 
       val statements: List[Statement] = Ontology.allFacts.flatMap(g=>g.graph)

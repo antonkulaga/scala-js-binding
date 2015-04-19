@@ -4,8 +4,8 @@ import org.denigma.binding.binders.{BasicBinding, GeneralBinder, NavigationBindi
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.shex._
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.RDFValue
-import org.scalax.semweb.shex._
+import org.denigma.semweb.rdf.RDFValue
+import org.denigma.semweb.shex._
 import prickle.Pickle
 import rx.Var
 

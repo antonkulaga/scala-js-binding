@@ -1,7 +1,7 @@
 package org.denigma.semantic.rdf
 
-import org.scalax.semweb.rdf._
-import org.scalax.semweb.shex.PropertyModel
+import org.denigma.semweb.rdf._
+import org.denigma.semweb.shex.PropertyModel
 
 import scala.collection.immutable.Set
 

@@ -3,8 +3,8 @@ package org.denigma.endpoints
 import play.api.mvc._
 import scala.concurrent.Future
 import play.api.libs.concurrent.Execution.Implicits._
-import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.rdf.vocabulary.USERS
+import org.denigma.semweb.rdf.IRI
+import org.denigma.semweb.rdf.vocabulary.USERS
 
 
 trait UserRequestHeader extends RequestHeader{

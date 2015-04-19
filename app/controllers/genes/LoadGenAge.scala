@@ -1,29 +1,19 @@
 package controllers.genes
 
 import java.text.SimpleDateFormat
-import java.util.Date
 
-import framian.csv.{Csv, LabeledCsv}
-import org.denigma.endpoints.UserAction
-import org.scalax.semweb.shex._
-import play.api.Play
-import play.api.mvc.{RequestHeader, Controller}
-import play.twirl.api.Html
-import play.api.Play.current
-import scala.io.Source
-import framian._
-import framian.csv.Csv
-import spire.implicits._
-import org.scalax.semweb.rdf.vocabulary.{RDFS, RDF, XSD}
-import org.scalax.semweb.rdf._
-import scala.collection.JavaConversions._
+import com.github.marklister.collections._
+import com.github.marklister.collections.io.CsvParser
+import org.denigma.semweb.rdf._
+import org.denigma.semweb.rdf.vocabulary.{RDFS, XSD}
+import org.denigma.semweb.shex._
+
 import scala.collection.immutable._
-
 import scala.util.Try
 
 trait LoadGenAge extends GeneSchema{
 
-  val formats:List[SimpleDateFormat] = List(
+  lazy val formats:List[SimpleDateFormat] = List(
     new SimpleDateFormat("dd/MM/yyyy"),
     new SimpleDateFormat("dd-MM-yyyy"),
     new SimpleDateFormat("dd.MM.yyyy"),
@@ -71,8 +61,8 @@ trait LoadGenAge extends GeneSchema{
 
   def loadData: List[PropertyModel] = {
     val fileName = "public/resources/annotations.tsv"
-    val str = this.readFromFile(fileName)
-    testGenesTable(str)
+    //val str = this.readFromFile(fileName)
+    testGenesTable(fileName)
   }
 
 
@@ -150,16 +140,66 @@ trait LoadGenAge extends GeneSchema{
     v
   }
 
-  def filterKeys(keys:Set[String],shape:Shape): List[String] = {
-    shape.arcRules().collect{
-      case arc if arc.name.isInstanceOf[NameTerm] => //keys.contains(arc.name.asInstanceOf[NameTerm].property.stringValue)
-        arc.name.asInstanceOf[NameTerm].property }.collect{
-      case prop if keys.exists(k=>prop.stringValue.contains(k)) =>prop.stringValue
-    }
+  /**
+   * Keeps only those columns that are in shapes
+   * @param headers
+   * @param shape
+   * @return
+   */
+  def filteredCols(headers:Map[String,Int],shape:Shape): Map[String,Int] = {
+    val arcs  = shape.arcRules()
+    for{
+      (key,value) <-headers
+      if shape.arcRules().exists{
+        case arc=>arc.name.isInstanceOf[NameTerm] &&
+          arc.name.asInstanceOf[NameTerm].property.stringValue.contains(key)
+      }
+    } yield (key,value)
   }
 
+  protected def testGenesTable(fileName:String, sep:Char='|'):List[PropertyModel] = {
 
-  protected def testGenesTable(table:String, sep:Char='|'):List[PropertyModel] = {
+    val p= CsvParser[
+      String,String,String,String,
+      String,String,String,String,
+      String,String,String,String,
+      String,String
+      ]
+
+    val parsed: CollSeq14[String, String, String, String, String,
+      String, String, String, String, String,
+      String, String, String, String] = p.parseFile(fileName,"\t")
+
+    val (headers,data) = (parsed.head,parsed.tail)
+    val cols = headers.productIterator.map(h=>annotationPairs(h.toString).stringValue).toSeq.zipWithIndex.toMap
+    val colKeys = filteredCols(cols,this.evidenceShape) //only those cols that are in shape
+    //play.api.Logger.info(colKeys.toSeq.mkString("\t"))
+    val idNum: Int = cols(entrezId.stringValue)
+    //play.api.Logger.info(s"ID NUM = ${idNum}")
+
+    cols.find(kv=>kv._1==entrezId.stringValue) match {
+      case Some(ind)=>
+        val result = (for{ row <- data  } yield
+        {
+          val lines = for{
+          (key,num) <- colKeys
+          col = IRI(this.resolve(key.replace(" ","_")))
+          cell = row.productElement(num).toString
+          if cell!=""
+          cells = cell.split(sep)
+          } yield col->cells.map(c=>parse(col,c,Some(gero))(evidenceShape).get ).toSet
+          val id = entrez /  row.productElement(idNum).toString
+          PropertyModel(id, lines.toMap)
+        } ).toList
+        //play.api.Logger.error("RESULT = "+result.mkString("\n"))
+        result.toList
+      case None=>
+        play.api.Logger.error(s"cannot find entrezId in${cols}")
+        List.empty[PropertyModel]
+    }
+
+/*
+
     val csv = readTSV(table)
     val f = csv.toFrame
     val ent = Cols(entrezId.stringValue).as[String]
@@ -175,16 +215,18 @@ trait LoadGenAge extends GeneSchema{
         } yield col->cell.get.split(sep).map(c=>parse(col,c,Some(gero))(evidenceShape).get ).toSet
         ).toMap
     PropertyModel(entrez / r,values)
-    }.toList
+    }.toList*/
   }
 
 
- def readFromFile(path:String) =  Source.fromFile(Play.getFile(path)).getLines().reduce(_+"\n"+_)
+ def readFromFile(path:String): String = ""// Source.fromFile(Play.getFile(path)).getLines().reduce(_+"\n"+_)
 
+/*
   import framian.csv.CsvFormat._
 
   def readCSV(str:String): LabeledCsv = Csv.parseString(str,CSV).labeled
   def readTSV(str:String): LabeledCsv = Csv.parseString(str,TSV).labeled
+*/
 
 
 

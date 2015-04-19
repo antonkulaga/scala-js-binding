@@ -5,7 +5,7 @@ import org.denigma.binding.views.BindableView
 import org.denigma.semantic.rdf.{ModelInside, PropertyPrinter}
 import org.scalajs.dom
 import org.scalajs.dom.raw.{Event, HTMLElement}
-import org.scalax.semweb.rdf._
+import org.denigma.semweb.rdf._
 import rx.Rx
 import rx.core.Var
 import org.scalajs.dom.ext._

@@ -1,6 +1,6 @@
 package org.denigma.semantic.rdf
 
-import org.scalax.semweb.shex.{ArcRule, Shape}
+import org.denigma.semweb.shex.{ArcRule, Shape}
 
 object ShapeInside {
 

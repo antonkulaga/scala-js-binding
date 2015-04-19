@@ -4,7 +4,7 @@ import org.denigma.binding.extensions.sq
 import org.denigma.semantic.storages.AjaxModelStorage
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.IRI
+import org.denigma.semweb.rdf.IRI
 
 import scala.collection.immutable.Map
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue

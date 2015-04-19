@@ -2,8 +2,8 @@ package org.denigma.semantic
 
 import controllers.literature.{ArticleItems, TaskItems}
 import org.denigma.binding.messages.ExploreMessages.{Exploration, Explore}
-import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.shex.Shape
+import org.denigma.semweb.rdf.IRI
+import org.denigma.semweb.shex.Shape
 import org.specs2.matcher.ShouldMatchers
 import org.specs2.mutable.Specification
 import prickle.{PConfig, Pickle, Unpickle}

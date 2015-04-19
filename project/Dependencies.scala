@@ -13,8 +13,6 @@ object Dependencies
 
     "org.scala-lang.modules" %% "scala-async" % "0.9.2",
 
-    "com.lihaoyi" %% "utest" % "0.3.1",
-
     "org.denigma" %% "semweb" % Versions.semWeb,
 
     "org.denigma" %% "semweb-sesame" % Versions.semWeb,
@@ -25,7 +23,7 @@ object Dependencies
 
     "org.openrdf.sesame" % "sesame-rio-turtle" % Versions.sesame,
 
-    "com.pellucid" %% "framian" % Versions.framian,
+    "com.github.marklister" %% "product-collections" % Versions.productCollections,
 
     "com.markatta" %% "scalenium" % Versions.scalenium % "test"  excludeAll ExclusionRule(organization = "org.specs2"),
 
@@ -34,12 +32,6 @@ object Dependencies
     "org.scalaz" %% "scalaz-core" % Versions.scalaz,
 
     "com.github.cb372" %% "scalacache-lrumap" % Versions.lruMap
-
-   /* "com.github.japgolly.scalacss" %% "core" % Versions.scalaCSS excludeAll(
-      ExclusionRule(organization = "com.chuusai"),
-      ExclusionRule(organization = "org.scalaz")
-      )*/
-
 
   )++webjars)
 
@@ -51,9 +43,9 @@ object Dependencies
 
     "org.webjars" % "Semantic-UI" % Versions.semanticUI,
 
-    "org.webjars" % "codemirror" % "4.11",
+    "org.webjars" % "codemirror" % Versions.codemirror,
 
-    "org.webjars" % "ckeditor" % "4.4.1",
+    "org.webjars" % "ckeditor" % Versions.ckeditor,
 
     "org.webjars" % "N3.js" % Versions.N3,
 
@@ -86,25 +78,32 @@ object Dependencies
 
   val binding = Def.setting(shared.value++Seq(
 
-    "be.doeraene" %%% "scalajs-jquery" % "0.8.0",
+    "be.doeraene" %%% "scalajs-jquery" % Versions.scalajsJquery,
 
-    "org.denigma" %%% "codemirror" % Versions.codeMirrorFacade
+    "org.denigma" %%% "codemirror" % Versions.codeMirrorFacade,
+
+    "com.softwaremill.quicklens" %%% "quicklens" % Versions.quicklens,
+
+    "com.lihaoyi" %%% "scalarx" % Versions.scalaRx
+
   )  )
 
   val semanticBinding = Def.setting(shared.value++Seq(
-    "com.lihaoyi" %%% "scalarx" % Versions.scalaRx,
 
     "org.w3" %%% "banana-n3-js" % Versions.banana
-
   ))
 
 
   val bindingPlay = Def.setting(shared.value++Seq(
 
-    "com.typesafe.play" %% "play" %  Versions.play
+    "com.typesafe.play" %% "play" %  Versions.play % "provided",
+
+    "com.softwaremill.quicklens" %% "quicklens" % Versions.quicklens
   ))
 
-  val ui = Def.setting(shared.value)
+  val ui = Def.setting(shared.value++Seq(
+    "com.github.marklister" %%% "product-collections" % Versions.productCollections
+  ))
 
 
 

@@ -3,7 +3,7 @@ package org.denigma.semantic.grids
 import org.denigma.binding.messages.ExploreMessages.ExploreSuggestion
 import org.denigma.binding.messages.{Sort, Filters}
 import org.denigma.binding.views.BindableView
-import org.scalax.semweb.rdf.IRI
+import org.denigma.semweb.rdf.IRI
 import rx.core.Var
 
 import scala.concurrent.Future

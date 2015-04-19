@@ -1,7 +1,7 @@
 package controllers.endpoints
 
-import org.scalax.semweb.rdf.{Res, IRI, vocabulary}
-import org.scalax.semweb.shex.{PropertyModel, Shape, ShapeBuilder}
+import org.denigma.semweb.rdf.{Res, IRI, vocabulary}
+import org.denigma.semweb.shex.{PropertyModel, Shape, ShapeBuilder}
 
 trait ItemsMock
 {

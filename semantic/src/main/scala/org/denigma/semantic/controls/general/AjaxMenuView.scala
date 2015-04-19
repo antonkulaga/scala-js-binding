@@ -6,7 +6,7 @@ import org.denigma.binding.views.collections.MapCollectionView
 import org.denigma.semantic.storages.SimpleStorage
 import org.scalajs.dom
 import org.scalajs.dom.raw.{HTMLElement, XMLHttpRequest}
-import org.scalax.semweb.rdf.Res
+import org.denigma.semweb.rdf.Res
 import prickle.{Pickle, Unpickle}
 import rx._
 

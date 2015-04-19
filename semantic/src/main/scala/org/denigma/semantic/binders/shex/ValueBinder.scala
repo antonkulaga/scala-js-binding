@@ -6,9 +6,9 @@ import org.denigma.semantic.binders._
 import org.denigma.semantic.shapes.ArcView
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.{IRI, RDFValue}
-import org.scalax.semweb.rdf.vocabulary.{RDFS, RDF}
-import org.scalax.semweb.shex.ArcRule
+import org.denigma.semweb.rdf.{IRI, RDFValue}
+import org.denigma.semweb.rdf.vocabulary.{RDFS, RDF}
+import org.denigma.semweb.shex.ArcRule
 import rx.{Rx, Var}
 import org.denigma.binding.extensions._
 import scala.collection.immutable.{Set, Map}
@@ -43,8 +43,8 @@ class ValueBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[R
 
 
 import org.scalajs.dom
-import org.scalax.semweb.rdf.{IRI, Res}
-import org.scalax.semweb.shex._
+import org.denigma.semweb.rdf.{IRI, Res}
+import org.denigma.semweb.shex._
 import rx.Var
 import rx.ops._
 import org.denigma.binding.extensions._

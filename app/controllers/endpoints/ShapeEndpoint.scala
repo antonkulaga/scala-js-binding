@@ -5,11 +5,11 @@ import java.util.Date
 import org.denigma.binding.composites.BindingComposites._
 import org.denigma.binding.messages.Suggestion
 import org.denigma.endpoints.{PrickleController, AjaxShapeEndpoint, AuthRequest, UserAction}
-import org.scalax.semweb.messages.ShapeMessages
-import org.scalax.semweb.messages.ShapeMessages.{GetShapes, ShapeMessage}
-import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.rdf.vocabulary._
-import org.scalax.semweb.shex.{IRILabel, ShEx}
+import org.denigma.semweb.messages.ShapeMessages
+import org.denigma.semweb.messages.ShapeMessages.{GetShapes, ShapeMessage}
+import org.denigma.semweb.rdf.IRI
+import org.denigma.semweb.rdf.vocabulary._
+import org.denigma.semweb.shex.{IRILabel, ShEx}
 import play.api.libs.json.Json
 import play.api.mvc._
 import prickle.{Pickle, Unpickle}
@@ -30,7 +30,7 @@ trait ShapeEndpoint extends   Items with AjaxShapeEndpoint with PrickleControlle
 
   override def getShapes(suggestMessage: GetShapes): ShapeResult = {
 
-    import org.scalax.semweb.composites.SemanticComposites._
+    import org.denigma.semweb.composites.SemanticComposites._
     val shs = this.shapes.values.toList
     val shapes: ShEx = ShEx(allShapes,shs,shs.headOption.map(_.id),Some(allShapes.iri.label),defaultPrefixes)
     val p = Pickle.intoString[ShEx](shapes)
@@ -39,7 +39,7 @@ trait ShapeEndpoint extends   Items with AjaxShapeEndpoint with PrickleControlle
   }
 
   def getShex(shex:ShapeMessages.GetShEx) = {
-    import org.scalax.semweb.composites.SemanticComposites._
+    import org.denigma.semweb.composites.SemanticComposites._
     val shs = this.shapes.values.toList
     val shapes: ShEx = ShEx(allShapes,shs,shs.headOption.map(_.id),Some(allShapes.iri.label),defaultPrefixes)
     val p = Pickle.intoString[ShEx](shapes)

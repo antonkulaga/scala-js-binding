@@ -7,8 +7,8 @@ import org.denigma.semantic.binders.{SemanticSelector, RDFBinder}
 import org.denigma.semantic.rdf.PropertyPrinter
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.shex.{NameTerm, ArcRule}
+import org.denigma.semweb.rdf.IRI
+import org.denigma.semweb.shex.{NameTerm, ArcRule}
 import rx.core.Var
 
 import scala.collection.immutable.Map
@@ -38,7 +38,7 @@ class ArcBinder(val view:BindableView, val arc:Var[ArcRule],prefs:Var[Map[String
 
 import org.denigma.binding.extensions._
 import org.scalajs.jquery._
-import org.scalax.semweb.shex.ArcRule
+import org.denigma.semweb.shex.ArcRule
 import rx.core.Var
 
 import scala.scalajs.js

@@ -140,8 +140,6 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
       pipelineStages := Seq(scalaJSProd,digest, gzip),
 
-      //scalaJSTest:= scalaJSTestTask.value,
-
       resourceGenerators in Test <+= PlayScalaJS.copyMappings(scalaJSTest, WebKeys.public in Assets).map(_ => Seq[File]()),
 
       scalaJSProjects := clients,
@@ -176,15 +174,13 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"),
 
-    resolvers += sbt.Resolver.bintrayRepo("alexander-myltsev", "maven"),
-
     resolvers += sbt.Resolver.bintrayRepo("markatta", "markatta-releases"),
 
     resolvers += sbt.Resolver.bintrayRepo("pellucid", "maven"),
 
-    resolvers += Resolver.sonatypeRepo("snapshots"),
-
     resolvers += Resolver.sonatypeRepo("releases"),
+
+    resolvers += Resolver.sonatypeRepo("snapshots"),
 
     scalacOptions ++= Seq( "-feature", "-language:_" ),
 

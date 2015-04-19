@@ -5,9 +5,9 @@ import java.util.Date
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.messages.Suggestion
 import org.scalajs.dom
-import org.scalax.semweb.messages.ShapeMessages
-import org.scalax.semweb.rdf.Res
-import org.scalax.semweb.shex.{ShEx, Shape}
+import org.denigma.semweb.messages.ShapeMessages
+import org.denigma.semweb.rdf.Res
+import org.denigma.semweb.shex.{ShEx, Shape}
 import prickle.{Unpickle, Pickle}
 
 import scala.concurrent.Future
@@ -15,7 +15,7 @@ import scala.concurrent.Future
 
 class ShapeStorage(path:String)  extends Storage {
   override def channel: String = this.path
-  import org.scalax.semweb.composites.SemanticComposites._
+  import org.denigma.semweb.composites.SemanticComposites._
   /**
    * Get ShapeExpression either form query or from ShEx id
    * @param query

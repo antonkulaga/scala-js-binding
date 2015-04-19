@@ -2,7 +2,7 @@ package controllers
 
 import controllers.TopMenu._
 import org.denigma.endpoints.{ UserAction}
-import org.scalax.semweb.rdf.IRI
+import org.denigma.semweb.rdf.IRI
 import org.denigma.binding.models._
 import play.api.mvc.Controller
 import prickle.Pickle

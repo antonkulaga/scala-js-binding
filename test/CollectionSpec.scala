@@ -1,6 +1,6 @@
-//import org.scalax.semweb.rdf.vocabulary._
-//import org.scalax.semweb.rdf.{IRI, StringLiteral, Trip}
-//import org.scalax.semweb.sparql._
+//import org.denigma.semweb.rdf.vocabulary._
+//import org.denigma.semweb.rdf.{IRI, StringLiteral, Trip}
+//import org.denigma.semweb.sparql._
 //import org.specs2.mutable._
 //import play.api.test.WithApplication
 //import rx._

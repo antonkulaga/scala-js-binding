@@ -2,8 +2,8 @@ package controllers
 
 import controllers.genes.GeneSchema
 import org.denigma.endpoints.UserAction
-import org.scalax.semweb.rdf.{IRI, StringLiteral}
-import org.scalax.semweb.shex.PropertyModel
+import org.denigma.semweb.rdf.{IRI, StringLiteral}
+import org.denigma.semweb.shex.PropertyModel
 import play.api.mvc.Controller
 import prickle._
 
@@ -15,7 +15,7 @@ object Test extends Controller with GeneSchema{
   
   
   def prickle() = UserAction{ implicit request=>
-    import org.scalax.semweb.composites.SemanticComposites._
+    import org.denigma.semweb.composites.SemanticComposites._
     Ok(Pickle.intoString(this.evidenceShape))
     
   }

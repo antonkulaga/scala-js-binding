@@ -2,9 +2,9 @@ package org.denigma.binding.composites
 
 import org.denigma.binding.messages.{Filters, ExploreMessages, ModelMessages}
 import org.denigma.binding.messages.ModelMessages.{ModelMessage, Suggest}
-import org.scalax.semweb.composites.{MessagesComposites, ShapePicklers}
-import org.scalax.semweb.rdf
-import org.scalax.semweb.rdf.{RDFValue, Lit}
+import org.denigma.semweb.composites.{MessagesComposites, ShapePicklers}
+import org.denigma.semweb.rdf
+import org.denigma.semweb.rdf.{RDFValue, Lit}
 import prickle._
 import scala.reflect.classTag
 import scala.util.Try

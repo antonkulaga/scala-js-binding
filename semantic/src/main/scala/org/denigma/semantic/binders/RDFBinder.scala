@@ -4,14 +4,14 @@ import org.denigma.binding.binders.BasicBinding
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalax.semweb.rdf._
+import org.denigma.semweb.rdf._
 import org.denigma.binding.extensions._
 import org.w3.banana.Prefix
 import rx.core.Var
 import scala.Predef
 import scala.collection.immutable.Map
-import org.scalax.semweb.rdf.vocabulary
-import org.scalax.semweb
+import org.denigma.semweb.rdf.vocabulary
+import org.denigma.semweb
 
 
 object RDFBinder {

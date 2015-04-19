@@ -6,8 +6,8 @@ import org.denigma.semantic.binders.ModelBinder
 import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
 import org.denigma.semantic.storages.{ModelStorage, AjaxModelStorage}
 import org.scalajs.dom
-import org.scalax.semweb.rdf.{IRI, Res}
-import org.scalax.semweb.shex.{IRILabel, AndRule, Shape, PropertyModel}
+import org.denigma.semweb.rdf.{IRI, Res}
+import org.denigma.semweb.shex.{IRILabel, AndRule, Shape, PropertyModel}
 import rx.core.{Rx, Var}
 import rx.ops._
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue

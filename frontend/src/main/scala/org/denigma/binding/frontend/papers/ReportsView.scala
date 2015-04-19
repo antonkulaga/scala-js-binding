@@ -8,8 +8,8 @@ import org.denigma.semantic.models.RemoteModelView
 import org.denigma.semantic.rdf.ShapeInside
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery._
-import org.scalax.semweb.rdf.IRI
-import org.scalax.semweb.shex.Shape
+import org.denigma.semweb.rdf.IRI
+import org.denigma.semweb.shex.Shape
 import rx.{Rx, Var}
 
 import scala.collection.immutable.Map
