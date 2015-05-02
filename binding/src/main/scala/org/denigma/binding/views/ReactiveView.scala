@@ -8,14 +8,17 @@ import scala.concurrent.{Future, Promise}
 import org.scalajs.dom.ext._
 trait BindingEvent
 {
-  val origin:BasicView
+  type Origin
+  val origin:Origin//BasicView
   val latest:BasicView
   val bubble:Boolean
 
   def withCurrent(cur:BasicView):this.type
 }
 
-case class JustPromise[Value,Result](value:Value,origin:BasicView,latest:BasicView, bubble:Boolean = true, promise:Promise[Result] = Promise[Result]) extends PromiseEvent[Value,Result] {
+case class JustPromise[Value,Result](value:Value,origin:BasicView,latest:BasicView, bubble:Boolean = true, promise:Promise[Result] = Promise[Result]()) extends PromiseEvent[Value,Result] {
+  type Origin = BasicView
+
   override def withCurrent(cur:BasicView): this.type= this.copy(latest = cur).asInstanceOf[this.type]
 }
 
@@ -107,7 +110,7 @@ abstract class ReactiveView extends OrganizedView{
   protected def propagateFuture(event:PromiseEvent[_,_]) =
     this.nearestParentOf{  case p:ReactiveView=>p  } match {
       case Some(p)=> p.receiveFuture(event.withCurrent(this))
-      case None=> event.promise.failure(new Exception(s"could not find value for ${event.origin.id}"))
+      case None=> event.promise.failure(new Exception(s"could not find value for ${event.origin}"))
     }
 
 

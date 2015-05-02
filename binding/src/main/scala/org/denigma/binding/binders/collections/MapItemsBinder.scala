@@ -55,7 +55,7 @@ class MapItemsBinder(view:BindableView, reactiveMap:Map[String,Var[String]]) ext
       this.bindText(el,key,str)
     }
 
-    case _=> dom.console.error(s"unknown binding")
+    case other => dom.console.error(s"unknown binding of ${other._1} to ${other._2}")
 
   }
 

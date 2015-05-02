@@ -20,7 +20,7 @@ import scala.util.{Failure, Success}
 object EditShapeView
 {
 
-  lazy val emptyArcRule: ArcRule =  ArcRule(propertyName = RDF.VALUE)
+  lazy val emptyArcRule: ArcRule =  ArcRule.apply(RDF.VALUE,WI.PLATFORM.EMPTY)
 
   def apply(elem:HTMLElement,mp:Map[String,Any]) = {
     new ShapeProperty(elem,mp)
@@ -62,7 +62,7 @@ class EditShapeView (val elem:HTMLElement,val params:Map[String,Any]) extends  S
 
   val addClick: Var[MouseEvent] = Var(EventBinding.createMouseEvent())
 
-  lazy val onAddClick = rx.extensions.AnyRx(addClick).handler{
+  val onAddClick = rx.extensions.AnyRx(addClick).handler{
     val item: Var[ArcRule] = Var(EditShapeView.emptyArcRule)
     this.rules() = rules.now + item
   }

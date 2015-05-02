@@ -5,15 +5,14 @@ import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.frontend.FrontEndStore
 import org.denigma.binding.views.collections.CollectionView
-import org.denigma.binding.views.{JustPromise, PromiseEvent}
+import org.denigma.binding.views.{BasicView, BindingEvent, JustPromise, PromiseEvent}
 import org.denigma.semantic.rdf.ShapeInside
-import org.denigma.semantic.shapes.{ArcView, ShapeView}
+import org.denigma.semantic.shapes.{ ArcView, ShapeView}
 import org.denigma.semantic.storages.ShapeStorage
+import org.denigma.semweb.rdf._
+import org.denigma.semweb.rdf.vocabulary.WI
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.denigma.semweb.rdf.vocabulary.{WI, XSD}
-import org.denigma.semweb.rdf._
-import org.denigma.semweb.shex.{Shape, ShapeBuilder, Star}
 import rx.core.Var
 
 import scala.collection.immutable.Map
@@ -21,7 +20,21 @@ import scala.concurrent.Promise
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
+case class RemoveShapeCommand(origin:EditShapeView,latest:BasicView) extends  ShapeUpdateCommand(origin,latest)
+{
+  override def withCurrent(cur: BasicView):this.type = this.copy(latest = cur).asInstanceOf[this.type]
+}
 
+case class AddShapeCommand(origin:EditShapeView,latest:BasicView) extends  ShapeUpdateCommand(origin,origin)
+{
+  override def withCurrent(cur: BasicView):this.type = this.copy(latest = cur).asInstanceOf[this.type]
+}
+
+abstract class  ShapeUpdateCommand(origin:EditShapeView,latest:BasicView) extends BindingEvent{
+  type Origin = ShapeView
+
+  override val bubble: Boolean = false
+}
 object ShapeEditor{
 
   /**
@@ -80,7 +93,7 @@ class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends Colle
           promise.success(res.options)
         case Failure(th)=>
           promise.failure(th)
-          dom.console.error("suggession is broken"+th)
+          dom.console.error("suggestion is broken"+th)
       }
 
     case ev=>
@@ -88,6 +101,17 @@ class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends Colle
       this.propagateFuture(ev)
 
   }
+
+  protected def onShapeUpdateCommands:PartialFunction[BindingEvent,Unit] = {
+
+    case removeShape:RemoveShapeCommand=>this.items() = this.items.now.filterNot(_==removeShape.origin.shapeInside)
+    case addShape:AddShapeCommand=> this.items() = items.now:::addShape.origin.shapeInside::Nil
+  }
+  /**
+   * Event subsystem
+   * @return
+   */
+  override def receive:PartialFunction[BindingEvent,Unit] = this.onShapeUpdateCommands.orElse(super.receive)
 
   protected override def attachBinders(): Unit =  this.withBinders(new GeneralBinder(this))
 
@@ -97,8 +121,8 @@ class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends Colle
     val quads = this.items.now.foldLeft(Set.empty[Quad])((acc,b)=>acc ++ b.now.current.asQuads(b.now.current.id.asResource))
     val str = FrontEndStore.write(quads)
     FrontEndStore.write(quads).onComplete{
-      case Success(str)=>
-        saveAs("shapes.ttl",str)
+      case Success(st)=>
+        saveAs("shapes.ttl",st)
       case Failure(th)=> dom.console.error("TURTLE DOWNLOAD ERROR: " +th)
     }
   }

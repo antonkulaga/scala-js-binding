@@ -5,11 +5,10 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.messages.{Filters, Sort}
 import org.denigma.semantic.grids.ExplorableCollection
 import org.denigma.semantic.models.RemoteModelView
-import org.denigma.semantic.rdf.ShapeInside
+import org.denigma.semantic.models.collections.WithAjaxStorage
 import org.scalajs.dom.raw.HTMLElement
 import org.scalajs.jquery._
 import org.denigma.semweb.rdf.IRI
-import org.denigma.semweb.shex.Shape
 import rx.{Rx, Var}
 
 import scala.collection.immutable.Map
@@ -18,7 +17,9 @@ import scala.scalajs.js
 /**
  * Shows papers reports
  */
-class ReportsView(elem:HTMLElement, params:Map[String,Any]) extends ExplorableCollection("ReportsView",elem:HTMLElement,params:Map[String,Any]){
+class ReportsView(elem:HTMLElement, params:Map[String,Any]) extends ExplorableCollection("ReportsView",elem:HTMLElement,params:Map[String,Any])
+with WithAjaxStorage
+{
 
  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 

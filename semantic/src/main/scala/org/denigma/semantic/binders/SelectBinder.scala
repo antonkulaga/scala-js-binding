@@ -1,5 +1,5 @@
 package org.denigma.semantic.binders
-
+import org.denigma.binding.extensions._
 import org.denigma.selectize.{Selectize, SelectizePlugin}
 import org.denigma.selectors.{Escaper, SelectOption}
 import org.scalajs.jquery.JQuery
@@ -152,7 +152,7 @@ trait BinderWithSelection[Selector<:PropertySelector] {
         //options.foreach{ case o=> dom.console.info(s"STRING = ${o.stringValue} AND label = ${o.label}") }
         //if(js.isUndefined(sel.sel)) dom.console.error("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         sel.updateOptions(sel.sel)(options)
-      case Failure(thr) => dom.console.error(s"type handler failure for ${key.toString()} with failure ${thr.toString}")
+      case Failure(thr) => dom.console.error(s"type handler failure for ${key.toString()} with failure ${thr.toString} \n and Stack trace ${thr.stackString}")
     }
   }
 }

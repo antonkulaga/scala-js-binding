@@ -3,7 +3,7 @@ package org.denigma.binding.binders
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
-import org.scalajs.dom.MouseEvent
+import org.scalajs.dom.{Attr, MouseEvent}
 import org.scalajs.dom.ext.Ajax
 import org.scalajs.dom.raw.{XMLHttpRequest, HTMLElement}
 
@@ -39,7 +39,7 @@ class NavigationBinding(view:BindableView) extends BasicBinding{
                 dom.console.error(s"cannot find $into element")
             }
 
-          case Failure(th) => dom.console.error(s"there is a problem with $uri ajax request")
+          case Failure(th) => dom.console.error(s"there is a  ${th} problem with $uri ajax request\n with stack: ${th.stackString}")
         }
 
 

@@ -3,15 +3,21 @@ package org.denigma.binding.extensions
 import scala.collection.immutable._
 import org.scalajs.dom
 
-/**
- * Useful for errors
- */
+
 trait CommonOps {
 
   implicit class OptionOpt[T](source:Option[T]){
 
     def orError(str:String) = if(source.isEmpty) dom.console.error(str)
 
+  }
+
+  implicit class ThrowableOpt(th:Throwable) {
+    def stackString = th.getStackTrace.foldLeft("")( (acc,el)=>acc+"\n"+el.toString)
+  }
+
+  implicit class StringOpt(str:String) {
+    def  isPartOfUrl = str.startsWith("/") || str.startsWith("#") || str.startsWith("?")
   }
 
   implicit class MapOpt[TValue](source:Map[String,TValue]) {

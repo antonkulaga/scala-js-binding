@@ -4,7 +4,7 @@ import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.models.RemoteModelView
-import org.denigma.semantic.models.collections.AjaxModelCollection
+import org.denigma.semantic.models.collections.{WithAjaxStorage, AjaxModelCollection}
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom.raw.HTMLElement
 import rx._
@@ -14,7 +14,8 @@ import rx._
  * @param element
  * @param params
  */
-class TasksView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends AjaxModelCollection("Tasks",element,params)
+class TasksView(element:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) extends
+AjaxModelCollection("Tasks",element,params) with WithAjaxStorage
 {
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}

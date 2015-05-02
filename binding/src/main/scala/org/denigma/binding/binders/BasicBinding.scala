@@ -1,17 +1,12 @@
 package org.denigma.binding.binders
 
-import org.denigma.binding.commons.ILogged
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom._
-import org.scalajs.dom.ext._
 import org.scalajs.dom.raw.HTMLElement
 import rx._
 
 import scala.collection.immutable.Map
-import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-import scala.scalajs.js
-import scala.util.{Failure, Success}
 
 
 /**
@@ -32,20 +27,16 @@ abstract class BasicBinding //extends ILogged
 
   def id:String
 
-//  = {
-//    val params = js.Dynamic.literal( "html" -> newInnerHTML)
-//
-//    if(uri!="")  dom.window.history.pushState(params,dom.document.title,uri)
-//    el.innerHTML = newInnerHTML
-//  }
-
   protected def processUrl(url:String, relativeURI:Boolean = true):String =
-    if(url.contains("://")) {
-      val st = url.indexOf("://")+3
-      sq.withHost(url.substring(url.indexOf("/",st)))
+    (url.indexOf("://"),url.indexOf("/"),url.indexOf("?"))
+    match {
+      case (-1,sl,q)=> sq.withHost(url)
+      case (prot,sl,q)  if sl > -1 && sl<prot =>
+        val st = prot+3
+        sq.withHost(url.substring(url.indexOf("/",st)))
+
+      case  other => if(url.contains("domain")) url.replace("domain",dom.location.host) else url
     }
-    else
-      sq.withHost(url)
 
   /**
    * Makes id for the binding element

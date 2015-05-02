@@ -20,7 +20,7 @@ import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
 
-class DataGrid( elem:HTMLElement, params:Map[String,Any])  extends ExplorableCollection("DataGrid",elem,params)
+abstract class DataGrid( elem:HTMLElement, params:Map[String,Any])  extends ExplorableCollection("DataGrid",elem,params)
 {
 
   val saveAll= Var(EventBinding.createMouseEvent())
@@ -39,12 +39,8 @@ class DataGrid( elem:HTMLElement, params:Map[String,Any])  extends ExplorableCol
 
     }}
 
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
   lazy val isDirty = Rx{  this.dirty().size>0  }
-
-
-  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 
   override def loadData(explore:ExploreMessages.Explore) = {
 

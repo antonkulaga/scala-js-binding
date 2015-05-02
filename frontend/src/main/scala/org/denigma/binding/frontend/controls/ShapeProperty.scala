@@ -12,6 +12,4 @@ class ShapeProperty(val elem:HTMLElement, val params:Map[String,Any]) extends Ar
 
   override def activateMacro(): Unit = {extractors.foreach(_.extractEverything(this))}
 
-  val removeClick = Var(EventBinding.createMouseEvent())
-
 }

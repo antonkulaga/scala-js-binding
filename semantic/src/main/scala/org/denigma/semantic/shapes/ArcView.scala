@@ -1,5 +1,6 @@
 package org.denigma.semantic.shapes
 
+import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.binders.{BasicBinding, GeneralBinder, NavigationBinding}
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.shex._
@@ -8,6 +9,7 @@ import org.denigma.semweb.rdf.RDFValue
 import org.denigma.semweb.shex._
 import prickle.Pickle
 import rx.Var
+import org.denigma.binding.extensions._
 
 import scala.collection.immutable.Map
 import scala.concurrent.Future
@@ -52,6 +54,16 @@ trait ArcView extends BindableView
     import org.denigma.binding.composites.BindingComposites._
     Pickle.intoString[ArcRule](this.arc.now)
   }
+
+  def removeHandler() = {
+    this.fire(RemoveArcCommand(this,this))
+  }
+
+  val removeClick = Var(EventBinding.createMouseEvent())
+  removeClick.handler{
+    removeHandler()
+  }
+
 
 
 //  require(params.contains("item"), "ArcView should contain arc item inside")

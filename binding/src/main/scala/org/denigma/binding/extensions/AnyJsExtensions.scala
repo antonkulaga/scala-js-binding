@@ -26,8 +26,7 @@ trait AnyJsExtensions {
      * @return Option[js.Dynamic]
      */
     def \(key: String): Option[js.Dynamic] = dyn.selectDynamic(key) match {
-      case null =>
-        None
+      case value if value.isNullOrUndef=>    None
 
       case validValue => Some(validValue)
     }

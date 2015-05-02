@@ -29,7 +29,7 @@ trait RemoteLoadView extends RemoteModelView {
     case res:IRI=>res
     case res:String=>IRI(res)
     case other=>
-      dom.console.error(s"unknown resource type in $id with tostring ${other.toString}")
+      dom.console.error(s"unknown  ${other.getClass.getName} type in $id with tostring ${other.toString}")
       IRI(other.toString)
   }
 
@@ -38,13 +38,13 @@ trait RemoteLoadView extends RemoteModelView {
   override def bindView(el:HTMLElement)
   {
     storage.read(shapeRes.now)(resource).onComplete{
-      case Success(model) if model.size==0=>
+      case Success(md) if md.size==0=>
         dom.console.log(s"empty model received from $path")
         super.bindView(el)
 
 
-      case Success(model) =>
-        this.onLoadModel(model)
+      case Success(md) =>
+        this.onLoadModel(md)
         super.bindView(el)
 
       case Failure(th)=>

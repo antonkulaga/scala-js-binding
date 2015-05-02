@@ -3,6 +3,7 @@ package org.denigma.semantic.storages
 import org.denigma.binding.composites.BindingComposites
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.ExploreMessages
+import org.denigma.binding.messages.ExploreMessages.{ExploreSuggestion, Exploration}
 import org.scalajs.dom
 import org.denigma.semweb.rdf.{IRI, Res}
 import org.denigma.semweb.shex.PropertyModel
@@ -10,23 +11,20 @@ import prickle.{Pickle, Unpickle}
 
 import scala.concurrent.Future
 
-class AjaxExploreStorage(path:String) extends Storage{
+class AjaxExploreStorage(path:String) extends ExploreStorage(path)
+{
 
   import org.denigma.binding.composites.BindingComposites._
 
-  def channel = path
-
-
-
-  protected def post(data:ExploreMessages.ExploreMessage) =   sq.tryPost(path,data)
+  protected def post(data:ExploreMessages.ExploreMessage): Future[Boolean] =   sq.tryPost(path,data)
   {  d=>  Pickle.intoString(data)(BindingComposites.exploreMessages.pickler,BindingComposites.config)  }
   {   s=>     Unpickle[Boolean].fromString(s)   }
 
-  protected def postBackModelsList(data:ExploreMessages.ExploreMessage) = sq.tryPost[ExploreMessages.ExploreMessage,Seq[PropertyModel]](path,data){
+  protected def postBackModelsList(data:ExploreMessages.ExploreMessage): Future[Seq[PropertyModel]] = sq.tryPost[ExploreMessages.ExploreMessage,Seq[PropertyModel]](path,data){
     d=> Pickle.intoString[ExploreMessages.ExploreMessage](data)(BindingComposites.exploreMessages.pickler,BindingComposites.config)
   }{   s=>   Unpickle[Seq[PropertyModel]].fromString(s) }
 
-  protected def postBackExploration(data:ExploreMessages.ExploreMessage) = sq.tryPost(path,data){
+  protected def postBackExploration(data:ExploreMessages.ExploreMessage): Future[Exploration] = sq.tryPost(path,data){
     d=> Pickle.intoString[ExploreMessages.ExploreMessage](data)(BindingComposites.exploreMessages.pickler,BindingComposites.config)
   }{   s=>
     //dom.console.log(s"UNPICKLE $s")
@@ -36,14 +34,14 @@ class AjaxExploreStorage(path:String) extends Storage{
   }
 
 
-  protected def postBackSuggestion(data:ExploreMessages.ExploreMessage) = sq.tryPost(path,data){
+  protected def postBackSuggestion(data:ExploreMessages.ExploreMessage): Future[ExploreSuggestion] = sq.tryPost(path,data){
     d=> Pickle.intoString[ExploreMessages.ExploreMessage](data)(BindingComposites.exploreMessages.pickler,BindingComposites.config)
   }{   s=>   Unpickle[ExploreMessages.ExploreSuggestion].fromString(s) }
 
 
 
 
-  def explore(explore:ExploreMessages.Explore) = {
+  def explore(explore:ExploreMessages.Explore): Future[Exploration] = {
     val data = explore
     postBackExploration(data)
     //sq.post(path,data):Future[ExploreMessages.Exploration]
@@ -71,7 +69,6 @@ class AjaxExploreStorage(path:String) extends Storage{
     //sq.post(path,data):Future[ExploreMessages.ExploreSuggestion]
     postBackSuggestion(data)
   }
-
 
 
 

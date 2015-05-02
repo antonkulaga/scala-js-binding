@@ -46,7 +46,7 @@ trait ExploreEndpoint extends PrickleController with AjaxExploreEndpoint with It
       case s::xs=>
         //play.Logger.debug("sort takes place")
 
-        if(!list.isEmpty) list.head::Nil
+        if(list.nonEmpty) list.head::Nil
         else list.sortWith{case (a,b)=>s.sort(xs)(a,b) > -1}
 
     }

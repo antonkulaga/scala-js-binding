@@ -61,4 +61,3 @@ GET           /frontend/*file            controllers.Application.frontendFile(fi
 GET           /assets/*file              controllers.Assets.at(path="/public", file)
 GET           /public/*file              controllers.Assets.at(path="/public", file)
 GET           /files/*file               controllers.Assets.at(path="/public", file)
-GET           /webjars/*file             controllers.WebJarAssets.at(file)

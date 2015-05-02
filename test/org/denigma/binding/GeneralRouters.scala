@@ -1,11 +1,7 @@
 package org.denigma.binding
 
-import play.api.mvc.{Controller, Handler}
-import play.twirl.api.Html
 import org.denigma.endpoints.UserAction
-import org.openqa.selenium.By.ById
-import org.openqa.selenium.chrome.ChromeDriver
-import play.api.test.{FakeApplication, WithServer}
+import play.api.mvc.{Controller, Handler}
 import play.twirl.api.Html
 
 trait GeneralRouters  {
@@ -26,8 +22,6 @@ trait GeneralRouters  {
     case ("GET",str) if str.startsWith("/assets/")  =>  controllers.Assets.at(path="/public", str.replace("/assets/",""))
 
     case ("GET",str) if str.startsWith("/public/")  =>  controllers.Assets.at(path="/public", str.replace("/public/",""))
-
-    case ("GET",str) if str.startsWith("/webjars/")  =>  controllers.WebJarAssets.at(str.replace("/webjars/",""))
 
   }
 

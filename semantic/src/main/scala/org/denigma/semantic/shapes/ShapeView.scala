@@ -2,15 +2,36 @@ package org.denigma.semantic.shapes
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinding}
+import org.denigma.binding.views.{BindableView, BasicView, BindingEvent}
 import org.denigma.binding.views.collections.CollectionView
 import org.denigma.semweb.rdf.Res
 import org.denigma.semweb.shex._
+import org.scalajs.dom
 import prickle.Pickle
 import rx._
 import rx.core.Var
 import rx.ops._
 import org.denigma.binding.extensions._
 import scala.collection.immutable.{Map, SortedSet}
+
+
+case class RemoveArcCommand(origin:ArcView,latest:BasicView) extends  ArcUpdateCommand(origin,latest)
+{
+  override def withCurrent(cur: BasicView):this.type = this.copy(latest = cur).asInstanceOf[this.type]
+}
+
+case class AddArcCommand(origin:ArcView,latest:BasicView) extends  ArcUpdateCommand(origin,origin)
+{
+  override def withCurrent(cur: BasicView):this.type = this.copy(latest = cur).asInstanceOf[this.type]
+}
+
+abstract class  ArcUpdateCommand(origin:ArcView,latest:BasicView) extends BindingEvent{
+  type Origin = ArcView
+
+  override val bubble: Boolean = false
+}
+
+
 object ShapeView
 {
   def defaultBinders(view:ShapeView) = new GeneralBinder(view)::new NavigationBinding(view)::Nil
@@ -32,9 +53,27 @@ trait ShapeView extends CollectionView //with WithShapeView
   override type Item = Var[ArcRule]
   override type ItemView = ArcView
 
+  def removeShapeHandler() = {
+  }
+
   val removeClick = Var(EventBinding.createMouseEvent())
+  removeClick.handler{
+    removeShapeHandler()
+  }
 
   val rules:Var[SortedSet[Item]] = Var(SortedSet.empty[Var[ArcRule]](ShapeView.ArcOrdering))
+
+
+  protected def onArcUpdateCommands:PartialFunction[BindingEvent,Unit] = {
+
+    case removeArc:RemoveArcCommand=>this.rules() = this.rules.now - removeArc.origin.arc
+    case addArc:AddArcCommand=> this.rules() = this.rules.now + addArc.origin.arc
+  }
+  /**
+   * Event subsystem
+   * @return
+   */
+  override def receive:PartialFunction[BindingEvent,Unit] = this.onArcUpdateCommands.orElse(super.receive)
 
   /**
    * Transformts
@@ -63,14 +102,6 @@ trait ShapeView extends CollectionView //with WithShapeView
     Shape.apply(and.id,and)
   }
 
-/*
-  protected def shapeResOption: Option[Var[Res]] = this.resolveKeyOption("shape-resource"){
-    case sh:String if sh.contains(":") =>Var(IRI(sh))
-    case sh:Res =>Var(sh)
-    case sh:Var[Res] => sh
-    case _=> throw new Exception(s"shape param of unknown type in ShapeView $id")
-  }
-*/
 
   override def newItem(item:Item):ItemView = this.constructItem(item,Map("item"->item)) { (e,m)=> ArcView.apply(e,m) }
 

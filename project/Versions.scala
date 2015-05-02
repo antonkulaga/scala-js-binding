@@ -8,15 +8,14 @@ object Versions extends LibVersions with WebJarsVersions with ScalaJSVersions{
 
   val semWeb = "0.7.0"
 
-  val binding = "0.7.9"
+  val binding = "0.7.11"
 
-  val semanticBinding = "0.7.9"
+  val semanticBinding = "0.7.11"
 
   val bindingPlay = "0.7.6"
 
   val jsmacro = "0.1.9"
 
-  val scalajsJquery =  "0.8.0"
 
 }
 
@@ -43,6 +42,10 @@ trait WebJarsVersions{
  * Scala js and mixed libs
  */
 trait ScalaJSVersions {
+
+
+  val scalajsJquery =  "0.8.0"
+
   val dom = "0.8.0"
 
   val scalaRx = "0.2.8"
@@ -51,7 +54,7 @@ trait ScalaJSVersions {
 
   val quicklens = "1.3.1"
 
-  val scalaCSS = "0.1.0"
+  val scalaCSS = "0.2.0"
 
   val productCollections = "1.4.2"
 

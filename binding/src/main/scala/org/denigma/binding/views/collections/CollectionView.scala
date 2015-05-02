@@ -1,27 +1,18 @@
 package org.denigma.binding.views.collections
 
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.{BindableView, IView}
+import org.denigma.binding.views.{BasicView, BindingEvent, BindableView, IView}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.raw.HTMLElement
-import rx.Rx
-import rx.extensions.Moved
+import rx.{Var, Rx}
+import rx.extensions.{CollectionUpdate, Moved}
 import org.scalajs.dom.ext._
 import scala.collection.immutable._
 
 
-trait CrudEvents {
-
-  type Id
-  type Element
-
-  case class Remove(value:List[Id])
-  case class Update(value:List[Element])
-  case class Select(ids:List[Id])
-}
-
-trait CollectionView extends BindableView{
+trait CollectionView extends BindableView
+{
 
   type Item
   type ItemView <: IView
@@ -50,7 +41,6 @@ trait CollectionView extends BindableView{
         else this.replace(sp,template)
         sp
     }
-
   }
 
   /**

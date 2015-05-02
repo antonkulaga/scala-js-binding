@@ -102,7 +102,7 @@ class ModelBinder(view:BindableView,modelInside:Var[ModelInside],subjectOf:Set[I
         case v if v.isInstanceOf[Boolean]=>
           val b = v.asInstanceOf[Boolean]
           if(b!=value.value) el.dyn.checked = value.value
-        case _=>dom.console.log(s"unknown checked value for ${key.toString}")
+        case other=>dom.console.log(s"unsupported checked $other value for ${key}")
       }
 
       case Some(value)=>dom.console.log(s"${key.toString()} is not a boolean, it is = ${value.getClass.getName}")

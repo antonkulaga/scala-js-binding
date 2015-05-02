@@ -14,10 +14,10 @@ import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 import com.typesafe.sbt.web.SbtWeb.autoImport._
 import playscalajs.PlayScalaJS.autoImport._
+import play.PlayScala
 
 import org.scalajs.sbtplugin.cross.CrossProject
 
-import play._
 import play.twirl.sbt.Import.TwirlKeys
 
 

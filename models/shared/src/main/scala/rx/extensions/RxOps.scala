@@ -160,6 +160,12 @@ trait RxOps {
 }
 case class Moved[T](from:Int,to:Int,item:T)
 
+
+/*object CollectionUpdate {
+  def apply[T](removed:List[T],inserted:List[T],moved:List[Moved[T]] = List.empty) = new CollectionUpdate[T](removed,inserted,moved)
+  def unapply(update:Any) = update.isInstanceOf[Co]
+}*/
+
 /**
  * Contains changes between previous and current collection
  * @param removed list of removed elements
@@ -169,4 +175,4 @@ case class Moved[T](from:Int,to:Int,item:T)
  */
 case class CollectionUpdate[T](removed:List[T],inserted:List[T],moved:List[Moved[T]] = List.empty)
 
-case class SortedCollectionUpdate[T](removed:List[T],inserted:List[T],moved:List[(T,T)] = List.empty)
+//case class SortedCollectionUpdate[T](removed:List[T],inserted:List[T],moved:List[(T,T)] = List.empty)

@@ -82,9 +82,9 @@ abstract class RemoteModelView extends ModelView   with WithShapeView
 
       }
     case None=>
-      val mes = s"cannot find a rule in shape for property ${key.stringValue} which nameterm matches well"
+      val mes = s"cannot find a rule in shape for property ${key.stringValue} which nameterm matches key well\n terms are:\n ${shape.arcRules().map(r=>r.name).mkString("\n")}"
       dom.console.error(mes)
-      Future.failed(new Error(mes))
+      Future.failed(new Exception(mes))
   }
 
 

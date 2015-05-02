@@ -1,8 +1,8 @@
 package org.denigma.semantic.storages
 
 import org.denigma.binding.extensions.sq
-import org.denigma.binding.messages.ModelMessages
-import org.denigma.binding.messages.Suggestion
+import org.denigma.binding.messages.ExploreMessages.Exploration
+import org.denigma.binding.messages.{ExploreMessages, ModelMessages, Suggestion}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.denigma.semweb.rdf.{IRI, Res}
@@ -148,4 +148,11 @@ trait Storage {
 
   def channel:String
 
+}
+
+abstract class ExploreStorage(val channel:String) extends Storage
+{
+  def explore(explore:ExploreMessages.Explore): Future[Exploration]
+  def select(query:Res,shape:Res): Future[Seq[PropertyModel]]
+  def suggest(typed:String,prop:IRI,explore:ExploreMessages.Explore):Future[ExploreMessages.ExploreSuggestion]
 }

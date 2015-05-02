@@ -9,8 +9,8 @@
             <section class="ui row" data-view="EditShapeView" data-template="true">
                 <div class="ui top attached segment">
                     <h3 class="ui inverted green header"><div class="ui small button" data-event-click="saveFileClick"><i class="file text icon"></i></div><span data-bind="title"></span>  <div class="ui  button" data-class-positive-if="shapeDirty" data-event-click="saveClick"><i class="save icon"></i></div></h3>
-                    <a class="ui right red corner label">
-                        <i class="remove sign icon" data-event-click = "removeClick"></i>
+                    <a class="ui right red corner label" data-event-click = "removeClick">
+                        <i class="remove sign icon"></i>
                     </a>
                 </div>
                 <div class="ui padded grid segment">
@@ -35,7 +35,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <a class="ui tiny right red corner label">
+                        <a class="ui tiny right red corner label" data-event-click="removeClick">
                             <i class="remove sign icon"></i>
                         </a>
                     </section>

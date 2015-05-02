@@ -82,7 +82,6 @@ trait PropertyBinder {
 
     case _=>
       false
-      //dom.console.error(s"unknown binding for $key with attribute ${att}")
 
   }
 
@@ -175,7 +174,6 @@ trait PropertyBinder {
       true
 
     case _=>false
-    //dom.console.error(s"unknown binding for $key with attribute $value")
 
   }
 

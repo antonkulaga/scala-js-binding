@@ -63,7 +63,7 @@ object sq
 
 
   def withHost(str:String): String = {
-    "http://"+dom.location.host+(if(str.startsWith("/") || str.startsWith("#")) str else "/"+str)
+    "http://"+dom.location.host+(if(str.isPartOfUrl) str else "/"+str)
   }
 
 

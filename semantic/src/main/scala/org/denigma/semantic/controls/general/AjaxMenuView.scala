@@ -21,6 +21,7 @@ abstract class AjaxMenuView(override val name:String,el:HTMLElement, params:Map[
   extends MapCollectionView(el,params) {
   self =>
 
+
   /**
    * Path that is used for loading menu
    */
@@ -30,7 +31,7 @@ abstract class AjaxMenuView(override val name:String,el:HTMLElement, params:Map[
     case _ => false
   }))
 
-  object storage extends SimpleStorage  {
+  lazy val storage = new  SimpleStorage  {
     import org.denigma.binding.composites.BindingComposites._
     def path: String = self.path
 
@@ -46,7 +47,7 @@ abstract class AjaxMenuView(override val name:String,el:HTMLElement, params:Map[
 
     override def add(model: MyModel): Future[XMLHttpRequest] = sq.tryPut(sq.withHost(s"$path/add"),model)(d=>Pickle.intoString(d))
 
-    override def all()= sq.tryGet(sq.withHost(s"$path/all")){  st=>  Unpickle[List[MyModel]].fromString(st)   }
+    override def all()= sq.tryGet(sq.withHost(s"$path")){  st=>  Unpickle[List[MyModel]].fromString(st)   }
 
   }
 
@@ -59,17 +60,6 @@ abstract class AjaxMenuView(override val name:String,el:HTMLElement, params:Map[
     menu().map(ch => Map[String, Any]("label" -> ch.title, "uri" -> ch.uri.stringValue))
   }
 
-
-//  override def bindView(el: HTMLElement) = {
-//    super.bindView(el)
-//    rp.registerPicklers()
-//    val futureMenu = storage.all()
-//    futureMenu.onComplete {
-//      case Success(data) =>
-//        this.menu() = data
-//      case Failure(m) => dom.console.error(s"Future data failure for view ${this.id} with exception: \n ${m.toString}")
-//    }
-//  }
 
   //TODO: maybe dangerous!!!
   /**

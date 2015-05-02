@@ -5,7 +5,7 @@ import org.denigma.binding.messages.ExploreMessages.Exploration
 import org.denigma.binding.messages.{ExploreMessages, Filters}
 import org.denigma.semantic.models.{ModelView, RemoteModelView, WithShapeView}
 import org.denigma.semantic.rdf.{ShapeInside, ModelInside}
-import org.denigma.semantic.storages.{AjaxExploreStorage, AjaxModelStorage}
+import org.denigma.semantic.storages.{ModelStorage, ExploreStorage, AjaxExploreStorage, AjaxModelStorage}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.raw.HTMLElement
@@ -20,7 +20,7 @@ import scala.util.{Failure, Success}
 object AjaxModelCollection
 {
 
-  def apply(html:HTMLElement,params:Map[String,Any]):ModelView= {
+  def makeItem(html:HTMLElement,params:Map[String,Any]):ModelView= {
     //
     new JustRemoteModel("item"+Math.random(),html,params)
   }
@@ -42,19 +42,9 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
   val query = this.resolveKey("query"){case q=>IRI(q.toString)} //IRI(params("query").toString)
 
-  val path:String = this.resolveKey("path"){
-    case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
-  }
-  val crud:String = this.resolveKey("crud"){
-      case v=>if(v.toString.contains(":")) v.toString else sq.withHost(v.toString)
-    }
+  def exploreStorage:ExploreStorage
 
-
-  val exploreStorage = new AjaxExploreStorage(path)
-
-
-  val crudStorage= new AjaxModelStorage(crud)
-
+  def crudStorage:ModelStorage
 
   //filters:List[Filters.Filter] = List.empty[Filters.Filter] , searchTerms:List[String] = List.empty[String], sortOrder:List[Sort] = List.empty[Sort]
 
@@ -81,7 +71,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
           case _=>dom.console.error("items is not Var")
         }
       case Failure(m) =>
-        dom.console.error(s"Future data failure for view ${this.id} with exception: \n ${m.toString}")
+        dom.console.error(s"Future data failure for view ${this.id} with exception: \n ${m.toString} with stack trace ${m.stackString}")
     }
   }
 
@@ -92,7 +82,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
     item.handler(onItemChange(item))
     this.constructItem(item,Map("model"->item, "storage"->crudStorage, "shape"->this.shapeInside)){ (el,mp)=>
       item.handler(onItemChange(item))
-      AjaxModelCollection.apply(el,mp)
+      AjaxModelCollection.makeItem(el,mp)
     }
   }
 

@@ -13,8 +13,6 @@ object Dependencies
 
     "org.scala-lang.modules" %% "scala-async" % "0.9.2",
 
-    "org.denigma" %% "semweb" % Versions.semWeb,
-
     "org.denigma" %% "semweb-sesame" % Versions.semWeb,
 
     "org.w3" %% "banana-sesame" % Versions.banana excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
@@ -31,13 +29,15 @@ object Dependencies
 
     "org.scalaz" %% "scalaz-core" % Versions.scalaz,
 
-    "com.github.cb372" %% "scalacache-lrumap" % Versions.lruMap
+    "com.github.cb372" %% "scalacache-lrumap" % Versions.lruMap,
+
+    "com.github.japgolly.scalacss" %% "core" % Versions.scalaCSS
 
   )++webjars)
 
 
   protected lazy val webjars: Seq[ModuleID] = Seq(
-    "org.webjars" %% "webjars-play" % "2.3.0-3",
+    //"org.webjars" %% "webjars-play" % "2.3.0-3",
 
     "org.webjars" % "jquery" % Versions.jquery,
 
