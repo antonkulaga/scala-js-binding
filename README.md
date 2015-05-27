@@ -1,6 +1,8 @@
 ScalaJS Binding project
 #######################
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/antonkulaga/scala-js-binding?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 *scalajs-binding* is a scala-scala-js framework that let you
 
 * bind HTML tags to ScalaJS view classes and their properties
