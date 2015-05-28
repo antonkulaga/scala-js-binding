@@ -19,7 +19,8 @@ trait AjaxModelEndpoint {
   def onRead(readMessage:ModelMessages.Read)(implicit request:ModelRequest):ModelResult
   def onUpdate(updateMessage:ModelMessages.Update)(implicit request:ModelRequest):ModelResult
   def onDelete(deleteMessage:ModelMessages.Delete)(implicit request:ModelRequest):ModelResult
-  def onSuggest(suggestMessage:ModelMessages.Suggest):ModelResult
+  def onSuggestFact(suggestMessage:ModelMessages.SuggestFact):ModelResult
+  def onSuggestObject(suggestMessage:ModelMessages.SuggestObject):ModelResult
 
 
   def onBadModelMessage(message:ModelMessages.ModelMessage):ModelResult  = onBadModelMessage(message,"wrong model message type!")
@@ -30,7 +31,8 @@ trait AjaxModelEndpoint {
     case m:ModelMessages.Read=>this.onRead(m)
     case m:ModelMessages.Update=>this.onUpdate(m)
     case m:ModelMessages.Delete=>this.onDelete(m)
-    case m:ModelMessages.Suggest=>this.onSuggest(m)
+    case m:ModelMessages.SuggestFact=>this.onSuggestFact(m)
+    case m:ModelMessages.SuggestObject=>this.onSuggestObject(m)
 
 
     case other=> onBadModelMessage(other)

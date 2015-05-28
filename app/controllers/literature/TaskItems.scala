@@ -1,11 +1,12 @@
 package controllers.literature
 
 import controllers.endpoints.{ItemsMock, Items}
+import org.denigma.schemas.common.BasicSchema
 import org.denigma.semweb.rdf.vocabulary._
 import org.denigma.semweb.rdf.{BooleanLiteral, IRI, StringLiteral}
 import org.denigma.semweb.shex._
 
-object TaskItems extends ItemsMock{
+object TaskItems extends BasicSchema with ItemsMock{
 
   lazy val shapeRes = new IRI("http://shape.org")
   val desc = (WI.PLATFORM / "has_description").iri
@@ -16,15 +17,14 @@ object TaskItems extends ItemsMock{
   val priority = (WI.PLATFORM / "has_priority").iri
 
   val Daniel = de / "Daniel_Wuttke"
-  val ts = new ShapeBuilder(task)
-  ts has de /"is_authored_by" occurs Star //occurs Plus
-  ts has title occurs Star //occurs ExactlyOne
+  val taskShape = new ShapeBuilder(task) has
+  de /"is_authored_by" occurs Star and //occurs Plus
+  title occurs Star and //occurs ExactlyOne
   //art has de / "date" occurs Star //occurs ExactlyOne
-  ts has desc of XSD.StringDatatypeIRI  occurs Star//occurs Star
-  ts has assigned occurs Star //occurs Plus
-  ts has priority occurs Star //occurs Plus
-  ts has completed of XSD.BooleanDatatypeIRI  occurs Star//occurs Star
-  val taskShape: Shape = ts.result
+  desc of XSD.StringDatatypeIRI  occurs Star and//occurs Star
+  assigned occurs Star and//occurs Plus
+  priority occurs Star and //occurs Plus
+  completed of XSD.BooleanDatatypeIRI  occurs Star shape//occurs Star
 
 
   val taskIntegrase = PropertyModel(

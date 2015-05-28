@@ -102,20 +102,21 @@ trait PropertyBinder {
 
   /**
    * Creates a handler that changes rx value according to element property
-   * @param el
+   * @param el html element to which property we bind to
    * @param par
    * @param pname property name
    * @tparam T
    * @return
    */
-  def makePropHandler[T<:Event](el:HTMLElement,par:Rx[String],pname:String):(T)=>Unit = this.makeEventHandler[T,String](el,par){ (ev,v,elem)=>
-    elem \ pname  match {
-      case Some(pvalue)=>
-        if(v.now!=pvalue.toString) {
-          v()=pvalue.toString
-        }
+  def makePropHandler[T<:Event](el:HTMLElement,par:Rx[String],pname:String):(T)=>Unit = this.makeEventHandler[T,String](el,par){
+    (ev,v,elem)=>
+      elem \ pname  match {
+        case Some(pvalue)=>
+          if(v.now!=pvalue.toString) {
+            v()=pvalue.toString
+          }
 
-      case None => dom.console.error(s"no attributed for $pname")
+     case None => dom.console.error(s"no $pname in $el to which we bind $par")
     }
   }
 

@@ -21,7 +21,7 @@ import scala.util.{Failure, Success}
  */
 class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:ArcRule,
                            prefixes:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes)
-                            )(val suggest:(IRI,String)=>Future[collection.Seq[RDFValue]])
+                            )(val suggest:( IRI,String)=>Future[collection.Seq[RDFValue]])
   extends ModelBinder(view,modelInside) with BinderWithSelection[ShapedPropertySelector]
 {
 
@@ -93,8 +93,8 @@ class ShapedPropertyBinder(view:BindableView,modelInside:Var[ModelInside], arc:A
         s
       })
       sel.sel.lock()
-
       sel.fillValues(mod)
+      sel.sel.unlock()
     }
   }
 

@@ -1,24 +1,22 @@
-import com.typesafe.sbt.web.{PathMapping, SbtWeb}
-import playscalajs.ScalaJSPlay.autoImport._
-import playscalajs.{PlayScalaJS, ScalaJSPlay}
-import sbt.Project.projectToRef
-import sbt.Keys._
-import sbt._
-import bintray.Plugin._
-import bintray.Keys._
+import bintray._
+import bintray.BintrayPlugin.autoImport._
 import com.typesafe.sbt.digest.Import._
 import com.typesafe.sbt.gzip.Import._
 import com.typesafe.sbt.less.Import.LessKeys
 import com.typesafe.sbt.packager.universal.UniversalKeys
+import com.typesafe.sbt.web.SbtWeb
+import com.typesafe.sbt.web.SbtWeb.autoImport._
 import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
-import com.typesafe.sbt.web.SbtWeb.autoImport._
-import playscalajs.PlayScalaJS.autoImport._
-import play.PlayScala
-
 import org.scalajs.sbtplugin.cross.CrossProject
-
+import play.PlayScala
 import play.twirl.sbt.Import.TwirlKeys
+import playscalajs.PlayScalaJS.autoImport._
+import playscalajs.ScalaJSPlay.autoImport._
+import playscalajs.{PlayScalaJS, ScalaJSPlay}
+import sbt.Keys._
+import sbt.Project.projectToRef
+import sbt._
 
 
 object BindingBuild extends sbt.Build with UniversalKeys {
@@ -34,7 +32,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     jsDependencies += RuntimeDOM % "test",
 
-    sourceMapsDirectories += binding.base / "..",
+    sourceMapsDirectories += bindingJs.base / "..",
 
     unmanagedSourceDirectories in Compile := Seq((scalaSource in Compile).value)
   )
@@ -47,7 +45,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     settings = frontEndSettings
 
 
-  ) enablePlugins(ScalaJSPlugin, ScalaJSPlay)  dependsOn  semanticBinding
+  ).enablePlugins(ScalaJSPlugin, ScalaJSPlay,BintrayPlugin)  dependsOn  semanticBinding
 
   lazy val semanticBindingSettings = sameSettings++publishSettings ++Seq(
 
@@ -62,22 +60,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     id = "semantic",
     base = file("semantic"),
     settings = semanticBindingSettings
-  )  enablePlugins ScalaJSPlugin dependsOn (binding, modelsJs)
-
-  lazy val bindingSettings = sameSettings++publishSettings ++ Seq(
-    version := Versions.binding,
-
-    name := "binding",
-
-    libraryDependencies ++= Dependencies.binding.value
-  )
-
-  lazy val binding = Project(
-    id = "binding",
-    base = file("binding"),
-    settings = bindingSettings
-  )  enablePlugins ScalaJSPlugin dependsOn (jsmacro, modelsJs)
-
+  ).enablePlugins(ScalaJSPlugin,BintrayPlugin) dependsOn (bindingJs, modelsJs)
 
 
   lazy val modelsJsSettings =  sameSettings ++ publishSettings++ Seq(
@@ -89,10 +72,40 @@ object BindingBuild extends sbt.Build with UniversalKeys {
   lazy val models = CrossProject("models",new File("models"),CrossType.Full).
     settings(sameSettings: _*).
     jsSettings(modelsJsSettings: _* ).
-    jvmSettings(modelsJvmSettings: _* )
+    jvmSettings(modelsJvmSettings: _* ).
+    enablePlugins(BintrayPlugin)
 
   lazy val modelsJs = models.js
-  lazy val modelsJvm   = models.jvm
+  lazy val modelsJvm   = models.jvm.dependsOn(bindingJvm)
+
+
+  lazy val bindingSharedSettings = sameSettings++publishSettings ++ Seq(
+    version := Versions.binding,
+    name := "binding",
+    scalaVersion:=Versions.scala
+  )
+
+  lazy val bindingSettingsJS = bindingSharedSettings ++ Seq(
+
+    libraryDependencies ++= Dependencies.bindingJS.value
+  )
+
+  lazy val bindingSettingsJVM = bindingSharedSettings ++ Seq(
+
+    libraryDependencies ++= Dependencies.bindingJVM.value
+  )
+
+
+  lazy val binding = CrossProject("binding",new File("binding"),CrossType.Full).
+    settings(bindingSharedSettings: _*).
+    enablePlugins(BintrayPlugin).
+    jsSettings(bindingSettingsJS: _* ).
+    jvmSettings( bindingSettingsJVM: _* )
+    .enablePlugins(BintrayPlugin)
+
+  lazy val bindingJs = binding.js dependsOn (jsmacro)
+  lazy val bindingJvm   = binding.jvm
+
 
 
   lazy val jsMacroSettings = sameSettings++ publishSettings ++ Seq(
@@ -110,9 +123,9 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     id = "js-macro",
     base = file("jsmacro"),
     settings = jsMacroSettings
-  ) enablePlugins ScalaJSPlugin
+  ).enablePlugins(ScalaJSPlugin,BintrayPlugin)
 
-  lazy val bindingPlaySettings = sameSettings ++ bintraySettings ++ publishSettings ++ Seq(
+  lazy val bindingPlaySettings = sameSettings  ++ publishSettings ++ Seq(
     name := "binding-play",
 
     version := Versions.bindingPlay,
@@ -124,7 +137,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     id = "binding-play",
     base = file("binding-play"),
     settings = bindingPlaySettings
-  ) dependsOn modelsJvm
+  ).dependsOn(modelsJvm) enablePlugins BintrayPlugin
 
 
   lazy val previewSettings = sameSettings ++ Seq(
@@ -164,13 +177,13 @@ object BindingBuild extends sbt.Build with UniversalKeys {
   protected lazy val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
 
 
-  lazy val sameSettings = bintraySettings ++Seq(
+  lazy val sameSettings = Seq(
 
     organization := "org.denigma",
 
     version := Versions.main,
 
-    scalaVersion := "2.11.6",
+    scalaVersion := Versions.scala,
 
     resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"),
 
@@ -182,17 +195,23 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     resolvers += Resolver.sonatypeRepo("snapshots"),
 
+    resolvers += Resolver.bintrayRepo("inthenow","releases"),
+
     scalacOptions ++= Seq( "-feature", "-language:_" ),
 
-    parallelExecution in Test := false
+    parallelExecution in Test := false,
+
+    javaOptions in (Test,run) += "-Xmx4G",
+
+    updateOptions := updateOptions.value.withCachedResolution(true)
 
   )
 
 
   lazy val publishSettings = Seq(
-    repository in bintray := "denigma-releases",
+    bintrayRepository := "denigma-releases",
 
-    bintrayOrganization in bintray := Some("denigma"),
+    bintrayOrganization := Some("denigma"),
 
     licenses += ("MPL-2.0", url("http://opensource.org/licenses/MPL-2.0")),
 

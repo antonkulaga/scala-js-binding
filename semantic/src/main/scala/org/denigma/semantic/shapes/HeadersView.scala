@@ -42,7 +42,7 @@ class HeadersView(val elem:HTMLElement, val params:Map[String,Any],father:Option
     }
   }.getOrElse(   Var(ShapeInside.apply(Shape.empty))  )
 
-  val items = shapeInside.map(sh=>sh.current.arcRules().map(r=>Var(r)))
+  val items = shapeInside.map(sh=>sh.current.arcSorted.map(r=>Var(r)))
 
   override def newItem(item:Item):ItemView = this.constructItem(item,Map("item"->item)) { (e,m)=> HeadersView.apply(e,m) }
 

@@ -141,10 +141,14 @@ trait BinderWithSelection[Selector<:PropertySelector] {
   var selectors: Map[HTMLElement, Selector] = Map.empty[HTMLElement,Selector]
 
   def typeHandler(el: HTMLElement, key: IRI)(str:String) =
-  //this.storage.read()
+  {
     this.selectors.get(el) match
-    { case Some(sel)=> suggestHandler(sel)(key, str)
-    case None=>dom.console.error(s"cannot find selector for ${key.stringValue}")  }
+    {
+      case Some(sel)=> suggestHandler(sel)(key, str)
+      case None=>dom.console.error(s"cannot find selector for ${key.stringValue}")
+    }
+
+  }
 
   protected def suggestHandler(sel:Selector)(key: IRI, str: String): Unit = {
     this.suggest(key, str).onComplete {

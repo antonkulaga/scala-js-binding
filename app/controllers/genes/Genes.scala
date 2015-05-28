@@ -2,6 +2,7 @@ package controllers.genes
 
 import controllers._
 import org.denigma.endpoints.{UserAction, UserRequestHeader}
+import org.denigma.schemas.genes.LoadGenAge
 import org.denigma.semweb.rdf.{BasicTriplet, IRI, Quad, Trip}
 import org.denigma.semweb.shex.PropertyModel
 import org.openrdf.model.Statement
@@ -13,7 +14,7 @@ import scala.io.Source
 /**
  * Literature controller
  */
-object Genes extends PJaxPlatformWith("literature") with LoadGenAge{
+object Genes extends PjaxController with LoadGenAge{
 
   override def page(implicit request:UserRequestHeader,html:Option[Html] = None,into:String = "main"): Result = {
     Ok(views.html.index(request,html,into,false))

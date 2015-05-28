@@ -1,12 +1,12 @@
-package org.denigma.semantic.controls.general
+package org.denigma.semantic.menus
 
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.models.MenuItem
 import org.denigma.binding.views.collections.MapCollectionView
 import org.denigma.semantic.storages.SimpleStorage
+import org.denigma.semweb.rdf.Res
 import org.scalajs.dom
 import org.scalajs.dom.raw.{HTMLElement, XMLHttpRequest}
-import org.denigma.semweb.rdf.Res
 import prickle.{Pickle, Unpickle}
 import rx._
 

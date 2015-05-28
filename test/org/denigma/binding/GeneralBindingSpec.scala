@@ -20,7 +20,7 @@ self=>
   "test binding" in new WithServer(app = FakeApplication(withGlobal = Some(TestGlobal)), port = testPort) {
 
 
-    browser.goTo(s"http://localhost:$testPort/general")
+    browser.goTo(s"http://localhost:$testPort/menus")
     val div = browser.first(s"#div1").get
     val input = browser.first(s"#input1").get
     val area = browser.first(s"#area1").get

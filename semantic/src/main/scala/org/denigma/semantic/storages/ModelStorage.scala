@@ -60,7 +60,8 @@ class AjaxModelStorage(path:String) extends ModelStorage{
   }
 
   override def suggest(shape:Res,modelRes:Res,prop:IRI,typed:String): Future[Suggestion] = {
-    val data = ModelMessages.Suggest(shape,modelRes,prop:IRI, typed, this.genId(),channel = this.channel)
+    val data =ModelMessages.SuggestObject(shape,modelRes,prop,typed, this.genId(),channel = this.channel)
+    //ModelMessages.Suggest(shape,modelRes,prop:IRI, typed, this.genId(),channel = this.channel)
     //sq.post(channel,data):Future[Suggestion]
     this.postBackSuggestion(data)
   }

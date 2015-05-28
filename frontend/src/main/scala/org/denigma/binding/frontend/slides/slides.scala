@@ -292,15 +292,13 @@ class RowView(elem:HTMLElement,params:Map[String,Any] = Map.empty[String,Any]) e
   override def modelOption = Some(Var(ModelInside(taskIntegrase)))
 
   def taskShape() = {
-    val ts = new ShapeBuilder(task)
-
-    //ts has de / "is_authored_by" occurs Star //occurs Plus
-    ts has title occurs Star //occurs ExactlyOne
+    new ShapeBuilder(task) has
+    //de / "is_authored_by" occurs Star //occurs Plus
+    title occurs Star and //occurs ExactlyOne
     //art has de / "date" occurs Star //occurs ExactlyOne
-    ts has desc of XSD.StringDatatypeIRI occurs Star //occurs Star
-    ts has assigned occurs Star //occurs Plus
-    ts has completed of XSD.BooleanDatatypeIRI occurs Star //occurs Star
-    ts.result
+    desc of XSD.StringDatatypeIRI occurs Star and //occurs Star
+    assigned occurs Star and //occurs Plus
+    completed of XSD.BooleanDatatypeIRI occurs Star shape //occurs Star
   }
 
 

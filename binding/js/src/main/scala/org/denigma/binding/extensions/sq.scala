@@ -1,20 +1,11 @@
 package org.denigma.binding.extensions
 
+import org.scalajs.dom
 import org.scalajs.dom.ext.Ajax
 import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.{Attr, _}
 
-import scala.Some
-import scalajs.js.UndefOr
-
-import org.scalajs.dom._
-
-import org.scalajs.dom.Attr
-import org.scalajs.dom
-import scala.scalajs.js.Dynamic.{global => g}
-import scala.scalajs.js
 import scala.concurrent.Future
-
-
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success, Try}
 
@@ -111,14 +102,14 @@ object sq
   /**
    * Posts with pickling and unpickling (with Prickle)
    * @param url URL of the request
-   * @param data
-   * @param timeout
-   * @param headers
+   * @param data data to post to the server
+   * @param timeout max timeout that is allowed
+   * @param headers http headers for the request
    * @param withCredentials
-   * @param pickle
-   * @param unpickle
-   * @tparam TIn
-   * @tparam TOut
+   * @param pickle function that pickles data to send to the server
+   * @param unpickle function that unpickles server response
+   * @tparam TIn input type
+   * @tparam TOut outpit type (form response)
    * @return
    */
   def tryPost[TIn,TOut]( url:String,data:TIn,timeout:Int = 0,

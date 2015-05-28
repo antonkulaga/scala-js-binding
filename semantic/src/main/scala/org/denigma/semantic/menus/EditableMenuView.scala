@@ -1,4 +1,4 @@
-package org.denigma.semantic.controls.general
+package org.denigma.semantic.menus
 
 import org.scalajs.dom.raw.HTMLElement
 

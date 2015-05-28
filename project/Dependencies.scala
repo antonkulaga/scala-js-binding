@@ -7,13 +7,19 @@ object Dependencies
 
   val shared = Def.setting(Seq())
 
-  val preview = Def.setting(shared.value ++ Seq(
+  val compilers = Def.setting(shared.value ++ Seq(
+    "org.scala-lang" % "scala-compiler" % Versions.scala
+  ))
+
+  val preview = Def.setting(shared.value ++  Seq(
 
     "com.vmunier" %% "play-scalajs-scripts" %  Versions.playScripts,
 
     "org.scala-lang.modules" %% "scala-async" % "0.9.2",
 
     "org.denigma" %% "semweb-sesame" % Versions.semWeb,
+
+    "org.denigma" %% "schemas" % Versions.schemas,
 
     "org.w3" %% "banana-sesame" % Versions.banana excludeAll ExclusionRule(organization = "org.openrdf.sesame"), //sesame bunding to bananardf
 
@@ -26,8 +32,6 @@ object Dependencies
     "com.markatta" %% "scalenium" % Versions.scalenium % "test"  excludeAll ExclusionRule(organization = "org.specs2"),
 
     "org.specs2" %% "specs2-core" % Versions.specs2 % "test",
-
-    "org.scalaz" %% "scalaz-core" % Versions.scalaz,
 
     "com.github.cb372" %% "scalacache-lrumap" % Versions.lruMap,
 
@@ -76,7 +80,7 @@ object Dependencies
 
   ))
 
-  val binding = Def.setting(shared.value++Seq(
+  val bindingJS: Def.Initialize[Seq[ModuleID]] = Def.setting(shared.value++Seq(
 
     "be.doeraene" %%% "scalajs-jquery" % Versions.scalajsJquery,
 
@@ -86,10 +90,19 @@ object Dependencies
 
     "com.lihaoyi" %%% "scalarx" % Versions.scalaRx
 
+    //"org.w3" %%% "banana-n3-js" % Versions.banana
+
   )  )
 
-  val semanticBinding = Def.setting(shared.value++Seq(
+  val bindingJVM: Def.Initialize[Seq[ModuleID]] = Def.setting(shared.value++Seq(
 
+    "com.softwaremill.quicklens" %% "quicklens" % Versions.quicklens,
+
+    "com.lihaoyi" %% "scalarx" % Versions.scalaRx
+
+  )  )
+
+  val semanticBinding: Def.Initialize[Seq[ModuleID]]  = Def.setting(shared.value++Seq(
     "org.w3" %%% "banana-n3-js" % Versions.banana
   ))
 
@@ -98,7 +111,7 @@ object Dependencies
 
     "com.typesafe.play" %% "play" %  Versions.play % "provided",
 
-    "com.softwaremill.quicklens" %% "quicklens" % Versions.quicklens
+    "net.ruippeixotog" %% "scala-scraper" % Versions.scraper
   ))
 
   val ui = Def.setting(shared.value++Seq(

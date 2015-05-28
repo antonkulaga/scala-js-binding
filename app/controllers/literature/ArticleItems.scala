@@ -1,24 +1,24 @@
 package controllers.literature
 
 import controllers.endpoints.{ItemsMock, Items}
+import org.denigma.schemas.common.BasicSchema
 import org.denigma.semweb.rdf.vocabulary.{RDF, XSD}
 import org.denigma.semweb.rdf.{IRI, RDFValue, StringLiteral, vocabulary}
 import org.denigma.semweb.shex.{Star, PropertyModel, ShapeBuilder}
 
 
 
-object ArticleItems extends ItemsMock{
+object ArticleItems extends BasicSchema with ItemsMock{
 
 
 
-  private lazy val art = new ShapeBuilder(de / "Article_Shape")
-  art has de /"is_authored_by" occurs Star //occurs Plus
-  art has de / "is_published_in" occurs Star //occurs Plus
-  art has dc / "title" occurs Star //occurs ExactlyOne
-  //art has de / "date" occurs Star //occurs ExactlyOne
-  art has de / "abstract" of XSD.StringDatatypeIRI  occurs Star//occurs Star
-  art has  de / "excerpt" of XSD.StringDatatypeIRI  occurs Star//occurs Star
-  val paperShape = art.result
+  val paperShape = new ShapeBuilder(de / "Article_Shape") has
+  de /"is_authored_by" occurs Star and //occurs Plus
+  de / "is_published_in" occurs Star and //occurs Plus
+  dc / "title" occurs Star and //occurs ExactlyOne
+  //de / "date" occurs Star //occurs ExactlyOne
+  de / "abstract" of XSD.StringDatatypeIRI  occurs Star and
+  de / "excerpt" of XSD.StringDatatypeIRI  occurs Star shape
 
   def populate(holder:Items)  = {
     holder.properties = this.properties

@@ -1,11 +1,8 @@
-package org.denigma.semantic.controls.datagrids
-
+package org.denigma.semantic.grids
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
 import org.denigma.binding.messages.ExploreMessages
-import org.denigma.binding.views.BindableView
-import org.denigma.semantic.grids.ExplorableCollection
 import org.denigma.semantic.models.RemoteModelView
 import org.denigma.semantic.rdf.ModelInside
 import org.denigma.semantic.shapes.{PropertyView, ShapedModelView}

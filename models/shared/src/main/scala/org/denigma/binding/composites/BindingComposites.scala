@@ -1,13 +1,9 @@
 package org.denigma.binding.composites
 
-import org.denigma.binding.messages.{Filters, ExploreMessages, ModelMessages}
-import org.denigma.binding.messages.ModelMessages.{ModelMessage, Suggest}
+import org.denigma.binding.messages.ModelMessages.ModelMessage
+import org.denigma.binding.messages.{ExploreMessages, Filters, ModelMessages}
 import org.denigma.semweb.composites.{MessagesComposites, ShapePicklers}
-import org.denigma.semweb.rdf
-import org.denigma.semweb.rdf.{RDFValue, Lit}
 import prickle._
-import scala.reflect.classTag
-import scala.util.Try
 
 class BindingMessageComposites extends ShapePicklers with MessagesComposites
 {
@@ -26,13 +22,17 @@ class BindingMessageComposites extends ShapePicklers with MessagesComposites
   implicit lazy val deletePickler: Pickler[ModelMessages.Delete] = Pickler.materializePickler[ModelMessages.Delete]
   implicit lazy val deleteUnpickler: Unpickler[ModelMessages.Delete] = Unpickler.materializeUnpickler[ModelMessages.Delete]
 
-  implicit lazy val suggestPickler: Pickler[Suggest] = Pickler.materializePickler[ModelMessages.Suggest]
-  implicit lazy val suggestUnpickler: Unpickler[Suggest] = Unpickler.materializeUnpickler[ModelMessages.Suggest]
+  implicit lazy val suggestFactPickler: Pickler[ModelMessages.SuggestFact] = Pickler.materializePickler[ModelMessages.SuggestFact]
+  implicit lazy val suggestFactUnpickler: Unpickler[ModelMessages.SuggestFact] = Unpickler.materializeUnpickler[ModelMessages.SuggestFact]
+
+  implicit lazy val suggestObjectPickler: Pickler[ModelMessages.SuggestObject] = Pickler.materializePickler[ModelMessages.SuggestObject]
+  implicit lazy val suggestObjectUnpickler: Unpickler[ModelMessages.SuggestObject] = Unpickler.materializeUnpickler[ModelMessages.SuggestObject]
+
 
 
   implicit lazy val modelsMessages: PicklerPair[ModelMessage] = CompositePickler[ModelMessages.ModelMessage]
     .concreteType[ModelMessages.Read].concreteType[ModelMessages.Create]
-    .concreteType[ModelMessages.Suggest].concreteType[ModelMessages.Update]
+    .concreteType[ModelMessages.SuggestFact].concreteType[ModelMessages.SuggestObject].concreteType[ModelMessages.Update]
     .concreteType[ModelMessages.Delete]
 
 

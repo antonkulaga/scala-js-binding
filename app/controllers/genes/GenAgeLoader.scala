@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat
 
 import com.github.marklister.collections._
 import com.github.marklister.collections.io.CsvParser
+import org.denigma.schemas.genes.GeneSchema
 import org.denigma.semweb.rdf._
 import org.denigma.semweb.rdf.vocabulary.{RDFS, XSD}
 import org.denigma.semweb.shex._
@@ -11,7 +12,7 @@ import org.denigma.semweb.shex._
 import scala.collection.immutable._
 import scala.util.Try
 
-trait LoadGenAge extends GeneSchema{
+trait GenAgeLoader extends GeneSchema{
 
   lazy val formats:List[SimpleDateFormat] = List(
     new SimpleDateFormat("dd/MM/yyyy"),
@@ -23,7 +24,7 @@ trait LoadGenAge extends GeneSchema{
   )
 
 
-  lazy val genAgePairs: Map[String, IRI] = Map("cDB" ->db,
+  lazy val genAgePairs: Map[String, IRI] = Map(//"cDB" ->db,
     "DB.Object.ID"-> dbObjectName,
     "DB.Object.Symbol"->symbol,
     "ENTREZID"-> entrezId,
@@ -40,7 +41,7 @@ trait LoadGenAge extends GeneSchema{
     "Tissue" ->tissue,
     "Influence" ->influence)
 
-  lazy val annotationPairs: Map[String, IRI] = Map("DB" ->db,
+  lazy val annotationPairs: Map[String, IRI] = Map(//"DB" ->db,
     "DB Object Name" ->dbObjectName,
     "DB Object ID"-> objId,
     "DB Object Symbol"->symbol,
@@ -231,3 +232,4 @@ trait LoadGenAge extends GeneSchema{
 
 
 }
+

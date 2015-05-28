@@ -24,7 +24,7 @@ abstract class ShapedModelView(val elem:HTMLElement,val params:Map[String,Any]) 
     }
   }
 
-  override val items: Rx[List[Item]] =  shapeInside.map(sh=>sh.current.arcSorted())
+  override val items: Rx[List[Item]] =  shapeInside.map(sh=>sh.current.arcSorted)
 
 
 }

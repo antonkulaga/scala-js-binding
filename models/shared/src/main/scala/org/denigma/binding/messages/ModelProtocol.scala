@@ -23,7 +23,9 @@ object ModelMessages  extends ModelProtocol {
 
   case class Delete(shape:Res,res:Set[Res], id:String  , channel:String = Channeled.default, time:Date = new Date())  extends  ModelMessage
 
-  case class Suggest(shape:Res,modelRes:Res,ruleOrProp:Res,typed:String,id:String  , channel:String = Channeled.default, time:Date = new Date()) extends ModelMessage
+  case class SuggestObject(shape:Res,subject:Res,ruleOrProp:IRI,typed:String,id:String  , channel:String = Channeled.default, time:Date = new Date()) extends ModelMessage
+
+  case class SuggestFact(subject:Res,rule:Res,typed:String,id:String  , channel:String = Channeled.default, time:Date = new Date()) extends ModelMessage
 
 
   type CreateMessage = Create
@@ -35,7 +37,7 @@ object ModelMessages  extends ModelProtocol {
 }
 
 /**
- * Just come constrains to keep CRUD protocols in order
+ * Just some constrains to keep CRUD protocols in order
  */
 trait ModelProtocol {
 

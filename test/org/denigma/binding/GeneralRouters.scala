@@ -9,7 +9,7 @@ trait GeneralRouters  {
 
   lazy val generalRoutes : PartialFunction[(String,String), Handler] = {
 
-    case ("GET", "/general") => UserAction{implicit request =>
+    case ("GET", "/menus") => UserAction{implicit request =>
       val html:Html = twirl.html.general(request)
       Ok(twirl.html.test(html)(request))
     }

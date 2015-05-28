@@ -2,7 +2,7 @@ package org.denigma.binding.frontend
 
 import org.denigma.binding.binders.extractors.EventBinding
 import org.denigma.binding.extensions._
-import org.denigma.binding.frontend.controls.{DemoGrid, EditShapeView, ShapeEditor, ShapeProperty}
+import org.denigma.binding.frontend.controls.DemoGrid
 import org.denigma.binding.frontend.papers.{Report, ReportsView, Task, TasksView}
 import org.denigma.binding.frontend.slides._
 import org.denigma.binding.frontend.tests.{LongListView, RandomView, TestMacroView}
@@ -10,7 +10,8 @@ import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
 import org.denigma.controls.editors.{CkEditor, CodeMirrorEditor, editors}
 import org.denigma.controls.general.DatePairView
-import org.denigma.semantic.controls.datagrids.{DataGrid, GridCell, GridRow}
+import org.denigma.semantic.grids._
+import org.denigma.semantic.schema.{EditShapeView, ShapeEditor, ShapeProperty}
 import org.denigma.semantic.shapes.HeadersView
 import org.scalajs.dom
 import org.scalajs.dom.MouseEvent

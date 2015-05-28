@@ -2,19 +2,26 @@
 /**
  * Different components have different version we keep them here
  */
-object Versions extends LibVersions with WebJarsVersions with ScalaJSVersions{
+object Versions extends LibVersions with WebJarsVersions with ScalaJSVersions with SharedVersions
+{
 
-  val main = "0.7.6"
+  val main = "0.7.7"
 
-  val semWeb = "0.7.0"
+  val semWeb = "0.7.5"
 
-  val binding = "0.7.11"
+  val binding = "0.8.0"
 
-  val semanticBinding = "0.7.11"
+  val semanticBinding = "0.7.13"
 
-  val bindingPlay = "0.7.6"
+  val bindingPlay = "0.7.7"
 
-  val jsmacro = "0.1.9"
+  val jsmacro = "0.1.10"
+
+  val scala = "2.11.6"
+
+  val scraper = "0.1.1"
+
+  val schemas = "0.1"
 
 
 }
@@ -23,7 +30,7 @@ trait WebJarsVersions{
 
   val jquery =  "2.1.3"
 
-  val semanticUI = "1.11.6"
+  val semanticUI = "1.12.3"
 
   val threeJS = "r66"
 
@@ -31,7 +38,7 @@ trait WebJarsVersions{
 
   val selectize = "0.12.0"
 
-  val codeMirror = "4.11"
+  val codeMirror = "5.3"
 
   val ckeditor = "4.4.1"
 
@@ -43,23 +50,28 @@ trait WebJarsVersions{
  */
 trait ScalaJSVersions {
 
-
   val scalajsJquery =  "0.8.0"
 
   val dom = "0.8.0"
 
+  val codeMirrorFacade = "5.3-0.4"
+
+}
+
+//verrions for libs that are shared between client and server
+trait SharedVersions
+{
+  val autowire = "0.2.5"
+
   val scalaRx = "0.2.8"
 
-  val scalaTags = "0.5.1"
+  val scalaTags = "0.5.2"
 
   val quicklens = "1.3.1"
 
   val scalaCSS = "0.2.0"
 
   val productCollections = "1.4.2"
-
-  val codeMirrorFacade = "4.8-0.4"
-
 }
 
 
@@ -73,11 +85,9 @@ trait LibVersions {
 
   val sesame = "2.7.12"
 
-  val scalaz = "7.1.1"
-
   val specs2 = "3.1"
 
-  val play = "2.3.8"
+  val play = "2.3.9"
 
   val banana = "0.8.1"
 

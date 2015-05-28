@@ -32,7 +32,7 @@ object PageController extends Controller with PrickleController with AjaxModelEn
   val hello = IRI("http://page.org")
 
 
-  val helloModel = PropertyModel(hello,
+  val helloModel = new PropertyModel(hello,
     properties = Map(
       title -> Set(StringLiteral("HELLO WORLD")),
       text->Set(StringLiteral("TEXT")))
@@ -41,7 +41,7 @@ object PageController extends Controller with PrickleController with AjaxModelEn
 
   val rybka = IRI("http://rybka.org.ua/project")
 
-  val rybkaModel = PropertyModel(rybka,
+  val rybkaModel = new PropertyModel(rybka,
     properties = Map(
       header -> Set(StringLiteral("This is test rdf model that is kept in memory. You can switch on contenteditable mode and edit text directly")),
       title -> Set(StringLiteral("About Rybka Project")),
@@ -68,7 +68,10 @@ object PageController extends Controller with PrickleController with AjaxModelEn
     )
   )
 
-  def onSuggest(suggestMessage:ModelMessages.Suggest):ModelResult = ???
+  def onSuggest(suggestMessage:ModelMessages.SuggestFact):ModelResult = {
+    play.api.Logger.error("s onSuggest is not implemented for Page controller, the message was:\n ${suggestMessage}")
+    ???
+  }
 
 
   var items: Map[Res, PropertyModel] = Map(hello->helloModel, rybka->rybkaModel   )
@@ -120,6 +123,17 @@ object PageController extends Controller with PrickleController with AjaxModelEn
  }){implicit request=>
     this.onModelMessage(request.body)
 
+  }
+
+  override def onSuggestFact(suggestMessage: SuggestFact): ModelResult = {
+
+    play.api.Logger.error(s"onSuggestFact is not implemented for page controller, the messages was: \n${suggestMessage}")
+    ???
+  }
+
+  override def onSuggestObject(suggestMessage: SuggestObject): ModelResult = {
+    play.api.Logger.error(s"onSuggestObject is not implemented for page controller, the messages was: \n${suggestMessage}")
+    ???
   }
 }
 

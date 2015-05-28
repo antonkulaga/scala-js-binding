@@ -1,7 +1,7 @@
 package org.denigma.binding.frontend
 
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.controls.general.EditableMenuView
+import org.denigma.semantic.menus.EditableMenuView
 import org.scalajs.dom.raw.HTMLElement
 
 import scala.collection.immutable._

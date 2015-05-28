@@ -1,10 +1,12 @@
 package controllers.endpoints
 
+import org.denigma.schemas.common.BasicSchema
 import org.denigma.semweb.rdf.{Res, IRI, vocabulary}
 import org.denigma.semweb.shex.{PropertyModel, Shape, ShapeBuilder}
 
 trait ItemsMock
 {
+  self:BasicSchema=>
   protected var properties = List.empty[IRI]
 
   def addProperty(iri:IRI): IRI = {
@@ -14,7 +16,7 @@ trait ItemsMock
 
   def addProperty(label:String): IRI = this.addProperty(de / label)
 
-  protected val de = IRI("http://denigma.org/resource/")
+  //protected val de = IRI("http://denigma.org/resource/")
   protected val dc = IRI(vocabulary.DCElements.namespace)
   protected val pmid = de / "Pubmed"
 

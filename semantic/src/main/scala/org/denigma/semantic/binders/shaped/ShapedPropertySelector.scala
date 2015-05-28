@@ -96,36 +96,39 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
    * @param input
    * @return
    */
-  protected def valueFilter(input:String):Boolean =    arc.value match {
-        case ValueType(dtp)=> dtp match {
-          case XSD.BooleanDatatypeIRI=> input.toLowerCase match{
-            case "true" | "false"=> true
-            case _=>false}
-          //case XSD.Date=> Date.
-          case XSD.DecimalDatatypeIRI | XSD.DecimalDatatypeIRI => Try[Double](input.toDouble).isSuccess
-          case XSD.IntDatatypeIRI | XSD.IntegerDatatypeIRI => Try(input.toInt).isSuccess
-          case XSD.Date => input match {
-            case DateOnly(d)=> true
-            case _=>false
-          }
-          case XSD.DateTime => input match {
-            case DateTime(d)=> true
-            case _=>false
-          }
-
-          case _=> input!=""
+  protected def valueFilter(input:String):Boolean =    {
+    dom.console.log("VALUE FILTER WORKS")
+    arc.value match {
+      case ValueType(dtp)=> dtp match {
+        case XSD.BooleanDatatypeIRI=> input.toLowerCase match{
+          case "true" | "false"=> true
+          case _=>false}
+        //case XSD.Date=> Date.
+        case XSD.DecimalDatatypeIRI | XSD.DecimalDatatypeIRI => Try[Double](input.toDouble).isSuccess
+        case XSD.IntDatatypeIRI | XSD.IntegerDatatypeIRI => Try(input.toInt).isSuccess
+        case XSD.Date => input match {
+          case DateOnly(d)=> true
+          case _=>false
+        }
+        case XSD.DateTime => input match {
+          case DateTime(d)=> true
+          case _=>false
         }
 
-        //case ValueStem(st)=>
-        case ValueSet(els)=>
-          val result = els.exists{   case v=>v.stringValue == input || v.label==input   }
-          //dom.console.log(s"$input with VALUESET FOR:"+ els.toString+s" RESULT = $result")
-          result
+        case _=> input!=""
+      }
 
-        //case ValueAny(stem)=> !ex.exists{   case v=>v.stringValue == input || v.label==input   }
+      //case ValueStem(st)=>
+      case ValueSet(els)=>
+        val result = els.exists{   case v=>v.stringValue == input || v.label==input   }
+        //dom.console.log(s"$input with VALUESET FOR:"+ els.toString+s" RESULT = $result")
+        result
 
-        case other => true //TODO: figure out other cases
+      //case ValueAny(stem)=> !ex.exists{   case v=>v.stringValue == input || v.label==input   }
+
+      case other => true //TODO: figure out other cases
     }
+  }
 
 
   /**
@@ -133,8 +136,11 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
    * @param input
    * @return
    */
-  override def createFilter(input:String):Boolean =this.cardinalityFilter(input) && this.valueFilter(input)
+  override def createFilter(input:String):Boolean ={
+    this.cardinalityFilter(input) && this.valueFilter(input)
+  }
 
+  override def createFilterHandler :js.Function1[String,Boolean] = createFilter _
   /**
    * Settings for selectize selectors
    * @param el

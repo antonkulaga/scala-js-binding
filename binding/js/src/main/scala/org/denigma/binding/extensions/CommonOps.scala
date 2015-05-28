@@ -6,6 +6,14 @@ import org.scalajs.dom
 
 trait CommonOps {
 
+  implicit class StringPath(str:String) {
+    def  isPartOfUrl = str.startsWith("/") || str.startsWith("#") || str.startsWith("?")
+
+    def /(child:String): String = if(str.endsWith("/") || str.endsWith("#") || str.endsWith("?")) str+child else str+ "/" +child
+
+
+  }
+
   implicit class OptionOpt[T](source:Option[T]){
 
     def orError(str:String) = if(source.isEmpty) dom.console.error(str)
@@ -14,10 +22,6 @@ trait CommonOps {
 
   implicit class ThrowableOpt(th:Throwable) {
     def stackString = th.getStackTrace.foldLeft("")( (acc,el)=>acc+"\n"+el.toString)
-  }
-
-  implicit class StringOpt(str:String) {
-    def  isPartOfUrl = str.startsWith("/") || str.startsWith("#") || str.startsWith("?")
   }
 
   implicit class MapOpt[TValue](source:Map[String,TValue]) {

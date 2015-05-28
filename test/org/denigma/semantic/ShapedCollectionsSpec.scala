@@ -1,5 +1,6 @@
 package org.denigma.semantic
 
+import controllers.endpoints.MainEndpoint
 import org.denigma.binding.{BindingSpec, Browser, GeneralRouters}
 import org.denigma.endpoints.UserAction
 import org.openqa.selenium.chrome.ChromeDriver
@@ -17,6 +18,10 @@ self=>
       Ok(twirl.html.test(html)(request))
     }
 
+
+    case ("POST", "/shapes") => MainEndpoint.shapeEndpoint()
+    case ("POST", "/crud") =>  MainEndpoint.modelEndpoint()
+    case ("POST", "/explore") =>   MainEndpoint.exploreEndpoint()
   }
 
 
@@ -48,6 +53,9 @@ self=>
         titles.size == 2 && desc.size==2
       }
     }.toBecomeTrue()
+
+    browser.goTo(s"http://localhost:$testPort/editor") //no test shapes
+
   }
 
 

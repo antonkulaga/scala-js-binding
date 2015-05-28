@@ -1,10 +1,6 @@
 package org.denigma.selectors
 
-import org.denigma.selectize.Selectize
 import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.jquery._
-import org.denigma.binding.extensions._
-import org.denigma.semweb.rdf.RDFValue
 import rx.core.Var
 
 import scala.scalajs.js

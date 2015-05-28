@@ -1,26 +1,27 @@
-package org.denigma.binding.frontend.controls
+package org.denigma.semantic.schema
 
 import org.denigma.binding.binders.extractors.EventBinding
-import org.denigma.binding.frontend.FrontEndStore
+import org.denigma.binding.extensions._
 import org.denigma.semantic.binders.RDFBinder
 import org.denigma.semantic.models.WithShapeView
 import org.denigma.semantic.shapes.{ArcView, ShapeView}
+import org.denigma.semantic.store.FrontEndStore
+import org.denigma.semweb.rdf.vocabulary.{RDF, WI}
+import org.denigma.semweb.shex._
 import org.scalajs.dom
 import org.scalajs.dom.MouseEvent
 import org.scalajs.dom.raw.HTMLElement
-import org.denigma.semweb.rdf.vocabulary.{WI, RDF}
-import org.denigma.semweb.shex._
 import rx._
 import rx.core.Var
 import rx.ops._
-import org.denigma.binding.extensions._
-import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
+import scalajs.concurrent.JSExecutionContext.Implicits.queue
+
 import scala.util.{Failure, Success}
 
 object EditShapeView
 {
 
-  lazy val emptyArcRule: ArcRule =  ArcRule.apply(RDF.VALUE,WI.PLATFORM.EMPTY)
+  //lazy val emptyArcRule: ArcRule =  ArcRule.apply(RDF.VALUE,WI.PLATFORM.EMPTY)
 
   def apply(elem:HTMLElement,mp:Map[String,Any]) = {
     new ShapeProperty(elem,mp)
@@ -63,7 +64,7 @@ class EditShapeView (val elem:HTMLElement,val params:Map[String,Any]) extends  S
   val addClick: Var[MouseEvent] = Var(EventBinding.createMouseEvent())
 
   val onAddClick = rx.extensions.AnyRx(addClick).handler{
-    val item: Var[ArcRule] = Var(EditShapeView.emptyArcRule)
+    val item: Var[ArcRule] = Var(ArcRule.empty)
     this.rules() = rules.now + item
   }
 

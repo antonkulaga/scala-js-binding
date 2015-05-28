@@ -1,16 +1,11 @@
-package org.denigma.binding.frontend
+package org.denigma.semantic.store
 
-import java.io.StringWriter
-
-import org.denigma.semantic.store.{TurtleJSWriter, SemanticJS}
 import org.denigma.semweb.rdf._
-import org.w3.banana.{RDF, RDFOps, RDFStore}
+import org.w3.banana.RDFOps
 import org.w3.banana.io.{RDFReader, RDFWriter, Turtle}
 
-import scala.concurrent.{Promise, Future}
+import scala.concurrent.{Future, Promise}
 import scala.scalajs.js
-import scala.util.{Failure, Success, Try}
-import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
 object FrontEndStore
 {

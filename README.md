@@ -74,13 +74,13 @@ In your sbt config you should add resolver and dependency
 ```scala
 resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
 
-libraryDependencies += "org.denigma" %%% "binding" % "0.7.6"
+libraryDependencies += "org.denigma" %%% "binding" % "0.7.13"
 ```
 
 If you want to use semantic-web binding (binding to RDF Graphs) than also add 
 
 ```scala
-libraryDependencies += "org.denigma" %%% "semantic-binding" % "0.7.6"
+libraryDependencies += "org.denigma" %%% "semantic-binding" % "0.7.13"
 ```
 
 The library is published for scalajs 0.6.x and scala 2.11.6

@@ -23,7 +23,7 @@ trait ShapeEndpoint extends   Items with AjaxShapeEndpoint with PrickleControlle
 
   override type ShapeResult =  Future[Result]
 
-  lazy val allShapes = IRILabel(WI.pl("AllShapes"))
+  //lazy val allShapes = IRILabel(WI.pl("AllShapes"))
 
   lazy val defaultPrefixes = Seq(RDF.prefix->RDF.namespace,"rdfs"->RDFS.namespace,"owl"->OWL.namespace,"dc"->DCElements.namespace,"dct"->DCTerms.namespace)
 
@@ -32,7 +32,7 @@ trait ShapeEndpoint extends   Items with AjaxShapeEndpoint with PrickleControlle
 
     import org.denigma.semweb.composites.SemanticComposites._
     val shs = this.shapes.values.toList
-    val shapes: ShEx = ShEx(allShapes,shs,shs.headOption.map(_.id),Some(allShapes.iri.label),defaultPrefixes)
+    val shapes: ShEx = ShEx(WI.PLATFORM.ALL_SHAPES,shs,shs.headOption.map(_.id),Some(WI.PLATFORM.ALL_SHAPES.label),defaultPrefixes)
     val p = Pickle.intoString[ShEx](shapes)
     //val p = rp.pickle(this.shapes.values.toList)
     Future.successful(this.pack(p))
@@ -41,7 +41,7 @@ trait ShapeEndpoint extends   Items with AjaxShapeEndpoint with PrickleControlle
   def getShex(shex:ShapeMessages.GetShEx) = {
     import org.denigma.semweb.composites.SemanticComposites._
     val shs = this.shapes.values.toList
-    val shapes: ShEx = ShEx(allShapes,shs,shs.headOption.map(_.id),Some(allShapes.iri.label),defaultPrefixes)
+    val shapes: ShEx = ShEx(WI.PLATFORM.ALL_SHAPES,shs,shs.headOption.map(_.id),Some(WI.PLATFORM.ALL_SHAPES.label),defaultPrefixes)
     val p = Pickle.intoString[ShEx](shapes)
     //val p = rp.pickle(this.shapes.values.toList)
     Future.successful(this.pack(p))

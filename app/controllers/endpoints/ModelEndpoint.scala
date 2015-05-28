@@ -1,7 +1,7 @@
 package controllers.endpoints
 
 import java.util.Date
-import org.denigma.binding.messages.Suggestion
+import org.denigma.binding.messages.{ModelMessages, Suggestion}
 import org.denigma.endpoints.{PrickleController, AjaxModelEndpoint, AuthRequest, UserAction}
 import org.denigma.semweb.shex.PropertyModel
 import play.api.libs.json.Json
@@ -98,7 +98,7 @@ trait ModelEndpoint extends AjaxModelEndpoint with PrickleController with Items{
     }
   }
 
-  def suggestModels(items:List[PropertyModel], suggestMessage: Suggest): ModelResult  =
+  def suggestModels(items:List[PropertyModel], suggestMessage: SuggestObject): ModelResult  =
   {
     val t = suggestMessage.typed
     val list = for{
@@ -118,14 +118,17 @@ trait ModelEndpoint extends AjaxModelEndpoint with PrickleController with Items{
     Future.successful(Ok(p).as("application/json"))
   }
 
-  override def onSuggest(suggestMessage: Suggest): ModelResult = {
+  override def onSuggestObject(suggestMessage:  ModelMessages.SuggestObject): ModelResult = {
 
     items.get(suggestMessage.shape)  match {
       case Some(list)=>
         suggestModels(list,suggestMessage)
       case None=> this.onBadModelMessage(suggestMessage)
     }
+  }
 
-
+  override def onSuggestFact(suggestMessage: ModelMessages.SuggestFact): ModelResult = {
+    play.api.Logger.error(s"SuggestFact is NOT YET IMPLEMENTED, the message was: \n ${suggestMessage}")
+    ???
   }
 }

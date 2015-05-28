@@ -1,7 +1,7 @@
 package controllers
 
-import controllers.genes.GeneSchema
 import org.denigma.endpoints.UserAction
+import org.denigma.schemas.genes.GeneSchema
 import org.denigma.semweb.rdf.{IRI, StringLiteral}
 import org.denigma.semweb.shex.PropertyModel
 import play.api.mvc.Controller

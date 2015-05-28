@@ -1,7 +1,7 @@
 package controllers
 
 import controllers.TopMenu._
-import org.denigma.endpoints.{ UserAction}
+import org.denigma.endpoints.UserAction
 import org.denigma.semweb.rdf.IRI
 import org.denigma.binding.models._
 import play.api.mvc.Controller
@@ -10,7 +10,7 @@ import prickle.Pickle
 import scala.concurrent.Future
 
 
-object Slides extends PJaxPlatformWith("index") {
+object Slides extends PjaxController {
 
 
   def slide(slide:String) = UserAction {implicit request=>

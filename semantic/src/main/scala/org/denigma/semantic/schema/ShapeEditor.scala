@@ -1,40 +1,25 @@
-package org.denigma.binding.frontend.controls
+package org.denigma.semantic.schema
 
 import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.binders.extractors.EventBinding
-import org.denigma.binding.extensions._
-import org.denigma.binding.frontend.FrontEndStore
+import org.denigma.binding.extensions.sq
+import org.denigma.binding.views.{BindingEvent, JustPromise, PromiseEvent}
 import org.denigma.binding.views.collections.CollectionView
-import org.denigma.binding.views.{BasicView, BindingEvent, JustPromise, PromiseEvent}
 import org.denigma.semantic.rdf.ShapeInside
-import org.denigma.semantic.shapes.{ ArcView, ShapeView}
+import org.denigma.semantic.shapes.{ArcView, ShapeView}
 import org.denigma.semantic.storages.ShapeStorage
-import org.denigma.semweb.rdf._
+import org.denigma.semantic.store._
+
 import org.denigma.semweb.rdf.vocabulary.WI
+import org.denigma.semweb.rdf.{Quad, RDFValue, IRI, Res}
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import rx.core.Var
-
-import scala.collection.immutable.Map
+import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.concurrent.Promise
-import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
+import org.denigma.binding.extensions._
 
-case class RemoveShapeCommand(origin:EditShapeView,latest:BasicView) extends  ShapeUpdateCommand(origin,latest)
-{
-  override def withCurrent(cur: BasicView):this.type = this.copy(latest = cur).asInstanceOf[this.type]
-}
-
-case class AddShapeCommand(origin:EditShapeView,latest:BasicView) extends  ShapeUpdateCommand(origin,origin)
-{
-  override def withCurrent(cur: BasicView):this.type = this.copy(latest = cur).asInstanceOf[this.type]
-}
-
-abstract class  ShapeUpdateCommand(origin:EditShapeView,latest:BasicView) extends BindingEvent{
-  type Origin = ShapeView
-
-  override val bubble: Boolean = false
-}
 object ShapeEditor{
 
   /**
@@ -51,7 +36,6 @@ class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends Colle
 
   type Item = Var[ShapeInside]
   type ItemView = ShapeView
-
 
 
   val path:String = this.resolveKey("path"){

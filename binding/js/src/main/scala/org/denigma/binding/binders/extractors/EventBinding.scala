@@ -13,6 +13,10 @@ object EventBinding {
   def createTextEvent() = dom.document.createEvent("TextEvent").asInstanceOf[TextEvent]
 
   def createMouseEvent() = dom.document.createEvent("MouseEvent").asInstanceOf[MouseEvent]
+
+  def createMessageEvent() = dom.document.createEvent("MessageEvent").asInstanceOf[MessageEvent]
+
+  def createErrorEvent() =  dom.document.createEvent("ErrorEvent").asInstanceOf[ErrorEvent]
 }
 /**
  * Extracts various events

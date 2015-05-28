@@ -2,8 +2,7 @@ package org.denigma.binding.frontend.controls
 
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.controls.datagrids.DataGrid
-import org.denigma.semantic.grids.ExplorableCollection
+import org.denigma.semantic.grids.{DataGrid, ExplorableCollection}
 import org.denigma.semantic.models.collections.{WithAjaxStorage, AjaxModelCollection}
 import org.denigma.semantic.storages.{AjaxModelStorage, AjaxExploreStorage, ExploreStorage, ModelStorage}
 import org.scalajs.dom

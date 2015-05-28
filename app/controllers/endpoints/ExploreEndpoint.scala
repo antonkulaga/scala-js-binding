@@ -1,6 +1,6 @@
 package controllers.endpoints
 
-import controllers.PJaxPlatformWith
+import controllers.PjaxController
 import org.denigma.binding.messages.ExploreMessages
 import org.denigma.binding.messages.ExploreMessages.ExploreMessage
 import org.denigma.endpoints.{PrickleController, AjaxExploreEndpoint, AuthRequest, UserAction}
@@ -16,7 +16,7 @@ import scala.concurrent.Future
  */
 trait ExploreEndpoint extends PrickleController with AjaxExploreEndpoint with Items
 {
-  self:PJaxPlatformWith=>
+  self:PjaxController=>
   import org.denigma.binding.composites.BindingComposites
   import org.denigma.binding.composites.BindingComposites._
 

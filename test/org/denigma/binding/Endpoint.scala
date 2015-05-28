@@ -1,11 +1,11 @@
 package org.denigma.binding
 
-import controllers.PJaxPlatformWith
+import controllers.PjaxController
 import controllers.endpoints.{ExploreEndpoint, ModelEndpoint, ShapeEndpoint}
 import controllers.genes.GenesItems
 import controllers.literature.{ArticleItems, TaskItems}
 
-object Endpoint extends PJaxPlatformWith("literature")
+object Endpoint extends PjaxController("literature")
 with ExploreEndpoint with ModelEndpoint with ShapeEndpoint
 {
   ArticleItems.populate(this)

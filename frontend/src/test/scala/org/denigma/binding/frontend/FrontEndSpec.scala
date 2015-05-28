@@ -1,11 +1,10 @@
 package org.denigma.binding.frontend
 
-import org.denigma.binding.extensions._
-import org.denigma.binding.frontend.controls.{EditShapeView, ShapeProperty, ShapeEditor}
 import org.denigma.binding.frontend.slides.RowView
 import org.denigma.binding.views.BindableView
 import org.denigma.binding.views.utils.ViewInjector
 import org.denigma.semantic.rdf.ShapeInside
+import org.denigma.semantic.schema.{ShapeEditor, ShapeProperty, EditShapeView}
 import org.denigma.semantic.shapes.ShapeView
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
@@ -40,7 +39,7 @@ object FrontEndSpec extends BindableView with scalajs.js.JSApp{
    * Register views
    */
   ViewInjector
-    .register("test-general", (el, params) =>Try(new TestGeneral(el,params)))
+    .register("test-menus", (el, params) =>Try(new TestGeneral(el,params)))
 
   ViewInjector
     .register("Tasks",(el,params)=>Try(new TasksView(el,params)))

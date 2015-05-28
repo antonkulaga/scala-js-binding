@@ -43,11 +43,11 @@ GET           /menu/what/all             controllers.SlidesMenu.all()
 
 #GET        /menu/how           controllers.Slides.howMenu()
 
-GET           /pages/:page               controllers.endpoints.Application.page(page)
+GET           /pages/:page               controllers.Application.page(page)
 GET           /slides/:slide             controllers.Slides.slide(slide)
 
 
-GET           /logo/:variant             controllers.endpoints.Application.logo(variant)
+GET           /logo/:variant             controllers.Application.logo(variant)
 
 # Serve scala files under the scalajs subprojects to be used by sourcemaps.
 # This route and its controller method should be removed for production
