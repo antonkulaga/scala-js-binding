@@ -49,6 +49,8 @@ GET           /slides/:slide             controllers.Slides.slide(slide)
 
 GET           /logo/:variant             controllers.Application.logo(variant)
 
+GET           /mystyles.css              controllers.Application.myStyles()
+
 # Serve scala files under the scalajs subprojects to be used by sourcemaps.
 # This route and its controller method should be removed for production
 #GET           /mystyles.css             controllers.Application.myStyles()

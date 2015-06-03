@@ -41,7 +41,6 @@ object Dependencies
 
 
   protected lazy val webjars: Seq[ModuleID] = Seq(
-    //"org.webjars" %% "webjars-play" % "2.3.0-3",
 
     "org.webjars" % "jquery" % Versions.jquery,
 

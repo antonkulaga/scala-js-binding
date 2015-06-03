@@ -5,6 +5,7 @@ import java.io.File
 import org.denigma.endpoints.UserAction
 import org.denigma.semweb.rdf.{IRI, Res}
 import org.denigma.semweb.sparql._
+import play.api.http.MimeTypes
 import play.api.mvc._
 import play.twirl.api.Html
 
@@ -57,6 +58,12 @@ object Application extends PjaxController {
       val pageHtml: Html = this.articleTemplate(text.toString(),page)
 
       this.pj(pageHtml)(request)
+  }
 
+  def myStyles() = UserAction{
+    implicit request=>
+      import scalacss.Defaults._
+      val css:String = styles.MyStyles.render
+      Ok(css).as(MimeTypes.CSS)
   }
 }

@@ -5,15 +5,15 @@
 object Versions extends LibVersions with WebJarsVersions with ScalaJSVersions with SharedVersions
 {
 
-  val main = "0.7.7"
+  val main = "0.7.8"
 
   val semWeb = "0.7.5"
 
-  val binding = "0.8.0"
+  val binding = "0.8.1"
 
-  val semanticBinding = "0.7.13"
+  val semanticBinding = "0.7.14"
 
-  val bindingPlay = "0.7.7"
+  val bindingPlay = "0.7.8"
 
   val jsmacro = "0.1.10"
 
@@ -52,7 +52,7 @@ trait ScalaJSVersions {
 
   val scalajsJquery =  "0.8.0"
 
-  val dom = "0.8.0"
+  val dom = "0.8.1"
 
   val codeMirrorFacade = "5.3-0.4"
 
@@ -79,7 +79,7 @@ trait LibVersions {
 
   val lruMap = "0.6.2"
 
-  val macwire = "0.8.0"
+  val macwire = "1.0.2"
 
   val scalenium = "1.0.1"
 
@@ -87,7 +87,7 @@ trait LibVersions {
 
   val specs2 = "3.1"
 
-  val play = "2.3.9"
+  val play = "2.4.0"
 
   val banana = "0.8.1"
 
