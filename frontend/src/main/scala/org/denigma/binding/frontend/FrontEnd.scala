@@ -16,8 +16,8 @@ import org.denigma.semantic.shapes.HeadersView
 import org.scalajs.dom
 import org.scalajs.dom.MouseEvent
 import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.jquery._
 import rx._
+import org.querki.jquery._
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
@@ -110,7 +110,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   @JSExport
   def showLeftSidebar() = {
-    jQuery(".left.sidebar").dyn.sidebar(sidebarParams).sidebar("show")
+   $(".left.sidebar").dyn.sidebar(sidebarParams).sidebar("show")
   }
 
   @JSExport
@@ -142,7 +142,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
   val toggle: Var[MouseEvent] = Var(EventBinding.createMouseEvent())
 
   toggle.handler{
-    jQuery(".left.sidebar").dyn.sidebar(sidebarParams).sidebar("toggle")
+   $(".left.sidebar").dyn.sidebar(sidebarParams).sidebar("toggle")
   }
 //  val onMenuOver: Var[MouseEvent] = Var(EventBinding.createMouseEvent())
 //  val onMenuOut: Var[MouseEvent] = Var(EventBinding.createMouseEvent())

@@ -48,7 +48,7 @@ object Application extends PjaxController {
 
 
   def page(uri:String)= UserAction{
-    implicit request=>
+    implicit request=> request.session
       val pg = IRI("http://"+request.domain)
       val page: IRI = if(uri.contains(":")) IRI(uri) else pg / uri
 

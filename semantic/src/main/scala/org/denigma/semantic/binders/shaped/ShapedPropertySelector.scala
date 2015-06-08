@@ -1,5 +1,6 @@
 package org.denigma.semantic.binders.shaped
 
+import org.denigma.selectize.{SelectOption, SelectizeConfig}
 import org.denigma.semantic.binders._
 import org.denigma.semantic.rdf.ModelInside
 import org.scalajs.dom
@@ -140,13 +141,12 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
     this.cardinalityFilter(input) && this.valueFilter(input)
   }
 
-  override def createFilterHandler :js.Function1[String,Boolean] = createFilter _
   /**
    * Settings for selectize selectors
    * @param el
    * @return
    */
-  override protected def selectParams(el: HTMLElement):js.Dynamic = {
+/*  override protected def selectParams(el: HTMLElement):js.Dynamic = {
     js.Dynamic.literal(
       delimiter = "|",
       persist = false,
@@ -164,7 +164,24 @@ class ShapedPropertySelector(el:HTMLElement,key:IRI,  model:Var[ModelInside], va
       copyClassesToDropdown = false,
       plugins = js.Array(SelectBinder.pluginName)
     )
-  }
+  }*/
 
+  override protected def selectParams(el: HTMLElement) =
+    SelectizeConfig
+      .delimiter("|")
+      .persist(false)
+      .valueField("id")
+      .labelField("title")
+      .searchField("title")
+      .onType(typeHandler)
+      .onItemAdd(itemAddHandler _)
+      .onItemRemove(itemRemoveHandler _)
+      .create(true)
+      .createItem(this.createItem _)
+      .createFilter(this.createFilter _)
+      .options(makeOptions())
+      .render(PrefixedRenderer(prefixes))
+      .copyClassesToDropdown(false)
+      .plugins(js.Array(SelectBinder.pluginName))
 }
 

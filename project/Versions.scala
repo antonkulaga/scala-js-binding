@@ -9,9 +9,9 @@ object Versions extends LibVersions with WebJarsVersions with ScalaJSVersions wi
 
   val semWeb = "0.7.5"
 
-  val binding = "0.8.1"
+  val binding = "0.7.15"
 
-  val semanticBinding = "0.7.14"
+  val semanticBinding = "0.7.15"
 
   val bindingPlay = "0.7.8"
 
@@ -36,7 +36,7 @@ trait WebJarsVersions{
 
   val N3 = "799fee7697"
 
-  val selectize = "0.12.0"
+  val selectize = "0.12.1"
 
   val codeMirror = "5.3"
 
@@ -50,11 +50,13 @@ trait WebJarsVersions{
  */
 trait ScalaJSVersions {
 
-  val scalajsJquery =  "0.8.0"
+  val jqueryFacade =  "0.6"
 
   val dom = "0.8.1"
 
-  val codeMirrorFacade = "5.3-0.4"
+  val codeMirrorFacade = "5.3-0.5"
+
+  val selectizeFacade = "0.12.1-0.2.0"
 
 }
 

@@ -1,15 +1,14 @@
 package org.denigma.semantic.binders.shex
 
 import org.denigma.binding.views.BindableView
-import org.denigma.selectize.Selectize
-import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.jquery._
+import org.denigma.selectize.{SelectOption, SelectizeConfig}
 import org.denigma.semweb.rdf.IRI
 import org.denigma.semweb.shex.{ArcRule, _}
+import org.scalajs.dom
+import org.scalajs.dom.raw.HTMLElement
 import rx.core.Var
 import rx.ops._
-import org.denigma.binding.extensions._
+
 import scala.collection.immutable.Map
 import scala.scalajs.js
 
@@ -85,8 +84,8 @@ class OccursSelector(val el:HTMLElement,arc:Var[ArcRule],prefs:Var[Map[String,IR
 
 
 
-  protected def selectParams(el: HTMLElement):js.Dynamic = {
-    js.Dynamic.literal(
+  protected def selectParams(el: HTMLElement)=
+  /*  js.Dynamic.literal(
       onItemAdd = itemAddHandler _,
       onItemRemove =  itemRemoveHandler _,
       maxItems = 1,
@@ -96,7 +95,16 @@ class OccursSelector(val el:HTMLElement,arc:Var[ArcRule],prefs:Var[Map[String,IR
       labelField = "title",
       searchField = "title"
     )
-  }
+  */
+    SelectizeConfig
+      .maxItems(1)
+      .persist(false)
+      .valueField("id")
+      .labelField("title")
+      .searchField("title")
+      .onItemAdd(itemAddHandler _)
+      .onItemRemove(itemRemoveHandler _)
+      .options(makeOptions():js.Array[SelectOption])
 
   def makeOptions()=
   {

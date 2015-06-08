@@ -3,15 +3,13 @@ package org.denigma.binding.frontend.tools
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.denigma.selectize.Selectize
+import org.denigma.semweb.rdf.IRI
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.jquery.jQuery
-import org.denigma.semweb.rdf.IRI
 import rx.core.Var
-
 import scala.scalajs.js
-import scala.scalajs.js.{GlobalScope => g}
-
+import org.denigma.selectize._
+import org.querki.jquery.$
 
 class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView {
 
@@ -27,7 +25,6 @@ class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Str
     js.Dynamic.literal( id = spec.stringValue , title = "Spectometer"),
     js.Dynamic.literal( id = star.stringValue, title = "Star Chart"),
     js.Dynamic.literal( id = elec.stringValue, title = "Electrical Tape" )
-
   )
 
   val testItem =     js.Dynamic.literal( id = 4, title = "Denigma", url = "http://denigma.de/" )
@@ -41,7 +38,18 @@ class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Str
   }
 
 
-  val selectParams =  js.Dynamic.literal(
+  val selectParams = SelectizeConfig
+    .delimiter("|")
+    .persist(false)
+    .valueField("id")
+    .labelField("title")
+    .searchField("title")
+    .onType(typeHandler _)
+    .onChange(changeHandler _)
+    .options(items)
+
+/*
+    js.Dynamic.literal(
   delimiter = "|",
   persist = false,
   valueField = "id",
@@ -52,6 +60,7 @@ class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Str
   options =items
 
   )
+*/
 
 
 
@@ -62,14 +71,7 @@ class SelectView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Str
 
   override def bindView(el:HTMLElement) = {
     super.bindView(el)
-
-    val sel = jQuery(el).dyn.selectize(selectParams)
-
-    val s = el.dyn.selectize
-    val ss = s.asInstanceOf[Selectize]
-
-
-
+    val sel = $(el).selectize(selectParams)
   }
 
 

@@ -1,9 +1,10 @@
+/*
 import rx.Rx
 import rx.core.Var
 import rx.extensions._
 import utest._
 import utest.framework.TestSuite
-
+import rx.ops._
 object CollectionWatcher extends TestSuite{
 
   def tests = TestSuite{
@@ -49,3 +50,4 @@ object CollectionWatcher extends TestSuite{
 
 }
 
+*/

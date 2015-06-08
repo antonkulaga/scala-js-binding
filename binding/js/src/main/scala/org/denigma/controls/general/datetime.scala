@@ -3,7 +3,7 @@ package org.denigma.controls.general
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.jquery.jQuery
+import org.querki.jquery._
 
 import scala.scalajs.js
 
@@ -22,7 +22,7 @@ abstract class BasicDatePairView extends BindableView{
     activateMacro()
     this.bind(el)
     //require(this.params.contains("data") && this.params("data").)
-    val pair = jQuery(el).find(".date").dyn.datepicker(js.Dynamic.literal(
+    val pair = $(el).find(".date").dyn.datepicker(js.Dynamic.literal(
       format = "yyyy/m/d",
       autoclose = true
     )

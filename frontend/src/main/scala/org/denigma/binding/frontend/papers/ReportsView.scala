@@ -7,9 +7,9 @@ import org.denigma.semantic.grids.ExplorableCollection
 import org.denigma.semantic.models.RemoteModelView
 import org.denigma.semantic.models.collections.WithAjaxStorage
 import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.jquery._
 import org.denigma.semweb.rdf.IRI
 import rx.{Rx, Var}
+import org.querki.jquery._
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
@@ -38,7 +38,7 @@ with WithAjaxStorage
 
     def activateAccordion() =
     {
-      jQuery(".ui.accordion",view.viewElement).dyn.accordion(accordionParams)
+      $(".ui.accordion",view.viewElement).dyn.accordion(accordionParams)
     }
 
     org.scalajs.dom.setTimeout(activateAccordion _,1500)

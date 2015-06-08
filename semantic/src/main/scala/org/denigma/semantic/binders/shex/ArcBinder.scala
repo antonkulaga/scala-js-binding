@@ -1,14 +1,13 @@
 package org.denigma.semantic.binders.shex
 
 import org.denigma.binding.views.BindableView
-import org.denigma.selectize.Selectize
-import org.denigma.selectors.Selector
-import org.denigma.semantic.binders.{SemanticSelector, RDFBinder}
+import org.denigma.semantic.binders.{RDFBinder, SemanticSelector}
 import org.denigma.semantic.rdf.PropertyPrinter
-import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
 import org.denigma.semweb.rdf.IRI
-import org.denigma.semweb.shex.{NameTerm, ArcRule}
+import org.denigma.semweb.shex.{ArcRule, NameTerm}
+import org.scalajs.dom.raw.HTMLElement
+import rx.core.Var
+import org.denigma.semweb.shex.ArcRule
 import rx.core.Var
 
 import scala.collection.immutable.Map
@@ -36,12 +35,6 @@ class ArcBinder(val view:BindableView, val arc:Var[ArcRule],prefs:Var[Map[String
 
 }
 
-import org.denigma.binding.extensions._
-import org.scalajs.jquery._
-import org.denigma.semweb.shex.ArcRule
-import rx.core.Var
-
-import scala.scalajs.js
 
 
 /**

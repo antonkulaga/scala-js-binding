@@ -10,7 +10,7 @@ addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.4.0")
 
 addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.3")
 
-addSbtPlugin("com.vmunier" % "sbt-play-scalajs" % "0.2.5")
+addSbtPlugin("com.vmunier" % "sbt-play-scalajs" % "0.2.6")
 
 //dependency visualizaiton
 addSbtPlugin("com.gilt" % "sbt-dependency-graph-sugar" % "0.7.5")

@@ -5,7 +5,7 @@ import controllers.endpoints.{ExploreEndpoint, ModelEndpoint, ShapeEndpoint}
 import controllers.genes.GenesItems
 import controllers.literature.{ArticleItems, TaskItems}
 
-object Endpoint extends PjaxController("literature")
+object Endpoint extends PjaxController
 with ExploreEndpoint with ModelEndpoint with ShapeEndpoint
 {
   ArticleItems.populate(this)

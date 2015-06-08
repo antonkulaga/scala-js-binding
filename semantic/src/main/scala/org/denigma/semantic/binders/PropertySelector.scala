@@ -1,14 +1,11 @@
 package org.denigma.semantic.binders
 
-import org.denigma.selectize.Selectize
-import org.denigma.selectors.SelectOption
+import org.denigma.selectize.{SelectizeConfigBuilder, SelectizeConfig, SelectOption}
 import org.denigma.semantic.rdf.ModelInside
-import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
 import org.denigma.semweb.rdf.{IRI, RDFValue}
+import org.scalajs.dom.raw.HTMLElement
 import rx.Var
-import org.scalajs.jquery._
-import org.denigma.binding.extensions._
+
 import scala.scalajs.js
 
 /**
@@ -18,10 +15,16 @@ import scala.scalajs.js
  * @param model property model with props and vals
  * @param typeHandler handler that react on typing
  */
-class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside],val prefixes:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes))(typeHandler:(String)=>Unit) extends SemanticSelector
+class PropertySelector(
+                        val el:HTMLElement,
+                        val key:IRI,
+                        val model:Var[ModelInside],
+                        val prefixes:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes))
+                      (typeHandler:(String)=>Unit)
+  extends SemanticSelector
 {
 
-  val sel= this.initSelectize(el)// jQuery(el).dyn.selectize(selectParams(el)).asInstanceOf[Selectize]
+  lazy val sel= this.initSelectize(el)// jQuery(el).dyn.selectize(selectParams(el)).asInstanceOf[Selectize]
 
 
   def createItem(input:String):SelectOption =  {
@@ -30,11 +33,27 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
   }
 
 
-  protected val createHandler:js.Function1[String,SelectOption] = createItem _
+
+  override protected def selectParams(el: HTMLElement): SelectizeConfigBuilder =
+    SelectizeConfig
+      .delimiter("|")
+      .persist(false)
+      .create(true)
+      .createItem(this.createItem _)
+      .valueField("id")
+      .labelField("title")
+      .searchField("title")
+      .onType(typeHandler)
+      .onItemAdd(itemAddHandler _)
+      .onItemRemove(itemRemoveHandler _)
+      .options(js.Array(makeOptions()))
+      .render(PrefixedRenderer(prefixes))
+      .copyClassesToDropdown(false)
+      .plugins(js.Array(SelectBinder.pluginName))
 
 
-  protected def selectParams(el: HTMLElement):js.Dynamic = {
-    js.Dynamic.literal(
+
+  /*  js.Dynamic.literal(
       delimiter = "|",
       persist = false,
       create = true,
@@ -50,7 +69,7 @@ class PropertySelector(val el:HTMLElement,val key:IRI,val model:Var[ModelInside]
       copyClassesToDropdown = false,
       plugins = js.Array(SelectBinder.pluginName)
     )
-  }
+  */
 
   def getValues = model.now.current.properties.getOrElse(key, Set.empty[RDFValue])//.map(v=>v.toSeq).getOrElse(Seq.empty[RDFValue]) //TODO: rewrite in favor of reactive
 

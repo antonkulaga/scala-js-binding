@@ -1,18 +1,17 @@
 package org.denigma.semantic.grids
 
-import org.denigma.binding.extensions._
 import org.denigma.binding.messages.Filters
 import org.denigma.binding.messages.Filters.ValueFilter
-import org.denigma.selectize.Selectize
-import org.denigma.semantic.binders.{RDFBinder, SemanticSelector}
+import org.denigma.selectize.{SelectizeConfigBuilder, SelectOption, SelectizeConfig}
+import org.denigma.semantic.binders.{SelectBinder, PrefixedRenderer, RDFBinder, SemanticSelector}
+import org.denigma.semweb.rdf.IRI
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.jquery._
-import org.denigma.semweb.rdf.IRI
 import rx.Var
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
+import scala.scalajs.js.JSON
 
 abstract class ModifierSelector[T](val el:HTMLElement, val key:IRI, val modifiers:Var[Map[IRI,T]], typeHandler:(String)=>Unit, val prefixes:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes))
   extends SemanticSelector{
@@ -34,12 +33,21 @@ abstract class ModifierSelector[T](val el:HTMLElement, val key:IRI, val modifier
 class FilterSelector(el:HTMLElement, key:IRI, modifiers:Var[Map[IRI,Filters.Filter]], typeHandler:(String)=>Unit, prefs:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes))
   extends ModifierSelector[Filters.Filter](el,key,modifiers,typeHandler,prefs){
 
-  val sel = this.initSelectize(el)
+  lazy val sel = this.initSelectize(el)
 
    protected def propertyFilterOption = this.modifiers.now.get(key)
 
-   override protected def selectParams(el: HTMLElement):js.Dynamic = {
-     js.Dynamic.literal(
+   override protected def selectParams(el: HTMLElement): SelectizeConfigBuilder =
+     SelectizeConfig
+       .delimiter("|")
+       .persist(false)
+       .valueField("id")
+       .labelField("title")
+       .searchField("title")
+       .onType(typeHandler)
+       .onItemAdd(itemAddHandler _)
+       .onItemRemove(itemRemoveHandler _)
+   /*  js.Dynamic.literal(
        delimiter = "|",
        persist = false,
        valueField = "id",
@@ -50,7 +58,7 @@ class FilterSelector(el:HTMLElement, key:IRI, modifiers:Var[Map[IRI,Filters.Filt
        onItemRemove =  itemRemoveHandler _,
        options = js.Array()
      )
-   }
+   */
 
    override def itemAddHandler(value:String, item:js.Dynamic): Unit =
    {

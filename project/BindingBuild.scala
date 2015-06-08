@@ -9,11 +9,12 @@ import com.typesafe.sbt.web.SbtWeb.autoImport._
 import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 import org.scalajs.sbtplugin.cross.CrossProject
-import play.PlayScala
+import play.sbt.PlayScala
 import play.twirl.sbt.Import.TwirlKeys
 import playscalajs.PlayScalaJS.autoImport._
 import playscalajs.ScalaJSPlay.autoImport._
 import playscalajs.{PlayScalaJS, ScalaJSPlay}
+import play.sbt.PlayImport.specs2
 import sbt.Keys._
 import sbt.Project.projectToRef
 import sbt._
@@ -32,9 +33,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     jsDependencies += RuntimeDOM % "test",
 
-    sourceMapsDirectories += bindingJs.base / "..",
-
-    unmanagedSourceDirectories in Compile := Seq((scalaSource in Compile).value)
+    sourceMapsDirectories += bindingJs.base / ".."
   )
 
   lazy val frontend = Project(
@@ -76,7 +75,7 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     enablePlugins(BintrayPlugin)
 
   lazy val modelsJs = models.js
-  lazy val modelsJvm   = models.jvm.dependsOn(bindingJvm)
+  lazy val modelsJvm   = models.jvm
 
 
   lazy val bindingSharedSettings = sameSettings++publishSettings ++ Seq(
@@ -103,9 +102,8 @@ object BindingBuild extends sbt.Build with UniversalKeys {
     jvmSettings( bindingSettingsJVM: _* )
     .enablePlugins(BintrayPlugin)
 
-  lazy val bindingJs = binding.js dependsOn (jsmacro)
+  lazy val bindingJs = binding.js.dependsOn(jsmacro)
   lazy val bindingJvm   = binding.jvm
-
 
 
   lazy val jsMacroSettings = sameSettings++ publishSettings ++ Seq(
@@ -157,7 +155,11 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
       scalaJSProjects := clients,
 
-      TwirlKeys.templateImports += "org.denigma.endpoints._"
+      TwirlKeys.templateImports += "org.denigma.endpoints._",
+
+      libraryDependencies += specs2 % "test",
+
+      resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
     )
 
@@ -199,11 +201,11 @@ object BindingBuild extends sbt.Build with UniversalKeys {
 
     scalacOptions ++= Seq( "-feature", "-language:_" ),
 
-    parallelExecution in Test := false,
-
+    parallelExecution in Test := false
+/*
     javaOptions in (Test,run) += "-Xmx4G",
 
-    updateOptions := updateOptions.value.withCachedResolution(true)
+    updateOptions := updateOptions.value.withCachedResolution(true)*/
 
   )
 

@@ -1,13 +1,12 @@
 package org.denigma.semantic.binders.shex
 
-import org.denigma.selectize.Selectize
-import org.denigma.semantic.binders.{PrefixedRenderer, RDFBinder, SemanticSelector}
+import org.denigma.selectize.{SelectOption, SelectizeConfig}
+import org.denigma.semantic.binders.{SelectBinder, PrefixedRenderer, RDFBinder, SemanticSelector}
 import org.denigma.semantic.shapes.ArcView
-import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
-import org.scalajs.jquery._
 import org.denigma.semweb.rdf.{IRI, RDFValue}
 import org.denigma.semweb.shex.ArcRule
+import org.scalajs.dom
+import org.scalajs.dom.raw.HTMLElement
 import rx.Var
 
 import scala.collection.immutable.Map
@@ -55,13 +54,12 @@ class NamesBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[R
 }
 
 
-import org.scalajs.dom
 import org.denigma.semweb.rdf.IRI
 import org.denigma.semweb.shex._
+import org.scalajs.dom
 import rx.ops._
 
 import scala.scalajs.js
-import org.denigma.binding.extensions._
 
 /**
  * NameTerm selector for the property
@@ -88,20 +86,33 @@ class NameClassSelector(val el:HTMLElement,arc:Var[ArcRule], typeHandler:(String
     case NameAny(other) => ???
   }
 
-  protected def selectParams(el: HTMLElement):js.Dynamic = {
-    js.Dynamic.literal(
-      onItemAdd = itemAddHandler _,
-      onItemRemove =  itemRemoveHandler _,
-      onType = typeHandler  ,
-      //maxItems = 1,
-      create = true,
-      value = this.elementIntoValue(arc.map(a=>a.name).now).stringValue,
-      render =  PrefixedRenderer(prefixes).asInstanceOf[js.Any],
-      valueField = "id",
-      labelField = "title",
-      searchField = "title"
-    )
-  }
+  protected def selectParams(el: HTMLElement)=
+  SelectizeConfig
+    .onItemAdd(itemAddHandler _)
+    .onItemRemove(itemRemoveHandler _)
+    .onType(typeHandler)
+    .create(true)
+    //value = this.elementIntoValue(arc.map(a=>a.name).now).stringValue,
+    .valueField("id")
+    .labelField("title")
+    .searchField("title")
+    .render(PrefixedRenderer(prefixes))
+    .plugins(js.Array(SelectBinder.pluginName))
+    .copyClassesToDropdown(false)
+
+  /*    js.Dynamic.literal(
+        onItemAdd = itemAddHandler _,
+        onItemRemove =  itemRemoveHandler _,
+        onType = typeHandler  ,
+        //maxItems = 1,
+        create = true,
+        value = this.elementIntoValue(arc.map(a=>a.name).now).stringValue,
+        render =  PrefixedRenderer(prefixes).asInstanceOf[js.Any],
+        valueField = "id",
+        labelField = "title",
+        searchField = "title"
+      )
+    */
 
   protected def nameClass2Value(name:NameClass) = name match {
     case NameTerm(iri)=>iri.stringValue

@@ -1,17 +1,17 @@
 ScalaJS Binding project
 #######################
+[![Gitter chat channel](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/denigma/denigma-libs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 *scalajs-binding* is a scala-scala-js framework that let you
 
 * bind HTML tags to ScalaJS view classes and their properties
 * have a reactive-event flow (you can bind dom events to Scala.Rx definitions)
 * bind your collections to html element and have html elements as item templates
-* deal with the backend by means of convenient storage classes that simplify CRUD operations and search/filtering
 * define properties as reactive variables (Scala.Rx is used) that allows to make complex event flow in a reactive way
-* use some play clases that make working for binding-framework easier
 * have a tree of scala viewclasses in your app
 * some useful predefined controls (like select and codeview) that you can extend
 * work with linked data (rdf data) in a convenient way, bind html to RDF properties
+* use some play clases that make working for binding-framework easier
 
 Bindings are done in a following way. For instance taken following html:
 ```html
@@ -31,14 +31,14 @@ Usually bindings are done to reactive variables (see further), but binders are s
  so one can define whatever binder (s)he wants. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
 
 Binders are the classes that bind ScalaJS view to html elements. Each view can have many different binders. 
-Common usage practise is extending one of abstract classes in binding or semantic package and adding binders by defining them
+Common usage practise is extending one of abstract classes in binding or semantic-binding package and adding binders by defining them
 in overrides of def attachBinders() method.
 
 
 Getting started
 ===============
 
-The best way to understand is to look at code and a SampleApp
+The best way to understand is to look at the code (mostly js part of binding crossproject) and at the Preview application.
 
 
 Looking into sample App
@@ -46,18 +46,12 @@ Looking into sample App
 
 You can also look at a Play application inside scalajs-binding repository to see how bindings can be used in Play app. 
 
-    * Install TypeSafe stack:
-        - Make sure you use JDK 1.7+ and have JAVA_HOME variable in your PATH
-        - Download TypeSafe Activator (  http://typesafe.com/platform/getstarted ) and add it to your PATH
-    * run the app:
-        $ activator run
-    * generate project files of your favourite IDE
-        $ activator gen-idea #for Intellij IDEA, OR
-        $ activator eclipse #for Eclipse
+    * Install sbt (from http://www.scala-sbt.org/ ):
+    * type following commands
+        $ sbt//sbt console
+        $ run //from sbt console
 
-Play app will open with some samples code. 
-Note: models and shared projects have same source folder. If you use IntellijIDEA you may encounter a bug with shared source folder,
-there is a workaround for such bug - go to File->Projects_Structure and manually add symbolic link as a source folder for shared project 
+It will open Play app with some examples 
 
 Adding to your project
 ----------------------
@@ -66,21 +60,16 @@ All versions are published to bintray repository ( https://bintray.com/denigma/d
 So in order to use the library you have to add bintray sbt plugin to your sbt configuration (see https://github.com/softprops/bintray-sbt
  for more info) in plugins.sbt
 
+In order to resolve a lib you should add a resolver::
 ```scala
-addSbtPlugin("me.lessis" % "bintray-sbt" % "0.2.1")
-```
-
-In your sbt config you should add resolver and dependency
-```scala
-resolvers += bintray.Opts.resolver.repo("denigma", "denigma-releases")
-
-libraryDependencies += "org.denigma" %%% "binding" % "0.7.13"
+resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
+libraryDependencies += "org.denigma" %%% "binding" % "0.7.15"
 ```
 
 If you want to use semantic-web binding (binding to RDF Graphs) than also add 
 
 ```scala
-libraryDependencies += "org.denigma" %%% "semantic-binding" % "0.7.13"
+libraryDependencies += "org.denigma" %%% "semantic-binding" % "0.7.15"
 ```
 
 The library is published for scalajs 0.6.x and scala 2.11.6
@@ -210,20 +199,17 @@ Under the hood bindings are done with use of macroses. All rx variables (more ab
 for binding views.
  
  
-Storages
---------
-
-In order to do CRUD on iterms rendered to collections of views we need some code that will send requests to the server and get responses.
-In order to abstract veiws from communication details storages have been created. Storages are just classes that do CRUD via ajax or websockets.
-In scala-js-binding there are several predefined storage classes that use prickle and send/receive scala case classes to the server and back.
- 
-Semantic web
-------------
+Semantic-binding
+----------------
 
 A big part of the code (whole  org.denigma.semantic package) is devoted to binding of semanticweb properties and resources to html.
 Semantic web stack is a great thing to deal with heterogeneous information and extracting knowledge from data. The data there is stored as
 as statements about different facts in a triplet/quad format (subject predicate object), usually RDF databases like Sesame, Jena, Bigdata
 are used. In future Semanticweb part of the library will be separated into separate subproject and published as separate artifact.
+It also contains some storages: in order to do CRUD on iterms rendered to collections of views we need some code that will send requests to the server and get responses.
+In order to abstract veiws from communication details storages have been created. Storages are just classes that do CRUD via ajax or websockets.
+In scala-js-binding there are several predefined storage classes that use prickle and send/receive scala case classes to the server and back.
+
 
 Rough edges
 ===========
@@ -243,7 +229,7 @@ That is why you should override def activateMacro() in your code with a code tha
     override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
 ```
-The easiest way it so inherit from OrdinaryView (where this methods are not implemented and you can let your IDEA tell you what methods to implement)
+The easiest way it so inherit from BindingView (where this methods are not implemented and you can let your IDEA tell you what methods to implement)
 
 I know that it would be nice to get rid of this boilerplate but I have not found the solution how to trick macro evaluations
 
@@ -269,7 +255,8 @@ Project structure
 
 The repo consists of several subprojects:
 
-* Demo code (play app root project, frontend subproject, shared subproject) //they are in the repo but they are not published
-* Library itself ( binding and jsmacro projects)
-
-The root project is play app with some samples. binding-preview project is not published but used only for preview purposes.
+* Preview code (play app root project, frontend subproject, shared subproject) //they are in the repo but they are not published
+* Binding library itself:  binding (it is crossproject where most of the code is in js subproject) and jsmacro projects
+* semantic-binding library (it is based on binding library and will be separated from it in the future)
+* binding-play library (just some helper classes for play, will be separated soon)
+The root project is play app with some samples. binding-preview project is used only for preview purposes.

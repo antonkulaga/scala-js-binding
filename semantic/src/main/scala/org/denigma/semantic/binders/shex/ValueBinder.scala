@@ -1,22 +1,20 @@
 package org.denigma.semantic.binders.shex
 
-import org.denigma.selectize.Selectize
-import org.denigma.selectors.SelectOption
+import org.denigma.binding.extensions._
+import org.denigma.selectize.{Selectize, _}
 import org.denigma.semantic.binders._
 import org.denigma.semantic.shapes.ArcView
+import org.denigma.semweb.rdf.vocabulary.RDF
+import org.denigma.semweb.rdf.{IRI, RDFValue, Res}
+import org.denigma.semweb.shex.{ArcRule, _}
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
-import org.denigma.semweb.rdf.{IRI, RDFValue}
-import org.denigma.semweb.rdf.vocabulary.{RDFS, RDF}
-import org.denigma.semweb.shex.ArcRule
 import rx.{Rx, Var}
-import org.denigma.binding.extensions._
-import scala.collection.immutable.{Set, Map}
+import rx.ops._
+
+import scala.collection.immutable.{Map, Set}
 import scala.concurrent.Future
-import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
-import scala.util.{Failure, Success}
-import org.scalajs.jquery._
 class ValueBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[RDFValue]], prefs:Var[Map[String,IRI]] = Var(RDFBinder.defaultPrefixes) ) extends ArcBinder(view,arc,prefs)
 {
 
@@ -42,13 +40,6 @@ class ValueBinder(view:ArcView,arc:Var[ArcRule], suggest:(String)=>Future[List[R
 }
 
 
-import org.scalajs.dom
-import org.denigma.semweb.rdf.{IRI, Res}
-import org.denigma.semweb.shex._
-import rx.Var
-import rx.ops._
-import org.denigma.binding.extensions._
-import scala.scalajs.js
 
 /**
  * Class for ValueClass selectors
@@ -221,7 +212,7 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
 
   def makeOptions(): js.Array[SelectOption] = js.Array(this.values.now.map(v=>this.makeOption(v)).toSeq:_*)
 
-  protected def selectParams(el: HTMLElement):js.Dynamic = {
+/*  protected def selectParams(el: HTMLElement):js.Dynamic = {
     js.Dynamic.literal(
       delimiter = "|",
       persist = false,
@@ -239,10 +230,25 @@ class ValueClassSelector(arc:Var[ArcRule], val typeHandler:HTMLElement=>String=>
       copyClassesToDropdown = false,
       plugins = js.Array(SelectBinder.pluginName)
     )
-  }
+  }*/
 
-
-
+  override protected def selectParams(el: HTMLElement): SelectizeConfigBuilder =
+    SelectizeConfig
+      .delimiter("|")
+      .persist(false)
+      .valueField("id")
+      .labelField("title")
+      .searchField("title")
+      .onType(typeHandler(el))
+      .onItemAdd(itemAddHandler _)
+      .onItemRemove(itemRemoveHandler _)
+      .create(true)
+      .createItem(this.createHandler)
+      .createFilter(this.createFilterHandler)
+      .options(makeOptions():js.Array[SelectOption])
+      .render(PrefixedRenderer(prefixes))
+      .plugins(js.Array(SelectBinder.pluginName))
+      .copyClassesToDropdown(false)
 
 
 }
@@ -267,13 +273,26 @@ trait ModeSelector extends SemanticSelector{
     //dom.console.log(s"adding mode element that is $value")
   }
 
-  protected def modeItemRemoveHandler(value: String, item: js.Dynamic): Unit = {
+  protected def modeItemRemoveHandler(value: String/*, item: js.Dynamic*/): Unit = {
     //mode() = unescape(value)
   }
 
 
-  protected def modeSelectParams(el: HTMLElement): js.Dynamic = {
-    js.Dynamic.literal(
+  protected def modeSelectParams(el: HTMLElement): SelectizeConfigBuilder =
+    SelectizeConfig
+      .onItemAdd( modeItemAddHandler  _)
+      .onItemRemove(modeItemRemoveHandler _)
+      .persist(false)
+      .maxItems(1)
+      .valueField("id")
+      .labelField("title")
+      .searchField("title")
+      .options(makeModeOptions())
+      .render(PrefixedRenderer(prefixes))
+      .copyClassesToDropdown(false)
+      .plugins(js.Array(SelectBinder.pluginName))
+
+  /*  js.Dynamic.literal(
       onItemAdd = modeItemAddHandler _,
       onItemRemove = modeItemRemoveHandler _,
       persist = false,
@@ -286,13 +305,13 @@ trait ModeSelector extends SemanticSelector{
       copyClassesToDropdown = false,
       plugins = js.Array(SelectBinder.pluginName)
     )
-  }
+  */
 
 
 
 
   def registerMode(html: HTMLElement) = if (!modeSelectors.contains(html)) {
-    val ss = this.initSelectize(html,this.modeSelectParams)
+    val ss = this.initSelectize(html,e=>this.modeSelectParams(e))
     //dom.console.log("one more mode")
     modeSelectors = modeSelectors + (html -> ss)
     this.fillModeValues(mode.now,ss)

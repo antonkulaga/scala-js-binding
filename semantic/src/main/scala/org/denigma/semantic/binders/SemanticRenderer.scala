@@ -1,6 +1,6 @@
 package org.denigma.semantic.binders
 
-import org.denigma.selectors.{Escaper, InputHolder, SelectRenderer, SelectOption}
+import org.denigma.selectize.{InputHolder, Escaper, SelectRenderer, SelectOption}
 import org.scalajs.dom
 import org.denigma.semweb.rdf.IRI
 import rx.core.Var

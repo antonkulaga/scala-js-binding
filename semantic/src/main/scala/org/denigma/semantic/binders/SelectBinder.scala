@@ -1,10 +1,7 @@
 package org.denigma.semantic.binders
 import org.denigma.binding.extensions._
-import org.denigma.selectize.{Selectize, SelectizePlugin}
-import org.denigma.selectors.{Escaper, SelectOption}
-import org.scalajs.jquery.JQuery
-
-import scala.Predef
+import org.denigma.selectize.{SelectOption, Selectize, SelectizePlugin}
+import org.querki.jquery.JQuery
 import scalajs.js.isUndefined
 
 import org.denigma.binding.views.BindableView
@@ -81,7 +78,7 @@ class BetterDropdownPlugin(val pluginName:String)
 
   def positionDropdown(self:js.Dynamic):Unit = {
     val control = self.$control.asInstanceOf[JQuery]
-    val offset = control.position().asInstanceOf[js.Dynamic]
+    val offset = control.asInstanceOf[js.Dynamic].position()
     if(isUndefined(offset.top)) offset.top = 0
     offset.top = offset.top.asInstanceOf[Double] + control.outerHeight(true)
     self.$dropdown.css(js.Dynamic.literal(

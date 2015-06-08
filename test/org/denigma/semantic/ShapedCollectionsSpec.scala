@@ -5,7 +5,8 @@ import org.denigma.binding.{BindingSpec, Browser, GeneralRouters}
 import org.denigma.endpoints.UserAction
 import org.openqa.selenium.chrome.ChromeDriver
 import play.api.mvc.Handler
-import play.api.test.{FakeApplication, WithServer}
+import play.api.test.FakeApplication
+import play.api.test.WithServer
 
 class ShapedCollectionsSpec extends BindingSpec with GeneralRouters
 {

@@ -1,18 +1,17 @@
 package org.denigma.semantic.binders
 
-import org.denigma.selectize.Selectize
-import org.denigma.selectors.{Escaper, SelectOption, Selector}
-import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
+import org.denigma.selectize._
+import org.denigma.selectize.Selector
 import org.denigma.semweb.rdf
 import org.denigma.semweb.rdf._
 import org.denigma.semweb.rdf.vocabulary.XSD
+import org.querki.jquery._
+import org.scalajs.dom
+import org.scalajs.dom.raw.HTMLElement
 import rx.core.Var
-
+import org.denigma.binding.extensions._
 import scala.collection.immutable.Map
 import scala.scalajs.js
-
-import org.denigma.binding.extensions._
 /**
  * Selector that has some features of converting RDF values
  */
@@ -22,13 +21,18 @@ trait SemanticSelector extends Selector with PrefixResolver{
   def prefixes:Var[Map[String,IRI]]
 
 
-  def initSelectize(el:HTMLElement,params:(HTMLElement)=>js.Dynamic): Selectize = {
-    org.scalajs.jquery.jQuery(el).dyn.selectize(params(el))
+  def initSelectize(el:HTMLElement,params:(HTMLElement)=>SelectizeConfigBuilder): Selectize = {
+    import org.denigma.binding.extensions._
+    val opts:SelectizeConfig = params(el)
+    val $el = $(el)
+    //$el.dyn.selectize(opts)
+    $el.selectize(opts)
     el.dyn.selectize.asInstanceOf[Selectize]
   }
+
   def initSelectize(el:HTMLElement): Selectize = this.initSelectize(el,this.selectParams)
 
-  protected def selectParams(el: HTMLElement):js.Dynamic
+  protected def selectParams(el: HTMLElement):SelectizeConfigBuilder
 
   /**
    * Extracts literal's label
@@ -73,7 +77,7 @@ trait SemanticSelector extends Selector with PrefixResolver{
   } // js.Dynamic.literal( id = vid, title = title)
 
 
-  protected def makeOptions(properties:Map[IRI,Set[RDFValue]],iri:IRI) =
+  protected def makeOptions(properties:Map[IRI,Set[RDFValue]],iri:IRI): js.Array[SelectOption] =
     properties.get(iri) match {
       case Some(iris)=>
         val o = iris.map(i=> makeOption(i)).toList

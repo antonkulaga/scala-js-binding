@@ -5,7 +5,7 @@ import rx.core.Var
 
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic
-
+import org.denigma.selectize._
 
 object SimpleSelector {
   def apply(el:HTMLElement,options:Seq[String]) = new SimpleSelector(el,options.map(s=>(s,s)))
@@ -24,8 +24,20 @@ class SimpleSelector(val el:HTMLElement,options:Seq[(String,String)]) extends Se
 
   protected def makeOption(vid: String, title: String): SelectOption = SelectOption(vid,title)
 
-  override protected def selectParams(el: HTMLElement): Dynamic = {
-    js.Dynamic.literal(
+  protected def selectParams(el: HTMLElement):SelectizeConfigBuilder=
+    SelectizeConfig
+      .delimiter("|")
+      .persist(false)
+      .valueField("id")
+      .labelField("title")
+      .searchField("title")
+      .onItemAdd(itemAddHandler _)
+      .onItemRemove(itemRemoveHandler _)
+      .options(makeOptions():js.Array[SelectOption])
+      .create(false)
+
+
+  /*  js.Dynamic.literal(
       delimiter = "|",
       persist = false,
       valueField = "id",
@@ -36,7 +48,9 @@ class SimpleSelector(val el:HTMLElement,options:Seq[(String,String)]) extends Se
       options = this.makeOptions(),
       create = false
     )
-  }
+  */
+
+
 
 
   def makeOptions(): js.Array[SelectOption] = js.Array(options.map{case (i,t)=>makeOption(i,t)}:_*)

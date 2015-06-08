@@ -23,7 +23,7 @@ object Slides extends PjaxController {
       case "code"=>views.html.slides.code("The code will tell you")(request)
       case "scalajs"=>views.html.slides.scalajs("Benefits of scalajs")(request)
       case "rdf"=>views.html.slides.rdf("It can bind views to rdf models")(request)
-      case "data"=>  views.html.slides.data("Data editing")(request)
+      case "data"=>  views.html.slides.data("Set data schema")(request)
       case "feed"=>   views.html.papers.reports(request)
         //views.html.slides.data("Provides some controls for working with data")(request)
       case "sparql"=>views.html.slides.sparql("It can do sparql parsing")(request)
@@ -50,7 +50,7 @@ object SlidesMenu  extends Controller  {
     "slides/bind"->"Basic binding example",
     "slides/collection"->"Collection binding",
     "slides/editing"->"Page editing",
-    //"slides/data"->"Data editing",
+    "slides/data"->"Data editing",
     "slides/feed" -> "Feed",
     "slides/rdf"->"RDF views"
   //"slides/parse"->"Parsing example"

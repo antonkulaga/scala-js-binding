@@ -1,22 +1,10 @@
 package org.denigma.binding
 
-import java.util.concurrent.TimeUnit
-
-import org.denigma.endpoints.UserAction
-import org.openqa.selenium.By.ById
-import org.openqa.selenium.{By, WebDriver}
-import org.openqa.selenium.chrome.ChromeDriver
-import org.openqa.selenium.firefox.FirefoxDriver
 import play.api.GlobalSettings
 import play.api.mvc.{Handler, _}
-import play.api.test.{FakeApplication, PlaySpecification, WithServer}
-import play.twirl.api.Html
-import com.markatta.scalenium._
-import JqueryStyle._
-import scala.concurrent.duration._
-import org.specs2.mutable._
+import play.api.test.PlaySpecification
 
-import scala.util.{Success, Failure, Try}
+import scala.util.{Failure, Success, Try}
 
 /**
  * Basic binding spec that is used to test with webdriver

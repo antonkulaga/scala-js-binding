@@ -5,9 +5,9 @@ import sbt._
 object Dependencies
 {
 
-  val shared = Def.setting(Seq())
+  val shared: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq())
 
-  val compilers = Def.setting(shared.value ++ Seq(
+  val compilers: Def.Initialize[Seq[ModuleID]] = Def.setting(shared.value ++ Seq(
     "org.scala-lang" % "scala-compiler" % Versions.scala
   ))
 
@@ -81,15 +81,17 @@ object Dependencies
 
   val bindingJS: Def.Initialize[Seq[ModuleID]] = Def.setting(shared.value++Seq(
 
-    "be.doeraene" %%% "scalajs-jquery" % Versions.scalajsJquery,
+    "org.scala-js" %%% "scalajs-dom" % Versions.dom,
 
-    "org.denigma" %%% "codemirror" % Versions.codeMirrorFacade,
+    "org.querki" %%% "jquery-facade" % Versions.jqueryFacade,
+
+    "org.denigma" %%% "codemirror-facade" % Versions.codeMirrorFacade,
+
+    "org.denigma" %%% "selectize-facade" % Versions.selectizeFacade,
 
     "com.softwaremill.quicklens" %%% "quicklens" % Versions.quicklens,
 
     "com.lihaoyi" %%% "scalarx" % Versions.scalaRx
-
-    //"org.w3" %%% "banana-n3-js" % Versions.banana
 
   )  )
 
@@ -102,13 +104,13 @@ object Dependencies
   )  )
 
   val semanticBinding: Def.Initialize[Seq[ModuleID]]  = Def.setting(shared.value++Seq(
-    "org.w3" %%% "banana-n3-js" % Versions.banana
+    "org.w3" %%% "banana-n3-js" % Versions.banana excludeAll ExclusionRule(organization = "com.github.inthenow")
   ))
 
 
   val bindingPlay = Def.setting(shared.value++Seq(
 
-    "com.typesafe.play" %% "play" %  Versions.play % "provided",
+    "com.typesafe.play" %% "play" %  Versions.play, //% "provided",
 
     "net.ruippeixotog" %% "scala-scraper" % Versions.scraper
   ))

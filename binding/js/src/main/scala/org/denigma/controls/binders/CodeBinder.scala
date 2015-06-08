@@ -1,17 +1,16 @@
 package org.denigma.controls.binders
 
 import org.denigma.binding.binders.GeneralBinder
+import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.denigma.codemirror.{EditorConfiguration, CodeMirror, Editor}
+import org.denigma.codemirror.{CodeMirror, Editor, EditorConfiguration}
 import org.scalajs.dom
-import org.scalajs.dom.raw.{HTMLTextAreaElement, HTMLElement}
-import org.scalajs.jquery._
+import org.scalajs.dom.raw.{HTMLElement, HTMLTextAreaElement}
 import rx._
+import org.querki.jquery._
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
-import org.denigma.binding.extensions._
-import rx.ops._
 
 class CodeBinder(view:BindableView) extends GeneralBinder(view:BindableView)
 {
@@ -61,7 +60,7 @@ class CodeBinder(view:BindableView) extends GeneralBinder(view:BindableView)
       if(str.now=="")
       {
         if(el.innerHTML!=""){
-          val t = jQuery(el).text()
+          val t = $(el).text()
           str() = t
           el.innerHTML = ""
         }
