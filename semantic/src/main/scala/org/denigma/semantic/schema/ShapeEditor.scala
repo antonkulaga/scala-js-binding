@@ -50,7 +50,7 @@ class ShapeEditor(val elem:HTMLElement,val params:Map[String,Any]) extends Colle
 
   override lazy val items:Var[List[Item]] = Var(List.empty[Item])
 
-  override def newItem(item:Item):ItemView = this.constructItem(item,Map("shape"->item)){
+  override def newItem(item:Item):ItemView = this.constructItemView(item,Map("shape"->item)){
     (el,mp)=> ShapeEditor.createItem(el,mp)
   }
 

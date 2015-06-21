@@ -16,7 +16,7 @@ import scala.util.Try
 import org.denigma.binding.frontend.papers.{Task, TasksView}
 
 class TestShapeEditor(el:HTMLElement,params:Map[String,Any]) extends ShapeEditor(el,params){
-  override def newItem(item:Item):ItemView = this.constructItem(item,Map("shape"->item)){
+  override def newItem(item:Item):ItemView = this.constructItemView(item,Map("shape"->item)){
     (el,mp)=>  new EditShapeTestView(el,mp)
   }
 }

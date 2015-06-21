@@ -51,7 +51,7 @@ class EditShapeView (val elem:HTMLElement,val params:Map[String,Any]) extends  S
     onSave()
   }
 
-  override def newItem(item:Item):ItemView = this.constructItem(item,Map("item"->item)) { (e,m)=>
+  override def newItem(item:Item):ItemView = this.constructItemView(item,Map("item"->item)) { (e,m)=>
     ArcView.apply(e,m)
   }
 

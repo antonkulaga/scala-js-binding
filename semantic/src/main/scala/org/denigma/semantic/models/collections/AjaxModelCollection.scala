@@ -80,7 +80,7 @@ abstract class AjaxModelCollection(override val name:String,val elem:HTMLElement
 
   override def newItem(item:Item):ItemView = {
     item.handler(onItemChange(item))
-    this.constructItem(item,Map("model"->item, "storage"->crudStorage, "shape"->this.shapeInside)){ (el,mp)=>
+    this.constructItemView(item,Map("model"->item, "storage"->crudStorage, "shape"->this.shapeInside)){ (el,mp)=>
       item.handler(onItemChange(item))
       AjaxModelCollection.makeItem(el,mp)
     }

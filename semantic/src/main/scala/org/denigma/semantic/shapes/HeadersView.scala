@@ -44,7 +44,7 @@ class HeadersView(val elem:HTMLElement, val params:Map[String,Any],father:Option
 
   val items = shapeInside.map(sh=>sh.current.arcSorted.map(r=>Var(r)))
 
-  override def newItem(item:Item):ItemView = this.constructItem(item,Map("item"->item)) { (e,m)=> HeadersView.apply(e,m) }
+  override def newItem(item:Item):ItemView = this.constructItemView(item,Map("item"->item)) { (e,m)=> HeadersView.apply(e,m) }
 
   override protected def attachBinders(): Unit =binders =  new GeneralBinder(this)::new NavigationBinding(this)::Nil
 

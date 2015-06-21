@@ -103,7 +103,7 @@ trait ShapeView extends CollectionView //with WithShapeView
   }
 
 
-  override def newItem(item:Item):ItemView = this.constructItem(item,Map("item"->item)) { (e,m)=> ArcView.apply(e,m) }
+  override def newItem(item:Item):ItemView = this.constructItemView(item,Map("item"->item)) { (e,m)=> ArcView.apply(e,m) }
 
 }
 

@@ -15,6 +15,7 @@ object Test extends Controller with GeneSchema{
   
   
   def prickle() = UserAction{ implicit request=>
+    request.session
     import org.denigma.semweb.composites.SemanticComposites._
     Ok(Pickle.intoString(this.evidenceShape))
     

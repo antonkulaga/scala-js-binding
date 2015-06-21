@@ -69,7 +69,7 @@ libraryDependencies += "org.denigma" %%% "binding" % "0.7.15"
 If you want to use semantic-web binding (binding to RDF Graphs) than also add 
 
 ```scala
-libraryDependencies += "org.denigma" %%% "semantic-binding" % "0.7.15"
+libraryDependencies += "org.denigma" %%% "semantic-binding" % "0.7.16"
 ```
 
 The library is published for scalajs 0.6.x and scala 2.11.6

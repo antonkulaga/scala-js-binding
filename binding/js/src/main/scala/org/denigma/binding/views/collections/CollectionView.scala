@@ -146,7 +146,7 @@ trait CollectionView extends BindableView
    * @param construct function that does construction
    * @return
    */
-  def constructItem(item:Item,mp:Map[String,Any] = Map.empty)
+  def constructItemView(item:Item,mp:Map[String,Any] = Map.empty)
                    ( construct:(HTMLElement,Map[String,Any])=>ItemView):ItemView =
   {
     //dom.console.log(template.outerHTML.toString)

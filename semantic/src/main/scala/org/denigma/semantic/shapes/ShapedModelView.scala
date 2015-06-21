@@ -19,7 +19,7 @@ abstract class ShapedModelView(val elem:HTMLElement,val params:Map[String,Any]) 
 
   override def newItem(item:Item):ItemView =
   {
-    this.constructItem(item,Map("shape"->shapeInside, "arc"->item, "model"->this.model)){
+    this.constructItemView(item,Map("shape"->shapeInside, "arc"->item, "model"->this.model)){
       (e,m)=>   PropertyView(e,m)
     }
   }

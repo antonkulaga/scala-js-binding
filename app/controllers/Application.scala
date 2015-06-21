@@ -31,6 +31,7 @@ object Application extends PjaxController {
    */
   def logo(variant:String) = UserAction.async{
     implicit request=>
+      request.session + ("one"->"two")
 
       Future.successful{     Ok("assets/images/scala-js-logo.svg")    }
   }

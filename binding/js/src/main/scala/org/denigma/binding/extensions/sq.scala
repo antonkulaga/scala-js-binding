@@ -76,7 +76,7 @@ object sq
       }
     }
 
-  def tryGet[TOut]( url:String,timeout:Int = 0, headers: Map[String, String] =  Map.empty, withCredentials:Boolean = false)
+  def tryGet[TOut]( url:String,timeout:Int = 0, headers: Map[String, String] =  Map.empty, withCredentials:Boolean = true)
                   (unpickle:String=>Try[TOut]): Future[TOut] = {
 
     val request: Future[XMLHttpRequest] =Ajax.apply("GET", url, "",  timeout,headers , withCredentials,"")
@@ -85,13 +85,13 @@ object sq
 
   def tryPut[TIn]( url:String,data:TIn,timeout:Int = 0,
                    headers: Map[String, String] =  Map("Content-Type" -> "text/plain;charset=UTF-8"),
-                   withCredentials:Boolean = false)
+                   withCredentials:Boolean = true)
                   (pickle:TIn=>String): Future[XMLHttpRequest] =   Ajax.apply("PUT", url, pickle(data),  timeout,headers , withCredentials,"")
 
 
   def tryDelete[TIn](url:String,data:TIn,timeout:Int = 0,
                 headers: Map[String, String] =Map("Content-Type" -> "application/json;charset=UTF-8"),
-                withCredentials:Boolean = false
+                withCredentials:Boolean = true
                  )(pickle:TIn=>String): Future[XMLHttpRequest] = {
     Ajax.apply("DELETE", url, pickle(data), timeout, headers, withCredentials,"")
   }

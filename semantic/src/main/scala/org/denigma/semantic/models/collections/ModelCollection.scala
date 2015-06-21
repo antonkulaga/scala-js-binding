@@ -62,7 +62,7 @@ abstract class ModelCollection extends BindableView
 
   override def newItem(item:Item):ItemView = {
     item.handler(onItemChange(item))
-    this.constructItem(item,Map("model"->item)){ (el,mp)=>
+    this.constructItemView(item,Map("model"->item)){ (el,mp)=>
         item.handler(onItemChange(item))
         ModelCollection.apply(el,mp)
       }

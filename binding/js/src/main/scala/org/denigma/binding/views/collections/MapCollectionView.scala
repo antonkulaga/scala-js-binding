@@ -34,6 +34,6 @@ abstract class MapCollectionView(val elem:HTMLElement, val params:Map[String,Any
   override type Item = Map[String,Any]
   override type ItemView = BindableView
 
-  def newItem(params:Item):ItemView = this.constructItem(params,params){  (el,mp)=>new MapCollectionView.JustMapView(el,mp) }
+  def newItem(params:Item):ItemView = this.constructItemView(params,params){  (el,mp)=>new MapCollectionView.JustMapView(el,mp) }
 
 }

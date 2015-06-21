@@ -116,7 +116,7 @@ trait PropertyBinder {
             v()=pvalue.toString
           }
 
-     case None => dom.console.error(s"no $pname in $el to which we bind $par")
+        case None => dom.console.error(s"no $pname in $el to which we bind $par, \n element html is: ${el.outerHTML}")
     }
   }
 
