@@ -1,0 +1,99 @@
+@(title:String)
+<article id="main_article" data-view="BindSlide" class="ui blue piled segment">
+
+
+
+    <h1 id="title"class="ui large header orange message">@title </h1>
+
+
+    <section class="ui segment">
+      scala-js-binding library provides binding of ScalaJS classes and properties to HTML tags.
+        This sample app not only tells you about some binding features but also itself is implemented with extensive use of scala-js-binding
+    </section>
+
+
+    <div class="ui two column grid">
+        <section class="row">
+            <div class="column">
+                <p class="ui segment">
+                Consider a simple example. Here you can see several text areas and inputs.
+                </p>
+                <p class="ui segment">
+                    In current sample there is a title tag that is binded to constantly changing counting property and several inputs/text areas,
+                    some of them are binded to <b>foo</b> variable, some - to <b>bar</b> variable, you can notice binding by chaning inputs/textareas text
+
+                </p>
+            </div>
+            <div class="column">
+                @pages.html.random()
+            </div>
+        </section>
+        <section class="row">
+            <div class="column ui segment">
+                <p>
+                    Let's look into html part.
+                    Here at the beginning property <b>data-view="random"</b>  attaches <b>RandomView</b> scala class to corresponding div tag.
+                </p>
+                <p>
+                Then one <b>h1</b> with id "count" is completely binded to some html property of RandomView. Then several inputs are binded to corresponding
+                    string reactive variable ( data-bind="foo" and data-bind="bar")
+                </p>
+                <p>
+                All bindings inside of children tags will be to properties of this view. There is a view hierarchy. Each view can have subviews.
+                    Usually mains view attached to body tag is created. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
+
+                </p>
+
+
+
+            </div>
+
+            <div class="column">
+                <textarea data-bind-code="html_code" data-mode="htmlmixed">
+
+                </textarea>
+
+            </div>
+
+
+
+        </section>
+
+        <section class="row">
+            <div class="column ui segment">
+                <p>
+                Let's look into scala part
+                </p>
+                <p>
+                There you can see that counting variable is a reactive variable (see scala.rx) that is binded to scalatags HtmlTag proeprty.
+                Conting content is being changed in some tiem intervals constantly by update function, changes are automaticly propogated to the ui.
+                </p>
+                <p>Situation is simpler with foo and bar that are just reactive variables of string type. The main rule is that data-bind="name" should
+                    equal corresponding scala property name.
+                </p>
+                <p>In order to connect data-bind="name" with corresponding scala view property macroses are used. Under the hood maps of different types are
+                    created and during the bindind process the code searches propertyes in this maps.
+                    Unfortunately I could not avoid manual initiation of such maps
+
+                </p>
+
+
+            </div>
+
+            <div class="column">
+                <textarea data-bind-code="scala_code" data-mode="clike">
+
+                </textarea>
+
+            </div>
+
+
+
+        </section>
+
+
+    </div>
+
+
+</article>
+

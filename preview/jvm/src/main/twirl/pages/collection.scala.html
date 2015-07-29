@@ -1,0 +1,70 @@
+@(title:String)
+<article id="main_article" class="ui blue piled segment" data-view="CollectionSlide">
+
+
+
+    <h1 id="title"class="ui large header orange message">@title </h1>
+
+
+    <section class="ui segment">
+        We can also bind to collection of elements. By the way, all menus at this website are done this way
+    </section>
+
+
+    <div class="ui two column grid">
+
+        <section class="row">
+            <div class="column">
+                <p class="ui segment">
+                    On the right you can see a sample of menu. There data-param-path makes a request to corresponding
+                    address and loads a menu into the page. Scala-js-pickling library is used to pickle and unpickle results, that means
+                    that you can pass any case class, pickle it on the server and unpickle on the client without a need to write custom json (de)serialization,
+                    the only thing that is required is to register this class with pickl register as well as classes that are in fields of your case class.
+                </p>
+
+            </div>
+            <div class="column">
+                <nav id="testmenu" class="ui large blue inverted menu" data-view="testmenu" data-param-path="menu/what">
+                    <a data-template="true" class="active item header" data-item-bind-href="uri" data-item-bind="label" data-load-into="main">
+                        <i class="ui-icon-home"></i>
+                    </a>
+                </nav>
+            </div>
+        </section>
+        <section class="row">
+            <div class="column">
+                <p class="ui segment">
+                    On the right you can see a code required for the menu to appear. There data-param-path makes a request to corresponding
+                    address and loads a menu into the page.
+                    In current example there is a tag with data-template="true"  this tag is a template for each item that will be created.
+                </p>
+                <p>
+                    Each item has data-load-into attribute. This attribute defined where the data should be loaded after menu is clicked. Usually
+                    data is loaded with ajax into some html element to avoid whole page refreshing. For binding to item properties data-item-bind is used
+                    instead of ordinary data-bind. The only difference between them is that data-bind binds to the whole view and data-item-bind binds
+                    to current item.
+
+                </p>
+                <p>You can edit template on the right and push <b>apply template</b> and the template will be rerendered according new template</p>
+
+            </div>
+            <div class="column">
+                <textarea id="codeinme" data-bind-code="code"  data-mode="htmlmixed">
+                    <nav class="ui large blue inverted menu" data-view="menu" data-param-path="menu/what">
+                        <a data-template="true" class="active item header" data-item-bind-href="uri"  data-load-into="main">
+                            <i class="ui-icon-home" data-item-bind="label"></i>
+                        </a>
+                    </nav>
+                </textarea>
+            </div>
+            <div class="ui positive button" data-event-click="apply">Apply template</div>
+
+        </section>
+
+
+
+    </div>
+
+
+</article>
+
