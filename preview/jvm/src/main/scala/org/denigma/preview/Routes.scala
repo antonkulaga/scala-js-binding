@@ -44,6 +44,9 @@ trait Routes extends Directives with PJax
       case "collection"=>    page(pages.html.collection("It can bind to collections"))(ctx)
       case "bind"=> page(pages.html.bind("It can bind"))(ctx)
       case "code"=>page(pages.html.code("The code will tell you"))(ctx)
+      case "rdf"=>page(pages.html.rdf("It can bind views to rdf models"))(ctx)
+
+      /*      case "test"=>page(pages.html.test("Test page"))(ctx)*/
 
       /*case "bind"=> pages.html.random()
         views.html.pages.bind("It can bind")(request)
@@ -53,7 +56,6 @@ trait Routes extends Directives with PJax
       case "parse"=>views.html.pages.parse("It can parse")(request)
       case "code"=>views.html.pages.code("The code will tell you")(request)
       case "scalajs"=>views.html.pages.scalajs("Benefits of scalajs")(request)
-      case "rdf"=>views.html.pages.rdf("It can bind views to rdf models")(request)
       case "data"=>  views.html.pages.data("Set data schema")(request)
       case "feed"=>   views.html.papers.reports(request)
       //views.html.pages.data("Provides some controls for working with data")(request)

@@ -8,7 +8,8 @@ import org.denigma.binding.views.collections.MapCollectionView
 import org.denigma.controls.binders.CodeBinder
 import org.scalajs.dom
 import org.scalajs.dom.MouseEvent
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.html.Input
+import org.scalajs.dom.raw.{KeyboardEvent, HTMLElement}
 import rx._
 import rx.core.Var
 
@@ -244,6 +245,44 @@ class TestMacroView(val elem:HTMLElement, val params:Map[String,Any]) extends Bi
   val h = HelloWorld("WORLD")
   val result = implicitly[ClassToMap[HelloWorld]].asMap(h)
   dom.alert(result.toString)
+
+  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+
+  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
+
+}
+
+
+class Test(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{
+
+
+  protected def onKeyChange(fun:Input=>Unit)(k:KeyboardEvent) =  k.target match {
+      case n:dom.html.Input if k.currentTarget==k.target=> fun(n)
+      case other=> //nothing
+    }
+
+
+
+  def onChange(input:dom.html.Input) = {
+    var (oldvalue,newvalue) = ("","")
+    input.onkeydown = onKeyChange(input=>oldvalue=input.value) _
+    input.onkeyup = onKeyChange{input=>
+      oldvalue=input.value
+      dom.console.log(s"VALUES = $oldvalue and $newvalue")
+    } _
+  }
+
+  override def bindView(el:HTMLElement) = {
+    super.bindView(el)
+    dom.console.log("let us start!")
+    import org.querki.jquery
+    sq.byId("txt") match {
+      case Some(input:dom.html.Input)=>
+        onChange(input)
+      case other=>dom.console.error("cannot find txt")
+    }
+
+  }
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 

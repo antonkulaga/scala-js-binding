@@ -26,13 +26,12 @@ trait ViewInjector[View <:OrganizedView]{
 
   def factories:Map[String,(HTMLElement,Map[String,Any])=>Try[View#ChildView]]
 
-  def inject(viewName:String, element:HTMLElement, params:Map[String,Any]): Option[Try[View#ChildView]] =
-  {
-    this.factories
-      .get(viewName)
-      .map(vf=>vf(element,params))
-      .orElse{ parentInjection(viewName,element,params) }
-  }
+  def inject(viewName:String, element:HTMLElement, params:Map[String,Any],goUp:Boolean = true): Option[Try[View#ChildView]] =
+    this.factories.get(viewName).map(vf=>vf(element,params)) match {
+      case None => if(goUp) parentInjection(viewName,element,params) else None
+      case other => other
+    }
+
 
   protected def parentInjection(viewName:String, element:HTMLElement, params:Map[String,Any]): Option[Try[View#ChildView]]
 

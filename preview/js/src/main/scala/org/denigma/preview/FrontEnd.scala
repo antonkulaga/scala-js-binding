@@ -40,6 +40,12 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("random",(el,params)=> Try (new RandomView(el,params))  )
     .register("lists",(el,params)=>Try (new LongListView(el,params)))
     .register("test-macro", (el,params)=>Try(new TestMacroView(el,params)))
+    .register("RdfSlide", (el,params)=>Try(new RdfSlide(el,params)))
+
+
+
+    //.register("test", (el,params)=>Try(new Test(el,params)))
+
 
 
 

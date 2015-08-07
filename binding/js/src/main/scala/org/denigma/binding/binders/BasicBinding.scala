@@ -7,12 +7,13 @@ import org.scalajs.dom.raw.HTMLElement
 import rx._
 
 import scala.collection.immutable.Map
+import scala.scalajs.js
 
 
 /**
  *  A class that contains basic functions for all bindings
  */
-abstract class BasicBinding //extends ILogged
+trait BasicBinding //extends ILogged
 {
 
 
@@ -41,11 +42,11 @@ abstract class BasicBinding //extends ILogged
   /**
    * Makes id for the binding element
    * @param el html element
-   * @param title title of id
+   * @param title is used if the element does not have an ID
    * @return
    */
-  def makeId(el:HTMLElement,title:String): String = el.id match {
-    case s if s=="" ||  s==null /*|| s.isInstanceOf[js.prim.Undefined] */=>
+  def withID(el:HTMLElement,title:String): String = el.id match {
+    case s if js.isUndefined(s) || s=="" ||  s==null /*|| s.isInstanceOf[js.prim.Undefined] */=>
       el.id = title + "#" +  math.round(10000*math.random) //to make length shorter
       el.id
 
@@ -58,10 +59,11 @@ abstract class BasicBinding //extends ILogged
   def bindVar[T](key:String,el:HTMLElement ,v:Var[T])(assign:(HTMLElement,Var[T])=>Unit): Unit  = {
     //TODO: deprecate
 
-    val eid = this.makeId(el, key) //assigns id
+    val eid = this.withID(el, key) //assigns id
     lazy val obs: Obs = Obs(v, eid, skipInitial = false) {  assign(el,v)  }
     val o = obs //TO MAKE LAZY STUFF WORK
   }
+
 
 
   /**
@@ -76,7 +78,7 @@ abstract class BasicBinding //extends ILogged
   def bindRx[T](key:String,el:HTMLElement ,rx:Rx[T])(assign:(HTMLElement,T)=>Unit): Unit = {
     //TODO: deprecate
 
-    val eid = this.makeId(el, key)
+    val eid = this.withID(el, key)
     lazy val obs: Obs = Obs(rx, eid, skipInitial = false) {
       /*
       dom.document.getElementById(eid) match {

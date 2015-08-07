@@ -22,11 +22,19 @@ object Dependencies {
 	)
 	)
 
-	/*val previewJVM = Def.setting( Seq(
-		)
-	)*/
+	val semanticJS: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
+			"org.denigma" %%% "selectize-facade" % Versions.selectizeFacade,
 
- val bindingJS: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
+		 	"org.w3" %%% "banana-plantain" % Versions.bananaRdf excludeAll ExclusionRule(organization = "com.github.inthenow")
+		)
+	)
+
+	val semanticJVM: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
+		"org.w3" %% "banana-plantain" % Versions.bananaRdf excludeAll ExclusionRule(organization = "com.github.inthenow")
+	)  )
+
+
+	val bindingJS: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
 
     "org.scala-js" %%% "scalajs-dom" % Versions.dom,
 

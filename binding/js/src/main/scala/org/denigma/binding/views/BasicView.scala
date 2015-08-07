@@ -37,7 +37,7 @@ trait BasicView extends BasicBinding with IView
   /**
    * Id of this view
    */
-  val id: String = this.makeId(elem,this.name)
+  val id: String = this.withID(elem,this.name)
 
   implicit var subviews = Map.empty[String,ChildView]
 

@@ -7,6 +7,8 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
   val jsmacro = "0.1.12"
 
 	val bindingControls = "0.0.5"
+
+	val bananaRdf = "0.8.2-SNAP3" //"0.8.1"
 }
 
 trait ScalaJVMVersions {
