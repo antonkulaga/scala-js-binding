@@ -23,7 +23,7 @@ class Fact[T](initValue: => T, val name: String = "") extends Rx[T]{
 
   /**
    * Updates the value in this `Var` *without* propagating the change through
-   * to its children and descendents
+   * to its children and descendants
    */
   def updateSilent(newValue: => T) = {
     state.set(Try(newValue))

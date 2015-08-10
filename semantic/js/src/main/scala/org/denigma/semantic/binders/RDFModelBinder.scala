@@ -1,171 +1,22 @@
 package org.denigma.semantic.binders
 
-import org.denigma.binding.binders.extractors.PropertyBinder
-import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.extensions.GraphUpdate
+import org.denigma.semantic.binders.binded.{Binded, BindedTextProperty}
 import org.scalajs.dom
-import org.scalajs.dom.ext._
-import org.scalajs.dom.raw.{Event, HTMLElement, KeyboardEvent}
+import org.scalajs.dom.raw.HTMLElement
 import org.w3.banana._
 import rx.Rx
 import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.collection.mutable
-import scala.scalajs.js
-
-class BindedTextProperty[Rdf<:RDF](
-                           el:HTMLElement,
-                           graph:Var[PointedGraph[Rdf]],
-                           updates:Rx[GraphUpdate[Rdf]],
-                           val predicate:Rdf#URI,
-                           propertyName:String,
-                           createIfNotExist:Boolean = true
-                                    )
-                         (implicit val ops:RDFOps[Rdf]) extends Binded[Rdf](graph,updates,createIfNotExist)(ops)
-{
-
-
-  protected def label(uri:Rdf#URI) = ops.lastSegment(uri)
-
-  /**
-   * extracts label from the node
-   * @param value
-   * @return
-   */
-  protected def node2label(value:Rdf#Node) = ops.foldNode[String](value)(
-      uri => ops.lastSegment(uri),
-      bnode => ops.fromBNode(bnode),
-      literal => ops.fromLiteral(literal)._1
-    )
-
-
-  def nodes2labels(values: Set[Rdf#Node]): String = {
-    values.size match {
-      case 0 => ""
-      case 1 => node2label(values.head)
-      case many => values.foldLeft("") { case (acc, prop) => acc + node2label(prop) + "; " }
-    }
-  }
-
-
-  def addKeyChangeHandler(html:HTMLElement,prop:String)(fun:(HTMLElement,KeyboardEvent,String,String)=>Unit) = {
-    val init = propertyString(html,prop)
-    var (oldVal,newVal) = (init,init)
-    def onKeyUp(event:KeyboardEvent):Unit = if(event.target==event.currentTarget){
-      oldVal = newVal
-      newVal = propertyString(html,prop)
-      if(oldVal!=newVal) {
-        fun(html,event,oldVal,newVal)
-      }
-    }
-
-    html.onkeyup = onKeyUp _
-  }
-
-
-  protected def onObjectsChange(values: Set[Rdf#Node]): Unit = {
-    el.dyn.updateDynamic(propertyName)(this.nodes2labels(values))
-  }
-
-  override def init() = {
-    super.init()
-    this.addKeyChangeHandler(el,this.propertyName){
-      case (elem,ev,oldValue,newValue)=>
-        updateFromHTML()
-      //dom.console.log(s"change is from $oldValue to $newValue")
-    }
-  }
-
-
-  override def objectsFromHTML(): Set[Rdf#Node] = propertyString(el,this.propertyName) match {
-    case str if str == "true" || str == "false" => Set(ops.makeLiteral(str,ops.xsd.boolean))
-
-    case str => Set(ops.makeLiteral(str,ops.xsd.string))
-  }
-}
-
-
-abstract class Binded[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],
-                                updates:Rx[GraphUpdate[Rdf]],
-                                createIfNotExist:Boolean = false
-                                 )(ops:RDFOps[Rdf])
-{
-  import ops._
-
-  def predicate:Rdf#URI
-
-  protected def subject = graph.now.pointer
-
-  def onUpdate(upd:GraphUpdate[Rdf]): Unit = if(upd.propertiesChanged.contains(this.predicate) || upd.pointerChanged){
-      myObjects.set(objectsFromGraph)
-    }
-
-
-
-  protected def objectsFromGraph = ops.getObjects(graph.now.graph,subject,predicate).toSet
-
-  protected val myObjects: Var[Set[Rdf#Node]] = Var(objectsFromGraph)
-
-  //protected def log() = dom.console.log(s"predicate is ${predicate} and value is ${myObjects.now.mkString("\n")}\n and graph is ${graph.now.graph}")
-
-  protected def init():Unit = { //in case if want to override it
-    import rx.ops._
-    if(!propertyExists){
-      if(createIfNotExist) {
-        updateFromHTML()
-      } else dom.console.error(s"property $predicate does not exist in RDF graph")
-    }
-    myObjects.foreach(onObjectsChange)
-    updates.foreach(onUpdate)
-
-  }
-
-  protected def propertyString(html:HTMLElement,prop:String,default:String = "") = (html \ prop).fold(default)(d=>d.toString)
-
-  def objectsFromHTML():Set[Rdf#Node]
-
-  def nodes2triplets(nodes:Set[Rdf#Node]): Set[Rdf#Triple] = {
-    val sub = subject
-    nodes.map(ops.makeTriple(sub,predicate,_))
-  }
-
-
-  protected def onObjectsChange(values: Set[Rdf#Node]): Unit
-
-
-  protected def propertyExists = ops.find(graph.now.graph, subject, predicate, ops.ANY).hasNext
-
-
-  /**
-   * Updates graph from values extracted from HTML
-   */
-  protected def updateFromHTML() = {
-
-    val oldValues = nodes2triplets(this.myObjects.now)
-    val g = ops.makeMGraph(graph.now.graph)
-    ops.removeTriples(g,oldValues)
-    val newValues = this.objectsFromHTML()
-    myObjects.updateSilent(newValues)
-    val newTriplets = nodes2triplets(newValues)
-    ops.addTriples(g,newTriplets)
-    graph() = PointedGraph[Rdf](subject,ops.makeIGraph(g))
-  }
-
-  init()
-
-
-}
 
 class RDFModelBinder[Rdf<:RDF](
                                 view:BindableView,
                                 graph:Var[PointedGraph[Rdf]],
                                 prefixes:Var[Map[String,Rdf#URI]])
                               (implicit operations:RDFOps[Rdf]) extends RDFBinder[Rdf](view,prefixes)(operations) {
-  import operations._
   import org.denigma.semantic.extensions._
-  import rx.ops._
 
 
   val updates: Rx[GraphUpdate[Rdf]] = graph.updates
@@ -199,14 +50,7 @@ class RDFModelBinder[Rdf<:RDF](
 
   protected def propertyPartial(el: HTMLElement, key: String, value: String, ats: Map[String, String]): PartialFunction[String, Unit] = {
     case "property" =>
-      this.resolve(value).foreach {
-        case iri if this.elementHasValue(el) =>
-          val dataType = ats.get("datatype").fold("")(v => v)
-          binded.addBinding(iri,new BindedTextProperty(el,graph,updates,iri,"value"))
-
-        case iri  =>
-          binded.addBinding(iri,new BindedTextProperty(el,graph,updates,iri,"textContent"))
-      }
+      bindProperty(el,key,value,ats)
 
     case "data-name-of" =>
       this.resolve(value).foreach {
@@ -222,6 +66,16 @@ class RDFModelBinder[Rdf<:RDF](
       )
   }
 
+  protected def bindProperty(el: HTMLElement, key: String, value: String, ats: Map[String, String]): Unit = {
+    this.resolve(value).foreach {
+      case iri if this.elementHasValue(el) =>
+        val dataType = ats.get("datatype").fold("")(v => v)
+        binded.addBinding(iri, new BindedTextProperty(el, graph, updates, iri, "value"))
+
+      case iri =>
+        binded.addBinding(iri, new BindedTextProperty(el, graph, updates, iri, "textContent"))
+    }
+  }
 }
 /*
     protected def propertyPartial(el: HTMLElement, key: String, value: String, ats: Map[String, String]): PartialFunction[String, Unit] = {

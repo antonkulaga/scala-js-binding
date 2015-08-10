@@ -30,9 +30,21 @@ trait RxOps {
 
     def handler(callback: => Unit): Obs = Obs(source, skipInitial = true)(callback)
 
-    def onchange(callback: T=> Unit) = Obs(source, skipInitial = true)(callback)
+    def onChange(callback: T=> Unit): Obs = {
+      Obs(source, "onChange " + source.name, skipInitial = true){callback(source())}
+    }
 
-     /**
+
+    def onChange(name:String,uniqueValue:Boolean = true,skipInitial:Boolean = true)(callback: T=> Unit): Obs =
+      if(uniqueValue)
+        this.unique().onChange(name,uniqueValue = false,skipInitial = skipInitial)(callback)
+      else
+      {
+        Obs(source, name, skipInitial){callback(source())}
+      }
+
+
+    /**
        * Creates a new [[Rx]] which zips the values of the source [[Rx]] according
        * to the given `combiner` function. Failures are passed through directly,
        * and transitioning from a Failure to a Success(s) re-starts the combining

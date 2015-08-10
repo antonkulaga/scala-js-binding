@@ -6,7 +6,8 @@ import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.w3.banana._
-import rx.core.Var
+import rx.Rx
+import rx.core.{Obs, Var}
 
 import scala.collection.immutable.Map
 
@@ -20,6 +21,7 @@ class RDFBinder[Rdf<:RDF](
 {
 
   import ops._
+
 
   /**
    * Resolvers IRI from property map

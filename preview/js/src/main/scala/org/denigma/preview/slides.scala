@@ -244,7 +244,7 @@ class TestMacroView(val elem:HTMLElement, val params:Map[String,Any]) extends Bi
   }
   val h = HelloWorld("WORLD")
   val result = implicitly[ClassToMap[HelloWorld]].asMap(h)
-  dom.alert(result.toString)
+  dom.console.log(result.toString)
 
   override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
