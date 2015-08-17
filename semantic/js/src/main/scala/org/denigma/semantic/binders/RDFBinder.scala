@@ -11,18 +11,15 @@ import rx.core.{Obs, Var}
 
 import scala.collection.immutable.Map
 
-/**
- * View that can do RDFa binding (binding to semantic properties)
- */
-class RDFBinder[Rdf<:RDF](
-                           view:BindableView,
-                           val prefixes:Var[Map[String,Rdf#URI]])
-                         (implicit ops:RDFOps[Rdf]) extends BasicBinding
+
+//TODO:rewrite
+class PrefixResolver[Rdf<:RDF](
+                                prefixes:Var[Map[String,Rdf#URI]])
+                              (implicit val ops:RDFOps[Rdf])
+  extends Resolver[Rdf]
 {
 
   import ops._
-
-
   /**
    * Resolvers IRI from property map
    * @param property
@@ -39,34 +36,39 @@ class RDFBinder[Rdf<:RDF](
       prefixes.get(key).map(p=>p / property).orElse(Some(ops.makeUri(property)))
   }
 
-  protected def prefixed(str:String) = if(str.last==':') str else str+":"
+  def prefixed(str:String) = if(str.last==':') str else str+":"
+
+  def addPrefix(value:String) = this.prefixes.set(prefixes.now + (value.substring(0,value.indexOf(":"))-> ops.makeUri(value)))
+
+  def addVocab(value:String) = this.prefixes.set(prefixes.now + (":"-> ops.makeUri(value)))
+
+}
+
+
+trait Resolver[Rdf<:RDF] {
+  val ops:RDFOps[Rdf]
+  def resolve(property:String):Option[Rdf#URI]
+  def addPrefix(value:String):Unit
+  def addVocab(value:String):Unit
+}
+
+/**
+ * View that can do RDFa binding (binding to semantic properties)
+ */
+class RDFBinder[Rdf<:RDF](view:BindableView, resolver:Resolver[Rdf]) extends BasicBinding
+{
+
+  import resolver.ops
+  import ops._
+
 
   implicit val context = ops.makeUri("http://"+dom.location.hostname) //TODO: deprecate
 
-  def nearestRDFBinders(): List[RDFBinder[Rdf]] = view.nearestParentOf{
-      case p:BindableView if p.binders.exists(b=>b.isInstanceOf[RDFBinder[Rdf]])=>
-        p.binders.collect{case b:RDFBinder[Rdf]=>b}
-    }.getOrElse(List.empty)
-
-
-  /**
-   * Adds new prefixes to Var
-   * @param el
-   */
-  protected def updatePrefixes(el:HTMLElement) = {
-    val rps: List[RDFBinder[Rdf]] = this.nearestRDFBinders()
-    prefixes.set(rps.foldLeft(Map.empty[String,Rdf#URI])((acc,el)=>acc++el.prefixes.now)++this.prefixes.now)
-  }
-
-  override def bindAttributes(el: HTMLElement, ats: Map[String, String]): Unit = {
-
-    this.updatePrefixes(el)
-
-    ats.foreach { case (key, value) =>
-      this.rdfPartial(el, key, value,ats).orElse(otherPartial)(key)
+  def bindAttributes(el: HTMLElement, ats: Map[String, String]): Unit = {
+      ats.foreach { case (key, value) =>
+        this.rdfPartial(el, key, value,ats).orElse(otherPartial)(key)
+      }
     }
-
-  }
 
   /**
    * Returns partial function that extracts vocabulary data (like prefixes) from html
@@ -75,10 +77,10 @@ class RDFBinder[Rdf<:RDF](
    */
   protected def vocabPartial(value: String): PartialFunction[String, Unit] ={
 
-    case "vocab" if value.contains(":") => this.prefixes.set(prefixes.now + (":"-> ops.makeUri(value)))
+    case "vocab" if value.contains(":") => resolver.addVocab(value)
     //dom.alert("VOCAB=>"+prefixes.toString())
 
-    case "prefix" if value.contains(":")=> this.prefixes.set(prefixes.now + (value.substring(0,value.indexOf(":"))-> ops.makeUri(value)))
+    case "prefix" if value.contains(":")=> resolver.addPrefix(value)
   }
 
 
@@ -96,46 +98,4 @@ class RDFBinder[Rdf<:RDF](
                            ats:Map[String,String]): PartialFunction[String, Unit] =  this.vocabPartial(value)
 
   override def id: String = view.id
-
-
-  /*
-
-
-
-    def resolve(property:String):Option[Rdf#URI] =  this.resolve(property,prefixes.now)
-
-    def prefixedIRIString(iri:Rdf#URI): String = prefixes.now.find{ case (key,value)=>  ops.getString(iri).contains(value)}.map
-    {
-      //TODO: test if it works and includes ":"
-      case (key,value)=>
-        ops.fromUri(iri).replace(value,)
-        iri.stringValue.replace(value.stringValue,key)
-    }.getOrElse(iri.stringValue)
-
-
-
-
-
-    protected def forBinding(str:String) = str.contai, ats:Map[String,String]): PartialFunction[String, Unit] =  this.vocabPartial(value)
-
-
-    /**
-     * If it has "value" property"
-     * @param el
-     * @return
-     */
-    protected def elementHasValue(el:HTMLElement) =  el.tagName.toLowerCase match {
-      case "input" | "textarea" | "option" =>true
-      case _ =>false
-    }
-
-
-    def setTitle(el:HTMLElement,tlt:String) = {
-      if(this.elementHasValue(el)) {
-        el.dyn.value = tlt
-
-      } else {
-        el.textContent = tlt
-      }
-    }*/
 }

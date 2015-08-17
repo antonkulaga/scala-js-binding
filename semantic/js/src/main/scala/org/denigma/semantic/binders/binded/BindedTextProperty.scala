@@ -6,21 +6,6 @@ import org.scalajs.dom.raw.{HTMLElement, KeyboardEvent}
 import org.w3.banana._
 import rx.Rx
 import rx.core.Var
-import org.denigma.binding.binders.extractors.PropertyBinder
-import org.denigma.binding.extensions._
-import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binders.binded.{BindedTextProperty, Binded}
-import org.denigma.semantic.extensions.GraphUpdate
-import org.scalajs.dom
-import org.scalajs.dom.ext._
-import org.scalajs.dom.raw.{Event, HTMLElement, KeyboardEvent}
-import org.w3.banana._
-import rx.Rx
-import rx.core.Var
-
-import scala.collection.immutable.Map
-import scala.collection.mutable
-import scala.scalajs.js
 
 class BindedTextProperty[Rdf<:RDF](
                            el:HTMLElement,
@@ -32,10 +17,17 @@ class BindedTextProperty[Rdf<:RDF](
                                     )
                          (implicit val ops:RDFOps[Rdf]) extends Binded[Rdf](graph,updates,createIfNotExist)(ops)
 {
-  import ops._
 
 
   protected def label(uri:Rdf#URI) = ops.lastSegment(uri)
+
+
+  def node2label(node:Rdf#Node) = ops.foldNode(node)(
+    ops.lastSegment,
+    ops.fromBNode,
+    l => ops.fromLiteral(l)._1
+  )
+
 
 
   def nodes2labels(values: Set[Rdf#Node]): String = {
@@ -66,8 +58,8 @@ class BindedTextProperty[Rdf<:RDF](
     el.dyn.updateDynamic(propertyName)(this.nodes2labels(values))
   }
 
-  override def init() = {
-    super.init()
+  override def subscribe() = {
+    super.subscribe()
     this.addKeyChangeHandler(el,this.propertyName){
       case (elem,ev,oldValue,newValue)=>
         updateFromHTML()
@@ -81,4 +73,6 @@ class BindedTextProperty[Rdf<:RDF](
 
     case str => Set(ops.makeLiteral(str,ops.xsd.string))
   }
+
+  subscribe()
 }

@@ -32,9 +32,6 @@ class BetterCreatePlugin(pluginName:String) extends BetterDropdownPlugin(pluginN
     val createItemHandler:js.Function1[Any,Boolean] = this.createItem(self.asInstanceOf[Selectize]) _
     self.createItem = createItemHandler
     //self.onKeyPress = onKeyPress(self) _
-
-
-    //self.onKeyPress = js.eval(  """ function(e) {  alert("works"); 	}   """)
   }
 
   def createItem(self:Selectize)(triggerDropdown:Any)=  {
@@ -65,6 +62,8 @@ class BetterCreatePlugin(pluginName:String) extends BetterDropdownPlugin(pluginN
   }
 
 }
+object BetterDropdownPlugin extends BetterCreatePlugin("dropdown_plugin")
+
 
 class BetterDropdownPlugin(val pluginName:String)
 {

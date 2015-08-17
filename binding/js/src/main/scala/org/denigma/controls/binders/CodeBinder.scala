@@ -2,6 +2,7 @@ package org.denigma.controls.binders
 
 import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.extensions._
+import org.denigma.binding.macroses._
 import org.denigma.binding.views.BindableView
 import org.denigma.codemirror.extensions.EditorConfig
 import org.denigma.codemirror.{CodeMirror, Editor, extensions}
@@ -12,10 +13,32 @@ import rx._
 
 import scala.collection.immutable.Map
 
-class CodeBinder(view:BindableView) extends GeneralBinder(view:BindableView)
+class CodeBinder[View<:BindableView](view:View)
+                                    (implicit
+                                     mpMap:MapRxMap[View], mpTag:TagRxMap[View],
+                                     mpString:StringRxMap[View],  mpBool:BooleanRxMap[View],
+                                     mpEvent:EventMap[View],  mpMouse:MouseEventMap[View],
+                                     mpText:TextEventMap[View], mpKey:KeyEventMap[View],
+                                     mpUI:UIEventMap[View], mpWheel:WheelEventMap[View], mpFocus:FocusEventMap[View]
+                                      )
+extends GeneralBinder(view:View)(mpMap,mpTag,mpString,mpBool,mpEvent,mpMouse,mpText,mpKey,mpUI,mpWheel,mpFocus)
 {
+  val modes: Map[String, String] = Map(
+    "html"->"htmlmixed",
+    "clike"->"clike",
+    "sparql"->"x-sparql-query",
+    "scala"->"text/x-scala",
+    "rust"->"text/x-rustsrc",
+    "r"->"text/x-rsrc"
+  )
 
   var editors = Map.empty[HTMLElement,Editor]
+
+  def allStrings =strings.mapValues(str=>str.now).mkString("\n") //for debugging
+  def allStringsKeys =strings.map{case (key,value)=>key}.mkString("\n")  //for debugging
+
+
+  //dom.console.log(s"extracted strings in code binder for ${view.id} are: $allStringsKeys")
 
   override def bindProperties(el:HTMLElement,ats:Map[String, String]): Unit = for {
     (key, value) <- ats
@@ -28,25 +51,32 @@ class CodeBinder(view:BindableView) extends GeneralBinder(view:BindableView)
       .orElse(this.otherPartial)(key.toString)//key.toString is the most important!
   }
 
+
   def codePartial(el:HTMLElement,value:String,ats:Map[String, String]):PartialFunction[String,Unit] = {
     case "bind-code" | "code" => ats.get("mode") match {
       case Some(m)=>
-        this.makeCode(el,value,m)
-      case None=> this.makeCode(el,value,"htmlmixed")
+        this.bindCode(el,value,m)
+      case None=>
+        if(el.hasChildNodes())  el.firstChild match {
+            case el:HTMLElement=>
+              val lang = el.className.split(" ")
+                .collectFirst{
+                  case cl if cl.contains("language-") =>cl.replace("language-","")
+                }.getOrElse("htmlmixed")
+               bindCode(el,value,lang)
+            }
+        else
+          this.bindCode(el,value,"htmlmixed")
     }
 
-    case "bind-code-html" | "code-html" =>
-      this.makeCode(el,value,"htmlmixed")
-
-    case "bind-code-sparql" | "code-sparql" => makeCode(el,value,"application/x-sparql-query")
-
-    case "bind-code-r" | "code-r" => makeCode(el,value,"r")
-
-    case "bind-code-scala" | "code-scala" | "bind-code-clike" | "code-clike" => makeCode(el,value,"clike")
-
-    case att if att.contains("bind-code-")=>
-      dom.console.error(s"Unknown code mode ${}")
+    case st if st.startsWith("bind-code-") | st.startsWith("code-")=>
+      val mname = st.replace("bind-","").replace("code-","")
+      modes.get(mname) match {
+      case Some(m)=>this.bindCode(el,value,m)
+      case None=> dom.console.error(s"language mode $mname")
+    }
   }
+
 
   def makeEditor(area:HTMLTextAreaElement,textValue:String,codeMode:String,readOnly:Boolean = false) = {
     val params = EditorConfig
@@ -64,48 +94,66 @@ class CodeBinder(view:BindableView) extends GeneralBinder(view:BindableView)
     if(code.now!=v)  code() = v
   }
 
-  def makeCode(el:HTMLElement,value:String,mode:String):Unit = this.strings.get(value) match {
+  def bindCode(el:HTMLElement,value:String,mode:String):Unit = this.strings.get(value) match {
     case Some(str:Var[String])=>
       if(str.now=="")
       {
-        if(el.innerHTML!=""){
+        if(el.innerHTML==""){
           val t = $(el).text()
-          str() = t
-          el.innerHTML = ""
+          str.set(t)
+        }
+        else
+        {
+          if(el.children.length>0) el.firstChild match {
+            case e:HTMLElement if  e.tagName=="code"=>
+              val t = if(e.children.length>0) e.innerHTML else $(e).text()
+              el.innerHTML = ""
+              str.set(t)
+
+            case _ =>
+              val t = el.innerHTML
+              el.innerHTML = ""
+              str.set(t)
+          }
         }
       }
       this.makeCode(el,str,mode)
 
     case Some(str)=> this.makeCode(el,str,mode)
-    case None=>  dom.console.error(s"cannot find code string $value in $id")
+    case None=>
+      dom.console.error(s"cannot find code stringRx $value in $id\n ; all string keys are:\n ${allStringsKeys}")
   }
+
+  protected def textArea2Code(area: HTMLTextAreaElement, str:Rx[String], mode:String):Unit  =  this.editors.get(area) match {
+      case Some(ed) =>
+        ed.getDoc().setValue(str.now)
+      case None=>
+        val ed = this.makeEditor(area, str.now, mode)
+        this.editors = this.editors + (area -> ed)
+        if(str.now!="") ed.getDoc().setValue(str.now)
+        str match {
+          case s: Var[String] => ed.on("change", onChange(s) _)
+          case _ =>  dom.console.info(s"$str.now is not reactive Var in $id")
+        }
+        str.onChange("change",uniqueValue = true,skipInitial = true)(s=>{
+          val d = ed.getDoc()
+          if(d.getValue()!=s) d.setValue(s)
+        })
+    }
 
 
   def makeCode(el:HTMLElement, str:Rx[String], mode:String):Unit = el match {
-    case area: HTMLTextAreaElement =>
-      this.editors.get(area) match {
-        case Some(ed) =>
-          ed.getDoc().setValue(str.now)
-
-        case None =>
-          val ed = this.makeEditor(area, str.now, mode)
-          this.editors = this.editors + (area -> ed)
-          if(str.now!="") ed.getDoc().setValue(str.now)
-          str match {
-            case s: Var[String] => ed.on("change", onChange(s) _)
-            case _ =>  dom.console.info(s"$str.now is not reactive Var in $id")
-          }
-          str.handler{
-            val d = ed.getDoc()
-            if(d.getValue()!=str.now) d.setValue(str.now)
-          }
-
+    case area: HTMLTextAreaElement => textArea2Code(area,str,mode)
+    case other=>
+      dom.document.createElement("textarea") match {
+        case area:HTMLTextAreaElement=>
+          area.value = el.innerHTML
+          el.innerHTML=""
+          el.appendChild(area)
+          textArea2Code(area,str,mode)
+        case _ => dom.console.error(s"cannot create a textarea for ${el.outerHTML} with ${str.name}")
       }
-
-    case _=>  dom.console.error(s"cannot find code string ${str.now} in $id")
   }
-
-
 
 
 }

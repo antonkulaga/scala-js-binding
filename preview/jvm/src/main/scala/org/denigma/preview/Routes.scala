@@ -1,10 +1,10 @@
 package org.denigma.preview
 
+import akka.event.LoggingAdapter
 import akka.http.extensions.pjax.PJax
 import akka.http.scaladsl.model._
-import akka.http.scaladsl.server.{Route, Directives}
-import akka.http.scaladsl.server.Directives._
-import org.denigma.preview.templates.{Twirl, MyStyles}
+import akka.http.scaladsl.server.{Directives, Route}
+import org.denigma.preview.templates.{MyStyles, Twirl}
 import play.twirl.api.Html
 
 import scalacss.Defaults._
@@ -13,12 +13,16 @@ import scalacss.Defaults._
 /**
  * Trait that countains routes and handlers
  */
-trait Routes extends Directives with PJax
+trait Routes extends Directives with PJax with TextFilesDirectives
 {
+
+  def log: LoggingAdapter
 
   lazy val webjarsPrefix = "lib"
 
   lazy val resourcePrefix = "resources"
+
+  lazy val sourcesPath = "js/src/main/scala/"
 
   def defaultPage: Option[Html] = None
 
@@ -74,8 +78,32 @@ trait Routes extends Directives with PJax
     getFromResourceDirectory("")
   }
 
+  def loadSources = (pathPrefix("sources"~Slash) | pathPrefix("source"~Slash)){
+    extractUnmatchedPath { place ⇒
+      parameters("from","to"){
+        case (from,to)=>
+          extractLog { case log=>
+            filePath(sourcesPath,place,log,'/') match {
+              case ""   ⇒
+                reject()
+              case resourceName ⇒
+                this.linesFromResource(resourceName,from,to) { case lines=>
+                  complete(HttpResponse(entity = HttpEntity(MediaTypes.`text/css`,  lines.reduce(_+"\n"+_)  )  ))
+                }
+            }
+          }
+      }
+    }
+  }
+
+
+ /* def fromSources = pathPrefix(sourcesPrefix~Slash){
+    getFromResourceDirectory(sourcesPath)
+  }
+
+*/
   def webjars =pathPrefix(webjarsPrefix ~ Slash)  {  getFromResourceDirectory(webjarsPrefix)  }
 
 
-  def routes = index ~  webjars ~ mystyles ~ menu ~ loadResources
+  def routes = index ~  webjars ~ mystyles ~ menu ~ loadResources ~ loadSources
 }

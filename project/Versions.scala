@@ -2,13 +2,13 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 {
 	val scala = "2.11.7"
 
-  val binding = "0.8.0"
+  val binding = "0.8.0-M1"
 
-  val jsmacro = "0.1.12"
+  val jsmacro = "0.1.13"
 
 	val bindingControls = "0.0.5"
 
-	val bananaRdf = "0.8.2-SNAP3" //"0.8.1"
+	val bananaRdf = "0.8.2-SNAP4" //"0.8.1"
 }
 
 trait ScalaJVMVersions {
@@ -17,7 +17,7 @@ trait ScalaJVMVersions {
 
 	val akkaHttpExtensions = "0.0.5"
 
-	val ammonite = "0.3.2"
+	val ammonite = "0.4.3"
 }
 
 trait ScalaJSVersions {

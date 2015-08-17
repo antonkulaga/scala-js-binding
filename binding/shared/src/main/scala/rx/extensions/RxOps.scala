@@ -36,11 +36,15 @@ trait RxOps {
 
 
     def onChange(name:String,uniqueValue:Boolean = true,skipInitial:Boolean = true)(callback: T=> Unit): Obs =
-      if(uniqueValue)
-        this.unique().onChange(name,uniqueValue = false,skipInitial = skipInitial)(callback)
+      if(uniqueValue){
+        if(source==null) println(s"SOURCE of $name IS FUCKING NULL!")
+        val uni = this.unique()
+        uni.onChange(name,uniqueValue = false,skipInitial = skipInitial)(callback)
+      }
       else
       {
-        Obs(source, name, skipInitial){callback(source())}
+        if(source==null) println(s"SOURCE of $name IS FUCKING NULL!")
+        Obs(source, name+"_"+source.name, skipInitial){callback(source())}
       }
 
 

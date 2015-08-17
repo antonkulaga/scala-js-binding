@@ -35,7 +35,9 @@ trait ViewInjector[View <:OrganizedView]{
 
   protected def parentInjection(viewName:String, element:HTMLElement, params:Map[String,Any]): Option[Try[View#ChildView]]
 
-  def register(name:String,init:(HTMLElement,Map[String,Any])=>Try[View#ChildView]): This
+  def register(name:String)(init:(HTMLElement,Map[String,Any])=>View#ChildView):This = tryRegister(name)((el,args)=>Try(init(el,args)))
+  def tryRegister(name:String)(init:(HTMLElement,Map[String,Any])=>Try[View#ChildView]):This
+
 }
 
 

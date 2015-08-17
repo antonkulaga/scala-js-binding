@@ -1,21 +1,16 @@
-import com.typesafe.sbt.SbtNativePackager.autoImport._
 import com.typesafe.sbt.web._
 import com.typesafe.sbt.web.pipeline.Pipeline
 import org.scalajs.sbtplugin.ScalaJSPlugin
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 import playscalajs.{ScalaJSPlay, PlayScalaJS}
 import playscalajs.PlayScalaJS.autoImport._
-import sbt.Attributed._
 import sbt.Keys._
 import sbt._
 import bintray._
 import BintrayPlugin.autoImport._
-import spray.revolver.RevolverPlugin._
 import play.twirl.sbt._
-import play.twirl.sbt.SbtTwirl.autoImport._
 import com.typesafe.sbt.web.SbtWeb.autoImport._
 import playscalajs.ScalaJSPlay.autoImport._
-import scalatex.ScalatexReadme
 import spray.revolver.RevolverPlugin._
 import com.typesafe.sbt.gzip.Import.gzip
 
@@ -49,18 +44,18 @@ class PreviewBuild extends LibraryBuild
 			persistLauncher in Compile := true,
 			persistLauncher in Test := false,
 			libraryDependencies ++= Dependencies.previewJS.value,
-			jsDependencies += RuntimeDOM % "test"
+			jsDependencies += RuntimeDOM % "test",
+			sourceMapsDirectories :=Seq( (baseDirectory in semanticJS).value ,(baseDirectory in bindingJS).value ,  (baseDirectory in jsmacro).value)
 		)
 		.jvmSettings(Revolver.settings:_*)
 		.jvmConfigure(p=>p.enablePlugins(SbtTwirl,SbtWeb).enablePlugins(PlayScalaJS)) //despite "Play" in name it is actually sbtweb-related plugin
-		.jvmSettings(Revolver.settings:_*)
 		.jvmSettings(
 			libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value,
 			mainClass in Compile :=Some("org.denigma.preview.Main"),
 			mainClass in Revolver.reStart := Some("org.denigma.preview.Main"),
-			sourceMapsDirectories :=Seq( (baseDirectory in bindingJS).value , (baseDirectory in semanticJS).value ),
 			scalaJSDevStage := scalaJSDevTaskStage.value,
 			//pipelineStages := Seq(scalaJSProd,gzip),
+			(emitSourceMaps in fullOptJS) := true,
 			pipelineStages in Assets := Seq(scalaJSDevStage,gzip), //for run configuration
 			(managedClasspath in Runtime) += (packageBin in Assets).value //to package production deps
 		).dependsOn(semantic)

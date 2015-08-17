@@ -18,9 +18,10 @@ object OrganizedView {
     extends ViewInjector[OrganizedView]
   {
     self=>
+
     override type This = OrganizedInjector
 
-    def register(name:String,init:(HTMLElement,Map[String,Any])=>Try[OrganizedView#ChildView]) =
+    override def tryRegister(name:String)(init:(HTMLElement,Map[String,Any])=>Try[OrganizedView#ChildView]) =
       this.copy(factories = self.factories+(name->init))
 
   override protected def parentInjection(

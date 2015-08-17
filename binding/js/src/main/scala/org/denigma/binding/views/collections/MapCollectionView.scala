@@ -11,13 +11,14 @@ import scala.collection.immutable._
 
 object MapCollectionView {
 
-  class JustMapView(val elem:HTMLElement,val params:Map[String,Any]) extends BindableView{
+
+  class JustMapView(val elem:HTMLElement,val params:Map[String,Any]) extends BindableView
+  {
 
    val reactiveMap: Map[String, Var[String]] = params.map(kv => (kv._1, Var(kv._2.toString)))
 
-    override def activateMacro(): Unit = { this.extractors.foreach(_.extractEverything(this))}
+    binders = new MapItemsBinder(this,reactiveMap)::new NavigationBinding(this)::Nil
 
-    override protected def attachBinders(): Unit =   this.withBinders(new MapItemsBinder(this,reactiveMap)::new NavigationBinding(this)::Nil)
   }
 
 }

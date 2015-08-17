@@ -1,0 +1,16 @@
+@(name:String,start:String,end:String, prefix:String = "js/src/main/scala/")
+
+@{
+    import akka.actor.ActorSystem
+    import scala.io._
+    import akka.http.scaladsl.server.directives.ContentTypeResolver
+    import akka.http.scaladsl.server.directives.FileAndResourceDirectives.ResourceFile
+    def resource(resourceName:String,classLoader: ClassLoader = classOf[ActorSystem].getClassLoader)
+            (implicit resolver: ContentTypeResolver) =
+            Option(classLoader.getResource(resourceName)) flatMap ResourceFile.apply map {
+                case ResourceFile(url,length,lastModified) ⇒
+                    val lines = Source.fromURL(url).getLines()
+                    lines.dropWhile(!_.contains(start)).takeWhile(!_.contains(end)).toList
+            }
+    resource(prefix+name)
+}

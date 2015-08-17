@@ -52,7 +52,7 @@ trait CollectionView extends BindableView
     (newChild.parentElement, oldChild.parentElement) match
     {
      case (pn,null)=>
-       console.error("old child has not parent")
+       console.error("old child has no parent")
        oldChild
      case (null,po)=>
        po.replaceChild(newChild,oldChild)
@@ -76,14 +76,10 @@ trait CollectionView extends BindableView
        if(switch) {
          pn.children(in) = oldChild
        }
-
-
   }
 
   override def bindView(el: HTMLElement) = {
     if(el.attributes.contains("data-item-view")) el.removeAttribute("data-item-view") //to avoid using self in nested views
-    attachBinders()
-    activateMacro()
     this.bind(el)
     this.subscribeUpdates()
   }

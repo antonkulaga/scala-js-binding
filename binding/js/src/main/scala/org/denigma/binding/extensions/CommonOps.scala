@@ -34,6 +34,42 @@ trait CommonOps {
 
   }
 
+  implicit class SetOps[T](source:Set[T]){
+
+    //tells the things to delete and to update to become newValue
+    def removeAddToGet(newValue:Set[T]) = (source.diff(newValue),newValue.diff(source))
+
+
+  }
+
+  implicit class SeqOps[T](source:collection.Seq[T]) {
+    /**
+     * Ordered update
+     * @param by set to update
+     * @return updated Seq, preserving the order of previous elements
+     */
+    def updatedBy(by:Set[T]): Seq[T] = ImmutableSeqOps(Seq(source:_*)).updatedBy(by)
+
+  }
+
+  implicit class ImmutableSeqOps[T](source:Seq[T]){
+
+    /**
+     * Ordered update
+     * @param by set to update
+     * @return updated Seq, preserving the order of previous elements
+     */
+    def updatedBy(by:Set[T]): Seq[T] = {
+      val w = source.toSet
+      if(w==by) source
+      else{
+        val (minus:Set[T],plus:Set[T]) = w.removeAddToGet(by)
+        source.filterNot(minus.contains)  ++ plus
+      }
+    }
+
+  }
+
   implicit class NumberOps(num:Int){
 
 

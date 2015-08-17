@@ -26,89 +26,10 @@ import scalatags.JsDom.all._
 class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
 
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+  val html = Var("")
 
+  val scala_code = Var("")
 
-  val html_code = Var{
-    """
-      |<section class="ui" data-view="random">
-      |
-      |    <section data-html="counting"></section>
-      |    <h1 class="ui purple large header" data-bind="bar"></h1>
-      |
-      |    <div class="ui two column grid">
-      |        <section class="row">
-      |            <div class="column">
-      |                <input class="ui input" data-bind="foo">
-      |                <textarea class="ui textarea" data-bind="foo"></textarea>
-      |            </div>
-      |            <div class="column">
-      |                <textarea class="ui textarea" data-bind="bar"></textarea>
-      |                <input class="ui input"  data-bind="bar">
-      |            </div>
-      |
-      |        </section>
-      |
-      |
-      |
-      |    </div>
-      |
-      |    <h1 class="ui teal large header" data-bind="foo"></h1>
-      |
-      |
-      |</section>
-    """.stripMargin
-  }
-
-  val scala_code = Var{
-    """
-      |/**
-      | * For test purposes only
-      | */
-      |class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{
-      |
-      |
-      |  val counting: Var[Tag] = Var{
-      |
-      |    div(a.`class`:= "ui segment",
-      |      h1("This is title"),
-      |      p("value that changes: \"START\"")
-      |    )
-      |  }
-      |
-      |  val foo= Var{"Foo variable text"}
-      |  val bar = Var{"Bar variable text"}
-      |
-      |
-      |  val list = List("ONE","TWO","THREE","FOUR","SOME TEXT","THAT IS RANDOM")
-      |
-      |  def update():Unit ={
-      |    val value =  div(a.`class`:="ui segment",
-      |      h1("This is title"),
-      |      p(s"value that changes: \"${list(Random.nextInt(list.length))}\" ")
-      |    )
-      |    counting() = value
-      |
-      |  }
-      |
-      |    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-      |
-      |  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
-      |
-      |
-      |  dom.setInterval(update _, 100)
-      |
-      |  /** Computes the square of an integer.
-      |    *  This demonstrates unit testing.
-      |    */
-      |  def square(x: Int): Int = x*x
-      |
-      |}
-    """.stripMargin
-
-  }
-
-  override protected def attachBinders(): Unit =this.withBinders(new CodeBinder(this))
 }
 
 
@@ -119,7 +40,7 @@ class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empt
 
   val code = Var("")
 
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+
 
   val apply = Var(Events.createMouseEvent())
   this.apply.handler {
@@ -135,13 +56,7 @@ class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empt
           }
         case _=>dom.console.error("test menu not found")
   }
-
-
-
   }
-
-  override protected def attachBinders(): Unit = this.withBinders(new CodeBinder(this))
-
 
 }
 
@@ -155,7 +70,7 @@ class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empt
 class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView
 {
 
-    override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
+
   val text = Var("")
 
 
@@ -165,8 +80,6 @@ class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
     //  new DateParser(input()).InputLine.run().map(i=>i.toString).getOrElse("failure")
     ""
   }
-  override protected def attachBinders(): Unit = withBinders( new CodeBinder(this)::BindableView.defaultBinders(this) )
-
 
 }
 
@@ -198,12 +111,7 @@ class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends Binda
 
   }
 
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
-
-  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
-
-
-  dom.setInterval(update _, 100)
+ dom.setInterval(update _, 100)
 
   /** Computes the square of an integer.
     *  This demonstrates unit testing.
@@ -226,9 +134,8 @@ class LongListView(element:HTMLElement, params:Map[String,Any]) extends MapColle
 
   }
 
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
+
 
 }
 
@@ -246,9 +153,7 @@ class TestMacroView(val elem:HTMLElement, val params:Map[String,Any]) extends Bi
   val result = implicitly[ClassToMap[HelloWorld]].asMap(h)
   dom.console.log(result.toString)
 
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 
 }
 
@@ -284,9 +189,7 @@ class Test(val elem:HTMLElement, val params:Map[String,Any]) extends BindableVie
 
   }
 
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  override protected def attachBinders(): Unit = binders = BindableView.defaultBinders(this)
 
 }
 

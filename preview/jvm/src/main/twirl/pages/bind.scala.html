@@ -10,7 +10,7 @@
     </section>
 
 
-    <div class="ui two column grid">
+    <div class="ui three column grid">
         <section class="row">
             <div class="column">
                 <p class="ui segment">
@@ -47,9 +47,35 @@
             </div>
 
             <div class="column">
-                <textarea data-bind-code="html_code" data-mode="htmlmixed">
+                <div data-bind-code="html" data-mode="htmlmixed">
+<section class="ui" data-view="random">
 
-                </textarea>
+                        <section data-html="counting"></section>
+                        <h1 class="ui purple large header" data-bind="bar"></h1>
+
+                        <div class="ui two column grid">
+                            <section class="row">
+                                <div class="column">
+                                    <input class="ui input" data-bind="foo">
+                                    <textarea class="ui textarea" data-bind="foo"></textarea>
+                                </div>
+                                <div class="column">
+                                    <textarea class="ui textarea" data-bind="bar"></textarea>
+                                    <input class="ui input"  data-bind="bar">
+                                </div>
+
+                            </section>
+
+
+
+                        </div>
+
+                        <h1 class="ui teal large header" data-bind="foo"></h1>
+
+
+                    </section>
+
+                </div>
 
             </div>
 
@@ -79,7 +105,41 @@
             </div>
 
             <div class="column">
-                <textarea data-bind-code="scala_code" data-mode="clike">
+                <textarea data-bind-code="scala_code" data-mode="scala">
+                    <code class="language-scala">
+class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
+{
+    val counting = Var{
+    div(`class`:= "ui segment",
+        h1("This is title"),
+        p("value that changes: 'START'")
+        )
+    }
+
+    val foo= Var{"Foo variable text"}
+    val bar = Var{"Bar variable text"}
+
+
+    val list = List("ONE","TWO","THREE","FOUR","SOME TEXT","THAT IS RANDOM")
+
+    def update():Unit ={
+        val value =  div(`class`:="ui segment",
+            h1("This is title"),
+            p(s"value that changes: '${list(Random.nextInt(list.length))}' ")
+        )
+        counting() = value
+    }
+
+    dom.setInterval(update _, 100)
+
+    /** Computes the square of an integer.
+    *  This demonstrates unit testing.
+    */
+    def square(x: Int): Int = x*x
+}
+
+
+                    </code>
 
                 </textarea>
 

@@ -2,11 +2,12 @@ package org.denigma.semantic.binders
 
 
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binders.binded.{BindedTextProperty, SemanticSelector, Typed}
+import org.denigma.semantic.binders.binded.{SemanticSelector, BindedTextProperty, Typed}
 import org.scalajs.dom.raw.HTMLElement
 import org.w3.banana._
 import rx.core.Var
 import rx.extensions._
+import scalajs.concurrent.JSExecutionContext.Implicits.queue
 
 import scala.collection.immutable.Map
 import scala.concurrent.Future
@@ -14,23 +15,25 @@ import scala.concurrent.Future
 class SelectableModelBinder[Rdf<:RDF](
                                 view:BindableView,
                                 graph:Var[PointedGraph[Rdf]],
-                                prefixes:Var[Map[String,Rdf#URI]])
+                                resolver:Resolver[Rdf])
                                 (typeHandler:Typed[Rdf]=>Future[Seq[Rdf#Node]])
-                              (implicit ops:RDFOps[Rdf]) extends RDFModelBinder[Rdf](view,graph,prefixes)(ops) {
+                               extends RDFModelBinder[Rdf](view,graph,resolver) {
 
-  override protected def bindProperty(el: HTMLElement, key: String, value: String, ats: Map[String, String]): Unit = {
-    this.resolve(value).foreach {
-      case iri if this.elementHasValue(el) =>
-        val dataType = ats.get("datatype").fold("")(v => v)
-        val selector= new SemanticSelector[Rdf](el,graph,updates,iri)
-        selector.typed.onChange(ops.fromUri(iri)){ tp=>
-          typeHandler(tp)
+  import resolver.ops
+
+
+  override protected def bindValueElement(el: HTMLElement, iri:Rdf#URI, ats: Map[String, String]) = el.tagName.toLowerCase match {
+    case "textarea"=>super.bindValueElement(el,iri,ats)
+    case other=>
+      //val dataType = ats.get("datatype").fold("")(v => v)
+      val selector= new SemanticSelector[Rdf](el,graph,updates,iri)
+      selector.typed.onChange(ops.fromUri(iri)){ tp=>
+        typeHandler(tp).foreach{case sugs=>
+          selector.suggestions() = sugs.toSet //TODO:rewrite with ranking!
         }
-        binded.addBinding(iri, selector)
+      }
+      binded.addBinding(iri, selector)
 
-      case iri =>
-        binded.addBinding(iri, new BindedTextProperty(el, graph, updates, iri, "textContent"))
-    }
   }
 
 }

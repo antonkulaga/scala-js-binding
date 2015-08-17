@@ -8,6 +8,8 @@ import scala.reflect.macros.whitebox
 
 import org.scalajs.dom
 import scalatags.Text._
+
+
 /**
  * Just some experiments
  */
@@ -77,9 +79,9 @@ object TagRxMap extends BinderObject {
   }
 }
 
-
-
 class BinderObject  {
+
+
   def extract[T: c.WeakTypeTag,TE:  c.WeakTypeTag](c: whitebox.Context) = {
     import c.universe._
 
@@ -89,7 +91,6 @@ class BinderObject  {
 
     val pairs = weakTypeOf[T].members.collect {
       case m: MethodSymbol if (m.isVal || m.isCaseAccessor || m.isGetter) && m.returnType.<:<(we) =>
-        if(m.returnType.<:<(we)) true
         val name = c.literal(m.name.decodedName.toString)
         val value = c.Expr[T](Select(Ident(TermName("t")), m.name))
         reify(name.splice -> value.splice).tree

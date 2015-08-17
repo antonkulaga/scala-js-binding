@@ -22,7 +22,6 @@ class SidebarView (val elem:HTMLElement,val params:Map[String,Any] = Map.empty[S
     $(".ui.accordion").accordion()
   }
 
-  override def activateMacro(): Unit = { extractors.foreach(_.extractEverything(this))}
 
-  override protected def attachBinders(): Unit =  binders =  BindableView.defaultBinders(this)
+
 }

@@ -2,7 +2,9 @@ package org.denigma.binding.macroses
 
 import scala.collection.immutable.Map
 import rx._
+import scala.reflect.macros.whitebox
 import scala.reflect.macros.whitebox.Context
+
 
 
 
@@ -13,7 +15,7 @@ trait StringRxMap[T] {
 object StringRxMap extends BinderObject {
   implicit def materialize[T]: StringRxMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[StringRxMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[StringRxMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Rx[String]](c)
 
@@ -32,7 +34,7 @@ trait BooleanRxMap[T] {
 object BooleanRxMap extends BinderObject {
   implicit def materialize[T]: BooleanRxMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[BooleanRxMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[BooleanRxMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Rx[Boolean]](c)
 
@@ -43,4 +45,3 @@ object BooleanRxMap extends BinderObject {
     }
   }
 }
-

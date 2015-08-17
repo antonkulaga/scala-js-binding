@@ -14,11 +14,10 @@ val disp = elem.style.display
 override type Item = (String,String)
 override type ItemView = BindableView
 
-def newItem(item:Item):ItemView = {
-  //debug("ITEM="+item.toString())
-  val v = this.constructItemView(item){  (el,mp)=>  BindableView(el,mp) }
-  v.withBinders(new StringBinder(v,item._1,item._2))
-}
+  def newItem(item:Item):ItemView = {
+    //debug("ITEM="+item.toString())
+    this.constructItemView(item){  (el,mp)=>  BindableView(el,mp).withBinder(new StringBinder(_,item._1,item._2)) }
+  }
 
 
 }

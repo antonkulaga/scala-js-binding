@@ -26,7 +26,7 @@ class MainActor  extends Actor with ActorLogging with Routes
   }
 
   def onStop() = {
-    log.info("Main actor has been stoped...")
+    log.info("Main actor has been stopped...")
   }
 
   override def postStop() = {

@@ -1,10 +1,12 @@
 package org.denigma.preview
 
+import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.{OrganizedView, ViewInjector, BindableView}
+import org.denigma.controls.binders.CodeBinder
 import org.querki.jquery._
 import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.{Selection, HTMLElement}
 import org.semantic.SidebarConfig
 import org.semantic.ui._
 
@@ -25,29 +27,46 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   lazy val elem: HTMLElement = dom.document.body
 
-  val sidebarParams = SidebarConfig.exclusive(false).dimPage(false).closable(false).useLegacy(true)
+  val sidebarargs = SidebarConfig.exclusive(false).dimPage(false).closable(false).useLegacy(false)
+
+
+
+/*  new CodeBinder(this),
+  new RDFModelBinder[Plantain](this,
+    graph,
+    resolver)*/
 
   /**
    * Register views
    */
   override lazy val injector = defaultInjector
-    .register("sidebar", (el, params) =>Try(new SidebarView(el,params)))
-    .register("random", (el,params) => Try(new RandomView(el,params)))
-    .register("menu", (el,params) => Try(new MenuView(el,params)))
-    .register("testmenu", (el,params) => Try(new MenuView(el,params)))
-    .register("BindSlide",(el,params)=>Try(new BindSlide(el,params)))
-    .register("CollectionSlide",(el, params) =>Try(new CollectionSlide(el,params)))
-    .register("random",(el,params)=> Try (new RandomView(el,params))  )
-    .register("lists",(el,params)=>Try (new LongListView(el,params)))
-    .register("test-macro", (el,params)=>Try(new TestMacroView(el,params)))
-    .register("RdfSlide", (el,params)=>Try(new RdfSlide(el,params)))
-
-
-
-    //.register("test", (el,params)=>Try(new Test(el,params)))
-
-
-
+    .register("sidebar"){
+      case (el, args) =>
+        new SidebarView(el,args).withBinder(new GeneralBinder(_))
+    }
+    .register("menu"){
+      case (el,args) => new MenuView(el,args)
+        .withBinder(new GeneralBinder(_))
+        .withBinder(new NavigationBinding(_))
+    }
+    .register("testmenu"){
+      case (el,args) => new MenuView(el,args)
+        .withBinder(new GeneralBinder(_))
+        .withBinder(new NavigationBinding(_))
+    }
+    .register("BindSlide"){
+      case (el,args)=>new BindSlide(el,args).withBinder(new CodeBinder(_))
+    }
+      .register("CollectionSlide")
+      {case (el, args) =>
+        new CollectionSlide(el,args).withBinder(view=>new CodeBinder(view))
+    }
+    .register("random"){case (el,args)=> new RandomView(el,args).withBinder(view=>new CodeBinder(view)) }
+    .register("lists"){ case (el,args)=>new LongListView(el,args).withBinder(view=>new CodeBinder(view))}
+    .register("test-macro"){case (el,args)=>new TestMacroView(el,args).withBinder(view=>new CodeBinder(view))}
+    .register("RdfSlide"){case (el,args)=>new RdfSlide(el,args).withBinder(view=>new CodeBinder(view))}
+    .register("Selection"){case (el,args)=>new SelectionView(el,args).withBinder(view=>new CodeBinder(view))}
+    //.register("RdfSlide", (el,args)=>Try(new RdfSlide(el,args)))
 
 
 
@@ -58,7 +77,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   @JSExport
   def showLeftSidebar() = {
-    $(".left.sidebar").sidebar(sidebarParams).show()
+    $(".left.sidebar").sidebar(sidebarargs).show()
   }
 
   @JSExport
@@ -77,11 +96,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     }
   }
 
-  override def activateMacro(): Unit = {
-    extractors.foreach(_.extractEverything(this))
-  }
+  this.binders = List(new GeneralBinder(this),new NavigationBinding(this))
 
-  def attachBinders() = {
-    this.binders = BindableView.defaultBinders(this)
-  }
 }
