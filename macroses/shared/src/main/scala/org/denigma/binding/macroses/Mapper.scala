@@ -1,12 +1,11 @@
 package org.denigma.binding.macroses
 
 
+import rx._
+
 import scala.collection.immutable._
 import scala.language.experimental.macros
-import rx._
 import scala.reflect.macros.whitebox
-
-import org.scalajs.dom
 import scalatags.Text._
 
 

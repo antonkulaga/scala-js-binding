@@ -1,13 +1,57 @@
 import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 import sbt._
 
+case class CrossDep(
+										 shared:Def.Initialize[Seq[ModuleID]],
+										 jvm:Def.Initialize[Seq[ModuleID]] = Def.setting(Seq.empty[ModuleID]),
+										 js:Def.Initialize[Seq[ModuleID]] = Def.setting(Seq.empty[ModuleID]))
 
 object Dependencies {
 
 	//libs for testing
-  lazy val testing = Def.setting(Seq(
+  lazy val testing: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
 		"org.scalatest" %%% "scalatest" % Versions.scalaTest
   ))
+
+	lazy val macroses = CrossDep(
+		shared = Def.setting(Seq(
+			"com.lihaoyi" %%% "scalatags" % Versions.scalaTags,
+			"com.lihaoyi" %%% "scalarx" % Versions.scalaRx,
+			"com.github.marklister" %%% "product-collections" % Versions.productCollections
+		)),
+
+		jvm = Def.setting(Seq.empty),
+
+		js = Def.setting(Seq( 	"org.scala-js" %%% "scalajs-dom" % Versions.dom	))
+	)
+
+	val binding = CrossDep(shared = Def.setting(Seq("com.softwaremill.quicklens" %%% "quicklens" % Versions.quicklens)),
+			jvm = Def.setting(Seq.empty),
+			js  = Def.setting(Seq(
+
+			"org.querki" %%% "jquery-facade" % Versions.jqueryFacade,
+
+			"org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade,
+
+			"org.denigma" %%% "selectize-facade" % Versions.selectizeFacade
+
+		)  )
+	)
+
+	val semantic = CrossDep(
+		shared = Def.setting(Seq.empty),
+		jvm  = Def.setting(Seq( "org.w3" %% "banana-plantain" % Versions.bananaRdf excludeAll ExclusionRule(organization = "com.github.inthenow")	)  )
+		,
+		js =Def.setting(Seq(
+			"org.denigma" %%% "selectize-facade" % Versions.selectizeFacade,
+
+			"org.w3" %%% "banana-plantain" % Versions.bananaRdf excludeAll ExclusionRule(organization = "com.github.inthenow")
+		))
+	)
+
+
+	val previewJS = Def.setting( Seq( "org.denigma" %%% "semantic-ui-facade" % Versions.semanticUIFacade ) 	)
+
 
 	//akka-related libs
 	lazy val akka = Def.setting(Seq(
@@ -17,54 +61,6 @@ object Dependencies {
 		"com.typesafe.akka" %% "akka-http-testkit-experimental" % Versions.akkaHttp
 	))
 
-	val previewJS = Def.setting( Seq(
-		"org.denigma" %%% "semantic-ui-facade" % Versions.semanticUIFacade
-	)
-	)
-
-	val semanticJS: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
-			"org.denigma" %%% "selectize-facade" % Versions.selectizeFacade,
-
-		 	"org.w3" %%% "banana-plantain" % Versions.bananaRdf excludeAll ExclusionRule(organization = "com.github.inthenow")
-		)
-	)
-
-	val semanticJVM: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
-		"org.w3" %% "banana-plantain" % Versions.bananaRdf excludeAll ExclusionRule(organization = "com.github.inthenow")
-	)  )
-
-
-	val bindingJS: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
-
-    "org.scala-js" %%% "scalajs-dom" % Versions.dom,
-
-    "org.querki" %%% "jquery-facade" % Versions.jqueryFacade,
-
-    "org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade,
-
-    "org.denigma" %%% "selectize-facade" % Versions.selectizeFacade,
-
-    "com.softwaremill.quicklens" %%% "quicklens" % Versions.quicklens,
-
-    "com.lihaoyi" %%% "scalarx" % Versions.scalaRx
-
-  )  )
-
-  val bindingJVM: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
-
-    "com.softwaremill.quicklens" %% "quicklens" % Versions.quicklens,
-
-    "com.lihaoyi" %% "scalarx" % Versions.scalaRx
-
-  )  )
-
-  val macro_js = Def.setting(Seq(
-	      "org.scala-js" %%% "scalajs-dom" % Versions.dom,
-
-	      "com.lihaoyi" %%% "scalatags" % Versions.scalaTags,
-
-	      "com.lihaoyi" %%% "scalarx" % Versions.scalaRx
-	  ))
 
 	//dependencies on javascript libs
 	lazy val webjars= Def.setting(Seq(

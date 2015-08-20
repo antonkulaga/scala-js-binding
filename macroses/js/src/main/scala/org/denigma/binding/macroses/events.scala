@@ -1,8 +1,9 @@
 package org.denigma.binding.macroses
 
-import scala.collection.immutable.Map
-import rx._
 import org.scalajs.dom
+import rx._
+
+import scala.collection.immutable.Map
 import scala.reflect.macros.Context
 
 trait KeyEventMap[T] {
