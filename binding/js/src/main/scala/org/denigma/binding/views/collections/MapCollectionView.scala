@@ -1,6 +1,6 @@
 package org.denigma.binding.views.collections
 
-import org.denigma.binding.binders.NavigationBinding
+import org.denigma.binding.binders.NavigationBinder
 import org.denigma.binding.binders.collections.MapItemsBinder
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom._
@@ -17,7 +17,7 @@ object MapCollectionView {
 
    val reactiveMap: Map[String, Var[String]] = params.map(kv => (kv._1, Var(kv._2.toString)))
 
-    binders = new MapItemsBinder(this,reactiveMap)::new NavigationBinding(this)::Nil
+    binders = new MapItemsBinder(this,reactiveMap)::new NavigationBinder(this)::Nil
 
   }
 

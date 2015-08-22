@@ -1,4 +1,4 @@
 @(content:Option[Html] = None)
-<main id="main" class="ui green inverted segment">
+<main id="main" class="ui segment">
   @{content.getOrElse(pages.html.rdf("It can work with rdf"))/*pages.html.bind("it can bind"))*/}
 </main>

@@ -23,11 +23,6 @@ class MapItemsBinder(view:BindableView, reactiveMap:Map[String,Var[String]]) ext
       .orElse(this.otherPartial)(key.toString)
   }
 
-
-  override def id: String = view.id
-
-
-
   /**
    * Binds property value to attribute
    * @param el Element

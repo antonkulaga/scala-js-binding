@@ -4,10 +4,10 @@
     @html.libs()
     @html.runner()
   </head>
-  <body>
-      @html.sidebar()
-      <div  class="pusher"> <!--it will be pushed by a sidebar-->
-          @html.main(content)
-      </div>
+  <body class="Grid pushable">
+          @html.sidebar()
+          <div  class="pusher"> <!--it will be pushed by a sidebar-->
+              @html.main(content)
+          </div>
   </body>
 </html>

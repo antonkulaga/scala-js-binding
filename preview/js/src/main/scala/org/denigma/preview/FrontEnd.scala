@@ -1,6 +1,6 @@
 package org.denigma.preview
 
-import org.denigma.binding.binders.{NavigationBinding, GeneralBinder}
+import org.denigma.binding.binders.{NavigationBinder, GeneralBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.{OrganizedView, ViewInjector, BindableView}
 import org.denigma.controls.binders.CodeBinder
@@ -27,7 +27,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   lazy val elem: HTMLElement = dom.document.body
 
-  val sidebarargs = SidebarConfig.exclusive(false).dimPage(false).closable(false).useLegacy(false)
+  val sidebarargs = SidebarConfig.exclusive(false).dimPage(false).closable(false).useLegacy(true)
 
 
 
@@ -47,12 +47,12 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("menu"){
       case (el,args) => new MenuView(el,args)
         .withBinder(new GeneralBinder(_))
-        .withBinder(new NavigationBinding(_))
+        .withBinder(new NavigationBinder(_))
     }
     .register("testmenu"){
       case (el,args) => new MenuView(el,args)
         .withBinder(new GeneralBinder(_))
-        .withBinder(new NavigationBinding(_))
+        .withBinder(new NavigationBinder(_))
     }
     .register("BindSlide"){
       case (el,args)=>new BindSlide(el,args).withBinder(new CodeBinder(_))
@@ -65,7 +65,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("lists"){ case (el,args)=>new LongListView(el,args).withBinder(view=>new CodeBinder(view))}
     .register("test-macro"){case (el,args)=>new TestMacroView(el,args).withBinder(view=>new CodeBinder(view))}
     .register("RdfSlide"){case (el,args)=>new RdfSlide(el,args).withBinder(view=>new CodeBinder(view))}
-    .register("Selection"){case (el,args)=>new SelectionView(el,args).withBinder(view=>new CodeBinder(view))}
     //.register("RdfSlide", (el,args)=>Try(new RdfSlide(el,args)))
 
 
@@ -96,6 +95,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     }
   }
 
-  this.binders = List(new GeneralBinder(this),new NavigationBinding(this))
+  this.binders = List(new GeneralBinder(this),new NavigationBinder(this))
 
 }

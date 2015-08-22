@@ -14,7 +14,7 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.scalajs.dom.ext._
 
 
-class NavigationBinding(view:BindableView) extends BasicBinding{
+class NavigationBinder(view:BindableView) extends BasicBinder{
 
 
   /**
@@ -91,6 +91,4 @@ class NavigationBinding(view:BindableView) extends BasicBinding{
   }{
     loadIntoPartial(el,value).orElse(this.otherPartial)(key.toString)//key.toString is the most important!
   }
-
-  override def id: String = view.id
 }

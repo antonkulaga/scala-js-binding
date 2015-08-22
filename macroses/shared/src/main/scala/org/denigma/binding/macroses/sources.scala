@@ -7,9 +7,20 @@ import scala.language.experimental.macros
 import scala.reflect.macros._
 import scala.util.{Failure, Success, Try}
 
+import scala.reflect.macros.Context
+import scala.language.experimental.macros
+import scala.annotation.StaticAnnotation
+import scala.annotation.compileTimeOnly
+/*
+@compileTimeOnly("enable macro paradise to expand macro annotations")
+class identity extends StaticAnnotation {
+  def macroTransform(annottees: Any*): Any = macro CSVImpl.identity
+}*/
+
 trait DataFrame[T] {
   def rows:Vector[Mapped[T]]
   def cols:Map[String,Vector[T]]
+  def headers: Vector[String]
 }
 
 
@@ -31,6 +42,7 @@ object CSV
 
 
 class CSVImpl(val c:whitebox.Context) {
+
 
   protected def textFrom(where:String) = Try(Source.fromURL(getClass.getResource(where)).getLines().reduce(_+"\n"+_))
     .recover{  case any=> Source.fromFile(where).getLines().reduce(_+"\n"+_)  }
@@ -69,6 +81,19 @@ class CSVImpl(val c:whitebox.Context) {
         """)
   }
 
+  def identity(annottees: c.Expr[Any]*): c.Expr[Any] = {
+    import c.universe._
+    val inputs = annottees.map(_.tree).toList
+    val (annottee, expandees) = inputs match {
+      case (param: ValDef) :: (rest @ (_ :: _)) => (param, rest)
+      case (param: TypeDef) :: (rest @ (_ :: _)) => (param, rest)
+      case _ => (EmptyTree, inputs)
+    }
+    println((annottee, expandees))
+    val outputs = expandees
+    c.Expr[Any](Block(outputs, Literal(Constant(()))))
+  }
+
   def toDataFrame(from: c.Expr[String]): c.Expr[DataFrame[String]] = {
     import c.universe._
     val Literal(Constant(where: String)) = from.tree
@@ -79,7 +104,7 @@ class CSVImpl(val c:whitebox.Context) {
         import c.universe._
         val data = new CSVReader(string).toList.map(_.toSeq)
         val rows = this.data2rows(data)
-        val (head, body) = (data.head.toVector,data.tail.toVector)
+        val (head: Vector[String], body) = (data.head.toVector,data.tail.toVector)
         val res: Map[String, Vector[String]] = (for{ i <-head.indices } yield head(i)->body.map(_(i))).toMap
         val named = res.map{ case (key,value)=>
             val term:c.TermName = key
@@ -102,10 +127,7 @@ class CSVImpl(val c:whitebox.Context) {
     }
   }
 
-
-
-
-    def toVectorMap(from: c.Expr[String]): c.Expr[Vector[Mapped[String]]] = {
+  def toVectorMap(from: c.Expr[String]): c.Expr[Vector[Mapped[String]]] = {
     import c.universe._
 
       val Literal(Constant(where: String)) = from.tree

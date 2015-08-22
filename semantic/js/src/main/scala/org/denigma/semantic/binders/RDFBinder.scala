@@ -1,6 +1,6 @@
 package org.denigma.semantic.binders
 
-import org.denigma.binding.binders.BasicBinding
+import org.denigma.binding.binders.BasicBinder
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
@@ -55,7 +55,7 @@ trait Resolver[Rdf<:RDF] {
 /**
  * View that can do RDFa binding (binding to semantic properties)
  */
-class RDFBinder[Rdf<:RDF](view:BindableView, resolver:Resolver[Rdf]) extends BasicBinding
+class RDFBinder[Rdf<:RDF](view:BindableView, resolver:Resolver[Rdf]) extends BasicBinder
 {
 
   import resolver.ops
@@ -96,6 +96,4 @@ class RDFBinder[Rdf<:RDF](view:BindableView, resolver:Resolver[Rdf]) extends Bas
                            key: String,
                            value: String,
                            ats:Map[String,String]): PartialFunction[String, Unit] =  this.vocabPartial(value)
-
-  override def id: String = view.id
 }

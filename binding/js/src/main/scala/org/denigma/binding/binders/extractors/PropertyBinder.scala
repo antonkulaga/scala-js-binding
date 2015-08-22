@@ -1,6 +1,6 @@
 package org.denigma.binding.binders.extractors
 
-import org.denigma.binding.binders.BasicBinding
+import org.denigma.binding.binders.BasicBinder
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.ext._
@@ -14,7 +14,7 @@ import scala.collection.immutable.Map
  * Does binding for classes
  */
 trait PropertyBinder {
-  self:BasicBinding=>
+  self:BasicBinder=>
 
   def strings:Map[String,Rx[String]]
   def bools:Map[String,Rx[Boolean]]

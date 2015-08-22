@@ -1,10 +1,10 @@
 package org.denigma.binding.binders
 
-import org.denigma.binding.binders.extractors.{EventBinding, ScalaTagsBinder}
+import org.denigma.binding.binders.extractors.{EventBinder, ScalaTagsBinder}
 import org.denigma.binding.macroses._
 import org.denigma.binding.views.{BindableView, OrganizedView}
 import org.scalajs.dom
-import org.scalajs.dom.raw.{MouseEvent, HTMLElement}
+import org.scalajs.dom.raw.{KeyboardEvent, MouseEvent, HTMLElement}
 import rx._
 import rx.core.Obs
 
@@ -26,20 +26,18 @@ class GeneralBinder[View<:BindableView](view:View)
   mpText:TextEventMap[View], mpKey:KeyEventMap[View],
   mpUI:UIEventMap[View], mpWheel:WheelEventMap[View], mpFocus:FocusEventMap[View]
 )
-  extends PrimitivesBinder with ScalaTagsBinder with EventBinding //with Extractor
+  extends PrimitivesBinder with ScalaTagsBinder with EventBinder //with Extractor
 {
 
+  var bools: Map[String, Rx[Boolean]] = mpBool.asBooleanRxMap(view)
 
-  var bools: Map[String, Rx[Boolean]] = this.extractBooleanRx(view)
+  var strings: Map[String, Rx[String]] = mpString.asStringRxMap(view)
 
-  var strings: Map[String, Rx[String]] = this.extractStringRx(view)
+  var tags: Map[String, Rx[Tag]] = mpTag.asTagRxMap(view)
 
-  var tags: Map[String, Rx[Tag]] = this.extractTagRx(view)
+  var mouseEvents: Map[String, rx.Var[MouseEvent]] = mpMouse.asMouseEventMap(view)
 
-  var mouseEvents: Map[String, rx.Var[MouseEvent]] =this.extractMouseEvents(view)
-
-
-  override def id: String = view.id
+  var keyboardEvents:Map[String,Var[KeyboardEvent]] = mpKey.asKeyEventMap(view)
 
 
   def bindDataAttributes(el:HTMLElement,ats:Map[String, String]) = {
@@ -76,7 +74,7 @@ class GeneralBinder[View<:BindableView](view:View)
       view.binders.collectFirst{case b:GeneralBinder[_]=>b}.get}
 
 
-  protected def upPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
+  protected def upPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {//TODO:rewrite
     case prop if prop.startsWith("up-")=>
       prop.replace("up-","") match {
         case bname if bname.startsWith("bind-")=>
@@ -107,13 +105,14 @@ class GeneralBinder[View<:BindableView](view:View)
             //this.classUnless(el,cl.replace("-unless",""),value)
             this.parentGeneralBinder.foreach{b=>b.classUnless(el,cl.replace("-unless",""),value)} //TODO REWRITE COMPLETELY
         }
+
         case "event-click"=>
           this.parentGeneralBinder.foreach{case b=>
             //b.eventsPartial(el,value)(prop)
             b.mouseEvents.get(value) match {
-              case Some(ev)=>b.bindClick(el,key,ev)
+              case Some(ev)=>b.bindClick(el,ev)
               case _ =>
-                dom.console.error(s"cannot bind click event of ${this.id} to $value")
+                dom.console.error(s"cannot bind click event of ${view.id} to $value")
                 dom.console.log("current events =" + this.mouseEvents.keys.toString())
 
             }

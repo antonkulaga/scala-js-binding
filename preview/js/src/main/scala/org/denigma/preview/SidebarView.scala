@@ -13,7 +13,7 @@ import org.semantic.ui._
 class SidebarView (val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView {
 
 
-  val title = Var("CodeMirror facade")
+  val title = Var("Scala-JS-Binding")
 
   val logo = Var("/resources/scala-js-logo.svg")
 

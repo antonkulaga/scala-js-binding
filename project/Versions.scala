@@ -52,6 +52,8 @@ trait SharedVersions
 
 	val productCollections = "1.4.2"
 
+	val macroParadise = "2.1.0-M5"
+
 	val scalaTest =  "3.0.0-M7"
 }
 

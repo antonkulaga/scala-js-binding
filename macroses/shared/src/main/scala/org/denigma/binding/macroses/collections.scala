@@ -1,8 +1,9 @@
 package org.denigma.binding.macroses
 
-import scala.collection.immutable.{List, Map}
-import rx._
-import scala.reflect.macros.Context
+import rx.core.Rx
+
+import scala.language.experimental.macros
+import scala.reflect.macros._
 
 
 trait MapRxMap[T] {
@@ -13,7 +14,7 @@ object MapRxMap extends BinderObject
 {
   implicit def materialize[T]: MapRxMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[MapRxMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[MapRxMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Rx[Map[String,Any]]](c)
 
@@ -33,7 +34,7 @@ trait ListRxMap[T] {
 object ListRxMap extends BinderObject {
   implicit def materialize[T]: ListRxMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[ListRxMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[ListRxMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Rx[List[Map[String,Any]]]](c)
 

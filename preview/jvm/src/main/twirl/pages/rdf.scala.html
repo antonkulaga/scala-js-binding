@@ -42,29 +42,44 @@
         </section>
         <section class="row">
             <div class="column">
-                <section class="ui segment"
-                data-view="SelectableModelView"
-                vocab="http://webintelligence.eu/platform/"
-                data-param-path="models/endpoint"
-                data-param-resource="http://page.org"
-                data-param-shape="http://shape.org">
-
-                    <h1>This tests selectors</h1>
-                    <div>
-                        <h1 property="title"></h1>
-                        <input property="title">
-                        <p property="text"></p>
-                        <textarea property="text"></textarea>
-
-                    </div>
-
-                </section>
-            </div>
-        </section>
-            <div class="column">
                 <h1>CUSTOM SELECTION</h1>
                 @pages.html.selection()
+                @*                    <section class="ui segment"
+                    data-view="SelectableModelView"
+                    vocab="http://webintelligence.eu/platform/"
+                    data-param-path="models/endpoint"
+                    data-param-resource="http://page.org"
+                    data-param-shape="http://shape.org">
+
+                        <h1>This tests selectors</h1>
+                        <div>
+                            <h1 property="title"></h1>
+                            <input property="title">
+                            <p property="text"></p>
+                            <textarea property="text"></textarea>
+                            <div class="ui button" data-event-click="Report">Report</div>
+
+                        </div>
+
+                    </section>*@
             </div>
+            <div class="column segment">
+@*
+                <div class="flexer">
+                    <button class="flexible">One</button>
+                    <button class="flexible">Two</button>
+                    <input value="INPUT_ONE">
+                    <button class="flexible">Three</button>
+                    <button class="flexible">Four</button>
+                    <input value="INPUT_TWO">
+                    <button class="flexible">Five</button>
+                    <input value="INPUT_THREE" class="flexible">
+                </div>
+*@
+
+            </div>
+
+        </section>
 
     </div>
 

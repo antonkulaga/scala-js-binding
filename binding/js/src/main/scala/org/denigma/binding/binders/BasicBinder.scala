@@ -6,27 +6,35 @@ import org.scalajs.dom._
 import org.scalajs.dom.raw.HTMLElement
 import rx._
 
+import scala.Predef
 import scala.collection.immutable.Map
 import scala.scalajs.js
 
+object Binder{
+  def apply(attribuetsBind:(HTMLElement,Map[String,String])=>Unit) = new BasicBinder {
+    override def bindAttributes(el: HTMLElement, ats: Predef.Map[String, String]): Unit = attribuetsBind(el,ats)
+  }
+
+}
+/*
+
+trait BindingSyntax
+class BasicBindingSyntax {
+
+}
+*/
 
 /**
  *  A class that contains basic functions for all bindings
  */
-trait BasicBinding //extends ILogged
+trait BasicBinder
 {
 
-
   def bindAttributes(el:HTMLElement,ats:Map[String, String] ):Unit
-
-  //def unbindAttributes(el:HTMLElement,ats:Map[String, String] ):Unit
 
   protected def dataAttributesOnly(ats:Map[String,String]): Map[String, String] = ats.collect{
     case (key,value) if key.contains("data-") && !key.contains("data-view")=> (key.replace("data-",""),value)
   }
-
-
-  def id:String
 
   protected def processUrl(url:String, relativeURI:Boolean = true):String =
     (url.indexOf("://"),url.indexOf("/"),url.indexOf("?"))
@@ -56,47 +64,19 @@ trait BasicBinding //extends ILogged
   }
 
 
-  def bindVar[T](key:String,el:HTMLElement ,v:Var[T])(assign:(HTMLElement,Var[T])=>Unit): Unit  = {
+  def bindVar[T](key:String,el:HTMLElement ,v:Var[T])(assign:(HTMLElement,Var[T])=>Unit): Obs  = {
     //TODO: deprecate
-
     val eid = this.withID(el, key) //assigns id
-    lazy val obs: Obs = Obs(v, eid, skipInitial = false) {  assign(el,v)  }
-    val o = obs //TO MAKE LAZY STUFF WORK
+    Obs(v, eid, skipInitial = false) {  assign(el,v)  }
   }
 
-
-
-  /**
-   * Binds value to reactive property
-   * @param key key to witch to bind to
-   * @param el html element
-   * @param rx reactive variable
-   * @param assign assign function that assigns value to html element
-   * @tparam T type param
-   * @return
-   */
-  def bindRx[T](key:String,el:HTMLElement ,rx:Rx[T])(assign:(HTMLElement,T)=>Unit): Unit = {
+  def bindRx[T](key:String,el:HTMLElement ,rx:Rx[T])(assign:(HTMLElement,T)=>Unit): Obs = {
     //TODO: deprecate
-
     val eid = this.withID(el, key)
-    lazy val obs: Obs = Obs(rx, eid, skipInitial = false) {
-      /*
-      dom.document.getElementById(eid) match {
-        case null =>
-          dom.console.info(s"$eid was not find, killing observable...")
-          obs.kill()
-
-        case element: HTMLElement =>
-          val value = rx.now
-          //el.dyn.obs = obs.asInstanceOf[js.Dynamic]
-          assign(element, value)
-      }
-      */
+    Obs(rx, eid, skipInitial = false) {
       val value = rx.now
       assign(el,value)
     }
-    val o = obs //TO MAKE LAZY STUFF WORK
-
   }
 
 

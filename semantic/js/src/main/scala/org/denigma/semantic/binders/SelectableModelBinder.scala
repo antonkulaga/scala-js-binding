@@ -23,11 +23,12 @@ class SelectableModelBinder[Rdf<:RDF](
 
 
   override protected def bindValueElement(el: HTMLElement, iri:Rdf#URI, ats: Map[String, String]) = el.tagName.toLowerCase match {
-    case "textarea"=>super.bindValueElement(el,iri,ats)
+    case "textarea"=>
+      super.bindValueElement(el,iri,ats) //if it is a text area, then no selection is possible
     case other=>
       //val dataType = ats.get("datatype").fold("")(v => v)
       val selector= new SemanticSelector[Rdf](el,graph,updates,iri)
-      selector.typed.onChange(ops.fromUri(iri)){ tp=>
+      selector.typed.onChange(ops.fromUri(iri),uniqueValue = true){ tp=>
         typeHandler(tp).foreach{case sugs=>
           selector.suggestions() = sugs.toSet //TODO:rewrite with ranking!
         }

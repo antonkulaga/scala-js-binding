@@ -4,7 +4,8 @@ import org.scalajs.dom
 import rx._
 
 import scala.collection.immutable.Map
-import scala.reflect.macros.Context
+import scala.language.experimental.macros
+import scala.reflect.macros._
 
 trait KeyEventMap[T] {
   def asKeyEventMap(t:T):Map[String,Var[dom.KeyboardEvent]]
@@ -13,7 +14,7 @@ trait KeyEventMap[T] {
 object KeyEventMap extends BinderObject {
   implicit def materialize[T]: KeyEventMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[KeyEventMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[KeyEventMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Var[dom.KeyboardEvent]](c)
 
@@ -32,7 +33,7 @@ trait TextEventMap[T] {
 object TextEventMap extends BinderObject {
   implicit def materialize[T]: TextEventMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[TextEventMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[TextEventMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Var[dom.TextEvent]](c)
 
@@ -51,7 +52,7 @@ trait MouseEventMap[T] {
 object MouseEventMap extends BinderObject {
   implicit def materialize[T]: MouseEventMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[MouseEventMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[MouseEventMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Var[dom.MouseEvent]](c)
     reify {
@@ -69,7 +70,7 @@ trait FocusEventMap[T] {
 object FocusEventMap extends BinderObject {
   implicit def materialize[T]: FocusEventMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[FocusEventMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[FocusEventMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Var[dom.FocusEvent]](c)
     reify {
@@ -88,7 +89,7 @@ trait DragEventMap[T] {
 object DragEventMap extends BinderObject {
   implicit def materialize[T]: DragEventMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[DragEventMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[DragEventMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Var[dom.DragEvent]](c)
     reify {
@@ -106,7 +107,7 @@ trait EventMap[T] {
 object EventMap extends BinderObject {
   implicit def materialize[T]: EventMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[EventMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[EventMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Var[dom.Event]](c)
     reify {
@@ -124,7 +125,7 @@ trait UIEventMap[T] {
 object UIEventMap extends BinderObject {
   implicit def materialize[T]: UIEventMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[UIEventMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[UIEventMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Var[dom.UIEvent]](c)
     reify {
@@ -142,7 +143,7 @@ trait WheelEventMap[T] {
 object WheelEventMap extends BinderObject {
   implicit def materialize[T]: WheelEventMap[T] = macro impl[T]
 
-  def impl[T: c.WeakTypeTag](c: Context): c.Expr[WheelEventMap[T]] = {
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[WheelEventMap[T]] = {
     import c.universe._
     val mapExpr = extract[T,Var[dom.WheelEvent]](c)
     reify {

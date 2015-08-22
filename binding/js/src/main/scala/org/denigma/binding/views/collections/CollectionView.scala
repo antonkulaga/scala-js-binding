@@ -123,7 +123,7 @@ trait CollectionView extends BindableView
   /**
    * Adds subscription
    */
-  protected   def subscribeUpdates(){
+  protected def subscribeUpdates(){
     this.items.now.foreach(i=>this.addItemView(i,this.newItem(i)))
     updates.handler{
       updates.now.inserted.foreach(onInsert)

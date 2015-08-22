@@ -82,9 +82,9 @@ trait RxOps {
      * @tparam TOut
      * @return
      */
-      def collect[TOut](partial:PartialFunction[T,TOut]) = {
+ /*     def collect[TOut](partial:PartialFunction[T,TOut]) = {
         source.filter(partial.isDefinedAt).map(partial)
-      }
+      }*/
 
   }
 

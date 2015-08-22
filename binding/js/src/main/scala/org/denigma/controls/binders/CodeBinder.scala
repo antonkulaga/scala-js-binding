@@ -96,32 +96,30 @@ extends GeneralBinder(view:View)(mpMap,mpTag,mpString,mpBool,mpEvent,mpMouse,mpT
 
   def bindCode(el:HTMLElement,value:String,mode:String):Unit = this.strings.get(value) match {
     case Some(str:Var[String])=>
-      if(str.now=="")
-      {
-        if(el.innerHTML==""){
-          val t = $(el).text()
-          str.set(t)
-        }
-        else
-        {
-          if(el.children.length>0) el.firstChild match {
-            case e:HTMLElement if  e.tagName=="code"=>
-              val t = if(e.children.length>0) e.innerHTML else $(e).text()
-              el.innerHTML = ""
-              str.set(t)
-
-            case _ =>
-              val t = el.innerHTML
-              el.innerHTML = ""
-              str.set(t)
-          }
-        }
-      }
+      if(str.now=="") codeFromElement(el, str)
       this.makeCode(el,str,mode)
 
     case Some(str)=> this.makeCode(el,str,mode)
     case None=>
-      dom.console.error(s"cannot find code stringRx $value in $id\n ; all string keys are:\n ${allStringsKeys}")
+      dom.console.error(s"cannot find code stringRx $value in ${view.id}\n ; all string keys are:\n ${allStringsKeys}")
+  }
+
+  protected def codeFromElement(el: HTMLElement, str: Var[String]): Unit = {
+    if (el.innerHTML == "" || el.children.length == 0) {
+      val t = $(el).text()
+      str.set(t)
+    }
+    else el.firstChild match {
+      case e: HTMLElement if e.tagName == "code" =>
+        val t = if (e.children.length > 0) e.innerHTML else $(e).text()
+        el.innerHTML = ""
+        str.set(t)
+
+      case _ =>
+        val t = el.innerHTML
+        el.innerHTML = ""
+        str.set(t)
+    }
   }
 
   protected def textArea2Code(area: HTMLTextAreaElement, str:Rx[String], mode:String):Unit  =  this.editors.get(area) match {
@@ -133,7 +131,7 @@ extends GeneralBinder(view:View)(mpMap,mpTag,mpString,mpBool,mpEvent,mpMouse,mpT
         if(str.now!="") ed.getDoc().setValue(str.now)
         str match {
           case s: Var[String] => ed.on("change", onChange(s) _)
-          case _ =>  dom.console.info(s"$str.now is not reactive Var in $id")
+          case _ =>  dom.console.info(s"$str.now is not reactive Var in ${view.id}")
         }
         str.onChange("change",uniqueValue = true,skipInitial = true)(s=>{
           val d = ed.getDoc()

@@ -11,7 +11,7 @@ object BindableView {
   class JustView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
 
   def apply(elem:HTMLElement,params:Map[String,Any] = Map.empty) =
-    new JustView(elem,params).withBinders(me=>new GeneralBinder(me)::new NavigationBinding(me)::Nil)
+    new JustView(elem,params).withBinders(me=>new GeneralBinder(me)::new NavigationBinder(me)::Nil)
 
 }
 
@@ -20,7 +20,7 @@ object BindableView {
  */
 trait BindableView extends ReactiveView
 {
-  type Binder = BasicBinding
+  type Binder = BasicBinder
 
   var binders:List[Binder] = List.empty
 
@@ -52,14 +52,15 @@ trait BindableView extends ReactiveView
     //is required for those view that need some unbinding
   }
 
-  protected def warnIfNoBinders(asError:Boolean=true) = if(this.binders.isEmpty) {
+
+  protected def warnIfNoBinders(asError:Boolean) = if(this.binders.isEmpty) {
     val mess = s"the view $name does not have any binders! Its outer HTML is: ${elem.outerHTML}"
     if(asError) dom.console.error(mess) else dom.console.log(mess)
   }
 
   override def bindView(el:HTMLElement) = {
     this.bind(el)
-    warnIfNoBinders(true)
+    warnIfNoBinders(asError = false)
   }
 
 }

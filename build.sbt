@@ -1,18 +1,12 @@
+import com.typesafe.sbt.gzip.Import.gzip
 import com.typesafe.sbt.web._
 import com.typesafe.sbt.web.pipeline.Pipeline
-import org.scalajs.sbtplugin.ScalaJSPlugin
-import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
-import playscalajs.{ScalaJSPlay, PlayScalaJS}
 import playscalajs.PlayScalaJS.autoImport._
+import playscalajs.ScalaJSPlay.autoImport._
+import playscalajs.{PlayScalaJS, ScalaJSPlay}
 import sbt.Keys._
 import sbt._
-import bintray._
-import BintrayPlugin.autoImport._
-import play.twirl.sbt._
-import com.typesafe.sbt.web.SbtWeb.autoImport._
-import playscalajs.ScalaJSPlay.autoImport._
 import spray.revolver.RevolverPlugin._
-import com.typesafe.sbt.gzip.Import.gzip
 
 
 lazy val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
@@ -53,7 +47,8 @@ lazy val bindingMacro = crossProject
     name := "binding-macro",
     scalaVersion:=Versions.scala,
     libraryDependencies ++= Dependencies.macroses.shared.value,
-    libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-reflect" % _)
+    libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-reflect" % _),
+    libraryDependencies += compilerPlugin("org.scalamacros" % "paradise" % Versions.macroParadise cross CrossVersion.full)
   )
   .jvmSettings(
     libraryDependencies ++= Dependencies.macroses.jvm.value
@@ -103,6 +98,7 @@ lazy val semantic = crossProject
     jsDependencies += RuntimeDOM % "test"
   )
   .jvmSettings(  libraryDependencies ++= Dependencies.semantic.jvm.value )
+  .jvmConfigure(p=>p.enablePlugins(SbtTwirl))
   .dependsOn(binding)
 
 

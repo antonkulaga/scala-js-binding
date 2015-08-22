@@ -40,10 +40,9 @@ class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Strin
   override lazy val injector = defaultInjector
     .register("TextModelView"){case (el,args)=>new TextModelView(el,args)}
     .register("SelectableModelView"){case (el,args)=>new SelectableModelView(el,args)}
+    .register("Selection"){case (el,args)=>new SelectionView(el,args).withBinder(view=>new CodeBinder(view))}
 
 
-
-  //override protected def attachBinders(): Unit =  binders =  BindableView.defaultBinders(this)
 }
 
 case class TestData[Rdf<:RDF](subject:Rdf#Node)(implicit ops:RDFOps[Rdf]){
@@ -78,8 +77,7 @@ class TextModelView(elem:HTMLElement,params:Map[String,Any])(implicit ops:RDFOps
     this.saveModel()
   }*/
 
-
-
+  import org.denigma.binding.macroses.CSV
 
   val code = Var("")
 
@@ -98,10 +96,14 @@ class SelectableModelView(elem:HTMLElement,params:Map[String,Any])(implicit ops:
   import ops._
   import org.denigma.binding.extensions._
 
+  val report = Var(Events.createMouseEvent())
+  report.handler{
+    dom.console.log("REPORT WORKS")
+  }
 
-  private val prefs =new DefaultPrefixes[Plantain]().prefixes
 
 
+  private val prefs = new DefaultPrefixes[Plantain]().prefixes
 
   override lazy val graph: Var[PointedGraph[Plantain]] =  Var(PointedGraph[Plantain](
     subject,ops.makeGraph(TestData[Plantain](subject).data))

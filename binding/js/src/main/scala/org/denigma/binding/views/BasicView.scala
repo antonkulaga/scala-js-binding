@@ -1,6 +1,6 @@
 package org.denigma.binding.views
 
-import org.denigma.binding.binders.BasicBinding
+import org.denigma.binding.binders.BasicBinder
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.ext._
@@ -14,7 +14,7 @@ import scala.collection.JavaConversions
 /**
  * Basic view class, contains basic binding features and children
  */
-trait BasicView extends BasicBinding with IView
+trait BasicView extends BasicBinder with IView
 {
 
   type ChildView <: BasicView
