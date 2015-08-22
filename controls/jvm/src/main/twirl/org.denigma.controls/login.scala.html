@@ -1,0 +1,47 @@
+<nav class="ui fluid vertical menu" data-view="login">
+
+  <div id="message" class="ui negative message" data-bind="message" data-showif="hasMessage">
+    </div>
+
+  <div class="ui icon input item" data-hideif="isSigned">
+    <input id="login" type="text" placeholder="username" data-bind="username">
+    <i data-class-icon-if="validUsername" class="checkmark green sign"></i>
+  </div>
+
+
+  <div class="ui icon input item" data-showif="inRegistration" data-hideif="isSigned" data-class-error-unless="emailValid">
+    <input id="email" type="text" data-bind="email" placeholder="email"><i data-class-icon-if="emailValid" class="checkmark green sign"></i>
+  </div>
+
+
+  <div class="ui input icon item" data-hideif="isSigned">
+    <input type="password" data-bind="password" placeholder="password"><i data-class-icon-if="validPassword" class="checkmark green sign"></i>
+  </div>
+
+  <div class="ui input icon item" data-class-error-unless="samePassword" data-showif="inRegistration" data-hideif="isSigned">
+    <input type="password" data-bind="repeat" placeholder="repeat password"><i data-class-icon-if="samePassword" class="checkmark green sign"></i>
+  </div>
+
+  <div class="ui small buttons" data-hideif="isSigned">
+    <button id="loginBtn" class="ui small button"  data-class="loginClass" data-event-click="loginClick">Login</button>
+    <div class="or"></div>
+    <button  id="registerBtn" class="ui small button" data-class="signupClass" data-event-click="signupClick">Sign up</button>
+  </div>
+
+  <div class="ui positive small message item" data-showif="wantsLogin">
+      Click on <i>Login</i> will sign in
+  </div>
+
+  <div class="ui positive small message item" data-showif="wantsRegistration">
+      Click on <i>Sign up</i> will register
+  </div>
+
+  <div class="ui item"  data-showif="isSigned">
+        Logged in as <span data-bind="registeredName"></span>
+  </div>
+
+  <div class="ui item"  data-showif="isSigned">
+    <div class="ui green button" data-event-click="logoutClick">Log out</div>
+  </div>
+
+</nav>

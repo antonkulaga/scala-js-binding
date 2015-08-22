@@ -30,6 +30,26 @@ class BasicBindingSyntax {
 trait BasicBinder
 {
 
+  /**
+   * binds an item of Map with vars
+   * @param el html element to bind to
+   * @param mp map with vars
+   * @param attribute name of the binding attribute (for debugging)
+   * @param key kay we want to bind to
+   * @param bind functions that binds
+   * @tparam T type parameter for Var
+   * @return
+   */
+  protected def bindMapItem[T](el:HTMLElement,mp:Map[String,Var[T]],attribute:String,key:String)
+                          (bind:(HTMLElement,Var[T])=>Unit) =
+    mp.get(key) match{
+      case Some(reactive)=> bind(el,reactive)
+      case None=>
+        dom.console.error(s"cannot bind ${attribute} in ${el.outerHTML} to $key")
+        dom.console.log("current map =" + mp.keys.toString())
+    }
+
+
   def bindAttributes(el:HTMLElement,ats:Map[String, String] ):Unit
 
   protected def dataAttributesOnly(ats:Map[String,String]): Map[String, String] = ats.collect{

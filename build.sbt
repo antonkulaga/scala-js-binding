@@ -35,6 +35,7 @@ lazy val commonSettings = Seq(
   scalacOptions ++= Seq( "-feature", "-language:_" ),
   resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"), //for scala-js-binding
   libraryDependencies ++= Dependencies.testing.value,
+  unmanagedClasspath in Compile <++= unmanagedResources in Compile,
   updateOptions := updateOptions.value.withCachedResolution(true) //to speed up dependency resolution
 )
 
@@ -84,6 +85,29 @@ lazy val bindingJS = binding.js
 lazy val bindingJVM = binding.jvm
 
 
+lazy val controls = crossProject
+  .crossType(CrossType.Full)
+  .in(file("controls"))
+  .settings(  commonSettings ++ publishSettings:_* )
+  .settings(
+    version := Versions.controls,
+    name := "binding-controls",
+    scalaVersion:=Versions.scala
+  )
+  .jsSettings(
+    libraryDependencies ++= Dependencies.controls.js.value,
+    jsDependencies += RuntimeDOM % "test"
+  )
+  .jvmSettings(  libraryDependencies ++= Dependencies.controls.jvm.value )
+  .jvmConfigure(p=>p.enablePlugins(SbtTwirl))
+  .dependsOn(binding)
+
+
+
+lazy val controlsJS = controls.js
+lazy val controlsJVM = controls.jvm
+
+
 lazy val semantic = crossProject
   .crossType(CrossType.Full)
   .in(file("semantic"))
@@ -126,6 +150,7 @@ lazy val preview = crossProject
 			jsDependencies += RuntimeDOM % "test",
 			sourceMapsDirectories :=Seq(
 			  (baseDirectory in semanticJS).value ,
+			  (baseDirectory in controlsJS).value ,
 			  (baseDirectory in bindingJS).value ,
 			  (baseDirectory in macroJS).value
 			  )
@@ -141,7 +166,7 @@ lazy val preview = crossProject
 			(emitSourceMaps in fullOptJS) := true,
 			pipelineStages in Assets := Seq(scalaJSDevStage,gzip), //for run configuration
 			(fullClasspath in Runtime) += (packageBin in Assets).value //to package production deps
-		).dependsOn(semantic)
+		).dependsOn(semantic,controls)
 
 lazy val previewJS = preview.js
 lazy val previewJVM = preview.jvm settings( scalaJSProjects := Seq(previewJS) )

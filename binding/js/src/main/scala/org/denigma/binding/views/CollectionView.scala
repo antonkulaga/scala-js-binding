@@ -1,16 +1,18 @@
-package org.denigma.binding.views.collections
+package org.denigma.binding.views
 
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.{BasicView, BindingEvent, BindableView, IView}
 import org.scalajs.dom
 import org.scalajs.dom._
-import org.scalajs.dom.raw.HTMLElement
-import rx.{Var, Rx}
-import rx.extensions.{CollectionUpdate, Moved}
 import org.scalajs.dom.ext._
+import org.scalajs.dom.raw.HTMLElement
+import rx.Rx
+import rx.extensions.{CollectionUpdate, Moved}
+
 import scala.collection.immutable._
 
-trait CollectionView extends BindableView
+trait CollectionView extends BasicCollectionView[Seq]
+
+trait BasicCollectionView[T[_]<:Iterable[_]] extends BindableView
 {
 
   type Item

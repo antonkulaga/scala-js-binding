@@ -11,6 +11,8 @@ object Events {
 
   def createTextEvent() = dom.document.createEvent("TextEvent").asInstanceOf[TextEvent]
 
+  def createKeyboardEvent() = dom.document.createEvent("KeyboardEvent").asInstanceOf[KeyboardEvent]
+
   def createMouseEvent() = dom.document.createEvent("MouseEvent").asInstanceOf[MouseEvent]
 
   def createMessageEvent() = dom.document.createEvent("MessageEvent").asInstanceOf[MessageEvent]

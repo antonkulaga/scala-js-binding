@@ -2,11 +2,13 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 {
 	val scala = "2.11.7"
 
-  val binding = "0.8.0-M2"
+  val binding = "0.8.0-M2.1"
 
-  val macroBinding = "0.1.13"
+  val macroBinding = "0.1.14"
 
 	val bananaRdf = "0.8.2-SNAP4" //"0.8.1"
+
+	val controls = "0.0.7"
 }
 
 trait ScalaJVMVersions {
@@ -71,5 +73,7 @@ trait WebJarsVersions{
 	val selectize = "0.12.1"
 
 	val threeJS = "r71"
+
+	val webcomponents = "0.7.7"
 }
 

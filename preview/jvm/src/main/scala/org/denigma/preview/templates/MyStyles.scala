@@ -1,10 +1,10 @@
 package org.denigma.preview.templates
 
-import org.denigma.semantic.styles.{Selectors, Colors}
+import org.denigma.semantic.styles.{SelectionStyles, Colors}
 
 import scalacss.Defaults._
 
-object MyStyles extends StyleSheet.Standalone with Selectors {
+object MyStyles extends StyleSheet.Standalone with SelectionStyles {
   import dsl._
 
   ".CodeMirror" - height.auto

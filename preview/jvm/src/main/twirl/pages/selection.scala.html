@@ -1,7 +1,11 @@
 <div class="ui fluid search dropdown selection multiple" data-view="Selection">
  <a data-template="true" class="ui label selected item" data-bind-value="value" data-bind="label"></a>
- <input class="selector" list="options" data-bind="input" tabindex="0">
- <datalist id="options" data-view="options">
+ <input class="selector"  data-bind="input" data-event-keydown="onkeydown" data-bind-order="position">
+ <div class="menu transition options" data-class-visible-if="hasOptions" data-view="options">
+  <div data-template="true" class="item" data-bind-value="value" data-bind="label">Afghanistan</div>
+ </div>
+
+@* <datalist id="options" data-view="options">
   <option data-template="true" data-bind-label="value" data-bind="label"></option>
- </datalist>
+ </datalist>*@
 </div>

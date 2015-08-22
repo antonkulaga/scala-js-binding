@@ -3,8 +3,7 @@ package org.denigma.preview
 import org.denigma.binding.binders.Events
 import org.denigma.binding.extensions._
 import org.denigma.binding.macroses.ClassToMap
-import org.denigma.binding.views.BindableView
-import org.denigma.binding.views.collections.MapCollectionView
+import org.denigma.binding.views.{MapCollectionView, BindableView}
 import org.denigma.controls.binders.CodeBinder
 import org.scalajs.dom
 import org.scalajs.dom.MouseEvent

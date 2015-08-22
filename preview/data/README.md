@@ -1,0 +1,1 @@
+This data is used only for macro class generation, it is not packaged to resources

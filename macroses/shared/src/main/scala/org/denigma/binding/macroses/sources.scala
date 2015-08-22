@@ -1,16 +1,13 @@
 package org.denigma.binding.macroses
 
+import java.io.File
+
 import com.github.marklister.collections.io.CSVReader
 
 import scala.io.Source
 import scala.language.experimental.macros
 import scala.reflect.macros._
 import scala.util.{Failure, Success, Try}
-
-import scala.reflect.macros.Context
-import scala.language.experimental.macros
-import scala.annotation.StaticAnnotation
-import scala.annotation.compileTimeOnly
 /*
 @compileTimeOnly("enable macro paradise to expand macro annotations")
 class identity extends StaticAnnotation {
@@ -44,7 +41,17 @@ object CSV
 class CSVImpl(val c:whitebox.Context) {
 
 
-  protected def textFrom(where:String) = Try(Source.fromURL(getClass.getResource(where)).getLines().reduce(_+"\n"+_))
+  protected def textFrom(where:String) = Try{
+    c.classPath.collect{
+      case url if !url.getPath.endsWith(".jar")=>
+        new File(url.toURI.resolve(where).getPath)
+    }.collectFirst{  case f if f.exists()=>
+        Source.fromFile(f).getLines().reduce(_+"\n"+_)
+    }.getOrElse{
+      val base = new java.io.File( "." ).getCanonicalFile
+      Source.fromURI(base.toURI.resolve(where)).getLines().reduce(_+"\n"+_)
+      }
+    }
     .recover{  case any=> Source.fromFile(where).getLines().reduce(_+"\n"+_)  }
     .recover{  case any=> Source.fromURL(where).getLines().reduce(_+"\n"+_)  }
 
@@ -135,7 +142,6 @@ class CSVImpl(val c:whitebox.Context) {
 
       result match {
         case Success(string)=>
-          import c.universe._
           val data = new CSVReader(string).toList.map(_.toSeq)
           data2rows(data)
 

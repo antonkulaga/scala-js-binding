@@ -46,6 +46,13 @@ class GeneralBinder[View<:BindableView](view:View)
     this.bindEvents(el,ats)
   }
 
+  def bindHTML(el:HTMLElement,key:String,value:String,ats:Map[String, String]):PartialFunction[String,Unit] = {
+    this.visibilityPartial(el,value)
+      .orElse(this.classPartial(el,value))
+      .orElse(this.propertyPartial(el,key.toString,value))
+      .orElse(this.upPartial(el,key.toString,value))
+  }
+
   //TODO: rewrite
   /**
    * Binds

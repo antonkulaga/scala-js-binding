@@ -15,6 +15,7 @@ trait VisibilityBinder {
 
   def bools:Map[String,Rx[Boolean]]
 
+
   def visibilityPartial(el:HTMLElement,value:String):PartialFunction[String,Unit] = {
     case "showif" | "show-if" => this.showIf(el, value, el.style.display)
     case "hideif" | "hide-if" => this.hideIf(el, value, el.style.display)
@@ -28,14 +29,12 @@ trait VisibilityBinder {
    * @param disp
    */
   def showIf(element:HTMLElement,show: String,disp:String) =  for ( b<-bools.getOrError(show) ) this.bindRx("showIf",element,b){
-    case (el,sh)=>
-      el.style.display = if(sh) disp else "none"
+    case (el,sh)=>  el.style.display = if(sh) disp else "none"
     //el.style.visibility = if(sh) "visible" else "hidden"
   }
 
-  def hideIf(element:HTMLElement,hide: String,disp:String) = for ( b<-bools.getOrError(hide) ) this.bindRx("showIf",element,b){
-    case (el,h)=>
-      el.style.display = if(h) "none" else disp
+  def hideIf(element:HTMLElement,hide: String,disp:String) = for ( b<-bools.getOrError(hide) ) this.bindRx("hideIf",element,b){
+    case (el,h)=> el.style.display = if(h) "none" else disp
     //el.style.visibility = if(h) "hidden" else "visible"
   }
 

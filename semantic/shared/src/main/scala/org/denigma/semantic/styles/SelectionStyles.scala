@@ -4,7 +4,7 @@ package org.denigma.semantic.styles
 import scalacss.Defaults._
 import scalacss.LengthUnit.em
 
-trait Selectors extends Colors{
+trait SelectionStyles extends Colors{
   self:StyleSheet.Standalone =>
   import dsl._
 
@@ -37,5 +37,9 @@ trait Selectors extends Colors{
   ".ui.fluid.search.dropdown.selection.multiple"-(
     display.flex important
     )
+
+  ".options" -{
+    position.relative
+  }
 
 }

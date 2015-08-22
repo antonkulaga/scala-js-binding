@@ -38,6 +38,15 @@ object Dependencies {
 		)  )
 	)
 
+
+	val controls = CrossDep(
+		shared = Def.setting(Seq.empty),
+		jvm  = Def.setting( styles.value++akka.value)
+		,
+		js =Def.setting(	styles.value		)
+	)
+
+
 	val semantic = CrossDep(
 		shared = Def.setting(Seq.empty),
 		jvm  = Def.setting(
@@ -79,7 +88,9 @@ object Dependencies {
 
 		"org.webjars" % "N3.js" % Versions.N3,
 
-		"org.webjars" % "three.js" % Versions.threeJS
+		"org.webjars" % "three.js" % Versions.threeJS,
+
+		"org.webjars" % "webcomponentsjs" % Versions.webcomponents
 	))
 
 	//common purpose libs

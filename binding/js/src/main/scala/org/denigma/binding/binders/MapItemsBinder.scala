@@ -1,16 +1,25 @@
-package org.denigma.binding.binders.collections
+package org.denigma.binding.binders
 
-import org.denigma.binding.binders.GeneralBinder
+import org.denigma.binding.macroses._
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom._
+import org.scalajs.dom.ext._
 import org.scalajs.dom.raw.HTMLElement
 import rx.Var
-import org.scalajs.dom.ext._
+
 import scala.collection.immutable._
 
 
-class MapItemsBinder(view:BindableView, reactiveMap:Map[String,Var[String]]) extends GeneralBinder(view) {
+class MapItemsBinder[View<:BindableView](view:View, reactiveMap:Map[String,Var[String]])
+                                        (implicit
+                                         mpMap:MapRxMap[View], mpTag:TagRxMap[View],
+                                         mpString:StringRxMap[View],  mpBool:BooleanRxMap[View],
+                                         mpEvent:EventMap[View],  mpMouse:MouseEventMap[View],
+                                         mpText:TextEventMap[View], mpKey:KeyEventMap[View],
+                                         mpUI:UIEventMap[View], mpWheel:WheelEventMap[View], mpFocus:FocusEventMap[View]
+                                          )
+  extends GeneralBinder[View](view)(mpMap,mpTag,mpString,mpBool,mpEvent,mpMouse,mpText,mpKey,mpUI,mpWheel,mpFocus) {
 
   //TODO: rewrite props
   override def bindProperties(el: HTMLElement, ats: Map[String, String]) = for {

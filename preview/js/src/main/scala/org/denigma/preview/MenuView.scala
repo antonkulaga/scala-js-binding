@@ -1,7 +1,6 @@
 package org.denigma.preview
 
-import org.denigma.binding.views.BindableView
-import org.denigma.binding.views.collections.MapCollectionView
+import org.denigma.binding.views.{MapCollectionView, BindableView}
 import org.scalajs.dom.raw.HTMLElement
 import rx.Rx
 import rx.core.Var
@@ -24,6 +23,7 @@ self =>
         Seq(
             Map("uri"->"pages/bind","label"->"Basic binding example"),
             Map("uri"->"pages/collection","label"->"Collection binding"),
+            Map("uri"->"pages/controls","label"->"Various controls"),
             Map("uri"->"pages/rdf","label"->"RDF support")
           /*
                       Map("uri"->"pages/editing","label"->"Page editing"),

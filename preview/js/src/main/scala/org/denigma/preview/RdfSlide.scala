@@ -2,7 +2,7 @@ package org.denigma.preview
 
 import java.net.URI
 
-import org.denigma.binding.binders.Events
+import org.denigma.binding.binders.{GeneralBinder, Events}
 import org.denigma.binding.views.BindableView
 import org.denigma.controls.binders.CodeBinder
 import org.denigma.preview.FrontEnd._
@@ -39,8 +39,7 @@ class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Strin
 
   override lazy val injector = defaultInjector
     .register("TextModelView"){case (el,args)=>new TextModelView(el,args)}
-    .register("SelectableModelView"){case (el,args)=>new SelectableModelView(el,args)}
-    .register("Selection"){case (el,args)=>new SelectionView(el,args).withBinder(view=>new CodeBinder(view))}
+    .register("Selection"){case (el,args)=>new SelectionView(el,args).withBinder(new GeneralBinder(_))}
 
 
 }

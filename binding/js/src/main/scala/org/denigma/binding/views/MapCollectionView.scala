@@ -1,9 +1,6 @@
-package org.denigma.binding.views.collections
+package org.denigma.binding.views
 
-import org.denigma.binding.binders.NavigationBinder
-import org.denigma.binding.binders.collections.MapItemsBinder
-import org.denigma.binding.views.BindableView
-import org.scalajs.dom._
+import org.denigma.binding.binders.{MapItemsBinder, NavigationBinder}
 import org.scalajs.dom.raw.HTMLElement
 import rx.Var
 
