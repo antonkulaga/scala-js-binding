@@ -22,7 +22,7 @@ object MapCollectionView {
 
 
 
-abstract class MapCollectionView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView  with CollectionView
+abstract class MapCollectionView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView  with ItemsSeqView
 {
   val disp = elem.style.display
 

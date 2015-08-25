@@ -2,6 +2,8 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 {
 	val scala = "2.11.7"
 
+	val semanticControls = "0.1"
+
   val binding = "0.8.0-M2.1"
 
   val macroBinding = "0.1.14"

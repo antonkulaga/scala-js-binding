@@ -1,61 +1,54 @@
 package org.denigma.preview
 
-import org.denigma.binding.binders.{Events, Binder, GeneralBinder}
+import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.macroses._
-import org.denigma.binding.views.{CollectionView, BindableView}
-import org.scalajs.dom
+import org.denigma.binding.views.{ItemsSetView, ItemsSeqView}
+import org.denigma.controls.selection.{SelectOptionsView, OptionView, TextSelection, TextSelectionView}
 import org.scalajs.dom.raw.HTMLElement
 import rx.Rx
 import rx.core.Var
-import org.denigma.binding.extensions._
-import rx.extensions.Moved
 import rx.ops._
-import scala.collection.immutable.Seq
-import scala.util.Try
+
+import scala.collection.immutable.{Seq, SortedSet}
 
 
-case class TextSelection(value:String,label:String,position:Int) extends Selection[String]
-
-trait Selection[T]{
-  def value:T
-  def label:T
-}
-
-class SelectionView(val elem:HTMLElement,val params:Map[String,Any]) extends CollectionView
+class SelectionView(val elem:HTMLElement,val params:Map[String,Any]) extends TextSelectionView
 {
 
+  import org.denigma.binding.extensions._
 
-  type Item = Var[TextSelection]
-  type ItemView = OptionView
+  private def my(str:String) = str+"_of_"+this.id //to name Vars for debugging purposes
+
 
   val unique = this.resolveKeyOption("unique"){case u:Boolean=>u}.getOrElse(true)
 
-  val input = Var("")
+  val input = Var("","input_of"+this.id)
 
   val states:Vector[(String,String)] = {
     val mp = CSV.toDataFrame("preview/data/state_table.csv")
     mp.name.zip(mp.abbreviation)
   }
 
-  val testData = states.zipWithIndex.map{case ((label,value),index)=>TextSelection(value,label,index)}
+  val testData = states.zipWithIndex.map{case ((label,value),index)=>Var(TextSelection(value,label,index))}
 
+  val options:Var[SortedSet[Var[TextSelection]]] = Var(SortedSet(testData:_*)(ordering),my("options"))
 
-  val positionShift = Var(1)
+  val items:Var[SortedSet[Item]] = Var(options.now.take(5))
 
-  val position = Rx{
-    items().length+positionShift()
+  val positionShift = Var(1,my("positionShift"))
+
+  val position = Rx.apply{
+    items().size+positionShift()
   }
 
   protected def moveLeft() = if(position.now > -1) positionShift.set(positionShift.now-1)
-  protected def moveRight() = if(position.now<items.now.length) positionShift.set(positionShift.now+1)
+  protected def moveRight() = if(position.now<items.now.size) positionShift.set(positionShift.now+1)
 
 
-  val options:Var[Seq[Var[TextSelection]]] = Var(testData.map(Var(_)))
+  //val items: Var[Seq[Var[TextSelection]]] = Var(testData.take(3).zipWithIndex.map{ case (o,i)=> Var(o.copy(position=i)) }) //just for the sake of tests
 
-  val items: Var[Seq[Var[TextSelection]]] = Var(testData.take(3).zipWithIndex.map{ case (o,i)=> Var(o.copy(position=i)) }) //just for the sake of tests
-
-  val onkeydown = Var(Events.createKeyboardEvent())
-  val keyDownHandler = onkeydown.onChange(event=>{
+  val onkeydown = Var(Events.createKeyboardEvent(),my("onkeydown"))
+  val keyDownHandler = onkeydown.onChange(my("keydown_handler"))(event=>{
     if(input.now=="")
       event.keyCode match  {
         case LeftKey(_)=> positionShift.set(positionShift.now-1)
@@ -88,59 +81,3 @@ class SelectionView(val elem:HTMLElement,val params:Map[String,Any]) extends Col
 
 
 }
-
-class SelectOptionsView(val elem:HTMLElement,val items: Var[Seq[Var[TextSelection]]],val params:Map[String,Any]) extends CollectionView
-{
-
-  type Item = Var[TextSelection]
-
-  type ItemView = OptionView
-
-  val  hasOptions = items.map{case ops=>  ops.nonEmpty}
-
-  override protected def warnIfNoBinders(asError:Boolean) = if(asError) super.warnIfNoBinders(asError)
-
-  override def newItem(item: Item): OptionView = constructItemView(item){
-    case (el,mp)=>new OptionView(el,item, mp).withBinder{new GeneralBinder(_)}
-    }
-
-}
-
-class OptionView(val elem:HTMLElement,item:Var[TextSelection],val params:Map[String,Any]) extends BindableView
-{
-  import rx.ops._
-  val label = item.map(_.label)
-  val value = item.map(_.value)
-  val position = item.map(_.position)
-}
-
-/*
-class OneItemView(val elem:HTMLElement,val params:Map[String,Any]) extends BindableView{
-
-  override protected def attachBinders(): Unit = this.withBinders(new GeneralBinder(this))
-
-
-
-}
-
-class ItemsView(val elem:HTMLElement, val params:Map[String,Any]) extends CollectionView with BindableView
-{
-
-
-  //injector = defaultInjector.register("")
-
-  override protected def attachBinders(): Unit = this.withBinders(new GeneralBinder(this))
-
-
-
-  override type Item = this.type
-  override type ItemView = BindableView
-
-  override def newItem(item: Item): ItemView= {
-    ???
-  }
-
-
-  override val items: Rx[Seq[Item]] = Var(Seq.empty)
-}
-*/

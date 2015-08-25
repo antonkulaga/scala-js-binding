@@ -3,8 +3,7 @@ package org.denigma.semantic
 
 import org.w3.banana.{RDFOps, PointedGraph, RDF}
 import rx._
-import rx.extensions._
-
+import org.denigma.binding.extensions._
 
 object extensions {
 

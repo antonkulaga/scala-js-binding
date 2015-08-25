@@ -38,7 +38,4 @@ trait VisibilityBinder {
     //el.style.visibility = if(h) "hidden" else "visible"
   }
 
-
-
-
 }

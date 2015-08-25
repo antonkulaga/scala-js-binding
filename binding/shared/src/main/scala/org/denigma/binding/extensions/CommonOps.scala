@@ -1,7 +1,7 @@
 package org.denigma.binding.extensions
 
 import scala.collection.immutable._
-import org.scalajs.dom
+//import org.scalajs.dom
 
 
 trait CommonOps {
@@ -14,31 +14,16 @@ trait CommonOps {
 
   }
 
-  implicit class OptionOpt[T](source:Option[T]){
-
-    def orError(str:String) = if(source.isEmpty) dom.console.error(str)
-
-  }
-
-  implicit class ThrowableOpt(th:Throwable) {
-    def stackString = th.getStackTrace.foldLeft("")( (acc,el)=>acc+"\n"+el.toString)
-  }
-
-  implicit class MapOpt[TValue](source:Map[String,TValue]) {
-
-    def getOrError(key:String) = {
-      val g = source.get(key)
-      if(g.isEmpty) dom.console.error(s"failed to find item with key $key")
-      g
-    }
-
-  }
-
   implicit class SetOps[T](source:Set[T]){
 
     //tells the things to delete and to update to become newValue
-    def removeAddToGet(newValue:Set[T]) = (source.diff(newValue),newValue.diff(source))
+    //returns (minus,plus)
+    def removeAddToBecome(newValue:Set[T]) = (source.diff(newValue),newValue.diff(source))
 
+    def removeAddKeepToBecome(newValue:Set[T]) = {
+      val (minus,plus) = (source.diff(newValue),newValue.diff(source))
+      (minus,plus,source.diff(minus))
+    }
 
   }
 
@@ -63,7 +48,7 @@ trait CommonOps {
       val w = source.toSet
       if(w==by) source
       else{
-        val (minus:Set[T],plus:Set[T]) = w.removeAddToGet(by)
+        val (minus:Set[T],plus:Set[T]) = w.removeAddToBecome(by)
         source.filterNot(minus.contains)  ++ plus
       }
     }

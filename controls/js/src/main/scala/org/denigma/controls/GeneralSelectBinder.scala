@@ -1,4 +1,4 @@
-package org.denigma.selectors
+package org.denigma.controls
 
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom.raw.HTMLElement

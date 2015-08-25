@@ -3,18 +3,15 @@ package org.denigma.preview
 import org.denigma.binding.binders.Events
 import org.denigma.binding.extensions._
 import org.denigma.binding.macroses.ClassToMap
-import org.denigma.binding.views.{MapCollectionView, BindableView}
-import org.denigma.controls.binders.CodeBinder
+import org.denigma.binding.views.{BindableView, MapCollectionView}
 import org.scalajs.dom
-import org.scalajs.dom.MouseEvent
 import org.scalajs.dom.html.Input
-import org.scalajs.dom.raw.{KeyboardEvent, HTMLElement}
+import org.scalajs.dom.raw.{HTMLElement, KeyboardEvent}
 import rx._
 import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.util.Random
-import scalatags.generic.TypedTag
 import scalatags.JsDom.all._
 
 /**
@@ -211,7 +208,6 @@ class Test(val elem:HTMLElement, val params:Map[String,Any]) extends BindableVie
   override def bindView(el:HTMLElement) = {
     super.bindView(el)
     dom.console.log("let us start!")
-    import org.querki.jquery
     sq.byId("txt") match {
       case Some(input:dom.html.Input)=>
         onChange(input)

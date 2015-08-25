@@ -1,18 +1,19 @@
 package org.denigma.preview
 
-import org.denigma.binding.binders.{NavigationBinder, GeneralBinder}
+import org.denigma.binding.binders.{GeneralBinder, NavigationBinder}
 import org.denigma.binding.extensions.sq
-import org.denigma.binding.views.{OrganizedView, ViewInjector, BindableView}
-import org.denigma.controls.binders.CodeBinder
+import org.denigma.binding.views.BindableView
+import org.denigma.controls.code.CodeBinder
 import org.querki.jquery._
 import org.scalajs.dom
-import org.scalajs.dom.raw.{Selection, HTMLElement}
+import org.scalajs.dom.raw.HTMLElement
 import org.semantic.SidebarConfig
 import org.semantic.ui._
+import rx.core.Var
 
 import scala.collection.immutable.Map
+import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExport
-import scala.util.Try
 
 /**
  * Just a simple view for the whole app, if interested ( see https://github.com/antonkulaga/scala-js-binding )
@@ -28,13 +29,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
   lazy val elem: HTMLElement = dom.document.body
 
   val sidebarargs = SidebarConfig.exclusive(false).dimPage(false).closable(false).useLegacy(true)
-
-
-
-/*  new CodeBinder(this),
-  new RDFModelBinder[Plantain](this,
-    graph,
-    resolver)*/
 
   /**
    * Register views
@@ -65,7 +59,9 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("lists"){ case (el,args)=>new LongListView(el,args).withBinder(view=>new CodeBinder(view))}
     .register("test-macro"){case (el,args)=>new TestMacroView(el,args).withBinder(view=>new CodeBinder(view))}
     .register("RdfSlide"){case (el,args)=>new RdfSlide(el,args).withBinder(view=>new CodeBinder(view))}
-    //.register("RdfSlide", (el,args)=>Try(new RdfSlide(el,args)))
+    .register("promo"){case (el,args)=>new PromoView(el,args).withBinder(view=>new CodeBinder(view))}
+
+  //.register("RdfSlide", (el,args)=>Try(new RdfSlide(el,args)))
 
 
 
@@ -76,7 +72,12 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   @JSExport
   def showLeftSidebar() = {
-    $(".left.sidebar").sidebar(sidebarargs).show()
+/*    import org.denigma.binding.extensions._
+    val sidebar = $(".top.sidebar").sidebar(sidebarargs)
+    sidebar.asInstanceOf[js.Dynamic]("settings","transition","uncover")
+    sidebar.show()
+    //.dyn.sidebar("settings","transition","uncover"))*/
+    //$(".main.menu").asInstanceOf[js.Dynamic].sticky()
   }
 
   @JSExport

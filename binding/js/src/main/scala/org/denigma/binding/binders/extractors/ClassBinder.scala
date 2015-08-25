@@ -23,16 +23,16 @@ trait ClassBinder {
    * @param className name of the class that will be added if conditional is true
    * @param cond conditional rx
    */
-  protected def classIf(element:HTMLElement,className: String, cond:String) = for ( b<-bools.getOrError(cond) ) this.bindRx(className,element,b){
-    case (el,cl) if el.classList.contains(className)=>
-      if(!cl) el.classList.remove(className)
-    case (el,cl) =>
-      if(cl) el.classList.add(className)
-  }
+  protected def classIf(element:HTMLElement,className: String, cond:String) = for ( b<-bools.getOrError(cond) )
+    this.bindRx(className,element,b){
+      case (el,false) => if(el.classList.contains(className)) el.classList.remove(className)
+      case (el,true) =>if(!el.classList.contains(className)) el.classList.add(className)
+    }
 
-  protected def classUnless(element:HTMLElement,className: String, cond:String) = for ( b<-bools.getOrError(cond) ) this.bindRx(className,element,b){
-    case (el,cl) if el.classList.contains(className)=>if(cl) el.classList.remove(className)
-    case (el,cl) =>if(!cl) el.classList.add(className)
+  protected def classUnless(element:HTMLElement,className: String, cond:String) = for ( b<-bools.getOrError(cond) )
+    this.bindRx(className,element,b){
+      case (el,true) => if(el.classList.contains(className)) el.classList.remove(className)
+      case (el,false) =>if(!el.classList.contains(className)) el.classList.add(className)
   }
 
 
@@ -43,12 +43,12 @@ trait ClassBinder {
    * @return
    */
   protected def classPartial(el:HTMLElement,value:String):PartialFunction[String,Unit] = {
-    case "class" => this.bindClass(el,value)
+    case "class" | "bind-class" => this.bindClass(el,value)
     case str if str.startsWith("class-")=> str.replace("class-","") match {
       case cl if cl.endsWith("-if")=>
-        this.classIf(el,cl.replace("-if",""),value)
+        this.classIf(el,cl.replace("-if","").replace("bind-",""),value)
       case cl if cl.endsWith("-unless")=>
-        this.classUnless(el,cl.replace("-unless",""),value)
+        this.classUnless(el,cl.replace("-unless","").replace("bind-",""),value)
       case _ =>
         dom.console.error(s"other class bindings are not implemented yet for $str")
     }

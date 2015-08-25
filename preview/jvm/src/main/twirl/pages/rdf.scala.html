@@ -1,5 +1,5 @@
 @(title:String)
-<article id="main_article"  data-view="RdfSlide" class="ui blue piled segment" >
+<article id="main_article" class="ui segment"  data-view="RdfSlide">
 
     <h1 id="title"class="ui large header orange message">@title </h1>
 
@@ -7,11 +7,10 @@
         <p><b>scala-js-binding</b> framework supports some SemanticWeb features. The most important is binding to RDF resources.
     </section>
 
-    <div class="ui three column grid">
-        <section class="row">
-            <div class="column">
-
-                <p>On your right you can see data loaded from play backend. You can change and save it to the server (inmemory collection is used for this demo).</p>
+    <div class="ui equal width grid">
+        <section class="equal width row">
+            <column class="column">
+            <h1 class="ui orange header">Description</h1>
                 <p> If you look into HTML you will see "property" attribute and "shape" attribute.
                     In RDF databases everything is described as statements ( subject -- predicate --object --context)
                     Each resource can have many statements about it </p>
@@ -20,68 +19,31 @@
                     for the resource and some contraints for them (like type, cardinality and so on)
                 </p>
                 <p>In this example remote fetching of RDF properties is shown, but you can write a code that will fetch any other kind of data</p>
-            </div>
-            <div class="column" >
-                <section class="ui segment" data-view="TextModelView" vocab="http://webintelligence.eu/platform/" data-param-path="models/endpoint" data-param-resource="http://page.org" data-param-shape="http://shape.org">
-
-                <h1>This is test rdf model that is kep in memory</h1>
+            </column>
+        </section>
+        <section class="equal width row">
+            <column class="column">
+                <h1 class="ui orange header">Html</h1>
+                <textarea data-code-html="rdfa">
+                </textarea>
+            </column>
+            <column class="column">
+                <h1 class="ui orange header">ScalaJS</h1>
+                <textarea data-code-scala="modelCode"></textarea>
+            </column>
+            <column class="column" >
+                <h1 class="ui orange header">Appearance</h1>
+                <section class="ui blue segment" data-view="TextModelView" vocab="http://webintelligence.eu/platform/" data-param-path="models/endpoint" data-param-resource="http://page.org" data-param-shape="http://shape.org">
+                <p>This model binds to RDF graph</p>
                 <div>
                     <h1 property="title"></h1>
                     <input property="title">
                     <p property="text"></p>
                     <textarea property="text"></textarea>
-
-
                 </div>
-                <div class="ui button"  data-event-click="saveClick">save</div> <!--data-class-positive-if="dirty"-->
-
                 </section>
-
-            </div>
-
+            </column>
         </section>
-        <section class="row">
-            <div class="column">
-                <h1>CUSTOM SELECTION</h1>
-                @pages.html.selection()
-                @*                    <section class="ui segment"
-                    data-view="SelectableModelView"
-                    vocab="http://webintelligence.eu/platform/"
-                    data-param-path="models/endpoint"
-                    data-param-resource="http://page.org"
-                    data-param-shape="http://shape.org">
-
-                        <h1>This tests selectors</h1>
-                        <div>
-                            <h1 property="title"></h1>
-                            <input property="title">
-                            <p property="text"></p>
-                            <textarea property="text"></textarea>
-                            <div class="ui button" data-event-click="Report">Report</div>
-
-                        </div>
-
-                    </section>*@
-            </div>
-            <div class="column segment">
-@*
-                <div class="flexer">
-                    <button class="flexible">One</button>
-                    <button class="flexible">Two</button>
-                    <input value="INPUT_ONE">
-                    <button class="flexible">Three</button>
-                    <button class="flexible">Four</button>
-                    <input value="INPUT_TWO">
-                    <button class="flexible">Five</button>
-                    <input value="INPUT_THREE" class="flexible">
-                </div>
-*@
-
-            </div>
-
-        </section>
-
     </div>
-
 </article>
 

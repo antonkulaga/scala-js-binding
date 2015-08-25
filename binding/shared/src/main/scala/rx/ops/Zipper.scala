@@ -1,8 +1,8 @@
-package rx.extensions
+package rx.ops
+
+import java.util.concurrent.atomic.AtomicReference
 
 import rx.core._
-import java.util.concurrent.atomic.AtomicReference
-import rx.ops._
 
 import scala.util.Try
 

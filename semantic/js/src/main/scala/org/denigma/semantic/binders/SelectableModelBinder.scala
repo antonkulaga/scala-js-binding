@@ -6,9 +6,8 @@ import org.denigma.semantic.binders.binded.{SemanticSelector, BindedTextProperty
 import org.scalajs.dom.raw.HTMLElement
 import org.w3.banana._
 import rx.core.Var
-import rx.extensions._
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
-
+import org.denigma.binding.extensions._
 import scala.collection.immutable.Map
 import scala.concurrent.Future
 

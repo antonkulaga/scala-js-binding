@@ -1,11 +1,11 @@
-package rx.extensions
+package rx.ops
 
 import java.util.concurrent.atomic.AtomicReference
 
 import rx.core.{Emitter, Propagator, Rx}
 
 import scala.collection.immutable.Set
-import scala.util.{DynamicVariable, Try}
+import scala.util.Try
 
 
 class Fact[T](initValue: => T, val name: String = "") extends Rx[T]{

@@ -6,7 +6,7 @@ import org.scalajs.dom
 import org.scalajs.dom.{Attr, MouseEvent}
 import org.scalajs.dom.ext.Ajax
 import org.scalajs.dom.raw.{XMLHttpRequest, HTMLElement}
-
+import org.denigma.binding.extensions._
 import scala.scalajs.js
 import scala.util.{Failure, Success}
 import org.denigma.binding.extensions._

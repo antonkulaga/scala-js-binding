@@ -1,11 +1,9 @@
-<div class="ui fluid search dropdown selection multiple" data-view="Selection">
- <a data-template="true" class="ui label selected item" data-bind-value="value" data-bind="label"></a>
- <input class="selector"  data-bind="input" data-event-keydown="onkeydown" data-bind-order="position">
- <div class="menu transition options" data-class-visible-if="hasOptions" data-view="options">
-  <div data-template="true" class="item" data-bind-value="value" data-bind="label">Afghanistan</div>
- </div>
-
-@* <datalist id="options" data-view="options">
-  <option data-template="true" data-bind-label="value" data-bind="label"></option>
- </datalist>*@
+<section data-view="Selection">
+<div class="selection box">
+ <a data-template="true" class="selection item ui label" data-bind-value="value" data-bind="label"></a>
+ <input class="selection search"  data-bind="input" data-event-keydown="onkeydown" data-bind-order="position" autofocus>
 </div>
+<div class="selection options" data-showif="hasOptions" data-view="options">
+    <div data-template="true" class="selection option" data-bind-value="value" data-bind="label">Afghanistan</div>
+</div>
+</section>

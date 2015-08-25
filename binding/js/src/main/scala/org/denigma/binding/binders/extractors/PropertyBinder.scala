@@ -31,10 +31,19 @@ trait PropertyBinder {
    */
   protected def propertyPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
     case bname if bname.startsWith("bind-")=>this.bindAttribute(el,key.replace("bind-",""),value,this.strings)
+    case str if str.contains("style") => this.bindProperty(el,key,value)
     case "bind" => this.bindProperty(el,key,value)
     case "html" => this.bindInnerHTML(el,key,value)
   }
 
+  def bindStyle(el:HTMLElement,key:String,att:String) = {
+    this.strings.get(att) match {
+      case Some(str) =>
+        this.bindText(el,key,str)
+        true
+      case None=>false
+    }
+  }
 
   /**
    * Bind property
@@ -114,8 +123,7 @@ trait PropertyBinder {
           if(v.now!=pvalue.toString) {
             v()=pvalue.toString
           }
-
-        case None => dom.console.warn(s"no $pname in $el to which we bind $par, \n element html is: ${el.outerHTML}")
+        case None => dom.console.warn(s"no $pname in $el to which we bind ${par.now}, \n element html is: ${el.outerHTML}")
     }
   }
 

@@ -1,0 +1,54 @@
+<section id="promo" class="ui three column celled relaxed grid" data-view="promo">
+    <column class="ui padded circular middle aligned column segment">
+        <h1 class="ui header" data-bind="say"></h1>
+        <div class="ui divider"></div>
+        <p class="ui text">Greetings binds to a <i>say</i> variable that depends on<br>
+            two other variables, just change them and <br>immediately see the result!</p>
+        <input class="ui input" data-bind="greeting">
+        <input class="ui input" data-bind="username">
+        <div class="ui divider"></div>
+        <p><b>Here how it looks in html, isn't it simple?</b></p>
+        <div data-code-html="htmlCode"></div>
+        <b class="ui divider">Let's look into ScalaJS code:</b>
+        <textarea data-code-scala="scalaCode">
+        </textarea>
+        <div class="ui message"><i>say</i> depends on <i>greeting</i> and <i>username</i> variables
+        and is automatically updated (and updates all properties it is binded to) when any of them change
+        </div>
+
+
+    </column>
+    <column class="ui padded circular middle aligned column segment" id="central_promo">
+        <img id="logo" data-bind-src="logo">
+    </column>
+    <column class="ui padded circular middle aligned column segment">
+        <h1 class="ui inverted center aligned  orange header">Scala-JS-Binding</h1>
+        <h3 class="ui orange header">is a scalaJS<br> framework that lets you:</h3>
+        <div class="ui relaxed divided large list">
+            <div class="item">
+                <div class="content">
+                    <div class="header">Bind html elements</div>
+                    and properties directly to variables of ScalaJS classes
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="header">Handle events and changes as flows</div>
+                    Scala.Rx is used to create flow graphs<br> and manipulate with them in functional ways
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="header">Create reusable controls with views</div>
+                    You can create scalajs view classes that can bind <br>to hml elements and organize themselves in trees
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="header">Bind to LinkedData</div>
+                    Scala-JS-Binding supports banana-rdf and RDFa,<br> so you can bind to nodes of RDF graphs
+                </div>
+            </div>
+        </div>
+    </column>
+</section>

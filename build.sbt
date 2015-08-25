@@ -114,7 +114,7 @@ lazy val semantic = crossProject
   .settings(  commonSettings ++ publishSettings:_* )
   .settings(
     version := Versions.binding,
-    name := "semantic-binding",
+    name := "semantic-controls",
     scalaVersion:=Versions.scala
   )
   .jsSettings(
@@ -123,7 +123,7 @@ lazy val semantic = crossProject
   )
   .jvmSettings(  libraryDependencies ++= Dependencies.semantic.jvm.value )
   .jvmConfigure(p=>p.enablePlugins(SbtTwirl))
-  .dependsOn(binding)
+  .dependsOn(controls)
 
 
 lazy val semanticJS = semantic.js

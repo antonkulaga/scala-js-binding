@@ -6,20 +6,56 @@ import org.scalajs.dom._
 import org.scalajs.dom.ext._
 import org.scalajs.dom.raw.HTMLElement
 import rx.Rx
-import rx.extensions.{CollectionUpdate, Moved}
-
+import rx.ops.{SetUpdate, Moved, SequenceUpdate}
 import scala.collection.immutable._
 
-trait CollectionView extends BasicCollectionView[Seq]
+trait ItemsSeqView extends CollectionView {
 
-trait BasicCollectionView[T[_]<:Iterable[_]] extends BindableView
+  val items:Rx[Seq[Item]]
+
+  lazy val updates: Rx[SequenceUpdate[Item]] =items.updates
+
+  protected def onMove(mv:Moved[Item]) = {
+    val fr = itemViews(items.now(mv.from))
+    val t = itemViews(items.now(mv.to))
+    this.replace(t.viewElement,fr.viewElement)
+  }
+
+  override protected def subscribeUpdates() = {
+    this.items.now.foreach(i=>this.addItemView(i,this.newItem(i)))
+    updates.onChange("ItemsUpdates")(upd=>{
+      upd.added.foreach(onInsert)
+      upd.removed.foreach(onRemove)
+      upd.moved.foreach(onMove)
+    })
+  }
+
+
+}
+
+
+trait ItemsSetView extends CollectionView{
+
+  val items:Rx[SortedSet[Item]]
+
+  lazy val updates: Rx[SetUpdate[Item]] = items.updates
+
+  override protected def subscribeUpdates() = {
+    this.items.now.foreach(i=>this.addItemView(i,this.newItem(i))) //initialization of views
+    updates.onChange("ItemsUpdates")(upd=>{
+      upd.added.foreach(onInsert)
+      upd.removed.foreach(onRemove)
+    })
+  }
+
+
+}
+
+trait CollectionView extends BindableView
 {
 
   type Item
   type ItemView <: IView
-
-
-  val items:Rx[Seq[Item]]
 
   var template: HTMLElement = viewElement
 
@@ -88,7 +124,7 @@ trait BasicCollectionView[T[_]<:Iterable[_]] extends BindableView
 
   /**
    * Binds nodes to the element
-   * @param el
+   * @param el html element to bind to
    */
   override def bind(el:HTMLElement):Unit =
     if(el.attributes.contains("data-template"))
@@ -111,28 +147,9 @@ trait BasicCollectionView[T[_]<:Iterable[_]] extends BindableView
         }
       }
 
-  lazy val updates: Rx[CollectionUpdate[Item]] =items.updates
-
 
   protected def onInsert(item:Item) = this.addItemView(item,this.newItem(item))
   protected def onRemove(item:Item) = this.removeItemView(item)
-  protected def onMove(mv:Moved[Item]) = {
-    val fr = itemViews(items.now(mv.from))
-    val t = itemViews(items.now(mv.to))
-    this.replace(t.viewElement,fr.viewElement)
-  }
-
-  /**
-   * Adds subscription
-   */
-  protected def subscribeUpdates(){
-    this.items.now.foreach(i=>this.addItemView(i,this.newItem(i)))
-    updates.handler{
-      updates.now.inserted.foreach(onInsert)
-      updates.now.removed.foreach(onRemove)
-      updates.now.moved.foreach(onMove)
-      }
-  }
 
   protected def getItemView(el:HTMLElement) = el.attributes.get("data-item-view")//.orElse(el.attributes.get("data-view"))
 
@@ -148,12 +165,9 @@ trait BasicCollectionView[T[_]<:Iterable[_]] extends BindableView
   {
     //dom.console.log(template.outerHTML.toString)
     val el = template.cloneNode(true).asInstanceOf[HTMLElement]
-
     el.removeAttribute("data-template")
-
     val view = getItemView(el) match {
-      case None=>
-        construct(el,mp)
+      case None=> construct(el,mp)
       case Some(v)=> this.inject(v.value,el,mp) match {
         case iv:ItemView if iv.isInstanceOf[ItemView]=> iv
         case _=>
@@ -163,8 +177,6 @@ trait BasicCollectionView[T[_]<:Iterable[_]] extends BindableView
     }
     view
   }
-
-  def newItem(item:Item):ItemView
 
   var itemViews = Map.empty[Item,ItemView]
 
@@ -186,10 +198,12 @@ trait BasicCollectionView[T[_]<:Iterable[_]] extends BindableView
       this.itemViews = itemViews - r
     case None=>
       dom.console.error("cantot find the view for item: "+r.toString+" in item view "+this.itemViews.toString+"\n")
-
   }
 
-
-
+  def newItem(item:Item):ItemView
+  /**
+   * Adds subscription
+   */
+  protected def subscribeUpdates():Unit
 
 }

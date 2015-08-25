@@ -1,11 +1,11 @@
-package org.denigma.controls.binders
+package org.denigma.controls.code
 
 import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.extensions._
 import org.denigma.binding.macroses._
 import org.denigma.binding.views.BindableView
 import org.denigma.codemirror.extensions.EditorConfig
-import org.denigma.codemirror.{CodeMirror, Editor, extensions}
+import org.denigma.codemirror.{CodeMirror, Editor}
 import org.querki.jquery._
 import org.scalajs.dom
 import org.scalajs.dom.raw.{HTMLElement, HTMLTextAreaElement}

@@ -1,9 +1,9 @@
-package org.denigma.controls.general
+package org.denigma.controls
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.raw.HTMLElement
 import org.querki.jquery._
+import org.scalajs.dom.raw.HTMLElement
 
 import scala.scalajs.js
 

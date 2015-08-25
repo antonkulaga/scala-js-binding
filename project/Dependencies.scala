@@ -29,12 +29,7 @@ object Dependencies {
 			jvm = Def.setting(Seq.empty),
 			js  = Def.setting(Seq(
 
-			"org.querki" %%% "jquery-facade" % Versions.jqueryFacade,
-
-			"org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade,
-
-			"org.denigma" %%% "selectize-facade" % Versions.selectizeFacade
-
+			"org.querki" %%% "jquery-facade" % Versions.jqueryFacade
 		)  )
 	)
 
@@ -43,7 +38,12 @@ object Dependencies {
 		shared = Def.setting(Seq.empty),
 		jvm  = Def.setting( styles.value++akka.value)
 		,
-		js =Def.setting(	styles.value		)
+		js =Def.setting(	styles.value ++ Seq(
+			"org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade,
+
+			"org.denigma" %%% "selectize-facade" % Versions.selectizeFacade
+
+		)		)
 	)
 
 
@@ -54,7 +54,6 @@ object Dependencies {
 		)
 		,
 		js =Def.setting(Seq(
-			"org.denigma" %%% "selectize-facade" % Versions.selectizeFacade,
 
 			"org.w3" %%% "banana-plantain" % Versions.bananaRdf excludeAll ExclusionRule(organization = "com.github.inthenow")
 		))
