@@ -1,10 +1,10 @@
 package org.denigma.binding.binders.extractors
 
-import org.denigma.binding.binders.BasicBinder
+import org.denigma.binding.binders.{Events, BasicBinder}
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.ext._
-import org.scalajs.dom.raw.{HTMLInputElement, HTMLElement}
+import org.scalajs.dom.raw.{HTMLTextAreaElement, HTMLInputElement, HTMLElement}
 import org.scalajs.dom.{Event, KeyboardEvent}
 import rx._
 
@@ -18,171 +18,126 @@ trait PropertyBinder {
 
   def strings:Map[String,Rx[String]]
   def bools:Map[String,Rx[Boolean]]
-  
-  //def fillEmptyString = false
-
 
   /**
    * Partial function that is usually added to bindProperties
-   * @param el
-   * @param key
-   * @param value
+   * @param el html element
    * @return
    */
-  protected def propertyPartial(el:HTMLElement,key:String,value:String):PartialFunction[String,Unit] = {
-    case bname if bname.startsWith("bind-")=>this.bindAttribute(el,key.replace("bind-",""),value,this.strings)
-    case str if str.contains("style") => this.bindProperty(el,key,value)
-    case "bind" => this.bindProperty(el,key,value)
-    case "html" => this.bindInnerHTML(el,key,value)
+  protected def propertyPartial(el:HTMLElement):PartialFunction[(String,String),Unit] = {
+    case (str,rxName) if str.contains("style-") => this.bindStyle(el,rxName,str.replace("bind-","").replace("style-",""))
+    case (bname,rxName) if bname.startsWith("bind-")=>this.bindProperty(el,rxName,bname.replace("bind-",""))
+    case ("html",rxName) => subscribeProperty[Event](el,rxName,"innerHTML",Events.change)
+    case ("bind",rxName) => bind(el,rxName)
   }
 
-  def bindStyle(el:HTMLElement,key:String,att:String) = {
-    this.strings.get(att) match {
+  protected def bindStyle(el:HTMLElement,rxName:String,prop:String): Unit= {
+    this.strings.get(rxName) match {
       case Some(str) =>
-        this.bindText(el,key,str)
-        true
-      case None=>false
+        withID(el,s"${rxName}_${prop}_styles")
+        import rx.ops._
+        str.foreach(s=>el.style.dyn.updateDynamic(prop)(s))
+       case None=>
+        this.cannotFindStr(rxName,prop)
     }
   }
+
+  import rx.ops._
+  import org.denigma.binding.extensions._
+
 
   /**
    * Bind property
    * @param el html element
-   * @param key name of the property
    * @param att value of attribute
    * @return
    */
-  def bindProperty(el:HTMLElement,key:String,att:String): Boolean = (key.toString, el.tagName.toLowerCase) match
+  def bind(el:HTMLElement,att:String): Unit =  el match
   {
-    case ("bind","input")=>
+    case inp:HTMLInputElement=>
       el.attributes.get("type").map(_.value.toString) match {
-        case Some("checkbox") =>this.bools.get(att) match {
-          case Some(b)=>  this.bindCheckBox(el,key,b)
-            true
-          case None => false
-        }
-
-        case _ => this.strings.get(att) match {
-          case Some(str)=>
-            el.onkeyup =this.makePropHandler[KeyboardEvent](el,str,"value")
-            this.bindInput(el,key,str)
-            true
-          case None=>false
-        }
-
+        case Some("checkbox") =>
+          withID(el, att + "_checkbox")
+          for (b <- bools.get(att)) b.foreach(v => el.attributes.setNamedItem(("checked" -> v.toString).toAtt))
+        case tp =>
+          withID(el, att)
+          //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
+          subscribeValue(el,att,Events.keyup)
       }
-    case ("bind","textarea")=>
-      this.strings.get(att) match {
-        case Some(str)=>
-          el.onkeyup = this.makePropHandler[KeyboardEvent](el,str,"value")
-          //this.bindText(el,key,str)
-          this.bindInput(el,key,str)
-          true
+    case area:HTMLTextAreaElement =>
+      withID(el, att+"_textarea")
+      subscribeValue(el,att,Events.keyup)
+      //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
 
-        case None=>false
-      }
-    case ("bind",other)=> this.strings.get(att) match {
-      case Some(str) =>
-        el.onkeyup = this.makePropHandler(el,str,"value")
-        this.bindText(el,key,str)
-        true
-      case None=>false
-    }
-
-    case _=>
-      false
+    case other=> subscribeProperty[Event](el,att,"textContent",Events.change)
 
   }
 
+  protected def cannotFindStr(rxName:String,prop:String) =
+    dom.console.error(s"cannot find $rxName string reactive variable for prop $prop\n, all strings are: \n"+
+    strings.mapValues(_.name).mkString(" | ")
+  )
 
-  protected def bindCheckBox(el:HTMLElement,key:String,rx:Rx[Boolean]) = this.bindRx(key,el:HTMLElement,rx){ (el,value)=>
-    el.attributes.setNamedItem( ("checked" -> value.toString ).toAtt )
-  }
-
-  protected def bindInput(el:HTMLElement,key:String,str:Rx[String]): Unit = this.bindRx(key,el:HTMLElement,str){ (el,value)=>
-    val v =el.dyn.value.toString
-    if(v!=value) el.dyn.value=value
-  }
-
-  protected def bindText(el:HTMLElement,key:String,str:Rx[String]) = this.bindRx(key,el:HTMLElement,str){ (el,value)=>
-    el.textContent = value
-  }
-
-  /**
-   * Creates a handler that changes rx value according to element property
-   * @param el html element to which property we bind to
-   * @param par
-   * @param pname property name
-   * @tparam T
-   * @return
+  /*
+  Has fix for caret change
    */
-  def makePropHandler[T<:Event](el:HTMLElement,par:Rx[String],pname:String):(T)=>Unit = this.makeEventHandler[T,String](el,par){
-    (ev,v,elem)=>
-      elem \ pname  match {
-        case Some(pvalue)=>
-          if(v.now!=pvalue.toString) {
-            v()=pvalue.toString
-          }
-        case None => dom.console.warn(s"no $pname in $el to which we bind ${par.now}, \n element html is: ${el.outerHTML}")
-    }
-  }
-
-
-  /**
-   * Creates attribute handler for the event
-   * @param el html element
-   * @param par parameter
-   * @param atname attribute name
-   * @tparam T type of event
-   * @return
-   */
-  def makeAttHandler[T<:Event](el:HTMLElement,par:Rx[String],atname:String):(T)=>Unit = this.makeEventHandler[T,String](el,par){ (ev,v,elem)=>
-    elem.attributes.get(atname) match {
-      case Some(att)=>
-        if(v.now!=att.value.toString) {
-          v()=att.value
-        }
-
-      case None => dom.console.error(s"no attributed for $atname")
-    }
-  }
-
-  /**
-   * Binds html property
-   * @param el
-   * @param key
-   * @param att
-   */
-  def bindInnerHTML(el:HTMLElement,key:String,att:String): Unit=    this.strings.get(att).foreach{str=>
-    el.onchange = this.makePropHandler(el,str,"innerHTML")
-    this.bindInner(el,key,str)
-  }
-
-
-  def bindInner(el:HTMLElement,key:String,str:Rx[String]) = this.bindRx(key,el:HTMLElement,str){ (el,value)=>
-    el.innerHTML = value
-  }
-
-
-  /**
-   * @param el element
-   * @param key key
-   * @param value value
-   * @param mp map
-   */
-  def bindAttribute(el:HTMLElement,key:String,value:String,mp:Map[String,Rx[String]]): Boolean =  mp.get(value) match
-  {
+  protected def subscribeValue(el:HTMLElement,rxName: String,event:String): Unit =  this.strings.get(rxName) match{
     case Some(str)=>
-      this.bindRx(key, el: HTMLElement, str) {
-        (el, value) =>
-          //dom.console.info((key -> value.toString).toAtt.toString)
-          el.attributes.setNamedItem((key -> str.now).toAtt)
-          el.dyn.updateDynamic(key)(str.now) //TODO: check if redundant
+      str.foreach { case s =>
+        el match {
+          case inp:HTMLInputElement=>
+            val (start,end) =(inp.selectionStart,inp.selectionEnd)
+            inp.value = s
+            inp.selectionStart = start
+            inp.selectionEnd = end
+
+          case area:HTMLTextAreaElement=>
+            val (start,end) =(area.selectionStart,area.selectionEnd)
+            area.value = s
+            area.selectionStart = start
+            area.selectionEnd = end
+
+          case other=> el.dyn.value = s
+        }
+
       }
-      true
+      str.onVar { case v =>
+        el.addEventListener[KeyboardEvent](event,(ev: KeyboardEvent) => {
+        ev.currentTarget
+           if(ev.target==ev.currentTarget) el.onExists("value")(value => v.set(value.toString)) }
+        )
+        v.set(el.dyn.selectDynamic("value").toString)
+      }
+    case None=> cannotFindStr(rxName,"value")
+      ""
+  }
 
-    case _=>false
 
+  protected def subscribeProperty[TEvent<:dom.Event](el:HTMLElement,rxName: String,prop:String, event:String): Unit =  this.strings.get(rxName) match{
+    case Some(str)=>
+      str.foreach(s=>el.dyn.updateDynamic(prop)(s))
+      str.onVar { case v =>
+        el.addEventListener[TEvent](event,(ev: TEvent) => {
+           if(ev.target==ev.currentTarget) el.onExists(prop)(value => v.set(value.toString)) }
+        )
+        v.set(el.dyn.selectDynamic(prop).toString)
+      }
+    case None=> cannotFindStr(rxName,prop)
+  }
+
+  protected def rxPropertyUpdate(el:HTMLElement,rxName: String,prop:String): Unit =  this.strings.get(rxName) match{
+    case Some(str)=> str.foreach(s=>el.dyn.updateDynamic(prop)(s))
+    case None=> cannotFindStr(rxName,prop)
+  }
+
+
+  protected def bindProperty(el:HTMLElement,rxName:String,prop:String) = strings.get(rxName) match {
+    case Some(str)=>
+      str.foreach{  case s=>
+        el.attributes.setNamedItem((prop -> s).toAtt)
+        el.dyn.updateDynamic(prop)(s)
+      }
+    case None=> cannotFindStr(rxName,prop)
   }
 
 }

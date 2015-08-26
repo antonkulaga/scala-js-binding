@@ -4,7 +4,7 @@ import org.denigma.binding.binders.BasicBinder
 import org.denigma.binding.extensions._
 import org.scalajs.dom.raw.HTMLElement
 import rx._
-
+import rx.ops._
 import scala.collection.immutable.Map
 
 /**
@@ -16,26 +16,22 @@ trait VisibilityBinder {
   def bools:Map[String,Rx[Boolean]]
 
 
-  def visibilityPartial(el:HTMLElement,value:String):PartialFunction[String,Unit] = {
-    case "showif" | "show-if" => this.showIf(el, value, el.style.display)
-    case "hideif" | "hide-if" => this.hideIf(el, value, el.style.display)
+  def visibilityPartial(el:HTMLElement):PartialFunction[(String,String),Unit] = {
+    case ("showif" | "show-if" , rxName) => this.showIf(el, rxName, el.style.display)
+    case ("hideif" | "hide-if", rxName) =>
+      //println(s"hide is is strange ${el.outerHTML} and value is ${value}")
+      this.hideIf(el, rxName, el.style.display)
   }
 
-
-  /**
-   * Shows element if condition is satisfied
-   * @param element Element that should be shown
-   * @param show
-   * @param disp
-   */
-  def showIf(element:HTMLElement,show: String,disp:String) =  for ( b<-bools.getOrError(show) ) this.bindRx("showIf",element,b){
-    case (el,sh)=>  el.style.display = if(sh) disp else "none"
-    //el.style.visibility = if(sh) "visible" else "hidden"
+  def showIf(element:HTMLElement,rxName: String,disp:String) =  for ( b<-bools.getOrError(rxName) ){
+    withID(element,"showif_"+rxName)
+    b.foreach(sh=>element.style.display = if(sh) disp else "none")
   }
 
-  def hideIf(element:HTMLElement,hide: String,disp:String) = for ( b<-bools.getOrError(hide) ) this.bindRx("hideIf",element,b){
-    case (el,h)=> el.style.display = if(h) "none" else disp
-    //el.style.visibility = if(h) "hidden" else "visible"
+  def hideIf(element:HTMLElement,rxName: String,disp:String) =  for ( b<-bools.getOrError(rxName) ){
+    withID(element,"hideif_"+rxName)
+    b.foreach(h=>element.style.display = if(h) "none" else disp)
   }
+
 
 }

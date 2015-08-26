@@ -8,7 +8,7 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles {
   import dsl._
 
   "body"-(
-    //.backgroundColor(mediumseagreen)
+    backgroundColor(mediumseagreen)
     )
 
   "#promo" -(

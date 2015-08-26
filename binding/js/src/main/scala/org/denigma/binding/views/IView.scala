@@ -1,5 +1,6 @@
 package org.denigma.binding.views
 
+import org.denigma.binding.binders.WithID
 import org.denigma.binding.commons.DOMParser
 import org.scalajs.dom
 import org.scalajs.dom.ext._
@@ -9,7 +10,7 @@ import scala.util.{Failure, Success, Try}
 
 
 
-trait IView {
+trait IView extends WithID{
 
   def id:String
 

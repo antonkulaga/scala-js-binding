@@ -26,16 +26,8 @@ class RDFModelBinder[Rdf<:RDF](
       with mutable.MultiMap[Rdf#URI,Binded[Rdf]] //NOTE: In the future I hope to getrid of these
 
 
-  /**
-   * Returns partial function that binds to RDF
-   * @param el html element to bind to
-   * @param key Key
-   * @param value Value
-   * @param ats attributes
-   * @return
-   */
-  protected override def rdfPartial(el: HTMLElement, key: String, value: String, ats: Map[String, String]): PartialFunction[String, Unit] = {
-    this.vocabPartial(value).orElse(this.propertyPartial(el, key, value, ats))
+  protected override def rdfPartial(el: HTMLElement, ats: Map[String, String]): PartialFunction[(String,String), Unit] = {
+    this.vocabPartial.orElse(this.propertyPartial(el, ats))
   }
 
   /**
@@ -49,19 +41,18 @@ class RDFModelBinder[Rdf<:RDF](
   }
 
 
-  protected def propertyPartial(el: HTMLElement, key: String, value: String, ats: Map[String, String]): PartialFunction[String, Unit] = {
-    case "property" =>
-      bindProperty(el,key,value,ats)
+  protected def propertyPartial(el: HTMLElement,  ats: Map[String, String]):PartialFunction[(String,String),Unit] = {
+    case ("property",value) =>  bindProperty(el,value,ats)
 
-    case "data-name-of" =>
+    case ("data-name-of",value) =>
       resolver.resolve(value).foreach {
         case iri =>
           dom.console.log("usage of data-name-of: it has not been well tested yet")
           binded.addBinding(iri,new BindedTextProperty(el,graph,updates,iri,"innerHTML"))
       }
 
-    case bname if bname.startsWith("property-") =>
-      val att: String = key.replace("property-", "")
+    case (bname,value) if bname.startsWith("property-") =>
+      val att: String = bname.replace("property-", "")
       resolver.resolve(value).foreach(  iri =>
         binded.addBinding(iri,new BindedTextProperty(el,graph,updates,iri,att))
       )
@@ -72,7 +63,7 @@ class RDFModelBinder[Rdf<:RDF](
     binded.addBinding(iri, new BindedTextProperty(el, graph, updates, iri, "value"))
   }
 
-  protected def bindProperty(el: HTMLElement, key: String, value: String, ats: Map[String, String]): Unit = {
+  protected def bindProperty(el: HTMLElement, value: String, ats: Map[String, String]): Unit = {
     resolver.resolve(value).foreach {
       case iri if this.elementHasValue(el) => bindValueElement(el,iri,ats)
 

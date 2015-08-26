@@ -36,6 +36,11 @@ trait RxExt extends CommonOps
       Obs(source, "onChange " + source.name, skipInitial = true){callback(source())}
     }
 
+    def onVar(fun:Var[T]=>Unit) = source match{
+      case v:Var[T]=> fun(v)
+      case other=> //do nothing
+    }
+
 
     def onChange(name:String,uniqueValue:Boolean = true,skipInitial:Boolean = true)(callback: T=> Unit): Obs =
       if(uniqueValue){

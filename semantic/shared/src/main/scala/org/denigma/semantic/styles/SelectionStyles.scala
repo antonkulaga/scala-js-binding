@@ -31,12 +31,13 @@ trait SelectionStyles extends Colors{
     )
 
   ".selection.search"-(
-    display.flex,
+    display.inlineFlex,
     //boxShadow := "0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset",
     boxShadow := "",
     border.none,
     background := "none",
-    width(4 px)
+    width.auto,
+    flexGrow(1)
     )
 
   ".selection.item"-(

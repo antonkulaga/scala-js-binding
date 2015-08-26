@@ -1,6 +1,6 @@
 package org.denigma.controls.code
 
-import org.denigma.binding.binders.GeneralBinder
+import org.denigma.binding.binders.{BasicBinder, GeneralBinder}
 import org.denigma.binding.extensions._
 import org.denigma.binding.macroses._
 import org.denigma.binding.views.BindableView
@@ -13,7 +13,7 @@ import rx._
 
 import scala.collection.immutable.Map
 
-class CodeBinder[View<:BindableView](view:View)
+class CodeBinder[View<:BindableView,Binder<:BasicBinder](view:View,recover:Option[Binder] = None)
                                     (implicit
                                      mpMap:MapRxMap[View], mpTag:TagRxMap[View],
                                      mpString:StringRxMap[View],  mpBool:BooleanRxMap[View],
@@ -21,7 +21,7 @@ class CodeBinder[View<:BindableView](view:View)
                                      mpText:TextEventMap[View], mpKey:KeyEventMap[View],
                                      mpUI:UIEventMap[View], mpWheel:WheelEventMap[View], mpFocus:FocusEventMap[View]
                                       )
-extends GeneralBinder(view:View)(mpMap,mpTag,mpString,mpBool,mpEvent,mpMouse,mpText,mpKey,mpUI,mpWheel,mpFocus)
+extends GeneralBinder[View,Binder](view, recover)(mpMap,mpTag,mpString,mpBool,mpEvent,mpMouse,mpText,mpKey,mpUI,mpWheel,mpFocus)
 {
   val modes: Map[String, String] = Map(
     "html"->"htmlmixed",
@@ -40,20 +40,10 @@ extends GeneralBinder(view:View)(mpMap,mpTag,mpString,mpBool,mpEvent,mpMouse,mpT
 
   //dom.console.log(s"extracted strings in code binder for ${view.id} are: $allStringsKeys")
 
-  override def bindProperties(el:HTMLElement,ats:Map[String, String]): Unit = for {
-    (key, value) <- ats
-  }{
-    this.visibilityPartial(el,value)
-      .orElse(this.classPartial(el,value))
-      .orElse(this.codePartial(el,value,ats))
-      .orElse(this.propertyPartial(el,key.toString,value))
-      .orElse(this.upPartial(el,key.toString,value))
-      .orElse(this.otherPartial)(key.toString)//key.toString is the most important!
-  }
+ override def elementPartial(el:HTMLElement,ats:Map[String,String]) = super.elementPartial(el,ats).orElse(codePartial(el,ats))
 
-
-  def codePartial(el:HTMLElement,value:String,ats:Map[String, String]):PartialFunction[String,Unit] = {
-    case "bind-code" | "code" => ats.get("mode") match {
+  def codePartial(el:HTMLElement,ats:Map[String, String]):PartialFunction[(String,String),Unit] = {
+    case ("bind-code" | "code", value) => ats.get("mode") match {
       case Some(m)=>
         this.bindCode(el,value,m)
       case None=>
@@ -69,7 +59,7 @@ extends GeneralBinder(view:View)(mpMap,mpTag,mpString,mpBool,mpEvent,mpMouse,mpT
           this.bindCode(el,value,"htmlmixed")
     }
 
-    case st if st.startsWith("bind-code-") | st.startsWith("code-")=>
+    case (st,value) if st.startsWith("bind-code-") | st.startsWith("code-")=>
       val mname = st.replace("bind-","").replace("code-","")
       modes.get(mname) match {
       case Some(m)=>this.bindCode(el,value,m)

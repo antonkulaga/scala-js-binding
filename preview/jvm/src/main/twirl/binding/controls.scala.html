@@ -1,13 +1,13 @@
 @(title:String)
-<article id="main_article"  data-view="ControlSlide" >
+<article id="main_article" >
 
   <h1 id="title"class="ui large header orange message">@title </h1>
-  <div class="ui three column grid">
-    <section class="row">
+  <div class="ui equal width grid">
+    <section class="equal width row">
       <div class="column">
-        <h1>CUSTOM SELECTION</h1>
-        @pages.html.selection()
+        @{binding.html.selection()}
         @*                    <section class="ui segment"
+
         data-view="SelectableModelView"
         vocab="http://webintelligence.eu/platform/"
         data-param-path="models/endpoint"

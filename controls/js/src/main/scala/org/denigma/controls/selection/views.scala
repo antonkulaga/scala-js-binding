@@ -12,13 +12,17 @@ import org.denigma.binding._
 class OptionView(val elem:HTMLElement,item:Var[TextSelection],val params:Map[String,Any]) extends BindableView
 {
   import rx.ops._
-  val label = item.map(_.label)
-  val value = item.map(_.value)
-  val position = item.map(_.position)
+  val label: Rx[String] = item.map(_.label)
+  val value: Rx[String] = item.map(_.value)
+  val position: Rx[Int] = item.map(_.position)
+  val order: Rx[String] = item.map(_.position.toString)
 }
 
 
-class SelectOptionsView(val elem:HTMLElement, val items: Var[scala.collection.immutable.SortedSet[Var[TextSelection]]],val params:Map[String,Any]) extends ItemsSetView
+class SelectOptionsView(val elem:HTMLElement,
+                        val items: Rx[scala.collection.immutable.SortedSet[Var[TextSelection]]],
+                        val params:Map[String,Any])
+  extends ItemsSetView
 {
 
   type Item = Var[TextSelection]

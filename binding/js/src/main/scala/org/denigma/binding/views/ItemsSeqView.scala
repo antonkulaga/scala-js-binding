@@ -75,7 +75,10 @@ trait CollectionView extends BindableView
           viewElement.appendChild(sp)
           dom.console.error(s"items are the same as $id")
         }
-        else this.replace(sp,template)
+        else {
+          this.replace(sp,template)
+          if(template.parentElement!=null) template.parentElement.removeChild(template)
+        }
         sp
     }
   }

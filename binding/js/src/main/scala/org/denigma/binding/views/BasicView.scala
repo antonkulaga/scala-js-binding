@@ -14,7 +14,7 @@ import scala.collection.JavaConversions
 /**
  * Basic view class, contains basic binding features and children
  */
-trait BasicView extends BasicBinder with IView
+trait BasicView extends IView
 {
 
   type ChildView <: BasicView
@@ -87,6 +87,7 @@ trait BasicView extends BasicBinder with IView
 
   }
 
+  def bindAttributes(el:HTMLElement,ats:Map[String,String]):Unit
 
   /**
    * Fires when view was binded by default does the same as bind

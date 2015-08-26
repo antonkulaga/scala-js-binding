@@ -1,13 +1,46 @@
 @(title:String)
 <article id="main_article" data-view="BindSlide" class="ui blue piled segment">
+@*
 
     <h1 id="title"class="ui large header orange message">@title </h1>
 
 
-    <section class="ui segment">
-      scala-js-binding library provides binding of ScalaJS classes and properties to HTML tags.
-        This sample app not only tells you about some binding features but also itself is implemented with extensive use of scala-js-binding
-    </section>
+    <div class="ui equal width grid">
+        <section class="equal width row">
+            <column class="column ui message">
+                <p>
+                    scala-js-binding library provides binding of ScalaJS classes and properties to HTML tags.
+                    In the example above there is a title tag that is binded to constantly changing counting property and several inputs/text areas,
+                    some of them are binded to <b>foo</b> variable, some - to <b>bar</b> variable, you can notice binding by chaning inputs/textareas text
+
+                </p>
+            </column>
+        </section>
+        <section class="equal width row">
+            <column class="column">
+                <h1 class="ui orange header">Html</h1>
+                <textarea data-code-html="rdfa">
+                </textarea>
+            </column>
+            <column class="column">
+                <h1 class="ui orange header">ScalaJS</h1>
+                <textarea data-code-scala="modelCode"></textarea>
+            </column>
+            <column class="column" >
+                <h1 class="ui orange header">Appearance</h1>
+                <section class="ui blue segment" data-view="TextModelView" vocab="http://webintelligence.eu/platform/" data-param-path="models/endpoint" data-param-resource="http://page.org" data-param-shape="http://shape.org">
+                    <p>This model binds to RDF graph</p>
+                    <div>
+                        <h1 property="title"></h1>
+                        <input property="title">
+                        <p property="text"></p>
+                        <textarea property="text"></textarea>
+                    </div>
+                </section>
+            </column>
+        </section>
+    </div>
+*@
 
 
     <div class="ui three column grid">
@@ -23,7 +56,7 @@
                 </p>
             </div>
             <div class="column">
-                @pages.html.random()
+                @binding.html.random()
             </div>
         </section>
         <section class="row">
@@ -71,16 +104,9 @@
                         </div>
 
                         <h1 class="ui teal large header" data-bind="foo"></h1>
-
-
                     </section>
-
                 </div>
-
             </div>
-
-
-
         </section>
 
         <section class="row">

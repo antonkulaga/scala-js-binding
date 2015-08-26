@@ -60,6 +60,8 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("test-macro"){case (el,args)=>new TestMacroView(el,args).withBinder(view=>new CodeBinder(view))}
     .register("RdfSlide"){case (el,args)=>new RdfSlide(el,args).withBinder(view=>new CodeBinder(view))}
     .register("promo"){case (el,args)=>new PromoView(el,args).withBinder(view=>new CodeBinder(view))}
+    .register("Selection"){case (el,args)=>new SelectionView(el,args).withBinder(new GeneralBinder(_))}
+
 
   //.register("RdfSlide", (el,args)=>Try(new RdfSlide(el,args)))
 

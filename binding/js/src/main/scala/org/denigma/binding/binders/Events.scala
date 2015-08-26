@@ -5,6 +5,17 @@ import org.scalajs.dom._
 
 object Events {
 
+  val keyup = "keyup"
+  val keydown = "keydown"
+  val mouseover = "mouseover"
+  val mouseleave = "mouseleave"
+  val mouseup = "mouseup"
+  val mousedown = "mousedown"
+  val keypress = "keypress"
+  val change = "change"
+  val click = "click"
+
+
   def createEvent() = dom.document.createEvent("Event")
 
   def createTouchEvent() = dom.document.createEvent("TouchEvent").asInstanceOf[TouchEvent]

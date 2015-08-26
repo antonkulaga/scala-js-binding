@@ -12,13 +12,18 @@ trait AnyJsExtensions {
    */
   implicit class AnyJs(obj: js.Any) {
 
-    def isNullOrUndef: Boolean = obj == null || js.isUndefined(obj)|| obj == ""
+    def isNullOrUndef: Boolean = obj == null || js.isUndefined(obj)
 
     /**
      * Just a shorter conversion to dynamic object
      * @return self as Dynamic
      */
     def dyn = obj.asInstanceOf[js.Dynamic]
+
+    def onExists(prop:String)(fun:js.Dynamic=>Unit) = obj.asInstanceOf[js.Dynamic].selectDynamic(prop) match {
+      case  p if js.isUndefined(p) || p==null=> //do nothing
+      case other=> fun(other)
+    }
 
     /**
      * provides dynamic results as options
@@ -27,7 +32,7 @@ trait AnyJsExtensions {
      */
     def \(key: String): Option[js.Dynamic] = dyn.selectDynamic(key) match {
 
-      case value if value.isNullOrUndef=>    None
+      case value if js.isUndefined(value) | value==null =>    None
 
       case validValue => Some(validValue)
     }

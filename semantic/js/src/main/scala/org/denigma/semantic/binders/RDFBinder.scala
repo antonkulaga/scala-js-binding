@@ -64,36 +64,17 @@ class RDFBinder[Rdf<:RDF](view:BindableView, resolver:Resolver[Rdf]) extends Bas
 
   implicit val context = ops.makeUri("http://"+dom.location.hostname) //TODO: deprecate
 
-  def bindAttributes(el: HTMLElement, ats: Map[String, String]): Unit = {
-      ats.foreach { case (key, value) =>
-        this.rdfPartial(el, key, value,ats).orElse(otherPartial)(key)
-      }
-    }
+  def elementPartial(el: HTMLElement,ats:Map[String, String]): PartialFunction[(String,String),Unit] = rdfPartial(el,ats)
 
-  /**
-   * Returns partial function that extracts vocabulary data (like prefixes) from html
-   * @param value
-   * @return
-   */
-  protected def vocabPartial(value: String): PartialFunction[String, Unit] ={
+  protected def vocabPartial: PartialFunction[(String,String), Unit] ={
 
-    case "vocab" if value.contains(":") => resolver.addVocab(value)
+    case ("vocab",value) if value.contains(":") => resolver.addVocab(value)
     //dom.alert("VOCAB=>"+prefixes.toString())
 
-    case "prefix" if value.contains(":")=> resolver.addPrefix(value)
+    case ("prefix",value) if value.contains(":")=> resolver.addPrefix(value)
   }
 
 
-  /**
-   * Binds vocabs and prefixes
-   * @param el html element to bind to
-   * @param key Key
-   * @param value Value
-   * @param ats attributes
-   * @return
-   */
   protected def rdfPartial(el: HTMLElement,
-                           key: String,
-                           value: String,
-                           ats:Map[String,String]): PartialFunction[String, Unit] =  this.vocabPartial(value)
+                           ats:Map[String,String]): PartialFunction[(String,String), Unit] =  this.vocabPartial
 }

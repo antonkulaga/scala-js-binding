@@ -14,7 +14,7 @@ object MapCollectionView {
 
    val reactiveMap: Map[String, Var[String]] = params.map(kv => (kv._1, Var(kv._2.toString)))
 
-    binders = new MapItemsBinder(this,reactiveMap)::new NavigationBinder(this)::Nil
+    binders = (new MapItemsBinder(this,reactiveMap)::new NavigationBinder(this)::Nil):List[Binder]
 
   }
 

@@ -59,18 +59,15 @@ class NavigationBinder(view:BindableView) extends BasicBinder{
    */
   def loadElementInto(el: HTMLElement, newInnerHTML: String, uri: String): Unit = view.loadElementInto(el,newInnerHTML,uri)
 
-
-
   /**
    * Loads element into another one
    * @param el
-   * @param value
    * @return
    */
-  protected def loadIntoPartial(el:HTMLElement,value:String):PartialFunction[String,Unit] = {
-    case "load-into" =>
+  protected def loadIntoPartial(el:HTMLElement):PartialFunction[(String,String),Unit] = {
+    case ("load-into",value) =>
       bindLoadInto(el,value, rel = true)
-    case "load-abs-into" => bindLoadInto(el,value, rel = false)
+    case ("load-abs-into",value) => bindLoadInto(el,value, rel = false)
   }
 
 
@@ -86,9 +83,10 @@ class NavigationBinder(view:BindableView) extends BasicBinder{
     this.bindDataAttributes(el,this.dataAttributesOnly(ats))
   }
 
-  def bindDataAttributes(el: HTMLElement, ats: Map[String, String]) =  for {
-    (key, value) <- ats
-  }{
-    loadIntoPartial(el,value).orElse(this.otherPartial)(key.toString)//key.toString is the most important!
+  def bindDataAttributes(el:HTMLElement,ats:Map[String, String]) = {
+    val fun: PartialFunction[(String, String), Unit] = elementPartial(el,ats).orElse{case other=>}
+    ats.foreach(fun)
   }
+
+  override def elementPartial(el: HTMLElement, ats: Map[String, String]): PartialFunction[(String, String), Unit] = loadIntoPartial(el)
 }
