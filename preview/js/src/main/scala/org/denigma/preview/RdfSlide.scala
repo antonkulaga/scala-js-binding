@@ -29,8 +29,8 @@ class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[Strin
   override lazy val injector = defaultInjector
     .register("TextModelView"){case (el,args)=>new TextModelView(el,args)}
     .register("Selection"){case (el,args)=>
-      val sel = new SelectionView(el,args).withBinder(new GeneralBinder(_))
-      println("STRINGS ARE: "+sel.binders.head.asInstanceOf[GeneralBinder[SelectionView,_]].strings.mkString("\n"))
+      val sel = new SimpleSelection(el,args).withBinder(new GeneralBinder(_))
+      println("STRINGS ARE: "+sel.binders.head.asInstanceOf[GeneralBinder[SimpleSelection,_]].strings.mkString("\n"))
         sel
     }
 

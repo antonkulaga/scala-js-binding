@@ -177,3 +177,6 @@ lazy val root = Project("root",file("."),settings = commonSettings)
     mainClass in Compile := (mainClass in previewJVM in Compile).value,
     (fullClasspath in Runtime) += (packageBin in previewJVM in Assets).value
   ) dependsOn previewJVM aggregate(previewJVM, previewJS)
+
+EclipseKeys.skipParents in ThisBuild := false
+EclipseKeys.useProjectId in ThisBuild := true
