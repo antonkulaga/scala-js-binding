@@ -4,15 +4,11 @@ import org.denigma.binding.binders.{GeneralBinder, NavigationBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.BindableView
 import org.denigma.controls.code.CodeBinder
-import org.querki.jquery._
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.semantic.SidebarConfig
-import org.semantic.ui._
-import rx.core.Var
 
 import scala.collection.immutable.Map
-import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExport
 
 /**
@@ -60,16 +56,14 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("test-macro"){case (el,args)=>new TestMacroView(el,args).withBinder(view=>new CodeBinder(view))}
     .register("RdfSlide"){case (el,args)=>new RdfSlide(el,args).withBinder(view=>new CodeBinder(view))}
     .register("promo"){case (el,args)=>new PromoView(el,args).withBinder(view=>new CodeBinder(view))}
-    .register("Selection"){case (el,args)=>new SimpleSelection(el,args).withBinder(new GeneralBinder(_))}
-
-
-  //.register("RdfSlide", (el,args)=>Try(new RdfSlide(el,args)))
-
+    .register("Selection"){case (el,args)=>
+      new PromoSelectionView(el,args).withBinder{case view=>new GeneralBinder(view)}
+    }
 
 
   @JSExport
   def main(): Unit = {
-    this.bindView(this.viewElement)
+    this.bindView()
   }
 
   @JSExport

@@ -1,6 +1,7 @@
 package org.denigma.binding.binders
 
 import org.denigma.binding.extensions._
+import org.denigma.binding.views.IDGenerator
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.raw.HTMLElement
@@ -18,35 +19,14 @@ object Binder{
 
     override def elementPartial(el: HTMLElement, ats: Map[String, String]): PartialFunction[(String, String), Unit] = elemBind(el,ats)
   }
-
 }
 
-trait WithID{
-  /**
-   * Makes id for the binding element
-   * @param el html element
-   * @param title is used if the element does not have an ID
-   * @return
-   */
-  def withID(el:HTMLElement,title:String): String = el.id match {
-    case s if js.isUndefined(s) || s=="" ||  s==null /*|| s.isInstanceOf[js.prim.Undefined] */=>
-      el.id = title + "#" +  math.round(10000*math.random) //to make length shorter
-      el.id
-
-    case id=>
-      id
-
-  }
-
-}
 
 /**
  *  A class that contains basic functions for all bindings
  */
-trait BasicBinder extends WithID
+trait BasicBinder extends IDGenerator
 {
-
-
   /**
    * binds an item of Map with vars
    * @param el html element to bind to
@@ -86,26 +66,4 @@ trait BasicBinder extends WithID
         sq.withHost(url.substring(url.indexOf("/",st)))
       case  other => if(url.contains("domain")) url.replace("domain",dom.location.host) else url
     }
-
-
-/*
-  def bindVar[T](key:String,el:HTMLElement ,v:Var[T])(assign:(HTMLElement,Var[T])=>Unit): Obs  = {
-    //TODO: deprecate
-    val eid = this.withID(el, key) //assigns id
-    Obs(v, eid, skipInitial = false) {  assign(el,v)  }
-  }
-
-
-  def bindRx[T](key:String,el:HTMLElement ,rx:Rx[T])(assign:(HTMLElement,T)=>Unit): Obs = {
-    //TODO: deprecate
-    val eid = this.withID(el, key)
-    Obs(rx, eid, skipInitial = false) {
-      val value = rx.now
-      assign(el,value)
-    }
-  }
-*/
-
-
-
 }

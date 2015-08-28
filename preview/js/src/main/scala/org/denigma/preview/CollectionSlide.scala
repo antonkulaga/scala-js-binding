@@ -1,31 +1,37 @@
 package org.denigma.preview
 import org.denigma.binding.binders.Events
 import org.denigma.binding.extensions._
-import org.denigma.binding.macroses.ClassToMap
-import org.denigma.binding.views.{BindableView, MapCollectionView}
+import org.denigma.binding.views.BindableView
 import org.scalajs.dom
-import org.scalajs.dom.html.Input
-import org.scalajs.dom.raw.{HTMLElement, KeyboardEvent}
-import rx._
+import org.scalajs.dom.DOMParser
+import org.scalajs.dom.raw.HTMLElement
 import rx.core.Var
 
 import scala.collection.immutable.Map
-import scala.util.Random
-import scalatags.JsDom.all._
+import scala.util._
+import org.scalajs.dom.ext._
 
 
-/**
- * Created by antonkulaga on 8/25/15.
- */
+
 class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
 
+  def parseHTML(string:String): Option[HTMLElement] ={
+    val p = new  DOMParser()
+    Try {
+      p.parseFromString(string, "text/html")
+    } match {
+      case Success(doc)=>
+        dom.document.body.children.collectFirst{case html:HTMLElement=>html}
+
+      case Failure(th)=>
+        dom.console.error(th.toString)
+        None
+    }
+  }
 
   override def name = "COLLECTION_SLIDE"
 
   val code = Var("")
-
-
-
   val apply = Var(Events.createMouseEvent())
   this.apply.handler {
       this.findView("testmenu") match {

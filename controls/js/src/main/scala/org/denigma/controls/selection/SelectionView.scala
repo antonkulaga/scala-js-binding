@@ -11,7 +11,6 @@ trait SelectionView extends ItemsSetView{
 
   val input: Var[String] = Var("","input_of_"+this.id)
 
-
   val positionShift = Var(0,my("positionShift"))
 
   val position: Rx[Int] = Rx{

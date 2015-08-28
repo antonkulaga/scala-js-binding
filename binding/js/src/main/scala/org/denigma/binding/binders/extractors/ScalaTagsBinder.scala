@@ -23,7 +23,7 @@ trait ScalaTagsBinder extends BasicBinder{
       a<-ats.get("html")
       tg <-tags.getOrError(a)
     }{
-      withID(el,"tag_"+tg)
+      ifNoID(el,"tag_"+tg)
       tg.foreach{  t=> el.innerHTML = t.render  }
     }
   }

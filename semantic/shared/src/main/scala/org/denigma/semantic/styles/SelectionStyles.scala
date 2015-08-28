@@ -37,7 +37,12 @@ trait SelectionStyles extends Colors{
     border.none,
     background := "none",
     width.auto,
-    flexGrow(1)
+    flexGrow(0),
+    outline.none,
+    &.focus(
+      boxShadow := "",
+      border.none,
+      outline.none )
     )
 
   ".selection.item"-(

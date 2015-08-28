@@ -47,19 +47,13 @@ trait BindableView extends ReactiveView
   }
 
 
-  override def unbind(el:HTMLElement)= {
-    //this.binders.foreach(b=>b.bindAttributes())
-    //is required for those view that need some unbinding
-  }
-
-
   protected def warnIfNoBinders(asError:Boolean) = if(this.binders.isEmpty) {
     val mess = s"the view $name does not have any binders! Its outer HTML is: ${elem.outerHTML}"
     if(asError) dom.console.error(mess) else dom.console.log(mess)
   }
 
-  override def bindView(el:HTMLElement) = {
-    this.bind(el)
+  override def bindView() = {
+    this.bind(this.viewElement)
     warnIfNoBinders(asError = false)
   }
 

@@ -7,24 +7,21 @@ import org.scalajs.dom.raw.HTMLElement
 
 import scala.scalajs.js
 
-class DatePairView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any])  extends BasicDatePairView {
-
-
-}
+class DatePairView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any])  extends BasicDatePairView
 
 abstract class BasicDatePairView extends BindableView{
 
 
 
-  override def bindView(el:HTMLElement) {
-    this.bind(el)
+  override def bindView() = {
+    this.bind(viewElement)
     //require(this.params.contains("data") && this.params("data").)
-    val pair = $(el).find(".date").dyn.datepicker(js.Dynamic.literal(
+    val pair = $(viewElement).find(".date").dyn.datepicker(js.Dynamic.literal(
       format = "yyyy/m/d",
       autoclose = true
     )
     )
-    new Datepair(el)
+    new Datepair(viewElement)
   }
 
 

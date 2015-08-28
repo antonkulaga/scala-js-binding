@@ -36,7 +36,7 @@ trait ItemsSeqView extends CollectionView {
 
 trait ItemsSetView extends CollectionView{
 
-  val items:Rx[SortedSet[Item]]
+  def items:Rx[SortedSet[Item]]
 
   lazy val updates: Rx[SetUpdate[Item]] = items.updates
 
@@ -55,7 +55,7 @@ trait CollectionView extends BindableView
 {
 
   type Item
-  type ItemView <: IView
+  type ItemView <: BasicView
 
   var template: HTMLElement = viewElement
 
@@ -119,9 +119,8 @@ trait CollectionView extends BindableView
        }
   }
 
-  override def bindView(el: HTMLElement) = {
-    if(el.attributes.contains("data-item-view")) el.removeAttribute("data-item-view") //to avoid using self in nested views
-    this.bind(el)
+  override def bindView() = {
+    this.bind(this.viewElement)
     this.subscribeUpdates()
   }
 
@@ -189,7 +188,7 @@ trait CollectionView extends BindableView
       case b:ChildView=>  this.addView(b)
     }
     itemViews = itemViews + (item->iv)
-    iv.bindView(iv.viewElement)
+    iv.bindView()
     //dom.console.log(iv.viewElement.innerHTML)
     iv
   }

@@ -1,4 +1,4 @@
 @(content:Option[Html] = None)
-<main id="main" class="ui vertical center aligned blue segment container">
-   @{content.getOrElse(binding.html.selection())/*pages.html.bind("it can bind"))*/}
+<main id="main" class="ui segment container">
+   @{content.getOrElse(semantic.html.rdf("Now has Banana-RDF and RDFa support"))/*pages.html.bind("it can bind"))*/}
 </main>

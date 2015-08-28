@@ -43,7 +43,7 @@ case object TestOptions{
 }
 
 
-class SimpleSelection(val elem:HTMLElement,val params:Map[String,Any]) extends TextSelectionView
+class PromoSelectionView(val elem:HTMLElement,val params:Map[String,Any]) extends TextSelectionView
 {
 
   val unique = this.resolveKeyOption("unique"){case u:Boolean=>u}.getOrElse(true)
@@ -52,7 +52,7 @@ class SimpleSelection(val elem:HTMLElement,val params:Map[String,Any]) extends T
 
   lazy val options = suggester.suggestions.map(_.map(Var(_)))
 
-  val items:Var[SortedSet[Item]] = Var(TestOptions.items.map(Var(_)))
+  lazy val items:Var[SortedSet[Item]] = Var(TestOptions.items.map(Var(_)))
 
   protected def typed2Item(str:String):Item = Var(TextSelection(str,str)(position.now))
 

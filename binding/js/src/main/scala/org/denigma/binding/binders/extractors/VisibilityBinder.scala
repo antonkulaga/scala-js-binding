@@ -24,12 +24,12 @@ trait VisibilityBinder {
   }
 
   def showIf(element:HTMLElement,rxName: String,disp:String) =  for ( b<-bools.getOrError(rxName) ){
-    withID(element,"showif_"+rxName)
+    ifNoID(element,"showif_"+rxName)
     b.foreach(sh=>element.style.display = if(sh) disp else "none")
   }
 
   def hideIf(element:HTMLElement,rxName: String,disp:String) =  for ( b<-bools.getOrError(rxName) ){
-    withID(element,"hideif_"+rxName)
+    ifNoID(element,"hideif_"+rxName)
     b.foreach(h=>element.style.display = if(h) "none" else disp)
   }
 

@@ -34,7 +34,7 @@ trait PropertyBinder {
   protected def bindStyle(el:HTMLElement,rxName:String,prop:String): Unit= {
     this.strings.get(rxName) match {
       case Some(str) =>
-        withID(el,s"${rxName}_${prop}_styles")
+        ifNoID(el,s"${rxName}_${prop}_styles")
         import rx.ops._
         str.foreach(s=>el.style.dyn.updateDynamic(prop)(s))
        case None=>
@@ -57,15 +57,15 @@ trait PropertyBinder {
     case inp:HTMLInputElement=>
       el.attributes.get("type").map(_.value.toString) match {
         case Some("checkbox") =>
-          withID(el, att + "_checkbox")
+          ifNoID(el, att + "_checkbox")
           for (b <- bools.get(att)) b.foreach(v => el.attributes.setNamedItem(("checked" -> v.toString).toAtt))
         case tp =>
-          withID(el, att)
+          ifNoID(el, att)
           //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
           subscribeValue(el,att,Events.keyup)
       }
     case area:HTMLTextAreaElement =>
-      withID(el, att+"_textarea")
+      ifNoID(el, att+"_textarea")
       subscribeValue(el,att,Events.keyup)
       //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
 
@@ -109,7 +109,6 @@ trait PropertyBinder {
         v.set(el.dyn.selectDynamic("value").toString)
       }
     case None=> cannotFindStr(rxName,"value")
-      ""
   }
 
 

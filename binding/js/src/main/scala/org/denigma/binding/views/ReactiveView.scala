@@ -32,7 +32,7 @@ trait PromiseEvent[Value,Result] extends BindingEvent
 /**
  * View that supports resolving some data from params as well as pattern matching on parents and events
  */
-abstract class ReactiveView extends OrganizedView{
+abstract class ReactiveView extends OrganizedView with BubbleView {
 
   def params:Map[String,Any]
 
@@ -48,23 +48,23 @@ abstract class ReactiveView extends OrganizedView{
 
   override protected def attributesToParams(el:HTMLElement): Map[String, Any] = el.attributes
     .collect{
-    case (key,value) if key.contains("data-param-")=>
-      val k = key.replace("data-param-", "")
-      val v = value.value
-      if(v.startsWith("parent."))
-      {
-        val pn = v.replace("parent.","")
-        this.params.get(pn) match {
-          case Some(p)=>
-            k->p.asInstanceOf[Any]
-          case None=>
-            dom.console.log(s"could not find data-param $pn for child")
-            k -> pn
-        }
-      } else k -> v.asInstanceOf[Any]
+      case (key,value) if key.contains("data-param-")=>
+        val k = key.replace("data-param-", "")
+        val v = value.value
+        if(v.startsWith("parent."))
+        {
+          val pn = v.replace("parent.","")
+          this.params.get(pn) match {
+            case Some(p)=>
+              k->p.asInstanceOf[Any]
+            case None=>
+              dom.console.log(s"could not find data-param $pn for child")
+              k -> pn
+          }
+        } else k -> v.asInstanceOf[Any]
 
 
-  }.toMap
+    }.toMap
 
   /**
    * Resolves mandatory keys from either this view or parent view
@@ -80,62 +80,5 @@ abstract class ReactiveView extends OrganizedView{
       dom.console.error(message)
       throw new Error(message)
   }
-
-
-
-  /**
-   * Event subsystem
-   * @return
-   */
-  def receive:PartialFunction[BindingEvent,Unit] = {
-    case event:BindingEvent=> this.propagate(event)
-  }
-
-  def receiveFuture:PartialFunction[PromiseEvent[_,_],Unit] = {
-    case ev=>this.propagateFuture(ev)
-  }
-
-
-  /**
-   * Propogates future to the top for some reason
-   * @param event
-   * @return
-   */
-  protected def propagateFuture(event:PromiseEvent[_,_]) =
-    this.nearestParentOf{  case p:ReactiveView=>p  } match {
-      case Some(p)=> p.receiveFuture(event.withCurrent(this))
-      case None=> event.promise.failure(new Exception(s"could not find value for ${event.origin}"))
-    }
-
-
-
-
-  /**
-   * Fires an event
-   * @param event
-   * @param startWithMe
-   */
-  def fire(event:BindingEvent,startWithMe:Boolean = false): Unit = if(startWithMe) this.receive(event) else  this.propagate(event)
-
-  protected def propagate(event:BindingEvent) =   this.nearestParentOf{  case p:ReactiveView=>p  } match {
-    case Some(p)=> p.receive(event.withCurrent(this))
-    case None=>
-  }
-
-
-  /**
-   * Asks parent to provide some future
-   * @param value
-   * @param startWithMe
-   * @tparam Value
-   * @tparam Result
-   * @return
-   */
-  def ask[Value,Result](value:Value,startWithMe:Boolean = false):Future[Result] = {
-    val event = new JustPromise[Value,Result](value,this,this)
-    if(startWithMe) this.receiveFuture(event) else  this.propagateFuture(event)
-    event.promise.future
-  }
-
 
 }

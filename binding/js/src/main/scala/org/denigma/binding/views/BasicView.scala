@@ -1,29 +1,40 @@
 package org.denigma.binding.views
 
-import org.denigma.binding.binders.BasicBinder
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.ext._
 import org.scalajs.dom.raw.HTMLElement
 
 import scala.collection.immutable.Map
-import scala.reflect.ClassTag
-import scala.util.{Try, Failure, Success}
-import scala.collection.JavaConversions
+import scala.scalajs.js
+
+trait IDGenerator{
+  /**
+   * Makes id for the binding element
+   * @param el html element
+   * @param title is used if the element does not have an ID
+   * @return
+   */
+  def ifNoID(el:HTMLElement,title:String): String = el.id match {
+    case s if js.isUndefined(s) || s=="" ||  s==null /*|| s.isInstanceOf[js.prim.Undefined] */=>
+      el.id = title + "#" +  math.round(10000*math.random) //to make length shorter
+      el.id
+
+    case id=>
+      id
+
+  }
+
+}
 
 /**
  * Basic view class, contains basic binding features and children
  */
-trait BasicView extends IView
+trait BasicView extends IDGenerator
 {
 
   type ChildView <: BasicView
 
-  /**
-   * Works when injectors fails to create a view
-   * @param el
-   * @return
-   */
   def makeDefault(el:HTMLElement,props:Map[String,Any] = Map.empty):ChildView
 
 
@@ -37,9 +48,11 @@ trait BasicView extends IView
   /**
    * Id of this view
    */
-  val id: String = this.withID(elem,this.name)
+  val id: String = this.ifNoID(elem,this.name)
 
   implicit var subviews = Map.empty[String,ChildView]
+
+
 
 
   /**
@@ -89,11 +102,7 @@ trait BasicView extends IView
 
   def bindAttributes(el:HTMLElement,ats:Map[String,String]):Unit
 
-  /**
-   * Fires when view was binded by default does the same as bind
-   * @param el
-   */
-  def bindView(el:HTMLElement) = this.bind(el)
+  def bindView() = this.bind(this.viewElement)
 
 
   def unbindView() = {
@@ -148,7 +157,7 @@ trait BasicView extends IView
       val params = this.attributesToParams(el)
       val v = this.inject(viewAtt,el,params)
       this.addView(v) //the order is intentional
-      v.bindView(el)
+      v.bindView()
       v
     }
 

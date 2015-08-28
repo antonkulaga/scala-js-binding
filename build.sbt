@@ -1,6 +1,7 @@
 import com.typesafe.sbt.gzip.Import.gzip
 import com.typesafe.sbt.web._
 import com.typesafe.sbt.web.pipeline.Pipeline
+import com.typesafe.sbteclipse.core
 import playscalajs.PlayScalaJS.autoImport._
 import playscalajs.ScalaJSPlay.autoImport._
 import playscalajs.{PlayScalaJS, ScalaJSPlay}
@@ -27,6 +28,14 @@ lazy val noPublishSettings = Seq(
   publishArtifact := false
 )
 
+lazy val eclipseSettings = Seq(
+  EclipseKeys.useProjectId := true,
+  EclipseKeys.skipParents := false
+  //EclipseKeys.createSrc  := EclipseCreateSrc.Default +
+  // EclipseCreateSrc.ManagedClasses +
+  // EclipseCreateSrc.ManagedResources +
+  // EclipseCreateSrc.ManagedSrc //not sure it it is needed but it does not work with them either
+)
 
 //settings for all the projects
 lazy val commonSettings = Seq(
@@ -37,7 +46,7 @@ lazy val commonSettings = Seq(
   libraryDependencies ++= Dependencies.testing.value,
   unmanagedClasspath in Compile <++= unmanagedResources in Compile,
   updateOptions := updateOptions.value.withCachedResolution(true) //to speed up dependency resolution
-)
+) ++ eclipseSettings
 
 lazy val bindingMacro = crossProject
   .crossType(CrossType.Full)
@@ -177,6 +186,3 @@ lazy val root = Project("root",file("."),settings = commonSettings)
     mainClass in Compile := (mainClass in previewJVM in Compile).value,
     (fullClasspath in Runtime) += (packageBin in previewJVM in Assets).value
   ) dependsOn previewJVM aggregate(previewJVM, previewJS)
-
-EclipseKeys.skipParents in ThisBuild := false
-EclipseKeys.useProjectId in ThisBuild := true

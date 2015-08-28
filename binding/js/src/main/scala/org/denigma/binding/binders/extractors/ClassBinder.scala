@@ -20,7 +20,7 @@ trait ClassBinder {
 
   protected def classIf(el:HTMLElement,className: String, cond:String) = for ( b<-bools.getOrError(cond) )
   {
-    withID(el,s"class-$className-If_$cond")
+    ifNoID(el,s"class-$className-If_$cond")
     b.foreach{
       case false=>if(el.classList.contains(className)) el.classList.remove(className)
       case true=>if(!el.classList.contains(className)) el.classList.add(className)
@@ -29,7 +29,7 @@ trait ClassBinder {
 
   protected def classUnless(el:HTMLElement,className: String, cond:String) = for ( b<-bools.getOrError(cond) )
   {
-    withID(el,s"class-$className-Unless_$cond")
+    ifNoID(el,s"class-$className-Unless_$cond")
     b.foreach{
       case true=>if(el.classList.contains(className)) el.classList.remove(className)
       case false=>if(!el.classList.contains(className)) el.classList.add(className)
