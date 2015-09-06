@@ -8,16 +8,33 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles {
   import dsl._
 
   "body"-(
-    backgroundColor(mediumseagreen)
+    backgroundColor(bindingViolet)
     )
 
+  "#main"-(
+    //backgroundColor(bindingGreen)
+    //backgroundColor(bindingGreen)
+   )
+
   "#promo" -(
-    backgroundColor(cornflowerblue)
+    backgroundColor(bindingBlue)
+    )
+
+  "#left_promo"-(
+    backgroundColor(bindingBlue)
     )
 
   "#central_promo"-(
     backgroundColor(blanchedalmond)
     )
+
+  "#right_promo"-(
+    backgroundColor(bindingGreen)
+    )
+
+  ".ui.items > .item:first-child" -{
+    marginTop(20 px) important
+  }
 
 
   ".CodeMirror" -(
@@ -30,5 +47,19 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles {
     )//-(overflowX.auto,overflowY.hidden)
 
   "#logo" -(
-    maxHeight(30 vw))
+    maxHeight(30 vw)
+    )
+
+
+  ".ui.menu.main" - {
+    backgroundColor(bindingGreen) important
+  }
+  ".ui.main.menu .item" - {
+    backgroundColor(bindingGreen) important
+  }
+
+  "#main" -{
+    backgroundColor(bindingGreen)
+  }
+
 }

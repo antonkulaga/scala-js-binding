@@ -8,7 +8,7 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 	val bananaRdf = "0.8.2-SNAP4" //"0.8.1"
 
-	val controls = "0.0.8-M1"
+	val controls = "0.0.8-M2"
 }
 
 trait ScalaJVMVersions {
@@ -66,7 +66,7 @@ trait WebJarsVersions{
 
 	val N3 = "799fee7697"
 
-	val semanticUI = "2.0.7"
+	val semanticUI = "2.1.2"
 
 	val codemirror = "5.5"
 

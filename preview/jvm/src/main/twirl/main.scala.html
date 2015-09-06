@@ -1,4 +1,7 @@
 @(content:Option[Html] = None)
 <main id="main" class="ui segment container">
-   @{content.getOrElse(semantic.html.rdf("Now has Banana-RDF and RDFa support"))/*pages.html.bind("it can bind"))*/}
+   @{content.getOrElse(binding.html.controls("Has several useful controls"))
+   /*semantic.html.rdf("Now has Banana-RDF and RDFa support"))*/
+   /*pages.html.bind("it can bind"))*/
+   }
 </main>

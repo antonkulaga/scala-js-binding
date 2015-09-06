@@ -1,5 +1,6 @@
 package org.denigma.binding.views
 
+import org.denigma.binding.binders.Binder
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.raw.{HTMLDocument, HTMLElement}
@@ -48,6 +49,8 @@ object OrganizedView {
 
 }
 
+
+
 /**
  * An abstract hirercial view that provides methods to work with hirercy
  */
@@ -72,8 +75,8 @@ abstract class OrganizedView extends BasicView
     injector.inject(viewName,el,params) match {
       case Some(tr)=>
         tr match {
-          case Success(view) => view
-
+          case Success(view) =>
+            view
           case Failure(e) =>
             //dom.console.error(e.toString)
             if (e != null){
@@ -158,7 +161,7 @@ abstract class OrganizedView extends BasicView
   override def switchInner(el:HTMLElement, newInnerHTML:String) = {
     removeSubViewsFrom(el)
     el.innerHTML = newInnerHTML
-    bind(el)
+    bindElement(el)
   }
 
 
@@ -277,7 +280,7 @@ abstract class OrganizedView extends BasicView
       }
       newElement.setAttribute("id",this.id)
       pv.removeView(this:ChildView)
-      pv.bind(newElement)
+      pv.bindElement(newElement)
       //dom.console.info("after = "+pv.subviews.toString())
 
 

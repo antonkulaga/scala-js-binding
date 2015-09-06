@@ -1,6 +1,6 @@
 package org.denigma.binding.binders.extractors
 
-import org.denigma.binding.binders.BasicBinder
+import org.denigma.binding.binders.ReactiveBinder
 import org.denigma.binding.extensions._
 import org.scalajs.dom.raw.HTMLElement
 import rx._
@@ -11,7 +11,7 @@ import scala.collection.immutable.Map
  * Provides useful functions for visibility bindings (like showif/hideif)
  */
 trait VisibilityBinder {
-  self:BasicBinder=>
+  self:ReactiveBinder=>
 
   def bools:Map[String,Rx[Boolean]]
 
@@ -24,12 +24,12 @@ trait VisibilityBinder {
   }
 
   def showIf(element:HTMLElement,rxName: String,disp:String) =  for ( b<-bools.getOrError(rxName) ){
-    ifNoID(element,"showif_"+rxName)
+    //ifNoID(element,"showif_"+rxName)
     b.foreach(sh=>element.style.display = if(sh) disp else "none")
   }
 
   def hideIf(element:HTMLElement,rxName: String,disp:String) =  for ( b<-bools.getOrError(rxName) ){
-    ifNoID(element,"hideif_"+rxName)
+    //ifNoID(element,"hideif_"+rxName)
     b.foreach(h=>element.style.display = if(h) "none" else disp)
   }
 

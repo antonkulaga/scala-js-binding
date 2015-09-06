@@ -32,9 +32,6 @@ class SelectOptionsView(val elem:HTMLElement,
   val hasOptions: Rx[Boolean] = items.map{case ops=>  ops.nonEmpty}
 
   override protected def warnIfNoBinders(asError:Boolean) = if(asError) super.warnIfNoBinders(asError)
-  override def bindView() ={
-    super.bindView()
-  }
 
   override def newItem(item: Item): OptionView = constructItemView(item){
     case (el,mp)=>new OptionView(el,item, mp).withBinder{new GeneralBinder(_)}

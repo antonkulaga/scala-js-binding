@@ -8,6 +8,14 @@ import org.w3.banana._
 import rx.Rx
 import rx.core.Var
 
+/**
+ * For each binded property
+ * @param graph RDF graph
+ * @param updates
+ * @param createIfNotExist
+ * @param ops
+ * @tparam Rdf
+ */
 abstract class Binded[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],
                                 updates:Rx[GraphUpdate[Rdf]],
                                 createIfNotExist:Boolean = false

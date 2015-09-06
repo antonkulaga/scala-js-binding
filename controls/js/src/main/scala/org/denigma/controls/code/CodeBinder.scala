@@ -1,6 +1,6 @@
 package org.denigma.controls.code
 
-import org.denigma.binding.binders.{BasicBinder, GeneralBinder}
+import org.denigma.binding.binders.{ReactiveBinder, GeneralBinder}
 import org.denigma.binding.extensions._
 import org.denigma.binding.macroses._
 import org.denigma.binding.views.BindableView
@@ -13,7 +13,7 @@ import rx._
 
 import scala.collection.immutable.Map
 
-class CodeBinder[View<:BindableView,Binder<:BasicBinder](view:View,recover:Option[Binder] = None)
+class CodeBinder[View<:BindableView,Binder<:ReactiveBinder](view:View,recover:Option[Binder] = None)
                                     (implicit
                                      mpMap:MapRxMap[View], mpTag:TagRxMap[View],
                                      mpString:StringRxMap[View],  mpBool:BooleanRxMap[View],
@@ -25,6 +25,7 @@ extends GeneralBinder[View,Binder](view, recover)(mpMap,mpTag,mpString,mpBool,mp
 {
   val modes: Map[String, String] = Map(
     "html"->"htmlmixed",
+    "htmlmixed"->"htmlmixed",
     "clike"->"clike",
     "sparql"->"x-sparql-query",
     "scala"->"text/x-scala",

@@ -14,7 +14,7 @@ abstract class BasicDatePairView extends BindableView{
 
 
   override def bindView() = {
-    this.bind(viewElement)
+    this.bindElement(viewElement)
     //require(this.params.contains("data") && this.params("data").)
     val pair = $(viewElement).find(".date").dyn.datepicker(js.Dynamic.literal(
       format = "yyyy/m/d",

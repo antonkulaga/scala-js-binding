@@ -5,6 +5,31 @@ import scala.concurrent.Future
 /**
  * View that can have bubbling events
  */
+/*
+
+trait BindingEvent
+{
+  type Origin
+  val origin:Origin//BasicView
+  val latest:BasicView
+  val bubble:Boolean
+
+  def withCurrent(cur:BasicView):this.type
+}
+
+case class JustPromise[Value,Result](value:Value,origin:BasicView,latest:BasicView, bubble:Boolean = true, promise:Promise[Result] = Promise[Result]()) extends PromiseEvent[Value,Result] {
+  type Origin = BasicView
+
+  override def withCurrent(cur:BasicView): this.type= this.copy(latest = cur).asInstanceOf[this.type]
+}
+
+trait PromiseEvent[Value,Result] extends BindingEvent
+{
+  val value:Value
+  val promise:Promise[Result]
+}
+
+
 trait BubbleView {
   self:OrganizedView=>
   /**
@@ -62,3 +87,4 @@ trait BubbleView {
   }
 
 }
+*/

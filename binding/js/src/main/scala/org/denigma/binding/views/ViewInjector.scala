@@ -1,7 +1,9 @@
 package org.denigma.binding.views
 
+import org.denigma.binding.binders.Binder
 import org.scalajs.dom.raw.HTMLElement
 
+import scala.Predef
 import scala.collection.immutable.Map
 import scala.util.Try
 
@@ -15,7 +17,8 @@ trait InjectorMagnet[View<:OrganizedView] //Resolver is only needed to resolve t
   def injector:Injector
 }
 
-trait ViewInjector[View <:OrganizedView]{
+trait ViewInjector[View <:OrganizedView]
+{
   self=>
 
   type This<:ViewInjector[View]
@@ -36,6 +39,7 @@ trait ViewInjector[View <:OrganizedView]{
   protected def parentInjection(viewName:String, element:HTMLElement, params:Map[String,Any]): Option[Try[View#ChildView]]
 
   def register(name:String)(init:(HTMLElement,Map[String,Any])=>View#ChildView):This = tryRegister(name)((el,args)=>Try(init(el,args)))
+
   def tryRegister(name:String)(init:(HTMLElement,Map[String,Any])=>Try[View#ChildView]):This
 
 }

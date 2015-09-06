@@ -1,6 +1,6 @@
 package org.denigma.binding.binders.extractors
 
-import org.denigma.binding.binders.{Events, BasicBinder}
+import org.denigma.binding.binders.{Events, ReactiveBinder}
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.ext._
@@ -14,7 +14,7 @@ import scala.collection.immutable.Map
  * Does binding for classes
  */
 trait PropertyBinder {
-  self:BasicBinder=>
+  self:ReactiveBinder=>
 
   def strings:Map[String,Rx[String]]
   def bools:Map[String,Rx[Boolean]]
@@ -34,7 +34,7 @@ trait PropertyBinder {
   protected def bindStyle(el:HTMLElement,rxName:String,prop:String): Unit= {
     this.strings.get(rxName) match {
       case Some(str) =>
-        ifNoID(el,s"${rxName}_${prop}_styles")
+        //ifNoID(el,s"${rxName}_${prop}_styles")
         import rx.ops._
         str.foreach(s=>el.style.dyn.updateDynamic(prop)(s))
        case None=>
@@ -57,15 +57,15 @@ trait PropertyBinder {
     case inp:HTMLInputElement=>
       el.attributes.get("type").map(_.value.toString) match {
         case Some("checkbox") =>
-          ifNoID(el, att + "_checkbox")
+          //ifNoID(el, att + "_checkbox")
           for (b <- bools.get(att)) b.foreach(v => el.attributes.setNamedItem(("checked" -> v.toString).toAtt))
         case tp =>
-          ifNoID(el, att)
+          //ifNoID(el, att)
           //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
           subscribeValue(el,att,Events.keyup)
       }
     case area:HTMLTextAreaElement =>
-      ifNoID(el, att+"_textarea")
+      //ifNoID(el, att+"_textarea")
       subscribeValue(el,att,Events.keyup)
       //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
 

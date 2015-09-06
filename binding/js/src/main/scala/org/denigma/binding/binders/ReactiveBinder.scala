@@ -1,20 +1,17 @@
 package org.denigma.binding.binders
 
-import org.denigma.binding.extensions._
-import org.denigma.binding.views.IDGenerator
 import org.scalajs.dom
-import org.scalajs.dom._
 import org.scalajs.dom.raw.HTMLElement
 import rx._
 
 import scala.collection.immutable.Map
-import scala.scalajs.js
 
 object Binder{
-  def apply(elemBind:(HTMLElement,Map[String,String])=>PartialFunction[(String, String), Unit]) = new BasicBinder {
-    override def bindAttributes(el: HTMLElement, ats: Map[String, String]): Unit = {
+  def apply(elemBind:(HTMLElement,Map[String,String])=>PartialFunction[(String, String), Unit]) = new ReactiveBinder {
+    override def bindAttributes(el: HTMLElement, ats: Map[String, String]) = {
       val fun = elementPartial(el,ats)
       for((key,value)<-ats) fun(key,value)
+      true
     }
 
     override def elementPartial(el: HTMLElement, ats: Map[String, String]): PartialFunction[(String, String), Unit] = elemBind(el,ats)
@@ -22,11 +19,27 @@ object Binder{
 }
 
 
+trait Binder
+{
+
+  def bindAttributes(el:HTMLElement,attributes:Map[String, String] ):Boolean
+
+}
+
 /**
  *  A class that contains basic functions for all bindings
  */
-trait BasicBinder extends IDGenerator
+trait ReactiveBinder extends Binder
 {
+  def elementPartial(el: HTMLElement,ats:Map[String, String]): PartialFunction[(String,String),Unit]
+
+  def bindAttributes(el:HTMLElement,attributes:Map[String, String] ):Boolean= {
+    val fun: PartialFunction[(String, String), Unit] = elementPartial(el,attributes).orElse{case other=>}
+    attributes.foreach(fun)
+    true
+  }
+
+
   /**
    * binds an item of Map with vars
    * @param el html element to bind to
@@ -46,24 +59,8 @@ trait BasicBinder extends IDGenerator
         dom.console.log("current map =" + mp.keys.toString())
     }
 
-  def elementPartial(el: HTMLElement,ats:Map[String, String]): PartialFunction[(String,String),Unit]
-
-  def bindAttributes(el:HTMLElement,ats:Map[String, String] ):Unit = {
-    val fun: PartialFunction[(String, String), Unit] = elementPartial(el,ats).orElse{case other=>}
-    ats.foreach(fun)
-  }
-
   protected def dataAttributesOnly(ats:Map[String,String]): Map[String, String] = ats.collect{
     case (key,value) if key.contains("data-") && !key.contains("data-view")=> (key.replace("data-",""),value)
   }
 
-  protected def processUrl(url:String, relativeURI:Boolean = true):String =
-    (url.indexOf("://"),url.indexOf("/"),url.indexOf("?"))
-    match {
-      case (-1,sl,q)=> sq.withHost(url)
-      case (prot,sl,q)  if sl > -1 && sl<prot =>
-        val st = prot+3
-        sq.withHost(url.substring(url.indexOf("/",st)))
-      case  other => if(url.contains("domain")) url.replace("domain",dom.location.host) else url
-    }
 }

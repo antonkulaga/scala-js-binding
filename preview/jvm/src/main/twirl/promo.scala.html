@@ -1,28 +1,6 @@
 <div class="ui divider"></div>
 <section id="promo" class="ui three column celled relaxed grid" data-view="promo">
-    <column class="ui padded circular middle aligned column segment">
-        <h1 class="ui header" data-bind="say"></h1>
-        <p class="ui text">Greetings binds to a <i>say</i> variable that depends on<br>
-            two other variables, just change them and <br>immediately see the result!</p>
-        <input class="ui input" data-bind="greeting">
-        <input class="ui input" data-bind="username">
-        <div class="ui divider"></div>
-        <p><b>Here how it looks in html, isn't it simple?</b></p>
-        <div data-code-html="htmlCode"></div>
-        <div class="ui divider"></div>
-        <b>Let's look into ScalaJS code:</b>
-        <textarea data-code-scala="scalaCode">
-        </textarea>
-        <div class="ui message"><i>say</i> depends on <i>greeting</i> and <i>username</i> variables
-        and is automatically updated (and updates all properties it is binded to) when any of them change
-        </div>
-
-
-    </column>
-    <column class="ui padded circular middle aligned column segment" id="central_promo">
-        <img id="logo" data-bind-src="logo">
-    </column>
-    <column class="ui padded circular middle aligned column segment">
+    <column class="ui padded circular middle aligned column segment" id="left_promo">
         <h1 class="ui inverted center aligned  orange header">Scala-JS-Binding</h1>
         <h3 class="ui orange header">is a scalaJS<br> framework that lets you:</h3>
         <div class="ui relaxed divided large list">
@@ -50,6 +28,26 @@
                     Scala-JS-Binding supports banana-rdf and RDFa,<br> so you can bind to nodes of RDF graphs
                 </div>
             </div>
+        </div>
+    </column>
+    <column class="ui padded circular middle aligned column segment" id="central_promo">
+        <img id="logo" data-bind-src="logo">
+    </column>
+    <column class="ui padded column segment"  id="right_promo">
+        <h1 class="ui header" data-bind="say"></h1>
+        <p class="ui text">Greetings binds to a <i>say</i> variable that depends on
+            two other variables, just change them and immediately see the result!</p>
+        <input class="ui input" data-bind="greeting">
+        <input class="ui input" data-bind="username">
+        <div class="ui divider"></div>
+        <p><b>Here how it looks in html, isn't it simple?</b></p>
+        <div data-code-html="htmlCode"></div>
+        <div class="ui divider"></div>
+        <b>Let's look into ScalaJS code:</b>
+        <textarea data-code-scala="scalaCode">
+        </textarea>
+        <div class="ui message"><i>say</i> depends on <i>greeting</i> and <i>username</i> variables
+            and is automatically updated (and updates all properties it is binded to) when any of them change
         </div>
     </column>
 </section>

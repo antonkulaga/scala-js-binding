@@ -14,8 +14,18 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.scalajs.dom.ext._
 
 
-class NavigationBinder(view:BindableView) extends BasicBinder{
+class NavigationBinder(view:BindableView) extends ReactiveBinder{
 
+
+  protected def processUrl(url:String, relativeURI:Boolean = true):String =
+    (url.indexOf("://"),url.indexOf("/"),url.indexOf("?"))
+    match {
+      case (-1,sl,q)=> sq.withHost(url)
+      case (prot,sl,q)  if sl > -1 && sl<prot =>
+        val st = prot+3
+        sq.withHost(url.substring(url.indexOf("/",st)))
+      case  other => if(url.contains("domain")) url.replace("domain",dom.location.host) else url
+    }
 
   /**
    * Loads links into some view
@@ -70,8 +80,6 @@ class NavigationBinder(view:BindableView) extends BasicBinder{
     case ("load-abs-into",value) => bindLoadInto(el,value, rel = false)
   }
 
-
-
   /**
    * Loads links into some view
    * @param element
@@ -79,8 +87,9 @@ class NavigationBinder(view:BindableView) extends BasicBinder{
    */
   def bindLoadInto(element:HTMLElement,into: String, rel:Boolean) =   element.onclick = this.makeGoToHandler(element,into,push = true, rel)
 
-  override def bindAttributes(el: HTMLElement, ats: Map[String, String]): Unit = {
+  override def bindAttributes(el: HTMLElement, ats: Map[String, String]) = {
     this.bindDataAttributes(el,this.dataAttributesOnly(ats))
+    true
   }
 
   def bindDataAttributes(el:HTMLElement,ats:Map[String, String]) = {

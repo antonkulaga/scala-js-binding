@@ -1,6 +1,6 @@
 package org.denigma.binding.binders.extractors
 
-import org.denigma.binding.binders.{Events, BasicBinder}
+import org.denigma.binding.binders.{Events, ReactiveBinder}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.raw.{KeyboardEvent, HTMLElement}
@@ -11,14 +11,13 @@ import scala.scalajs.js
 /**
  * Extracts various events
  */
-trait EventBinder  extends BasicBinder
+trait EventBinder  extends ReactiveBinder
 {
   import org.denigma.binding.extensions._
 
   protected def mouseEvents: Map[String, Var[MouseEvent]]
 
   protected def keyboardEvents:Map[String,Var[KeyboardEvent]]
-
 
 
   def eventsPartial(el:HTMLElement):PartialFunction[(String,String),Unit] = {

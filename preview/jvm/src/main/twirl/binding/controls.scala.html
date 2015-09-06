@@ -1,39 +1,51 @@
 @(title:String)
-<article id="main_article" data-view="ControlSlide">
+<article id="main_article" data-view="ControlSlide" class="ui blue piled segment">
 
   <h1 id="title"class="ui large header orange message">@title </h1>
   <div class="ui equal width grid">
     <section class="equal width row">
-      <div class="column">
-        @{binding.html.selection()}
-        @*                    <section class="ui segment"
-
-        data-view="SelectableModelView"
-        vocab="http://webintelligence.eu/platform/"
-        data-param-path="models/endpoint"
-        data-param-resource="http://page.org"
-        data-param-shape="http://shape.org">
-
-        <h1>This tests selectors</h1>
-        <div>
-        <h1 property="title"></h1>
-        <input property="title">
-        <p property="text"></p>
-        <textarea property="text"></textarea>
-        <div class="ui button" data-event-click="Report">Report</div>
-
-        </div>
-
-        </section>*@
-      </div>
-      <div class="column segment">
-       @org.denigma.controls.html.login()
-
-      </div>
-
+      <column class="column ui message">
+        <p> There are different controls that you can already try</p>
+      </column>
     </section>
-
+    <section class="equal width row">
+      <column class="column">
+        <h1 class="ui orange header">Login Control</h1>
+      </column>
+    </section>
+    <section class="equal width row">
+      <column class="column">
+        <h1 class="ui orange header">Html</h1>
+          @*<textarea data-code-html="rdfa"> </textarea>*@
+      </column>
+      <column class="column">
+        <h1 class="ui orange header">ScalaJS</h1>
+       @* <textarea data-code-scala="modelCode"></textarea>*@
+      </column>
+      <column class="column" >
+        <h1 class="ui orange header">Appearance</h1>
+        @org.denigma.controls.html.login()
+      </column>
+    </section>
+    <section class="equal width row">
+      <column class="column">
+        <h1 class="ui orange header">Selection Control</h1>
+      </column>
+    </section>
+    <section class="equal width row">
+      <column class="column">
+        <h1 class="ui orange header">Html</h1>
+        @*<textarea data-code-html="rdfa">  </textarea>*@
+      </column>
+      <column class="column">
+        <h1 class="ui orange header">ScalaJS</h1>
+        @*<textarea data-code-scala="modelCode"></textarea>*@
+      </column>
+      <column class="column" >
+        <h1 class="ui orange header">Appearance</h1>
+        @{binding.html.selection()}
+      </column>
+    </section>
   </div>
 
 </article>
-

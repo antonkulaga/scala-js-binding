@@ -1,28 +1,43 @@
 package org.denigma.binding.views
 
+import org.denigma.binding.binders.Binder
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.ext._
 import org.scalajs.dom.raw.HTMLElement
 
+import scala.annotation.tailrec
 import scala.collection.immutable.Map
 import scala.scalajs.js
 
 trait IDGenerator{
+
+
+  def ifNoIDOption(el:HTMLElement,titleOpt: =>Option[String]) = el.id match {
+    case s if js.isUndefined(s) || s=="" ||  s==null=>
+      for(title<-titleOpt)
+      {
+        el.id = title + "#" +  math.round(10000*math.random) //to make length shorter
+        el.id
+      }
+
+    case id=>
+      id
+  }
+
   /**
    * Makes id for the binding element
    * @param el html element
    * @param title is used if the element does not have an ID
    * @return
    */
-  def ifNoID(el:HTMLElement,title:String): String = el.id match {
+  def ifNoID(el:HTMLElement,title: =>String): String = el.id match {
     case s if js.isUndefined(s) || s=="" ||  s==null /*|| s.isInstanceOf[js.prim.Undefined] */=>
       el.id = title + "#" +  math.round(10000*math.random) //to make length shorter
       el.id
 
     case id=>
       id
-
   }
 
 }
@@ -33,16 +48,20 @@ trait IDGenerator{
 trait BasicView extends IDGenerator
 {
 
+  require(elem!=null,s"html element of view of class ${this.getClass.getName} with id $id  must not be null!")
+
+  protected def binders:List[ViewBinder]
+
+
+  type ViewBinder = Binder
+
   type ChildView <: BasicView
 
   def makeDefault(el:HTMLElement,props:Map[String,Any] = Map.empty):ChildView
 
-
   def elem:HTMLElement
 
   def name:String = this.getClass.getName.split('.').last
-
-  require(elem!=null,s"html elemenet of view of class ${this.getClass.getName} with id $id  must not be null!")
 
 
   /**
@@ -51,8 +70,6 @@ trait BasicView extends IDGenerator
   val id: String = this.ifNoID(elem,this.name)
 
   implicit var subviews = Map.empty[String,ChildView]
-
-
 
 
   /**
@@ -86,7 +103,12 @@ trait BasicView extends IDGenerator
   def viewElement: HTMLElement = _element
   def viewElement_=(value:HTMLElement): Unit = if(_element!=value) {
     this._element = value
-    this.bind(value)
+    this.bindElement(value)
+  }
+
+  @tailrec private def bindAts(el:HTMLElement,ats: Map[String, String],bds:List[ViewBinder]):Boolean = bds match {
+    case Nil=> true
+    case head::tail=> if(head.bindAttributes(el,ats))  bindAts(el,ats,tail) else false
   }
 
   /**
@@ -94,24 +116,34 @@ trait BasicView extends IDGenerator
    * @param el
    */
   protected def bindElement(el:HTMLElement): Unit = {
-    val ats: Map[String, String] =el.attributes.collect{
-      case (key,value) if !key.contains("data-view")=>(key,value.value)}.toMap
-    this.bindAttributes(el,ats)
-
+    val ats: Map[String, String] =el.attributes.map{ case (key,value)=> (key,value.value)}.toMap
+    if(bindAts(el,ats,binders))
+    {
+      if(el.hasChildNodes()) el.childNodes.foreach {
+        case el: HTMLElement => this.bindElement(el)
+        case _ => //skip
+      }
+    }
   }
 
-  def bindAttributes(el:HTMLElement,ats:Map[String,String]):Unit
-
-  def bindView() = this.bind(this.viewElement)
+  def bindView() = this.bindElement(this.viewElement)
 
 
   def unbindView() = {
     this.unbind(this.viewElement)
   }
 
-  def unbind(el:HTMLElement)= {
-    //is required for those view that need some unbinding
-  }
+  def unbind(el:HTMLElement)= { } //this is required for those view that need some unbinding
+
+
+  /** *
+    * Extracts view
+    * @param el
+    * @return
+    */
+  def viewFrom(el:HTMLElement): Option[String] = el.attributes.get("data-view").map(_.value)
+
+
   /**
    * Changes inner HTML removing redundant views
    * @param el
@@ -119,7 +151,7 @@ trait BasicView extends IDGenerator
    */
   def switchInner(el:HTMLElement, newInnerHTML:String) = {
     el.innerHTML = newInnerHTML
-    bind(el)
+    bindElement(el)
   }
 
   /**
@@ -130,36 +162,6 @@ trait BasicView extends IDGenerator
    */
   protected def withParam(name:String,params:Map[String,Any]) = params
 
-
-  /**
-   * Turns data-param attribute into real param
-   * NOTE: If you want to pass other params to child views, just override this function
-   * @param el
-   * @return
-   */
-  protected def attributesToParams(el:HTMLElement): Map[String, Any] = el.attributes
-   .collect{
-      case (key,value) if key.contains("data-param-")=>
-        val k = key.replace("data-param-", "")
-        val v = value.value
-        k -> v.asInstanceOf[Any]
-    }.toMap
-
-
-  
-  /**
-   * Creates view
-   * @param el
-   * @param viewAtt
-   * @return
-   */
-  protected def createView(el:HTMLElement,viewAtt:String) =     {
-      val params = this.attributesToParams(el)
-      val v = this.inject(viewAtt,el,params)
-      this.addView(v) //the order is intentional
-      v.bindView()
-      v
-    }
 
   /**
    * Removes view
@@ -191,33 +193,5 @@ trait BasicView extends IDGenerator
    */
   def isInside(element:HTMLElement, me:HTMLElement = this.viewElement):Boolean = element==me ||
     ( if(me.parentElement.isNullOrUndef) false else isInside(element,me.parentElement) )
-
-
-
-
-  /** *
-    * Extracts view
-    * @param el
-    * @return
-    */
-  def viewFrom(el:HTMLElement): Option[String] = el.attributes.get("data-view").map(_.value)
-  //
-  /**
-   * Binds nodes to the element
-   * @param el
-   */
-  def bind(el:HTMLElement):Unit =   this.viewFrom(el) match {
-
-        case Some(view) if el.id.toString!=this.id =>
-          this.subviews.getOrElse(el.id, this.createView(el,view))
-
-        case _=>
-          this.bindElement(el)
-          if(el.hasChildNodes()) el.childNodes.foreach {
-            case el: HTMLElement => this.bind(el)
-            case _ => //skip
-          }
-      }
-
 }
 

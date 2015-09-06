@@ -4,6 +4,7 @@ import org.denigma.binding.binders.{GeneralBinder, Events}
 import org.denigma.binding.extensions._
 import org.denigma.binding.macroses.ClassToMap
 import org.denigma.binding.views.{BindableView, MapCollectionView}
+import org.denigma.controls.login.{LoginView, Login}
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
 import org.scalajs.dom.raw.{HTMLElement, KeyboardEvent}
@@ -108,20 +109,7 @@ class TestMacroView(val elem:HTMLElement, val params:Map[String,Any]) extends Bi
 
 }
 
-class ControlSlide(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView {
-
-  override lazy val injector = defaultInjector
-    .register("Selection"){case (el,args)=>
-    val sel = new PromoSelectionView(el,args).withBinder{case view=>
-      val b = new GeneralBinder(view)
-      println("key board events: "+b.keyboardEvents.keys.toList.mkString(" | "))
-      b
-    }
-
-    sel
-  }
-
-}
+class ControlSlide(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
 
 
 class Test(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{

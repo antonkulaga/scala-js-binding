@@ -1,21 +1,17 @@
 package org.denigma.semantic.binders
 
-import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.binded.{Binded, BindedTextProperty}
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.w3.banana._
 import rx.Rx
 import rx.core.Var
-import rx.ops._
-import org.denigma.binding.extensions._
+
 import scala.collection.immutable.Map
 import scala.collection.mutable
 
-class RDFModelBinder[Rdf<:RDF](
-                                view:BindableView,
-                                graph:Var[PointedGraph[Rdf]],
-                                resolver:Resolver[Rdf]) extends RDFBinder[Rdf](view,resolver) {
+class RDFModelBinder[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],
+                                resolver:Resolver[Rdf]) extends RDFBinder[Rdf](resolver) {
   import org.denigma.semantic.extensions._
 
   implicit def ops = resolver.ops //diry hack to make graph.updates work
@@ -23,7 +19,7 @@ class RDFModelBinder[Rdf<:RDF](
   val updates: Rx[GraphUpdate[Rdf]] = graph.updates
   val binded:mutable.MultiMap[Rdf#URI,Binded[Rdf]] =
     new mutable.HashMap[Rdf#URI, mutable.Set[Binded[Rdf]]]
-      with mutable.MultiMap[Rdf#URI,Binded[Rdf]] //NOTE: In the future I hope to getrid of these
+      with mutable.MultiMap[Rdf#URI,Binded[Rdf]] //NOTE: In the future I hope to get rid of these
 
 
   protected override def rdfPartial(el: HTMLElement, ats: Map[String, String]): PartialFunction[(String,String), Unit] = {

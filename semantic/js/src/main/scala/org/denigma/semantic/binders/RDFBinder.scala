@@ -1,6 +1,6 @@
 package org.denigma.semantic.binders
 
-import org.denigma.binding.binders.BasicBinder
+import org.denigma.binding.binders.ReactiveBinder
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
@@ -55,7 +55,7 @@ trait Resolver[Rdf<:RDF] {
 /**
  * View that can do RDFa binding (binding to semantic properties)
  */
-class RDFBinder[Rdf<:RDF](view:BindableView, resolver:Resolver[Rdf]) extends BasicBinder
+class RDFBinder[Rdf<:RDF](resolver:Resolver[Rdf]) extends ReactiveBinder
 {
 
   import resolver.ops
@@ -75,6 +75,5 @@ class RDFBinder[Rdf<:RDF](view:BindableView, resolver:Resolver[Rdf]) extends Bas
   }
 
 
-  protected def rdfPartial(el: HTMLElement,
-                           ats:Map[String,String]): PartialFunction[(String,String), Unit] =  this.vocabPartial
+  protected def rdfPartial(el: HTMLElement, ats:Map[String,String]): PartialFunction[(String,String), Unit] =  this.vocabPartial
 }

@@ -1,6 +1,6 @@
 package org.denigma.binding.binders.extractors
 
-import org.denigma.binding.binders.BasicBinder
+import org.denigma.binding.binders.ReactiveBinder
 import org.denigma.binding.macroses.TagRxMap
 import org.scalajs.dom.raw.HTMLElement
 import rx._
@@ -11,7 +11,7 @@ import org.denigma.binding.extensions._
 /**
  * HTML binding to scalatagnode
  */
-trait ScalaTagsBinder extends BasicBinder{
+trait ScalaTagsBinder extends ReactiveBinder{
 
    def tags:Map[String,Rx[Tag]]
 
@@ -23,7 +23,7 @@ trait ScalaTagsBinder extends BasicBinder{
       a<-ats.get("html")
       tg <-tags.getOrError(a)
     }{
-      ifNoID(el,"tag_"+tg)
+      //ifNoID(el,"tag_"+tg)
       tg.foreach{  t=> el.innerHTML = t.render  }
     }
   }

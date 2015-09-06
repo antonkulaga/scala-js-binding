@@ -4,9 +4,12 @@ import org.denigma.binding.binders.{GeneralBinder, NavigationBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.BindableView
 import org.denigma.controls.code.CodeBinder
+import org.denigma.controls.login.{LoginView, AjaxSession}
+import org.denigma.controls.selection.{TypedSuggester, TextSelectionView}
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.semantic.SidebarConfig
+import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.scalajs.js.annotation.JSExport
@@ -26,6 +29,8 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   val sidebarargs = SidebarConfig.exclusive(false).dimPage(false).closable(false).useLegacy(true)
 
+  val session = new AjaxSession()
+
   /**
    * Register views
    */
@@ -39,6 +44,9 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
         .withBinder(new GeneralBinder(_))
         .withBinder(new NavigationBinder(_))
     }
+    .register("login") { case (el, args) =>
+      new LoginView(el,session,args).withBinder(new GeneralBinder(_))
+    }
     .register("testmenu"){
       case (el,args) => new MenuView(el,args)
         .withBinder(new GeneralBinder(_))
@@ -50,6 +58,8 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
       .register("CollectionSlide")
       {case (el, args) =>
         new CollectionSlide(el,args).withBinder(view=>new CodeBinder(view))
+    }.register("ControlSlide"){ case (el,args) =>
+      new ControlSlide(el,args).withBinder(view=>new CodeBinder(view))
     }
     .register("random"){case (el,args)=> new RandomView(el,args).withBinder(view=>new CodeBinder(view)) }
     .register("lists"){ case (el,args)=>new LongListView(el,args).withBinder(view=>new CodeBinder(view))}
@@ -57,9 +67,13 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("RdfSlide"){case (el,args)=>new RdfSlide(el,args).withBinder(view=>new CodeBinder(view))}
     .register("promo"){case (el,args)=>new PromoView(el,args).withBinder(view=>new CodeBinder(view))}
     .register("Selection"){case (el,args)=>
-      new PromoSelectionView(el,args).withBinder{case view=>new GeneralBinder(view)}
+      new TestPromoSelection(el,args).withBinder{case view=>new GeneralBinder(view)}
     }
 
+  class TestPromoSelection(val elem:HTMLElement, val params:Map[String,Any]) extends TextSelectionView{
+    override val suggester = new TypedSuggester(input,Var(TestOptions.options))
+    override lazy val items:Var[collection.immutable.SortedSet[Item]] = Var(TestOptions.items.map(Var(_)))
+  }
 
   @JSExport
   def main(): Unit = {
@@ -92,6 +106,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     }
   }
 
-  this.binders = List(new GeneralBinder(this),new NavigationBinder(this))
+  withBinders(me=>List(new GeneralBinder(me),new NavigationBinder(me)))
 
 }

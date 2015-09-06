@@ -15,9 +15,4 @@ object TextSelection{
   }
 
 }
-case class TextSelection(value:String,label:String)(val position:Int) extends Selection[String]
-
-trait Selection[T]{
-  def value:T
-  def label:T
-}
+case class TextSelection(value:String,label:String,selected:Boolean = false)(val position:Int)

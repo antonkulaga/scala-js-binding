@@ -1,20 +1,15 @@
 package org.denigma.preview
 
-import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.views.BindableView
-import org.denigma.semantic.binders.binded.Typed
-import org.denigma.semantic.binders.{PrefixResolver, RDFModelBinder, SelectableModelBinder}
+import org.denigma.semantic.binders.{PrefixResolver, RDFModelBinder}
 import org.denigma.semantic.models.ModelView
 import org.denigma.semantic.{DefaultPrefixes, WebPlatform}
-import org.scalajs.dom
-import org.scalajs.dom._
 import org.scalajs.dom.raw.HTMLElement
 import org.w3.banana._
 import org.w3.banana.plantain.Plantain
 import rx.core.Var
 
 import scala.collection.immutable.Map
-import scala.concurrent.Future
 
 
 /**
@@ -84,8 +79,9 @@ class TextModelView(elem:HTMLElement,params:Map[String,Any])(implicit ops:RDFOps
 
   val resolver = new PrefixResolver[Plantain](Var(new DefaultPrefixes[Plantain]().prefixes))
 
-  binders = List(new RDFModelBinder[Plantain](this,  graph,  resolver))
+  withBinder(me=>new RDFModelBinder[Plantain](graph,  resolver))
 }
+/*
 
 class SelectableModelView(elem:HTMLElement,params:Map[String,Any])(implicit ops:RDFOps[Plantain])
   extends ModelView[Plantain](elem,params)(ops)
@@ -113,6 +109,6 @@ class SelectableModelView(elem:HTMLElement,params:Map[String,Any])(implicit ops:
 
   val resolver = new PrefixResolver[Plantain](Var(prefs))
 
-  binders = List(new SelectableModelBinder[Plantain](this,  graph,  resolver)(suggest) )
+  binders = List(new SelectableModelBinder[Plantain](graph,  resolver)(suggest) )
 
-}
+}*/

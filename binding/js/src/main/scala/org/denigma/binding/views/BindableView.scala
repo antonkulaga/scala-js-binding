@@ -4,6 +4,7 @@ import org.denigma.binding.binders._
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 
+import scala.annotation.tailrec
 import scala.collection.immutable.Map
 
 object BindableView {
@@ -20,11 +21,15 @@ object BindableView {
  */
 trait BindableView extends ReactiveView
 {
-  type Binder = BasicBinder
 
-  var binders:List[Binder] = List.empty
+  protected lazy val defaultBinders:List[ViewBinder] = List(new BinderForViews[this.type](this))
 
-  protected def withBinders(bns:List[Binder]):this.type = {
+  private var _binders:List[ViewBinder] = defaultBinders
+  override def binders = _binders
+  protected def binders_=(value:List[ViewBinder]):Unit = _binders = value
+
+
+  private def withBinders(bns:List[ViewBinder]):this.type = {
     this.binders = this.binders ++ bns
     this
   }
@@ -34,16 +39,12 @@ trait BindableView extends ReactiveView
    * @param fun
    * @return
    */
-  def withBinder(fun:this.type=>Binder):this.type  = withBinders(fun(this)::binders)
-  def withBinders(fun:this.type=>List[Binder]):this.type  = withBinders(fun(this)++binders)
+  def withBinder(fun:this.type=>ViewBinder):this.type  = withBinders(fun(this)::binders)
 
+  def withBinders(fun:this.type=>List[ViewBinder]):this.type  = withBinders(fun(this)++binders)
 
   def makeDefault(el:HTMLElement,props:Map[String,Any] = Map.empty):ChildView = {
     BindableView(el,props)
-  }
-
-  override def bindAttributes(el:HTMLElement,ats:Map[String, String]) = {
-    binders.foreach(b=>b.bindAttributes(el,ats))
   }
 
 
@@ -53,7 +54,7 @@ trait BindableView extends ReactiveView
   }
 
   override def bindView() = {
-    this.bind(this.viewElement)
+    this.bindElement(this.viewElement)
     warnIfNoBinders(asError = false)
   }
 

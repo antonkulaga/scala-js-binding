@@ -1,5 +1,5 @@
 package org.denigma.semantic.binders.binded
-
+/*
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.denigma.binding.extensions._
 import org.denigma.selectize.{Selector, _}
@@ -18,10 +18,7 @@ import scala.scalajs.js._
 import scala.util.Try
 
 
-case class Typed[Rdf<:RDF](graph:PointedGraph[Rdf],typed:String)
-{
-  def isEmpty = typed==""
-}
+
 
 object SelectizeBinders{
 
@@ -136,7 +133,7 @@ class SemanticSelector[Rdf<:RDF](
 
   val itemOptions: Rx[Set[SelectOption]] = myObjects.map(_.map(node2selectOption))
 
-  val items = itemOptions.map(_.map(_.id))
+  val items: Rx[Set[String]] = itemOptions.map(_.map(_.id))
 
   val allOptions = Rx{ itemOptions()->suggestions().map(node2selectOption) }
 
@@ -154,6 +151,7 @@ class SemanticSelector[Rdf<:RDF](
       .create(true)
       .createItem(this.createItem _)
       .valueField("id")
+
       .labelField("title")
       .searchField("title")
       .onType(typeHandler _)
@@ -262,3 +260,4 @@ class SemanticSelector[Rdf<:RDF](
 
   subscribe()
 }
+*/

@@ -4,7 +4,16 @@ import scalacss.Defaults._
 
 trait Colors {
   self:StyleSheet.Standalone =>
+
   import dsl._
+
+  val bindingYellow = rgba(255,255,0,0.25)
+  val bindingGreen = rgba(84,223,0,0.46)
+  val bindingBlue = rgba(150,225,255,0.26)
+  val bindingViolet = rgba(150,90,120,0.26)
+
+
+
   /*---  Colors  ---*/
   val red              = c"#DB2828"
   val orange           = c"#F2711C"

@@ -1,5 +1,5 @@
 package org.denigma.semantic.binders
-
+/*
 
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.binded.{SemanticSelector, BindedTextProperty, Typed}
@@ -12,11 +12,10 @@ import scala.collection.immutable.Map
 import scala.concurrent.Future
 
 class SelectableModelBinder[Rdf<:RDF](
-                                view:BindableView,
                                 graph:Var[PointedGraph[Rdf]],
                                 resolver:Resolver[Rdf])
                                 (typeHandler:Typed[Rdf]=>Future[Seq[Rdf#Node]])
-                               extends RDFModelBinder[Rdf](view,graph,resolver) {
+                               extends RDFModelBinder[Rdf](graph,resolver) {
 
   import resolver.ops
 
@@ -37,3 +36,4 @@ class SelectableModelBinder[Rdf<:RDF](
   }
 
 }
+*/

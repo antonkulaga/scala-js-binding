@@ -18,11 +18,11 @@ object extensions {
     private[this] lazy val allDiffs = ops.union(Seq(removed,added))
 
 
-    lazy val propertiesChanged = ops.getTriples(allDiffs).map(ops.fromTriple(_)._2).toSet
+    lazy val propertiesChanged: Set[Rdf#URI] = ops.getTriples(allDiffs).map(ops.fromTriple(_)._2).toSet
 
-    def dataChanged = ops.graphSize(removed) + ops.graphSize(added)>0
-    def pointerChanged = from.pointer!=to.pointer
-    def changed =  pointerChanged || dataChanged
+    def dataChanged: Boolean = ops.graphSize(removed) + ops.graphSize(added)>0
+    def pointerChanged: Boolean = from.pointer!=to.pointer
+    def changed: Boolean =  pointerChanged || dataChanged
 
   }
 

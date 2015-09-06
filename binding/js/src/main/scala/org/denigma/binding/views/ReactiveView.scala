@@ -6,33 +6,11 @@ import org.scalajs.dom.raw.HTMLElement
 import scala.collection.immutable.Map
 import scala.concurrent.{Future, Promise}
 import org.scalajs.dom.ext._
-trait BindingEvent
-{
-  type Origin
-  val origin:Origin//BasicView
-  val latest:BasicView
-  val bubble:Boolean
-
-  def withCurrent(cur:BasicView):this.type
-}
-
-case class JustPromise[Value,Result](value:Value,origin:BasicView,latest:BasicView, bubble:Boolean = true, promise:Promise[Result] = Promise[Result]()) extends PromiseEvent[Value,Result] {
-  type Origin = BasicView
-
-  override def withCurrent(cur:BasicView): this.type= this.copy(latest = cur).asInstanceOf[this.type]
-}
-
-trait PromiseEvent[Value,Result] extends BindingEvent
-{
-  val value:Value
-  val promise:Promise[Result]
-}
-
 
 /**
  * View that supports resolving some data from params as well as pattern matching on parents and events
  */
-abstract class ReactiveView extends OrganizedView with BubbleView {
+abstract class ReactiveView extends OrganizedView  {
 
   def params:Map[String,Any]
 
@@ -45,26 +23,6 @@ abstract class ReactiveView extends OrganizedView with BubbleView {
       case other=> other
     }
   }
-
-  override protected def attributesToParams(el:HTMLElement): Map[String, Any] = el.attributes
-    .collect{
-      case (key,value) if key.contains("data-param-")=>
-        val k = key.replace("data-param-", "")
-        val v = value.value
-        if(v.startsWith("parent."))
-        {
-          val pn = v.replace("parent.","")
-          this.params.get(pn) match {
-            case Some(p)=>
-              k->p.asInstanceOf[Any]
-            case None=>
-              dom.console.log(s"could not find data-param $pn for child")
-              k -> pn
-          }
-        } else k -> v.asInstanceOf[Any]
-
-
-    }.toMap
 
   /**
    * Resolves mandatory keys from either this view or parent view
