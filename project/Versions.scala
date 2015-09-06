@@ -8,7 +8,7 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 	val bananaRdf = "0.8.2-SNAP4" //"0.8.1"
 
-	val controls = "0.0.8-M2"
+	val controls = "0.0.8-M3"
 }
 
 trait ScalaJVMVersions {
@@ -17,7 +17,7 @@ trait ScalaJVMVersions {
 
 	val akkaHttpExtensions = "0.0.5"
 
-	val ammonite = "0.4.3"
+	val ammonite = "0.4.7"
 }
 
 trait ScalaJSVersions {
@@ -26,9 +26,7 @@ trait ScalaJSVersions {
 
 	val facade = "0.0.1"
 
-	val jqueryFacade = "0.6"
-
-	val selectizeFacade = "0.12.1-0.2.1"
+	val jqueryFacade = "0.8"
 
 	val semanticUIFacade = "0.0.1"
 
@@ -46,7 +44,7 @@ trait SharedVersions
 
 	val scalaRx = "0.2.8"
 
-	val quicklens = "1.3.1"
+	val quicklens = "1.4.0"
 
 	val scalaTags = "0.5.2"
 
@@ -69,8 +67,6 @@ trait WebJarsVersions{
 	val semanticUI = "2.1.2"
 
 	val codemirror = "5.5"
-
-	val selectize = "0.12.1"
 
 	val threeJS = "r71"
 

@@ -14,7 +14,7 @@ abstract class ModelView[Rdf<:RDF](val elem:HTMLElement,val params:Map[String,An
 
   val subject = this.resolveKeyOption("resource"){
     case str:String=> ops.makeUri(str)
-    case uri:Rdf#URI=>uri
+    case uri:Rdf#URI=>uri //todo fix erasure problem
   }.getOrElse{
     dom.console.error("no resource for the view found, random subject is created")
     WebPlatform.random[Rdf](ops)

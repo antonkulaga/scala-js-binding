@@ -12,6 +12,7 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles {
     )
 
   "#main"-(
+    margin(20 px)
     //backgroundColor(bindingGreen)
     //backgroundColor(bindingGreen)
    )

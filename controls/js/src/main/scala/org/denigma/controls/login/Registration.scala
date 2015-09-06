@@ -60,6 +60,4 @@ trait Registration extends BasicLogin{
        case Failure(th) => this.reportError(s"unknown failure $th")
      }
    }
-
-
  }

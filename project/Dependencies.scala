@@ -39,11 +39,9 @@ object Dependencies {
 		jvm  = Def.setting( styles.value++akka.value)
 		,
 		js =Def.setting(	styles.value ++ Seq(
-			"org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade,
-
-			"org.denigma" %%% "selectize-facade" % Versions.selectizeFacade
-
-		)		)
+			"org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade
+			)
+		)
 	)
 
 
@@ -76,8 +74,6 @@ object Dependencies {
 	lazy val webjars= Def.setting(Seq(
 
 		"org.webjars" % "Semantic-UI" % Versions.semanticUI, //css theme, similar to bootstrap
-
-		"org.webjars" % "selectize.js" % Versions.selectize, //select control
 
 		"org.webjars" % "codemirror" % Versions.codemirror,
 

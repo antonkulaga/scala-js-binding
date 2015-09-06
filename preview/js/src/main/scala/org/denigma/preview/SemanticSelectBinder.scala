@@ -1,15 +1,16 @@
 package org.denigma.preview
 
-import org.denigma.binding.binders.{GeneralBinder, Binder}
-import org.denigma.binding.views.{ItemsSetView, BindableView, CollectionView}
-import org.denigma.controls.selection._
+import org.denigma.binding.binders.Events
+import org.denigma.binding.extensions._
+import org.denigma.binding.views._
 import org.denigma.semantic.binders._
-import org.denigma.semantic.binders.binded.{Typed, Binded}
+import org.denigma.semantic.binders.binded.Typed
 import org.denigma.semantic.extensions.GraphUpdate
 import org.scalajs.dom.raw.HTMLElement
-import org.w3.banana.{RDFOps, PointedGraph, RDF}
+import org.w3.banana.{PointedGraph, RDF, RDFOps}
 import rx.Rx
 import rx.core.Var
+import rx.ops._
 
 import scala.collection.immutable.SortedSet
 
@@ -38,20 +39,33 @@ case class TripleSelection[Rdf<:RDF](triple:Rdf#Triple)(val position:Int)(implic
    }
   )
 }
+case class SelectTripleOption[Rdf<:RDF](item:Var[TripleSelection[Rdf]],origin:ReactiveView,latest:BasicView) extends ViewEvent{
 
+  override def withCurrent(cur: BasicView): SelectTripleOption[Rdf] = {
+    copy(latest = cur)
+  }
+
+}
 
 class SemanticOptionView[Rdf<:RDF](val elem:HTMLElement,item:Var[TripleSelection[Rdf]],val params:Map[String,Any]) extends BindableView
 {
-  import rx.ops._
 
 
   val label: Rx[String] = item.map(_.label)
-  //val value: Rx[Rdf#Node] = item.map(_.value)
   val position: Rx[Int] = item.map(_.position)
   val order: Rx[String] = item.map(_.position.toString)
-}
+  def onSelect():Unit = {
+    fire(SelectTripleOption[Rdf](item,this,this))
+  }
 
-import rx.ops._
+  val select = Var(Events.createMouseEvent())
+
+  select.onChange("onSelectClick",uniqueValue = true,skipInitial = true){
+    case ev=> onSelect()
+  }
+
+
+}
 
 class SemanticSelectionView[Rdf<:RDF](val elem:HTMLElement,
                                       val graph:Var[PointedGraph[Rdf]],
@@ -70,9 +84,6 @@ class SemanticSelectionView[Rdf<:RDF](val elem:HTMLElement,
     override def compare(x: TripleSelection[Rdf], y: TripleSelection[Rdf]): Int = if(x.position<y.position)
       -1 else if(x.position>y.position) 1 else 0
   }
-  
-
-  import ops._
   override type Item = Var[TripleSelection[Rdf]]
 
   override type ItemView = SemanticOptionView[Rdf]

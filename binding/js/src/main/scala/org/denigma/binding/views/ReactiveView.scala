@@ -10,7 +10,7 @@ import org.scalajs.dom.ext._
 /**
  * View that supports resolving some data from params as well as pattern matching on parents and events
  */
-abstract class ReactiveView extends OrganizedView  {
+abstract class ReactiveView extends OrganizedView with BubbleView  {
 
   def params:Map[String,Any]
 

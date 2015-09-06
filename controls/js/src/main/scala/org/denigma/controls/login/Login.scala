@@ -39,6 +39,4 @@ trait Login extends BasicLogin{
        case Failure(th) => this.reportError(s"unknown failure $th")
      }
    }
-
-
  }

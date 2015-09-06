@@ -39,19 +39,21 @@ trait ClassBinder {
 
   protected def classOnEnter(el:HTMLElement,className:String) = {
     el.addEventListener[MouseEvent](Events.mouseenter,{
-      ev:MouseEvent=> if(!className.contains(className)) el.classList.add(className)
+      ev:MouseEvent=>
+        if(!el.classList.contains(className)) el.classList.add(className)
     })
     el.addEventListener[MouseEvent](Events.mouseleave,{
-      ev:MouseEvent=> if(className.contains(className)) el.classList.remove(className)
+      ev:MouseEvent=>
+      if(el.classList.contains(className)) el.classList.remove(className)
     })
   }
 
   protected def classOnLeave(el:HTMLElement,className:String) = {
     el.addEventListener[MouseEvent](Events.mouseleave,{
-      ev:MouseEvent=> if(!className.contains(className)) el.classList.add(className)
+      ev:MouseEvent=> if(!el.classList.contains(className)) el.classList.add(className)
     })
     el.addEventListener[MouseEvent](Events.mouseenter,{
-      ev:MouseEvent=> if(className.contains(className)) el.classList.remove(className)
+      ev:MouseEvent=> if(el.classList.contains(className)) el.classList.remove(className)
     })
   }
 

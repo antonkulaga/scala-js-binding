@@ -55,6 +55,4 @@ trait BasicLogin extends BindableView
    }
 
    def reportError(str:String) = dom.console.error(this.report(str))
-
-
  }

@@ -39,5 +39,4 @@ object Events {
 
   def createWheelEvent() = dom.document.createEvent("WheelEvent").asInstanceOf[WheelEvent]
 
-
 }

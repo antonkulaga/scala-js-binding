@@ -1,5 +1,6 @@
 package org.denigma.controls.selection
 
+import org.denigma.binding.binders.Events
 import org.denigma.binding.views.ItemsSetView
 import rx.core.{Rx, Var}
 import rx.ops._
@@ -20,8 +21,7 @@ trait SelectionView extends ItemsSetView{
   val order: Rx[String] = position.map(_.toString)
 
   protected def moveLeft() = if(position.now > -1) positionShift.set(positionShift.now-1)
-  protected def moveRight() = if(position.now<items.now.size) positionShift.set(positionShift.now+1)
-  //val items: Var[Seq[Var[TextSelection]]] = Var(testData.take(3).zipWithIndex.map{ case (o,i)=> Var(o.copy(position=i)) }) //just for the sake of tests
 
+  protected def moveRight() = if(position.now<items.now.size) positionShift.set(positionShift.now+1)
 
 }

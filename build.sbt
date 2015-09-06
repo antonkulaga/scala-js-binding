@@ -122,7 +122,7 @@ lazy val semantic = crossProject
   .in(file("semantic"))
   .settings(  commonSettings ++ publishSettings:_* )
   .settings(
-    version := Versions.binding,
+    version := Versions.controls,
     name := "semantic-controls",
     scalaVersion:=Versions.scala
   )

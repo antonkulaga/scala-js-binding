@@ -10,17 +10,27 @@
     </section>
     <section class="equal width row">
       <column class="column">
-        <h1 class="ui orange header">Login Control</h1>
+        <h1 class="ui orange header">Selection Control</h1>
       </column>
     </section>
     <section class="equal width row">
       <column class="column">
         <h1 class="ui orange header">Html</h1>
-          @*<textarea data-code-html="rdfa"> </textarea>*@
+        <textarea data-code-html="selectionHTML">  </textarea>
       </column>
       <column class="column">
         <h1 class="ui orange header">ScalaJS</h1>
-       @* <textarea data-code-scala="modelCode"></textarea>*@
+        <textarea data-code-scala="selectionCode"></textarea>
+      </column>
+      <column class="column" >
+        <h1 class="ui orange header">Appearance</h1>
+        @{binding.html.selection()}
+      </column>
+    </section>
+
+    <section class="equal width row">
+      <column class="column">
+        <h1 class="ui orange miggle aligned header">Login Control</h1>
       </column>
       <column class="column" >
         <h1 class="ui orange header">Appearance</h1>
@@ -29,21 +39,12 @@
     </section>
     <section class="equal width row">
       <column class="column">
-        <h1 class="ui orange header">Selection Control</h1>
-      </column>
-    </section>
-    <section class="equal width row">
-      <column class="column">
         <h1 class="ui orange header">Html</h1>
-        @*<textarea data-code-html="rdfa">  </textarea>*@
+        <textarea data-code-html="loginHTML"> </textarea>
       </column>
       <column class="column">
         <h1 class="ui orange header">ScalaJS</h1>
-        @*<textarea data-code-scala="modelCode"></textarea>*@
-      </column>
-      <column class="column" >
-        <h1 class="ui orange header">Appearance</h1>
-        @{binding.html.selection()}
+        <textarea data-code-scala="loginCode"></textarea>
       </column>
     </section>
   </div>
