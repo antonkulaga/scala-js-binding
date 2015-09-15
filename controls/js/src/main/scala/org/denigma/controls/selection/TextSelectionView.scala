@@ -3,38 +3,35 @@ package org.denigma.controls.selection
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.ViewEvent
-import org.scalajs.dom
+import org.scalajs.dom.KeyboardEvent
 import org.scalajs.dom.ext.KeyCode
-import org.scalajs.dom.raw.HTMLElement
 import rx.core._
 import rx.ops._
-import scala.collection.immutable.SortedSet
+import scala.collection.immutable
+import scala.collection.immutable._
 
-case class TypedSuggester(input:Rx[String],options:Var[SortedSet[TextSelection]],minLen:Double=3){
+case class TypedSuggester(input:Rx[String],options:Var[immutable.Seq[TextSelection]],minLen:Double=3)
+{
   self=>
-
   //note: it is very buggy
   def position(value:String,opt:TextSelection):Int = {
     val i = opt.label.indexOf(value)
     opt.label.length - value.length - Math.round(i/2)
   }
 
-  lazy val suggestions:Rx[SortedSet[TextSelection]] = input.map {
-    case small if small.length < minLen => SortedSet[TextSelection]()
-    case str =>  options.now.collect{ case op if op.label.contains(str) => op.copy()(position = self.position(str, op)) }
+  lazy val suggestions:Rx[scala.collection.immutable.Seq[TextSelection]] = input.map {
+    case small if small.length < minLen => scala.collection.immutable.Seq[TextSelection]()
+    case str =>  options.now.collect{ case op if op.label.contains(str) => op.copy()(position = self.position(str, op),op.preselected) }
   }
-
 }
 
 trait TextSelectionView extends SelectionView
 {
-
   val suggester:TypedSuggester
-  
   type Item = Var[TextSelection]
   type ItemView = OptionView
 
-  val onkeydown = Var(Events.createKeyboardEvent(),my("onkeydown"))
+  val onkeydown: Var[KeyboardEvent] = Var(Events.createKeyboardEvent(),my("onkeydown"))
   val keyDownHandler = onkeydown.onChange(my("keydown_handler"))(event=>{
     val clean = input.now==""
     event.keyCode match  {
@@ -52,12 +49,11 @@ trait TextSelectionView extends SelectionView
         //val opts = this.subviews.values.collectFirst{   case v:SelectOptionsView=> v   } //KOSTYL TODO:fix it!
         //opts
       case other=>
-
     }
   })
 
   override def receive:PartialFunction[ViewEvent,Unit] = {
-    case selection:SelectTextOption=>
+    case selection:SelectTextOptionEvent=>
       //println("selection received = "+selection)
       items.set(items.now+selection.item)
       input() = ""
@@ -65,9 +61,9 @@ trait TextSelectionView extends SelectionView
     case event:ViewEvent=> this.propagate(event)
   }
 
-  val unique = this.resolveKeyOption("unique"){case u:Boolean=>u}.getOrElse(true)
+  val unique = true//this.resolveKeyOption("unique"){case u:Boolean=>u}.getOrElse(true)
 
-  lazy val options = suggester.suggestions.map(_.map(Var(_)))
+  lazy val options: rx.Rx[collection.immutable.Seq[Var[TextSelection]]] = suggester.suggestions.map(_.map(Var(_)))
 
   lazy val items:Var[SortedSet[Item]] = Var(SortedSet.empty)
 
@@ -75,11 +71,11 @@ trait TextSelectionView extends SelectionView
 
   override lazy val injector = defaultInjector
     .register("options"){  case (el,args)=>
-      val optsView = new SelectOptionsView(el,options,args)
+      val optsView = new TextOptionsView(el,options,onkeydown).withBinder{new GeneralBinder(_)}
       optsView
     }
 
   override def newItem(item: Item): OptionView = constructItemView(item){
-    case (el,mp)=> new OptionView(el,item, mp).withBinder{new GeneralBinder(_)}
+    case (el,mp)=> new OptionView(el,item).withBinder{new GeneralBinder(_)}
   }
 }

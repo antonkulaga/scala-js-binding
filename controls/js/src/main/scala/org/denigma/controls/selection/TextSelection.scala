@@ -15,4 +15,4 @@ object TextSelection{
   }
 
 }
-case class TextSelection(value:String,label:String,selected:Boolean = false)(val position:Int)
+case class TextSelection(value:String,label:String)(val position:Int,val preselected:Boolean = false)

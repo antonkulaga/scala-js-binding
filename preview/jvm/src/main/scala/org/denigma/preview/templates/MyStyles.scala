@@ -55,6 +55,11 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles {
   ".ui.menu.main" - {
     backgroundColor(bindingGreen) important
   }
+
+  ".ui.menu.main.active" - {
+    backgroundColor(green) important
+  }
+
   ".ui.main.menu .item" - {
     backgroundColor(bindingGreen) important
   }

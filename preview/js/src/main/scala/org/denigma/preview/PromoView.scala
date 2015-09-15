@@ -4,7 +4,7 @@ import org.denigma.binding.views.BindableView
 import org.scalajs.dom.raw.HTMLElement
 import rx.core.{Rx, Var}
 
-class PromoView(val elem:HTMLElement, val params:Map[String,Any] = Map.empty) extends BindableView{
+class PromoView(val elem:HTMLElement) extends BindableView{
 
   val logo = Var("/resources/logo.svg")
   val greeting = Var("Hello,")

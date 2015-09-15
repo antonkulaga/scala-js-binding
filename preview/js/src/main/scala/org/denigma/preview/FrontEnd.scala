@@ -1,6 +1,6 @@
 package org.denigma.preview
 
-import org.denigma.binding.binders.{GeneralBinder, NavigationBinder}
+import org.denigma.binding.binders.{Events, GeneralBinder, NavigationBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.BindableView
 import org.denigma.controls.code.CodeBinder
@@ -23,8 +23,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   override def name = "main"
 
-  override val params: Map[String, Any] = Map.empty
-
   lazy val elem: HTMLElement = dom.document.body
 
   val sidebarargs = SidebarConfig.exclusive(false).dimPage(false).closable(false).useLegacy(true)
@@ -37,42 +35,54 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
   override lazy val injector = defaultInjector
     .register("sidebar"){
       case (el, args) =>
-        new SidebarView(el,args).withBinder(new GeneralBinder(_))
+        new SidebarView(el).withBinder(new GeneralBinder(_))
     }
     .register("menu"){
-      case (el,args) => new MenuView(el,args)
+      case (el,args) => new MenuView(el)
         .withBinder(new GeneralBinder(_))
         .withBinder(new NavigationBinder(_))
     }
     .register("login") { case (el, args) =>
-      new LoginView(el,session,args).withBinder(new GeneralBinder(_))
+      new LoginView(el,session).withBinder(new GeneralBinder(_))
     }
     .register("testmenu"){
-      case (el,args) => new MenuView(el,args)
+      case (el,args) => new MenuView(el)
         .withBinder(new GeneralBinder(_))
         .withBinder(new NavigationBinder(_))
     }
     .register("BindSlide"){
-      case (el,args)=>new BindSlide(el,args).withBinder(new CodeBinder(_))
+      case (el,args)=>new BindSlide(el).withBinder(new CodeBinder(_))
     }
       .register("CollectionSlide")
       {case (el, args) =>
-        new CollectionSlide(el,args).withBinder(view=>new CodeBinder(view))
+        new CollectionSlide(el).withBinder(view=>new CodeBinder(view))
     }.register("ControlSlide"){ case (el,args) =>
       new ControlSlide(el,args).withBinder(new CodeBinder(_))
     }
-    .register("random"){case (el,args)=> new RandomView(el,args).withBinder(view=>new CodeBinder(view)) }
-    .register("lists"){ case (el,args)=>new LongListView(el,args).withBinder(view=>new CodeBinder(view))}
-    .register("test-macro"){case (el,args)=>new TestMacroView(el,args).withBinder(view=>new CodeBinder(view))}
-    .register("RdfSlide"){case (el,args)=>new RdfSlide(el,args).withBinder(view=>new CodeBinder(view))}
-    .register("promo"){case (el,args)=>new PromoView(el,args).withBinder(view=>new CodeBinder(view))}
+    .register("random"){case (el,args)=> new RandomView(el).withBinder(view=>new CodeBinder(view)) }
+    .register("lists"){ case (el,args)=>new LongListView(el).withBinder(view=>new CodeBinder(view))}
+    .register("test-macro"){case (el,args)=>new TestMacroView(el).withBinder(view=>new CodeBinder(view))}
+    .register("RdfSlide"){case (el,args)=>new RdfSlide(el).withBinder(view=>new CodeBinder(view))}
+    .register("promo"){case (el,args)=>new PromoView(el).withBinder(view=>new CodeBinder(view))}
     .register("Selection"){case (el,args)=>
-      new TestPromoSelection(el,args).withBinder{case view=>new GeneralBinder(view)}
+      new TestPromoSelection(el).withBinder{case view=>new GeneralBinder(view)}
     }
 
-  class TestPromoSelection(val elem:HTMLElement, val params:Map[String,Any]) extends TextSelectionView{
+  class TestPromoSelection(val elem:HTMLElement) extends TextSelectionView{
     override val suggester = new TypedSuggester(input,Var(TestOptions.options))
     override lazy val items:Var[collection.immutable.SortedSet[Item]] = Var(TestOptions.items.map(Var(_)))
+
+    val test = Var(Events.createMouseEvent())
+    import org.denigma.binding.extensions._
+    test.handler{
+
+      val l = items.now.toList
+      println("before reorder = "+l.map(_.now).mkString("\n"))
+      l.reverse.zipWithIndex.foreach{case (s,i)=>s() =s.now.copy()(i,s.now.preselected)}
+      items() = items.now
+      println("after reorder = "+items.now.toList.map(_.now).mkString("\n"))
+
+    }
   }
 
   @JSExport

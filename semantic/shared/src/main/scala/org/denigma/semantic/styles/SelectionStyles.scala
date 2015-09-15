@@ -8,12 +8,12 @@ trait SelectionStyles extends Colors{
   self:StyleSheet.Standalone =>
   import dsl._
 
-
   val itemTextColor = c"rgba(179, 179, 179, 0.7)"
   val itemTextHoverColor = c"rgba(140, 140, 140, 0.7)"
   val selectionHoverBoxShadow = "0px 0px 2px 0px rgba(0, 0, 0, 0.05)"
   val selectionBoxShadow =  "0px 0px 4px 0px rgba(0, 0, 0, 0.08)"
   val optionsMenuBoxShadow = "0px 2px 6px 0px rgba(0, 0, 0, 0.1)"
+
   ".fluid" -(
     display.flex,
     flexWrap.wrap,
@@ -77,6 +77,11 @@ trait SelectionStyles extends Colors{
       backgroundColor(itemTextHoverColor)
     )
     )
+
+  ".selection.option.focused"-(
+    backgroundColor(itemTextHoverColor)
+    )
+
 
 }
 

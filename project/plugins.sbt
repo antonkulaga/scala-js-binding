@@ -4,7 +4,7 @@ addSbtPlugin("io.spray" % "sbt-revolver" % "0.7.2") //live refresh
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.0.2") //packaging for production
 
-addSbtPlugin("com.vmunier" % "sbt-play-scalajs" % "0.2.7")
+addSbtPlugin("com.vmunier" % "sbt-play-scalajs" % "0.2.8")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-twirl" % "1.1.1") //templates
 

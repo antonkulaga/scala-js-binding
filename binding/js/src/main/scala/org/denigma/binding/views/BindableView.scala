@@ -4,7 +4,6 @@ import org.denigma.binding.binders._
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 
-import scala.annotation.tailrec
 import scala.collection.immutable.Map
 
 object BindableView {
@@ -19,7 +18,7 @@ object BindableView {
 /**
  * View that can have binders attached to it
  */
-trait BindableView extends ReactiveView
+trait BindableView extends OrganizedView with BubbleView
 {
 
   protected lazy val defaultBinders:List[ViewBinder] = List(new BinderForViews[this.type](this))
@@ -59,9 +58,3 @@ trait BindableView extends ReactiveView
   }
 
 }
-
-
-
-
-
-

@@ -123,6 +123,8 @@ trait RxExt extends CommonOps
       (old,previous)
     }
 
+    lazy val removedInserted: Rx[(Seq[T], Seq[T])] = RxOps(red).map{case (prev,cur)=>(prev.diff(cur), cur.diff(prev))}
+
     lazy val updates: rx.Rx[SequenceUpdate[T]] = RxOps(red).map{case (prev,cur)=>
       val removed: Seq[T] = prev.diff(cur)
       val inserted: Seq[T] = cur.diff(prev)

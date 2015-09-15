@@ -13,7 +13,7 @@ import org.scalajs.dom.ext._
 
 
 
-class CollectionSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
+class CollectionSlide(val elem:HTMLElement) extends BindableView{
 
   def parseHTML(string:String): Option[HTMLElement] ={
     val p = new  DOMParser()

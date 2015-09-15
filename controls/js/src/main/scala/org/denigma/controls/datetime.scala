@@ -7,7 +7,7 @@ import org.scalajs.dom.raw.HTMLElement
 
 import scala.scalajs.js
 
-class DatePairView(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any])  extends BasicDatePairView
+class DatePairView(val elem:HTMLElement)  extends BasicDatePairView
 
 abstract class BasicDatePairView extends BindableView{
 

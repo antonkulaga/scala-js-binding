@@ -1,15 +1,13 @@
 package org.denigma.binding.views
 
-import org.denigma.binding.binders.Binder
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.raw.{HTMLDocument, HTMLElement}
 
-import scala.Predef
 import scala.collection.immutable.Map
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic.{global => g}
-import scala.util.{Try, Failure, Success}
+import scala.util.{Failure, Success, Try}
 
 object OrganizedView {
 
@@ -29,7 +27,7 @@ object OrganizedView {
                                             viewName: String,
                                             element: HTMLElement,
                                             params: Map[String, Any])
-    =  view.nearestParentOf{ case p:OrganizedView=>p.injector.inject(viewName,element,params)}.flatten
+    =  view.fromParents{ case p:OrganizedView=>p.injector.inject(viewName,element,params)}.flatten
   }
 
 
@@ -130,10 +128,10 @@ abstract class OrganizedView extends BasicView
    * @tparam TResult
    * @return
    */
-  def nearestParentOf[TResult](func:PartialFunction[ParentView,TResult]):Option[TResult] =  parent match {
+  def fromParents[TResult](func:PartialFunction[ParentView,TResult]):Option[TResult] =  parent match {
     case None=>None
     case Some(par) if func.isDefinedAt(par)=>Some(func(par))
-    case Some(par)=>par.nearestParentOf(func)
+    case Some(par)=>par.fromParents(func)
   }
 
   /**

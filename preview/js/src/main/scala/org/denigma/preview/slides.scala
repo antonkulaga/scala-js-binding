@@ -21,7 +21,7 @@ import scalatags.JsDom.all._
  * @param elem html element to which view is attached
  * @param params
  */
-class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView
+class SparqlSlide(val elem:HTMLElement) extends BindableView
 {
 
 
@@ -40,7 +40,7 @@ class SparqlSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[St
 /**
  * For test purposes only
  */
-class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{
+class RandomView(val elem:HTMLElement) extends BindableView{
 
 
   val counting = Var{
@@ -77,7 +77,7 @@ class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends Binda
 /**
  * Class for testing purposes that makes a long list out of test element
  */
-class LongListView(element:HTMLElement, params:Map[String,Any]) extends MapCollectionView(element,params){
+class LongListView(element:HTMLElement) extends MapCollectionView(element){
 
 
 
@@ -93,7 +93,7 @@ class LongListView(element:HTMLElement, params:Map[String,Any]) extends MapColle
 
 }
 
-class TestMacroView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{
+class TestMacroView(val elem:HTMLElement) extends BindableView{
 
   case class HelloWorld(hello:String){
 
@@ -253,7 +253,7 @@ class ControlSlide(val elem:HTMLElement, val params:Map[String,Any]) extends Bin
 }
 
 
-class Test(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView{
+class Test(val elem:HTMLElement) extends BindableView{
 
 
   protected def onKeyChange(fun:Input=>Unit)(k:KeyboardEvent) =  k.target match {

@@ -12,17 +12,9 @@ import rx.core.Var
 import scala.collection.immutable.Map
 
 
-/**
- * Slide about Plantain-related binding
- * @param elem html element to which view is attached
- * @param params
- */
-class RdfSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any])
+class RdfSlide(val elem:HTMLElement)
   extends BindableView
 {
-
-  override lazy val injector = defaultInjector
-    .register("TextModelView"){case (el,args)=>new TextModelView(el,args)}
 
   val modelCode = Var(
     """
@@ -69,8 +61,8 @@ case class TestData[Rdf<:RDF](subject:Rdf#Node)(implicit ops:RDFOps[Rdf]){
 
 }
 
-class TextModelView(elem:HTMLElement,params:Map[String,Any])(implicit ops:RDFOps[Plantain])
-  extends ModelView[Plantain](elem,params)(ops)
+class TextModelView(elem:HTMLElement,resourceOpt:Option[Plantain#URI])(implicit ops:RDFOps[Plantain])
+  extends ModelView[Plantain](elem,resourceOpt)(ops)
 {
 
   override lazy val graph: Var[PointedGraph[Plantain]] =  Var(PointedGraph[Plantain](

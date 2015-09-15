@@ -7,14 +7,12 @@ import org.scalajs.dom.raw.HTMLElement
 import org.w3.banana.{PointedGraph, RDF, RDFOps}
 import rx.core.Var
 
-abstract class ModelView[Rdf<:RDF](val elem:HTMLElement,val params:Map[String,Any])(implicit ops:RDFOps[Rdf]) extends BindableView
+abstract class ModelView[Rdf<:RDF](val elem:HTMLElement,val  subjectOpt:Option[Rdf#URI] = None)(implicit ops:RDFOps[Rdf]) extends BindableView
 {
   import ops._
 
-
-  val subject = this.resolveKeyOption("resource"){
-    case str:String=> ops.makeUri(str)
-    case uri:Rdf#URI=>uri //todo fix erasure problem
+  val subject = this.fromParents[Rdf#URI]{
+    case p:ModelView[Rdf] if p.subjectOpt.isDefined=> p.subjectOpt.get
   }.getOrElse{
     dom.console.error("no resource for the view found, random subject is created")
     WebPlatform.random[Rdf](ops)

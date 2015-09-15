@@ -56,7 +56,7 @@ trait BubbleView {
    * @return
    */
   protected def propagateFuture(event:PromiseEvent[_,_]) =
-    this.nearestParentOf{  case p:ReactiveView=>p  } match {
+    this.fromParents{  case p:BubbleView=>p  } match {
       case Some(p)=> p.receiveFuture(event.withCurrent(this))
       case None=> event.promise.failure(new Exception(s"could not find value for ${event.origin}"))
     }
@@ -68,7 +68,7 @@ trait BubbleView {
    */
   def fire(event:ViewEvent,startWithMe:Boolean = false): Unit = if(startWithMe) this.receive(event) else  this.propagate(event)
 
-  protected def propagate(event:ViewEvent) =   this.nearestParentOf{  case p:ReactiveView=>p  } match {
+  protected def propagate(event:ViewEvent) =   this.fromParents{  case p:BubbleView=>p  } match {
     case Some(p)=> p.receive(event.withCurrent(this))
     case None=>
   }

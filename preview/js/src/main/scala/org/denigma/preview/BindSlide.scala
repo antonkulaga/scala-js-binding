@@ -19,7 +19,7 @@ import scalatags.JsDom.all._
  * @param elem html element
  * @param params
  */
-class BindSlide(val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView{
+class BindSlide(val elem:HTMLElement) extends BindableView{
 
 
   val html = Var("")

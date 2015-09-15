@@ -39,7 +39,7 @@ case class TripleSelection[Rdf<:RDF](triple:Rdf#Triple)(val position:Int)(implic
    }
   )
 }
-case class SelectTripleOption[Rdf<:RDF](item:Var[TripleSelection[Rdf]],origin:ReactiveView,latest:BasicView) extends ViewEvent{
+case class SelectTripleOption[Rdf<:RDF](item:Var[TripleSelection[Rdf]],origin:BindableView,latest:BasicView) extends ViewEvent{
 
   override def withCurrent(cur: BasicView): SelectTripleOption[Rdf] = {
     copy(latest = cur)

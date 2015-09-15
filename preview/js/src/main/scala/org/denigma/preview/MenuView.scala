@@ -9,12 +9,7 @@ import scala.Predef
 import scala.collection.immutable._
 
 
-/**
- * Menu view, this view is devoted to displaying menus
- * @param elem html element
- * @param params view params (if any)
- */
-class MenuView(elem:HTMLElement, params:Map[String,Any] = Map.empty) extends MapCollectionView(elem,params) {
+class MenuView(elem:HTMLElement) extends MapCollectionView(elem) {
 self =>
 
     override val items: Rx[Seq[Map[String, Any]]] = Var(

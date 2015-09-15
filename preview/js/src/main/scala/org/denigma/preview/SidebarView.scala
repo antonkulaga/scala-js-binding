@@ -10,7 +10,7 @@ import org.semantic.ui._
 /**
  * Just a simple view for the sidebar, if interested ( see https://github.com/antonkulaga/scala-js-binding )
  */
-class SidebarView (val elem:HTMLElement,val params:Map[String,Any] = Map.empty[String,Any]) extends BindableView {
+class SidebarView(val elem:HTMLElement) extends BindableView {
 
 
   val title = Var("Scala-JS-Binding")

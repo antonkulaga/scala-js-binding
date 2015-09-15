@@ -14,7 +14,7 @@ object MapCollectionView {
 
    val reactiveMap: Map[String, Var[String]] = params.map(kv => (kv._1, Var(kv._2.toString)))
 
-    binders = (new MapItemsBinder(this,reactiveMap)::new NavigationBinder(this)::Nil):List[ViewBinder]
+    withBinders(m=>new MapItemsBinder(m,reactiveMap)::new NavigationBinder(m)::Nil)
 
   }
 
@@ -22,7 +22,7 @@ object MapCollectionView {
 
 
 
-abstract class MapCollectionView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView  with ItemsSeqView
+abstract class MapCollectionView(val elem:HTMLElement) extends BindableView  with ItemsSeqView
 {
   val disp = elem.style.display
 
@@ -30,6 +30,6 @@ abstract class MapCollectionView(val elem:HTMLElement, val params:Map[String,Any
 
   override type ItemView = BindableView
 
-  def newItem(params:Item):ItemView = this.constructItemView(params,params){  (el,mp)=>new MapCollectionView.JustMapView(el,mp) }
+  def newItem(item:Item):ItemView = this.constructItemView(item){  (el,mp)=>new MapCollectionView.JustMapView(el,item) }
 
 }

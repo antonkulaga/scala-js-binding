@@ -9,7 +9,7 @@ import scala.collection.immutable._
 /**
  * Login view
  */
-class LoginView(val elem:HTMLElement, val session:Session, val params:Map[String,Any])
+class LoginView(val elem:HTMLElement, val session:Session)
   extends BindableView
   with Login
   with Registration
