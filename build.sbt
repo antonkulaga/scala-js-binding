@@ -101,7 +101,8 @@ lazy val controls = crossProject
   .settings(
     version := Versions.controls,
     name := "binding-controls",
-    scalaVersion:=Versions.scala
+    scalaVersion:=Versions.scala,
+    libraryDependencies ++= Dependencies.controls.shared.value
   )
   .jsSettings(
     libraryDependencies ++= Dependencies.controls.js.value,
@@ -167,7 +168,7 @@ lazy val preview = crossProject
 		.jvmSettings(Revolver.settings:_*)
 		.jvmConfigure(p=>p.enablePlugins(SbtTwirl,SbtWeb).enablePlugins(PlayScalaJS)) //despite "Play" in name it is actually sbtweb-related plugin
 		.jvmSettings(
-			libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value,
+			libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Seq("me.chrons" %% "boopickle" % Versions.booPickle),
 			mainClass in Compile :=Some("org.denigma.preview.Main"),
 			mainClass in Revolver.reStart := Some("org.denigma.preview.Main"),
 			scalaJSDevStage := scalaJSDevTaskStage.value,

@@ -1,18 +1,79 @@
 package org.denigma.preview
 
-import org.denigma.binding.binders.{Events, GeneralBinder, NavigationBinder}
+import java.util.Date
+
+import org.denigma.binding.binders.{GeneralBinder, NavigationBinder}
 import org.denigma.binding.extensions.sq
-import org.denigma.binding.views.BindableView
+import org.denigma.binding.views.{BindableView, ItemsSetView}
 import org.denigma.controls.code.CodeBinder
-import org.denigma.controls.login.{LoginView, AjaxSession}
-import org.denigma.controls.selection.{TypedSuggester, TextSelectionView}
+import org.denigma.controls.login.{AjaxSession, LoginView}
 import org.scalajs.dom
 import org.scalajs.dom.raw.HTMLElement
 import org.semantic.SidebarConfig
 import rx.core.Var
 
-import scala.collection.immutable.Map
+import scala.collection.immutable.SortedSet
 import scala.scalajs.js.annotation.JSExport
+
+case class Device(name:String = "undefined",port:String)
+
+object Measurement
+{
+  implicit val ordering = new Ordering[Measurement]{
+    override def compare(x: Measurement, y: Measurement): Int = {
+      x.date.compareTo(y.date) match {
+        case 0 if x!=y=>  -1
+        case other=>other
+      }
+    }
+  }
+
+  implicit val varOrdering = new Ordering[Var[Measurement]]{
+    override def compare(x: Var[Measurement], y: Var[Measurement]): Int = {
+      ordering.compare(x.now,y.now)
+    }
+  }
+}
+
+
+case class Measurement(sample:Sample = Sample("unknown","unknown"),diode:String = "unknown",value:Double,date:Date = new Date())
+case class Sample(name:String,Description:String = "")
+import rx.ops._
+class MeasurementView(val elem:HTMLElement,measurement:Var[Measurement]) extends BindableView
+{
+  val sample = measurement.map(m=>m.sample.name)
+  val datetime = measurement.map(m=>m.date.getTime.toString)
+  val diode = measurement.map(m=>m.diode)
+  val value = measurement.map(m=>m.value.toString)
+}
+
+class Experiments(val elem:HTMLElement) extends BindableView with ItemsSetView
+{
+  override type Item = Var[Measurement]
+
+  override type ItemView = MeasurementView
+
+  override val items: Var[SortedSet[Item]] =
+    Var(SortedSet(
+      Var(Measurement(Sample("sample1"),"diode1",3004.0)),
+      Var(Measurement(Sample("sample2"),"diode2",3030.0)),
+      Var(Measurement(Sample("sample3"),"diode3",3020.0)),
+      Var(Measurement(Sample("sample4"),"diode4",3010.0))
+    ))
+  println(SortedSet(
+    Var(Measurement(Sample("sample1"),"diode1",3004.0)),
+    Var(Measurement(Sample("sample2"),"diode2",3030.0)),
+    Var(Measurement(Sample("sample3"),"diode3",3020.0)),
+    Var(Measurement(Sample("sample4"),"diode4",3010.0))
+  ).size)
+  //Var(SortedSet.empty)
+
+  override def newItem(item: Item): MeasurementView = this.constructItemView(item){
+    case (el,mp)=> new ItemView(el,item).withBinder(new GeneralBinder(_))
+  }
+
+}
+
 
 /**
  * Just a simple view for the whole app, if interested ( see https://github.com/antonkulaga/scala-js-binding )
@@ -33,6 +94,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
    * Register views
    */
   override lazy val injector = defaultInjector
+    .register("experiments"){case (el,args)=> new Experiments(el).withBinder(new GeneralBinder(_))}
     .register("sidebar"){
       case (el, args) =>
         new SidebarView(el).withBinder(new GeneralBinder(_))
@@ -65,25 +127,8 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("RdfSlide"){case (el,args)=>new RdfSlide(el).withBinder(view=>new CodeBinder(view))}
     .register("promo"){case (el,args)=>new PromoView(el).withBinder(view=>new CodeBinder(view))}
     .register("Selection"){case (el,args)=>
-      new TestPromoSelection(el).withBinder{case view=>new GeneralBinder(view)}
+      new StatesSelection(el,"test").withBinder{case view=>new GeneralBinder(view)}
     }
-
-  class TestPromoSelection(val elem:HTMLElement) extends TextSelectionView{
-    override val suggester = new TypedSuggester(input,Var(TestOptions.options))
-    override lazy val items:Var[collection.immutable.SortedSet[Item]] = Var(TestOptions.items.map(Var(_)))
-
-    val test = Var(Events.createMouseEvent())
-    import org.denigma.binding.extensions._
-    test.handler{
-
-      val l = items.now.toList
-      println("before reorder = "+l.map(_.now).mkString("\n"))
-      l.reverse.zipWithIndex.foreach{case (s,i)=>s() =s.now.copy()(i,s.now.preselected)}
-      items() = items.now
-      println("after reorder = "+items.now.toList.map(_.now).mkString("\n"))
-
-    }
-  }
 
   @JSExport
   def main(): Unit = {

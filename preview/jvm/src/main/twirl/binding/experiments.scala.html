@@ -1,0 +1,21 @@
+<div class="ui row segment">
+  <table class="ui inverted violet table"  data-view="experiments">
+    <caption>
+      <h3 class="ui header">List of Measurements:</h3>
+    </caption>
+    <thead>
+      <tr>
+        <th>Sample</th>
+        <th>Diode</th>
+        <th>Value</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+      <tr data-template="true">
+        <td data-bind="sample"></td>
+        <td data-bind="diode"></td>
+        <td data-bind="value"></td>
+        <td data-bind="datetime"></td>
+      </tr>
+  </table>
+</div>

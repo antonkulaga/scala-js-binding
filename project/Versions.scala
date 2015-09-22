@@ -8,7 +8,7 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 	val bananaRdf = "0.8.2-SNAP4" //"0.8.1"
 
-	val controls = "0.0.8-M4"
+	val controls = "0.0.8-M6"
 }
 
 trait ScalaJVMVersions {
@@ -17,7 +17,7 @@ trait ScalaJVMVersions {
 
 	val akkaHttpExtensions = "0.0.5"
 
-	val ammonite = "0.4.7"
+	val ammonite = "0.4.8"
 }
 
 trait ScalaJSVersions {
@@ -54,7 +54,9 @@ trait SharedVersions
 
 	val macroParadise = "2.1.0-M5"
 
-	val scalaTest =  "3.0.0-M7"
+	val scalaTest =  "3.0.0-M9"
+
+	val booPickle = "1.1.0"
 }
 
 

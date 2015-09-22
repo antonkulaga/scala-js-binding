@@ -7,6 +7,8 @@
         We can also bind to collection of elements. By the way, all menus at this website are done this way
     </section>
 
+    @binding.html.experiments()
+
     <div class="ui two column grid">
 
         <section class="row">
@@ -45,7 +47,7 @@
 
             </div>
             <div class="column">
-                <textarea id="codeinme" data-bind-code="code"  data-mode="htmlmixed">
+                <textarea id="codeinme" data-code="code"  data-mode="html">
                     <nav class="ui large blue inverted menu" data-view="menu" data-param-path="menu/what">
                         <a data-template="true" class="active item header" data-bind-href="uri"  data-load-into="main">
                             <i class="ui-icon-home" data-bind="label"></i>

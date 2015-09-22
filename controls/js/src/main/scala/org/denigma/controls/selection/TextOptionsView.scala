@@ -3,6 +3,7 @@ package org.denigma.controls.selection
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.extensions._
 import org.denigma.binding.views._
+import org.denigma.controls.models.TextOption
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.ext.KeyCode
@@ -12,13 +13,13 @@ import rx.core.Var
 import rx.ops._
 
 class TextOptionsView(val elem:HTMLElement,
-                        val items: Rx[scala.collection.immutable.Seq[Var[TextSelection]]],
+                        val items: Rx[scala.collection.immutable.Seq[Var[TextOption]]],
                         onkeydown: Var[KeyboardEvent]
                          )
   extends CollectionView
 {
 
-  type Item = Var[TextSelection]
+  type Item = Var[TextOption]
 
   type ItemView = OptionView
 
@@ -53,8 +54,8 @@ class TextOptionsView(val elem:HTMLElement,
         (it,i)<-its
         item = it.now
       } if(item.preselected && f!=i){
-        it() = item.copy()(item.position,false)
-        } else if(f==i) it() = item.copy()(item.position,true)
+        it() = item.copy(position = item.position,preselected = false)
+        } else if(f==i) it() = item.copy(position = item.position,preselected  = true)
   }
 
 
@@ -78,7 +79,7 @@ class TextOptionsView(val elem:HTMLElement,
         (it,i)<-indexedItems.now
         item = it.now
         if item.position!=i
-      } it() = item.copy()(i,item.preselected)
+      } it() = item.copy(position = i)
       focus() = -1
     }
   }

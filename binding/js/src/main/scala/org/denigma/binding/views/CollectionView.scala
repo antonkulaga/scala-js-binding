@@ -8,6 +8,7 @@ import org.scalajs.dom.ext._
 import org.scalajs.dom.raw.HTMLElement
 
 import scala.collection.immutable._
+import scala.util.{Failure, Success, Try}
 
 
 trait CollectionView extends BindableView
@@ -132,7 +133,18 @@ trait CollectionView extends BindableView
   var itemViews = Map.empty[Item,ItemView]
 
   def addItemView(item:Item,iv:ItemView):ItemView = {
-    span.parentElement.insertBefore(iv.viewElement,span)
+    Try {
+      span.parentElement.insertBefore(iv.viewElement, span)
+    } match {
+      case Failure(th)=>
+        dom.console.error("stack trace"+th.getMessage+"\n"+th.getStackTrace.toList.mkString("/n"))
+        println("SPAN ="+span.outerHTML)
+        println("TEMPLATE ="+template)
+
+        println("IV ="+iv.viewElement.outerHTML)
+        println("and EL = \n**********\n"+this.viewElement.outerHTML)
+      case Success(res)=>
+    }
     iv match {
       case b:ChildView=>  this.addView(b)
     }

@@ -10,7 +10,7 @@ object Dependencies {
 
 	//libs for testing
   lazy val testing: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
-		"org.scalatest" %%% "scalatest" % Versions.scalaTest
+		"org.scalatest" %%% "scalatest" % Versions.scalaTest % "test"
   ))
 
 	lazy val macroses = CrossDep(
@@ -35,8 +35,8 @@ object Dependencies {
 
 
 	val controls = CrossDep(
-		shared = Def.setting(Seq.empty),
-		jvm  = Def.setting( styles.value++akka.value)
+		shared = Def.setting(Seq("me.chrons" %%% "boopickle" % Versions.booPickle)),
+		jvm  = Def.setting( styles.value ++ akka.value)
 		,
 		js =Def.setting(	styles.value ++ Seq(
 			"org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade

@@ -112,8 +112,6 @@ class TestMacroView(val elem:HTMLElement) extends BindableView{
 class ControlSlide(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
 {
 
-  println("CONTROL SLIDE WORKS")
-
   val loginHTML: rx.Var[String] = Var(
   """
     |<nav class="ui fluid vertical menu" data-view="login">
