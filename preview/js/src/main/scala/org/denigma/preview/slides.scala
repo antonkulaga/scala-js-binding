@@ -19,12 +19,9 @@ import scalatags.JsDom.all._
 /**
  * Slide about RDF-related binding
  * @param elem html element to which view is attached
- * @param params
  */
 class SparqlSlide(val elem:HTMLElement) extends BindableView
 {
-
-
   val text = Var("")
 
 
@@ -41,7 +38,6 @@ class SparqlSlide(val elem:HTMLElement) extends BindableView
  * For test purposes only
  */
 class RandomView(val elem:HTMLElement) extends BindableView{
-
 
   val counting = Var{
     div(`class`:= "ui segment",
@@ -79,17 +75,12 @@ class RandomView(val elem:HTMLElement) extends BindableView{
  */
 class LongListView(element:HTMLElement) extends MapCollectionView(element){
 
-
-
   val items: Var[List[Map[String, Any]]] = Var{
     List(
       Map("prop"->"value1"),Map("prop"->"value2"),Map("prop"->"value3"),Map("prop"->"value4"),Map("prop"->"value5")
     )
 
   }
-
-
-
 
 }
 

@@ -11,15 +11,13 @@ trait SelectionView extends ItemsSetView{
 
   val input: Var[String] = Var("","input_of_"+this.id)
 
+  val inputSize = input.map(i=>i.length+1) //to set size
+
   val positionShift = Var(0,my("positionShift"))
 
   val position: Rx[Int] = Rx{
     items().size+positionShift()
   }
-
-  val order: Rx[String] = position.map(_.toString)
-
-  //lazy val ordered: rx.Rx[List[(Item, Int)]] = items.map(its=>its.toList.zipWithIndex)
 
   protected def moveLeft() = if(position.now > -1) positionShift.set(positionShift.now-1)
 

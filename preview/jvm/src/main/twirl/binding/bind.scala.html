@@ -42,16 +42,16 @@
     </div>
 *@
 
-
     <div class="ui three column grid">
         <section class="row">
-            <div class="column">
+            <div class="column"> <section data-html="counting"></section>
+
                 <p class="ui segment">
                 Consider a simple example. Here you can see several text areas and inputs.
                 </p>
                 <p class="ui segment">
-                    In current sample there is a title tag that is binded to constantly changing counting property and several inputs/text areas,
-                    some of them are binded to <b>foo</b> variable, some - to <b>bar</b> variable, you can notice binding by chaning inputs/textareas text
+                    In current example foo input/textarea are binded to <b>foo</b> variable, and bar - to <b>bar</b> variable,
+                        you can notice binding by changing inputs/textareas text
 
                 </p>
             </div>
@@ -70,20 +70,15 @@
                     string reactive variable ( data-bind="foo" and data-bind="bar")
                 </p>
                 <p>
-                All bindings inside of children tags will be to properties of this view. There is a view hierarchy. Each view can have subviews.
+                    All bindings inside of children tags will be to properties of this view. There is a view hierarchy. Each view can have subviews.
                     Usually mains view attached to body tag is created. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
-
                 </p>
-
-
 
             </div>
 
             <div class="column">
                 <div data-bind-code="html" data-mode="htmlmixed">
-<section class="ui" data-view="random">
-
-                        <section data-html="counting"></section>
+                    <section class="ui" data-view="random">
                         <h1 class="ui purple large header" data-bind="bar"></h1>
 
                         <div class="ui two column grid">
@@ -96,10 +91,7 @@
                                     <textarea class="ui textarea" data-bind="bar"></textarea>
                                     <input class="ui input"  data-bind="bar">
                                 </div>
-
                             </section>
-
-
 
                         </div>
 

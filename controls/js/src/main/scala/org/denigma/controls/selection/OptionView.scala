@@ -15,7 +15,6 @@ class OptionView(val elem:HTMLElement,item:Var[TextOption]) extends BindableView
   val label: Rx[String] = item.map(_.label)
   val value: Rx[String] = item.map(_.value)
   val position: Rx[Int] = item.map(_.position)
-  val order: Rx[String] = item.map(_.position.toString)
   val preselected:Rx[Boolean] = item.map(_.preselected)
 
   def onSelect():Unit = {
@@ -29,6 +28,7 @@ class OptionView(val elem:HTMLElement,item:Var[TextOption]) extends BindableView
   }
 }
 
+//
 
 case class SelectTextOptionEvent(item:Var[TextOption],origin:BindableView,latest:BasicView) extends ViewEvent{
 

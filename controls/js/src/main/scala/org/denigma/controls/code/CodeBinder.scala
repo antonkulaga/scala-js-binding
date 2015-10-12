@@ -17,11 +17,18 @@ class CodeBinder[View<:BindableView,Binder<:ReactiveBinder](view:View,recover:Op
                                     (implicit
                                      mpMap:MapRxMap[View], mpTag:TagRxMap[View],
                                      mpString:StringRxMap[View],  mpBool:BooleanRxMap[View],
+                                     mpDouble:DoubleRxMap[View],mpInt:IntRxMap[View],
                                      mpEvent:EventMap[View],  mpMouse:MouseEventMap[View],
                                      mpText:TextEventMap[View], mpKey:KeyEventMap[View],
                                      mpUI:UIEventMap[View], mpWheel:WheelEventMap[View], mpFocus:FocusEventMap[View]
                                       )
-extends GeneralBinder[View,Binder](view, recover)(mpMap,mpTag,mpString,mpBool,mpEvent,mpMouse,mpText,mpKey,mpUI,mpWheel,mpFocus)
+extends GeneralBinder[View,Binder](view, recover)(
+  mpMap,mpTag,
+  mpString,mpBool,
+  mpDouble,mpInt,
+  mpEvent,mpMouse,
+  mpText,mpKey,
+  mpUI,mpWheel,mpFocus)
 {
   val modes: Map[String, String] = Map(
     "html"->"htmlmixed",

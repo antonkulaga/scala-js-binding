@@ -108,9 +108,9 @@ trait WebSocketSubscriber
 
   urlOpt.onChange("urlOptChange")(this.onUrlChange)
 
-  def getWebSocketUri(username:String): String
+  protected def getWebSocketUri(username:String): String
 
-  def initWebSocket(url:String):WebSocket
+  protected def initWebSocket(url:String):WebSocket
 
   def send(message:String): Unit = webSocketOpt.now match {
     case Some(w)=>  w.send(message)

@@ -20,6 +20,7 @@ trait ItemsSeqView extends CollectionView {
   }
 
   override protected def subscribeUpdates() = {
+    template.style.display = "none"
     this.items.now.foreach(i=>this.addItemView(i,this.newItem(i)))
     updates.onChange("ItemsUpdates")(upd=>{
       upd.added.foreach(onInsert)

@@ -41,6 +41,13 @@ trait RxExt extends CommonOps
       case other=> //do nothing
     }
 
+/*    def onVarWith(fun:Var[T]=>Unit)(initialize: =>T) = source match{
+      case v:Var[T]=>
+        fun(v)
+        v.set(initialize)
+      case other=> //do nothing
+    }*/
+
 
     def onChange(name:String,uniqueValue:Boolean = true,skipInitial:Boolean = true)(callback: T=> Unit): Obs =
       if(uniqueValue){

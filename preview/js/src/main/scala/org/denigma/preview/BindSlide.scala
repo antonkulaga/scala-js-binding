@@ -17,7 +17,6 @@ import scalatags.JsDom.all._
 /**
  * Bind slide
  * @param elem html element
- * @param params
  */
 class BindSlide(val elem:HTMLElement) extends BindableView{
 

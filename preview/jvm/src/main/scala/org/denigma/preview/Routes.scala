@@ -2,21 +2,12 @@ package org.denigma.preview
 
 import akka.event.LoggingAdapter
 import akka.http.extensions.pjax.PJax
-import akka.http.scaladsl.model._
-import akka.http.scaladsl.model.ws.Message
+import akka.http.scaladsl.model.{HttpResponse, _}
 import akka.http.scaladsl.server.{Directives, Route}
 import org.denigma.preview.templates.{MyStyles, Twirl}
 import play.twirl.api.Html
 
 import scalacss.Defaults._
-import akka.actor.ActorSystem
-import akka.stream.ActorMaterializer
-import akka.stream.scaladsl.{ Source, Flow }
-import akka.http.scaladsl.Http
-import akka.http.scaladsl.model.ws.UpgradeToWebsocket
-import akka.http.scaladsl.model.ws.{ TextMessage, Message }
-import akka.http.scaladsl.model.{ HttpResponse, Uri, HttpRequest }
-import akka.http.scaladsl.model.HttpMethods._
 
 
 /**
@@ -106,8 +97,6 @@ trait Routes extends Directives with PJax with TextFilesDirectives
     }
   }
   def webjars =pathPrefix(webjarsPrefix ~ Slash)  {  getFromResourceDirectory(webjarsPrefix)  }
-
-  import akka.http.scaladsl._
 
   def routes = index ~  webjars ~ mystyles ~ menu ~ new WebSockets(SuggesterProvider.openChannel).routes ~ loadResources ~ loadSources
 }

@@ -1,6 +1,6 @@
 package org.denigma.controls.selection
 
-import org.denigma.binding.binders.{Events, GeneralBinder}
+import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.extensions._
 import org.denigma.binding.views._
 import org.denigma.controls.models.TextOption
@@ -31,8 +31,13 @@ class TextOptionsView(val elem:HTMLElement,
       case KeyCode.Up => focus() = focus.now - 1
       case KeyCode.Enter =>
         val f = focus.now
-        if(f > -1) if(items.now.length>f) fire(SelectTextOptionEvent(items.now(f),this,this))
-        else dom.console.error(s"some bug with options focus for focus ${f} and items ${items.now}")
+        if(f > -1)
+          if(items.now.length>f)
+            {
+              fire(SelectTextOptionEvent(items.now(f),this,this))
+            }
+          else
+            dom.console.error(s"some bug with options focus for focus ${f} and items ${items.now}")
 
       //val opts = this.subviews.values.collectFirst{   case v:SelectOptionsView=> v   } //KOSTYL TODO:fix it!
       //opts

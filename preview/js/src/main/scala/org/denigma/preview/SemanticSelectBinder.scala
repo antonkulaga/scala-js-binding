@@ -50,7 +50,6 @@ case class SelectTripleOption[Rdf<:RDF](item:Var[TripleSelection[Rdf]],origin:Bi
 class SemanticOptionView[Rdf<:RDF](val elem:HTMLElement,item:Var[TripleSelection[Rdf]],val params:Map[String,Any]) extends BindableView
 {
 
-
   val label: Rx[String] = item.map(_.label)
   val position: Rx[Int] = item.map(_.position)
   val order: Rx[String] = item.map(_.position.toString)

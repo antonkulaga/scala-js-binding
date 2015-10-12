@@ -60,34 +60,37 @@ trait CollectionView extends BindableView
    * @param oldChild oldchild
    * @return
    */
-  def replace(newChild:HTMLElement,oldChild:HTMLElement, switch:Boolean = false) = if(oldChild!=newChild)
-    (newChild.parentElement, oldChild.parentElement) match {
-      case (pn, null) =>
-        console.error("old child has no parent")
-        oldChild
-      case (null, po) =>
-        po.replaceChild(newChild, oldChild)
-        if (switch) console.error("new child has null parent")
+  def replace(newChild:HTMLElement,oldChild:HTMLElement, switch:Boolean = false) = {
+    def oldNew() = s"\nnewChild = ${newChild.outerHTML}\noldChild = ${oldChild.outerHTML}"
+    if(oldChild!=newChild)
+      (newChild.parentElement, oldChild.parentElement) match {
+        case (pn, null) =>
+          console.error(s"old child has no parent:"+oldNew())
+          oldChild
+        case (null, po) =>
+          po.replaceChild(newChild, oldChild)
+          if (switch) console.error("new child has null parent"+oldNew)
 
-      case (pn, po) if pn == po =>
-        if (switch) {
+        case (pn, po) if pn == po =>
+          if (switch) {
+            val io = po.children.indexOf(oldChild)
+            val in = pn.children.indexOf(newChild)
+            //po.removeChild(oldChild)
+            po.children(io) = newChild
+            pn.children(in) = oldChild
+            //console.error("new child has null parent")
+          } else po.replaceChild(newChild, oldChild)
+
+        case (pn, po) =>
           val io = po.children.indexOf(oldChild)
           val in = pn.children.indexOf(newChild)
           //po.removeChild(oldChild)
           po.children(io) = newChild
-          pn.children(in) = oldChild
-          //console.error("new child has null parent")
-        } else po.replaceChild(newChild, oldChild)
-
-      case (pn, po) =>
-        val io = po.children.indexOf(oldChild)
-        val in = pn.children.indexOf(newChild)
-        //po.removeChild(oldChild)
-        po.children(io) = newChild
-        if (switch) {
-          pn.children(in) = oldChild
-        }
-    }
+          if (switch) {
+            pn.children(in) = oldChild
+          }
+      }
+  }
 
 
   override def bindView() = {

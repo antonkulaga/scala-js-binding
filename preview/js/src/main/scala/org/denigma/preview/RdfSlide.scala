@@ -73,34 +73,3 @@ class TextModelView(elem:HTMLElement,resourceOpt:Option[Plantain#URI])(implicit 
 
   withBinder(me=>new RDFModelBinder[Plantain](graph,  resolver))
 }
-/*
-
-class SelectableModelView(elem:HTMLElement,params:Map[String,Any])(implicit ops:RDFOps[Plantain])
-  extends ModelView[Plantain](elem,params)(ops)
-{
-  import org.denigma.binding.extensions._
-
-  val report = Var(Events.createMouseEvent())
-  report.handler{
-    dom.console.log("REPORT WORKS")
-  }
-
-  private val prefs = new DefaultPrefixes[Plantain]().prefixes
-
-  override lazy val graph: Var[PointedGraph[Plantain]] =  Var(PointedGraph[Plantain](
-    subject,ops.makeGraph(TestData[Plantain](subject).data))
-  )
-
-  def suggest(tp:Typed[Plantain]): Future[Seq[Plantain#Node]] = Future.successful(
-
-    (1 to scala.util.Random.nextInt(4)+1).map { case num=>
-      val str = tp.typed
-      //dom.console.log(s"suggestion for $str is ${str}_$num")
-      ops.makeLiteral(str+"_"+num,ops.xsd.string)
-    })
-
-  val resolver = new PrefixResolver[Plantain](Var(prefs))
-
-  binders = List(new SelectableModelBinder[Plantain](graph,  resolver)(suggest) )
-
-}*/

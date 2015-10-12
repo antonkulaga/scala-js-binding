@@ -11,7 +11,7 @@ import scala.scalajs.js
 /**
  * Extracts various events
  */
-trait EventBinder  extends ReactiveBinder
+trait EventBinder extends ReactiveBinder
 {
   import org.denigma.binding.extensions._
 

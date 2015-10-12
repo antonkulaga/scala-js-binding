@@ -5,6 +5,7 @@ import java.util.Date
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.{BindableView, ItemsSetView}
+import org.denigma.controls.charts.ScatterPlot
 import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.login.{AjaxSession, LoginView}
 import org.scalajs.dom
@@ -127,7 +128,10 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("RdfSlide"){case (el,args)=>new RdfSlide(el).withBinder(view=>new CodeBinder(view))}
     .register("promo"){case (el,args)=>new PromoView(el).withBinder(view=>new CodeBinder(view))}
     .register("Selection"){case (el,args)=>
-      new StatesSelection(el,"test").withBinder{case view=>new GeneralBinder(view)}
+      new StatesSelectionView(el,"test").withBinder{case view=>new GeneralBinder(view)}
+    }
+    .register("HelloPlot"){case (el,args)=>
+      new ScatterPlot(el).withBinder{case view=>new GeneralBinder(view)}
     }
 
   @JSExport

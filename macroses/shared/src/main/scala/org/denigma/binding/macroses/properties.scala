@@ -6,6 +6,44 @@ import scala.reflect.macros.whitebox
 import scala.reflect.macros.whitebox.Context
 
 
+trait IntRxMap[T] {
+  def asIntRxMap(t: T): Map[String,Rx[Int]]
+}
+
+object IntRxMap extends BinderObject {
+  implicit def materialize[T]: IntRxMap[T] = macro impl[T]
+
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[IntRxMap[T]] = {
+    import c.universe._
+    val mapExpr = extract[T,Rx[Int]](c)
+
+    reify {
+      new IntRxMap[T] {
+        def asIntRxMap(t: T) = mapExpr.splice
+      }
+    }
+  }
+}
+
+
+trait DoubleRxMap[T] {
+  def asDoubleRxMap(t: T): Map[String,Rx[Double]]
+}
+
+object DoubleRxMap extends BinderObject {
+  implicit def materialize[T]: DoubleRxMap[T] = macro impl[T]
+
+  def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[DoubleRxMap[T]] = {
+    import c.universe._
+    val mapExpr = extract[T,Rx[Double]](c)
+
+    reify {
+      new DoubleRxMap[T] {
+        def asDoubleRxMap(t: T) = mapExpr.splice
+      }
+    }
+  }
+}
 
 
 trait StringRxMap[T] {

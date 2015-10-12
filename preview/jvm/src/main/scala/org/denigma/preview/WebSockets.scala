@@ -19,13 +19,11 @@ class WebSockets(
     }
 */
 
-
   def routes: Route =
     pathPrefix("connect") {
         parameters("channel","username"){
           case (channel,username)=>
             handleWebsocketMessages(makeChannel(channel,username))
         }
-
-  }
+    }
 }

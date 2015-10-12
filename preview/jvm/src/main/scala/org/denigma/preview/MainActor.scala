@@ -7,7 +7,7 @@ import akka.stream.ActorMaterializer
 /**
  * Main actor that encapsulates main application logic and starts the server
  */
-class MainActor  extends Actor with ActorLogging with Routes
+class MainActor extends Actor with ActorLogging with Routes
 {
   implicit val system = context.system
   implicit val materializer = ActorMaterializer()

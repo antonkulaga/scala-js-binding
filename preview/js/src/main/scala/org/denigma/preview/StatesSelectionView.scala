@@ -8,17 +8,8 @@ import org.scalajs.dom
 import org.scalajs.dom.raw.{WebSocket, HTMLElement}
 import rx.core.Var
 
-/*case class StatesSubscriber(channel:String,username:String) extends WebSocketSubscriber{
-  override def getWebSocketUri(username: String): String = {
-    val wsProtocol = if (dom.document.location.protocol == "https:") "wss" else "ws"
-    s"$wsProtocol://${dom.document.location.host}/connect?channel=$channel&username=$username"
-  }
+class StatesSelectionView(val elem:HTMLElement,channel:String,username:String="guest") extends TextSelectionView{
 
-  override def initWebSocket(url: String) = WebSocketStorage(url)
-}*/
-
-class StatesSelection(val elem:HTMLElement,channel:String,username:String="guest") extends TextSelectionView{
-  //override val suggester = new TypedSuggester(input,Var(TestOptions.options))
   override val suggester = new TextOptionsSuggester(input,WebSocketSubscriber(channel,username))
 
   override lazy val items:Var[collection.immutable.SortedSet[Item]] = Var(TestOptions.items.map(i=>Var(i)))

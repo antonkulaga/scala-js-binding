@@ -168,7 +168,10 @@ lazy val preview = crossProject
 		.jvmSettings(Revolver.settings:_*)
 		.jvmConfigure(p=>p.enablePlugins(SbtTwirl,SbtWeb).enablePlugins(PlayScalaJS)) //despite "Play" in name it is actually sbtweb-related plugin
 		.jvmSettings(
-			libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Seq("me.chrons" %% "boopickle" % Versions.booPickle),
+			libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Seq(
+			  "me.chrons" %% "boopickle" % Versions.booPickle,
+			  "org.seleniumhq.selenium" % "selenium-java" % Versions.seleniumJava % "test"
+			),
 			mainClass in Compile :=Some("org.denigma.preview.Main"),
 			mainClass in Revolver.reStart := Some("org.denigma.preview.Main"),
 			scalaJSDevStage := scalaJSDevTaskStage.value,

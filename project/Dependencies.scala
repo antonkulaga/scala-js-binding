@@ -28,8 +28,7 @@ object Dependencies {
 	val binding = CrossDep(shared = Def.setting(Seq("com.softwaremill.quicklens" %%% "quicklens" % Versions.quicklens)),
 			jvm = Def.setting(Seq.empty),
 			js  = Def.setting(Seq(
-
-			"org.querki" %%% "jquery-facade" % Versions.jqueryFacade
+				"org.querki" %%% "jquery-facade" % Versions.jqueryFacade
 		)  )
 	)
 

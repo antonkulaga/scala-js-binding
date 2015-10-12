@@ -1,0 +1,15 @@
+@(plotView: String)
+<h1>Hello Plot!</h1>
+<svg data-view="@{plotView}">
+  <g class="OX" data-view="ox">
+    <line data-template="true" class="tick" y1="0" data-bind-y2="length" data-bind-x1="value" data-bind-x2="value" color="red">
+
+    </line>
+  </g>
+  <g class="OY" data-view="oy">
+    <line data-template="true" class="tick" x1="0" data-bind-x2="length" data-bind-y1="value" data-bind-y2="value" color="blue">
+
+    </line>
+
+  </g>
+</svg>
