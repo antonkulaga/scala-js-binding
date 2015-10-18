@@ -2,15 +2,15 @@ package org.denigma.binding.views
 
 import org.denigma.binding.binders._
 import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.Element
 
 import scala.collection.immutable.Map
 
 object BindableView {
 
-  class JustView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
+  class JustView(val elem:Element, val params:Map[String,Any]) extends BindableView
 
-  def apply(elem:HTMLElement,params:Map[String,Any] = Map.empty) =
+  def apply(elem:Element,params:Map[String,Any] = Map.empty) =
     new JustView(elem,params).withBinders(me=>new GeneralBinder(me)::new NavigationBinder(me)::Nil)
 
 }
@@ -42,7 +42,7 @@ trait BindableView extends OrganizedView with BubbleView
 
   def withBinders(fun:this.type=>List[ViewBinder]):this.type  = withBinders(fun(this)++binders)
 
-  def makeDefault(el:HTMLElement,props:Map[String,Any] = Map.empty):ChildView = {
+  override def makeDefault(el:Element,props:Map[String,Any] = Map.empty):ChildView = {
     BindableView(el,props)
   }
 

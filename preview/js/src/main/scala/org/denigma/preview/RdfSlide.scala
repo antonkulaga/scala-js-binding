@@ -4,21 +4,19 @@ import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.{PrefixResolver, RDFModelBinder}
 import org.denigma.semantic.models.ModelView
 import org.denigma.semantic.{DefaultPrefixes, WebPlatform}
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.Element
 import org.w3.banana._
 import org.w3.banana.plantain.Plantain
 import rx.core.Var
 
-import scala.collection.immutable.Map
 
-
-class RdfSlide(val elem:HTMLElement)
+class RdfSlide(val elem:Element)
   extends BindableView
 {
 
   val modelCode = Var(
     """
-      |class TextModelView(elem:HTMLElement,params:Map[String,Any])
+      |class TextModelView(elem:Element,params:Map[String,Any])
       | (implicit ops:RDFOps[Plantain])
       |  extends ModelView[Plantain](elem,params)(ops)
       |{
@@ -61,7 +59,7 @@ case class TestData[Rdf<:RDF](subject:Rdf#Node)(implicit ops:RDFOps[Rdf]){
 
 }
 
-class TextModelView(elem:HTMLElement,resourceOpt:Option[Plantain#URI])(implicit ops:RDFOps[Plantain])
+class TextModelView(elem:Element,resourceOpt:Option[Plantain#URI])(implicit ops:RDFOps[Plantain])
   extends ModelView[Plantain](elem,resourceOpt)(ops)
 {
 

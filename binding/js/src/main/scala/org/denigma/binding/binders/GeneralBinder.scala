@@ -3,7 +3,7 @@ package org.denigma.binding.binders
 import org.denigma.binding.binders.extractors._
 import org.denigma.binding.macroses._
 import org.denigma.binding.views.IDGenerator
-import org.scalajs.dom.raw.{HTMLElement, KeyboardEvent, MouseEvent}
+import org.scalajs.dom.raw.{Element, HTMLElement, KeyboardEvent, MouseEvent}
 import rx._
 
 import scala.collection.immutable.Map
@@ -47,7 +47,7 @@ class GeneralBinder[View,Binder<:ReactiveBinder](view:View, recover:Option[Binde
 
   val keyboardEvents:Map[String,Var[KeyboardEvent]] = mpKey.asKeyEventMap(view)
 
-  override def bindAttributes(el: HTMLElement, atribs: Map[String, String]):Boolean = {
+  override def bindAttributes(el: Element, atribs: Map[String, String]):Boolean = {
     val ats: Map[String, String] = this.dataAttributesOnly(atribs)
     ifNoIDOption(el,  ats.headOption.map{case (key,value)=>key+"_"+value} )
     this.bindHTML(el,ats)
@@ -62,7 +62,7 @@ class GeneralBinder[View,Binder<:ReactiveBinder](view:View, recover:Option[Binde
     true
   }
 
-  def elementPartial(el: HTMLElement,ats:Map[String, String]): PartialFunction[(String,String),Unit] =
+  def elementPartial(el: Element,ats:Map[String, String]): PartialFunction[(String,String),Unit] =
     this.visibilityPartial(el)
       .orElse(this.classPartial(el))
       .orElse(this.propertyPartial(el))

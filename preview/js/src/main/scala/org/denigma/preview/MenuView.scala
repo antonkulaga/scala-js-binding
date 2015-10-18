@@ -1,15 +1,14 @@
 package org.denigma.preview
 
-import org.denigma.binding.views.{MapCollectionView, BindableView}
-import org.scalajs.dom.raw.HTMLElement
+import org.denigma.binding.views.MapCollectionView
+import org.scalajs.dom.raw.Element
 import rx.Rx
 import rx.core.Var
 
-import scala.Predef
 import scala.collection.immutable._
 
 
-class MenuView(elem:HTMLElement) extends MapCollectionView(elem) {
+class MenuView(elem:Element) extends MapCollectionView(elem) {
 self =>
 
     override val items: Rx[Seq[Map[String, Any]]] = Var(

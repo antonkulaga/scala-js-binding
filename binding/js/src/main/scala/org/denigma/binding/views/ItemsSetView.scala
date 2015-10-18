@@ -11,7 +11,7 @@ trait ItemsSetView extends CollectionView{
   lazy val updates: Rx[SetUpdate[Item]] = items.updates
 
   override protected def subscribeUpdates() = {
-    template.style.display = "none"
+    template.hide()
     this.items.now.foreach(i=>this.addItemView(i,this.newItem(i))) //initialization of views
     updates.onChange("ItemsUpdates")(upd=>{
       upd.added.foreach(onInsert)

@@ -1,20 +1,20 @@
 package org.denigma.binding.binders
 
 import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.{Element}
 import rx._
 
 import scala.collection.immutable.Map
 
 object Binder{
-  def apply(elemBind:(HTMLElement,Map[String,String])=>PartialFunction[(String, String), Unit]) = new ReactiveBinder {
-    override def bindAttributes(el: HTMLElement, ats: Map[String, String]) = {
+  def apply(elemBind:(Element,Map[String,String])=>PartialFunction[(String, String), Unit]) = new ReactiveBinder {
+    override def bindAttributes(el: Element, ats: Map[String, String]) = {
       val fun = elementPartial(el,ats)
       for((key,value)<-ats) fun(key,value)
       true
     }
 
-    override def elementPartial(el: HTMLElement, ats: Map[String, String]): PartialFunction[(String, String), Unit] = elemBind(el,ats)
+    override def elementPartial(el: Element, ats: Map[String, String]): PartialFunction[(String, String), Unit] = elemBind(el,ats)
   }
 }
 
@@ -22,7 +22,7 @@ object Binder{
 trait Binder
 {
 
-  def bindAttributes(el:HTMLElement,attributes:Map[String, String] ):Boolean
+  def bindAttributes(el:Element,attributes:Map[String, String] ):Boolean
 
 }
 
@@ -31,9 +31,9 @@ trait Binder
  */
 trait ReactiveBinder extends Binder
 {
-  def elementPartial(el: HTMLElement,ats:Map[String, String]): PartialFunction[(String,String),Unit]
+  def elementPartial(el: Element,ats:Map[String, String]): PartialFunction[(String,String),Unit]
 
-  def bindAttributes(el:HTMLElement,attributes:Map[String, String] ):Boolean= {
+  def bindAttributes(el:Element,attributes:Map[String, String] ):Boolean= {
     val fun: PartialFunction[(String, String), Unit] = elementPartial(el,attributes).orElse{case other=>}
     attributes.foreach(fun)
     true
@@ -50,8 +50,8 @@ trait ReactiveBinder extends Binder
    * @tparam T type parameter for Var
    * @return
    */
-  protected def bindMapItem[T](el:HTMLElement,mp:Map[String,Var[T]],attribute:String,key:String)
-                          (bind:(HTMLElement,Var[T])=>Unit) =
+  protected def bindMapItem[T](el:Element,mp:Map[String,Var[T]],attribute:String,key:String)
+                          (bind:(Element,Var[T])=>Unit) =
     mp.get(key) match{
       case Some(reactive)=> bind(el,reactive)
       case None=>

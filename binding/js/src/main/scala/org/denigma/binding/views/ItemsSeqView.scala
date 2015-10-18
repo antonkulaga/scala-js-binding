@@ -1,9 +1,9 @@
 package org.denigma.binding.views
 
-import org.denigma.binding.binders.{Binder, BinderForViews}
 import org.denigma.binding.extensions._
 import rx.Rx
-import rx.ops.{SetUpdate, Moved, SequenceUpdate}
+import rx.ops.{Moved, SequenceUpdate}
+
 import scala.collection.immutable._
 
 
@@ -20,7 +20,7 @@ trait ItemsSeqView extends CollectionView {
   }
 
   override protected def subscribeUpdates() = {
-    template.style.display = "none"
+    template.hide()
     this.items.now.foreach(i=>this.addItemView(i,this.newItem(i)))
     updates.onChange("ItemsUpdates")(upd=>{
       upd.added.foreach(onInsert)

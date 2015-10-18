@@ -1,31 +1,21 @@
 package org.denigma.preview
-import org.denigma.binding.binders.Events
-import org.denigma.binding.extensions._
-import org.denigma.binding.macroses.ClassToMap
-import org.denigma.binding.views.{BindableView, MapCollectionView}
-import org.scalajs.dom
-import org.scalajs.dom.html.Input
-import org.scalajs.dom.raw.{HTMLElement, KeyboardEvent}
-import rx._
+import org.denigma.binding.views.BindableView
+import org.scalajs.dom.raw.Element
 import rx.core.Var
-
-import scala.collection.immutable.Map
-import scala.util.Random
-import scalatags.JsDom.all._
 
 
 /**
  * Bind slide
  * @param elem html element
  */
-class BindSlide(val elem:HTMLElement) extends BindableView{
+class BindSlide(val elem:Element) extends BindableView{
 
 
   val html = Var("")
 
   val scala_code = Var(
     """
-      |class RandomView(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
+      |class RandomView(val elem:Element, val params:Map[String,Any]) extends BindableView
       |{
       |    val counting = Var{
       |    div(`class`:= "ui segment",

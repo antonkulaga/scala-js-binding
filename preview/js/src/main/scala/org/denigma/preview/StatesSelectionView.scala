@@ -2,13 +2,12 @@ package org.denigma.preview
 
 import org.denigma.binding.binders.Events
 import org.denigma.controls.selection._
-import org.denigma.controls.sockets.{WebSocketSubscriber, WebSocketStorage}
+import org.denigma.controls.sockets.WebSocketSubscriber
 import org.denigma.preview.data.TestOptions
-import org.scalajs.dom
-import org.scalajs.dom.raw.{WebSocket, HTMLElement}
+import org.scalajs.dom.Element
 import rx.core.Var
 
-class StatesSelectionView(val elem:HTMLElement,channel:String,username:String="guest") extends TextSelectionView{
+class StatesSelectionView(val elem:Element,channel:String,username:String="guest") extends TextSelectionView{
 
   override val suggester = new TextOptionsSuggester(input,WebSocketSubscriber(channel,username))
 

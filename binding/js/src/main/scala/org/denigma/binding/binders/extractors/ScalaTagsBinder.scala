@@ -2,7 +2,7 @@ package org.denigma.binding.binders.extractors
 
 import org.denigma.binding.binders.ReactiveBinder
 import org.denigma.binding.macroses.TagRxMap
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.{Element, HTMLElement}
 import rx._
 import rx.ops._
 import scala.collection.immutable._
@@ -18,7 +18,7 @@ trait ScalaTagsBinder extends ReactiveBinder{
   //def extractTags[T]:Map[String,Rx[Tag]] = macro Binder.htmlBindings_impl[T]
   //def extractTagRx[T: TagRxMap](t: T) =  implicitly[TagRxMap[T]].asTagRxMap(t)
 
-  def bindHTML(el:HTMLElement,ats:Map[String, String]) ={
+  def bindHTML(el:Element,ats:Map[String, String]) ={
     for{
       a<-ats.get("html")
       tg <-tags.getOrError(a)

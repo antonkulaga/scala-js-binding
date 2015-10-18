@@ -3,7 +3,7 @@ package org.denigma.semantic.binders.binded
 import org.denigma.binding.extensions._
 import org.denigma.semantic.extensions.GraphUpdate
 import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.Element
 import org.w3.banana._
 import rx.Rx
 import rx.core.Var
@@ -53,7 +53,7 @@ abstract class Binded[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],
     updates.foreach(onUpdate)
   }
 
-  protected def propertyString(html:HTMLElement,prop:String,default:String = "") = (html \ prop).fold(default)(d=>d.toString)
+  protected def propertyString(html:Element,prop:String,default:String = "") = (html \ prop).fold(default)(d=>d.toString)
 
   def objectsFromHTML():Set[Rdf#Node]
 

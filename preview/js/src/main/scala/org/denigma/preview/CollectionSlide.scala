@@ -4,22 +4,21 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom.DOMParser
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.ext._
+import org.scalajs.dom.raw.Element
 import rx.core.Var
 
-import scala.collection.immutable.Map
 import scala.util._
-import org.scalajs.dom.ext._
 
-class CollectionSlide(val elem:HTMLElement) extends BindableView{
+class CollectionSlide(val elem:Element) extends BindableView{
 
-  def parseHTML(string:String): Option[HTMLElement] ={
+  def parseHTML(string:String): Option[Element] ={
     val p = new  DOMParser()
     Try {
       p.parseFromString(string, "text/html")
     } match {
       case Success(doc)=>
-        dom.document.body.children.collectFirst{case html:HTMLElement=>html}
+        dom.document.body.children.collectFirst{case html:Element=>html}
 
       case Failure(th)=>
         dom.console.error(th.toString)

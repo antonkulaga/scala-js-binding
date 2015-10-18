@@ -8,6 +8,7 @@ import org.denigma.codemirror.extensions.EditorConfig
 import org.denigma.codemirror.{CodeMirror, Editor}
 import org.querki.jquery._
 import org.scalajs.dom
+import org.scalajs.dom.Element
 import org.scalajs.dom.raw.{HTMLElement, HTMLTextAreaElement}
 import rx._
 
@@ -48,9 +49,9 @@ extends GeneralBinder[View,Binder](view, recover)(
 
   //dom.console.log(s"extracted strings in code binder for ${view.id} are: $allStringsKeys")
 
- override def elementPartial(el:HTMLElement,ats:Map[String,String]) = super.elementPartial(el,ats).orElse(codePartial(el,ats))
+ override def elementPartial(el:Element,ats:Map[String,String]) = super.elementPartial(el,ats).orElse(codePartial(el,ats))
 
-  def codePartial(el:HTMLElement,ats:Map[String, String]):PartialFunction[(String,String),Unit] = {
+  def codePartial(el:Element,ats:Map[String, String]):PartialFunction[(String,String),Unit] = {
     case ("bind-code" | "code", value) => ats.get("mode") match {
       case Some(m)=>
         this.bindCode(el,value,m)
@@ -92,7 +93,7 @@ extends GeneralBinder[View,Binder](view, recover)(
     if(code.now!=v)  code() = v
   }
 
-  def bindCode(el:HTMLElement,value:String,mode:String):Unit = this.strings.get(value) match {
+  def bindCode(el:Element,value:String,mode:String):Unit = this.strings.get(value) match {
     case Some(str:Var[String])=>
       if(str.now=="") codeFromElement(el, str)
       this.makeCode(el,str,mode)
@@ -102,7 +103,7 @@ extends GeneralBinder[View,Binder](view, recover)(
       dom.console.error(s"cannot find code stringRx $value in ${view.id}\n ; all string keys are:\n ${allStringsKeys}")
   }
 
-  protected def codeFromElement(el: HTMLElement, str: Var[String]): Unit = {
+  protected def codeFromElement(el: Element, str: Var[String]): Unit = {
     if (el.innerHTML == "" || el.children.length == 0) {
       val t = $(el).text()
       str.set(t)
@@ -138,7 +139,7 @@ extends GeneralBinder[View,Binder](view, recover)(
     }
 
 
-  def makeCode(el:HTMLElement, str:Rx[String], mode:String):Unit = el match {
+  def makeCode(el:Element, str:Rx[String], mode:String):Unit = el match {
     case area: HTMLTextAreaElement => textArea2Code(area,str,mode)
     case other=>
       dom.document.createElement("textarea") match {

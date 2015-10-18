@@ -1,7 +1,7 @@
 package org.denigma.binding.views
 
 import org.denigma.binding.binders.{MapItemsBinder, NavigationBinder}
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.Element
 import rx.Var
 
 import scala.collection.immutable._
@@ -9,7 +9,7 @@ import scala.collection.immutable._
 object MapCollectionView {
 
 
-  class JustMapView(val elem:HTMLElement,val params:Map[String,Any]) extends BindableView
+  class JustMapView(val elem:Element,val params:Map[String,Any]) extends BindableView
   {
 
    val reactiveMap: Map[String, Var[String]] = params.map(kv => (kv._1, Var(kv._2.toString)))
@@ -22,10 +22,8 @@ object MapCollectionView {
 
 
 
-abstract class MapCollectionView(val elem:HTMLElement) extends BindableView  with ItemsSeqView
+abstract class MapCollectionView(val elem:Element) extends BindableView  with ItemsSeqView
 {
-  val disp = elem.style.display
-
   override type Item = Map[String,Any]
 
   override type ItemView = BindableView

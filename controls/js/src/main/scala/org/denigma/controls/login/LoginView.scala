@@ -2,14 +2,14 @@ package org.denigma.controls.login
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.Element
 import rx.Rx
 
 import scala.collection.immutable._
 /**
  * Login view
  */
-class LoginView(val elem:HTMLElement, val session:Session)
+class LoginView(val elem:Element, val session:Session)
   extends BindableView
   with Login
   with Registration

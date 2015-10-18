@@ -7,7 +7,7 @@ import org.denigma.binding.views.{BindableView, MapCollectionView}
 import org.denigma.controls.login.{LoginView, Login}
 import org.scalajs.dom
 import org.scalajs.dom.html.Input
-import org.scalajs.dom.raw.{HTMLElement, KeyboardEvent}
+import org.scalajs.dom.raw.{Element, KeyboardEvent}
 import rx._
 import rx.core.Var
 
@@ -20,7 +20,7 @@ import scalatags.JsDom.all._
  * Slide about RDF-related binding
  * @param elem html element to which view is attached
  */
-class SparqlSlide(val elem:HTMLElement) extends BindableView
+class SparqlSlide(val elem:Element) extends BindableView
 {
   val text = Var("")
 
@@ -37,7 +37,7 @@ class SparqlSlide(val elem:HTMLElement) extends BindableView
 /**
  * For test purposes only
  */
-class RandomView(val elem:HTMLElement) extends BindableView{
+class RandomView(val elem:Element) extends BindableView{
 
   val counting = Var{
     div(`class`:= "ui segment",
@@ -73,7 +73,7 @@ class RandomView(val elem:HTMLElement) extends BindableView{
 /**
  * Class for testing purposes that makes a long list out of test element
  */
-class LongListView(element:HTMLElement) extends MapCollectionView(element){
+class LongListView(element:Element) extends MapCollectionView(element){
 
   val items: Var[List[Map[String, Any]]] = Var{
     List(
@@ -84,7 +84,7 @@ class LongListView(element:HTMLElement) extends MapCollectionView(element){
 
 }
 
-class TestMacroView(val elem:HTMLElement) extends BindableView{
+class TestMacroView(val elem:Element) extends BindableView{
 
   case class HelloWorld(hello:String){
 
@@ -100,7 +100,7 @@ class TestMacroView(val elem:HTMLElement) extends BindableView{
 
 }
 
-class ControlSlide(val elem:HTMLElement, val params:Map[String,Any]) extends BindableView
+class ControlSlide(val elem:Element, val params:Map[String,Any]) extends BindableView
 {
 
   val loginHTML: rx.Var[String] = Var(
@@ -157,7 +157,7 @@ class ControlSlide(val elem:HTMLElement, val params:Map[String,Any]) extends Bin
 
   val loginCode: rx.Var[String] = Var(
   """
-    |class LoginView(val elem:HTMLElement, val session:Session, val params:Map[String,Any])
+    |class LoginView(val elem:Element, val session:Session, val params:Map[String,Any])
     |  extends BindableView
     |  with Login
     |  with Registration
@@ -233,7 +233,7 @@ class ControlSlide(val elem:HTMLElement, val params:Map[String,Any]) extends Bin
 
   val selectionCode = Var(
     """
-      |  class TestPromoSelection(val elem:HTMLElement, val params:Map[String,Any]) extends TextSelectionView {
+      |  class TestPromoSelection(val elem:Element, val params:Map[String,Any]) extends TextSelectionView {
       |    override val suggester = new TypedSuggester(input,Var(TestOptions.options))
       |    override lazy val items:Var[collection.immutable.SortedSet[Item]] = Var(TestOptions.items.map(Var(_)))
       |  }
@@ -242,7 +242,7 @@ class ControlSlide(val elem:HTMLElement, val params:Map[String,Any]) extends Bin
 }
 
 
-class Test(val elem:HTMLElement) extends BindableView{
+class Test(val elem:Element) extends BindableView{
 
 
   protected def onKeyChange(fun:Input=>Unit)(k:KeyboardEvent) =  k.target match {

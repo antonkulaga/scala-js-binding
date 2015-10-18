@@ -3,6 +3,7 @@ package org.denigma.controls
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.querki.jquery._
+import org.scalajs.dom.Element
 import org.scalajs.dom.raw.HTMLElement
 
 import scala.scalajs.js
@@ -10,8 +11,6 @@ import scala.scalajs.js
 class DatePairView(val elem:HTMLElement)  extends BasicDatePairView
 
 abstract class BasicDatePairView extends BindableView{
-
-
 
   override def bindView() = {
     this.bindElement(viewElement)
@@ -28,6 +27,7 @@ abstract class BasicDatePairView extends BindableView{
 
 }
 
-class Datepair(el:HTMLElement) extends js.Object {
+@js.native
+class Datepair(el:Element) extends js.Object {
 
 }

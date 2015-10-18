@@ -5,12 +5,13 @@ import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.ext._
 import org.scalajs.dom.raw.{HTMLTextAreaElement, HTMLInputElement, HTMLElement}
-import org.scalajs.dom.{Event, KeyboardEvent}
+import org.scalajs.dom.{Element, Event, KeyboardEvent}
 import rx._
 import rx.ops._
 import scala.collection.immutable.Map
 import scala.scalajs.js
 import scala.scalajs.js.Any
+import scala.util.{Failure, Try}
 
 /**
  * Does binding for classes
@@ -37,7 +38,7 @@ trait PropertyBinder {
    * @param el html element
    * @return
    */
-  protected def propertyPartial(el:HTMLElement):PartialFunction[(String,String),Unit] = {
+  protected def propertyPartial(el:Element):PartialFunction[(String,String),Unit] = {
     case (str,rxName) if str.contains("style-") => this.bindStyle(el,rxName,str.replace("bind-","").replace("style-",""))
     case (bname,rxName) if bname.startsWith("bind-")=>this.bindProperty(el,rxName,bname.replace("bind-",""))
     case ("html",rxName) =>
@@ -56,7 +57,7 @@ trait PropertyBinder {
     case ("bind",rxName) => bind(el,rxName)
   }
 
-  protected def bindStyle(el:HTMLElement,rxName:String,prop:String): Unit= {
+  protected def bindStyle(el:Element,rxName:String,prop:String): Unit= {
     if(strings.contains(rxName))
       stylePropertyOnRx(el,prop,strings(rxName))
     else
@@ -79,7 +80,7 @@ trait PropertyBinder {
    * @param rxName value of attribute
    * @return
    */
-  def bind(el:HTMLElement,rxName:String): Unit =  el match
+  def bind(el:Element,rxName:String): Unit =  el match
   {
     case inp:HTMLInputElement=>
       el.attributes.get("type").map(_.value.toString) match {
@@ -122,7 +123,7 @@ trait PropertyBinder {
     strings.mapValues(_.name).mkString(" | ")
   )*/
 
-  protected def subscribeInputValue[T](el:HTMLElement,rxName: String,event:String,mp:Map[String,Rx[T]])
+  protected def subscribeInputValue[T](el:Element,rxName: String,event:String,mp:Map[String,Rx[T]])
                                       (implicit js2var:js.Any=>T,var2js:T=>js.Any): Option[Rx[T]] =
     mp.get(rxName) map {
       case value=>
@@ -157,7 +158,7 @@ trait PropertyBinder {
   /**
    * subscribes property to Rx, if Rx is Var then changes Var when specified event fires
    */
-  protected def varOnEvent[T,TEvent<:dom.Event](el:HTMLElement,prop:String,value:Rx[T], event:String)
+  protected def varOnEvent[T,TEvent<:dom.Event](el:Element,prop:String,value:Rx[T], event:String)
                                                       (implicit js2var:js.Any=>T,var2js:T=>js.Any): Unit =
   {
     value.onVar { case v =>
@@ -173,21 +174,26 @@ trait PropertyBinder {
   /**
    * subscribes property to changes of Rx
    */
-  protected def propertyOnRx[T](el:HTMLElement,prop:String,value:Rx[T])(implicit conv:T=>js.Any): Unit =
+  protected def propertyOnRx[T](el:Element,prop:String,value:Rx[T])(implicit conv:T=>js.Any): Unit =
   {
     value.foreach{  case v=>
-      el.attributes.setNamedItem((prop -> v.toString).toAtt)
-      el.dyn.updateDynamic(prop)(v)
+      el.setAttribute(prop,v.toString)
+      //el.attributes.setNamedItem((prop -> v.toString).toAtt)
+      Try(el.dyn.updateDynamic(prop)(v)) match {
+        case Failure(th)=>
+          dom.console.warn(s"cannot set $prop to $value because of ${th.getMessage} with stack ${th.stackString} \nIN: ${el.outerHTML}")
+        case _=>
+      }
     }
   }
 
-  protected def stylePropertyOnRx[T](el:HTMLElement,prop:String,value:Rx[T])(implicit conv:T=>js.Any): Unit =
+  protected def stylePropertyOnRx[T](el:Element,prop:String,value:Rx[T])(implicit conv:T=>js.Any): Unit =
   {
     value.foreach{  case v=>   el.style.dyn.updateDynamic(prop)(v)  }
   }
 
   //TODO: fix this ugly piece of code
-  protected def bindProperty(el:HTMLElement,rxName:String,prop:String) = {
+  protected def bindProperty(el:Element,rxName:String,prop:String) = {
     if(strings.contains(rxName)){
       propertyOnRx(el,prop,strings(rxName))(js.Any.fromString)
     }

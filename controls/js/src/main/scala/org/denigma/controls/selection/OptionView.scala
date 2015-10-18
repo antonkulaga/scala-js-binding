@@ -5,12 +5,12 @@ import org.denigma.binding.binders.Events
 import org.denigma.binding.extensions._
 import org.denigma.binding.views._
 import org.denigma.controls.models.TextOption
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.Element
 import rx.Rx
 import rx.core.Var
 import rx.ops._
 
-class OptionView(val elem:HTMLElement,item:Var[TextOption]) extends BindableView
+class OptionView(val elem:Element,item:Var[TextOption]) extends BindableView
 {
   val label: Rx[String] = item.map(_.label)
   val value: Rx[String] = item.map(_.value)

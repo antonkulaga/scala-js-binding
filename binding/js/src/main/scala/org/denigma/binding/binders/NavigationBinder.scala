@@ -1,18 +1,15 @@
 package org.denigma.binding.binders
 
-import org.denigma.binding.extensions.sq
+import org.denigma.binding.extensions.{sq, _}
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
-import org.scalajs.dom.{Attr, MouseEvent}
-import org.scalajs.dom.ext.Ajax
-import org.scalajs.dom.raw.{XMLHttpRequest, HTMLElement}
-import org.denigma.binding.extensions._
+import org.scalajs.dom.MouseEvent
+import org.scalajs.dom.ext.{Ajax, _}
+import org.scalajs.dom.raw.{Element, HTMLElement, XMLHttpRequest}
+
+import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
 import scala.util.{Failure, Success}
-import org.denigma.binding.extensions._
-import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-import org.scalajs.dom.ext._
-
 
 class NavigationBinder(view:BindableView) extends ReactiveBinder{
 
@@ -32,7 +29,7 @@ class NavigationBinder(view:BindableView) extends ReactiveBinder{
    * @param element
    * @param into
    */
-  def makeGoToHandler(element:HTMLElement,into: String, push:Boolean = true, relativeURI:Boolean = true):js.Function1[MouseEvent, _]  =  {event:MouseEvent=>{
+  def makeGoToHandler(element:Element,into: String, push:Boolean = true, relativeURI:Boolean = true):js.Function1[MouseEvent, _]  =  {event:MouseEvent=>{
 
     event.preventDefault()
     element.attributes.get("href") match {
@@ -74,7 +71,7 @@ class NavigationBinder(view:BindableView) extends ReactiveBinder{
    * @param el
    * @return
    */
-  protected def loadIntoPartial(el:HTMLElement):PartialFunction[(String,String),Unit] = {
+  protected def loadIntoPartial(el:Element):PartialFunction[(String,String),Unit] = {
     case ("load-into",value) =>
       bindLoadInto(el,value, rel = true)
     case ("load-abs-into",value) => bindLoadInto(el,value, rel = false)
@@ -85,17 +82,21 @@ class NavigationBinder(view:BindableView) extends ReactiveBinder{
    * @param element
    * @param into
    */
-  def bindLoadInto(element:HTMLElement,into: String, rel:Boolean) =   element.onclick = this.makeGoToHandler(element,into,push = true, rel)
+  def bindLoadInto(element:Element,into: String, rel:Boolean) = {
+    element.addEventListener[MouseEvent](Events.click,
+      this.makeGoToHandler(element,into,push = true, rel)
+    )
+  }
 
-  override def bindAttributes(el: HTMLElement, ats: Map[String, String]) = {
+  override def bindAttributes(el: Element, ats: Map[String, String]) = {
     this.bindDataAttributes(el,this.dataAttributesOnly(ats))
     true
   }
 
-  def bindDataAttributes(el:HTMLElement,ats:Map[String, String]) = {
+  def bindDataAttributes(el:Element,ats:Map[String, String]) = {
     val fun: PartialFunction[(String, String), Unit] = elementPartial(el,ats).orElse{case other=>}
     ats.foreach(fun)
   }
 
-  override def elementPartial(el: HTMLElement, ats: Map[String, String]): PartialFunction[(String, String), Unit] = loadIntoPartial(el)
+  override def elementPartial(el: Element, ats: Map[String, String]): PartialFunction[(String, String), Unit] = loadIntoPartial(el)
 }

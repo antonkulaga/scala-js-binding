@@ -8,19 +8,13 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.views.ViewEvent
 import org.denigma.controls.models._
 import org.denigma.controls.sockets.WebSocketSubscriber
-import org.scalajs.dom
+import org.scalajs.dom.KeyboardEvent
 import org.scalajs.dom.ext.KeyCode
-import org.scalajs.dom.raw.{MessageEvent, FileReader}
-import org.scalajs.dom.{ProgressEvent, Blob, KeyboardEvent}
 import rx.core._
 import rx.ops._
 
 import scala.collection.immutable
 import scala.collection.immutable._
-import scala.scalajs.js.typedarray.TypedArrayBufferOps._
-import scala.scalajs.js.typedarray.{Int8Array, ArrayBuffer, TypedArrayBuffer}
-
-
 
 
 case class TextOptionsSuggester(input:Rx[String],subscriber:WebSocketSubscriber)

@@ -2,13 +2,14 @@ package org.denigma.semantic.binders.binded
 
 import org.denigma.binding.extensions._
 import org.denigma.semantic.extensions.GraphUpdate
-import org.scalajs.dom.raw.{HTMLElement, KeyboardEvent}
+import org.scalajs.dom
+import org.scalajs.dom.raw.{HTMLElement, Element, KeyboardEvent}
 import org.w3.banana._
 import rx.Rx
 import rx.core.Var
 
 class BindedTextProperty[Rdf<:RDF](
-                           el:HTMLElement,
+                           el:Element,
                            graph:Var[PointedGraph[Rdf]],
                            updates:Rx[GraphUpdate[Rdf]],
                            val predicate:Rdf#URI,
@@ -39,7 +40,7 @@ class BindedTextProperty[Rdf<:RDF](
   }
 
 
-  def addKeyChangeHandler(html:HTMLElement,prop:String)(fun:(HTMLElement,KeyboardEvent,String,String)=>Unit) = {
+  def addKeyChangeHandler(html:HTMLElement,prop:String)(fun:(Element,KeyboardEvent,String,String)=>Unit) = {
     val basic = propertyString(html,prop)
     var (oldVal,newVal) = (basic,basic)
     def onKeyUp(event:KeyboardEvent):Unit = if(event.target==event.currentTarget){
@@ -60,11 +61,16 @@ class BindedTextProperty[Rdf<:RDF](
 
   override def subscribe() = {
     super.subscribe()
-    this.addKeyChangeHandler(el,this.propertyName){
-      case (elem,ev,oldValue,newValue)=>
-        updateFromHTML()
-      //dom.console.log(s"change is from $oldValue to $newValue")
+    el match {
+      case e:HTMLElement=>
+        this.addKeyChangeHandler(e,this.propertyName){
+          case (elem,ev,oldValue,newValue)=>
+            updateFromHTML()
+          //dom.console.log(s"change is from $oldValue to $newValue")
+        }
+      case _ => dom.console.log("cannot addKeyChangeHandler to nonHTMLElement")
     }
+
   }
 
 

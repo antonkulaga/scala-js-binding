@@ -3,11 +3,11 @@ package org.denigma.semantic.models
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.WebPlatform
 import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.Element
 import org.w3.banana.{PointedGraph, RDF, RDFOps}
 import rx.core.Var
 
-abstract class ModelView[Rdf<:RDF](val elem:HTMLElement,val  subjectOpt:Option[Rdf#URI] = None)(implicit ops:RDFOps[Rdf]) extends BindableView
+abstract class ModelView[Rdf<:RDF](val elem:Element,val  subjectOpt:Option[Rdf#URI] = None)(implicit ops:RDFOps[Rdf]) extends BindableView
 {
   import ops._
 

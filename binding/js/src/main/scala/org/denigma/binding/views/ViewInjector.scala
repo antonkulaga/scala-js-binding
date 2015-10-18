@@ -1,9 +1,7 @@
 package org.denigma.binding.views
 
-import org.denigma.binding.binders.Binder
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.Element
 
-import scala.Predef
 import scala.collection.immutable.Map
 import scala.util.Try
 
@@ -27,25 +25,25 @@ trait ViewInjector[View <:OrganizedView]
   def view:View
 
 
-  def factories:Map[String,(HTMLElement,Map[String,Any])=>Try[View#ChildView]]
+  def factories:Map[String,(Element,Map[String,Any])=>Try[View#ChildView]]
 
-  def inject(viewName:String, element:HTMLElement, params:Map[String,Any],goUp:Boolean = true): Option[Try[View#ChildView]] =
+  def inject(viewName:String, element:Element, params:Map[String,Any],goUp:Boolean = true): Option[Try[View#ChildView]] =
     this.factories.get(viewName).map(vf=>vf(element,params)) match {
       case None => if(goUp) parentInjection(viewName,element,params) else None
       case other => other
     }
 
 
-  protected def parentInjection(viewName:String, element:HTMLElement, params:Map[String,Any]): Option[Try[View#ChildView]]
+  protected def parentInjection(viewName:String, element:Element, params:Map[String,Any]): Option[Try[View#ChildView]]
 
-  def register(name:String)(init:(HTMLElement,Map[String,Any])=>View#ChildView):This = tryRegister(name)((el,args)=>Try(init(el,args)))
+  def register(name:String)(init:(Element,Map[String,Any])=>View#ChildView):This = tryRegister(name)((el,args)=>Try(init(el,args)))
 
-  def tryRegister(name:String)(init:(HTMLElement,Map[String,Any])=>Try[View#ChildView]):This
+  def tryRegister(name:String)(init:(Element,Map[String,Any])=>Try[View#ChildView]):This
 
 }
 
 
 trait Injector[ChildView<:BasicView] {
 
-  def inject(viewName:String,element:HTMLElement,params:Map[String,Any]):Option[Try[ChildView]]
+  def inject(viewName:String,element:Element,params:Map[String,Any]):Option[Try[ChildView]]
 }

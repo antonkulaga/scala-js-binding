@@ -16,17 +16,15 @@ import scala.scalajs.js.Dynamic.{global => g}
 /**
  * Useful implicit classes
  */
-package object extensions extends AttributesOps with AnyJsExtensions with RxExt with Functions with EventsOps {
+package object extensions extends AttributesOps
+  with AnyJsExtensions
+  with RxExt
+  with Functions
+  with ElementOps
+  with EventsOps {
 
   implicit def toAnyRxW[T](source:Rx[T]):AnyRxW[T] = new AnyRxW[T](source)
 
-  /*implicit class AnyRx[T,M](source:Rx[T])
-  {
-    import rx.ops._
-    def mapAfter[A](f: T => A) = source.map(fun)
-    scalajs.js.timers
-  }
-  */
   implicit class OptionOpt[T](source:Option[T]){
 
     def orError(str:String) = if(source.isEmpty) dom.console.error(str)

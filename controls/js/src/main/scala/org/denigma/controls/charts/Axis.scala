@@ -1,10 +1,12 @@
 package org.denigma.controls.charts
 
 import org.denigma.binding.binders.GeneralBinder
-import org.denigma.binding.views.{BasicView, ItemsSeqView, CollectionView, BindableView}
+import org.denigma.binding.views.{BindableView, ItemsSeqView}
+import org.scalajs.dom.Element
 import org.scalajs.dom.raw.HTMLElement
-import rx.core.{Var, Rx}
+import rx.core.{Rx, Var}
 import rx.ops._
+
 import scala.collection.immutable._
 
 case class Tick(name:String,value:Double)
@@ -40,7 +42,7 @@ trait Scale
     }
 }
 
-class AxisView(val elem:HTMLElement,  scale:Scale, unit:String)
+class AxisView(val elem:Element,  scale:Scale, unit:String)
   extends BindableView with ItemsSeqView{
 
   override type Item = Var[Tick]
@@ -49,7 +51,7 @@ class AxisView(val elem:HTMLElement,  scale:Scale, unit:String)
 
   override val items:Rx[Seq[Item]] = scale.items.map(_.map(i=>Var(new Tick(s"$i $unit",i))))
 
-  println(s"Axis works with \n${items.now.map(_.now.value).toList.mkString(" | ")}")
+  //println(s"Axis works with \n${items.now.map(_.now.value).toList.mkString(" | ")}")
 
 /*
   /**
@@ -65,7 +67,7 @@ class AxisView(val elem:HTMLElement,  scale:Scale, unit:String)
 
 }
 
-class TickView(val elem:HTMLElement,tick:Rx[Tick],val length:Rx[Double]) extends BindableView{
+class TickView(val elem:Element,tick:Rx[Tick],val length:Rx[Double]) extends BindableView{
   val label = tick.map(t=>t.name)
   val value = tick.map(_.value)
   //println(cord2.now)

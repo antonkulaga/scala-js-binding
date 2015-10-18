@@ -64,13 +64,13 @@ So in order to use the library you have to add bintray sbt plugin to your sbt co
 In order to resolve a lib you should add a resolver::
 ```scala
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-libraryDependencies += "org.denigma" %%% "binding" % "0.8.0-M1"
+libraryDependencies += "org.denigma" %%% "binding" % "0.8.0-M5"
 ```
 
 If you want to use semantic-web binding (binding to RDF Graphs) than also add 
 
 ```scala
-libraryDependencies += "org.denigma" %%% "semantic-binding" % "0.8.0-M1"
+libraryDependencies += "org.denigma" %%% "semantic-binding" % "0.8.0-M5"
 ```
 
 The library is published for scalajs 0.6.x and scala 2.11.7

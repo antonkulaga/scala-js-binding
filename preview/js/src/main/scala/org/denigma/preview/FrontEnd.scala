@@ -9,7 +9,7 @@ import org.denigma.controls.charts.ScatterPlot
 import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.login.{AjaxSession, LoginView}
 import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.Element
 import org.semantic.SidebarConfig
 import rx.core.Var
 
@@ -40,7 +40,7 @@ object Measurement
 case class Measurement(sample:Sample = Sample("unknown","unknown"),diode:String = "unknown",value:Double,date:Date = new Date())
 case class Sample(name:String,Description:String = "")
 import rx.ops._
-class MeasurementView(val elem:HTMLElement,measurement:Var[Measurement]) extends BindableView
+class MeasurementView(val elem:Element,measurement:Var[Measurement]) extends BindableView
 {
   val sample = measurement.map(m=>m.sample.name)
   val datetime = measurement.map(m=>m.date.getTime.toString)
@@ -48,7 +48,7 @@ class MeasurementView(val elem:HTMLElement,measurement:Var[Measurement]) extends
   val value = measurement.map(m=>m.value.toString)
 }
 
-class Experiments(val elem:HTMLElement) extends BindableView with ItemsSetView
+class Experiments(val elem:Element) extends BindableView with ItemsSetView
 {
   override type Item = Var[Measurement]
 
@@ -85,7 +85,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   override def name = "main"
 
-  lazy val elem: HTMLElement = dom.document.body
+  lazy val elem: Element = dom.document.body
 
   val sidebarargs = SidebarConfig.exclusive(false).dimPage(false).closable(false).useLegacy(true)
 

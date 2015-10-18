@@ -2,30 +2,29 @@ package org.denigma.binding.views
 
 import org.denigma.binding.extensions._
 import org.scalajs.dom
-import org.scalajs.dom.raw.{HTMLDocument, HTMLElement}
+import org.scalajs.dom.raw.{Element, HTMLDocument}
 
 import scala.collection.immutable.Map
 import scala.scalajs.js
-import scala.scalajs.js.Dynamic.{global => g}
 import scala.util.{Failure, Success, Try}
 
 object OrganizedView {
 
   case class OrganizedInjector(
                                 view:OrganizedView,
-                               factories:Map[String,(HTMLElement,Map[String,Any])=>Try[OrganizedView#ChildView]])
+                               factories:Map[String,(Element,Map[String,Any])=>Try[OrganizedView#ChildView]])
     extends ViewInjector[OrganizedView]
   {
     self=>
 
     override type This = OrganizedInjector
 
-    override def tryRegister(name:String)(init:(HTMLElement,Map[String,Any])=>Try[OrganizedView#ChildView]) =
+    override def tryRegister(name:String)(init:(Element,Map[String,Any])=>Try[OrganizedView#ChildView]) =
       this.copy(factories = self.factories+(name->init))
 
   override protected def parentInjection(
                                             viewName: String,
-                                            element: HTMLElement,
+                                            element: Element,
                                             params: Map[String, Any])
     =  view.fromParents{ case p:OrganizedView=>p.injector.inject(viewName,element,params)}.flatten
   }
@@ -37,7 +36,7 @@ object OrganizedView {
       lazy val injector = OrganizedInjector(view,Map.empty)
     }
 
-  implicit def injector(vf:(OrganizedView,Map[String,(HTMLElement,Map[String,Any])
+  implicit def injector(vf:(OrganizedView,Map[String,(Element,Map[String,Any])
                            =>Try[OrganizedView#ChildView]])): InjectorMagnet[OrganizedView] =
 
     new InjectorMagnet[OrganizedView]  {
@@ -46,8 +45,6 @@ object OrganizedView {
     }
 
 }
-
-
 
 /**
  * An abstract hirercial view that provides methods to work with hirercy
@@ -68,7 +65,7 @@ abstract class OrganizedView extends BasicView
   def isTopView = this.topView == this
 
 
-  override def inject(viewName:String,el:HTMLElement,params:Map[String,Any]): ChildView =
+  override def inject(viewName:String,el:Element,params:Map[String,Any]): ChildView =
   {
     injector.inject(viewName,el,params) match {
       case Some(tr)=>
@@ -98,7 +95,7 @@ abstract class OrganizedView extends BasicView
    * @param newInnerHTML new content of the inner html
    * @param uri uri (for push state)
    */
-  def loadElementInto(el:HTMLElement, newInnerHTML:String,uri:String=""): Unit =  if(this.isTopView)
+  def loadElementInto(el:Element, newInnerHTML:String,uri:String=""): Unit =  if(this.isTopView)
   {
     val params = js.Dynamic.literal( "html" -> newInnerHTML)
     if(uri!="") dom.window.history.pushState(params,dom.document.title,uri)
@@ -156,7 +153,7 @@ abstract class OrganizedView extends BasicView
    * @param el element which inner html will change
    * @param newInnerHTML new inner html value
    */
-  override def switchInner(el:HTMLElement, newInnerHTML:String) = {
+  override def switchInner(el:Element, newInnerHTML:String) = {
     removeSubViewsFrom(el)
     el.innerHTML = newInnerHTML
     bindElement(el)
@@ -168,7 +165,7 @@ abstract class OrganizedView extends BasicView
    * @param el
    * @return
    */
-  def findNearestParentViewName(el:HTMLElement):Option[String] = this.viewFrom(el) match {
+  def findNearestParentViewName(el:Element):Option[String] = this.viewFrom(el) match {
     case Some(att)=>Some(att)
     case None=> if(el.parentElement.isNullOrUndef) None else this.findNearestParentViewName(el.parentElement)
   }
@@ -196,7 +193,7 @@ abstract class OrganizedView extends BasicView
    * Removes view, starts search from the top
    * @param element
    */
-  def removeWithView(element:HTMLElement) = {
+  def removeWithView(element:Element) = {
     for {
       v <-this.viewFrom(element)
       view <-this.topView.findView(v)
@@ -211,7 +208,7 @@ abstract class OrganizedView extends BasicView
    * Removes all subviews that were inside element in the tree
    * @param element
    */
-  def removeSubViewsFrom(element:HTMLElement) =
+  def removeSubViewsFrom(element:Element) =
   {
     val toRemove = this.subviews.collect{case (key,value) if value.isInside(element)=>key}.toSet
     toRemove.foreach(r=>this.removeViewByName(r))
@@ -234,7 +231,7 @@ abstract class OrganizedView extends BasicView
    * @param viewId
    * @param newElement
    */
-  def refreshChildView(viewId:String,newElement:HTMLElement):Unit = this.findView(viewId) match {
+  def refreshChildView(viewId:String,newElement:Element):Unit = this.findView(viewId) match {
     case Some(v:OrganizedView)=>
       v.refreshMe(newElement)
     case None=>
@@ -261,7 +258,7 @@ abstract class OrganizedView extends BasicView
    * Replaces viewElement of the view and rebinds it
    * @param newElement
    */
-  def refreshMe(newElement:HTMLElement) = this.parent match {
+  def refreshMe(newElement:Element) = this.parent match {
     case Some(pv)=>
 
       //dom.console.info("before = "+pv.subviews.toString())

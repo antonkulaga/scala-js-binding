@@ -4,7 +4,7 @@ import org.scalajs.dom
 
 import scala.scalajs.js
 
-
+@js.native
 object Functions extends js.GlobalScope{
 
   def encodeURIComponent(text:String):String = js.native

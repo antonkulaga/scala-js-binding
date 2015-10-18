@@ -6,7 +6,7 @@ import org.denigma.binding.views._
 import org.denigma.semantic.binders._
 import org.denigma.semantic.binders.binded.Typed
 import org.denigma.semantic.extensions.GraphUpdate
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.Element
 import org.w3.banana.{PointedGraph, RDF, RDFOps}
 import rx.Rx
 import rx.core.Var
@@ -16,7 +16,7 @@ import scala.collection.immutable.SortedSet
 
 class SemanticSelectBinder[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],resolver:Resolver[Rdf]) extends RDFModelBinder[Rdf](graph,resolver)
 {
-  override def bindAttributes(el: HTMLElement, attributes: Map[String, String]): Boolean = {
+  override def bindAttributes(el: Element, attributes: Map[String, String]): Boolean = {
     attributes.contains("property")
   }
 }
@@ -47,7 +47,7 @@ case class SelectTripleOption[Rdf<:RDF](item:Var[TripleSelection[Rdf]],origin:Bi
 
 }
 
-class SemanticOptionView[Rdf<:RDF](val elem:HTMLElement,item:Var[TripleSelection[Rdf]],val params:Map[String,Any]) extends BindableView
+class SemanticOptionView[Rdf<:RDF](val elem:Element,item:Var[TripleSelection[Rdf]],val params:Map[String,Any]) extends BindableView
 {
 
   val label: Rx[String] = item.map(_.label)
@@ -66,7 +66,7 @@ class SemanticOptionView[Rdf<:RDF](val elem:HTMLElement,item:Var[TripleSelection
 
 }
 
-class SemanticSelectionView[Rdf<:RDF](val elem:HTMLElement,
+class SemanticSelectionView[Rdf<:RDF](val elem:Element,
                                       val graph:Var[PointedGraph[Rdf]],
                                       val graphUpdates: Rx[GraphUpdate[Rdf]],
                                       //val suggester:  TypedSuggester,

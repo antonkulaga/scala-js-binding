@@ -7,12 +7,11 @@ import org.denigma.controls.models.TextOption
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.ext.KeyCode
-import org.scalajs.dom.raw.HTMLElement
 import rx.Rx
 import rx.core.Var
 import rx.ops._
 
-class TextOptionsView(val elem:HTMLElement,
+class TextOptionsView(val elem:Element,
                         val items: Rx[scala.collection.immutable.Seq[Var[TextOption]]],
                         onkeydown: Var[KeyboardEvent]
                          )

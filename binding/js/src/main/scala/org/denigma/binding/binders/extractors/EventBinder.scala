@@ -20,7 +20,7 @@ trait EventBinder extends ReactiveBinder
   protected def keyboardEvents:Map[String,Var[KeyboardEvent]]
 
 
-  def eventsPartial(el:HTMLElement):PartialFunction[(String,String),Unit] = {
+  def eventsPartial(el:Element):PartialFunction[(String,String),Unit] = {
     case (key,value) if key =="event-click" | key=="click" | key == "event-mouse-click" =>
       this.bindMapItem(el,mouseEvents,key,value) { case (e, v) =>
         e.addEventListener[MouseEvent](Events.click,{ev:MouseEvent=>v()=ev})

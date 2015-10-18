@@ -2,12 +2,10 @@ package org.denigma.semantic.binders
 
 import org.denigma.binding.binders.ReactiveBinder
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.BindableView
 import org.scalajs.dom
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.Element
 import org.w3.banana._
-import rx.Rx
-import rx.core.{Obs, Var}
+import rx.core.Var
 
 import scala.collection.immutable.Map
 
@@ -59,12 +57,11 @@ class RDFBinder[Rdf<:RDF](resolver:Resolver[Rdf]) extends ReactiveBinder
 {
 
   import resolver.ops
-  import ops._
 
 
   implicit val context = ops.makeUri("http://"+dom.location.hostname) //TODO: deprecate
 
-  def elementPartial(el: HTMLElement,ats:Map[String, String]): PartialFunction[(String,String),Unit] = rdfPartial(el,ats)
+  def elementPartial(el: Element,ats:Map[String, String]): PartialFunction[(String,String),Unit] = rdfPartial(el,ats)
 
   protected def vocabPartial: PartialFunction[(String,String), Unit] ={
 
@@ -75,5 +72,5 @@ class RDFBinder[Rdf<:RDF](resolver:Resolver[Rdf]) extends ReactiveBinder
   }
 
 
-  protected def rdfPartial(el: HTMLElement, ats:Map[String,String]): PartialFunction[(String,String), Unit] =  this.vocabPartial
+  protected def rdfPartial(el: Element, ats:Map[String,String]): PartialFunction[(String,String), Unit] =  this.vocabPartial
 }
