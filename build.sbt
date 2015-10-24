@@ -13,11 +13,12 @@ import spray.revolver.RevolverPlugin._
 lazy val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
 
 lazy val publishSettings = Seq(
-  bintrayRepository := "denigma-releases",
-  bintrayOrganization := Some("denigma"),
-  licenses += ("MPL-2.0", url("http://opensource.org/licenses/MPL-2.0")),
-  bintrayPublishIvyStyle := true
-)
+    bintrayRepository := "denigma-releases",
+    bintrayOrganization := Some("denigma"),
+    licenses += ("MPL-2.0", url("http://opensource.org/licenses/MPL-2.0")),
+    bintrayPublishIvyStyle := true,
+    developers := Developer("antonkulaga","Anton Kulaga","antonkulaga@gmail.com",new URL("https://github.com/antonkulaga"))::Nil
+  )
 
 /**
  * For parts of the project that we will not publish
@@ -157,13 +158,7 @@ lazy val preview = crossProject
 			persistLauncher in Compile := true,
 			persistLauncher in Test := false,
 			libraryDependencies ++= Dependencies.previewJS.value,
-			jsDependencies += RuntimeDOM % "test",
-			sourceMapsDirectories :=Seq(
-			  (baseDirectory in semanticJS).value ,
-			  (baseDirectory in controlsJS).value ,
-			  (baseDirectory in bindingJS).value ,
-			  (baseDirectory in macroJS).value
-			  )
+			jsDependencies += RuntimeDOM % "test"
 		)
 		.jvmSettings(Revolver.settings:_*)
 		.jvmConfigure(p=>p.enablePlugins(SbtTwirl,SbtWeb).enablePlugins(PlayScalaJS)) //despite "Play" in name it is actually sbtweb-related plugin
@@ -182,11 +177,21 @@ lazy val preview = crossProject
 		).dependsOn(semantic,controls)
 
 lazy val previewJS = preview.js
-lazy val previewJVM = preview.jvm settings( scalaJSProjects := Seq(previewJS) )
+lazy val previewJVM = preview.jvm settings(
+  version := Versions.binding,
+  scalaJSProjects := Seq(previewJS)
+  )
 
 
 lazy val root = Project("root",file("."),settings = commonSettings)
   .settings(
+    name := "scala-js-binding-preview",
+    version := Versions.binding,
+    //javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint"),
     mainClass in Compile := (mainClass in previewJVM in Compile).value,
-    (fullClasspath in Runtime) += (packageBin in previewJVM in Assets).value
-  ) dependsOn previewJVM aggregate(previewJVM, previewJS)
+    (fullClasspath in Runtime) += (packageBin in previewJVM in Assets).value,
+    maintainer := "Anton Kulaga <antonkulaga@gmail.com>",
+    packageSummary := "scala-js-binding",
+    packageDescription := """Scala-js-binding preview App"""
+    // general package information (can be scoped to Windows)
+     ) dependsOn previewJVM aggregate(previewJVM, previewJS) enablePlugins(JavaServerAppPackaging)

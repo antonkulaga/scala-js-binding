@@ -1,10 +1,7 @@
-@(into:String = "main",leftSidebar:Boolean = true)
+@(into:String = "main")
 <script src="/resources/preview-fastopt.js"></script>
 <script>
 $( document ).ready(function() {
     FrontEnd().main(); //activate ScalaJS main class
-    @if(leftSidebar) {
-    FrontEnd().showLeftSidebar(); //activate sidebar (if exists)
-    }
 });
 </script>

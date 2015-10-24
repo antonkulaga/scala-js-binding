@@ -30,8 +30,6 @@ Usually bindings are done to reactive variables (see further), but binders are s
  so one can define whatever binder (s)he wants. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
 
 Binders are the classes that bind ScalaJS view to html elements. Each view can have many different binders. 
-Common usage practise is extending one of abstract classes in binding or semantic-binding package and adding binders by defining them
-in overrides of def attachBinders() method.
 
 
 Getting started
@@ -64,13 +62,13 @@ So in order to use the library you have to add bintray sbt plugin to your sbt co
 In order to resolve a lib you should add a resolver::
 ```scala
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-libraryDependencies += "org.denigma" %%% "binding" % "0.8.0-M5"
+libraryDependencies += "org.denigma" %%% "binding" % "0.8.0-M6"
 ```
 
 If you want to use semantic-web binding (binding to RDF Graphs) than also add 
 
 ```scala
-libraryDependencies += "org.denigma" %%% "semantic-binding" % "0.8.0-M5"
+libraryDependencies += "org.denigma" %%% "semantic-binding" % "0.8.0-M6"
 ```
 
 The library is published for scalajs 0.6.x and scala 2.11.7

@@ -11,7 +11,8 @@ import rx.ops._
 import scala.collection.immutable.Map
 import scala.scalajs.js
 import scala.scalajs.js.Any
-import scala.util.{Failure, Try}
+import scala.util.{Success, Failure, Try}
+import scala.language.implicitConversions
 
 /**
  * Does binding for classes
@@ -43,10 +44,10 @@ trait PropertyBinder {
     case (bname,rxName) if bname.startsWith("bind-")=>this.bindProperty(el,rxName,bname.replace("bind-",""))
     case ("html",rxName) =>
       strings.get(rxName) match {
-        case Some(str)=>
+        case Some(value)=>
           val prop = "innerHTML"
-          str.foreach(s=>el.dyn.updateDynamic(prop)(s))
-          str.onVar { case v =>
+          value.foreach(s=>el.dyn.updateDynamic(prop)(s))
+          value.onVar { case v =>
             el.addEventListener(Events.change,(ev: Event) => {
              if(ev.target==ev.currentTarget) el.onExists(prop)(value => v.set(value.toString)) }
           )
@@ -91,6 +92,9 @@ trait PropertyBinder {
           //ifNoID(el, att)
           //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
           subscribeInputValue(el,rxName,Events.keyup,strings)
+            .orElse(subscribeInputValue(el,rxName,Events.keyup,doubles))
+            .orElse(subscribeInputValue(el,rxName,Events.keyup,ints))
+            .orElse(subscribeInputValue(el,rxName,Events.keyup,bools)).orError(s"cannot find ${rxName} in ${allValues}")
       }
     case area:HTMLTextAreaElement =>
       //ifNoID(el, att+"_textarea")
@@ -102,26 +106,20 @@ trait PropertyBinder {
     //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
 
     case other=>
-      strings.get(rxName) match {
+      val prop = "innerHTML"
+      strings.get(rxName)
+      match {
         case Some(value)=>
-          val prop = "innerHTML"
           propertyOnRx(el,prop,value)
           varOnEvent[String,Event](el,prop,value,Events.change)
-        case None => dom.console.error(s"cannot find $rxName for innerHtml")
+        case None => bindProperty(el,rxName,prop)
       }
-      //subscribeProperty[Event](el,att,"textContent",Events.change)
-
   }
 
   protected def cannotFind[T](rxName:String,prop:String,mp:Map[String,Rx[T]]) =
     dom.console.error(s"cannot find $rxName reactive variable for prop $prop\n, all values are: \n"+
       mp.mapValues(_.name).mkString(" | ")
     )
-
-  /*protected def cannotFindStr(rxName:String,prop:String) =
-    dom.console.error(s"cannot find $rxName string reactive variable for prop $prop\n, all strings are: \n"+
-    strings.mapValues(_.name).mkString(" | ")
-  )*/
 
   protected def subscribeInputValue[T](el:Element,rxName: String,event:String,mp:Map[String,Rx[T]])
                                       (implicit js2var:js.Any=>T,var2js:T=>js.Any): Option[Rx[T]] =
@@ -134,8 +132,8 @@ trait PropertyBinder {
                 s=>
                   val (start,end) =(inp.selectionStart,inp.selectionEnd)
                   inp.value = s.toString
-                  inp.selectionStart = start
-                  inp.selectionEnd = end
+                  if(inp.selectionStart!=start) inp.selectionStart = start
+                  if(inp.selectionEnd!=end) inp.selectionEnd = end
               }
 
             case area:HTMLTextAreaElement=>
@@ -143,32 +141,44 @@ trait PropertyBinder {
                 s=>
                   val (start,end) =(area.selectionStart,area.selectionEnd)
                   area.value = s.toString
-                  area.selectionStart = start
-                  area.selectionEnd = end
+                  if(area.selectionStart!=start) area.selectionStart = start
+                  if(area.selectionEnd!=end) area.selectionEnd = end
               }
 
             case other=> propertyOnRx(el,prop,value)
           }
-          varOnEvent[T,KeyboardEvent](el,prop,value,event)(js2var,var2js)
+          varOnEvent[T,KeyboardEvent](el,prop,value,event)(js2var)
           //propertyOnRx(el,prop,value)
           value
   }
 
 
-  /**
-   * subscribes property to Rx, if Rx is Var then changes Var when specified event fires
-   */
-  protected def varOnEvent[T,TEvent<:dom.Event](el:Element,prop:String,value:Rx[T], event:String)
-                                                      (implicit js2var:js.Any=>T,var2js:T=>js.Any): Unit =
-  {
-    value.onVar { case v =>
-      el.addEventListener[TEvent](event,(ev: TEvent) => {
-             if(ev.target==ev.currentTarget) el.onExists(prop)(value => v.set(js2var(value))) }
-          )
-      v.set(var2js(el.dyn.selectDynamic(prop)))
-    }
+  protected def trySetValue[T](value:Rx[T]) = {
+
   }
 
+  /**
+   * subscribes property to Rx, if Rx is Var then changes Var when specified event fires
+   * TODO: write safe version of the function
+   */
+  protected def varOnEvent[T,TEvent<:dom.Event](el:Element,prop:String,value:Rx[T], event:String)
+                                                      (implicit js2var:js.Any=>T): Unit =
+  {
+
+    value.onVar { case v =>
+      el.addEventListener[TEvent](event,(ev: TEvent) => {
+             if(ev.target==ev.currentTarget) el.onExists(prop){
+              case newValue=>
+                Try(js2var(newValue)) match {
+                  case Success(newVal)=> v.set(newVal)
+                  case Failure(th)=> dom.console.warn(s"cannot convert ${newValue} to Var , failure: ${th}")
+                }
+              }
+             }
+        )
+      v.set(js2var(el.dyn.selectDynamic(prop)))
+    }
+  }
 
 
   /**
@@ -194,18 +204,23 @@ trait PropertyBinder {
 
   //TODO: fix this ugly piece of code
   protected def bindProperty(el:Element,rxName:String,prop:String) = {
-    if(strings.contains(rxName)){
+    if(strings.contains(rxName))
+    {
       propertyOnRx(el,prop,strings(rxName))(js.Any.fromString)
     }
-    else if(doubles.contains(rxName)){
+    else if(doubles.contains(rxName))
+    {
       propertyOnRx(el,prop,doubles(rxName))(js.Any.fromDouble)
     }
-    else if(ints.contains(rxName)){
+    else if(ints.contains(rxName))
+    {
       propertyOnRx(el,prop,ints(rxName))(js.Any.fromInt)
     }
-    else if(bools.contains(rxName)){
+    else if(bools.contains(rxName))
+    {
       propertyOnRx(el,prop,bools(rxName))(js.Any.fromBoolean)
-    } else cannotFind(rxName,prop,allValues)
+    }
+    else cannotFind(rxName,prop,allValues)
   }
 
 }

@@ -114,7 +114,12 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
         .withBinder(new NavigationBinder(_))
     }
     .register("BindSlide"){
-      case (el,args)=>new BindSlide(el).withBinder(new CodeBinder(_))
+      case (el,args)=>
+        new BindSlide(el).withBinder{ case v =>
+          val cb = new CodeBinder(v)
+          println("KEYS = " + cb.strings.keys)
+          cb
+        }
     }
       .register("CollectionSlide")
       {case (el, args) =>
@@ -122,7 +127,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     }.register("ControlSlide"){ case (el,args) =>
       new ControlSlide(el,args).withBinder(new CodeBinder(_))
     }
-    .register("random"){case (el,args)=> new RandomView(el).withBinder(view=>new CodeBinder(view)) }
+    .register("DemoView"){case (el,args)=> new DemoView(el).withBinder(view=>new CodeBinder(view)) }
     .register("lists"){ case (el,args)=>new LongListView(el).withBinder(view=>new CodeBinder(view))}
     .register("test-macro"){case (el,args)=>new TestMacroView(el).withBinder(view=>new CodeBinder(view))}
     .register("RdfSlide"){case (el,args)=>new RdfSlide(el).withBinder(view=>new CodeBinder(view))}
@@ -137,16 +142,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
   @JSExport
   def main(): Unit = {
     this.bindView()
-  }
-
-  @JSExport
-  def showLeftSidebar() = {
-/*    import org.denigma.binding.extensions._
-    val sidebar = $(".top.sidebar").sidebar(sidebarargs)
-    sidebar.asInstanceOf[js.Dynamic]("settings","transition","uncover")
-    sidebar.show()
-    //.dyn.sidebar("settings","transition","uncover"))*/
-    //$(".main.menu").asInstanceOf[js.Dynamic].sticky()
   }
 
   @JSExport

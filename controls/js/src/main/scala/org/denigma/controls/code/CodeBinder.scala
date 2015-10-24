@@ -18,7 +18,7 @@ class CodeBinder[View<:BindableView,Binder<:ReactiveBinder](view:View,recover:Op
                                     (implicit
                                      mpMap:MapRxMap[View], mpTag:TagRxMap[View],
                                      mpString:StringRxMap[View],  mpBool:BooleanRxMap[View],
-                                     mpDouble:DoubleRxMap[View],mpInt:IntRxMap[View],
+                                     mpDouble:DoubleRxMap[View], mpInt:IntRxMap[View],
                                      mpEvent:EventMap[View],  mpMouse:MouseEventMap[View],
                                      mpText:TextEventMap[View], mpKey:KeyEventMap[View],
                                      mpUI:UIEventMap[View], mpWheel:WheelEventMap[View], mpFocus:FocusEventMap[View]
@@ -100,7 +100,9 @@ extends GeneralBinder[View,Binder](view, recover)(
 
     case Some(str)=> this.makeCode(el,str,mode)
     case None=>
-      dom.console.error(s"cannot find code stringRx $value in ${view.id}\n ; all string keys are:\n ${allStringsKeys}")
+      dom.console.error(s"cannot find code stringRx $value in ${view.id} \n" +
+        s"all string keys are:\n ${allStringsKeys}\n" +
+        s"html element is ${view.elem.outerHTML}")
   }
 
   protected def codeFromElement(el: Element, str: Var[String]): Unit = {

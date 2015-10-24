@@ -1,0 +1,39 @@
+@()
+<section class="ui equal width grid">
+  <div class="ui row">
+    <section class="ui column ">
+      <div class="ui segment">
+        <div class="ui label">a = </div>
+        <input data-bind="a" size="6">
+      </div>
+      <div class="ui segment">
+        <div class="ui label">b = </div>
+        <input data-bind="b" size="6">
+      </div>
+    </section>
+    <section class="ui middle aligned column ">
+      <div class="ui circular segment">
+        <div class="ui label">c = a + b</div>
+        <div class="ui label" data-bind="c"></div>
+      </div>
+    </section>
+
+    <section class="ui column ">
+      <div class="ui circular segment">
+        <div class="ui label">d = c * 5</div>
+        <div class="ui label" data-bind="d"></div>
+      </div>
+      <br>
+      <div class="ui circular segment">
+        <div class="ui label">e = c + 4 </div>
+        <div class="ui label" data-bind="e"></div>
+      </div>
+    </section>
+    <section class="ui column middle aligned">
+      <div class="ui circular segment">
+        <div class="ui label">f = d + e + 4</div>
+        <div class="ui label" data-bind="f"></div>
+      </div>
+    </section>
+  </div>
+</section>

@@ -1,101 +1,134 @@
 @(title:String)
 <article id="main_article" data-view="BindSlide" class="ui blue piled segment">
 
-    <div class="ui three column grid">
-        <section class="row">
-            <div class="column"> <section data-html="counting"></section>
-
-                <p class="ui segment">
-                Consider a simple example. Here you can see several text areas and inputs.
-                </p>
-                <p class="ui segment">
-                    In current example foo input/textarea are binded to <b>foo</b> variable, and bar - to <b>bar</b> variable,
-                        you can notice binding by changing inputs/textareas text
-
-                </p>
-            </div>
-            <div class="column">
-                @binding.html.random()
-            </div>
+    <div class="ui equal width middle aligned grid">
+        <section class="equal width row">
+            <column class="column ui message"><h1 class="ui orange header">Core elements of scala-js-binding</h1>
+            </column>
+            <column class="column ui message">are reactive variables, views and binders
+            </column>
         </section>
-
-        <section class="row">
-            <div class="column ui segment">
-                <p>
-                    Let's look into html part.
-                    Here at the beginning property <b>data-view="random"</b>  attaches <b>RandomView</b> scala class to corresponding div tag.
+        <section class="equal width row">
+            <column class="column ui message">
+                <h1 class="ui orange header">How do reactive variables work?</h1>
+                <p>Reactive variables are smart variables who automatically update themselves when the values they depend on change (see <a href="https://github.com/lihaoyi/scala.rx">scala.rx docs</a> to understand the concept better).
                 </p>
                 <p>
-                Then one <b>h1</b> with id "count" is completely binded to some html property of RandomView. Then several inputs are binded to corresponding
-                    string reactive variable ( data-bind="foo" and data-bind="bar")
+                    For the sake of example let's make several reactive variables that depend on each other. Here is an image of the dataflow graph.
                 </p>
+                <p>When you change <b>a</b> or <b>b</b> changes are propagated to all reactive variables that depend on them.
+                    As you see from a code example and a live demo one the right it is just a matter of several lines of code to compose a data-flow with reactive variables.
+                    </p>
                 <p>
-                    All bindings inside of children tags will be to properties of this view. There is a view hierarchy. Each view can have subviews.
-                    Usually mains view attached to body tag is created. In quoted sample there are bindings to isSigned and logoutClick reactive variables.
+                    The mission of Scala-js binding library is to connect HTML properties, styles and events to scalajs classes and different variables inside them.
                 </p>
+            </column>
+            <column class="column ui message">
+                <h1 class="ui orange header">Data flow graph</h1>
+                <img src="/resources/rx-graph.png">
+                <h1 class="ui orange header">ScalaJS code</h1>
+                <textarea data-code-scala="flowScala"></textarea>
+            </column>
+            <column class="column ui message">
+                @binding.html.flow()
 
-            </div>
-
-            <div class="column">
-                <div data-bind-code="html" data-mode="htmlmixed">
-                    <section class="ui" data-view="random">
-                        <h1 class="ui purple large header" data-bind="bar"></h1>
-
-                        <div class="ui two column grid">
-                            <section class="row">
-                                <div class="column">
-                                    <input class="ui input" data-bind="foo">
-                                    <textarea class="ui textarea" data-bind="foo"></textarea>
-                                </div>
-                                <div class="column">
-                                    <textarea class="ui textarea" data-bind="bar"></textarea>
-                                    <input class="ui input"  data-bind="bar">
-                                </div>
-                            </section>
-
-                        </div>
-
-                        <h1 class="ui teal large header" data-bind="foo"></h1>
-                    </section>
-                </div>
-            </div>
+            </column>
         </section>
-
-        <section class="row">
-            <div class="column ui segment">
+        <section class="equal width row">
+            <column class="column ui message">
+                <h1 class="ui orange header">How do views work?</h1>
+                <p>Views are ScalaJS classes that contain most of interface logic and that connect to HTML Trees.
+                    If you bind HTML property to a reactive variable it looks first in which view this HTML element is
+                    and then searchers for the reactive variable inside this view.
+                </p>
+                <p>Let's look ScalaJS view and HTML part of our first example with numbers.</p>
+                <textarea data-code-scala="flowViewScala"></textarea>
                 <p>
-                Let's look into scala part
+                    The view contains our reactive variables and also has <i>elem</i> variable that contains an HTML element to which the view is connected.
+                    If you look at HTML template on the right you can notice that there are no parts there that are not compatible with HTML5 specification.
+                    The logic how html properties are binded to variables is defined by the <i>Binder</i> classes that are applied to the view.
+                    The default(GeneralBinder) binder uses <b>data-<i>property</i>="<i>variable</i>"</b> HTML attributes to connect HTML properties with variables.
+                    There is no need to hardcode HTML templates into scala-js code, so you can use any template engine you want or even just ordinary HTML files
+               </p>
+
+                <p>In the HTML code on your right you can see <b>data-view="CodeExampleView"</b>. This property connects CodeExampleView to the corresponding class.
+                    As ScalaJS does not support reflection you have to register string "CodeExampleView" to corresponding View in a parent class.
                 </p>
+                <p>We also have to register our view in the parent view.
+                    In our case Parent is the main view of the application. Here is its code:</p>
+                <textarea data-code-scala="registration"></textarea>
                 <p>
-                There you can see that counting variable is a reactive variable (see scala.rx) that is binded to scalatags HtmlTag proeprty.
-                Conting content is being changed in some tiem intervals constantly by update function, changes are automaticly propogated to the ui.
+                    Together with registration binders are attached to the view.
+                    In current example we create GeneralBinder that is capable of connecting reactive variables to html properties but you can attach any binders you want.</p>
+                    <p>
+                        Binders use macros to extract reactive variables from the class that is why we create it inside withBinder function.
+                    </p>
+                <p>
+                    Then we connect html inputs and labels with reactive variables inside this view, it is done by <b>data-bind="<i>variableName</i>"</b>, and that's it, now it works!
                 </p>
-                <p>Situation is simpler with foo and bar that are just reactive variables of string type. The main rule is that data-bind="name" should
-                    equal corresponding scala property name.
+            </column>
+
+            <column class="column ui message">
+                <h1 class="ui orange header">HTML code</h1>
+                <p>Here is an HTML code of the data-flow live demo that you saw before.
+                    Only <b>data-*="<i>something</i>"</b> parts here are scala-js-binding specific.
                 </p>
-                <p>In order to connect data-bind="name" with corresponding scala view property macroses are used. Under the hood maps of different types are
-                    created and during the bindind process the code searches propertyes in this maps.
-                    Unfortunately I could not avoid manual initiation of such maps
-
+                <textarea data-code-scala="flowHTML"></textarea>
+            </column>
+        </section>
+        <section class="ui row">
+            <column class="ui column">
+                <h1 class="ui orange header">General binder</h1>
+                <p>The most used type of binders in scala-js-binding is General binder.
+                    Here are <b>data-*="<i>something</i>"</b> attributes that it recognizes:
                 </p>
+                <ul>
+                    <li>
+                        <b>data="<i>varname</i>"</b> - if it is input or textarea - binds reactive variable
+                        to <i>value</i> property , for all other HTML elements - binds to innerHTML property
+                    </li>
+                    <li>
+                        <b>data-<i>property</i>="<i>varname</i>"</b> - binds <i>property</i> attribute or HTML property to
+                        <i>varname</i> reactive variable
+                    </li>
+                    <li>
+                        <b>data-style-<i>property</i>="<i>varname</i>"</b> - binds style property <i>property</i>  to
+                        <i>varname</i> reactive variable
+                    </li>
+                    <li>
+                        <b>data-showif="<i>varname</i>"</b> - if boolean reactive variable with corresponding name is true then shows HTML element
+                    </li>
+                    <li>
+                        <b>data-hideif="<i>varname</i>"</b> - if boolean reactive variable with corresponding name is true
+                        then hides (by setting display = none ) HTML element
+                    </li>
+                    <li>
+                        <b>data-class-<i>classname</i>if="<i>varname</i>"</b> - if boolean reactive variable with corresponding name is true
+                        then add CSS class to HTML element
+                    </li>
+                    <li>
+                        <b>data-event-<i>eventname</i>="<i>varname</i>"</b> - binds event (for instance click or mousemove event) to corresponding reactive variable.
+                        You can add handlers and further processing to this reactive variable.
+                    </li>
+                </ul>
 
+            </column>
 
-            </div>
+            <column class="ui column">
+                <h1 class="ui orange header">Other binders</h1>
 
-            <div class="column">
-                <textarea data-bind-code="scala_code" data-mode="scala">
-
-                </textarea>
-
-            </div>
-
-
+            In binding-controls and semantic-binding subprojects there are also some predefined binders that you can use out of the box:</p>
+                <ul>
+                    <li> <i>CodeBinder</i> that can be used to display programming code</li>
+                    <li> <i>NavigationBinder</i> to create AJAX menus</li>
+                    <li> <i>RDFBinder</i> that support RDFa and allows you to bind HTML to RDF properties</li>
+                    <li>etc.</li>
+                </ul>
+            </column>
 
         </section>
-
 
     </div>
 
 
 </article>
-
