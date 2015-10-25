@@ -8,6 +8,7 @@ import org.denigma.binding.views.{BindableView, ItemsSetView}
 import org.denigma.controls.charts.ScatterPlot
 import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.login.{AjaxSession, LoginView}
+import org.denigma.preview.slides._
 import org.scalajs.dom
 import org.scalajs.dom.raw.Element
 import org.semantic.SidebarConfig
@@ -113,23 +114,13 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
         .withBinder(new GeneralBinder(_))
         .withBinder(new NavigationBinder(_))
     }
-    .register("BindSlide"){
-      case (el,args)=>
-        new BindSlide(el).withBinder{ case v =>
-          val cb = new CodeBinder(v)
-          println("KEYS = " + cb.strings.keys)
-          cb
-        }
-    }
-      .register("CollectionSlide")
-      {case (el, args) =>
-        new CollectionSlide(el).withBinder(view=>new CodeBinder(view))
+    .register("BindSlide"){  case (el,args)=>  new BindSlide(el).withBinder{ case v => new CodeBinder(v)  }  }
+    .register("CollectionSlide")
+      {case (el, args) =>   new CollectionSlide(el).withBinder(view=>new CodeBinder(view))
     }.register("ControlSlide"){ case (el,args) =>
       new ControlSlide(el,args).withBinder(new CodeBinder(_))
     }
-    .register("DemoView"){case (el,args)=> new DemoView(el).withBinder(view=>new CodeBinder(view)) }
     .register("lists"){ case (el,args)=>new LongListView(el).withBinder(view=>new CodeBinder(view))}
-    .register("test-macro"){case (el,args)=>new TestMacroView(el).withBinder(view=>new CodeBinder(view))}
     .register("RdfSlide"){case (el,args)=>new RdfSlide(el).withBinder(view=>new CodeBinder(view))}
     .register("promo"){case (el,args)=>new PromoView(el).withBinder(view=>new CodeBinder(view))}
     .register("Selection"){case (el,args)=>
@@ -137,6 +128,12 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     }
     .register("HelloPlot"){case (el,args)=>
       new ScatterPlot(el).withBinder{case view=>new GeneralBinder(view)}
+    }
+    .register("StartSlide"){case (el,args)=>
+      new StartSlide(el).withBinder{case view=>new GeneralBinder(view)}
+    }
+    .register("CompBioView"){case (el,args)=>
+      new CompBioView(el).withBinder{case view=>new GeneralBinder(view)}
     }
 
   @JSExport

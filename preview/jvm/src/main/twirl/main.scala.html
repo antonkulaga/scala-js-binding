@@ -1,5 +1,4 @@
 @(content:Option[Html] = None)
 <main id="main" class="ui segment">
-   @{content.getOrElse(binding.html.controls("Has several useful controls"))
-   }
+   @{content.getOrElse(binding.html.bind("Simple binding example")) }
 </main>

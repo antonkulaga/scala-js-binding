@@ -1,4 +1,5 @@
-package org.denigma.preview
+package org.denigma.preview.slides
+
 import org.denigma.binding.binders.Events
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView

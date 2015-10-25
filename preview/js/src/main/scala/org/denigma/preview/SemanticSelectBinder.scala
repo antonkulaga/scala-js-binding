@@ -17,7 +17,7 @@ import scala.collection.immutable.SortedSet
 class SemanticSelectBinder[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],resolver:Resolver[Rdf]) extends RDFModelBinder[Rdf](graph,resolver)
 {
   override def bindAttributes(el: Element, attributes: Map[String, String]): Boolean = {
-    attributes.contains("property")
+    attributes.contains("property") //TODO: rewrite
   }
 }
 

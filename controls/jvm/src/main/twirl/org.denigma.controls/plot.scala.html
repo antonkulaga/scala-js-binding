@@ -1,24 +1,29 @@
 @(plotView: String)
-<h1>Hello Plot!</h1>
-<svg data-view="@{plotView}" height="210" width="500">
+<svg data-view="@{plotView}" height="500" width="500">
   <g class="OX" data-view="ox">
-    <line data-template="true"
-    class="tick"
-    y1="0"
-    data-bind-y2="length"
-    data-bind-x1="value"
-    data-bind-x2="value"
-    style="stroke:rgb(255,255,0);stroke-width:2">
-    </line>
+    <g class="tick" data-template="true">
+      <line
+      class="tick"
+      y1="0"
+      data-bind-y2="length"
+      data-bind-x1="value"
+      data-bind-x2="value"
+      style="stroke:rgb(255,255,0);stroke-width:2">
+      </line>
+      <text class="Label" data-bind-x="value" data-bind-y="length" data-bind="value"></text>
+    </g>
   </g>
   <g class="OY" data-view="oy">
-    <line data-template="true"
-    class="tick"
-    x1="0"
-    data-bind-y1="value"
-    data-bind-x2="length"
-    data-bind-y2="value"
-    style="stroke:rgb(255,0,0);stroke-width:2">
-    </line>
+    <g class="tick" data-template="true">
+      <line data-template="true"
+      class="tick"
+      x1="0"
+      data-bind-y1="value"
+      data-bind-x2="length"
+      data-bind-y2="value"
+      style="stroke:rgb(255,0,0);stroke-width:2">
+      </line>
+      <text class="Label" data-bind-x="length" data-bind-y="value" data-bind="value"></text>
+    </g>
   </g>
 </svg>

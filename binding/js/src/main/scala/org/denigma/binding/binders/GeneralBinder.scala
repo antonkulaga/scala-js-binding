@@ -16,7 +16,7 @@ import scalatags.Text._
  * @param view
  * @tparam View
  */
-class GeneralBinder[View,Binder<:ReactiveBinder](view:View, recover:Option[Binder] = None)
+class GeneralBinder[View,Binder<:ReactiveBinder](view:View, recover: =>Option[ReactiveBinder] = None)
                                        (implicit
   mpMap:MapRxMap[View], mpTag:TagRxMap[View],
   mpString:StringRxMap[View],  mpBool:BooleanRxMap[View],

@@ -1,20 +1,16 @@
-package org.denigma.preview
+package org.denigma.preview.slides
 
-import org.denigma.binding.binders.{GeneralBinder, Events}
 import org.denigma.binding.extensions._
 import org.denigma.binding.macroses.ClassToMap
 import org.denigma.binding.views.{BindableView, MapCollectionView}
-import org.denigma.controls.login.{LoginView, Login}
 import org.scalajs.dom
-import org.scalajs.dom.html.{Div, Input}
+import org.scalajs.dom.html.Input
 import org.scalajs.dom.raw.{Element, KeyboardEvent}
 import rx._
 import rx.core.Var
 
 import scala.collection.immutable.Map
 import scala.util.Random
-import scalatags.JsDom.TypedTag
-import scalatags.JsDom.all._
 
 
 /**
@@ -35,22 +31,7 @@ class SparqlSlide(val elem:Element) extends BindableView
 
 }
 
-/**
- * For test purposes only
- */
-class DemoView(val elem:Element) extends BindableView{
 
-  val foo= Var{"Foo variable text"}
-  val bar = Var{"Bar variable text"}
-  val counting =  Var("value that changes: 'START'")
-
-  val list = List("ONE","TWO","THREE","FOUR","SOME TEXT","THAT IS RANDOM")
-
-  def update():Unit =  counting() = s"value that changes: '${list(Random.nextInt(list.length))}' "
-
-  dom.setInterval(update _, 100) //update each 100 milliseconds
-
-}
 
 /**
  * Class for testing purposes that makes a long list out of test element

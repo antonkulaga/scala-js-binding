@@ -47,7 +47,9 @@ trait Routes extends Directives with PJax with TextFilesDirectives
 
       case "collection"=> page(binding.html.collection("It can bind to collections"))(ctx)
       case "controls"=> page(binding.html.controls("There are many controls you can try"))(ctx)
-      case "bind"=> page(binding.html.bind("It can bind"))(ctx)
+      case "start"=> page(html.start())(ctx)
+      case "compbio"=> page(experimental.html.compbio())(ctx)
+      case "bind"=> page(binding.html.bind("Simple binding example"))(ctx)
       case "code"=> page(binding.html.code("The code will tell you"))(ctx)
       case "rdf"=> page(semantic.html.rdf("It can bind views to rdf models"))(ctx)
 

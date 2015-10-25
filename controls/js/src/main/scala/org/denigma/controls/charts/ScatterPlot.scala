@@ -1,13 +1,13 @@
 package org.denigma.controls.charts
 
 import org.denigma.binding.binders.GeneralBinder
-import org.denigma.binding.views.{ItemsSeqView, BindableView}
+import org.denigma.binding.extensions._
+import org.denigma.binding.views.{BindableView, ItemsSeqView}
 import org.scalajs.dom.Element
 import org.scalajs.dom.ext.Color
-import org.scalajs.dom.raw.HTMLElement
 import rx.Rx
-import rx.ops._
 import rx.core.Var
+import rx.ops._
 
 import scala.collection.immutable.Seq
 
@@ -41,4 +41,13 @@ class ScatterPlot(val elem:Element) extends ItemsSeqView{
   }
 
   override val items: Rx[Seq[Var[PointValue]]] = Var(Seq.empty)
+
+  override protected def subscribeUpdates() = {
+    this.items.now.foreach(i=>this.addItemView(i,this.newItem(i)))
+    updates.onChange("ItemsUpdates")(upd=>{
+      upd.added.foreach(onInsert)
+      upd.removed.foreach(onRemove)
+      upd.moved.foreach(onMove)
+    })
+  }
 }

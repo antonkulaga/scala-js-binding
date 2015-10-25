@@ -106,7 +106,7 @@ trait PropertyBinder {
     //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
 
     case other=>
-      val prop = "innerHTML"
+      val prop = "textContent"//"innerHTML"
       strings.get(rxName)
       match {
         case Some(value)=>

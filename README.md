@@ -37,8 +37,6 @@ Getting started
 
 The best way to understand is to look at the code (mostly js part of binding crossproject) and at the Preview application.
 
-**WARNING** current branch is development one. At the moment library is underdoing heavy refactoring.
-
 
 Looking into sample App
 -----------------------

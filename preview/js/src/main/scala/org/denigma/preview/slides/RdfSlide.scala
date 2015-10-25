@@ -1,4 +1,4 @@
-package org.denigma.preview
+package org.denigma.preview.slides
 
 import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.{PrefixResolver, RDFModelBinder}
@@ -14,20 +14,22 @@ class RdfSlide(val elem:Element)
   extends BindableView
 {
 
+  override lazy val injector = defaultInjector
+    .register("TextModelView"){case (el,args)=>new TextModelView(el,None)}
+
   val modelCode = Var(
     """
-      |class TextModelView(elem:Element,params:Map[String,Any])
-      | (implicit ops:RDFOps[Plantain])
-      |  extends ModelView[Plantain](elem,params)(ops)
+      |class TextModelView(elem:Element,resourceOpt:Option[Plantain#URI])(implicit ops:RDFOps[Plantain])
+      |  extends ModelView[Plantain](elem,resourceOpt)(ops)
       |{
-      |  lazy val graph: Var[PointedGraph[Plantain]] =
-      |   Var(PointedGraph[Plantain](
+      |
+      |  override lazy val graph: Var[PointedGraph[Plantain]] =  Var(PointedGraph[Plantain](
       |    subject,ops.makeGraph(TestData[Plantain](subject).data))
       |  )
-      |  val resolver = new PrefixResolver[Plantain](Var(
-      |   new DefaultPrefixes[Plantain]().prefixes)
-      |   )
-      |  binders = List(new RDFModelBinder[Plantain](this,  graph,  resolver))
+      |
+      |  val resolver = new PrefixResolver[Plantain](Var(new DefaultPrefixes[Plantain]().prefixes))
+      |
+      |  withBinder(me=>new RDFModelBinder[Plantain](graph,  resolver))
       |}
     """.stripMargin)
 
@@ -46,7 +48,6 @@ class RdfSlide(val elem:Element)
     |</section>
   """.stripMargin
   )
-
 
 }
 
