@@ -10,7 +10,7 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-twirl" % "1.1.1") //templates
 
 addSbtPlugin("com.gilt" % "sbt-dependency-graph-sugar" % "0.7.5-1") //visual dependency management
 
-addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0")
+addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0") //for publishing
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-gzip" % "1.0.0")
 

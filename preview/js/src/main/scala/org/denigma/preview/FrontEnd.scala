@@ -5,7 +5,7 @@ import java.util.Date
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinder}
 import org.denigma.binding.extensions.sq
 import org.denigma.binding.views.{BindableView, ItemsSetView}
-import org.denigma.controls.charts.ScatterPlot
+import org.denigma.controls.charts.{LinearScale, ScatterPlot}
 import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.login.{AjaxSession, LoginView}
 import org.denigma.preview.slides._
@@ -127,7 +127,11 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
       new StatesSelectionView(el,"test").withBinder{case view=>new GeneralBinder(view)}
     }
     .register("HelloPlot"){case (el,args)=>
-      new ScatterPlot(el).withBinder{case view=>new GeneralBinder(view)}
+      new ScatterPlot(
+        el,
+        Var(LinearScale(0,1000,100)),
+        Var(LinearScale(0,1000,100,inverted = true))
+        ).withBinder{case view=>new GeneralBinder(view)}
     }
     .register("StartSlide"){case (el,args)=>
       new StartSlide(el).withBinder{case view=>new GeneralBinder(view)}

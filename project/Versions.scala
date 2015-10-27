@@ -46,17 +46,17 @@ trait SharedVersions
 
 	val scalaRx = "0.2.8"
 
-	val quicklens = "1.4.0"
+	val quicklens = "1.4.1"
 
-	val scalaTags = "0.5.2"
+	val scalaTags = "0.5.3"
 
-	val scalaCSS = "0.3.0"
+	val scalaCSS = "0.3.1"
 
 	val productCollections = "1.4.2"
 
 	val macroParadise = "2.1.0-M5"
 
-	val scalaTest =  "3.0.0-M9"
+	val scalaTest =  "3.0.0-SNAP7"
 
 	val booPickle = "1.1.0"
 }

@@ -71,7 +71,7 @@ trait PropertyBinder {
     if(bools.contains(rxName))
       stylePropertyOnRx(el,prop,bools(rxName))
     else
-      this.cannotFind(rxName,prop,allValues)
+      this.cannotFind(el:Element,rxName,prop,allValues)
   }
 
 
@@ -116,9 +116,9 @@ trait PropertyBinder {
       }
   }
 
-  protected def cannotFind[T](rxName:String,prop:String,mp:Map[String,Rx[T]]) =
+  protected def cannotFind[T](el:Element,rxName:String,prop:String,mp:Map[String,Rx[T]]) =
     dom.console.error(s"cannot find $rxName reactive variable for prop $prop\n, all values are: \n"+
-      mp.mapValues(_.name).mkString(" | ")
+      mp.mapValues(_.name).mkString(" | ")+s"\n Element is: ${el.outerHTML}"
     )
 
   protected def subscribeInputValue[T](el:Element,rxName: String,event:String,mp:Map[String,Rx[T]])
@@ -181,6 +181,7 @@ trait PropertyBinder {
   }
 
 
+  def warnOnUpdateFailures = false
   /**
    * subscribes property to changes of Rx
    */
@@ -191,7 +192,8 @@ trait PropertyBinder {
       //el.attributes.setNamedItem((prop -> v.toString).toAtt)
       Try(el.dyn.updateDynamic(prop)(v)) match {
         case Failure(th)=>
-          dom.console.warn(s"cannot set $prop to $value because of ${th.getMessage} with stack ${th.stackString} \nIN: ${el.outerHTML}")
+          if(warnOnUpdateFailures)
+            dom.console.warn(s"cannot set $prop to $value because of ${th.getMessage} with stack ${th.stackString} \nIN: ${el.outerHTML}")
         case _=>
       }
     }
@@ -220,7 +222,7 @@ trait PropertyBinder {
     {
       propertyOnRx(el,prop,bools(rxName))(js.Any.fromBoolean)
     }
-    else cannotFind(rxName,prop,allValues)
+    else cannotFind(el,rxName,prop,allValues)
   }
 
 }

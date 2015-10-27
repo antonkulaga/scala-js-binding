@@ -2,7 +2,7 @@ package org.denigma.binding.binders
 
 import org.denigma.binding.binders.extractors._
 import org.denigma.binding.macroses._
-import org.denigma.binding.views.IDGenerator
+import org.denigma.binding.views.{BindableView, BasicView, IDGenerator}
 import org.scalajs.dom.raw.{Element, HTMLElement, KeyboardEvent, MouseEvent}
 import rx._
 
@@ -16,7 +16,7 @@ import scalatags.Text._
  * @param view
  * @tparam View
  */
-class GeneralBinder[View,Binder<:ReactiveBinder](view:View, recover: =>Option[ReactiveBinder] = None)
+class GeneralBinder[View<:BindableView](view:View, recover: =>Option[ReactiveBinder] = None)
                                        (implicit
   mpMap:MapRxMap[View], mpTag:TagRxMap[View],
   mpString:StringRxMap[View],  mpBool:BooleanRxMap[View],
@@ -62,11 +62,21 @@ class GeneralBinder[View,Binder<:ReactiveBinder](view:View, recover: =>Option[Re
     true
   }
 
+  //note: BAD CODE!!!
+  def upPartial(el: Element, atribs: Map[String, String]): PartialFunction[(String,String),Unit] = {
+    case (bname,rxName) if bname.startsWith("up-")=>
+      val tup = (bname.replace("up-",""),rxName)
+      for(p<-this.view.parent) {
+        println("BINDERS = " +p.binders)
+        p.binders.collectFirst{case b:GeneralBinder[_]=>b.elementPartial(el,atribs)(tup)}
+      }
+  }
+
   def elementPartial(el: Element,ats:Map[String, String]): PartialFunction[(String,String),Unit] =
-    this.visibilityPartial(el)
+    upPartial(el,ats)
+      .orElse(visibilityPartial(el))
       .orElse(this.classPartial(el))
       .orElse(this.propertyPartial(el))
       .orElse(this.eventsPartial(el))
-
 
 }

@@ -14,7 +14,7 @@ import rx._
 
 import scala.collection.immutable.Map
 
-class CodeBinder[View<:BindableView,Binder<:ReactiveBinder](view:View,recover:Option[Binder] = None)
+class CodeBinder[View<:BindableView](view:View,recover:Option[ReactiveBinder] = None)
                                     (implicit
                                      mpMap:MapRxMap[View], mpTag:TagRxMap[View],
                                      mpString:StringRxMap[View],  mpBool:BooleanRxMap[View],
@@ -23,7 +23,7 @@ class CodeBinder[View<:BindableView,Binder<:ReactiveBinder](view:View,recover:Op
                                      mpText:TextEventMap[View], mpKey:KeyEventMap[View],
                                      mpUI:UIEventMap[View], mpWheel:WheelEventMap[View], mpFocus:FocusEventMap[View]
                                       )
-extends GeneralBinder[View,Binder](view, recover)(
+extends GeneralBinder[View](view, recover)(
   mpMap,mpTag,
   mpString,mpBool,
   mpDouble,mpInt,

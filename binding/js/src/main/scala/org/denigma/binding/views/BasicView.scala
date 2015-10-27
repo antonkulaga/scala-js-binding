@@ -50,7 +50,7 @@ trait BasicView extends IDGenerator
 
   require(elem!=null,s"html element of view of class ${this.getClass.getName} with id $id  must not be null!")
 
-  protected def binders:List[ViewBinder]
+  def binders:List[ViewBinder]
 
   type ViewBinder = Binder
 

@@ -1,6 +1,18 @@
 @(plotView: String)
 <svg data-view="@{plotView}" height="500" width="500">
-  <g class="OX" data-view="ox">
+  <g class="point" data-template="true" data-event-mouse-enter="mouseEnter" data-event-mouse-leave="mouseLeave">
+    <circle data-bind-cx="x" data-bind-cy="y" data-bind-r="radius" stroke="green" stroke-width="4" fill="yellow">
+    </circle>
+    <text class="Label" data-showif="showLabel" data-bind-x="x" data-bind-y="y" data-bind="label"></text>
+  </g>
+  <g class="OX" data-view="ox" data-up-bind-y="zeroY">
+    <line
+      style="stroke:rgb(255,255,0);stroke-width:2"
+      y1="0"
+      y2="0"
+      data-bind-x1="start"
+      data-bind-x2="end">
+    </line>
     <g class="tick" data-template="true">
       <line
       class="tick"
@@ -13,9 +25,16 @@
       <text class="Label" data-bind-x="value" data-bind-y="length" data-bind="value"></text>
     </g>
   </g>
-  <g class="OY" data-view="oy">
+  <g class="OY" data-view="oy"  data-up-bind-y="zeroX">
+    <line
+    style="stroke:rgb(255,255,0);stroke-width:2"
+    x1="0"
+    x2="0"
+    data-bind-y1="start"
+    data-bind-y2="end">
+    </line>
     <g class="tick" data-template="true">
-      <line data-template="true"
+      <line
       class="tick"
       x1="0"
       data-bind-y1="value"
