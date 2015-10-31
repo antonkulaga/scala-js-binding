@@ -1,0 +1,16 @@
+@(plotView: String,title:String="")
+<svg data-view="@{plotView}" data-bind-height="height" data-bind-width="width">
+  <text font-size="18pt">@title</text>
+  <svg class="lines" data-bind-x="left" data-bind-y="top">
+    <svg data-template="true">
+      <path
+      data-bind-d="path"
+      data-bind-stroke="strokeColor"
+      data-bind-stroke-width="strokeWidth"
+      data-up-bind-fill="fill"
+      ></path>
+    </svg>
+  </svg>
+  @org.denigma.controls.charts.html.scaleX()
+  @org.denigma.controls.charts.html.scaleY()
+</svg>

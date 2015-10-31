@@ -1,21 +1,89 @@
 package org.denigma.controls.charts
 
 import org.denigma.binding.views.BindableView
-import org.scalajs.dom.raw.{SVGPathElement, HTMLElement}
-import org.scalajs.dom.svg.Path
+import org.scalajs.dom._
+import rx.core.Rx
+import rx.ops._
 
-class PathView(val elem:SVGPathElement) extends BindableView {
+import scala.collection.immutable._
+
+
+case class StepSeries(title:String,
+                      xMin:Double,xMax:Double, stepLength:Int,
+                      style:LineStyles = LineStyles.default
+                       )(fun:Double=>Point) extends PlotSeries
+{
+
+  lazy val length = xMax - xMin
+
+  //lazy val stepLength = length / steps
+  lazy val steps:Int = (length / stepLength).toInt
+
+  val points:List[Point] = (for(
+    i<- 0 until steps
+  ) yield fun(xMin + i*stepLength) ).toList
 
 }
 
-class ChartPath(points:List[PointValue]) {
-  val path = new Path {}
+case class LineSeries(title:String,
+                        xMin:Double,xMax:Double,
+                        style:LineStyles = LineStyles.default
+                       )(fun:Double=>Point) extends PlotSeries
+{
+  val points:List[Point] = List(fun(xMin),fun(xMax))
+  println(points.mkString(" "))
 }
 
+trait PlotSeries extends Series {
 
-/*
-<svg height="210" width="400">
-  <path d="M150 0 L75 200 L225 200 Z" />
-  Sorry, your browser does not support inline SVG.
-</svg>
- */
+  val xMin:Double
+  val xMax:Double
+
+}
+
+case class StaticSeries(title:String,points:List[Point],style:LineStyles = LineStyles.default) extends Series
+
+trait Series
+{
+  val title:String
+  val points:List[Point]
+  val style:LineStyles
+}
+
+class SeriesView(elem:Element,series:Rx[Series],transform:Rx[Point=>Point],closed:Boolean = false) extends PathView(
+  elem,
+  Rx{series().points.map(transform())},
+  series.map(s=>s.style),
+  closed
+  )
+{
+  val title = series.map(s=>s.title)
+}
+
+class PathView(val elem:Element, val points:Rx[List[Point]], style:Rx[LineStyles],closed:Boolean = true) extends BindableView {
+
+  val strokeColor = style.map(s=>s.strokeColor)
+  val strokeWidth = style.map(s=>s.strokeWidth)
+
+  val path: rx.Rx[String] = points.map(points2Path)
+
+  def points2Path(items:List[Point]): String = items match {
+    case Point(sx,sy)::tail=> tail.foldLeft(s"M$sx $sy") {
+      case (acc, Point(x,y))=> acc+s" L$x $y"
+    } + (if(closed)" Z" else "")
+    case Nil=> if(closed)" Z" else ""
+  }
+
+
+  /*
+   M = moveto
+   L = lineto
+   H = horizontal lineto
+   V = vertical lineto
+   C = curveto
+   S = smooth curveto
+   Q = quadratic Bézier curve
+   z = smooth quadratic Bézier curveto
+   A = elliptical Arc
+   Z = closepath*/
+}

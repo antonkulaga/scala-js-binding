@@ -67,7 +67,7 @@ class GeneralBinder[View<:BindableView](view:View, recover: =>Option[ReactiveBin
     case (bname,rxName) if bname.startsWith("up-")=>
       val tup = (bname.replace("up-",""),rxName)
       for(p<-this.view.parent) {
-        println("BINDERS = " +p.binders)
+        //println("BINDERS = " +p.binders)
         p.binders.collectFirst{case b:GeneralBinder[_]=>b.elementPartial(el,atribs)(tup)}
       }
   }

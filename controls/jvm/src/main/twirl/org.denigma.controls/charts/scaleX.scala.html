@@ -1,0 +1,19 @@
+@()
+<svg class="OX" data-view="ox" data-up-bind-y="zeroY">
+  <svg class="axis" data-up-bind-x="left">
+    <line data-bind-stroke="strokeColor" data-bind-stroke-width="strokeWidth"
+        y1="0" y2="0" data-bind-x1="startCoord" data-bind-x2="endCoord">
+    </line>
+    <svg class="tick" data-template="true" data-bind-x="value" style="overflow: visible">
+      <line class="tick"
+      y1="0" data-bind-y2="tickLength"
+      x1="0" x2="0"
+      data-bind-stroke="strokeColor"
+      data-bind-stroke-width="strokeWidth"
+      >
+      </line>
+      <text class="label" data-bind-y="labelPadding" data-bind="label" text-anchor = "middle"></text>
+    </svg>
+  </svg>
+  <text class="title" y="50" font-size="18pt" data-bind-x="half" data-bind="title"></text>
+</svg>

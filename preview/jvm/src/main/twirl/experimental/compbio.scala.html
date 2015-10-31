@@ -1,16 +1,18 @@
-<article id="main_article" class="ui blue piled segment">
-  <section class="equal width row" data-view="CompBioView">
+<article id="main_article" class="ui blue piled segment equal width grid"  data-view="CompBioView">
+  <section class="equal width row">
     <column class="column">
-      <h1 class="ui orange middle aligned header">Chart Control</h1>
+      <h1 class="ui orange middle aligned header">Charts</h1>
+      <p>Scala-js-binding has basic plot controls.</p>
     </column>
     <column class="column" >
-      <h1 class="ui orange header">Appearance</h1>
-      @org.denigma.controls.html.plot("chart")
+      <h1 class="ui orange header">Description</h1>
+      <p>This is an example of a chart with two protein concentrations</p>
     </column>
-    <column>
-      <svg height="500" width="500" data-view="triangle">
-        <path data-bind-d="path" />
-      </svg>
+  </section>
+  <section class="equal width row">
+    <column class="column" >
+      <h1 class="ui orange header">Appearance</h1>
+      @org.denigma.controls.charts.html.plot("chart")
     </column>
   </section>
 </article>

@@ -40,7 +40,8 @@ trait PropertyBinder {
    * @return
    */
   protected def propertyPartial(el:Element):PartialFunction[(String,String),Unit] = {
-    case (str,rxName) if str.contains("style-") => this.bindStyle(el,rxName,str.replace("bind-","").replace("style-",""))
+    case (str,rxName) if str.startsWith("style-") => this.bindStyle(el,rxName,str.replace("style-",""))
+    case (str,rxName) if str.startsWith("bind-style-") => this.bindStyle(el,rxName,str.replace("bind-style-",""))
     case (bname,rxName) if bname.startsWith("bind-")=>this.bindProperty(el,rxName,bname.replace("bind-",""))
     case ("html",rxName) =>
       strings.get(rxName) match {

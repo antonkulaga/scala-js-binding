@@ -11,26 +11,26 @@ import rx.ops._
 
 import scala.collection.immutable.Seq
 
-class ScatterPlot(val elem:Element, val scaleX:Var[Scale], val scaleY:Var[Scale]) extends PointSeries
+class ScatterPlot(val elem:Element,
+                  val scaleX:Var[Scale],
+                  val scaleY:Var[Scale],
+                  val chartStyles:Rx[ChartStyles]= Var(ChartStyles.default)
+                   ) extends PointPlot
 {
   self=>
 
-  lazy val zeroX = Rx{if(scaleX().inverted) scaleX().end else scaleX().start}
-  lazy val zeroY = Rx{if(scaleY().inverted) scaleY().end else scaleY().start}
-
-  val strokeWidth = "3 px"
-  val strokeYColor = "red"
-  val strokeXColor = "blue"
+  lazy val paddingX = Var(50.0)
+  lazy val paddingY = Var(50.0)
 
   override lazy val injector = defaultInjector
-    .register("ox"){case (el,args)=> new AxisView(el,scaleX,"m")
+    .register("ox"){case (el,args)=> new AxisView(el,scaleX,chartStyles.map(_.scaleX))
       .withBinder(new GeneralBinder(_))}
-    .register("oy"){case (el,args)=> new AxisView(el,scaleY,"m")
+    .register("oy"){case (el,args)=> new AxisView(el,scaleY,chartStyles.map(_.scaleY))
       .withBinder(new GeneralBinder(_))}
 
 
   override def newItem(item: Item): ItemView = constructItemView(item){
-    case (el,mp)=> new PointValueView(el,item).withBinder(new GeneralBinder(_))
+    case (el,mp)=> new PointValueView(el,item ,chartStyles.map(_.linesStyles)).withBinder(new GeneralBinder(_))
   }
 
   override val items: Rx[Seq[Var[PointValue]]] = Var(Seq.empty)

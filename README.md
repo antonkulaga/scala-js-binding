@@ -35,10 +35,11 @@ Binders are the classes that bind ScalaJS view to html elements. Each view can h
 Getting started
 ===============
 
-The best way to understand is to look at the code (mostly js part of binding crossproject) and at the Preview application.
+The best way to understand is to look at the Preview application (just git clone the repository and run sbt re-restart ). 
+It contains a big number of examples with code highlights and explanations.
 
 
-Looking into sample App
+Looking into preview App
 -----------------------
 
 You can also look at Akka-http application inside scalajs-binding repository to see how bindings can be used in Akka-http app. 
@@ -48,7 +49,7 @@ You can also look at Akka-http application inside scalajs-binding repository to 
         $ sbt//sbt console
         $ re-start //from sbt console
 
-It will open Akka-http app with some examples 
+It will open Akka-http app with examples, code hightlights and explanations.
 
 Adding to your project
 ----------------------

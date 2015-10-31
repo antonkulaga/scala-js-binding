@@ -62,12 +62,12 @@ class Experiments(val elem:Element) extends BindableView with ItemsSetView
       Var(Measurement(Sample("sample3"),"diode3",3020.0)),
       Var(Measurement(Sample("sample4"),"diode4",3010.0))
     ))
-  println(SortedSet(
+  /*println(SortedSet(
     Var(Measurement(Sample("sample1"),"diode1",3004.0)),
     Var(Measurement(Sample("sample2"),"diode2",3030.0)),
     Var(Measurement(Sample("sample3"),"diode3",3020.0)),
     Var(Measurement(Sample("sample4"),"diode4",3010.0))
-  ).size)
+  ).size)*/
   //Var(SortedSet.empty)
 
   override def newItem(item: Item): MeasurementView = this.constructItemView(item){
@@ -129,8 +129,8 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("HelloPlot"){case (el,args)=>
       new ScatterPlot(
         el,
-        Var(LinearScale(0,1000,100)),
-        Var(LinearScale(0,1000,100,inverted = true))
+        Var(LinearScale("OX",0,1000,100,1000)),
+        Var(LinearScale("OY",0,1000,100,1000,inverted = true))
         ).withBinder{case view=>new GeneralBinder(view)}
     }
     .register("StartSlide"){case (el,args)=>

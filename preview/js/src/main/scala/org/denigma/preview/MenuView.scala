@@ -16,7 +16,9 @@ self =>
             Map("uri"->"pages/bind","label"->"Basic binding example"),
             Map("uri"->"pages/collection","label"->"Collection binding"),
             Map("uri"->"pages/controls","label"->"Various controls"),
+            Map("uri"->"pages/charts","label"->"Charts"),
             Map("uri"->"pages/rdf","label"->"RDF support")
+
         )
     )
 }
