@@ -48,7 +48,7 @@ trait Integrator
 
     /** The default step size for the t dimension
      */
-    protected val defaultStepSize = .01
+    val defaultStepSize = .01
 
     /** Estimate of the error in calculating y
      */

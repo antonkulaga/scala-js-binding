@@ -119,7 +119,7 @@ trait PropertyBinder {
 
   protected def cannotFind[T](el:Element,rxName:String,prop:String,mp:Map[String,Rx[T]]) =
     dom.console.error(s"cannot find $rxName reactive variable for prop $prop\n, all values are: \n"+
-      mp.mapValues(_.name).mkString(" | ")+s"\n Element is: ${el.outerHTML}"
+      mp.mapValues(_.now).toList.mkString(" | ")+s"\n Element is: ${el.outerHTML}"
     )
 
   protected def subscribeInputValue[T](el:Element,rxName: String,event:String,mp:Map[String,Rx[T]])

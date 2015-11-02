@@ -8,8 +8,13 @@ import rx.ops._
 import scala.collection.immutable._
 
 
+trait ConnectedSeries {
+
+  def series:List[Series]
+}
+
 case class StepSeries(title:String,
-                      xMin:Double,xMax:Double, stepLength:Int,
+                      xMin:Double,xMax:Double, stepLength:Double,
                       style:LineStyles = LineStyles.default
                        )(fun:Double=>Point) extends PlotSeries
 {
@@ -62,8 +67,9 @@ class SeriesView(elem:Element,series:Rx[Series],transform:Rx[Point=>Point],close
 
 class PathView(val elem:Element, val points:Rx[List[Point]], style:Rx[LineStyles],closed:Boolean = true) extends BindableView {
 
-  val strokeColor = style.map(s=>s.strokeColor)
-  val strokeWidth = style.map(s=>s.strokeWidth)
+  val strokeColor: rx.Rx[String] = style.map(s=>s.strokeColor)
+  val strokeWidth: rx.Rx[Double] = style.map(s=>s.strokeWidth)
+  val strokeOpacity: rx.Rx[Double] = style.map(s=>s.opacity)
 
   val path: rx.Rx[String] = points.map(points2Path)
 
