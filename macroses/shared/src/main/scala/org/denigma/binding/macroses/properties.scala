@@ -7,7 +7,7 @@ import scala.reflect.macros.whitebox.Context
 
 
 trait IntRxMap[T] {
-  def asIntRxMap(t: T): Map[String,Rx[Int]]
+  def asIntRxMap(t: T): Map[String, Rx[Int]]
 }
 
 object IntRxMap extends BinderObject {
@@ -15,7 +15,7 @@ object IntRxMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[IntRxMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Rx[Int]](c)
+    val mapExpr = extract[T, Rx[Int]](c)
 
     reify {
       new IntRxMap[T] {
@@ -27,7 +27,7 @@ object IntRxMap extends BinderObject {
 
 
 trait DoubleRxMap[T] {
-  def asDoubleRxMap(t: T): Map[String,Rx[Double]]
+  def asDoubleRxMap(t: T): Map[String, Rx[Double]]
 }
 
 object DoubleRxMap extends BinderObject {
@@ -35,7 +35,7 @@ object DoubleRxMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[DoubleRxMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Rx[Double]](c)
+    val mapExpr = extract[T, Rx[Double]](c)
 
     reify {
       new DoubleRxMap[T] {
@@ -47,7 +47,7 @@ object DoubleRxMap extends BinderObject {
 
 
 trait StringRxMap[T] {
-  def asStringRxMap(t: T): Map[String,Rx[String]]
+  def asStringRxMap(t: T): Map[String, Rx[String]]
 }
 
 object StringRxMap extends BinderObject {
@@ -55,7 +55,7 @@ object StringRxMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[StringRxMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Rx[String]](c)
+    val mapExpr = extract[T, Rx[String]](c)
 
     reify {
       new StringRxMap[T] {
@@ -66,7 +66,7 @@ object StringRxMap extends BinderObject {
 }
 
 trait BooleanRxMap[T] {
-  def asBooleanRxMap(t: T): Map[String,Rx[Boolean]]
+  def asBooleanRxMap(t: T): Map[String, Rx[Boolean]]
 }
 
 object BooleanRxMap extends BinderObject {
@@ -74,7 +74,7 @@ object BooleanRxMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[BooleanRxMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Rx[Boolean]](c)
+    val mapExpr = extract[T, Rx[Boolean]](c)
 
     reify {
       new BooleanRxMap[T] {

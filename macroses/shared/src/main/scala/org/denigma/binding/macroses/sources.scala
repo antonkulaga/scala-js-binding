@@ -15,8 +15,8 @@ class identity extends StaticAnnotation {
 }*/
 
 trait DataFrame[T] {
-  def rows:Vector[Mapped[T]]
-  def cols:Map[String,Vector[T]]
+  def rows: Vector[Mapped[T]]
+  def cols: Map[String, Vector[T]]
   def headers: Vector[String]
 }
 
@@ -32,16 +32,16 @@ object CSV
    * @param from
    * @return
    */
-    def toVectorMap(from:String) = macro CSVImpl.toVectorMap
+    def toVectorMap(from: String) = macro CSVImpl.toVectorMap
 
-    def toDataFrame(from:String) = macro CSVImpl.toDataFrame
+    def toDataFrame(from: String) = macro CSVImpl.toDataFrame
 }
 
 
 class CSVImpl(val c:whitebox.Context) {
 
 
-  protected def textFrom(where:String) = Try{
+  protected def textFrom(where: String) = Try{
     c.classPath.collect{
       case url if !url.getPath.endsWith(".jar")=>
         new File(url.toURI.resolve(where).getPath)
@@ -55,19 +55,19 @@ class CSVImpl(val c:whitebox.Context) {
     .recover{  case any=> Source.fromFile(where).getLines().reduce(_+"\n"+_)  }
     .recover{  case any=> Source.fromURL(where).getLines().reduce(_+"\n"+_)  }
 
-  protected def params2Quazi(params:Seq[String]) = params.map{case n=>
+  protected def params2Quazi(params: Seq[String]) = params.map{case n=>
     import c.universe._
     val term:c.TermName = n
     q"val $term:String"
   }
 
-  protected def pairs2Quazi(params:Seq[(String,String)]): Seq[c.universe.Tree] = params.map { case (key, value) =>
+  protected def pairs2Quazi(params: Seq[(String,String)]): Seq[c.universe.Tree] = params.map { case (key, value) =>
     import c.universe._
     val term: c.TermName = key
     q"val $term:String = $value"
   }
 
-  protected def data2rows(data:Seq[Seq[String]]) = {
+  protected def data2rows(data: Seq[Seq[String]]) = {
     import c.universe._
     val (head, body) = (data.head,data.tail)
     val pairs = body.map(head.zip(_))
@@ -107,7 +107,7 @@ class CSVImpl(val c:whitebox.Context) {
     val result = textFrom(where)
 
     result match {
-      case Success(string)=>
+      case Success(string) =>
         import c.universe._
         val data = new CSVReader(string).toList.map(_.toSeq)
         val rows = this.data2rows(data)
@@ -141,11 +141,11 @@ class CSVImpl(val c:whitebox.Context) {
       val result = textFrom(where)
 
       result match {
-        case Success(string)=>
+        case Success(string) =>
           val data = new CSVReader(string).toList.map(_.toSeq)
           data2rows(data)
 
-          case Failure(error)=>
+          case Failure(error) =>
             println("writeCSV macro does not work!")
             throw error
         }

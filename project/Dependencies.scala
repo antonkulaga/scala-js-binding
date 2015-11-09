@@ -2,13 +2,12 @@ import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 import sbt._
 
 case class CrossDep(
-										 shared:Def.Initialize[Seq[ModuleID]],
-										 jvm:Def.Initialize[Seq[ModuleID]] = Def.setting(Seq.empty[ModuleID]),
-										 js:Def.Initialize[Seq[ModuleID]] = Def.setting(Seq.empty[ModuleID]))
+										 shared: Def.Initialize[Seq[ModuleID]],
+										 jvm: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq.empty[ModuleID]),
+										 js: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq.empty[ModuleID]))
 
 object Dependencies {
 
-	//libs for testing
   lazy val testing: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
 		"org.scalatest" %%% "scalatest" % Versions.scalaTest % "test"
   ))
@@ -22,24 +21,20 @@ object Dependencies {
 
 		jvm = Def.setting(Seq.empty),
 
-		js = Def.setting(Seq( 	"org.scala-js" %%% "scalajs-dom" % Versions.dom	))
+		js = Def.setting(Seq("org.scala-js" %%% "scalajs-dom" % Versions.dom))
 	)
 
 	val binding = CrossDep(shared = Def.setting(Seq("com.softwaremill.quicklens" %%% "quicklens" % Versions.quicklens)),
 			jvm = Def.setting(Seq.empty),
-			js  = Def.setting(Seq(
-				"org.querki" %%% "jquery-facade" % Versions.jqueryFacade
-		)  )
+			js  = Def.setting(Seq("org.querki" %%% "jquery-facade" % Versions.jqueryFacade))
 	)
 
 
 	val controls = CrossDep(
-		shared = Def.setting(Seq("me.chrons" %%% "boopickle" % Versions.booPickle)),
-		jvm  = Def.setting( styles.value ++ akka.value)
-		,
-		js =Def.setting(	styles.value ++ Seq(
-			"org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade
-			)
+		shared = Def.setting(Seq(
+			"me.chrons" %%% "boopickle" % Versions.booPickle)),
+		jvm  = Def.setting(styles.value ++ akka.value),
+		js = Def.setting(styles.value ++ Seq("org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade)
 		)
 	)
 
@@ -47,7 +42,7 @@ object Dependencies {
 	val semantic = CrossDep(
 		shared = Def.setting(Seq.empty),
 		jvm  = Def.setting(
-			styles.value ++ Seq( "org.w3" %% "banana-plantain" % Versions.bananaRdf excludeAll ExclusionRule(organization = "com.github.inthenow")	)
+			styles.value ++ Seq("org.w3" %% "banana-plantain" % Versions.bananaRdf excludeAll ExclusionRule(organization = "com.github.inthenow"))
 		)
 		,
 		js =Def.setting(Seq(
@@ -57,10 +52,14 @@ object Dependencies {
 	)
 
 
-	val previewJS = Def.setting( Seq( "org.denigma" %%% "semantic-ui-facade" % Versions.semanticUIFacade ) 	)
+	val previewJS = Def.setting(Seq(
+		"org.denigma" %%% "semantic-ui-facade" % Versions.semanticUIFacade,
+		"org.spire-math" %%% "spire" % Versions.spire
+		)
+	)
 
 
-	//akka-related libs
+	// akka-related libs
 	lazy val akka = Def.setting(Seq(
 
 		"org.denigma" %%% "akka-http-extensions" % Versions.akkaHttpExtensions,
@@ -69,7 +68,7 @@ object Dependencies {
 	))
 
 
-	//dependencies on javascript libs
+	// dependencies on javascript libs
 	lazy val webjars= Def.setting(Seq(
 
 		"org.webjars" % "Semantic-UI" %  Versions.semanticUI,
@@ -85,7 +84,7 @@ object Dependencies {
 		"org.webjars" % "webcomponentsjs" % Versions.webcomponents
 	))
 
-	//common purpose libs
+	// common purpose libs
 	lazy val styles: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
 		"com.github.japgolly.scalacss" %%% "core" % Versions.scalaCSS,
 

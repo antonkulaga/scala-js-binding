@@ -8,17 +8,16 @@ import rx.core.Var
 import scala.collection.immutable._
 
 
-class MenuView(elem:Element) extends MapCollectionView(elem) {
+class MenuView(elem: Element) extends MapCollectionView(elem) {
 self =>
 
     override val items: Rx[Seq[Map[String, Any]]] = Var(
         Seq(
-            Map("uri"->"pages/bind","label"->"Basic binding example"),
-            Map("uri"->"pages/collection","label"->"Collection binding"),
-            Map("uri"->"pages/controls","label"->"Various controls"),
-            Map("uri"->"pages/charts","label"->"Charts"),
-            Map("uri"->"pages/rdf","label"->"RDF support")
-
+            Map("uri" -> "pages/bind", "label" -> "Basic binding example"),
+            Map("uri" -> "pages/collection", "label" -> "Collection binding"),
+            Map("uri" -> "pages/controls", "label" -> "Various controls"),
+            Map("uri" -> "pages/charts", "label" -> "Charts"),
+            Map("uri" -> "pages/rdf", "label" -> "RDF support")
         )
     )
 }

@@ -7,7 +7,7 @@ import scala.reflect.macros._
 
 
 trait MapRxMap[T] {
-  def asMapRxMap(t: T): Map[String,Rx[Map[String,Any]]]
+  def asMapRxMap(t: T): Map[String, Rx[Map[String, Any]]]
 }
 
 object MapRxMap extends BinderObject
@@ -16,7 +16,7 @@ object MapRxMap extends BinderObject
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[MapRxMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Rx[Map[String,Any]]](c)
+    val mapExpr = extract[T, Rx[Map[String, Any]]](c)
 
     reify {
       new MapRxMap[T] {
@@ -28,7 +28,7 @@ object MapRxMap extends BinderObject
 
 
 trait ListRxMap[T] {
-  def asListRxMap(t: T): Map[String,Rx[List[Map[String,Any]]]]
+  def asListRxMap(t: T): Map[String, Rx[List[Map[String, Any]]]]
 }
 
 object ListRxMap extends BinderObject {
@@ -36,7 +36,7 @@ object ListRxMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[ListRxMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Rx[List[Map[String,Any]]]](c)
+    val mapExpr = extract[T, Rx[List[Map[String, Any]]]](c)
 
     reify {
       new ListRxMap[T] {

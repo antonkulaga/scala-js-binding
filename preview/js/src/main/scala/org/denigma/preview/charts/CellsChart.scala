@@ -1,10 +1,9 @@
 package org.denigma.preview.charts
 
 import org.denigma.binding.binders.GeneralBinder
-import org.denigma.binding.views.{ItemsSeqView, BindableView}
+import org.denigma.binding.views.{BindableView, ItemsSeqView}
 import org.denigma.controls.charts.Point
 import org.scalajs.dom.Element
-import org.scalajs.dom.raw.HTMLElement
 import rx.Rx
 import rx.core.Var
 
@@ -48,7 +47,7 @@ class CellView(val elem:Element,val cell:Rx[Cell]) extends BindableView {
 
   import rx.ops._
 
-  val dots = Rx{
+  val dots = Rx{ //draws shape
     val Cell(Point(x,y),side) = cell()
     val half = side/2
     val vert = Math.sqrt(Math.pow(side,2)-Math.pow(side/2,2))
@@ -65,5 +64,4 @@ class CellView(val elem:Element,val cell:Rx[Cell]) extends BindableView {
   val points = dots.map(_.foldLeft(""){ case (acc,Point(x,y)) =>
     acc+s"$x,$y "
   }.trim)
-
 }

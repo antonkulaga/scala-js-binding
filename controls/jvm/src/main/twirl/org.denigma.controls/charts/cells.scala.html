@@ -1,21 +1,25 @@
 @(cellsView: String,title:String="")
 <div class="ui equal width grid"  data-view="@{cellsView}">
-    <column class="column">
-        <svg data-bind-height="height" data-bind-width="width">
-            <polygon data-template="true" class="hex" data-bind-points="points" fill="green" stroke="red" stroke-width="3" fill-opacity="0.5"></polygon>
-        </svg>
-    </column>
-    <column class="column">
-        <div class="ui vertical blue menu">
-            <item class="item">
-                <label class="ui attached label">rows</label><input data-bind="rows">
-            </item>
-            <item class="item">
-                <label class="ui attached label">cols</label><input data-bind="cols">
-            </item>
-            <item class="item">
-                <label class="ui attached label">side</label><input data-bind="side">
-            </item>
-        </div>
-    </column>
+    <row class="row">
+        <column class="column">
+            <div class="ui vertical blue menu">
+                <item class="item">
+                    <label class="ui attached label">rows</label><input data-bind="rows">
+                </item>
+                <item class="item">
+                    <label class="ui attached label">cols</label><input data-bind="cols">
+                </item>
+                <item class="item">
+                    <label class="ui attached label">side</label><input data-bind="side">
+                </item>
+            </div>
+        </column>
+    </row>
+    <row class="row">
+        <column class="column">
+            <svg data-bind-height="height" data-bind-width="width">
+                <polygon data-template="true" class="hex" data-bind-points="points" fill="green" stroke="red" stroke-width="3" fill-opacity="0.5"></polygon>
+            </svg>
+        </column>
+    </row>
 </div>

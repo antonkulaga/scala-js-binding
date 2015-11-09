@@ -1,31 +1,24 @@
 package org.denigma.binding.macroses
 
-
 import rx._
-
 import scala.collection.immutable._
 import scala.language.experimental.macros
 import scala.reflect.macros.whitebox
 import scalatags.Text._
 
-
-/**
- * Just some experiments
- */
-
-trait TypeClass[T,R]{
-  def asMap(t:T):Map[String,R]
+trait TypeClass[T, R]{
+  def asMap(t: T): Map[String, R]
 }
 
 object TypeClass extends BinderObject{
-  implicit def materialize[T,R]: TypeClass[T,R] = macro impl[T,R]
+  implicit def materialize[T, R]: TypeClass[T, R] = macro impl[T, R]
 
-  def impl[T: c.WeakTypeTag,R: c.WeakTypeTag](c: whitebox.Context): c.Expr[TypeClass[T,R]] = {
+  def impl[T: c.WeakTypeTag, R: c.WeakTypeTag](c: whitebox.Context): c.Expr[TypeClass[T, R]] = {
     import c.universe._
-    val mapExpr = extract[T,R](c)
+    val mapExpr = extract[T, R](c)
 
     reify {
-      new TypeClass[T,R] {
+      new TypeClass[T, R] {
         def asMap(t: T) = mapExpr.splice
       }
     }
@@ -38,7 +31,7 @@ object TypeClass extends BinderObject{
  * @tparam T
  */
 trait ClassToMap[T] {
-  def asMap(t: T): Map[String,Any]
+  def asMap(t: T): Map[String, Any]
 }
 
 
@@ -47,7 +40,7 @@ object ClassToMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[ClassToMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Any](c)
+    val mapExpr = extract[T, Any](c)
 
     reify {
       new ClassToMap[T] {
@@ -60,7 +53,7 @@ object ClassToMap extends BinderObject {
 
 
 trait TagRxMap[T] {
-  def asTagRxMap(t: T): Map[String,Rx[Tag]]
+  def asTagRxMap(t: T): Map[String, Rx[Tag]]
 }
 
 object TagRxMap extends BinderObject {
@@ -68,7 +61,7 @@ object TagRxMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[TagRxMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Rx[Tag]](c)
+    val mapExpr = extract[T, Rx[Tag]](c)
 
     reify {
       new TagRxMap[T] {
@@ -81,10 +74,10 @@ object TagRxMap extends BinderObject {
 class BinderObject  {
 
 
-  def extract[T: c.WeakTypeTag,TE:  c.WeakTypeTag](c: whitebox.Context) = {
+  def extract[T: c.WeakTypeTag, TE: c.WeakTypeTag](c: whitebox.Context): c.Expr[Map[String, TE]] = {
     import c.universe._
 
-    val mapApply = Select(reify(Map).tree,TermName("apply"))
+    val mapApply = Select(reify(Map).tree, TermName("apply"))
 
     val we = weakTypeOf[TE]
 

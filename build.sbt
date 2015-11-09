@@ -43,16 +43,16 @@ lazy val commonSettings = Seq(
   scalaVersion := Versions.scala,
   organization := "org.denigma",
   scalacOptions ++= Seq( "-feature", "-language:_" ),
-  resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"), //for scala-js-binding
+  resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"), // for scala-js-binding
   libraryDependencies ++= Dependencies.testing.value,
   unmanagedClasspath in Compile <++= unmanagedResources in Compile,
-  updateOptions := updateOptions.value.withCachedResolution(true) //to speed up dependency resolution
+  updateOptions := updateOptions.value.withCachedResolution(true) // to speed up dependency resolution
 ) ++ eclipseSettings
 
 lazy val bindingMacro = crossProject
   .crossType(CrossType.Full)
   .in(file("macroses"))
-  .settings(  commonSettings ++ publishSettings:_* )
+  .settings(commonSettings ++ publishSettings: _*)
   .settings(
     version := Versions.macroBinding,
     name := "binding-macro",
@@ -87,7 +87,7 @@ lazy val binding = crossProject
     libraryDependencies ++= Dependencies.binding.js.value,
     jsDependencies += RuntimeDOM % "test"
   )
-  .jvmSettings(  libraryDependencies ++= Dependencies.binding.jvm.value )
+  .jvmSettings(libraryDependencies ++= Dependencies.binding.jvm.value)
   .dependsOn(bindingMacro)
 
 
@@ -165,8 +165,9 @@ lazy val preview = crossProject
 		.jvmSettings(
 			libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Seq(
 			  "me.chrons" %% "boopickle" % Versions.booPickle,
-			  "org.seleniumhq.selenium" % "selenium-java" % Versions.seleniumJava % "test"
-			),
+			  "org.seleniumhq.selenium" % "selenium-java" % Versions.seleniumJava % "test",
+        "org.spire-math" %%% "spire" % Versions.spire
+      ),
 			mainClass in Compile :=Some("org.denigma.preview.Main"),
 			mainClass in Revolver.reStart := Some("org.denigma.preview.Main"),
 			scalaJSDevStage := scalaJSDevTaskStage.value,
