@@ -1,4 +1,4 @@
-package org.denigma.preview.charts
+package org.denigma.controls.charts.ode
 
 /**
   * Created by antonkulaga on 11/9/15.

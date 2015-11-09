@@ -1,5 +1,7 @@
 package org.denigma.preview.charts
 
+import org.denigma.controls.charts.ode.{ODEs, VectorODESolver}
+
 case class Reactant(concentration:Double)
 
 case class HillRepression(kProd: Double, kRepress: Double, nRepressor: Double, delusion: Double, leakage: Double) {
@@ -72,21 +74,22 @@ case class CompBioODEs(
                         tetRepressedByLacI: HillRepression = Defaults1.tetRRepression,
                         lacIProduction: ProductionDelusion = Defaults1.lacIProduction,
                         tetRProduction: ProductionDelusion = Defaults1.tetRProduction,
-                        tEnd :Double = 5000) extends VectorODESolver
+                        tEnd :Double = 5000) extends ODEs
 {
+  override val step: Double = 0.1
+  override val tStart = 0.0
 
-  def d_LacI_mRNA (t: Double, p: Array[Double]): Double =  lacRepressedByTetR.repress( p(0), p(3))
-  def d_TetR_mRNA (t: Double, p: Array[Double]): Double = tetRepressedByLacI.repress( p(1), p(2))
-  def d_LacI (t: Double, p: Array[Double]): Double = lacIProduction(p(0),p(2))
-  def d_TetR (t: Double, p: Array[Double]): Double = tetRProduction(p(1),p(3))
+  def d_LacI_mRNA (t: Double, p: Array[Double]): Double =  lacRepressedByTetR.repress(p(0), p(3))
+  def d_TetR_mRNA (t: Double, p: Array[Double]): Double = tetRepressedByLacI.repress(p(1), p(2))
+  def d_LacI (t: Double, p: Array[Double]): Double = lacIProduction(p(0), p(2))
+  def d_TetR (t: Double, p: Array[Double]): Double = tetRProduction(p(1), p(3))
 
-  lazy val derivatives: Array[DerivativeV] = Array(d_LacI_mRNA, d_TetR_mRNA, d_LacI, d_TetR)
+  lazy val derivatives: Array[VectorDerivative] = Array(d_LacI_mRNA, d_TetR_mRNA, d_LacI, d_TetR)
+  import VectorODESolver._
 
-
-  def solve(lacI_mRNA: Double, tetR_mRNA: Double, lacI: Double, tetR: Double): Array[Double] = {
-    val y: Array[Double] = Array[Double](lacI_mRNA, tetR_mRNA, lacI, tetR)
-    println(s"initial Y is ${y} AND tEnd ${tEnd} tStart ${tStart} with STEP $step")
-    this.integrateVec(derivatives, y)
+  def solve(lacI_mRNA: Double, tetR_mRNA: Double, lacI: Double, tetR: Double) = {
+    val result = this.compute(Array(lacI_mRNA: Double, tetR_mRNA: Double, lacI: Double, tetR: Double))
+    result
   }
 
 }

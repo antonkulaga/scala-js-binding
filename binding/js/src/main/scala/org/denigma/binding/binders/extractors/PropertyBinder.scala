@@ -37,13 +37,13 @@ trait PropertyBinder {
   /**
    * Partial function that is usually added to bindProperties
    * @param el html element
-   * @return
+   * @return partial function that will do the binding
    */
-  protected def propertyPartial(el:Element):PartialFunction[(String,String),Unit] = {
-    case (str,rxName) if str.startsWith("style-") => this.bindStyle(el,rxName,str.replace("style-",""))
-    case (str,rxName) if str.startsWith("bind-style-") => this.bindStyle(el,rxName,str.replace("bind-style-",""))
-    case (bname,rxName) if bname.startsWith("bind-")=>this.bindProperty(el,rxName,bname.replace("bind-",""))
-    case ("html",rxName) =>
+  protected def propertyPartial(el: Element): PartialFunction[(String, String), Unit] = {
+    case (str, rxName) if str.startsWith("style-") => this.bindStyle(el, rxName, str.replace("style-" , ""))
+    case (str, rxName) if str.startsWith("bind-style-") => this.bindStyle(el, rxName, str.replace("bind-style-" , ""))
+    case (bname, rxName) if bname.startsWith("bind-") => this.bindProperty(el, rxName, bname.replace("bind-" , ""))
+    case ("html", rxName) =>
       strings.get(rxName) match {
         case Some(value)=>
           val prop = "innerHTML"
@@ -56,64 +56,61 @@ trait PropertyBinder {
           }
         case None => dom.console.error(s"cannot find $rxName for innerHtml")
       }
-    case ("bind",rxName) => bind(el,rxName)
+    case ("bind", rxName) => bind(el,rxName)
   }
 
-  protected def bindStyle(el:Element,rxName:String,prop:String): Unit= {
-    if(strings.contains(rxName))
-      stylePropertyOnRx(el,prop,strings(rxName))
+  protected def bindStyle(el: Element, rxName: String, prop: String): Unit= {
+    if (strings.contains(rxName))
+      stylePropertyOnRx(el, prop, strings(rxName))
     else
-    if(doubles.contains(rxName))
-      stylePropertyOnRx(el,prop,doubles(rxName))
+    if (doubles.contains(rxName))
+      stylePropertyOnRx(el, prop, doubles(rxName))
     else
-    if(ints.contains(rxName))
-      stylePropertyOnRx(el,prop,ints(rxName))
+    if (ints.contains(rxName))
+      stylePropertyOnRx(el, prop, ints(rxName))
     else
-    if(bools.contains(rxName))
-      stylePropertyOnRx(el,prop,bools(rxName))
+    if (bools.contains(rxName))
+      stylePropertyOnRx(el, prop, bools(rxName))
     else
-      this.cannotFind(el:Element,rxName,prop,allValues)
+      this.cannotFind(el: Element, rxName, prop, allValues)
   }
 
 
   /**
    * Bind property
+
+
    * @param el html element
    * @param rxName value of attribute
    * @return
    */
-  def bind(el:Element,rxName:String): Unit =  el match
+  def bind(el: Element, rxName: String): Unit =  el match
   {
-    case inp:HTMLInputElement=>
+    case inp: HTMLInputElement=>
       el.attributes.get("type").map(_.value.toString) match {
         case Some("checkbox") =>
-          //ifNoID(el, att + "_checkbox")
           for (b <- bools.get(rxName)) b.foreach(v => el.attributes.setNamedItem(("checked" -> v.toString).toAtt))
-        case tp =>
-          //ifNoID(el, att)
-          //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
-          subscribeInputValue(el,rxName,Events.keyup,strings)
-            .orElse(subscribeInputValue(el,rxName,Events.keyup,doubles))
-            .orElse(subscribeInputValue(el,rxName,Events.keyup,ints))
-            .orElse(subscribeInputValue(el,rxName,Events.keyup,bools)).orError(s"cannot find ${rxName} in ${allValues}")
+        case _ =>
+          subscribeInputValue(el, rxName, Events.keyup, strings)
+            .orElse(subscribeInputValue(el, rxName, Events.keyup, doubles))
+            .orElse(subscribeInputValue(el, rxName, Events.keyup, ints))
+            .orElse(subscribeInputValue(el, rxName, Events.keyup, bools))
+            .orError(s"cannot find ${rxName} in ${allValues}")
       }
-    case area:HTMLTextAreaElement =>
-      //ifNoID(el, att+"_textarea")
-      subscribeInputValue(el,rxName,Events.keyup,strings)
-        .orElse(subscribeInputValue(el,rxName,Events.keyup,doubles))
-        .orElse(subscribeInputValue(el,rxName,Events.keyup,ints))
-        .orElse(subscribeInputValue(el,rxName,Events.keyup,bools)).orError(s"cannot find ${rxName} in ${allValues}")
+    case area: HTMLTextAreaElement =>
+      subscribeInputValue(el, rxName, Events.keyup, strings)
+        .orElse(subscribeInputValue(el, rxName, Events.keyup, doubles))
+        .orElse(subscribeInputValue(el, rxName, Events.keyup, ints))
+        .orElse(subscribeInputValue(el, rxName, Events.keyup, bools))
+        .orError(s"cannot find ${rxName} in ${allValues}")
 
-    //subscribeProperty[KeyboardEvent](el,att,"value",Events.keyup)
-
-    case other=>
-      val prop = "textContent"//"innerHTML"
-      strings.get(rxName)
-      match {
-        case Some(value)=>
-          propertyOnRx(el,prop,value)
-          varOnEvent[String,Event](el,prop,value,Events.change)
-        case None => bindProperty(el,rxName,prop)
+    case _ =>
+      val prop = "textContent" // "innerHTML"
+      strings.get(rxName) match {
+        case Some(value) =>
+          propertyOnRx(el, prop, value)
+          varOnEvent[String, Event](el, prop, value, Events.change)
+        case None => bindProperty(el, rxName, prop)
       }
   }
 
@@ -206,24 +203,24 @@ trait PropertyBinder {
   }
 
   //TODO: fix this ugly piece of code
-  protected def bindProperty(el:Element,rxName:String,prop:String) = {
+  protected def bindProperty(el:Element, rxName:String, prop:String) = {
     if(strings.contains(rxName))
     {
-      propertyOnRx(el,prop,strings(rxName))(js.Any.fromString)
+      propertyOnRx(el, prop, strings(rxName))(js.Any.fromString)
     }
-    else if(doubles.contains(rxName))
+    else if (doubles.contains(rxName))
     {
-      propertyOnRx(el,prop,doubles(rxName))(js.Any.fromDouble)
+      propertyOnRx(el, prop, doubles(rxName))(js.Any.fromDouble)
     }
-    else if(ints.contains(rxName))
+    else if (ints.contains(rxName))
     {
-      propertyOnRx(el,prop,ints(rxName))(js.Any.fromInt)
+      propertyOnRx(el, prop, ints(rxName))(js.Any.fromInt)
     }
-    else if(bools.contains(rxName))
+    else if (bools.contains(rxName))
     {
-      propertyOnRx(el,prop,bools(rxName))(js.Any.fromBoolean)
+      propertyOnRx(el, prop, bools(rxName))(js.Any.fromBoolean)
     }
-    else cannotFind(el,rxName,prop,allValues)
+    else cannotFind(el, rxName, prop, allValues)
   }
 
 }

@@ -8,6 +8,7 @@ import org.denigma.binding.views.{BindableView, ItemsSetView}
 import org.denigma.controls.charts.{LinearScale, ScatterPlot}
 import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.login.{AjaxSession, LoginView}
+import org.denigma.preview.charts.CompBioView
 import org.denigma.preview.slides._
 import org.scalajs.dom
 import org.scalajs.dom.raw.Element

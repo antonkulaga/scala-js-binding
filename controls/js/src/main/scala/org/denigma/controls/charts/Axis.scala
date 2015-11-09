@@ -48,7 +48,7 @@ trait Scale
     if(current<end) points(step(current),end,current::dots) else (end::dots).reverse
 }
 
-class AxisView(val elem:Element,  scale:Rx[Scale], style:Rx[LineStyles])
+class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
   extends BindableView with ItemsSeqView
 {
 
