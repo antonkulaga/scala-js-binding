@@ -7,18 +7,18 @@ import rx.ops._
 
 import scala.collection.immutable._
 
-
-class SeriesView(elem: Element, series: Rx[Series], transform: Rx[Point => Point], closed :Boolean = false) extends PathView(
+class SeriesView(elem: Element, series: Rx[Series], transform: Rx[Point => Point], threshold:Point = Point(1,1), closed: Boolean = false) extends PathView(
   elem,
   Rx{series().points.map(transform())},
   series.map(s=>s.style),
+  threshold,
   closed
   )
 {
   val title = series.map(s=>s.title)
 }
 
-class PathView(val elem: Element, val points: Rx[List[Point]], style: Rx[LineStyles],closed: Boolean = true) extends BindableView {
+class PathView(val elem: Element, val points: Rx[List[Point]], style: Rx[LineStyles], threshold:Point = Point(1,1), closed: Boolean = true) extends BindableView {
 
   val strokeColor: rx.Rx[String] = style.map(s=>s.strokeColor)
   val strokeWidth: rx.Rx[Double] = style.map(s=>s.strokeWidth)
@@ -26,13 +26,18 @@ class PathView(val elem: Element, val points: Rx[List[Point]], style: Rx[LineSty
 
   val path: rx.Rx[String] = points.map(points2Path)
 
-  def points2Path(items: List[Point]): String = items match {
-    case Point(sx, sy)::tail => tail.foldLeft(s"M$sx $sy") {
-      case (acc, Point(x, y))=> acc+s" L$x $y"
-    } + (if (closed) " Z" else "")
-    case Nil => if(closed)" Z" else ""
+  def points2Path(items: List[Point]): String = items match{
+    case Point(sx, sy) :: tail =>
+      val (_, str) = tail.foldLeft(Point(sx,sy) -> s"M$sx $sy") {
+        case ( (v, acc), p) =>
+          val diff = Math.abs(v.x-p.x) > threshold.x || Math.abs(v.y-p.y) > threshold.y
+          if (diff)
+            p -> (acc + s" L${p.x} ${p.y}")
+          else (v, acc)
+      }
+      if (closed) str +" Z" else str
+    case Nil => if (closed) " Z" else ""
   }
-
 
   /*
    M = moveto

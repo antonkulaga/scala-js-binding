@@ -165,8 +165,8 @@ lazy val preview = crossProject
 		.jvmSettings(
 			libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Seq(
 			  "me.chrons" %% "boopickle" % Versions.booPickle,
-			  "org.seleniumhq.selenium" % "selenium-java" % Versions.seleniumJava % "test",
-        "org.spire-math" %%% "spire" % Versions.spire
+			  "org.seleniumhq.selenium" % "selenium-java" % Versions.seleniumJava % "test"
+        //"org.spire-math" %%% "spire" % Versions.spire
       ),
 			mainClass in Compile :=Some("org.denigma.preview.Main"),
 			mainClass in Revolver.reStart := Some("org.denigma.preview.Main"),

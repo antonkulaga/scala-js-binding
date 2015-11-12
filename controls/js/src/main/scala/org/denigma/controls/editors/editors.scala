@@ -22,33 +22,33 @@ trait InlineEditor {
 
 }
 
-/**
- * Note works only if you added CKEditor js.lib
- */
-object CkEditor extends InlineEditor{
-
-  var editors = Map.empty[HTMLElement,js.Dynamic]
-
-  override def on(el: HTMLElement, view: BindableView): Unit = {
-    val id = el.id
-    val editor = g.CKEDITOR.inline( el )
-    editors = editors + (el->editor)
-  }
-
-  override def off(el: HTMLElement, view: BindableView): Unit = {
-    editors.get(el) match {
-      case Some(ed)=>
-        this.editors = editors - el
-        ed.destroy()
-      case None=>
-    }
-    //g.CKEDITOR.inline( el )
-  }
-
-  //  override def canEdit(el: HTMLElement, view: OrganizedView): Boolean = true
-
-  //  override def isActiveAt(el: HTMLElement, view: OrganizedView): Boolean = editors.get(el).isDefined
-}
+///**
+// * Note works only if you added CKEditor js.lib
+// */
+//object CkEditor extends InlineEditor{
+//
+//  var editors = Map.empty[HTMLElement,js.Dynamic]
+//
+//  override def on(el: HTMLElement, view: BindableView): Unit = {
+//    val id = el.id
+//    val editor = g.CKEDITOR.inline( el )
+//    editors = editors + (el->editor)
+//  }
+//
+//  override def off(el: HTMLElement, view: BindableView): Unit = {
+//    editors.get(el) match {
+//      case Some(ed)=>
+//        this.editors = editors - el
+//        ed.destroy()
+//      case None=>
+//    }
+//    //g.CKEDITOR.inline( el )
+//  }
+//
+//  //  override def canEdit(el: HTMLElement, view: OrganizedView): Boolean = true
+//
+//  //  override def isActiveAt(el: HTMLElement, view: OrganizedView): Boolean = editors.get(el).isDefined
+//}
 
 object CodeMirrorEditor extends InlineEditor {
 

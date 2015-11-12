@@ -53,8 +53,8 @@ object Dependencies {
 
 
 	val previewJS = Def.setting(Seq(
-		"org.denigma" %%% "semantic-ui-facade" % Versions.semanticUIFacade,
-		"org.spire-math" %%% "spire" % Versions.spire
+		"org.denigma" %%% "semantic-ui-facade" % Versions.semanticUIFacade
+		//"org.spire-math" %%% "spire" % Versions.spire
 		)
 	)
 
@@ -76,8 +76,6 @@ object Dependencies {
 		"org.webjars" % "codemirror" % Versions.codemirror,
 
 		"org.webjars" % "jquery" % Versions.jquery,
-
-		"org.webjars" % "ckeditor" % Versions.ckeditor,
 
 		"org.webjars" % "three.js" % Versions.threeJS,
 

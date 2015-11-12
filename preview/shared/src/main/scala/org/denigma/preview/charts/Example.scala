@@ -74,9 +74,9 @@ case class CompBioODEs(
                         tetRepressedByLacI: HillRepression = Defaults1.tetRRepression,
                         lacIProduction: ProductionDelusion = Defaults1.lacIProduction,
                         tetRProduction: ProductionDelusion = Defaults1.tetRProduction,
-                        tEnd :Double = 5000) extends ODEs
+                        tEnd :Double = 5000, override val step: Double = 1) extends ODEs
 {
-  override val step: Double = 0.1
+
   override val tStart = 0.0
 
   def d_LacI_mRNA (t: Double, p: Array[Double]): Double =  lacRepressedByTetR.repress(p(0), p(3))

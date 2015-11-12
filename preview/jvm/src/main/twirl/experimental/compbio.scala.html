@@ -9,26 +9,22 @@
       <p>Here there are examples of different plots. The first one is with x^2 functions. </p>
       <p>Second and third ones are about relative protein concentration and toggle switch model</p>
       <div class="ui button" data-event-click="solve">Solve</div>
-
     </column>
   </section>
   <section class="equal width row">
-    <column class="column">
+    <column class="column">points.map(p => coords)
       <h1 class="ui orange header">Appearance</h1>
       @org.denigma.controls.charts.html.plot("SimplePlot")
     </column>
   </section>
-  @*<section class="equal width row">*@
-    @*<column class="column">*@
-      @*<h1 class="ui orange header">Proteins chart</h1>*@
-      @*@org.denigma.controls.charts.html.plot("ProteinsTime")*@
-    @*</column>*@
-    @*<column class="column">*@
-      @*<h1 class="ui orange header">Proteins chart</h1>*@
-      @*@org.denigma.controls.charts.html.plot("ProteinsTime")*@
-    @*</column>*@
-  @*</section>*@
-
+  <section class="equal width row">
+    <column class="column">
+      @experimental.html.proteins("ProteinsTime", "Proteins time chart")
+    </column>
+    <column class="column">
+      @experimental.html.proteins("ProteinsXY", "Proteins XY chart")
+    </column>
+  </section>
   <section class="equal width row">
     <column class="column">
       <h1 class="ui orange middle aligned header">Cells chart</h1>
@@ -36,7 +32,7 @@
     </column>
     <column class="column">
       <h1 class="ui orange header">Appearance</h1>
-@*      @org.denigma.controls.charts.html.cells("cells")*@
+      @org.denigma.controls.charts.html.cells("cells")
     </column>
   </section>
 </article>

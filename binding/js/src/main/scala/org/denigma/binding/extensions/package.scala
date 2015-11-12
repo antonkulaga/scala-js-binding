@@ -23,22 +23,22 @@ package object extensions extends AttributesOps
   with ElementOps
   with EventsOps {
 
-  implicit def toAnyRxW[T](source:Rx[T]):AnyRxW[T] = new AnyRxW[T](source)
+  implicit def toAnyRxW[T](source: Rx[T]): AnyRxW[T] = new AnyRxW[T](source)
 
-  implicit class OptionOpt[T](source:Option[T]){
+  implicit class OptionOpt[T](source: Option[T]){
 
     def orError(str:String) = if(source.isEmpty) dom.console.error(str)
 
   }
 
-  implicit class ThrowableOpt(th:Throwable) {
+  implicit class ThrowableOpt(th: Throwable) {
     def stackString = th.getStackTrace.foldLeft("")( (acc,el)=>acc+"\n"+el.toString)
   }
 
 
-  implicit class MapOpt[TValue](source:Map[String,TValue]) {
+  implicit class MapOpt[TValue](source: Map[String, TValue]) {
 
-    def getOrError(key:String) = {
+    def getOrError(key: String) = {
       val g = source.get(key)
       if(g.isEmpty) dom.console.error(s"failed to find item with key $key")
       g

@@ -20,7 +20,7 @@ trait AnyJsExtensions {
      */
     def dyn = obj.asInstanceOf[js.Dynamic]
 
-    def onExists(prop:String)(fun:js.Dynamic=>Unit) = obj.asInstanceOf[js.Dynamic].selectDynamic(prop) match {
+    def onExists(prop: String)(fun: js.Dynamic => Unit) = obj.asInstanceOf[js.Dynamic].selectDynamic(prop) match {
       case  p if js.isUndefined(p) || p==null=> //do nothing
       case other=> fun(other)
     }
