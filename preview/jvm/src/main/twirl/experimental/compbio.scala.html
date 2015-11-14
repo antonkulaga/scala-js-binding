@@ -4,17 +4,15 @@
       <h1 class="ui orange middle aligned header">Charts</h1>
       <p>Scala-js-binding has basic plot controls.</p>
     </column>
-    <column class="column" >
-      <h1 class="ui orange header">Description</h1>
-      <p>Here there are examples of different plots. The first one is with x^2 functions. </p>
-      <p>Second and third ones are about relative protein concentration and toggle switch model</p>
-      <div class="ui button" data-event-click="solve">Solve</div>
-    </column>
-  </section>
+   </section>
   <section class="equal width row">
-    <column class="column">points.map(p => coords)
+    <column class="column">
       <h1 class="ui orange header">Appearance</h1>
       @org.denigma.controls.charts.html.plot("SimplePlot")
+    </column>
+    <column class="column">
+      <h1 class="ui orange header">Code</h1>
+      <textarea data-bind-code="plotCode"></textarea>
     </column>
   </section>
   <section class="equal width row">
@@ -28,7 +26,8 @@
   <section class="equal width row">
     <column class="column">
       <h1 class="ui orange middle aligned header">Cells chart</h1>
-      <p>Basic chart with cells, often used to show cells communication</p>
+      <p>Basic chart with cells, often used to show cell communication</p>
+      <textarea data-code-html="cellsHTML"></textarea>
     </column>
     <column class="column">
       <h1 class="ui orange header">Appearance</h1>

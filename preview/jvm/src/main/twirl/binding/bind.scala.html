@@ -5,7 +5,7 @@
         <section class="equal width row">
             <column class="column ui message"><h1 class="ui orange header">Core elements of scala-js-binding</h1>
             </column>
-            <column class="column ui message">are reactive variables, views and binders
+            <column class="column ui message"><h3>are reactive variables, views and binders</h3>
             </column>
         </section>
         <section class="equal width row">
@@ -14,10 +14,10 @@
                 <p>Reactive variables are smart variables who automatically update themselves when the values they depend on change (see <a href="https://github.com/lihaoyi/scala.rx">scala.rx docs</a> to understand the concept better).
                 </p>
                 <p>
-                    For the sake of example let's make several reactive variables that depend on each other. Here is an image of the dataflow graph.
+                    For the sake of example let's make several reactive variables that depend on each other. On your right there is an image of the dataflow graph.
                 </p>
-                <p>When you change <b>a</b> or <b>b</b> changes are propagated to all reactive variables that depend on them.
-                    As you see from a code example and a live demo one the right it is just a matter of several lines of code to compose a data-flow with reactive variables.
+                <p>Whenever you change <i class="ui label">a</i> or <i class="ui label">b</i>, changes are propagated to all reactive variables that depend on them.
+                    As you see from a code example and a live demo on your right it is just a matter of several lines of code to compose a data-flow with reactive variables!
                     </p>
                 <p>
                     The mission of Scala-js binding library is to connect HTML properties, styles and events to scalajs classes and different variables inside them.
@@ -31,40 +31,42 @@
             </column>
             <column class="column ui message">
                 @binding.html.flow()
-
             </column>
         </section>
         <section class="equal width row">
             <column class="column ui message">
                 <h1 class="ui orange header">How do views work?</h1>
-                <p>Views are ScalaJS classes that contain most of interface logic and that connect to HTML Trees.
-                    If you bind HTML property to a reactive variable it looks first in which view this HTML element is
-                    and then searchers for the reactive variable inside this view.
+                <p>Views are ScalaJS classes that contain most of user interface logic and that connect to HTML trees.
+                    If you bind HTML property to a reactive variable it finds to which view this HTML element belongs to
+                    and binds this property to corresponding reactive variable inside that view.
                 </p>
                 <p>Let's look ScalaJS view and HTML part of our first example with numbers.</p>
                 <textarea data-code-scala="flowViewScala"></textarea>
                 <p>
-                    The view contains our reactive variables and also has <i>elem</i> variable that contains an HTML element to which the view is connected.
-                    If you look at HTML template on the right you can notice that there are no parts there that are not compatible with HTML5 specification.
+                    The view contains our reactive variables and also has <i class="ui label">elem</i> immutable variable that contains an HTML element to which the view is connected.
+                    If you look at HTML template on the right you can notice that only html syntax is used, no special characters for binding.
                     The logic how html properties are binded to variables is defined by the <i>Binder</i> classes that are applied to the view.
                     The default(GeneralBinder) binder uses <b>data-<i>property</i>="<i>variable</i>"</b> HTML attributes to connect HTML properties with variables.
-                    There is no need to hardcode HTML templates into scala-js code, so you can use any template engine you want or even just ordinary HTML files
+                    There is no need to hardcode HTML templates into scala-js code, so you can use any template engine you want or even just ordinary HTML files.
                </p>
 
-                <p>In the HTML code on your right you can see <b>data-view="CodeExampleView"</b>. This property connects CodeExampleView to the corresponding class.
-                    As ScalaJS does not support reflection you have to register string "CodeExampleView" to corresponding View in a parent class.
+                <p>In the HTML code on your right you can see <b>data-view="CodeExampleView"</b>.
+                    This attribute connects CodeExampleView to the corresponding class.
                 </p>
-                <p>We also have to register our view in the parent view.
+                <p>Unfortunately, ScalaJS does not support runtime reflection, so we have to tell the parent view explicitly that it should
+                    create <i>CodeExampleView</i> for each element with <i>data-view="CodeExampleView"</i> attribute.
                     In our case Parent is the main view of the application. Here is its code:</p>
                 <textarea data-code-scala="registration"></textarea>
                 <p>
                     Together with registration binders are attached to the view.
-                    In current example we create GeneralBinder that is capable of connecting reactive variables to html properties but you can attach any binders you want.</p>
-                    <p>
-                        Binders use macros to extract reactive variables from the class that is why we create it inside withBinder function.
-                    </p>
+                    In current example we create GeneralBinder that is capable of connecting reactive variables to html properties but you can attach any binders you want!
+                </p>
                 <p>
-                    Then we connect html inputs and labels with reactive variables inside this view, it is done by <b>data-bind="<i>variableName</i>"</b>, and that's it, now it works!
+                    We pass the view in <i>withBinder</i> method to let macros extract all reactive variables from the view.
+                </p>
+                <p>
+                    Then we connect html inputs and labels with reactive variables inside this view,
+                    it is done by <b>data-bind="<i>variableName</i>"</b>, and that's it, now it works!
                 </p>
             </column>
 

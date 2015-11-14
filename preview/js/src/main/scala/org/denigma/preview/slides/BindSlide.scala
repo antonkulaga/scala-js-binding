@@ -9,7 +9,7 @@ import rx.core.{Rx, Var}
  * Bind slide
  * @param elem html element
  */
-class BindSlide(val elem:Element) extends BindableView{
+class BindSlide(val elem: Element) extends BindableView{
 
   val flowScala: Var[String] = Var(
     """
@@ -27,7 +27,7 @@ class BindSlide(val elem:Element) extends BindableView{
       |class ExampleCodeView(val elem:Element) extends BindableView{
       |  val a = Var(1)
       |  val b = Var(2)
-      |  val c: Rx[Int] = Rx{ a() + b() }
+      |  val c = Rx{ a() + b() }
       |  val d = Rx{ c() * 5 }
       |  val e = Rx{ c() + 4 }
       |  val f = Rx{ d() + e() + 4 }
@@ -105,7 +105,7 @@ class BindSlide(val elem:Element) extends BindableView{
 
   val a = Var(1)
   val b = Var(2)
-  val c: Rx[Int] = Rx{ a() + b() }
+  val c = Rx{ a() + b() }
   val d = Rx{ c() * 5 }
   val e = Rx{ c() + 4 }
   val f = Rx{ d() + e() + 4 }

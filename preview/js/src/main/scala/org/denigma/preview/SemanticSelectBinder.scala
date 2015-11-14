@@ -14,7 +14,7 @@ import rx.ops._
 
 import scala.collection.immutable.SortedSet
 
-class SemanticSelectBinder[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],resolver:Resolver[Rdf]) extends RDFModelBinder[Rdf](graph,resolver)
+class SemanticSelectBinder[Rdf<:RDF](graph: Var[PointedGraph[Rdf]], resolver: Resolver[Rdf]) extends RDFModelBinder[Rdf](graph, resolver)
 {
   override def bindAttributes(el: Element, attributes: Map[String, String]): Boolean = {
     attributes.contains("property") //TODO: rewrite
@@ -22,7 +22,7 @@ class SemanticSelectBinder[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],resolver:Resol
 }
 
 //case class SemanticSuggester()
-case class TripleSelection[Rdf<:RDF](triple:Rdf#Triple)(val position:Int)(implicit ops:RDFOps[Rdf])
+case class TripleSelection[Rdf <: RDF](triple: Rdf#Triple)(val position: Int)(implicit ops: RDFOps[Rdf])
 {
 
   import ops._
@@ -31,15 +31,15 @@ case class TripleSelection[Rdf<:RDF](triple:Rdf#Triple)(val position:Int)(implic
   lazy val value = ops.fromTriple(triple)._3
 
   lazy val label: String = ops.foldNode(value)(
-   u=>u.lastPathSegment,
-   b=>ops.fromBNode(b),
-   l=> {
+   u => u.lastPathSegment,
+   b => ops.fromBNode(b),
+   l => {
      val (str, tp, lanOpt) = ops.fromLiteral(l)
      str
    }
   )
 }
-case class SelectTripleOption[Rdf<:RDF](item:Var[TripleSelection[Rdf]],origin:BindableView,latest:BasicView) extends ViewEvent{
+case class SelectTripleOption[Rdf<:RDF](item: Var[TripleSelection[Rdf]], origin: BindableView, latest: BasicView) extends ViewEvent{
 
   override def withCurrent(cur: BasicView): SelectTripleOption[Rdf] = {
     copy(latest = cur)
@@ -47,7 +47,7 @@ case class SelectTripleOption[Rdf<:RDF](item:Var[TripleSelection[Rdf]],origin:Bi
 
 }
 
-class SemanticOptionView[Rdf<:RDF](val elem:Element,item:Var[TripleSelection[Rdf]],val params:Map[String,Any]) extends BindableView
+class SemanticOptionView[Rdf<:RDF](val elem: Element, item: Var[TripleSelection[Rdf]], val params: Map[String, Any]) extends BindableView
 {
 
   val label: Rx[String] = item.map(_.label)
@@ -63,25 +63,24 @@ class SemanticOptionView[Rdf<:RDF](val elem:Element,item:Var[TripleSelection[Rdf
     case ev=> onSelect()
   }
 
-
 }
 
-class SemanticSelectionView[Rdf<:RDF](val elem:Element,
-                                      val graph:Var[PointedGraph[Rdf]],
+class SemanticSelectionView[Rdf<:RDF](val elem: Element,
+                                      val graph: Var[PointedGraph[Rdf]],
                                       val graphUpdates: Rx[GraphUpdate[Rdf]],
                                       //val suggester:  TypedSuggester,
-                                      val params:Map[String,Any])(implicit ops:RDFOps[Rdf])
+                                      val params: Map[String, Any])(implicit ops: RDFOps[Rdf])
   extends  ItemsSetView
 {
 
 
   implicit val varOrdering:Ordering[rx.core.Var[TripleSelection[Rdf]]] = new Ordering[Var[TripleSelection[Rdf]]]{
     override def compare(x: Var[TripleSelection[Rdf]], y: Var[TripleSelection[Rdf]]): Int = if(x.now.position<y.now.position)
-      -1 else if(x.now.position>y.now.position) 1 else 0
+      -1 else if(x.now.position > y.now.position) 1 else 0
   }
   implicit val selectionOrdering:Ordering[TripleSelection[Rdf]] = new Ordering[TripleSelection[Rdf]]{
     override def compare(x: TripleSelection[Rdf], y: TripleSelection[Rdf]): Int = if(x.position<y.position)
-      -1 else if(x.position>y.position) 1 else 0
+      -1 else if(x.position > y.position) 1 else 0
   }
   override type Item = Var[TripleSelection[Rdf]]
 
@@ -89,7 +88,7 @@ class SemanticSelectionView[Rdf<:RDF](val elem:Element,
 
   override lazy val items = Var(SortedSet.empty[Item])
 
-  val typed = Var(Typed[Rdf](graph.now,""))
+  val typed = Var(Typed[Rdf](graph.now, ""))
 
   /**
    * Adds subscription
@@ -104,8 +103,8 @@ class SemanticSelectionView[Rdf<:RDF](val elem:Element,
     })*/
   }
 
-  override def newItem(item: Item):ItemView = this.constructItemView(item){case (el,mp)=>
-      new SemanticOptionView[Rdf](el,item,mp)
+  override def newItem(item: Item):ItemView = this.constructItemView(item){case (el, mp) =>
+      new SemanticOptionView[Rdf](el, item, mp)
   }
 
 

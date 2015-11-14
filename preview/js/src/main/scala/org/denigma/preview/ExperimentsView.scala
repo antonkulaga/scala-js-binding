@@ -17,7 +17,7 @@ object Measurement
   implicit val ordering = new Ordering[Measurement]{
     override def compare(x: Measurement, y: Measurement): Int = {
       x.date.compareTo(y.date) match {
-        case 0 if x!=y=>  -1
+        case 0 if x!=y =>  -1
         case other: Any => other
       }
     }
@@ -32,7 +32,9 @@ object Measurement
 
 
 case class Measurement(sample: Sample = Sample("unknown", "unknown"), diode: String = "unknown", value: Double, date: Date = new Date())
+
 case class Sample(name: String, Description: String = "")
+
 import rx.ops._
 class MeasurementView(val elem: Element, measurement: Var[Measurement]) extends BindableView
 {

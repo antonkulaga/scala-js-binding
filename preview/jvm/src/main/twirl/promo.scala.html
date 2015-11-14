@@ -13,7 +13,7 @@
             <div class="item">
                 <div class="content">
                     <div class="header">Handle events and changes as flows</div>
-                    Scala.Rx is used to create flow graphs<br> and manipulate with them in functional ways
+                    Scala.Rx is used to create flow graphs<br> and manipulate them in functional ways
                 </div>
             </div>
             <div class="item">
@@ -34,9 +34,9 @@
         <img id="logo" data-bind-src="logo">
     </column>
     <column class="ui padded column segment"  id="right_promo">
-        <h1 class="ui header" data-bind="say"></h1>
-        <p class="ui text">Greetings binds to a <i>say</i> variable that depends on
-            two other variables, just change them and immediately see the result!</p>
+        <h1 class="ui header" data-bind="title"></h1>
+        <p class="ui text">Header of this paragraph binds to the <i class="ui label">title</i> variable that depends on
+            <i class="ui label">greeting</i> and <i class="ui label">username</i> variables, just change their values in input boxes and immediately see the result!</p>
         <input class="ui input" data-bind="greeting">
         <input class="ui input" data-bind="username">
         <div class="ui divider"></div>
@@ -46,8 +46,8 @@
         <b>Let's look into ScalaJS code:</b>
         <textarea data-code-scala="scalaCode">
         </textarea>
-        <div class="ui message"><i>say</i> depends on <i>greeting</i> and <i>username</i> variables
-            and is automatically updated (and updates all properties it is binded to) when any of them change
+        <div class="ui message"><i class="ui label">title</i> depends on <i class="ui label">greeting</i> and <i class="ui label">username</i> variables
+            and is automatically updated when any of them change and then it updates all variables that depend on it.
         </div>
     </column>
 </section>

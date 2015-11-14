@@ -1,11 +1,12 @@
-package org.denigma.binding
+/*
 
+package org.denigma.binding
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.openqa.selenium.htmlunit.HtmlUnitDriver
 import org.scalatest.{Matchers, FlatSpec}
 import org.scalatest.selenium.WebBrowser
-/*
+
 
 
 class BindingSpec extends FlatSpec with Matchers with WebBrowser {

@@ -4,7 +4,9 @@
     <h1 id="title"class="ui large header orange message">@title </h1>
 
     <section class="ui segment">
-        We can also bind to collection of elements. By the way, all menus at this website are done this way
+        <p><b>scala-js-binding</b> supports binding to collections of elements. By the way, all menus at this website/examples are done this way.
+        Let's look at some examples.
+        </p>
     </section>
 
     @binding.html.experiments()
@@ -15,9 +17,9 @@
             <div class="column">
                 <p class="ui segment">
                     On the right you can see a sample of menu. There data-param-path makes a request to corresponding
-                    address and loads a menu into the page. Scala-js-pickling library is used to pickle and unpickle results, that means
-                    that you can pass any case class, pickle it on the server and unpickle on the client without a need to write custom json (de)serialization,
-                    the only thing that is required is to register this class with pickl register as well as classes that are in fields of your case class.
+                    address and loads a menu into the page. Pickling library is used to pickle and unpickle results, that means
+                    that you can pass any case class, pickle it on the server and unpickle on the client without a need to write custom json (de)serialization.
+                    In this example we used Boo-pickle library but you can use whatever lib you want.
                 </p>
 
             </div>
@@ -54,8 +56,8 @@
                         </a>
                     </nav>
                 </textarea>
+                <div class="ui positive button" data-event-click="apply">Apply template</div>
             </div>
-            <div class="ui positive button" data-event-click="apply">Apply template</div>
 
         </section>
 

@@ -68,15 +68,15 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("HelloPlot"){case (el, args)=>
       new ScatterPlot(
         el,
-        Var(LinearScale("OX", 0, 1000, 100, 1000)),
-        Var(LinearScale("OY", 0, 1000, 100, 1000, inverted = true))
+        Var(LinearScale("OX", 0.0, 1000.0, 100.0, 1000.0)),
+        Var(LinearScale("OY", 0.0, 1000.0, 100.0, 1000.0, inverted = true))
         ).withBinder{case view: Any => new GeneralBinder(view)}
     }
     .register("StartSlide"){case (el, args) =>
-      new StartSlide(el).withBinder{case view: Any => new GeneralBinder(view)}
+      new StartSlide(el).withBinder{case view: Any => new CodeBinder(view)}
     }
     .register("CompBioView"){case (el, args) =>
-      new CompBioView(el).withBinder(view => new GeneralBinder(view))
+      new CompBioView(el).withBinder(view => new CodeBinder(view))
     }
 
   @JSExport

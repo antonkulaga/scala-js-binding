@@ -74,7 +74,7 @@ case class CompBioODEs(
                         tetRepressedByLacI: HillRepression = Defaults1.tetRRepression,
                         lacIProduction: ProductionDelusion = Defaults1.lacIProduction,
                         tetRProduction: ProductionDelusion = Defaults1.tetRProduction,
-                        tEnd :Double = 5000, override val step: Double = 1) extends ODEs
+                        tEnd: Double = 5000, override val step: Double = 1) extends ODEs
 {
 
   override val tStart = 0.0

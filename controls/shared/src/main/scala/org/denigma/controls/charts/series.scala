@@ -35,6 +35,11 @@ case class LineSeries(title: String,
 case class StaticSeries(title: String,
                         points: List[Point],
                         style: LineStyles = LineStyles.default) extends Series
+{
+  def withStrokeColor(color:String): StaticSeries = copy(style = style.copy(strokeColor = color))
+  def withFillColor(color:String): StaticSeries = copy(style = style.copy(fill = color))
+
+}
 
 trait Series
 {

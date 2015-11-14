@@ -10,7 +10,7 @@ object Main extends App
   implicit val system = ActorSystem()
 
   sys.addShutdownHook(system.shutdown())
-  var main:ActorRef = system.actorOf(Props[MainActor])
+  var main: ActorRef = system.actorOf(Props[MainActor])
   main ! AppMessages.Start(5553)
 
 
