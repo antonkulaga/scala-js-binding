@@ -48,7 +48,7 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles {
     )//-(overflowX.auto,overflowY.hidden)
 
   "#logo" -(
-    maxHeight(30 vw)
+    maxHeight(25 vw)
     )
 
 

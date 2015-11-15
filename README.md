@@ -12,14 +12,15 @@ ScalaJS Binding project
 * some useful predefined controls (like select and codeview) that you can
 * work with linked data (rdf data) in a convenient way, bind html to RDF properties *(BananaRDF support is in progress)*
 
-Documentations and examples are at [scala-js-binding website](http://scala-js-binding.com).
+Documentation
+-------------
+
+Documentation and examples are at [scala-js-binding website](http://scala-js-binding.com).
 
 Adding to your project
 ----------------------
 
 All versions are published to bintray repository ( https://bintray.com/denigma/denigma-releases/binding/view )
-So in order to use the library you have to add bintray sbt plugin to your sbt configuration (see https://github.com/softprops/bintray-sbt
- for more info) in plugins.sbt
 
 In order to resolve a lib you should add a resolver::
 ```scala

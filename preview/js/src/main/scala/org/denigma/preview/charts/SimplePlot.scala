@@ -11,8 +11,10 @@ import scala.collection.immutable.{Seq, _}
 
 class SimplePlot(val elem: Element) extends LinesPlot {
 
+  // here we create a scale for OX
   val scaleX: rx.Var[Scale] = Var(LinearScale("Time", 0.0, 20.0, 1.0, 500.0))
 
+  // here we create a scale for OY
   val scaleY: rx.Var[Scale] = Var(LinearScale("TetR", 0.0, 20.0, 1.0, 500.0, inverted = true))
 
   val justSomeLines =
@@ -40,9 +42,7 @@ class SimplePlot(val elem: Element) extends LinesPlot {
     new ODESeries("dy/dt = x * 2", scaleX().start, scaleX().end, 0.0, 0.01, LineStyles.default.copy(strokeColor = "yellow", opacity = 0.5))(ode)
   }
 
-  val items: Var[Seq[Rx[Series]]] = Var(
-    Seq(
-      justSomeLines, lineXplus1Series, lineX2, derX2 // list of charts
-    )
-  )
+  // sequence of series
+  val items: Var[Seq[Rx[Series]]] = Var(Seq(justSomeLines, lineXplus1Series, lineX2, derX2))
+
 }

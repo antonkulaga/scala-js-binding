@@ -15,8 +15,7 @@ class PromoView(val elem: Element) extends BindableView{
   val scalaCode = Var(
     """val greeting = Var("Hello,")
       |val username = Var("User")
-      |val title = Rx(greeting()+" "+username())
-    """.stripMargin)
+      |val title = Rx(greeting()+" "+username())""".stripMargin)
 
 
 }

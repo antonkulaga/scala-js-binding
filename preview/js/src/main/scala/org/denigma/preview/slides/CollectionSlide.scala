@@ -13,7 +13,7 @@ import rx.core.Var
 import scala.collection.immutable.{Map, Seq}
 import scala.util._
 
-class CollectionSlide(val elem: Element) extends BindableView{
+class CollectionSlide(val elem: Element) extends BindableView with CollectionSlideCode{
 
   def parseHTML(string: String): Option[Element] ={
     val p = new  DOMParser()

@@ -55,14 +55,6 @@ trait LinesPlot extends ItemsSeqView with Plot
 
   lazy val linesStyles = chartStyles.map(_.linesStyles)
 
-  override lazy val injector = defaultInjector
-    .register("ox"){case (el, args) =>  // register and bind view for OX axis
-      new AxisView(el, scaleX, chartStyles.map(_.scaleX)).withBinder(new GeneralBinder(_))}
-    .register("oy"){case (el, args) =>  // register and bind view for OY axis
-      new AxisView(el, scaleY, chartStyles.map(_.scaleY)).withBinder(new GeneralBinder(_))}
-    .register("legend"){case (el, args) => // register and bind view for the Legend
-      new LegendView(el, items).withBinder(new GeneralBinder(_))}
-
   override protected def subscribeUpdates() = {
     this.items.now.foreach(i => this.addItemView(i, this.newItem(i)))
     updates.onChange("ItemsUpdates")(upd=>{
@@ -71,6 +63,14 @@ trait LinesPlot extends ItemsSeqView with Plot
       upd.moved.foreach(onMove)
     })
   }
+
+  override lazy val injector = defaultInjector
+    .register("ox"){case (el, args) => new AxisView(el, scaleX, chartStyles.map(_.scaleX))
+      .withBinder(new GeneralBinder(_))}
+    .register("oy"){case (el, args) => new AxisView(el, scaleY, chartStyles.map(_.scaleY))
+      .withBinder(new GeneralBinder(_))}
+    .register("legend"){case (el, args) => new LegendView(el, items)
+      .withBinder(new GeneralBinder(_))}
 }
 
 class LegendView(val elem: Element, val items: rx.Rx[Seq[Rx[Series]]]) extends ItemsSeqView with BindableView{

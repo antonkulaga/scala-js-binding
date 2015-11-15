@@ -271,15 +271,15 @@ abstract class OrganizedView extends BasicView
         case other=>
           dom.console.info("from =" + viewElement.outerHTML)
           dom.console.info("to = " + newElement.outerHTML)
-          other.replaceChild(newElement,this.viewElement)
+          other.replaceChild(newElement, this.viewElement)
       }
       newElement.setAttribute("id",this.id)
-      pv.removeView(this:ChildView)
+      pv.removeView(this: ChildView)
       pv.bindElement(newElement)
       //dom.console.info("after = "+pv.subviews.toString())
 
 
-    case None=> dom.console.error("topview refresh is not supported yet")
+    case None => dom.console.error("topview refresh is not supported yet")
   }
 
 
@@ -288,7 +288,7 @@ abstract class OrganizedView extends BasicView
    * @param view
    * @return
    */
-  override def addView(view:ChildView) = {
+  override def addView(view: ChildView) = {
     super.addView(view)
     view.parent = Some(this)
     view.topView = this.topView
