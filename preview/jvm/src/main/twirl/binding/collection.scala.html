@@ -9,46 +9,13 @@
         </p>
     </section>
 
-    @binding.html.experiments()
-
-    <div class="ui two column grid">
-
+    <div class="ui equal width column grid">
         <section class="row">
             <div class="column">
                 <p class="ui segment">
-                    On the right you can see a sample of menu. There data-param-path makes a request to corresponding
-                    address and loads a menu into the page. Pickling library is used to pickle and unpickle results, that means
-                    that you can pass any case class, pickle it on the server and unpickle on the client without a need to write custom json (de)serialization.
-                    In this example we used Boo-pickle library but you can use whatever lib you want.
+                    The most common example of collection is the menu where each item looks similar and is loaded from some collection of elements.
+                    Here you can see an HTML code required for the menu to appear.
                 </p>
-
-            </div>
-            <div class="column">
-                <nav id="testmenu" class="ui large blue inverted menu" data-view="testmenu" data-param-path="menu/what">
-                    <a data-template="true" class="active item header" data-bind-href="uri" data-bind="label" data-load-into="main">
-                        <i class="ui-icon-home"></i>
-                    </a>
-                </nav>
-            </div>
-        </section>
-        <section class="row">
-            <div class="column">
-                <p class="ui segment">
-                    On the right you can see a code required for the menu to appear. There data-param-path makes a request to corresponding
-                    address and loads a menu into the page.
-                    In current example there is a tag with data-template="true"  this tag is a template for each item that will be created.
-                </p>
-                <p>
-                    Each item has data-load-into attribute. This attribute defined where the data should be loaded after menu is clicked. Usually
-                    data is loaded with ajax into some html element to avoid whole page refreshing. For binding to item properties data-bind is used
-                    instead of ordinary data-bind. The only difference between them is that data-bind binds to the whole view and data-bind binds
-                    to current item.
-
-                </p>
-                <p>You can edit template on the right and push <b>apply template</b> and the template will be rerendered according new template</p>
-
-            </div>
-            <div class="column">
                 <textarea id="codeinme" data-code-html="code"  data-mode="html">
                     <nav class="ui large blue inverted menu" data-view="menu" data-param-path="menu/what">
                         <a data-template="true" class="active item header" data-bind-href="uri"  data-load-into="main">
@@ -57,6 +24,20 @@
                     </nav>
                 </textarea>
                 <div class="ui positive button" data-event-click="apply">Apply template</div>
+                <p>
+                    There data-param-path makes a request to corresponding address and loads a menu into the page.
+                    In current example there is a tag with data-template="true" this tag is a template for each item that will be created.
+                </p>
+                <p>
+                    Each item has data-load-into attribute. This attribute defined where the data should be loaded after menu is clicked. Usually
+                    data is loaded with ajax into some html element to avoid whole page refreshing.
+                </p>
+                <p>You can edit template on the right and push <b>apply template</b> and the template will be rerendered according new template</p>
+
+            </div>
+            <div class="column">
+
+                <textarea data-code-scala=""></textarea>
             </div>
 
         </section>

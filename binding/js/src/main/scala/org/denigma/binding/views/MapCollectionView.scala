@@ -8,26 +8,23 @@ import scala.collection.immutable._
 
 object MapCollectionView {
 
-
-  class JustMapView(val elem:Element,val params:Map[String,Any]) extends BindableView
+  class JustMapView(val elem: Element, val params: Map[String, Any]) extends BindableView
   {
+    val reactiveMap: Map[String, Var[String]] = params.map(kv => (kv._1, Var(kv._2.toString)))
 
-   val reactiveMap: Map[String, Var[String]] = params.map(kv => (kv._1, Var(kv._2.toString)))
-
-    withBinders(m=>new MapItemsBinder(m,reactiveMap)::new NavigationBinder(m)::Nil)
-
+    this.withBinders(m => new MapItemsBinder(m, reactiveMap)::new NavigationBinder(m)::Nil)
   }
 
 }
 
 
 
-abstract class MapCollectionView(val elem:Element) extends BindableView  with ItemsSeqView
+abstract class MapCollectionView(val elem: Element) extends ItemsSeqView
 {
-  override type Item = Map[String,Any]
+  override type Item = Map[String, Any]
 
   override type ItemView = BindableView
 
-  def newItem(item:Item):ItemView = this.constructItemView(item){  (el,mp)=>new MapCollectionView.JustMapView(el,item) }
+  def newItem(item: Item): ItemView = this.constructItemView(item){ (el, mp) => new MapCollectionView.JustMapView(el, item) }
 
 }

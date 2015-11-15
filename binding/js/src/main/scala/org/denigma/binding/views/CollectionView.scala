@@ -17,18 +17,16 @@ trait CollectionView extends BindableView
   type Item
   type ItemView <: BasicView
 
- override protected lazy val defaultBinders:List[ViewBinder] = List(new BinderForViews[this.type](this),new TemplateBinder[this.type](this))
+ override protected lazy val defaultBinders: List[ViewBinder] = List(new BinderForViews[this.type](this), new TemplateBinder[this.type](this))
 
-  private var _template: Element = viewElement//.cloneNode(true).asInstanceOf[Element]
+  private var _template: Element = viewElement // .cloneNode(true).asInstanceOf[Element]
   var templateDisplay = _template.dyn.style.display
   def template_=(value:Element) = if(value!=_template){
     _template = value
     templateDisplay = _template.dyn.style.display
   }
 
-  def template:Element = _template
-
-
+  def template: Element = _template
   /**
    * extracts element after which it inserts children
    * @return
@@ -53,13 +51,14 @@ trait CollectionView extends BindableView
     }
   }
 
-  def replaceHTML(newChild:Element,oldChild:Element, switch:Boolean = false) = {
+  def replaceHTML(newChild: Element, oldChild: Element, switch: Boolean = false) = {
     def oldNew() = s"\nnewChild = ${newChild.outerHTML}\noldChild = ${oldChild.outerHTML}"
     if(oldChild!=newChild)
       (newChild.parentElement, oldChild.parentElement) match {
         case (pn, null) =>
           console.error(s"old child has no parent:"+oldNew())
           oldChild
+
         case (null, po) =>
           po.replaceChild(newChild, oldChild)
           if (switch) console.error("new child has null parent"+oldNew)
@@ -85,64 +84,29 @@ trait CollectionView extends BindableView
       }
   }
 
-  /*def replaceSVG(newChild:SVGElement,oldChild:SVGElement, switch:Boolean = false) = {
-    def oldNew() = s"\nnewChild = ${newChild.outerHTML}\noldChild = ${oldChild.outerHTML}"
-    if(oldChild!=newChild)
-      (newChild.ownerSVGElement, oldChild.ownerSVGElement) match {
-        case (pn, null) =>
-          console.error(s"old child has no parent:"+oldNew())
-          oldChild
-        case (null, po) =>
-          po.replaceChild(newChild, oldChild)
-          if (switch) console.error("new child has null parent"+oldNew)
-
-        case (pn, po) if pn == po =>
-          if (switch) {
-            val io = po.children.indexOf(oldChild)
-            val in = pn.children.indexOf(newChild)
-            //po.removeChild(oldChild)
-            po.children(io) = newChild
-            pn.children(in) = oldChild
-            //console.error("new child has null parent")
-          } else po.replaceChild(newChild, oldChild)
-
-        case (pn, po) =>
-          val io = po.children.indexOf(oldChild)
-          val in = pn.children.indexOf(newChild)
-          //po.removeChild(oldChild)
-          po.children(io) = newChild
-          if (switch) {
-            pn.children(in) = oldChild
-          }
-      }
-  }
-
-*/
     /**
    * Replaces elementes
    * @param newChild new child
    * @param oldChild oldchild
    * @return
    */
-  def replace(newChild:Element,oldChild:Element, switch:Boolean = false) = {
-      (newChild,oldChild) match {
-        case (n:HTMLElement,o:HTMLElement) => replaceHTML(n,o,switch)
-        case (n:SVGElement,o:SVGElement) =>  replaceHTML(n,o,switch)//replaceSVG(n,o,switch)
+  def replace(newChild: Element, oldChild: Element, switch: Boolean = false) = {
+      (newChild, oldChild) match {
+        case (n: HTMLElement, o: HTMLElement) => replaceHTML(n , o, switch)
+        case (n: SVGElement, o: SVGElement) =>  replaceHTML(n ,o, switch)//replaceSVG(n,o,switch)
         case _ => dom.console.error(s"unknown elements types of old ${oldChild.outerHTML} and new ${newChild.outerHTML} elements, cannot replace")
       }
   }
-
 
   override def bindView() = {
     this.bindElement(this.viewElement)
     this.subscribeUpdates()
   }
 
+  protected def onInsert(item: Item) = this.addItemView(item, this.newItem(item))
+  protected def onRemove(item: Item) = this.removeItemView(item)
 
-  protected def onInsert(item:Item) = this.addItemView(item,this.newItem(item))
-  protected def onRemove(item:Item) = this.removeItemView(item)
-
-  protected def getItemView(el:Element) = el.attributes.get("data-item-view")//.orElse(el.attributes.get("data-view"))
+  protected def getItemView(el: Element) = el.attributes.get("data-item-view")//.orElse(el.attributes.get("data-view"))
 
   def copyTemplate() = {
     val el = template.cloneNode(true).asInstanceOf[Element]
@@ -156,18 +120,18 @@ trait CollectionView extends BindableView
    * @param construct function that does construction
    * @return
    */
-  def constructItemView(item:Item,mp:Map[String,Any] = Map.empty)
-                   ( construct:(Element,Map[String,Any])=>ItemView):ItemView =
+  def constructItemView(item: Item, mp: Map[String, Any] = Map.empty)
+                   ( construct: (Element, Map[String, Any]) => ItemView): ItemView =
   {
     //dom.console.log(template.outerHTML.toString)
     val el = copyTemplate()
     val view = getItemView(el) match {
       case None=> construct(el,mp)
-      case Some(v)=> this.inject(v.value,el,mp) match {
+      case Some(v)=> this.inject(v.value, el, mp) match {
         case iv:ItemView if iv.isInstanceOf[ItemView]=> iv
         case _=>
           dom.console.error(s"view ${v.value} exists but does not inherit ItemView")
-          construct(el,mp)
+          construct(el, mp)
       }
     }
     view
@@ -175,40 +139,37 @@ trait CollectionView extends BindableView
 
   var itemViews = Map.empty[Item,ItemView]
 
-  def addItemView(item:Item,iv:ItemView):ItemView = {
-    Try {
-      template.parentElement.insertBefore(iv.viewElement, template)
-    } match {
-      case Failure(th)=>
+  def addItemView(item: Item, iv: ItemView): ItemView = {
+    Try ( template.parentElement.insertBefore(iv.viewElement, template) ) match {
+      case Failure(th) =>
         dom.console.error("stack trace "+th.getMessage+"\n"+th.getStackTrace.toList.mkString("/n"))
         println("TEMPLATE ="+template.outerHTML)
         println("IV ="+iv.viewElement.outerHTML)
         println("TEMPLATE PARENT ="+template.parentElement.outerHTML)
         println("and EL = \n**********\n"+this.viewElement.outerHTML)
-      case Success(res)=>
+      case Success(res) =>
     }
     iv match {
-      case b:ChildView=>  this.addView(b)
+      case b: ChildView =>  this.addView(b)
     }
     itemViews = itemViews + (item->iv)
     iv.bindView()
-    //dom.console.log(iv.viewElement.innerHTML)
     iv
   }
 
-  def removeItemView(r:Item) =  this.itemViews.get(r) match {
-    case Some(rv)=>
+  def removeItemView(r: Item): Unit =  this.itemViews.get(r) match {
+    case Some(rv) =>
       rv.unbindView()
       this.removeViewByName(rv.id)
       this.itemViews = itemViews - r
-    case None=>
+    case None =>
       dom.console.error("cantot find the view for item: "+r.toString+" in item view "+this.itemViews.toString+"\n")
   }
 
-  def newItem(item:Item):ItemView
+  def newItem(item: Item): ItemView
   /**
    * Adds subscription
    */
-  protected def subscribeUpdates():Unit
+  protected def subscribeUpdates(): Unit
 
 }

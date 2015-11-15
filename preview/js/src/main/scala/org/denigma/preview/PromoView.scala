@@ -9,7 +9,7 @@ class PromoView(val elem: Element) extends BindableView{
   val logo = Var("/resources/logo.svg")
   val greeting = Var("Hello,")
   val username = Var("User")
-  val say = Rx(greeting() + " " + username())
+  val title = Rx(greeting() + " " + username())
 
   val htmlCode = Var("""<h1 class="ui header" data-bind="title"></h1>""")
   val scalaCode = Var(

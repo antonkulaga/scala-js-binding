@@ -48,21 +48,16 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("login") { case (el, args) =>
       new LoginView(el, session).withBinder(new GeneralBinder(_))
     }
-    .register("testmenu"){
-      case (el, args) => new MenuView(el)
-        .withBinder(new GeneralBinder(_))
-        .withBinder(new NavigationBinder(_))
-    }
     .register("BindSlide"){ case (el, args)=> new BindSlide(el).withBinder(v => new CodeBinder(v)) }
     .register("CollectionSlide")
       {case (el, args) =>   new CollectionSlide(el).withBinder(view=>new CodeBinder(view))
     }.register("ControlSlide"){ case (el, args) =>
       new ControlSlide(el, args).withBinder(new CodeBinder(_))
     }
-    .register("lists"){ case (el, args)=>new LongListView(el).withBinder(view => new CodeBinder(view))}
-    .register("RdfSlide"){case (el, args)=>new RdfSlide(el).withBinder(view => new CodeBinder(view))}
-    .register("promo"){case (el, args)=>new PromoView(el).withBinder(view => new CodeBinder(view))}
-    .register("Selection"){case (el, args)=>
+    .register("lists"){ case (el, args) => new LongListView(el).withBinder(view => new CodeBinder(view))}
+    .register("RdfSlide"){case (el, args) => new RdfSlide(el).withBinder(view => new CodeBinder(view))}
+    .register("promo"){case (el, args) => new PromoView(el).withBinder(view => new CodeBinder(view))}
+    .register("Selection"){case (el, args) =>
       new StatesSelectionView(el, "test").withBinder{case view: Any => new GeneralBinder(view)}
     }
     .register("HelloPlot"){case (el, args)=>
