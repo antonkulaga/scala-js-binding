@@ -12,7 +12,7 @@ trait ItemsSetView extends CollectionView{
 
   override protected def subscribeUpdates() = {
     template.hide()
-    this.items.now.foreach(i=>this.addItemView(i,this.newItem(i))) //initialization of views
+    this.items.now.foreach(i=>this.addItemView(i,this.newItemView(i))) //initialization of views
     updates.onChange("ItemsUpdates")(upd=>{
       upd.added.foreach(onInsert)
       upd.removed.foreach(onRemove)

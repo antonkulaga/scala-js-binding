@@ -130,7 +130,7 @@ trait TextSelectionView extends SelectionView
       optsView
     }
 
-  override def newItem(item: Item): OptionView = constructItemView(item){
+  override def newItemView(item: Item): OptionView = constructItemView(item){
     case (el,mp)=> new OptionView(el,item).withBinder{new GeneralBinder(_)}
   }
 }

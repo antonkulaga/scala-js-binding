@@ -1,0 +1,24 @@
+@()
+<article id="main_article"  data-view="ChartsView">
+  <section class="ui blue piled segment equal width grid">
+    <row class="equal width row">
+      <column class="column">
+        <h1 class="ui orange middle aligned header">Charts</h1>
+        <p>Scala-js-binding has basic controls for different charts and charts.</p>
+      </column>
+    </row>
+    <row class="equal width row">
+      <column class="column">
+        <h1 class="ui orange header">Appearance</h1>
+        <p>Here is the most simple example - plot of several functions</p>
+        @org.denigma.controls.charts.html.plot("SimplePlot")
+      </column>
+      <column class="column">
+        <h1 class="ui orange header">Code</h1>
+        <textarea data-code-scala="plotCode"></textarea>
+      </column>
+    </row>
+  </section>
+  @plots.html.compbio()
+  @plots.html.cellgraph()
+</article>

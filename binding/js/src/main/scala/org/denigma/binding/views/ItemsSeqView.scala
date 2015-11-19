@@ -21,7 +21,7 @@ trait ItemsSeqView extends CollectionView {
 
   override protected def subscribeUpdates() = {
     template.hide()
-    this.items.now.foreach(i => this.addItemView(i, this.newItem(i)))
+    this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
     updates.onChange("ItemsUpdates")(upd => {
       upd.added.foreach(onInsert)
       upd.removed.foreach(onRemove)

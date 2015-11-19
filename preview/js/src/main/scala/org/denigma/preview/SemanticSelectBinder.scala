@@ -103,7 +103,7 @@ class SemanticSelectionView[Rdf<:RDF](val elem: Element,
     })*/
   }
 
-  override def newItem(item: Item):ItemView = this.constructItemView(item){case (el, mp) =>
+  override def newItemView(item: Item):ItemView = this.constructItemView(item){case (el, mp) =>
       new SemanticOptionView[Rdf](el, item, mp)
   }
 

@@ -82,7 +82,7 @@ class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
     }
   }
 
-  override def newItem(item: Item) = this.constructItemView(item){
+  override def newItemView(item: Item) = this.constructItemView(item){
     (e,m)=>new TickView(e,item,tickLength,style).withBinder(v=>new GeneralBinder(v))
   }
 

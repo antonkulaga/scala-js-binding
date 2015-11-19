@@ -143,7 +143,7 @@ class TestMenuView(val elem: Element) extends ItemsSeqView {
   override type ItemView = TestMenuItemView
 
   // we use helper function "construct view" that will help us to create view for the item
-  def newItem(item: Item): ItemView = this.constructItemView(item){
+  def newItemView(item: Item): ItemView = this.constructItemView(item){
     // it already creates Element ( el ) for you by copying the template
     // and it also extracts all params (to mp) from the template element
     (el, mp) =>

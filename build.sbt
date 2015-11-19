@@ -190,7 +190,7 @@ lazy val root = Project("root",file("."),settings = commonSettings)
     version := Versions.binding,
     //javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint"),
     mainClass in Compile := (mainClass in previewJVM in Compile).value,
-    (fullClasspath in Runtime) += (packageBin in previewJVM in Assets).value,
+    (fullClasspath in Compile) += (packageBin in previewJVM in Assets).value,
     maintainer := "Anton Kulaga <antonkulaga@gmail.com>",
     packageSummary := "scala-js-binding",
     packageDescription := """Scala-js-binding preview App"""

@@ -98,17 +98,17 @@ trait CollectionView extends BindableView
       }
   }
 
-  override def bindView() = {
+  override def bindView(): Unit = {
     this.bindElement(this.viewElement)
     this.subscribeUpdates()
   }
 
-  protected def onInsert(item: Item) = this.addItemView(item, this.newItem(item))
-  protected def onRemove(item: Item) = this.removeItemView(item)
+  protected def onInsert(item: Item): ItemView = this.addItemView(item, this.newItemView(item))
+  protected def onRemove(item: Item): Unit = this.removeItemView(item)
 
   protected def getItemView(el: Element) = el.attributes.get("data-item-view")//.orElse(el.attributes.get("data-view"))
 
-  def copyTemplate() = {
+  def copyTemplate(): ViewElement = {
     val el = template.cloneNode(true).asInstanceOf[Element]
     el.dyn.style.display = templateDisplay
     el
@@ -137,7 +137,7 @@ trait CollectionView extends BindableView
     view
   }
 
-  var itemViews = Map.empty[Item,ItemView]
+  var itemViews = Map.empty[Item, ItemView]
 
   def addItemView(item: Item, iv: ItemView): ItemView = {
     Try ( template.parentElement.insertBefore(iv.viewElement, template) ) match {
@@ -166,7 +166,7 @@ trait CollectionView extends BindableView
       dom.console.error("cantot find the view for item: "+r.toString+" in item view "+this.itemViews.toString+"\n")
   }
 
-  def newItem(item: Item): ItemView
+  def newItemView(item: Item): ItemView
   /**
    * Adds subscription
    */

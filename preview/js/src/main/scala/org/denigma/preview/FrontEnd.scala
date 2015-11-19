@@ -8,7 +8,7 @@ import org.denigma.binding.views.{BindableView, ItemsSetView}
 import org.denigma.controls.charts.{LinearScale, ScatterPlot}
 import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.login.{AjaxSession, LoginView}
-import org.denigma.preview.charts.CompBioView
+import org.denigma.preview.charts.{ChartsView, CompBioView}
 import org.denigma.preview.slides._
 import org.scalajs.dom
 import org.scalajs.dom.raw.Element
@@ -70,8 +70,8 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     .register("StartSlide"){case (el, args) =>
       new StartSlide(el).withBinder{case view: Any => new CodeBinder(view)}
     }
-    .register("CompBioView"){case (el, args) =>
-      new CompBioView(el).withBinder(view => new CodeBinder(view))
+    .register("ChartsView"){case (el, args) =>
+      new ChartsView(el).withBinder(view => new CodeBinder(view))
     }
 
   @JSExport

@@ -17,18 +17,18 @@ trait RxExt extends CommonOps
     }
   }
 
-  implicit class AnyRx[T,M](source:Rx[T])
+  implicit class AnyRx[T, M](source: Rx[T])
   {
 
-    def takeIf(b:Rx[Boolean]) = RxOps(source).filter(el=>b.now)
+    def takeIf(b: Rx[Boolean]) = RxOps(source).filter(el=>b.now)
 
-    def takeIfDefined[Value](b:Rx[Option[Value]]) = RxOps(source).filter(el=>b.now.isDefined)
+    def takeIfDefined[Value](b: Rx[Option[Value]]) = RxOps(source).filter(el => b.now.isDefined)
 
-    def takeIfAll(bools:Rx[Boolean]*) = RxOps(source).filter(el=>bools.forall(b=>b.now))
+    def takeIfAll(bools: Rx[Boolean]*) = RxOps(source).filter(el=>bools.forall(b => b.now))
 
-    def takeIfAny(bools:Rx[Boolean]*) = RxOps(source).filter(el=>bools.exists(b=>b.now))
+    def takeIfAny(bools: Rx[Boolean]*) = RxOps(source).filter(el=>bools.exists(b => b.now))
 
-    def observeIf(b:Rx[Boolean])(callback: => Unit): Obs = Obs(takeIf(b),skipInitial = true)(callback)
+    def observeIf(b: Rx[Boolean])(callback: => Unit): Obs = Obs(takeIf(b),skipInitial = true)(callback)
 
     def handler(callback: => Unit): Obs = Obs(source, skipInitial = true)(callback)
 
@@ -36,8 +36,8 @@ trait RxExt extends CommonOps
       Obs(source, "onChange " + source.name, skipInitial = true){callback(source())}
     }
 
-    def onVar(fun:Var[T]=>Unit) = source match{
-      case v:Var[T]=> fun(v)
+    def onVar(fun: Var[T] => Unit) = source match{
+      case v: Var[T] => fun(v)
       case other=> //do nothing
     }
 

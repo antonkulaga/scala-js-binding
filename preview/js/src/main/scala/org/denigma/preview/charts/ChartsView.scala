@@ -2,31 +2,59 @@ package org.denigma.preview.charts
 
 import org.denigma.binding.binders.{GeneralBinder, ReactiveBinder}
 import org.denigma.binding.views.BindableView
+import org.denigma.controls.code.CodeBinder
 import org.scalajs.dom._
 import rx.core.Var
 
+class ChartsView(val elem: Element) extends BindableView with CodeForCharts{
 
-class CompBioView(val elem: Element) extends BindableView with CodeForCompBio with InitialConditions {
   self=>
-
-  val odes = Var(new CompBioODEs())
 
   override lazy val injector = defaultInjector
     .register("SimplePlot") {
       case (el, params) =>
         new SimplePlot(el).withBinder(new GeneralBinder(_, self.binders.collectFirst { case r: ReactiveBinder => r }))
     }
-    .register("ProteinsTime") {
-      case (el, params) =>
-        new ProteinsTime(el, odes, initialConditions).withBinder(new GeneralBinder(_, self.binders.collectFirst { case r: ReactiveBinder => r }))
+    .register("CompBioView"){case (el, args) =>
+      new CompBioView(el).withBinder(view => new CodeBinder(view))
     }
-    .register("ProteinsXY") {
-      case (el, params) =>
-        new ProteinsXY(el, odes, initialConditions).withBinder(new GeneralBinder(_, self.binders.collectFirst { case r: ReactiveBinder => r }))
+    .register("cells") { case (el, params) =>
+        new CellsChart(el, side = Var(30), rows = Var(5), cols = Var(4)).withBinder(new CodeBinder(_))
     }
 }
 
-trait CodeForCompBio {
+
+trait CodeForCharts {
+
+  val cellsHTML = Var(
+    """
+      |<div class="ui equal width grid"  data-view="cells">
+      |    <row class="row">
+      |        <column class="column">
+      |            <div class="ui vertical blue menu">
+      |                <item class="item">
+      |                    <label class="ui attached label">rows</label><input data-bind="rows">
+      |                </item>
+      |                <item class="item">
+      |                    <label class="ui attached label">cols</label><input data-bind="cols">
+      |                </item>
+      |                <item class="item">
+      |                    <label class="ui attached label">side</label><input data-bind="side">
+      |                </item>
+      |            </div>
+      |        </column>
+      |    </row>
+      |    <row class="row">
+      |        <column class="column">
+      |            <svg data-bind-height="height" data-bind-width="width">
+      |                <polygon data-template="true" class="hex" data-bind-points="points" fill="green" stroke="red" stroke-width="3" fill-opacity="0.5"></polygon>
+      |            </svg>
+      |        </column>
+      |    </row>
+      |</div>
+    """.stripMargin
+  )
+
 
   val plotHTML = Var(
     """

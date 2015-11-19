@@ -45,7 +45,7 @@ trait LinesPlot extends ItemsSeqView with Plot
 
   import scala.util.Random
 
-  override def newItem(item: Item): SeriesView = constructItemView(item){
+  override def newItemView(item: Item): SeriesView = constructItemView(item){
     case (el, mp) => new SeriesView(el, item, transform).withBinder(new GeneralBinder(_))
   }
 
@@ -56,7 +56,7 @@ trait LinesPlot extends ItemsSeqView with Plot
   lazy val linesStyles = chartStyles.map(_.linesStyles)
 
   override protected def subscribeUpdates() = {
-    this.items.now.foreach(i => this.addItemView(i, this.newItem(i)))
+    this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
     updates.onChange("ItemsUpdates")(upd=>{
       upd.added.foreach(onInsert)
       upd.removed.foreach(onRemove)
@@ -78,7 +78,7 @@ class LegendView(val elem: Element, val items: rx.Rx[Seq[Rx[Series]]]) extends I
   type Item = Rx[Series]
   type ItemView = LegendItemView
 
-  override def newItem(item: Rx[Series]): LegendItemView = this.constructItemView(item){ case (el, mp)=>
+  override def newItemView(item: Rx[Series]): LegendItemView = this.constructItemView(item){ case (el, mp)=>
     new LegendItemView(el, item).withBinder(new GeneralBinder(_))
   }
 }

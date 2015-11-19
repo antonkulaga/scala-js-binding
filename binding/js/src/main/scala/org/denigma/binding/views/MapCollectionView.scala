@@ -25,6 +25,6 @@ abstract class MapCollectionView(val elem: Element) extends ItemsSeqView
 
   override type ItemView = BindableView
 
-  def newItem(item: Item): ItemView = this.constructItemView(item){ (el, mp) => new MapCollectionView.JustMapView(el, item) }
+  def newItemView(item: Item): ItemView = this.constructItemView(item){ (el, mp) => new MapCollectionView.JustMapView(el, item) }
 
 }

@@ -14,9 +14,10 @@ case class HillRepression(kProd: Double, kRepress: Double, nRepressor: Double, d
   }
 }
 
-case class ProductionDelusion(k: Double, delution: Double){
+case class ProductionDelusion(production: Double, delution: Double){
 
-  def apply(x: Double, y: Double): Double = k*x - y*delution
+  def apply(x: Double, y: Double): Double = production*x - y*delution
+  def apply(x: Double): Double = apply(x, x)
 
 }
 

@@ -12,10 +12,10 @@ import scala.collection.immutable.{Seq, _}
 class SimplePlot(val elem: Element) extends LinesPlot {
 
   // here we create a scale for OX
-  val scaleX: rx.Var[Scale] = Var(LinearScale("Time", 0.0, 20.0, 1.0, 500.0))
+  val scaleX: rx.Var[Scale] = Var(LinearScale("y", 0.0, 20.0, 1.0, 500.0))
 
   // here we create a scale for OY
-  val scaleY: rx.Var[Scale] = Var(LinearScale("TetR", 0.0, 20.0, 1.0, 500.0, inverted = true))
+  val scaleY: rx.Var[Scale] = Var(LinearScale("x", 0.0, 20.0, 1.0, 500.0, inverted = true))
 
   val justSomeLines =
     Var(

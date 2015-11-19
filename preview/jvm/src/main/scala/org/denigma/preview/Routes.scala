@@ -45,11 +45,10 @@ trait Routes extends Directives with PJax with TextFilesDirectives
   def menu = pathPrefix("pages"~ Slash){ctx =>
     ctx.unmatchedPath.toString() match {
       case "collection"=> page(binding.html.collection("It can bind to collections"))(ctx)
-      case "controls" => page(binding.html.controls("There are many controls you can try"))(ctx)
+      case "controls" => page(controls.html.controls("There are many controls you can try"))(ctx)
       case "start" => page(html.start())(ctx)
-      case "compbio" | "charts" => page(experimental.html.compbio())(ctx)
+      case "charts" | "plots" => page(plots.html.charts())(ctx)
       case "bind" => page(binding.html.bind("Simple binding example"))(ctx)
-      case "code" => page(binding.html.code("The code will tell you"))(ctx)
       case "rdf" => page(semantic.html.rdf("It can bind views to rdf models"))(ctx)
       case other => ctx.complete("other")
     }

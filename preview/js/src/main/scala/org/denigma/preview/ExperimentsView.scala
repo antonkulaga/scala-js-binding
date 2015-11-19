@@ -58,7 +58,7 @@ class Experiments(val elem: Element) extends BindableView with ItemsSetView
       Var(Measurement(Sample("sample4"), "diode4", 3010.0))
     ))
 
-  override def newItem(item: Item): MeasurementView = this.constructItemView(item){
+  override def newItemView(item: Item): MeasurementView = this.constructItemView(item){
     case (el, mp) => new ItemView(el, item).withBinder(new GeneralBinder(_))
   }
 

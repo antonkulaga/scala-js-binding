@@ -1,0 +1,40 @@
+@()
+<section class="ui blue piled segment equal width grid" data-view="CompBioView">
+  <row class="equal width row">
+    <column class="column">
+      <h1 class="ui orange header">Toggle switch</h1>
+      <p>
+        And here is something more complicated. Two charts from toggle switch model in synthetic biology between LacI and TetR proteins.
+        The model consists of 4 differential equations for mRNA of LacI and TetR and production of LacI and TetR. To see the charts - click <i>Solve</i> button.
+      </p>
+    </column>
+    <column class="column">
+      <table>
+        <caption>Initial conditions</caption>
+        <tr>
+          <th></th>
+          <th>LacI</th>
+          <th>TetR</th>
+        </tr>
+        <tr>
+          <th>mRNA</th>
+          <td><input class="ui small input" data-bind="lacI_mRNA_start"></td>
+          <td><input class="ui small input" data-bind="tetR_mRNA_start"></td>
+        </tr>
+        <tr>
+          <th>Protein</th>
+          <td><input class="ui small input" data-bind="lacI_start"></td>
+          <td><input class="ui small input" data-bind="tetR_start"></td>
+        </tr>
+      </table>
+    </column>
+  </row>
+  <row class="equal width row">
+    <column class="column">
+    @plots.html.proteins("ProteinsTime", "Proteins time chart")
+    </column>
+    <column class="column">
+    @plots.html.proteins("ProteinsXY", "Proteins XY chart")
+    </column>
+  </row>
+</section>

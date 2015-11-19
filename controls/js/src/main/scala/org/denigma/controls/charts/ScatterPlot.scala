@@ -29,14 +29,14 @@ class ScatterPlot(val elem:Element,
       .withBinder(new GeneralBinder(_))}
 
 
-  override def newItem(item: Item): ItemView = constructItemView(item){
+  override def newItemView(item: Item): ItemView = constructItemView(item){
     case (el,mp)=> new PointValueView(el,item ,chartStyles.map(_.linesStyles)).withBinder(new GeneralBinder(_))
   }
 
   override val items: Rx[Seq[Var[PointValue]]] = Var(Seq.empty)
 
   override protected def subscribeUpdates() = {
-    this.items.now.foreach(i=>this.addItemView(i,this.newItem(i)))
+    this.items.now.foreach(i=>this.addItemView(i,this.newItemView(i)))
     updates.onChange("ItemsUpdates")(upd=>{
       upd.added.foreach(onInsert)
       upd.removed.foreach(onRemove)

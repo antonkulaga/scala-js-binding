@@ -9,20 +9,18 @@ import rx.ops._
 import org.denigma.binding.extensions._
 import scala.collection.immutable._
 
-class ProteinsTime(val elem: Element) extends LinesPlot with InitialConditions{
+class ProteinsTime(val elem: Element, val odes: Rx[CompBioODEs], val initialConditions: Rx[Array[Double]]) extends LinesPlot {
 
-  val scaleX: rx.Var[Scale] = Var(LinearScale("Concentration", 0.0, 5000, 1000, 400))
+  val scaleX: rx.Var[Scale] = Var(LinearScale("Time", 0.0, 5000, 1000, 400))
 
-  val scaleY: rx.Var[Scale] = Var(LinearScale("Time", 0.0, 2000, 500, 400, inverted = true))
-
-  val odes = Var(CompBioODEs())
+  val scaleY: rx.Var[Scale] = Var(LinearScale("Concentration", 0.0, 2000, 500, 400, inverted = true))
 
   val coords = odes.now.computeAll(initialConditions.now, 2, 3)
 
-  lazy val lacI_Prod = odes.map(o => o.lacIProduction.k)
-  lazy val tetR_Prod = odes.map(o => o.tetRProduction.k)
-  lazy val lacI_Delusion = odes.map(o => o.lacIProduction.k)
-  lazy val tetR_Delusion = odes.map(o => o.tetRProduction.k)
+  lazy val lacI_Prod = odes.map(o => o.lacIProduction.production)
+  lazy val tetR_Prod = odes.map(o => o.tetRProduction.production)
+  lazy val lacI_Delusion = odes.map(o => o.lacIProduction.production)
+  lazy val tetR_Delusion = odes.map(o => o.tetRProduction.production)
 
   val lacI_mRNA = Var(new StaticSeries("LacI mRNA", List.empty).withStrokeColor("pink"))
   val tetR_mRNA = Var(new StaticSeries("TetR mRNA", List.empty).withStrokeColor("cyan"))
@@ -30,7 +28,8 @@ class ProteinsTime(val elem: Element) extends LinesPlot with InitialConditions{
   val tetR = Var(new StaticSeries("TetR", List.empty).withStrokeColor("blue"))
 
   lazy val solve = Var(Events.createMouseEvent)
-  solve.handler{
+
+  protected def onSolve() = {
     val coords = odes.now.computeAll(initialConditions.now, 2, 3)
     require(coords.length > 3, "odes should include 4 elements")
     lacI_mRNA() = lacI_mRNA.now.copy(points = coords(0).toList)
@@ -39,14 +38,18 @@ class ProteinsTime(val elem: Element) extends LinesPlot with InitialConditions{
     tetR() = tetR.now.copy(points = coords(3).toList)
   }
 
-  override def newItem(item: Item): SeriesView = constructItemView(item){
+  solve.handler{
+    onSolve()
+  }
+
+  override def newItemView(item: Item): SeriesView = constructItemView(item){
     case (el, mp) => new SeriesView(el, item, transform).withBinder(new GeneralBinder(_))
   }
 
-  val items: Var[Seq[Item]] = Var(Seq( lacI_mRNA, tetR_mRNA, lacI, tetR))
+  val items: Var[Seq[Item]] = Var(Seq(lacI_mRNA, tetR_mRNA, lacI, tetR))
 }
 
-class ProteinsXY(val elem: Element) extends LinesPlot with InitialConditions{
+class ProteinsXY(val elem: Element,  val odes: Rx[CompBioODEs], val initialConditions: Rx[Array[Double]]) extends LinesPlot {
 
 
   override type ItemView = SeriesView
@@ -55,22 +58,13 @@ class ProteinsXY(val elem: Element) extends LinesPlot with InitialConditions{
 
   val scaleY: rx.Var[Scale] = Var(LinearScale("TetR", 0.0, 2000.0, 500.0, 400.0, inverted = true))
 
-  val odes = CompBioODEs(tEnd = 20000.0)
-
   val xy = Var(new StaticSeries("LacI | TetR", List.empty))
 
   override val items = Var(Seq(xy))
 
   lazy val solve = Var(Events.createMouseEvent)
   solve.handler{
-    xy() = xy.now.copy(points = odes.computeXY(initial = initialConditions.now, 2, 3))
+    xy() = xy.now.copy(points = odes.now.computeXY(initial = initialConditions.now, 2, 3))
   }
 }
 
-trait InitialConditions {
-  lazy val lacI_mRNA_start = Var(0.0)
-  lazy val tetR_mRNA_start = Var(0.0)
-  lazy val lacI_start = Var(0.0)
-  lazy val tetR_start = Var(0.0)
-  lazy val initialConditions = Rx{ Array(lacI_mRNA_start(), tetR_mRNA_start(), lacI_start(), tetR_start()) }
-}

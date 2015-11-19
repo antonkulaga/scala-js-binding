@@ -17,7 +17,7 @@ trait IDGenerator
     case s if js.isUndefined(s) || s=="" ||  s==null=>
       for(title<-titleOpt)
       {
-        el.id = title + "#" +  math.round(10000*math.random) //to make length shorter
+        el.id = title + "#" +  math.round(1000000*math.random) //to make length shorter
         el.id
       }
 

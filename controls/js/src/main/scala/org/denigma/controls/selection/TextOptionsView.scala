@@ -65,7 +65,7 @@ class TextOptionsView(val elem:Element,
 
   override protected def warnIfNoBinders(asError:Boolean) = if(asError) super.warnIfNoBinders(asError)
 
-  override def newItem(item: Item): OptionView = constructItemView(item){
+  override def newItemView(item: Item): OptionView = constructItemView(item){
     case (el,mp)=>new OptionView(el,item).withBinder{new GeneralBinder(_)}
   }
 
@@ -74,7 +74,7 @@ class TextOptionsView(val elem:Element,
    */
   override protected def subscribeUpdates(): Unit = {
     template.style.display = "none"
-    this.items.now.foreach(i=>this.addItemView(i,this.newItem(i))) //initialization of views
+    this.items.now.foreach(i=>this.addItemView(i,this.newItemView(i))) //initialization of views
     items.onChange("items_change"){its=>
       val (removed,inserted) = removedInserted.now
       for(r <- removed) onRemove(r)
