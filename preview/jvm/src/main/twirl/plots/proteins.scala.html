@@ -1,7 +1,7 @@
 @(plotView: String, title: String)
 <div data-view="@{plotView}">
   <h1 class="ui orange header">@title</h1>
-  <svg data-bind-height="height" data-bind-width="width">
+  <svg data-bind-height="height" data-bind-width="width" data-event-click="chartClick">
     <text font-size="18pt">@title</text>
     <svg class="lines" data-bind-x="left" data-bind-y="top">
       <svg data-template="true">

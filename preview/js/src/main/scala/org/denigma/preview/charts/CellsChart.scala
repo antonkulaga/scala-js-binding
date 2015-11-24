@@ -10,6 +10,7 @@ import rx.core.Var
 import rx.ops.{Moved, SequenceUpdate}
 
 import scala.collection.immutable.Seq
+import scala.reflect.ClassTag
 
 object Cell {
 
@@ -26,58 +27,94 @@ trait Cell{
   val side: Double
   //def color:(Int,Int,Int)
 }
-/*
+
 trait ArrayChart extends CollectionView {
+
   import org.denigma.binding.extensions._
   import rx.ops._
+
+
+  //implicit def typeTag:ClassTag[Item]
+  //type Item = T
+  implicit def tag:ClassTag[Item]
 
   val cols: Rx[Int]
   val rows: Rx[Int]
 
   def makeItem(i: Int, j: Int): Item
 
+  val dimensions: Rx[(Int, Int)] = Rx((cols(), rows()))
 
-  val dimensions: Rx[(Int, Int)] = Rx( (cols(), rows()))
-  val resize: Rx[((Int, Int), (Int, Int))] = dimensions.zip
+  val resize = dimensions.zip
 
   val items: Var[Array[Array[Item]]] = Var(Array())
 
-  def neighbours[T](arr: Array[Array[T]], r: Int, c: Int) = arr
-      .slice(r-1 ,r+1)
-      .slice(c-1, c+1)
-      .flatten
-      .filterNot(item=>item==arr(r)(c))
+/*  def neighbours[T](arr: Array[Array[T]], r: Int, c: Int): Array[T] = arr
+    .slice(r - 1, r + 1)
+    .slice(c - 1, c + 1)
+    .flatten
+    .filterNot(item => item == arr(r)(c))*/
 
-  @inline protected def updateArrayRow(cOld:Int, c:Int) = {
 
+  protected def makeRow(r: Int, cOld: Int, c: Int): Array[Item] = {
+    val dc = c - cOld
+    val oldRow = items.now(r)
+    dc match
+    {
+      case 0 => oldRow
+      case less if less < 0 =>
+        for(j <- c to cOld) removeItemView(oldRow(j))
+        oldRow.slice(0, c)
+      case more if more > 0 =>
+        val arr =  new Array[Item](c)
+        for(j <- 0 until cOld) oldRow(j)
+        for(j <- cOld until c) {
+          val item = makeItem(r, j)
+          arr(j) = item
+          this.addItemView(item, newItemView(item))
+        }
+        arr
+    }
   }
 
-  protected def onResize(oldValue:(Int,Int), newValue: (Int, Int)) =
+  protected def onResize(oldValue: (Int, Int), newValue: (Int, Int)): Unit = (oldValue, newValue) match
   {
-    val (rOld, cOld) = oldValue
-    val (r, c) = newValue
-    val dr = r - rOld
-    val dc = c - cOld
-    val old = items.now
-    if(dr > 0) {
+    case ( (rOld, cOld), (r, c) ) if rOld == r && cOld ==c => //do nothing
+
+    case ( (rOld, cOld), (r, c) ) if rOld == r =>
+      val arr = items.now // NOTE: can be dangerious in terms of subscription
+      for(i <- 0 until rOld) arr(i) =  makeRow(i, cOld, c)
+
+    case ( (0, 0), (r, c) ) =>
+      val arr:Array[Array[Item]] = Array.tabulate[Item](rows.now, cols.now)(makeItem)
+
+      /*val arr:Array[Array[Item]] = new Array(r)//(rows.now, cols.now)(makeItem)
+      for(i <- 0 until rows.now){
+          arr(i) = Array[Item]()
+          for(j <- 0 until cols.now)
+            arr(i)(j) = makeItem(i, j)
+      }*/
+      //val arr: Array[Array[Item]] = Array.tabulate[Item](rows.now, cols.now)(makeItem)
+      for( row <- arr; item <- row) this.addItemView(item, newItemView(item))
+      items.set(arr)
+
+    case ( (rOld, cOld), (r, c) ) =>
+      val old = items.now
       val arr = new Array[Array[Item]](r)
-      for(i <- 0 until rOld) arr(i) = old(i)
-      for(i <- rOld until r) {
-        arr(i) = Array.tabulate(c)(j => makeItem(r, j))
-        arr(i).foreach(item => this.addItemView(item,this.newItemView(item)) )
+      if(r > rOld) for(i <- 0 until r) arr(i) = makeRow(i, cOld, c)
+      else
+      {
+        for(i <- 0 until rOld) arr(i) = old(i)
+        for(i <- rOld until r) arr(i).foreach(removeItemView)
       }
-    } else if(dr < 0)  {
-      for(i <- r until rOld ) old(i).foreach(removeItemView)
-      items.set(old.slice(0, r))
-    }
   }
 
   override def subscribeUpdates(): Unit = {
     items() = Array.tabulate[Item](rows.now, cols.now)(makeItem)
-    resize.onChange("onResize", uniqueValue = true, skipInitial = true)(change=>onResize(change._1,change._2))
+    resize.onChange("onResize", uniqueValue = true, skipInitial = true)(change => onResize(change._1, change._2))
   }
 }
-
+/*
 class CellsChart(val elem: Element, val rows: Var[Int], val cols: Var[Int], val side: Var[Int]) extends ArrayChart
 {
   val width: Rx[Double] = Var(800)
@@ -92,7 +129,6 @@ class CellsChart(val elem: Element, val rows: Var[Int], val cols: Var[Int], val 
   }
 
 }*/
-
 class CellsChart(val elem: Element, val rows: Var[Int], val cols: Var[Int], val side: Var[Int]) extends ItemsSeqView
 {
 
@@ -125,65 +161,8 @@ class CellsChart(val elem: Element, val rows: Var[Int], val cols: Var[Int], val 
 
 }
 
-/*
-class CellsChart(val elem: Element, val rows: Var[Int], val cols: Var[Int], val side: Var[Int]) extends CollectionView
-{
-  val width: Rx[Double] = Var(800.0)
-  val height: Rx[Double] = Var(800.0)
 
-  override type Item = Rx[Cell]
-  override type ItemView = CellView
 
-  def isEven(v: Int): Boolean = v % 2 == 0
-  def isOdd(v: Int): Boolean = v % 2 != 0
-  def vertSide(s: Double) =  Math.sqrt(Math.pow(s, 2.0) - Math.pow(s / 2.0, 2.0))
-
-  //def neighbours(cell: Cell)
-
-  override val items: Rx[Seq[Item]] = Rx{
-    val matrix: Array[Array[Cell]] = generate(cols(), rows(), side())
-    matrix.flatten.map(Var(_)).toList
-  }
-
-  def generate(rs: Int, cs: Int, s: Double) = {
-    val s = side()
-    val vert = this.vertSide(s)
-    Array.tabulate(rs, cs){
-      case (i, j) =>
-        val xStart = if(isOdd(i)) 0 else 1.5 * s
-        val pos = Point(xStart + s * 3 *j, vert * i)
-        Cell( pos, s)
-    }
-  }
-
-  def surrounding()
-
-  override def newItemView(item: Item): ItemView = this.constructItemView(item){
-    case (el, mp) => new CellView(el, item).withBinder(new GeneralBinder(_))
-  }
-
-/*
-  val items: Rx[Seq[Item]]
-
-  lazy val updates: Rx[SequenceUpdate[Item]] = items.updates
-
-  protected def onMove(mv: Moved[Item]) = {
-    val fr = itemViews(items.now(mv.from))
-    val t = itemViews(items.now(mv.to))
-    this.replace(t.viewElement, fr.viewElement)
-  }
-
-  override protected def subscribeUpdates() = {
-    template.hide()
-    this.items.now.foreach(i => this.addItemView(i, this.newItem(i)))
-    updates.onChange("ItemsUpdates")(upd => {
-      upd.added.foreach(onInsert)
-      upd.removed.foreach(onRemove)
-      upd.moved.foreach(onMove)
-    })
-  }*/
-
-}*/
 
 class CellView(val elem: Element, val cell: Rx[Cell]) extends BindableView {
 

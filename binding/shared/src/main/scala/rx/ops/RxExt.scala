@@ -9,7 +9,6 @@ import scala.util.{Failure, Success}
 trait RxExt extends CommonOps
 {
 
-
   implicit class AnyVar[T,M](source:Var[T]) {
 
     def set(newValue:T) = {
@@ -99,12 +98,12 @@ trait RxExt extends CommonOps
 
   implicit class ZippedRx[TO,TN](source:Rx[(TO,TN)]) {
 
-    def from(value:TO)(callback: => Unit) = Obs(source,skipInitial = true){    if(source.now._1==value) callback  }
-    def to(value:TN)(callback: => Unit) = Obs(source,skipInitial = true){    if(source.now._2==value) callback  }
-    def transition(from:TO,to:TN)(callback: => Unit) =  Obs(source,skipInitial = true){    if(source.now == (from->to) ) callback  }
+    def from(value: TO)(callback: => Unit) = Obs(source,skipInitial = true){    if(source.now._1==value) callback  }
+    def to(value: TN)(callback: => Unit) = Obs(source,skipInitial = true){    if(source.now._2==value) callback  }
+    def transition(from: TO, to: TN)(callback: => Unit) =  Obs(source,skipInitial = true){    if(source.now == (from->to) ) callback  }
 
-    def isFrom(value:TO) = RxOps(source).map(_._1==value)
-    def isTo(value:TN) = RxOps(source).map(_._2==value)
+    def isFrom(value: TO) = RxOps(source).map(_._1==value)
+    def isTo(value: TN) = RxOps(source).map(_._2==value)
   }
 
 
@@ -172,10 +171,10 @@ trait RxExt extends CommonOps
  * @param moved list of position changes
  * @tparam T type of the elements
  */
-case class SequenceUpdate[T](removed:Seq[T],added:Seq[T],moved:List[Moved[T]] = List.empty)
+case class SequenceUpdate[T](removed: Seq[T], added: Seq[T], moved: List[Moved[T]] = List.empty)
 case class Moved[T](from:Int,to:Int,item:T)
 
 object SetUpdate{
-  def apply[T](minusPlus:(Set[T],Set[T])):SetUpdate[T] = SetUpdate(minusPlus._1,minusPlus._2)
+  def apply[T](minusPlus: (Set[T], Set[T]) ): SetUpdate[T] = SetUpdate(minusPlus._1,minusPlus._2)
 }
-case class SetUpdate[T](removed:Set[T],added:Set[T])
+case class SetUpdate[T](removed: Set[T], added: Set[T])

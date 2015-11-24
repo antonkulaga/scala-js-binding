@@ -54,21 +54,20 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     }.register("ControlSlide"){ case (el, args) =>
       new ControlSlide(el, args).withBinder(new CodeBinder(_))
     }
-    .register("lists"){ case (el, args) => new LongListView(el).withBinder(view => new CodeBinder(view))}
     .register("RdfSlide"){case (el, args) => new RdfSlide(el).withBinder(view => new CodeBinder(view))}
     .register("promo"){case (el, args) => new PromoView(el).withBinder(view => new CodeBinder(view))}
     .register("Selection"){case (el, args) =>
-      new StatesSelectionView(el, "test").withBinder{case view: Any => new GeneralBinder(view)}
+      new StatesSelectionView(el, "test").withBinder{case view => new GeneralBinder(view)}
     }
     .register("HelloPlot"){case (el, args)=>
       new ScatterPlot(
         el,
         Var(LinearScale("OX", 0.0, 1000.0, 100.0, 1000.0)),
         Var(LinearScale("OY", 0.0, 1000.0, 100.0, 1000.0, inverted = true))
-        ).withBinder{case view: Any => new GeneralBinder(view)}
+        ).withBinder{case view => new GeneralBinder(view)}
     }
     .register("StartSlide"){case (el, args) =>
-      new StartSlide(el).withBinder{case view: Any => new CodeBinder(view)}
+      new StartSlide(el).withBinder{case view => new CodeBinder(view)}
     }
     .register("ChartsView"){case (el, args) =>
       new ChartsView(el).withBinder(view => new CodeBinder(view))

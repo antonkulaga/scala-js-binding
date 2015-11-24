@@ -4,6 +4,7 @@ import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.controls.charts._
 import org.denigma.controls.charts.ode.{XYSeries, ODESeries}
 import org.scalajs.dom.Element
+import org.scalajs.dom.raw.MouseEvent
 import rx.core.{Rx, Var}
 import rx.ops._
 import org.denigma.binding.extensions._
@@ -61,6 +62,10 @@ class ProteinsXY(val elem: Element,  val odes: Rx[CompBioODEs], val initialCondi
   val xy = Var(new StaticSeries("LacI | TetR", List.empty))
 
   override val items = Var(Seq(xy))
+
+  def onChartClick(event: MouseEvent) = {
+
+  }
 
   lazy val solve = Var(Events.createMouseEvent)
   solve.handler{

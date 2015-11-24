@@ -10,8 +10,6 @@ import rx._
 import rx.core.Var
 
 import scala.collection.immutable.Map
-import scala.util.Random
-
 
 /**
  * Slide about RDF-related binding
@@ -31,23 +29,7 @@ class SparqlSlide(val elem:Element) extends BindableView
 
 }
 
-
-
-/**
- * Class for testing purposes that makes a long list out of test element
- */
-class LongListView(element:Element) extends MapCollectionView(element){
-
-  val items: Var[List[Map[String, Any]]] = Var{
-    List(
-      Map("prop"->"value1"),Map("prop"->"value2"),Map("prop"->"value3"),Map("prop"->"value4"),Map("prop"->"value5")
-    )
-
-  }
-
-}
-
-class TestMacroView(val elem:Element) extends BindableView{
+class TestMacroView(val elem: Element) extends BindableView{
 
   case class HelloWorld(hello:String){
 
@@ -63,7 +45,7 @@ class TestMacroView(val elem:Element) extends BindableView{
 
 }
 
-class ControlSlide(val elem:Element, val params:Map[String,Any]) extends BindableView
+class ControlSlide(val elem: Element, val params: Map[String, Any]) extends BindableView
 {
 
   val loginHTML: rx.Var[String] = Var(
@@ -205,19 +187,19 @@ class ControlSlide(val elem:Element, val params:Map[String,Any]) extends Bindabl
 }
 
 
-class Test(val elem:Element) extends BindableView{
+class Test(val elem: Element) extends BindableView{
 
 
-  protected def onKeyChange(fun:Input=>Unit)(k:KeyboardEvent) =  k.target match {
-      case n:dom.html.Input if k.currentTarget==k.target=> fun(n)
+  protected def onKeyChange(fun: Input => Unit)(k: KeyboardEvent) =  k.target match {
+      case n: dom.html.Input if k.currentTarget==k.target => fun(n)
       case other=> //nothing
     }
 
-  def onChange(input:dom.html.Input) = {
-    var (oldvalue,newvalue) = ("","")
-    input.onkeydown = onKeyChange(input=>oldvalue=input.value) _
-    input.onkeyup = onKeyChange{input=>
-      oldvalue=input.value
+  def onChange(input: dom.html.Input) = {
+    var (oldvalue, newvalue) = ("","")
+    input.onkeydown = onKeyChange(input => oldvalue = input.value) _
+    input.onkeyup = onKeyChange{ input =>
+      oldvalue = input.value
       dom.console.log(s"VALUES = $oldvalue and $newvalue")
     } _
   }
@@ -226,7 +208,7 @@ class Test(val elem:Element) extends BindableView{
     super.bindView()
     dom.console.log("let us start!")
     sq.byId("txt") match {
-      case Some(input:dom.html.Input)=>
+      case Some(input: dom.html.Input)=>
         onChange(input)
       case other=>dom.console.error("cannot find txt")
     }

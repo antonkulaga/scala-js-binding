@@ -1,5 +1,6 @@
+@import org.denigma.preview.Mode
 @(into:String = "main")
-<script src="/resources/preview-fastopt.js"></script>
+<script src="/resources/preview@{Mode.current}"></script>
 <script>
 $( document ).ready(function() {
     FrontEnd().main(); //activate ScalaJS main class

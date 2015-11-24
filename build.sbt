@@ -47,6 +47,7 @@ lazy val commonSettings = Seq(
   libraryDependencies ++= Dependencies.testing.value,
   unmanagedClasspath in Compile <++= unmanagedResources in Compile,
   updateOptions := updateOptions.value.withCachedResolution(true) // to speed up dependency resolution
+  //exportJars := true
 ) ++ eclipseSettings
 
 lazy val bindingMacro = crossProject
@@ -153,7 +154,7 @@ lazy val preview = crossProject
 		.settings(
 			name := "preview"
 		)
-		.jsConfigure(p=>p.enablePlugins(ScalaJSPlay))
+		.jsConfigure(p => p.enablePlugins(ScalaJSPlay))
 		.jsSettings(
 			persistLauncher in Compile := true,
 			persistLauncher in Test := false,
@@ -161,20 +162,21 @@ lazy val preview = crossProject
 			jsDependencies += RuntimeDOM % "test"
 		)
 		.jvmSettings(Revolver.settings:_*)
-		.jvmConfigure(p=>p.enablePlugins(SbtTwirl,SbtWeb).enablePlugins(PlayScalaJS)) //despite "Play" in name it is actually sbtweb-related plugin
+		.jvmConfigure(p => p.enablePlugins(SbtTwirl, SbtWeb).enablePlugins(PlayScalaJS)) //despite "Play" in name it is actually sbtweb-related plugin
 		.jvmSettings(
-			libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Seq(
+      TwirlKeys.templateImports += "org.denigma.preview.Mode._",
+      libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Seq(
 			  "me.chrons" %% "boopickle" % Versions.booPickle,
 			  "org.seleniumhq.selenium" % "selenium-java" % Versions.seleniumJava % "test"
         //"org.spire-math" %%% "spire" % Versions.spire
       ),
-			mainClass in Compile :=Some("org.denigma.preview.Main"),
+			mainClass in Compile := Some("org.denigma.preview.Main"),
 			mainClass in Revolver.reStart := Some("org.denigma.preview.Main"),
-			scalaJSDevStage := scalaJSDevTaskStage.value,
-			//pipelineStages := Seq(scalaJSProd,gzip),
+      scalaJSDevStage := scalaJSDevTaskStage.value,
+			//pipelineStages := Seq(scalaJSProd, gzip),
 			(emitSourceMaps in fullOptJS) := true,
-			pipelineStages in Assets := Seq(scalaJSDevStage,gzip), //for run configuration
-			(fullClasspath in Runtime) += (packageBin in Assets).value //to package production deps
+			pipelineStages in Assets := Seq(scalaJSProd, gzip), //for run configuration
+		  (managedClasspath in Runtime) += (packageBin in Assets).value //to package production deps
 		).dependsOn(semantic,controls)
 
 lazy val previewJS = preview.js
@@ -184,15 +186,15 @@ lazy val previewJVM = preview.jvm settings(
   )
 
 
-lazy val root = Project("root",file("."),settings = commonSettings)
+lazy val root = Project("root", file("."),settings = commonSettings)
   .settings(
     name := "scala-js-binding-preview",
     version := Versions.binding,
-    //javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint"),
+    javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint"),
     mainClass in Compile := (mainClass in previewJVM in Compile).value,
-    (fullClasspath in Compile) += (packageBin in previewJVM in Assets).value,
+    (managedClasspath in Runtime) += (packageBin in previewJVM in Assets).value,
     maintainer := "Anton Kulaga <antonkulaga@gmail.com>",
     packageSummary := "scala-js-binding",
     packageDescription := """Scala-js-binding preview App"""
     // general package information (can be scoped to Windows)
-     ) dependsOn previewJVM aggregate(previewJVM, previewJS) enablePlugins(JavaServerAppPackaging)
+     ) dependsOn previewJVM aggregate(previewJVM, previewJS) enablePlugins JavaServerAppPackaging

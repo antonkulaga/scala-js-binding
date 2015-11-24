@@ -1,6 +1,8 @@
 package org.denigma.controls.charts
 
-import org.denigma.binding.binders.GeneralBinder
+import java.awt.event.MouseEvent
+
+import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.{BindableView, ItemsSeqView}
 import org.scalajs.dom.Element
@@ -54,6 +56,8 @@ trait LinesPlot extends ItemsSeqView with Plot
   lazy val fill: rx.Rx[String] = chartStyles.map(_.linesStyles.fill)
 
   lazy val linesStyles = chartStyles.map(_.linesStyles)
+
+  lazy val chartClick = Var(Events.createMouseEvent())
 
   override protected def subscribeUpdates() = {
     this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
