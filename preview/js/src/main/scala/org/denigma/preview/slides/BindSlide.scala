@@ -45,7 +45,7 @@ class BindSlide(val elem: Element) extends BindableView{
       |
       | //injector is responsible for child views registration and initialization
       | override lazy val injector = defaultInjector
-      |    .register("ExampleCodeView"){
+      |    .register("CodeExampleView"){
       |      case (el,args)=>new BindSlide(el).withBinder(new GeneralBinder(_))
       |    }
       | //as our MainView is also ScalaJS Application we create main method
