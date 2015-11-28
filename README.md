@@ -30,7 +30,7 @@ libraryDependencies += "org.denigma" %%% "binding" % "0.8.0"
 Or you can use binding-controls library that contains UI controls and is based on scala-js-binding library:
 ```scala
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-libraryDependencies += "org.denigma" %%% "binding-controls" % "0.8.0" // to depend on html controls that are based on scala-js-binding lib
+libraryDependencies += "org.denigma" %%% "binding-controls" % "0.0.8" // to depend on html controls that are based on scala-js-binding lib
 ```
 
 
