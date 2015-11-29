@@ -24,7 +24,7 @@ class BindSlide(val elem: Element) extends BindableView{
 
   val flowViewScala: Var[String] = Var(
     """
-      |class ExampleCodeView(val elem:Element) extends BindableView{
+      |class ExampleCodeView(val elem: Element) extends BindableView{
       |  val a = Var(1)
       |  val b = Var(2)
       |  val c = Rx{ a() + b() }
@@ -45,8 +45,8 @@ class BindSlide(val elem: Element) extends BindableView{
       |
       | //injector is responsible for child views registration and initialization
       | override lazy val injector = defaultInjector
-      |    .register("ExampleCodeView"){
-      |      case (el,args)=>new BindSlide(el).withBinder(new GeneralBinder(_))
+      |    .register("CodeExampleView"){
+      |      case (el, args) => new BindSlide(el).withBinder(new GeneralBinder(_))
       |    }
       | //as our MainView is also ScalaJS Application we create main method
       |  @JSExport

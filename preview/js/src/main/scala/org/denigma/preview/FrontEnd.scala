@@ -35,7 +35,9 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
    * Register views
    */
   override lazy val injector = defaultInjector
-    .register("experiments"){case (el, args) =>  new Experiments(el).withBinder(new GeneralBinder(_))}
+    .register("experiments"){
+      case (el, args) =>  new Experiments(el).withBinder(new GeneralBinder(_))
+    }
     .register("sidebar"){
       case (el, args) =>
         new SidebarView(el).withBinder(new GeneralBinder(_))
@@ -45,20 +47,14 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
         .withBinder(new GeneralBinder(_))
         .withBinder(new NavigationBinder(_))
     }
-    .register("login") { case (el, args) =>
-      new LoginView(el, session).withBinder(new GeneralBinder(_))
-    }
     .register("BindSlide"){ case (el, args)=> new BindSlide(el).withBinder(v => new CodeBinder(v)) }
     .register("CollectionSlide")
       {case (el, args) =>   new CollectionSlide(el).withBinder(view=>new CodeBinder(view))
     }.register("ControlSlide"){ case (el, args) =>
-      new ControlSlide(el, args).withBinder(new CodeBinder(_))
+      new ControlSlide(el).withBinder(new CodeBinder(_))
     }
     .register("RdfSlide"){case (el, args) => new RdfSlide(el).withBinder(view => new CodeBinder(view))}
     .register("promo"){case (el, args) => new PromoView(el).withBinder(view => new CodeBinder(view))}
-    .register("Selection"){case (el, args) =>
-      new StatesSelectionView(el, "test").withBinder{case view => new GeneralBinder(view)}
-    }
     .register("HelloPlot"){case (el, args)=>
       new ScatterPlot(
         el,

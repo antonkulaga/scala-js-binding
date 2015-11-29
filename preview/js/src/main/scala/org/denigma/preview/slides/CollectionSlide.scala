@@ -1,16 +1,16 @@
 package org.denigma.preview.slides
 
-import org.denigma.binding.binders.{MapItemsBinder, NavigationBinder, GeneralBinder, Events}
+import org.denigma.binding.binders.{Events, GeneralBinder, NavigationBinder}
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.{ItemsSeqView, MapCollectionView, BindableView}
+import org.denigma.binding.views.{BindableView, ItemsSeqView}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.ext._
-import org.scalajs.dom.raw.Element
+import org.scalajs.dom.raw.{HTMLDocument, Element}
 import rx._
 import rx.core.Var
 
-import scala.collection.immutable.{Map, Seq}
+import scala.collection.immutable.Seq
 import scala.util._
 
 class CollectionSlide(val elem: Element) extends BindableView with CollectionSlideCode{
@@ -20,8 +20,12 @@ class CollectionSlide(val elem: Element) extends BindableView with CollectionSli
     Try {
       p.parseFromString(string, "text/html")
     } match {
+      case Success(doc: HTMLDocument) =>
+        doc.body.children.collectFirst{case html: Element => html}
+
       case Success(doc) =>
-        dom.document.body.children.collectFirst{case html: Element => html}
+        dom.console.error(s"do not know how to deal with ${doc.toString}")
+        None
 
       case Failure(th) =>
         dom.console.error(th.toString)
@@ -29,13 +33,13 @@ class CollectionSlide(val elem: Element) extends BindableView with CollectionSli
     }
   }
 
-  override def name = "COLLECTION_SLIDE"
+  override def name: String = "COLLECTION_SLIDE"
 
   val code = Var("")
   val apply = Var(Events.createMouseEvent())
   this.apply.handler {
       this.findView("testmenu") match {
-        case Some(view: BindableView) =>
+        case Some(view) =>
           dom.console.log("ID IS = "+view.id)
           dom.console.log("HTML is = "+view.elem.outerHTML)
           this.parseHTML(code.now).foreach{case c =>

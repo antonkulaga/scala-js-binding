@@ -16,6 +16,11 @@
                     The most common example of collection is the menu where each item looks similar and is loaded from some collection of elements.
                     Here you can see an HTML code required for the menu to appear.
                 </p>
+                <nav class="ui large blue inverted menu" data-view="testmenu" data-param-path="menu/what">
+                    <a data-template="true" class="active item header" data-bind-href="uri"  data-load-into="main">
+                        <i class="ui-icon-home" data-bind="label"></i>
+                    </a>
+                </nav>
                 <textarea id="codeinme" data-code-html="code"  data-mode="html">
                     <nav class="ui large blue inverted menu" data-view="testmenu" data-param-path="menu/what">
                         <a data-template="true" class="active item header" data-bind-href="uri"  data-load-into="main">
@@ -23,7 +28,7 @@
                         </a>
                     </nav>
                 </textarea>
-               @* <div class="ui positive button" data-event-click="apply">Apply template</div>*@
+                <div class="ui positive button" data-event-click="apply">Apply template</div>
                 <p>
                     There data-param-path makes a request to corresponding address and loads a menu into the page.
                     In current example there is a tag with data-template="true" this tag is a template for each item that will be created.
@@ -32,13 +37,7 @@
                     Each item has data-load-into attribute. This attribute defined where the data should be loaded after menu is clicked. Usually
                     data is loaded with ajax into some html element to avoid whole page refreshing.
                 </p>
-                @*<p>You can edit template on the right and push <b>apply template</b> and the template will be rerendered according new template</p>
-*@  <nav class="ui large blue inverted menu" data-view="testmenu" data-param-path="menu/what">
-                <a data-template="true" class="active item header" data-bind-href="uri"  data-load-into="main">
-                    <i class="ui-icon-home" data-bind="label"></i>
-                </a>
-            </nav>
-
+                <p>You can edit template code and push <b>apply template</b> and the template will be rendered according new template</p>
             </div>
             <div class="column">
                 <textarea data-code-scala="collectionCode"></textarea>

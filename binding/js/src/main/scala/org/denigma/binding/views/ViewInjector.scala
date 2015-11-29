@@ -28,9 +28,9 @@ trait ViewInjector[View <:OrganizedView]
   def factories: Map[String, (Element, Map[String, Any]) => Try[View#ChildView]]
 
   def inject(viewName: String, element: Element, params: Map[String, Any], goUp: Boolean = true): Option[Try[View#ChildView]] =
-    this.factories.get(viewName).map(vf=>vf(element, params)) match {
+    this.factories.get(viewName).map(vf => vf(element, params)) match {
       case None => if (goUp) parentInjection(viewName, element, params) else None
-      case other: Any =>  other
+      case other =>  other
     }
 
 

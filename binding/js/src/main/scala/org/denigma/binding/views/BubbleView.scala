@@ -15,23 +15,23 @@ trait ViewEvent
 }
 
 case class JustPromise[Value,Result](
-                                      value:Value,
-                                      origin:BasicView,
-                                      latest:BasicView,
-                                      promise:Promise[Result] = Promise[Result]()
+                                      value: Value,
+                                      origin: BasicView,
+                                      latest: BasicView,
+                                      promise: Promise[Result] = Promise[Result]()
                                       )
-  extends PromiseEvent[Value,Result]
+  extends PromiseEvent[Value, Result]
 {
   override type Origin = BasicView
 
-  override def withCurrent(cur:BasicView):JustPromise[Value,Result] = this.copy(latest = cur).asInstanceOf[this.type]
+  override def withCurrent(cur: BasicView): JustPromise[Value,Result] = this.copy(latest = cur).asInstanceOf[this.type]
 }
 
 trait PromiseEvent[Value,Result] extends ViewEvent
 {
   val value:Value
   val promise:Promise[Result]
-  override def withCurrent(cur:BasicView):PromiseEvent[Value,Result]
+  override def withCurrent(cur: BasicView): PromiseEvent[Value,Result]
 }
 
 
@@ -82,7 +82,7 @@ trait BubbleView {
    * @tparam Result result type that we get
    * @return
    */
-  def ask[Value,Result](value:Value,startWithMe:Boolean = false):Future[Result] = {
+  def ask[Value,Result](value: Value, startWithMe: Boolean = false):Future[Result] = {
     val event = new JustPromise[Value,Result](value,this,this)
     if(startWithMe) this.receiveFuture(event) else  this.propagateFuture(event)
     event.promise.future

@@ -1,0 +1,16 @@
+@(title:String)
+<article id="main_article" data-view="ControlSlide" class="ui blue piled segment">
+  <h1 id="title"class="ui large header orange message">@title </h1>
+  <div class="ui equal width grid">
+    <section class="equal width row">
+      <column class="column ui message">
+        <p> There are UI controls based on scala-js-binding that are under development.:</p>
+        <p> Below I give examples of controls together with their templates and original source code.</p>
+      </column>
+    </section>
+    @{controls.html.tab_example()}
+    @{controls.html.selection_example()}
+    @{controls.html.login_example()}
+  </div>
+
+</article>

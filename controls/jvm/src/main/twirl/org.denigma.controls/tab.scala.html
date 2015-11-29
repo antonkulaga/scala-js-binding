@@ -1,0 +1,11 @@
+@(viewName:String)
+<section data-view="@{viewName}">
+  <div class="ui top attached tabular menu">
+    <a data-template="true" data-bind="label" class="active item" data-class-active-if="active" data-event-click="onClick"></a>
+  </div>
+  <span data-view="content">
+    <div data-template="true" class="ui bottom attached active tab segment" data-class-active-if="active" >
+      <div data-bind="content"></div>
+    </div>
+  </span>
+</section>

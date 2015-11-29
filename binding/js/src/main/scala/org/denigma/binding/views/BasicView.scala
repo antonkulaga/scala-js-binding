@@ -31,7 +31,7 @@ trait IDGenerator
    * @param title is used if the element does not have an ID
    * @return
    */
-  def ifNoID(el:Element,title: =>String): String = el.id match {
+  def ifNoID(el:Element, title: =>String): String = el.id match {
     case s if js.isUndefined(s) || s=="" ||  s==null /*|| s.isInstanceOf[js.prim.Undefined] */=>
       el.id = title + "#" +  math.round(10000*math.random) //to make length shorter
       el.id
@@ -50,27 +50,27 @@ trait BasicView extends IDGenerator
 
   require(elem!=null,s"html element of view of class ${this.getClass.getName} with id $id  must not be null!")
 
-  def binders:List[ViewBinder]
+  def binders: List[ViewBinder]
 
   type ViewBinder = Binder
 
   type ChildView <: BasicView
 
-  def makeDefault(el:Element,props:Map[String,Any] = Map.empty):ChildView
+  def makeDefault(el: Element, props: Map[String, Any] = Map.empty): ChildView
 
   type ViewElement = Element
 
-  def elem:ViewElement
+  def elem: ViewElement
 
-  def name:String = this.getClass.getName.split('.').last
+  def name: String = this.getClass.getName.split('.').last
 
 
   /**
    * Id of this view
    */
-  val id: String = this.ifNoID(elem,this.name)
+  val id: String = this.ifNoID(elem, this.name)
 
-  implicit var subviews = Map.empty[String,ChildView]
+  implicit var subviews = Map.empty[String, ChildView]
 
 
   /**
@@ -78,36 +78,20 @@ trait BasicView extends IDGenerator
    * @param view
    * @return
    */
-  def addView(view:ChildView) = {
+  def addView(view: ChildView) = {
     this.subviews = this.subviews + (view.id -> view)
     view
     //view.parent = Some(this)
   }
 
-  /**
-   * Extracts view by name from element
-   * @param viewName name of the view
-   * @param el html element
-   * @param params some other optional params needed to init the view
-   * @return
-   */
-  def inject(viewName:String,el:Element,params:Map[String,Any]): ChildView
-
-
-  protected def stackToString(e:Throwable) = {
-    val trace = e.getStackTrace.toList
-    trace.foldLeft("STACK TRACE = "){
-      case (acc,el)=>   acc+s"\n ${el.toString}"    }
-  }
-
   protected var _element = elem
   def viewElement: ViewElement = _element
-  def viewElement_=(value:ViewElement): Unit = if(_element!=value) {
+  def viewElement_=(value:ViewElement): Unit = if (_element!=value) {
     this._element = value
     this.bindElement(value)
   }
 
-  @tailrec private def bindAts(el:Element,ats: Map[String, String],bds:List[ViewBinder]):Boolean = bds match {
+  @tailrec private def bindAts(el: Element, ats: Map[String, String],bds: List[ViewBinder]): Boolean = bds match {
     case Nil=> true
     case head::tail=> if(head.bindAttributes(el,ats))  bindAts(el,ats,tail) else false
   }
@@ -142,7 +126,7 @@ trait BasicView extends IDGenerator
     * @param el
     * @return
     */
-  def viewFrom(el:Element): Option[String] = el.attributes.get("data-view").map(_.value)
+  def viewFrom(el: Element): Option[String] = el.attributes.get("data-view").map(_.value)
 
 
   /**
@@ -168,7 +152,7 @@ trait BasicView extends IDGenerator
    * Removes view
    * @param nm view name to remove
    * */
-  def removeViewByName(nm:String): Unit = this.subviews.get(nm) match {
+  def removeViewByName(nm: String): Unit = this.subviews.get(nm) match {
     case Some(view)=>
       this.removeView(view)
 
@@ -180,9 +164,9 @@ trait BasicView extends IDGenerator
    * Removes a vizew from subviews
    * @param view
    */
-  def removeView(view:ChildView): Unit = {
+  def removeView(view: ChildView): Unit = {
     view.unbindView()
-    if(view.viewElement.parentElement!=null) view.viewElement.parentElement.removeChild(view.viewElement)
+    if(view.viewElement.parentElement != null) view.viewElement.parentElement.removeChild(view.viewElement)
     this.subviews = this.subviews - view.id
   }
 
@@ -192,7 +176,7 @@ trait BasicView extends IDGenerator
    * @param me
    * @return
    */
-  def isInside(element:Element, me:Element = this.viewElement):Boolean = element==me ||
-    ( if(me.parentElement.isNullOrUndef) false else isInside(element,me.parentElement) )
+  def isInside(element: Element, me: Element = this.viewElement): Boolean = element==me ||
+    ( if(me.parentElement.isNullOrUndef) false else isInside(element, me.parentElement) )
 }
 

@@ -48,15 +48,15 @@ trait RxExt extends CommonOps
     }*/
 
 
-    def onChange(name:String,uniqueValue:Boolean = true,skipInitial:Boolean = true)(callback: T=> Unit): Obs =
+    def onChange(name: String, uniqueValue: Boolean = true, skipInitial: Boolean = true)(callback: T => Unit): Obs =
       if(uniqueValue){
-        if(source==null) println(s"SOURCE of $name IS FUCKING NULL!")
+        if (source == null) println(s"SOURCE of $name IS FUCKING NULL!")
         val uni = this.unique()
-        uni.onChange(name,uniqueValue = false,skipInitial = skipInitial)(callback)
+        uni.onChange(name, uniqueValue = false, skipInitial = skipInitial)(callback)
       }
       else
       {
-        if(source==null) println(s"SOURCE of $name IS FUCKING NULL!")
+        if (source == null) println(s"SOURCE of $name IS FUCKING NULL!")
         Obs(source, name+"_"+source.name, skipInitial){callback(source())}
       }
 
@@ -77,6 +77,7 @@ trait RxExt extends CommonOps
           }
         )
       }
+
       /**
        * Just simple zip, without mapping
        */

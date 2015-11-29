@@ -12,10 +12,10 @@ class UniqueWatcher[T](source: Rx[T])    extends Wrapper[T, T](source, "Unique")
   protected[this] type StateType = SpinState
   
 
-  private lazy val prev= new AtomicReference[Try[T]](source.toTry)
+  private lazy val prev = new AtomicReference[Try[T]](source.toTry)
 
   override def ping[P: Propagator](incoming: Set[Emitter[_]]): Set[Reactor[_]] =
-    if(prev.get()==source.toTry) Set() else  super.ping[P](incoming)
+    if (prev.get() == source.toTry) Set() else  super.ping[P](incoming)
 
   protected[this] val state = SpinSet(makeState)
 

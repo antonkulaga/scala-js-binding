@@ -16,7 +16,7 @@ import scalatags.Text._
  * @param view
  * @tparam View
  */
-class GeneralBinder[View<:BindableView](view:View, recover: =>Option[ReactiveBinder] = None)
+class GeneralBinder[View<:BindableView](view:View, recover: => Option[ReactiveBinder] = None)
                                        (implicit
   mpMap:MapRxMap[View], mpTag:TagRxMap[View],
   mpString:StringRxMap[View],  mpBool:BooleanRxMap[View],
@@ -25,12 +25,12 @@ class GeneralBinder[View<:BindableView](view:View, recover: =>Option[ReactiveBin
   mpText:TextEventMap[View], mpKey:KeyEventMap[View],
   mpUI:UIEventMap[View], mpWheel:WheelEventMap[View], mpFocus:FocusEventMap[View]
 ) extends ReactiveBinder
+  with IDGenerator
   with VisibilityBinder
   with ClassBinder
   with PropertyBinder
-  with ScalaTagsBinder
   with EventBinder //with Extractor
-  with IDGenerator
+  with ScalaTagsBinder
 {
 
   val bools: Map[String, Rx[Boolean]] = mpBool.asBooleanRxMap(view)
@@ -49,14 +49,14 @@ class GeneralBinder[View<:BindableView](view:View, recover: =>Option[ReactiveBin
 
   override def bindAttributes(el: Element, atribs: Map[String, String]):Boolean = {
     val ats: Map[String, String] = this.dataAttributesOnly(atribs)
-    ifNoIDOption(el,  ats.headOption.map{case (key,value)=>key+"_"+value} )
+    ifNoIDOption(el, ats.headOption.map{case (key,value)=>key+"_"+value} )
     this.bindHTML(el,ats)
     val fun: PartialFunction[(String, String), Unit] =  recover match {
-      case Some(binder)=>
-        val fallback = binder.elementPartial(el,ats)
-        elementPartial(el,ats).orElse(fallback)
+      case Some(binder) =>
+        val fallback = binder.elementPartial(el, ats)
+        elementPartial(el, ats).orElse(fallback)
 
-      case None=> elementPartial(el,ats).orElse{case other=>}
+      case None => elementPartial(el, ats).orElse{case other=>}
     }
     ats.foreach(fun)
     true

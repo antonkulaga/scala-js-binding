@@ -8,6 +8,7 @@ import org.scalajs.dom.raw.{HTMLTextAreaElement, HTMLInputElement, HTMLElement}
 import org.scalajs.dom.{Element, Event, KeyboardEvent}
 import rx._
 import rx.ops._
+import scala.Predef
 import scala.collection.immutable.Map
 import scala.scalajs.js
 import scala.scalajs.js.Any
@@ -18,21 +19,23 @@ import scala.language.implicitConversions
  * Does binding for classes
  */
 trait PropertyBinder {
-  self:ReactiveBinder=>
+
+  self: ReactiveBinder=>
+
   import js.Any._
 
-  implicit def any2String(value:js.Any):String = value.toString
-  implicit def any2Double(value:js.Any):Double = value.toString.toDouble
-  implicit def any2Int(value:js.Any):Int = value.toString.toInt
-  implicit def any2Bool(value:js.Any):Boolean = value.toString.toLowerCase == "true"
+  implicit def any2String(value: js.Any): String = value.toString
+  implicit def any2Double(value: js.Any): Double = value.toString.toDouble
+  implicit def any2Int(value: js.Any): Int = value.toString.toInt
+  implicit def any2Bool(value: js.Any): Boolean = value.toString.toLowerCase == "true"
 
 
-  def strings:Map[String,Rx[String]]
-  def bools:Map[String,Rx[Boolean]]
-  def doubles:Map[String,Rx[Double]]
-  def ints:Map[String,Rx[Int]]
+  def strings: Map[String, Rx[String]]
+  def bools: Map[String, Rx[Boolean]]
+  def doubles: Map[String, Rx[Double]]
+  def ints: Map[String, Rx[Int]]
 
-  def allValues =strings ++ bools ++ doubles ++ ints
+  def allValues = strings ++ bools ++ doubles ++ ints
 
   /**
    * Partial function that is usually added to bindProperties
@@ -43,7 +46,7 @@ trait PropertyBinder {
     case (str, rxName) if str.startsWith("style-") => this.bindStyle(el, rxName, str.replace("style-" , ""))
     case (str, rxName) if str.startsWith("bind-style-") => this.bindStyle(el, rxName, str.replace("bind-style-" , ""))
     case (bname, rxName) if bname.startsWith("bind-") => this.bindProperty(el, rxName, bname.replace("bind-" , ""))
-    case ("html", rxName) =>
+    case ("html" | "innerhtml" | "inner-html", rxName) =>
       strings.get(rxName) match {
         case Some(value)=>
           val prop = "innerHTML"
