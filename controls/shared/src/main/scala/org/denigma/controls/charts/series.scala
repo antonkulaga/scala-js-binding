@@ -3,7 +3,9 @@ package org.denigma.controls.charts
 import scala.collection.immutable.List
 
 
-case class Point(x: Double, y: Double)
+case class Point(x: Double, y: Double) {
+  override def toString:String = s"[$x, $y]"
+}
 
 
 case class StepSeries(title: String,

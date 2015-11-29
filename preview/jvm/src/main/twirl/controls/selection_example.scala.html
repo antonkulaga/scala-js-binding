@@ -1,0 +1,21 @@
+@()
+<section class="equal width row">
+  <column class="column">
+    <h1 class="ui orange header">Selection Control</h1>
+  </column>
+</section>
+
+<section class="equal width row">
+  <column class="column">
+    <h1 class="ui orange header">Html</h1>
+    <textarea data-code-html="selectionHTML">  </textarea>
+  </column>
+  <column class="column">
+    <h1 class="ui orange header">ScalaJS</h1>
+    <textarea data-code-scala="selectionCode"></textarea>
+  </column>
+  <column class="column" >
+    <h1 class="ui orange header">Appearance</h1>
+    @{org.denigma.controls.html.selector("Selection")}
+  </column>
+</section>

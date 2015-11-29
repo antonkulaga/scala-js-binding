@@ -163,7 +163,7 @@ trait CollectionView extends BindableView
       this.removeViewByName(rv.id)
       this.itemViews = itemViews - r
     case None =>
-      dom.console.error("cantot find the view for item: "+r.toString+" in item view "+this.itemViews.toString+"\n")
+      dom.console.error("cannot find the view for item: "+r.toString+" in item view "+this.itemViews.toString+"\n")
   }
 
   def newItemView(item: Item): ItemView

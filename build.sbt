@@ -175,8 +175,8 @@ lazy val preview = crossProject
       scalaJSDevStage := scalaJSDevTaskStage.value,
 			//pipelineStages := Seq(scalaJSProd, gzip),
 			(emitSourceMaps in fullOptJS) := true,
-			pipelineStages in Assets := Seq(scalaJSProd, gzip), //for run configuration
-		  (managedClasspath in Runtime) += (packageBin in Assets).value //to package production deps
+			pipelineStages in Assets := Seq(scalaJSDevStage/*scalaJSProd*/, gzip), //for run configuration
+		  (fullClasspath in Runtime) += (packageBin in Assets).value //to package production deps
 		).dependsOn(semantic,controls)
 
 lazy val previewJS = preview.js
@@ -192,8 +192,7 @@ lazy val root = Project("root", file("."),settings = commonSettings)
     version := Versions.binding,
     javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint"),
     mainClass in Compile := (mainClass in previewJVM in Compile).value,
-    (managedClasspath in Runtime) += (packageBin in previewJVM in Assets).value,
-    maintainer := "Anton Kulaga <antonkulaga@gmail.com>",
+    Comaintainer := "Anton Kulaga <antonkulaga@gmail.com>",
     packageSummary := "scala-js-binding",
     packageDescription := """Scala-js-binding preview App"""
     // general package information (can be scoped to Windows)

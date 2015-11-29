@@ -13,15 +13,15 @@ import org.denigma.binding.extensions._
  */
 trait ScalaTagsBinder extends ReactiveBinder{
 
-   def tags:Map[String,Rx[Tag]]
+   def tags: Map[String, Rx[Tag]]
 
   //def extractTags[T]:Map[String,Rx[Tag]] = macro Binder.htmlBindings_impl[T]
   //def extractTagRx[T: TagRxMap](t: T) =  implicitly[TagRxMap[T]].asTagRxMap(t)
 
-  def bindHTML(el:Element,ats:Map[String, String]) ={
+  def bindHTML(el: Element, ats: Map[String, String]) ={
     for{
       a<-ats.get("html")
-      tg <-tags.getOrError(a)
+      tg <- tags.getOrError(a)
     }{
       //ifNoID(el,"tag_"+tg)
       tg.foreach{  t=> el.innerHTML = t.render  }

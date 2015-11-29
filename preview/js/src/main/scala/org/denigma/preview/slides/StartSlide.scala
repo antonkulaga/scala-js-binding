@@ -16,7 +16,7 @@ class StartSlide(val elem:Element) extends BindableView{
   val controlsDepend = Var(
   """
     |resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-    |libraryDependencies += "org.denigma" %%% "binding-controls" % "0.8.0" // to depend on html controls that are based on scala-js-binding lib
+    |libraryDependencies += "org.denigma" %%% "binding-controls" % "0.0.8" // to depend on html controls that are based on scala-js-binding lib
   """.stripMargin
   )
 

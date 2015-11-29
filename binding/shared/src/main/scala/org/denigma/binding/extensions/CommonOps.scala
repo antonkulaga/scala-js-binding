@@ -6,6 +6,13 @@ import scala.collection.immutable._
 
 trait CommonOps {
 
+  implicit class ErrorOps(e: Throwable){
+    def stackString: String = {
+      val trace = e.getStackTrace.toList
+      trace.foldLeft("STACK TRACE = ") { case (acc, el) => acc + s"\n ${el.toString}" }
+    }
+  }
+
   implicit class StringPath(str:String) {
     def  isPartOfUrl = str.startsWith("/") || str.startsWith("#") || str.startsWith("?")
 
@@ -14,20 +21,20 @@ trait CommonOps {
 
   }
 
-  implicit class SetOps[T](source:Set[T]){
+  implicit class SetOps[T](source: Set[T]){
 
     //tells the things to delete and to update to become newValue
     //returns (minus,plus)
     def removeAddToBecome(newValue:Set[T]) = (source.diff(newValue),newValue.diff(source))
 
-    def removeAddKeepToBecome(newValue:Set[T]) = {
+    def removeAddKeepToBecome(newValue: Set[T]) = {
       val (minus,plus) = (source.diff(newValue),newValue.diff(source))
       (minus,plus,source.diff(minus))
     }
 
   }
 
-  implicit class SeqOps[T](source:collection.Seq[T]) {
+  implicit class SeqOps[T](source: collection.Seq[T]) {
     /**
      * Ordered update
      * @param by set to update
@@ -37,7 +44,7 @@ trait CommonOps {
 
   }
 
-  implicit class ImmutableSeqOps[T](source:Seq[T]){
+  implicit class ImmutableSeqOps[T](source: Seq[T]){
 
     /**
      * Ordered update

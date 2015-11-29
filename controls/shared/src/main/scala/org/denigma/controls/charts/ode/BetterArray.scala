@@ -5,7 +5,7 @@ package org.denigma.controls.charts.ode
   */
 class BetterArray(val arr: Array[Double]) extends AnyVal {
   def +(arr2: Array[Double]): Array[Double] = {
-    if(arr2.length > arr.length) throw new Exception("length of the second array is longer, cannot add it!")
+    if (arr2.length > arr.length) throw new Exception("length of the second array is longer, cannot add it!")
     val newArr: Array[Double] = arr.clone()
     for(i <- arr2.indices){
       newArr(i) +=  arr2(i)
