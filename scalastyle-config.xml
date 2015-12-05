@@ -124,7 +124,7 @@
      </parameters>
     </check>
     <check enabled="false" class="org.scalastyle.scalariform.ForBraceChecker" level="warning"/>
-    <check enabled="true" class="org.scalastyle.scalariform.LowercasePatternMatchChecker" level="warning"/>
+    <check enabled="false" class="org.scalastyle.scalariform.LowercasePatternMatchChecker" level="warning"/>
     <check enabled="true" class="org.scalastyle.scalariform.MultipleStringLiteralsChecker" level="warning">
      <parameters>
       <parameter name="allowed">1</parameter>

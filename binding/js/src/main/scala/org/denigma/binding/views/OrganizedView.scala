@@ -60,7 +60,7 @@ abstract class OrganizedView extends BasicView
 
   var topView: OrganizedView = this
 
-  def isTopView = this.topView == this
+  def isTopView: Boolean = this.topView == this
 
   def inject(viewName: String, el: Element, params: Map[String, Any]): ChildView =
   {
@@ -91,22 +91,18 @@ abstract class OrganizedView extends BasicView
    * @param newInnerHTML new content of the inner html
    * @param uri uri (for push state)
    */
-  def loadElementInto(el: Element, newInnerHTML: String, uri: String=""): Unit =  if(this.isTopView)
+  def loadElementInto(el: Element, newInnerHTML: String, uri: String=""): Unit =  if (this.isTopView)
   {
     val params = js.Dynamic.literal( "html" -> newInnerHTML)
     if(uri!="") dom.window.history.pushState(params, dom.document.title, uri)
 
     this.findNearestParentViewName(el) match {
-      case None =>
-        this.switchInner(el, newInnerHTML)
-      //dom.console.error(s"cannot find nearest viewname for loaded element from ${this.name}")
+      case None => this.switchInner(el, newInnerHTML)
+
       case Some(vn)=>
         this.findView(vn) match {
-          case Some(v)=>
-            v.switchInner(el, newInnerHTML)
-          case None=>
-            dom.console.error(s"cannot find view for $vn")
-
+          case Some(v) => v.switchInner(el, newInnerHTML)
+          case None => dom.console.error(s"cannot find view for $vn")
         }
     }
   }
@@ -221,7 +217,7 @@ abstract class OrganizedView extends BasicView
    * Removes all subviews that were inside element in the tree
    * @param element
    */
-  def removeSubViewsFrom(element: Element) =
+  def removeSubViewsFrom(element: Element): Unit =
   {
     val toRemove = this.subviews.collect{case (key, value) if value.isInside(element)=>key}.toSet
     toRemove.foreach(r => this.removeViewByName(r))
@@ -271,7 +267,7 @@ abstract class OrganizedView extends BasicView
    * Replaces viewElement of the view and rebinds it
    * @param newElement
    */
-  def refreshMe(newElement: Element) = this.parent match {
+  def refreshMe(newElement: Element): Unit = this.parent match {
     case Some(pv) =>
       //dom.console.info("before = "+pv.subviews.toString())
       this.viewElement.parentElement match {
@@ -298,7 +294,7 @@ abstract class OrganizedView extends BasicView
    * @param view
    * @return
    */
-  override def addView(view: ChildView) = {
+  override def addView(view: ChildView): ParentView = {
     super.addView(view)
     view.parent = Some(this)
     view.topView = this.topView

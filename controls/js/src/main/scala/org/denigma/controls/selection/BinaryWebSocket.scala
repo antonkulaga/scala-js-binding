@@ -13,7 +13,7 @@ import scala.scalajs.js.typedarray.{ArrayBuffer, TypedArrayBuffer}
 trait BinaryWebSocket {
   self=>
 
-  protected def updateFromMessage(bytes:ByteBuffer):Unit
+  protected def updateFromMessage(bytes: ByteBuffer): Unit
 
   implicit def bytes2message(data: ByteBuffer): ArrayBuffer = {
     if (data.hasTypedArray()) {
@@ -31,21 +31,21 @@ trait BinaryWebSocket {
 
   protected def toByteBuffer(data: Any) = TypedArrayBuffer.wrap(data.asInstanceOf[ArrayBuffer])
 
-  protected def onMessage(mess:MessageEvent) = {
+  protected def onMessage(mess: MessageEvent) = {
     mess.data match{
-      case str:String=>  dom.console.log(s"message from websocket: "+str)
+      case str: String =>  dom.console.log(s"message from websocket: "+str)
 
-      case blob:Blob=>
+      case blob: Blob=>
         //println("blob received:"+blob)
         val reader = new FileReader()
-        def onLoadEnd(ev:ProgressEvent):Any = {
+        def onLoadEnd(ev: ProgressEvent): Any = {
           val buff = reader.result
           updateFromMessage(toByteBuffer(buff))
         }
         reader.onloadend = onLoadEnd _
         reader.readAsArrayBuffer(blob)
 
-      case buff:ArrayBuffer=>
+      case buff: ArrayBuffer=>
         val bytes = TypedArrayBuffer.wrap(buff)
         updateFromMessage(bytes)
     }

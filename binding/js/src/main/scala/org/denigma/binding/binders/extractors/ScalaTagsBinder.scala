@@ -2,30 +2,26 @@ package org.denigma.binding.binders.extractors
 
 import org.denigma.binding.binders.ReactiveBinder
 import org.denigma.binding.macroses.TagRxMap
-import org.scalajs.dom.raw.{Element, HTMLElement}
 import rx._
-import rx.ops._
+
 import scala.collection.immutable._
+import scalatags.Text
 import scalatags.Text.Tag
-import org.denigma.binding.extensions._
 /**
  * HTML binding to scalatagnode
  */
-trait ScalaTagsBinder extends ReactiveBinder{
+trait ScalaTagsBinder extends ReactiveBinder
+{
+  def tags: Map[String, Rx[Tag]]
 
-   def tags: Map[String, Rx[Tag]]
+  protected def extractTagRx[T: TagRxMap](t: T): Map[String, Rx[Text.Tag]] =  implicitly[TagRxMap[T]].asTagRxMap(t)
 
-  //def extractTags[T]:Map[String,Rx[Tag]] = macro Binder.htmlBindings_impl[T]
-  //def extractTagRx[T: TagRxMap](t: T) =  implicitly[TagRxMap[T]].asTagRxMap(t)
-
-  def bindHTML(el: Element, ats: Map[String, String]) ={
+/*  def bindHTML(el: Element, ats: Map[String, String]):Unit  =
     for{
       a<-ats.get("html")
       tg <- tags.getOrError(a)
-    }{
-      //ifNoID(el,"tag_"+tg)
-      tg.foreach{  t=> el.innerHTML = t.render  }
-    }
-  }
+      t <- tg
+    } el.innerHTML = t.render
+    */
 
 }

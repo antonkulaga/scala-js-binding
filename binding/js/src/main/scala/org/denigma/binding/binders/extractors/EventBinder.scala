@@ -19,54 +19,40 @@ trait EventBinder extends ReactiveBinder
 
   protected def keyboardEvents:Map[String,Var[KeyboardEvent]]
 
+  protected def noDash(key: String) = key.replace("-", "")
 
-  def eventsPartial(el: Element): PartialFunction[(String, String), Unit] = {
-    case (key,value) if key =="event-click" | key=="click" | key == "event-mouse-click" =>
-      this.bindMapItem(el, mouseEvents, key, value)(  (e, v) =>
-        e.addEventListener[MouseEvent](Events.click,{ev:MouseEvent=>v()=ev})
-      )
-
-    case (key, value) if key =="event-mouse-enter" | key=="mouse-enter" =>
-      this.bindMapItem(el, mouseEvents, key, value) ( (e, v) =>
-        e.addEventListener[MouseEvent](Events.mouseenter,{ev:MouseEvent=>v()=ev})
-      )
-
-    case (key, value) if key =="event-mouse-leave" | key=="mouse-leave" =>
-      this.bindMapItem(el,mouseEvents,key,value) ( (e, v) =>
-        e.addEventListener[MouseEvent](Events.mouseleave, {ev:MouseEvent=>v()=ev})
-        )
-
-    case (key, value) if key =="event-mouse-move" | key=="mouse-move" =>
-      this.bindMapItem(el, mouseEvents, key, value) ( (e, v) =>
-        e.addEventListener[MouseEvent](Events.mousemove, {ev:MouseEvent=>v()=ev})
-      )
-
-    case (key, value) if key =="event-mouse-over" | key=="mouse-over" =>
-      this.bindMapItem(el, mouseEvents, key, value) ( (e, v) =>
-        e.addEventListener[MouseEvent](Events.mouseover, {ev:MouseEvent=>v()=ev})
-      )
-
-    case (key, value) if key =="event-mouse-out" | key=="mouse-out" =>
-      this.bindMapItem(el, mouseEvents, key, value) ( (e, v) =>
-        e.addEventListener[MouseEvent](Events.mouseout, {ev:MouseEvent=>v()=ev})
-        )
-
-    case (key, value) if key=="event-onkeydown" | key=="event-keydown"=>
-      this.bindMapItem(el, keyboardEvents, key, value) ( (e, v) =>
-        e.addEventListener[KeyboardEvent](Events.keydown, {ev:KeyboardEvent=> v()=ev})
-      )
-
-    case (key, value) if key=="event-onkeyup" | key=="event-keyup"=>
-      this.bindMapItem(el, keyboardEvents ,key, value) ( (e, v) =>
-        e.addEventListener[KeyboardEvent](Events.keyup, {ev:KeyboardEvent=> v()=ev})
-        )
-
-    case (key, value) if key=="event-onkeypress" | key=="event-keypress"=>
-      this.bindMapItem(el, keyboardEvents, key, value) ( (e, v) =>
-        e.addEventListener[KeyboardEvent](Events.keypress,{ev:KeyboardEvent=> v()=ev})
-        )
-
-    case (key, value) if key.contains("event") =>
-      dom.console.error(s"unknown event $key with value $value")
+  protected def keyboardEventFromKey: PartialFunction[String, String] = {
+    case key if noDash(key).contains(Events.keyup) => Events.keyup
+    case key if noDash(key).contains(Events.keydown) => Events.keydown
+    case key if noDash(key).contains(Events.keypress) => Events.keypress
   }
+
+  protected def mouseEventFromKey: PartialFunction[String, String] = {
+    case key if noDash(key).contains(Events.mouseenter) => Events.mouseenter
+    case key if noDash(key).contains(Events.mouseleave) => Events.mouseleave
+    case key if noDash(key).contains(Events.mouseup) => Events.mouseup
+    case key if noDash(key).contains(Events.mousedown) => Events.mousedown
+    case key if noDash(key).contains(Events.click) => Events.click
+    case key if noDash(key).contains(Events.mouseover) => Events.mouseover
+    case key if noDash(key).contains(Events.mouseout) => Events.mouseout
+  }
+
+  protected def mouseEventsPartial(el: Element): PartialFunction[(String, String), Unit] = {
+    case (key, value) if mouseEventFromKey.isDefinedAt(key) =>
+      val event: String = mouseEventFromKey(key)
+      this.bindMapItem(el, mouseEvents, key, value)((e, v) =>
+        e.addEventListener[MouseEvent](event, {ev: MouseEvent=>v()= ev })
+      )
+  }
+
+
+  protected def keyboardEventsPartial(el: Element): PartialFunction[(String, String), Unit] = {
+    case (key, value) if keyboardEventFromKey.isDefinedAt(key) =>
+      val event = keyboardEventFromKey(key)
+      this.bindMapItem(el, keyboardEvents, key, value)((e, v) =>
+        e.addEventListener[KeyboardEvent](event, {ev: KeyboardEvent => v()= ev })
+      )
+  }
+
+  def eventsPartial(el: Element): PartialFunction[(String, String), Unit] = keyboardEventsPartial(el).orElse(mouseEventsPartial(el))
 }

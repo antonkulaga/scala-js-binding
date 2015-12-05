@@ -19,7 +19,7 @@ class ControlSlide(val elem: Element) extends BindableView
 
   val testTabs:Var[Seq[Var[TabItem]]] = Var(
     Seq(
-      Var(TabItem("Chart", "Console content")),
+      Var(TabItem("Console", "Console content")),
       Var(TabItem("Chart", "Chart content")),
       Var(TabItem("Causality", "Causality content"))
     )

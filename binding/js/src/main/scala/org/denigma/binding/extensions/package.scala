@@ -27,20 +27,20 @@ package object extensions extends AttributesOps
 
   implicit class OptionOpt[T](source: Option[T]){
 
-    def orError(str:String) = if(source.isEmpty) dom.console.error(str)
+    def orError(str: String): Unit = if(source.isEmpty) dom.console.error(str)
 
   }
 
   implicit class ThrowableOpt(th: Throwable) {
-    def stackString = th.getStackTrace.foldLeft("")( (acc,el)=>acc+"\n"+el.toString)
+    def stackString: String = th.getStackTrace.foldLeft("")((acc, el) => acc+"\n"+el.toString)
   }
 
 
   implicit class MapOpt[TValue](source: Map[String, TValue]) {
 
-    def getOrError(key: String) = {
+    def getOrError(key: String): Option[TValue] = {
       val g = source.get(key)
-      if(g.isEmpty) dom.console.error(s"failed to find item with key $key")
+      if(g.isEmpty) dom.console.error(s"failed to find item with key $key, all keys are: [${source.keySet.toList.mkString(", ")}]")
       g
     }
   }
