@@ -5,18 +5,12 @@ import akka.http.scaladsl.model.ws.Message
 import akka.http.scaladsl.server._
 import akka.stream.scaladsl.Flow
 
+import scala.concurrent.Future
+
 class WebSockets(
                 makeChannel: (String, String) => Flow[Message, Message, _]
                 ) extends  AuthDirectives with Directives with WithLoginRejections with WithRegistrationRejections
 {
-
-/*
-  def handleWebsocket(sink:Sink[Message, Any], source: Source[Message, Any]): Route =
-    optionalHeaderValueByType[UpgradeToWebsocket]() {
-      case Some(upgrade) ⇒ complete(upgrade.handleMessagesWithSinkSource(sink,source))
-      case None          ⇒ reject(ExpectedWebsocketRequestRejection)
-    }
-*/
 
   def routes: Route =
     pathPrefix("connect") {
@@ -24,5 +18,23 @@ class WebSockets(
           case (channel, username) =>
             handleWebsocketMessages(makeChannel(channel, username))
         }
+    }
+}
+
+class WebSocketsWithLogin(
+                  loginByName: (String,String) => Future[LoginResult],
+                  loginByEmail: (String,String) => Future[LoginResult],
+                  makeChannel: (String,String) => Flow[Message, Message, Unit]
+                ) extends  AuthDirectives with Directives with WithLoginRejections with WithRegistrationRejections
+{
+  def routes: Route =
+    pathPrefix("channel"){
+      pathPrefix("notebook"){
+        parameter("username"){
+          username=>
+            println(s"username = $username")
+            handleWebsocketMessages(makeChannel("notebook", username))
+        }
+      }
     }
 }

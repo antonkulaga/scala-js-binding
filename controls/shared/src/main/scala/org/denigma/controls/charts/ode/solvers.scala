@@ -52,11 +52,12 @@ trait ODESolver{
   def tStart: Double
   def tEnd: Double
   def step: Double = 0.1
-  def epsilon = 1E-6
+  def epsilon: Double = 1E-6
 
   lazy val tDelta: Double  = tEnd - tStart
   lazy val steps = (tDelta / step).toInt
-  /** Function type for derivative functions: f (t, y) where y is a scalar
+  /**
+    * Function type for derivative functions: f (t, y) where y is a scalar
     */
   type Derivative = (Double, Double) => Double
 
@@ -70,7 +71,7 @@ trait ODESolver{
     var y  = y0     // initialize y = f(t) to y0
     for (i <- 1 to steps) {
       if (ti > tEnd) { h -= ti - tEnd; ti = tEnd }
-      val dY = computeDelta(f, ti, h,  y)   // take the next step
+      val dY: Double = computeDelta(f, ti, h, y)   // take the next step
       y = y + dY
       ti = ti + h
     }

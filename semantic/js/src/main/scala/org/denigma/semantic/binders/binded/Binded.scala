@@ -16,17 +16,17 @@ import rx.core.Var
  * @param ops
  * @tparam Rdf
  */
-abstract class Binded[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],
-                                updates:Rx[GraphUpdate[Rdf]],
+abstract class Binded[Rdf<:RDF](graph: Var[PointedGraph[Rdf]],
+                                updates: Rx[GraphUpdate[Rdf]],
                                 createIfNotExist:Boolean = false
-                                 )(ops:RDFOps[Rdf])
+                                 )(ops: RDFOps[Rdf])
 {
 
-  def predicate:Rdf#URI
+  def predicate: Rdf#URI
 
   protected def subject: Rdf#Node = graph.now.pointer
 
-  def onUpdate(upd:GraphUpdate[Rdf]): Unit = if(upd.propertiesChanged.contains(this.predicate) || upd.pointerChanged){
+  def onUpdate(upd: GraphUpdate[Rdf]): Unit = if(upd.propertiesChanged.contains(this.predicate) || upd.pointerChanged){
       myObjects.set(objectsFromGraph)
     }
 
@@ -39,7 +39,7 @@ abstract class Binded[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],
   /**
    * Is used to subscribe to default behaviour
    */
-  protected def subscribe():Unit = { //in case if want to override it
+  protected def subscribe(): Unit = { //in case if want to override it
     import rx.ops._
     if(!propertyExists){
       if(createIfNotExist) {
@@ -53,11 +53,11 @@ abstract class Binded[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],
     updates.foreach(onUpdate)
   }
 
-  protected def propertyString(html:Element,prop:String,default:String = "") = (html \ prop).fold(default)(d=>d.toString)
+  protected def propertyString(html: Element, prop: String, default: String = "") = (html \ prop).fold(default)(d=>d.toString)
 
-  def objectsFromHTML():Set[Rdf#Node]
+  def objectsFromHTML(): Set[Rdf#Node]
 
-  def nodes2triplets(nodes:Set[Rdf#Node]): Set[Rdf#Triple] = {
+  def nodes2triplets(nodes: Set[Rdf#Node]): Set[Rdf#Triple] = {
     val sub = subject
     nodes.map(ops.makeTriple(sub,predicate,_))
   }

@@ -10,8 +10,14 @@ import rx.core.Var
 import scala.collection.immutable.Map
 import scala.collection.mutable
 
-class RDFModelBinder[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],
-                                resolver:Resolver[Rdf]) extends RDFBinder[Rdf](resolver) {
+/**
+  * Binds html to RDF graph
+  * @param graph
+  * @param resolver
+  * @tparam Rdf
+  */
+class RDFModelBinder[Rdf <: RDF](graph: Var[PointedGraph[Rdf]],
+                                resolver: Resolver[Rdf]) extends RDFBinder[Rdf](resolver) {
   import org.denigma.semantic.extensions._
 
   implicit def ops = resolver.ops //diry hack to make graph.updates work
@@ -22,7 +28,7 @@ class RDFModelBinder[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],
       with mutable.MultiMap[Rdf#URI,Binded[Rdf]] //NOTE: In the future I hope to get rid of these
 
 
-  protected override def rdfPartial(el: Element, ats: Map[String, String]): PartialFunction[(String,String), Unit] = {
+  protected override def rdfPartial(el: Element, ats: Map[String, String]): PartialFunction[(String, String), Unit] = {
     this.vocabPartial.orElse(this.propertyPartial(el, ats))
   }
 
@@ -31,13 +37,13 @@ class RDFModelBinder[Rdf<:RDF](graph:Var[PointedGraph[Rdf]],
    * @param el
    * @return
    */
-  protected def elementHasValue(el:Element) =  el.tagName.toLowerCase match {
+  protected def elementHasValue(el: Element) =  el.tagName.toLowerCase match {
     case "input" | "textarea" | "option" =>true
     case _ =>false
   }
 
 
-  protected def propertyPartial(el: Element,  ats: Map[String, String]):PartialFunction[(String,String),Unit] = {
+  protected def propertyPartial(el: Element,  ats: Map[String, String]): PartialFunction[(String, String), Unit] = {
     case ("property",value) =>  bindProperty(el,value,ats)
 
     case ("data-name-of",value) =>

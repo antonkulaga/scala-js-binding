@@ -1,6 +1,6 @@
 addSbtPlugin("com.typesafe.sbt" % "sbt-web" % "1.2.2") // advanced assets handling
 
-addSbtPlugin("io.spray" % "sbt-revolver" % "0.7.2") // live refresh
+addSbtPlugin("io.spray" % "sbt-revolver" % "0.8.0") //live refresh
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.0.5") // packaging for production
 

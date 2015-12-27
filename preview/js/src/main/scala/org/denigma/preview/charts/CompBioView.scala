@@ -22,7 +22,7 @@ class CompBioView(val elem: Element) extends BindableView with CodeForCompBio wi
     }
     .register("ProteinsXY") {
       case (el, params) =>
-        new ProteinsXY(el, odes, initialConditions).withBinder(new GeneralBinder(_, self.binders.collectFirst { case r: ReactiveBinder => r }))
+        new ProteinsXY(el, odes, this).withBinder(new GeneralBinder(_, self.binders.collectFirst { case r: ReactiveBinder => r }))
     }
 }
 

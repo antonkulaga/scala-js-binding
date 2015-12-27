@@ -9,14 +9,14 @@ class StartSlide(val elem:Element) extends BindableView{
   val bindingDepend = Var(
     """
       |resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-      |libraryDependencies += "org.denigma" %%% "binding" % "0.8.0" // to depend on scala-js-binding library
+      |libraryDependencies += "org.denigma" %%% "binding" % "0.8.1" // to depend on scala-js-binding library
     """.stripMargin
   )
 
   val controlsDepend = Var(
   """
     |resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-    |libraryDependencies += "org.denigma" %%% "binding-controls" % "0.0.8" // to depend on html controls that are based on scala-js-binding lib
+    |libraryDependencies += "org.denigma" %%% "binding-controls" % "0.0.9" // to depend on html controls that are based on scala-js-binding lib
   """.stripMargin
   )
 

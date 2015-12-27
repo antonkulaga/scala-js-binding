@@ -50,10 +50,12 @@ class ProteinsTime(val elem: Element, val odes: Rx[CompBioODEs], val initialCond
   val items: Var[Seq[Item]] = Var(Seq(lacI_mRNA, tetR_mRNA, lacI, tetR))
 }
 
-class ProteinsXY(val elem: Element,  val odes: Rx[CompBioODEs], val initialConditions: Rx[Array[Double]]) extends LinesPlot {
+class ProteinsXY(val elem: Element, val odes: Rx[CompBioODEs], val conditionSource: InitialConditions) extends LinesPlot {
 
 
   override type ItemView = SeriesView
+
+  lazy val initialConditions: Rx[Array[Double]] = conditionSource.initialConditions
 
   val scaleX: rx.Var[Scale] = Var(LinearScale("LacI", 0.0, 2000.0, 500.0, 400.0))
 
@@ -63,8 +65,27 @@ class ProteinsXY(val elem: Element,  val odes: Rx[CompBioODEs], val initialCondi
 
   override val items = Var(Seq(xy))
 
-  def onChartClick(event: MouseEvent) = {
+  chartClick.onChange("OnChartClick", uniqueValue = false, skipInitial = true){
+    event=> onChartClick(event)
+  }
 
+
+  def onChartClick(event: MouseEvent): Unit = if (event.currentTarget == event.target)
+  {
+    event.target match {
+      case el: Element =>
+        //println("HTML =" +elem.outerHTML)
+        val rect = el.getBoundingClientRect()
+        val x = event.clientX - rect.left - left.now
+        val y = event.clientY - rect.top - top.now
+        val sx = scaleX.now.chartCoord(x)
+        val sy = scaleY.now.chartCoord(y)
+        //println(s"chart click works! with [$x ; $y] coords [$sx : $sy]")
+        conditionSource.lacI_start() = sx
+        conditionSource.tetR_start() = sy
+        event.preventDefault()
+      case _ =>
+    }
   }
 
   lazy val solve = Var(Events.createMouseEvent)

@@ -33,7 +33,7 @@ trait BinaryWebSocket {
 
   protected def onMessage(mess: MessageEvent) = {
     mess.data match{
-      case str: String =>  dom.console.log(s"message from websocket: "+str)
+      case str: String =>  dom.console.log(s"message from websocket: " + str)
 
       case blob: Blob=>
         //println("blob received:"+blob)

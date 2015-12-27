@@ -112,9 +112,9 @@ object sq
    * @tparam TOut outpit type (form response)
    * @return
    */
-  def tryPost[TIn,TOut]( url:String,data:TIn,timeout:Int = 0,
+  def tryPost[TIn,TOut]( url: String, data: TIn, timeout: Int = 0,
                          headers: Map[String, String] =       Map("Content-Type" -> "text/plain;charset=UTF-8"),
-                         withCredentials:Boolean = false)(pickle:TIn=>String)(unpickle:String=>Try[TOut]): Future[TOut] = {
+                         withCredentials: Boolean = false)(pickle: TIn => String)(unpickle : String => Try[TOut]): Future[TOut] = {
     val request: Future[XMLHttpRequest] = Ajax.apply("POST", url,pickle(data), timeout, headers, withCredentials,"text/plain;charset=UTF-8")
     unpickleRequestResult(url,request)(unpickle)
 

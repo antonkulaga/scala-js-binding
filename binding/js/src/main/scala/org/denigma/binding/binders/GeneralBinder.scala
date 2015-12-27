@@ -9,6 +9,7 @@ import org.scalajs.dom.raw.{Element, KeyboardEvent, MouseEvent}
 import rx._
 import rx.core.Var
 
+import scala.Predef
 import scala.collection.immutable.Map
 import scalatags.Text._
 
@@ -35,19 +36,21 @@ class GeneralBinder[View <: BindableView](view: View, recover: => Option[Reactiv
   with EventBinder //with Extractor
 {
 
-  val bools: Map[String, Rx[Boolean]] = mpBool.asBooleanRxMap(view)
+  lazy val bools: Map[String, Rx[Boolean]] = mpBool.asBooleanRxMap(view)
 
-  val strings: Map[String, Rx[String]] = mpString.asStringRxMap(view)
+  lazy val strings: Map[String, Rx[String]] = mpString.asStringRxMap(view)
 
-  val doubles: Map[String, Rx[Double]] = mpDouble.asDoubleRxMap(view)
+  lazy val doubles: Map[String, Rx[Double]] = mpDouble.asDoubleRxMap(view)
 
-  val ints: Map[String, Rx[Int]] = mpInt.asIntRxMap(view)
+  lazy val ints: Map[String, Rx[Int]] = mpInt.asIntRxMap(view)
 
-  val tags: Map[String, Rx[Tag]] = mpTag.asTagRxMap(view)
+  lazy val tags: Map[String, Rx[Tag]] = mpTag.asTagRxMap(view)
 
-  val mouseEvents: Map[String, rx.Var[MouseEvent]] = mpMouse.asMouseEventMap(view)
+  lazy val mouseEvents: Map[String, rx.Var[MouseEvent]] = mpMouse.asMouseEventMap(view)
 
-  val keyboardEvents:Map[String,Var[KeyboardEvent]] = mpKey.asKeyEventMap(view)
+  lazy val keyboardEvents:Map[String, Var[KeyboardEvent]] = mpKey.asKeyEventMap(view)
+
+  lazy val events: Map[String, rx.Var[Event]] = mpEvent.asEventMap(view)
 
   override def bindAttributes(el: Element, atribs: Map[String, String]): Boolean = {
     val ats: Map[String, String] = this.dataAttributesOnly(atribs)

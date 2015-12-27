@@ -31,10 +31,10 @@ trait Binder
  */
 trait ReactiveBinder extends Binder
 {
-  def elementPartial(el: Element,ats:Map[String, String]): PartialFunction[(String,String),Unit]
+  def elementPartial(el: Element, ats: Map[String, String]): PartialFunction[(String, String), Unit]
 
-  def bindAttributes(el:Element,attributes:Map[String, String] ):Boolean= {
-    val fun: PartialFunction[(String, String), Unit] = elementPartial(el,attributes).orElse{case other=>}
+  def bindAttributes(el: Element, attributes: Map[String, String]): Boolean= {
+    val fun: PartialFunction[(String, String), Unit] = elementPartial(el, attributes).orElse{case other =>}
     attributes.foreach(fun)
     true
   }
@@ -50,17 +50,17 @@ trait ReactiveBinder extends Binder
    * @tparam T type parameter for Var
    * @return
    */
-  protected def bindMapItem[T](el:Element,mp:Map[String,Var[T]],attribute:String,key:String)
-                          (bind:(Element,Var[T])=>Unit) =
+  protected def bindMapItem[T](el: Element, mp: Map[String, Var[T]], attribute: String, key: String)
+                          (bind: (Element, Var[T]) => Unit) =
     mp.get(key) match{
-      case Some(reactive)=> bind(el,reactive)
+      case Some(reactive)=> bind(el, reactive)
       case None=>
         dom.console.error(s"bindMapItem: cannot bind $attribute in ${el.outerHTML} to $key")
         dom.console.log("current map =" + mp.keys.toString())
     }
 
-  protected def dataAttributesOnly(ats:Map[String,String]): Map[String, String] = ats.collect{
-    case (key,value) if key.contains("data-") && !key.contains("data-view")=> (key.replace("data-",""),value)
+  protected def dataAttributesOnly(ats: Map[String, String]): Map[String, String] = ats.collect{
+    case (key, value) if key.contains("data-") && !key.contains("data-view") => (key.replace("data-", ""), value)
   }
 
 }

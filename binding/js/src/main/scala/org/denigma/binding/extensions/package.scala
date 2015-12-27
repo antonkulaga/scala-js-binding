@@ -4,14 +4,8 @@ import org.scalajs.dom
 import rx._
 import rx.ops.RxExt
 
-import scala.annotation.tailrec
 import scala.collection.immutable.Map
-import scala.concurrent.duration.{FiniteDuration, Duration}
 import scala.scalajs.js.Dynamic.{global => g}
-
-
-
-
 
 /**
  * Useful implicit classes
@@ -21,7 +15,9 @@ package object extensions extends AttributesOps
   with RxExt
   with Functions
   with ElementOps
-  with EventsOps {
+  with EventsOps
+  with DataOps
+{
 
   implicit def toAnyRxW[T](source: Rx[T]): AnyRxW[T] = new AnyRxW[T](source)
 
@@ -44,4 +40,7 @@ package object extensions extends AttributesOps
       g
     }
   }
+
+
+
 }

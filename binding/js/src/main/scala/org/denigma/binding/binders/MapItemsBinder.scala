@@ -18,6 +18,6 @@ class MapItemsBinder[View<:BindableView](view: View, reactiveMap: Map[String, Va
                                           )
   extends GeneralBinder(view)(mpMap, mpTag, mpString, mpBool, mpDouble, mpInt, mpEvent, mpMouse, mpText, mpKey, mpUI, mpWheel, mpFocus) {
 
-  override val strings: Map[String, Rx[String]] = mpString.asStringRxMap(view) ++ reactiveMap
+  override lazy val strings: Map[String, Rx[String]] = mpString.asStringRxMap(view) ++ reactiveMap
 
 }

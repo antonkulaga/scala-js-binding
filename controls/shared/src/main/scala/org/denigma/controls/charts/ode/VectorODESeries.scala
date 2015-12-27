@@ -3,8 +3,8 @@ package org.denigma.controls.charts.ode
 import org.denigma.controls.charts._
 
 
-case class XYSeries(title:String, x: Int, y: Int, style: LineStyles = LineStyles.default)
-                   (equations: ODEs, initial: Array[Double],fun: Point=>Point) extends Series
+case class XYSeries(title: String, x: Int, y: Int, style: LineStyles = LineStyles.default)
+                   (equations: ODEs, initial: Array[Double], fun: Point => Point) extends Series
 {
   override val points: List[Point] = {
     require(x < initial.length && y < initial.length, "XY should be withing results of the equations")
@@ -15,16 +15,7 @@ case class XYSeries(title:String, x: Int, y: Int, style: LineStyles = LineStyles
   }
 }
 
-/*
-object PartialSeries {object PointValue {
-
-  def apply(x: Double, y: Double, name: String/*,radius:Double,color:Color*/): PointValue = PointValue(Point(x, y), name)
-
-}
-*/
-
-
-case class PartialSeries(title:String, x: Int, y: Int, style: LineStyles = LineStyles.default) (equations: ODEs, initial: Array[Double]) extends Series{
+case class PartialSeries(title:String, x: Int, y: Int, style: LineStyles = LineStyles.default)(equations: ODEs, initial: Array[Double]) extends Series{
   override val points: List[Point] = {
     require(x < initial.length && y < initial.length, "XY should be withing results of the equations")
     val result = equations.compute(initial)
@@ -44,7 +35,6 @@ object ODEs {
 
     val derivatives = devs
   }
-
 }
 
 trait ODEs extends VectorODESolver

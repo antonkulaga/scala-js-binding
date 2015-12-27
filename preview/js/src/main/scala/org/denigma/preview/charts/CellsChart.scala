@@ -202,18 +202,11 @@ class CellsChart(val elem: Element, val cols: Var[Int], val rows: Var[Int], val 
 
 }
 
-
 class CellView(val elem: Element, val cell: Rx[Cell]) extends BindableView {
 
   self =>
 
   import rx.ops._
-
-  val cellSide = Var(30)
-
-  val cellRows = Var(5)
-
-  val cellCols = Var(4)
 
   val dots = Rx{ //draws shape
     val c = cell()
@@ -233,16 +226,4 @@ class CellView(val elem: Element, val cell: Rx[Cell]) extends BindableView {
   val points = dots.map(_.foldLeft(""){ case (acc, Point(x, y)) =>
     acc+s"$x,$y "
   }.trim)
-
-  override lazy val injector = defaultInjector
-    .register("SimplePlot") {
-      case (el, params) =>
-        new SimplePlot(el).withBinder(new GeneralBinder(_, self.binders.collectFirst { case r: ReactiveBinder => r }))
-    }
-    .register("CompBioView"){case (el, args) =>
-      new CompBioView(el).withBinder(view => new CodeBinder(view))
-    }
-    .register("cells") { case (el, params) =>
-      new CellsChart(el, cellRows, cellCols, cellSide).withBinder(new CodeBinder(_))
-    }
 }

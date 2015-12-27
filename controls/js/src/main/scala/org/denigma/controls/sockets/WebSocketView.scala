@@ -71,20 +71,22 @@ class WebSocketStorage
   }
 }
 
+class SimpleSubscriber(val channel: String, val username: String) extends WebSocketSubscriber{
+
+  override def getWebSocketUri(username: String): String = {
+    val wsProtocol = if (dom.document.location.protocol == "https:") "wss" else "ws"
+    s"$wsProtocol://${dom.document.location.host}/channel/$channel?username=$username"
+  }
+
+  override def initWebSocket(url: String): WebSocket = WebSocketStorage(url)
+
+  urlOpt() = Option(getWebSocketUri(username))
+}
+
 object WebSocketSubscriber
 {
-  def apply(channel:String,username:String) = new SimpleSubscriber(channel,username)
+  def apply(channel: String, username: String): WebSocketSubscriber = new SimpleSubscriber(channel, username)
 
-  class SimpleSubscriber(val channel:String,val username:String) extends WebSocketSubscriber{
-    override def getWebSocketUri(username: String): String = {
-      val wsProtocol = if (dom.document.location.protocol == "https:") "wss" else "ws"
-      s"$wsProtocol://${dom.document.location.host}/connect?channel=$channel&username=$username"
-    }
-
-    override def initWebSocket(url: String) = WebSocketStorage(url)
-
-    urlOpt() = Option(getWebSocketUri(username))
-  }
 }
 
 
@@ -92,14 +94,14 @@ trait WebSocketSubscriber
 {
   import org.denigma.binding.extensions._
 
-  val channel:String
+  val channel: String
 
-  val webSocketOpt:Var[Option[WebSocket]] = Var(None)
+  val webSocketOpt: Var[Option[WebSocket]] = Var(None)
 
   val connected: Rx[Boolean] = webSocketOpt.map(_.isDefined)
-  val urlOpt:Var[Option[String]] = Var(None)
+  val urlOpt: Var[Option[String]] = Var(None)
 
-  protected def onUrlChange(url:Option[String]):Unit = url match{
+  protected def onUrlChange(url: Option[String]): Unit = url match{
     case Some(u)=> webSocketOpt() = Option(initWebSocket(u))
     case None =>
       println("None")
@@ -108,38 +110,41 @@ trait WebSocketSubscriber
 
   urlOpt.onChange("urlOptChange")(this.onUrlChange)
 
-  protected def getWebSocketUri(username:String): String
+  protected def getWebSocketUri(username: String): String
 
-  protected def initWebSocket(url:String):WebSocket
+  protected def initWebSocket(url: String): WebSocket
 
-  def send(message:String): Unit = webSocketOpt.now match {
+  def send(message: String): Unit = webSocketOpt.now match {
     case Some(w)=>  w.send(message)
     case None=> dom.console.error("websocket is not initialized")
   }
 
-  def send(message:ArrayBuffer): Unit = webSocketOpt.now match {
+  def send(message: ArrayBuffer): Unit = webSocketOpt.now match {
     case Some(w)=>  w.send(message)
     case None=> dom.console.error("websocket is not initialized")
   }
 
-  def send(message:Blob): Unit = webSocketOpt.now match {
+  def send(message: Blob): Unit = webSocketOpt.now match {
     case Some(w)=>  w.send(message)
     case None=> dom.console.error("websocket is not initialized")
   }
 
-  protected def subscribe(w:WebSocket) = {
-    w.onopen = { (event: Event) ⇒ onOpen() = event }
-    w.onerror = { (event: ErrorEvent) ⇒ onError() = event }
-    w.onmessage = { (event: MessageEvent) ⇒ onMessage() = event}
-    w.onclose = { (event: Event) ⇒  onClose() = event}
+  protected def subscribe(w: WebSocket) = {
+    w.onopen = {(event: Event) ⇒ onOpen() = event}
+    w.onerror = {(event: ErrorEvent) ⇒ onError() = event}
+    w.onmessage = {(event: MessageEvent) ⇒ onMessage() = event}
+    w.onclose = {(event: Event) ⇒  onClose() = event}
   }
 
   import rx.ops._
-  webSocketOpt.onChange("OnConnect"){  case Some(w)=>subscribe(w)   }
+  webSocketOpt.onChange("OnConnect"){
+    case Some(w) => subscribe(w)
+    case None => println("webSocketOpt changed to None") // TODO: decide what to do here
+  }
 
   lazy val onOpen: rx.Var[Event] = Var(Events.createEvent())
-  lazy val onMessage: rx.Var[dom.MessageEvent] = Var( Events.createMessageEvent() )
-  lazy val onError: rx.Var[dom.ErrorEvent] = Var( Events.createErrorEvent() )
+  lazy val onMessage: rx.Var[dom.MessageEvent] = Var(Events.createMessageEvent())
+  lazy val onError: rx.Var[dom.ErrorEvent] = Var(Events.createErrorEvent())
   lazy val onClose: rx.Var[Event] = Var(Events.createEvent())
 
 }

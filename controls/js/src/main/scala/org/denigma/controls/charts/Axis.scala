@@ -9,43 +9,46 @@ import rx.ops._
 
 import scala.collection.immutable._
 
-case class Tick(name:String,value:Double)
+case class Tick(name: String, value: Double)
 object Tick {
-  def linear(value:Double):Tick =Tick(value.toString,value)
-  def logarithmic(value:Double):Tick =Tick(value.toString,Math.log(value))
+  def linear(value: Double): Tick =Tick(value.toString, value)
 
+  def logarithmic(value: Double): Tick =Tick(value.toString, Math.log(value))
 }
 
-case class LinearScale(title:String,start:Double,end:Double,stepSize:Double, length:Double, inverted:Boolean = false) extends Scale
+case class LinearScale(title: String, start: Double, end: Double, stepSize: Double, length: Double, inverted: Boolean = false) extends Scale
 {
 
-  override def step(value: Double): Double = value+stepSize
+  override def step(value: Double): Double = value + stepSize
 
-  lazy val scale = length/(end-start)
+  lazy val scale: Double = length / (end - start)
 
-  def inverse(value:Double) = end - value + start
+  def inverse(value: Double): Double = end - value + start
 
-  def coord(value:Double) = (if(inverted) inverse(value) else value) * scale
+  def coord(value: Double): Double = if(inverted) inverse(value) * scale else value * scale
 
+  //real coord to chart coord (it implies that 0 is the same
+  override def chartCoord(coord: Double): Double = if(inverted) inverse(coord / scale) else coord / scale + start
 }
 
 trait Scale
 {
-  val title:String
-  val start:Double
-  val length:Double
-  val end:Double
-  def step(value:Double):Double
+  val title: String
+  val start: Double
+  val length: Double
+  val end: Double
+  def step(value: Double): Double
 
-  lazy val startCoord = coord(start)
-  lazy val endCoord = coord(end)
+  lazy val startCoord: Double = coord(start)
+  lazy val endCoord: Double = coord(end)
 
-  def coord(cord:Double):Double
+  def coord(chartCoord: Double): Double
+  def chartCoord(coord: Double): Double
 
-  val ticks = points(start,end)
+  val ticks: scala.List[Double] = points(start, end)
 
-  def points(current:Double,end:Double,dots:List[Double] = List.empty):List[Double]  =
-    if(current<end) points(step(current),end,current::dots) else (end::dots).reverse
+  def points(current: Double, end: Double, dots: List[Double] = List.empty): List[Double]  =
+    if (current<end) points(step(current), end, current::dots) else (end::dots).reverse
 }
 
 class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
@@ -70,7 +73,7 @@ class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
   lazy val tickLength = Var(10.0)
   lazy val half = length.map(_/2)
 
-  override val items:Rx[Seq[Item]] = Rx{
+  override val items: Rx[Seq[Item]] = Rx{
     val sc = scale()
     val its = ticks()
     its.map{case i=>
@@ -82,21 +85,21 @@ class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
     }
   }
 
-  override def newItemView(item: Item) = this.constructItemView(item){
-    (e,m)=>new TickView(e,item,tickLength,style).withBinder(v=>new GeneralBinder(v))
+  override def newItemView(item: Item): TickView = this.constructItemView(item){
+    (e,m) => new TickView(e, item, tickLength, style).withBinder(v => new GeneralBinder(v))
   }
 
 }
 
-class TickView(val elem:Element,tick:Rx[Tick],val tickLength:Rx[Double], styles:Rx[LineStyles]) extends BindableView{
+class TickView(val elem: Element, tick: Rx[Tick], val tickLength: Rx[Double], styles: Rx[LineStyles]) extends BindableView{
 
-  val label = tick.map(t=>t.name)
-  val value = tick.map(_.value)
+  val label: rx.Rx[String] = tick.map(t=>t.name)
+  val value: rx.Rx[Double] = tick.map(_.value)
 
-  val strokeColor = styles.map(s=>s.strokeColor)
-  val strokeWidth = styles.map(s=>s.strokeWidth)
+  val strokeColor: rx.Rx[String] = styles.map(s=>s.strokeColor)
+  val strokeWidth: rx.Rx[Double] = styles.map(s=>s.strokeWidth)
 
-  val labelPadding = tickLength.map(_+15)
+  val labelPadding: rx.Rx[Double] = tickLength.map(_+15)
 
 }
 

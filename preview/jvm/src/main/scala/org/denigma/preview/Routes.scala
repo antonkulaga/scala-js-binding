@@ -29,15 +29,15 @@ trait Routes extends Directives with PJax with TextFilesDirectives
 
   def index =  pathSingleSlash{ ctx =>
     ctx.complete {
-      HttpResponse(  entity = HttpEntity(MediaTypes.`text/html`, html.index(None).body  ))
+      HttpResponse(  entity = HttpEntity(MediaTypes.`text/html`.withCharset(HttpCharsets.`UTF-8`), html.index(None).body  ))
     }
   }
 
-  lazy val loadPage:Html => Html = h => html.index( Some(h) )
+  lazy val loadPage: Html => Html = h => html.index( Some(h) )
 
 
-  def page(html:Html): Route = pjax[Twirl](html,loadPage){h=>c=>
-        val resp = HttpResponse(  entity = HttpEntity(MediaTypes.`text/html`, h.body  ))
+  def page(html:Html): Route = pjax[Twirl](html, loadPage){h=>c=>
+        val resp = HttpResponse(  entity = HttpEntity(MediaTypes.`text/html`.withCharset(HttpCharsets.`UTF-8`), h.body  ))
         c.complete(resp)
       }
 
@@ -56,7 +56,7 @@ trait Routes extends Directives with PJax with TextFilesDirectives
 
   def mystyles: Route = path("styles" / "mystyles.css"){
     complete {
-      HttpResponse(  entity = HttpEntity(MediaTypes.`text/css`,  MyStyles.render   ))   }
+      HttpResponse(  entity = HttpEntity(MediaTypes.`text/css`.withCharset(HttpCharsets.`UTF-8`),  MyStyles.render   ))   }
   }
 
   def loadResources: Route = pathPrefix( resourcePrefix ~ Slash) {
@@ -73,7 +73,7 @@ trait Routes extends Directives with PJax with TextFilesDirectives
                 reject()
               case resourceName ⇒
                 this.linesFromResource(resourceName, from, to) { case lines =>
-                  complete(HttpResponse(entity = HttpEntity(MediaTypes.`text/css`,  lines.reduce(_+"\n"+_)  )  ))
+                  complete(HttpResponse(entity = HttpEntity(MediaTypes.`text/css`.withCharset(HttpCharsets.`UTF-8`),  lines.reduce(_+"\n"+_)  )  ))
                 }
             }
           }

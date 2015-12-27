@@ -2,6 +2,7 @@ package org.denigma.controls.tabs
 
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.views.{ItemsSeqView, BindableView}
+import org.denigma.controls.tabs.TabItemView.SimpleTabItemView
 import org.scalajs.dom.Element
 import rx.core.{Var, Rx}
 import rx.ops._
@@ -9,13 +10,29 @@ import org.denigma.binding.extensions._
 
 import scala.collection.immutable.Seq
 
+/*trait TabItem{
+  def label: String
+}*/
 case class TabItem(label: String, content: String) // content: Element)
 
-case class TabItemView(elem: Element, item: Rx[TabItem], selection: Var[Option[Rx[TabItem]]]) extends BindableView {
-  val content = item.map(_.content)
-  val label = item.map(_.label)
+object TabItemView {
 
-  val active = Rx{
+  case class SimpleTabItemView(elem: Element, item: Rx[TabItem], selection: Var[Option[Rx[TabItem]]]) extends TabItemView
+
+  def apply(elem: Element, item: Rx[TabItem], selection: Var[Option[Rx[TabItem]]]): TabItemView = SimpleTabItemView(elem, item, selection)
+}
+
+
+trait TabItemView extends BindableView {
+
+  val item: Rx[TabItem]
+  val selection: Var[Option[Rx[TabItem]]]
+
+  val label: rx.Rx[String] = item.map(_.label)
+
+  val content: rx.Rx[String] = item.map(_.content)
+
+  lazy val active: Rx[Boolean] = Rx{
     val sel = selection()
     sel.isDefined && sel.get.now == item()
   }
@@ -26,7 +43,9 @@ case class TabItemView(elem: Element, item: Rx[TabItem], selection: Var[Option[R
   }
 }
 
+
 class TabsContentView(val elem: Element, val items: Rx[Seq[Rx[TabItem]]], val active: Var[Option[Rx[TabItem]]]) extends BasicTabsView
+
 class TabsView(val elem: Element, val items: Rx[Seq[Rx[TabItem]]]) extends BasicTabsView{
 
   protected def defaultContent = ""

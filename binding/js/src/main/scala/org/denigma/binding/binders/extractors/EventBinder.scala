@@ -17,7 +17,9 @@ trait EventBinder extends ReactiveBinder
 
   protected def mouseEvents: Map[String, Var[MouseEvent]]
 
-  protected def keyboardEvents:Map[String,Var[KeyboardEvent]]
+  protected def keyboardEvents: Map[String, Var[KeyboardEvent]]
+
+  protected def events: Map[String, Var[Event]]
 
   protected def noDash(key: String) = key.replace("-", "")
 
@@ -37,6 +39,10 @@ trait EventBinder extends ReactiveBinder
     case key if noDash(key).contains(Events.mouseout) => Events.mouseout
   }
 
+  protected def otherEventFromKey: PartialFunction[String, String] = {
+    case key if noDash(key).contains(Events.change) => Events.change
+  }
+
   protected def mouseEventsPartial(el: Element): PartialFunction[(String, String), Unit] = {
     case (key, value) if mouseEventFromKey.isDefinedAt(key) =>
       val event: String = mouseEventFromKey(key)
@@ -44,7 +50,6 @@ trait EventBinder extends ReactiveBinder
         e.addEventListener[MouseEvent](event, {ev: MouseEvent=>v()= ev })
       )
   }
-
 
   protected def keyboardEventsPartial(el: Element): PartialFunction[(String, String), Unit] = {
     case (key, value) if keyboardEventFromKey.isDefinedAt(key) =>
@@ -54,5 +59,13 @@ trait EventBinder extends ReactiveBinder
       )
   }
 
-  def eventsPartial(el: Element): PartialFunction[(String, String), Unit] = keyboardEventsPartial(el).orElse(mouseEventsPartial(el))
+  protected def otherEventsPartial(el: Element): PartialFunction[(String, String), Unit] = {
+    case (key, value) if noDash(key).contains(Events.change) =>
+      this.bindMapItem(el, events, key, value)((e, v) =>
+        e.addEventListener[Event](Events.change, {ev: Event => v()= ev })
+      )
+  }
+
+  def eventsPartial(el: Element): PartialFunction[(String, String), Unit] = keyboardEventsPartial(el).orElse(mouseEventsPartial(el)).orElse(otherEventsPartial(el))
+
 }

@@ -7,7 +7,7 @@ import playscalajs.ScalaJSPlay.autoImport._
 import playscalajs.{PlayScalaJS, ScalaJSPlay}
 import sbt.Keys._
 import sbt._
-import spray.revolver.RevolverPlugin._
+import spray.revolver.RevolverPlugin.autoImport._
 
 
 lazy val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
@@ -61,7 +61,7 @@ lazy val bindingMacro = crossProject
     libraryDependencies ++= Dependencies.macroses.shared.value,
     libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-reflect" % _),
     libraryDependencies += compilerPlugin("org.scalamacros" % "paradise" % Versions.macroParadise cross CrossVersion.full)
-  )
+  ).disablePlugins(RevolverPlugin)
   .jvmSettings(
     libraryDependencies ++= Dependencies.macroses.jvm.value
   )
@@ -83,7 +83,7 @@ lazy val binding = crossProject
     name := "binding",
     scalaVersion:=Versions.scala,
     libraryDependencies ++= Dependencies.binding.shared.value
-  )
+  ).disablePlugins(RevolverPlugin)
   .jsSettings(
     libraryDependencies ++= Dependencies.binding.js.value,
     jsDependencies += RuntimeDOM % "test"
@@ -95,22 +95,21 @@ lazy val binding = crossProject
 lazy val bindingJS = binding.js
 lazy val bindingJVM = binding.jvm
 
-
 lazy val controls = crossProject
   .crossType(CrossType.Full)
   .in(file("controls"))
-  .settings(  commonSettings ++ publishSettings:_* )
+  .settings(commonSettings ++ publishSettings:_*)
   .settings(
     version := Versions.controls,
     name := "binding-controls",
     scalaVersion:=Versions.scala,
     libraryDependencies ++= Dependencies.controls.shared.value
-  )
+  ).disablePlugins(RevolverPlugin)
   .jsSettings(
     libraryDependencies ++= Dependencies.controls.js.value,
     jsDependencies += RuntimeDOM % "test"
   )
-  .jvmSettings(  libraryDependencies ++= Dependencies.controls.jvm.value )
+  .jvmSettings( libraryDependencies ++= Dependencies.controls.jvm.value )
   .jvmConfigure(p=>p.enablePlugins(SbtTwirl))
   .dependsOn(binding)
 
@@ -119,16 +118,15 @@ lazy val controls = crossProject
 lazy val controlsJS = controls.js
 lazy val controlsJVM = controls.jvm
 
-
 lazy val semantic = crossProject
   .crossType(CrossType.Full)
   .in(file("semantic"))
-  .settings(  commonSettings ++ publishSettings:_* )
+  .settings( commonSettings ++ publishSettings:_* )
   .settings(
     version := Versions.controls,
     name := "semantic-controls",
     scalaVersion:=Versions.scala
-  )
+  ).disablePlugins(RevolverPlugin)
   .jsSettings(
     libraryDependencies ++= Dependencies.semantic.js.value,
     jsDependencies += RuntimeDOM % "test"
@@ -153,7 +151,7 @@ lazy val preview = crossProject
 		.settings(commonSettings++publishSettings: _*)
 		.settings(
 			name := "preview"
-		)
+		).disablePlugins(RevolverPlugin)
 		.jsConfigure(p => p.enablePlugins(ScalaJSPlay))
 		.jsSettings(
 			persistLauncher in Compile := true,
@@ -161,7 +159,6 @@ lazy val preview = crossProject
 			libraryDependencies ++= Dependencies.previewJS.value,
 			jsDependencies += RuntimeDOM % "test"
 		)
-		.jvmSettings(Revolver.settings:_*)
 		.jvmConfigure(p => p.enablePlugins(SbtTwirl, SbtWeb).enablePlugins(PlayScalaJS)) //despite "Play" in name it is actually sbtweb-related plugin
 		.jvmSettings(
       TwirlKeys.templateImports += "org.denigma.preview.Mode._",
@@ -171,8 +168,7 @@ lazy val preview = crossProject
         //"org.spire-math" %%% "spire" % Versions.spire
       ),
 			mainClass in Compile := Some("org.denigma.preview.Main"),
-			mainClass in Revolver.reStart := Some("org.denigma.preview.Main"),
-      scalaJSDevStage := scalaJSDevTaskStage.value,
+			scalaJSDevStage := scalaJSDevTaskStage.value,
 			//pipelineStages := Seq(scalaJSProd, gzip),
 			(emitSourceMaps in fullOptJS) := true,
 			pipelineStages in Assets := Seq(scalaJSDevStage/*scalaJSProd*/, gzip), //for run configuration
@@ -192,6 +188,7 @@ lazy val root = Project("root", file("."),settings = commonSettings)
     version := Versions.binding,
     javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint"),
     mainClass in Compile := (mainClass in previewJVM in Compile).value,
+    (fullClasspath in Runtime) += (packageBin in previewJVM in Assets).value,
     maintainer := "Anton Kulaga <antonkulaga@gmail.com>",
     packageSummary := "scala-js-binding",
     packageDescription := """Scala-js-binding preview App"""
