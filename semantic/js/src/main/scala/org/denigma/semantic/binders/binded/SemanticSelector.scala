@@ -11,7 +11,7 @@ import org.w3.banana._
 import org.w3.banana.binder.NodeBinder
 import org.w3.banana.syntax.RDFSyntax
 import rx.Rx
-import rx.core.Var
+import rx.Var
 
 import scala.scalajs.js
 import scala.scalajs.js._
@@ -120,7 +120,7 @@ class SemanticSelector[Rdf<:RDF](
 
   //val sel:Selectize
   import ops._
-  import rx.ops._
+
 
   lazy val myGraph: Rx[PointedGraph[Rdf]] = myObjects.map { case values =>
     val triples = values.map(v => ops.makeTriple(subject, predicate, v))
@@ -242,7 +242,7 @@ class SemanticSelector[Rdf<:RDF](
   override def subscribe() = {
     //SelectPlugin.activatePlugin()
     BetterDropdownPlugin.activatePlugin()
-    import rx.ops._
+
     if(!propertyExists){
       if(createIfNotExists) {
         //if no properties exist then creates them

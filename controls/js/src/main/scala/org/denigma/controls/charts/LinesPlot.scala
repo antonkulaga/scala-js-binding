@@ -1,13 +1,11 @@
 package org.denigma.controls.charts
-
-import java.awt.event.MouseEvent
-
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.{BindableView, ItemsSeqView}
 import org.scalajs.dom.Element
-import rx.core.{Rx, Var}
-import rx.ops._
+import rx._
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.collection.immutable.Seq
 
@@ -27,7 +25,7 @@ object LinesPlot {
   }
 }
 
-case class Legend(name: String, color: String, unit:String)
+case class Legend(name: String, color: String, unit: String)
 
 trait LinesPlot extends ItemsSeqView with Plot
 {
@@ -51,17 +49,25 @@ trait LinesPlot extends ItemsSeqView with Plot
     case (el, mp) => new SeriesView(el, item, transform).withBinder(new GeneralBinder(_))
   }
 
-  import rx.ops._
-
   lazy val fill: rx.Rx[String] = chartStyles.map(_.linesStyles.fill)
 
   lazy val linesStyles = chartStyles.map(_.linesStyles)
 
   lazy val chartClick = Var(Events.createMouseEvent())
 
+  protected def flexibleScale(scale: LinearScale, max: Double, mult: Double = 1.2): LinearScale = if(max > scale.end) {
+      val newEnd = max * mult
+      //println(s"maximizing from ${scale.end} to ${newEnd}")
+      scale.copy(end = newEnd, stepSize = newEnd / scale.ticks.size)
+    } else if(scale.end * 2 > max) {
+      //println(s"minimizing from ${scale.end} to $max")
+      scale.copy(end = scale.end / 2, stepSize = scale.stepSize / 2)
+    } else scale
+
+
   override protected def subscribeUpdates() = {
     this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
-    updates.onChange("ItemsUpdates")(upd=>{
+    updates.onChange(upd=>{
       upd.added.foreach(onInsert)
       upd.removed.foreach(onRemove)
       upd.moved.foreach(onMove)

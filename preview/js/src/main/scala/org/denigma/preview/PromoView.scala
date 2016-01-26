@@ -2,7 +2,8 @@ package org.denigma.preview
 
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom.Element
-import rx.core.{Rx, Var}
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 class PromoView(val elem: Element) extends BindableView{
 

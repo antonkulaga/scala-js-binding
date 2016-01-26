@@ -4,15 +4,15 @@ package org.denigma.semantic
 import org.w3.banana.{RDFOps, PointedGraph, RDF}
 import rx._
 import org.denigma.binding.extensions._
+import rx.Ctx.Owner.Unsafe
 
-object extensions {
+object extensions extends RxExt{
 
-  case class GraphUpdate[Rdf <: RDF](from: PointedGraph[Rdf], to: PointedGraph[Rdf])(implicit ops:RDFOps[Rdf]){
+  case class GraphUpdate[Rdf <: RDF](from: PointedGraph[Rdf], to: PointedGraph[Rdf])(implicit ops: RDFOps[Rdf]){
 
     def previousPointer = from.pointer
 
     def currentPointer = to.pointer
-    import ops._
 
     lazy val removed: Rdf#Graph = ops.diff(from.graph, to.graph)
 
@@ -34,7 +34,7 @@ object extensions {
   implicit class GraphRx[Rdf <: RDF](graph: Rx[PointedGraph[Rdf]])(implicit ops: RDFOps[Rdf])
   {
 
-    def updates: Rx[GraphUpdate[Rdf]] = graph.zip((a,b)=>GraphUpdate[Rdf](a,b)(ops))
+    def updates(implicit ctx: Ctx.Owner): Rx[GraphUpdate[Rdf]] = graph.zip((a,b)=>GraphUpdate[Rdf](a,b)(ops))
 
   }
 

@@ -1,21 +1,19 @@
 package org.denigma.preview
 
-import java.util.Date
-
 import org.denigma.binding.binders.{GeneralBinder, NavigationBinder}
 import org.denigma.binding.extensions.sq
-import org.denigma.binding.views.{BindableView, ItemsSetView}
+import org.denigma.binding.views.BindableView
 import org.denigma.controls.charts.{LinearScale, ScatterPlot}
 import org.denigma.controls.code.CodeBinder
-import org.denigma.controls.login.{AjaxSession, LoginView}
-import org.denigma.preview.charts.{ChartsView, CompBioView}
+import org.denigma.controls.login.AjaxSession
+import org.denigma.preview.charts.ChartsView
 import org.denigma.preview.slides._
 import org.scalajs.dom
 import org.scalajs.dom.raw.Element
 import org.semantic.SidebarConfig
-import rx.core.Var
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
 
-import scala.collection.immutable.SortedSet
 import scala.scalajs.js.annotation.JSExport
 
 /**
@@ -67,6 +65,9 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
     }
     .register("ChartsView"){case (el, args) =>
       new ChartsView(el).withBinder(view => new CodeBinder(view))
+    }
+    .register("PropertiesBinderSlide"){ case (el, args) =>
+        new PropertiesBinderSlide(el).withBinder(view => new CodeBinder(view))
     }
 
   @JSExport

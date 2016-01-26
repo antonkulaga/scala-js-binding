@@ -2,10 +2,12 @@ package org.denigma.controls.login
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.ext.{Ajax, AjaxException}
-import rx.{Rx, Var}
+import rx._
 
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 /**
   * Part of the view that deals with registration
@@ -15,7 +17,7 @@ trait Registration extends BasicLogin{
    /**
     * rx property binded to repeat password input
     */
-   val repeat = Var("","repeat")
+   val repeat = Var("repeat")
    val emailValid: Rx[Boolean] = Rx {email().length>4 && this.isValidEmail(email())}
 
    /**
@@ -40,14 +42,14 @@ trait Registration extends BasicLogin{
 
 
    val toggleRegisterClick = this.signupClick.takeIf(this.inLogin)
-   val toggleRegisterHandler = this.toggleRegisterClick.handler{
+   val toggleRegisterHandler = this.toggleRegisterClick.onChange{ ev=>
      this.inRegistration() = true
    }
 
    val registerClick = this.signupClick.takeIfAll(this.canRegister,this.inRegistration)
 
-   val registerHandler = this.registerClick.handler{
-     session.register(username.now,password.now,email.now) onComplete {
+   val registerHandler = this.registerClick.onChange{ ev=>
+     session.register(username.now, password.now, email.now) onComplete {
 
        case Success(result)=>
 

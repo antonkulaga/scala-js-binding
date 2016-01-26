@@ -5,7 +5,7 @@ import org.w3.banana.plantain.Plantain
 import org.w3.banana.{PointedGraph, RDF, RDFOps}
 import org.denigma.semantic.extensions._
 import rx.Rx
-import rx.core.Var
+import rx.Var
 
 class PlantainModelSpec extends ModelSpec[Plantain]{
 

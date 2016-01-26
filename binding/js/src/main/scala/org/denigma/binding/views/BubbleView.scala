@@ -63,12 +63,12 @@ trait BubbleView {
 
   /**
    * Fires an event
-   * @param event
-   * @param startWithMe
+   * @param event vieEvent to fire
+   * @param startWithMe takes itself into account
    */
-  def fire(event:ViewEvent,startWithMe:Boolean = false): Unit = if(startWithMe) this.receive(event) else  this.propagate(event)
+  def fire(event: ViewEvent, startWithMe: Boolean = false): Unit = if(startWithMe) this.receive(event) else  this.propagate(event)
 
-  protected def propagate(event:ViewEvent) =   this.fromParents{  case p:BubbleView=>p  } match {
+  protected def propagate(event: ViewEvent) =   this.fromParents{  case p:BubbleView=>p  } match {
     case Some(p)=> p.receive(event.withCurrent(this))
     case None=>
   }
@@ -77,13 +77,13 @@ trait BubbleView {
   /**
    * Asks parent to provide some future
    * @param value value that we want
-   * @param startWithMe
+   * @param startWithMe takes itself into account
    * @tparam Value
    * @tparam Result result type that we get
    * @return
    */
-  def ask[Value,Result](value: Value, startWithMe: Boolean = false):Future[Result] = {
-    val event = new JustPromise[Value,Result](value,this,this)
+  def ask[Value,Result](value: Value, startWithMe: Boolean = false): Future[Result] = {
+    val event = new JustPromise[Value, Result](value, this, this)
     if(startWithMe) this.receiveFuture(event) else  this.propagateFuture(event)
     event.promise.future
   }

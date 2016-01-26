@@ -1,13 +1,13 @@
 package org.denigma.controls.sockets
 
 import org.denigma.binding.binders.Events
-import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom.Blob
 import org.scalajs.dom.raw.{ErrorEvent, Event, MessageEvent, WebSocket}
 import rx._
-import rx.core.Var
-import rx.ops._
+import org.denigma.binding.extensions._
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.scalajs.js.typedarray.ArrayBuffer
 
@@ -92,7 +92,6 @@ object WebSocketSubscriber
 
 trait WebSocketSubscriber
 {
-  import org.denigma.binding.extensions._
 
   val channel: String
 
@@ -108,7 +107,7 @@ trait WebSocketSubscriber
       webSocketOpt() = None
   }
 
-  urlOpt.onChange("urlOptChange")(this.onUrlChange)
+  urlOpt.onChange(this.onUrlChange)
 
   protected def getWebSocketUri(username: String): String
 
@@ -136,8 +135,8 @@ trait WebSocketSubscriber
     w.onclose = {(event: Event) ⇒  onClose() = event}
   }
 
-  import rx.ops._
-  webSocketOpt.onChange("OnConnect"){
+
+  webSocketOpt.onChange{
     case Some(w) => subscribe(w)
     case None => println("webSocketOpt changed to None") // TODO: decide what to do here
   }

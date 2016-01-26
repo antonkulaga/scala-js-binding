@@ -3,7 +3,7 @@ package org.denigma.preview
 import org.denigma.binding.views.MapCollectionView
 import org.scalajs.dom.raw.Element
 import rx.Rx
-import rx.core.Var
+import rx.Var
 
 import scala.collection.immutable._
 
@@ -13,8 +13,9 @@ class MenuView(elem: Element) extends MapCollectionView(elem) {
 
     override val items: Rx[Seq[Map[String, Any]]] = Var(
         Seq(
-            Map("uri" -> "pages/bind", "label" -> "Basic binding example"),
-            Map("uri" -> "pages/collection", "label" -> "Collection binding"),
+            Map("uri" -> "pages/bind", "label" -> "Basics"),
+            /*Map("uri" -> "pages/properties", "label" -> "Property bindings"),
+            */Map("uri" -> "pages/collection", "label" -> "Collection binding"),
             Map("uri" -> "pages/controls", "label" -> "Various controls"),
             Map("uri" -> "pages/charts", "label" -> "Charts"),
             Map("uri" -> "pages/start", "label" -> "Getting started"),

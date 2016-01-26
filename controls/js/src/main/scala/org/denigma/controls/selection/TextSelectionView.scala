@@ -10,15 +10,40 @@ import org.denigma.controls.models._
 import org.denigma.controls.sockets.WebSocketSubscriber
 import org.scalajs.dom.KeyboardEvent
 import org.scalajs.dom.ext.KeyCode
-import rx.core._
-import rx.ops._
-
 import scala.collection.immutable
 import scala.collection.immutable._
+import org.denigma.binding.extensions._
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
 
+import scala.concurrent.duration.FiniteDuration
+
+trait WithDelay {
+
+  import scalajs.js
+  def delayed[T](source:Rx[T], time: FiniteDuration) = {
+    val v = Var(source.now) //UGLY BUT WORKS
+    js.timers.setTimeout(time)( v() = source.now)
+    v
+  }
+
+  def afterLastChange[T](source:Rx[T],time: FiniteDuration): Var[T] = {
+    val v = Var(source.now) //UGLY BUT WORKS
+    def waitChange(value: T): Unit ={
+      js.timers.setTimeout(time){
+        if(source.now==value)
+          v() = value
+        else
+          waitChange(source.now)
+      }
+    }
+    source.foreach(s=> if(s!=v.now) waitChange(s))
+    v
+  }
+}
 
 case class TextOptionsSuggester(input:Rx[String],subscriber:WebSocketSubscriber)
-  extends Suggester with WebPicklers with BinaryWebSocket
+  extends Suggester with WebPicklers with BinaryWebSocket with WithDelay
 {
 
   import scala.concurrent.duration._
@@ -27,8 +52,10 @@ case class TextOptionsSuggester(input:Rx[String],subscriber:WebSocketSubscriber)
 
   lazy val minSuggestLength = 1
 
-  val dalayedInput = input.afterLastChange(inputDelay)
-  dalayedInput.onChange("on_input"){case inp=>
+
+
+  val dalayedInput = afterLastChange(input, inputDelay)
+  dalayedInput.onChange{case inp=>
     if(inp.length>=minSuggestLength){
       import boopickle.Default._
       val bytes: ByteBuffer = Pickle.intoBytes[WebMessage](Suggest(inp,subscriber.channel))
@@ -45,7 +72,7 @@ case class TextOptionsSuggester(input:Rx[String],subscriber:WebSocketSubscriber)
     }
   }
 
-  this.subscriber.onMessage.onChange("onMessage")(onMessage)
+  this.subscriber.onMessage.onChange(onMessage)
 
   lazy val suggestions:Var[scala.collection.immutable.Seq[TextOption]] = Var(Seq.empty)
 
@@ -53,19 +80,20 @@ case class TextOptionsSuggester(input:Rx[String],subscriber:WebSocketSubscriber)
 }
 
 trait Suggester {
-  def suggestions:Rx[scala.collection.immutable.Seq[TextOption]]
+  def suggestions: Rx[scala.collection.immutable.Seq[TextOption]]
 
   def clear():Unit
 }
 
 trait TextSelectionView extends SelectionView
 {
-  val suggester:Suggester
+  val suggester: Suggester
   type Item = Var[TextOption]
   type ItemView = OptionView
 
-  val onkeydown: Var[KeyboardEvent] = Var(Events.createKeyboardEvent(),my("onkeydown"))
-  val keyDownHandler = onkeydown.onChange(my("keydown_handler"))(event=>{
+
+  val onkeydown: Var[KeyboardEvent] = Var(Events.createKeyboardEvent())
+  val keyDownHandler = onkeydown.onChange(event=>{
     val clean = input.now==""
     event.keyCode match  {
       case KeyCode.Left if clean=>  moveLeft()
@@ -119,7 +147,7 @@ trait TextSelectionView extends SelectionView
     }
   }
 
-  position.onChange("positionChange")(onPositionChange)
+  position.onChange(onPositionChange)
 
 
   protected def typed2Item(str:String):Item = Var(TextOption(str,str,position.now))

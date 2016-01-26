@@ -6,7 +6,7 @@ import org.scalajs.dom
 import org.scalajs.dom.raw.{HTMLElement, Element, KeyboardEvent}
 import org.w3.banana._
 import rx.Rx
-import rx.core.Var
+import rx.Var
 
 class BindedTextProperty[Rdf<:RDF](
                            el:Element,

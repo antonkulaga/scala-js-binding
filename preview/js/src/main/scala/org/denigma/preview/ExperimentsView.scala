@@ -6,7 +6,8 @@ import java.util.Date
 import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.views.{BindableView, ItemsSetView}
 import org.scalajs.dom.raw.Element
-import rx.core.Var
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.collection.immutable.SortedSet
 
@@ -35,7 +36,7 @@ case class Measurement(sample: Sample = Sample("unknown", "unknown"), diode: Str
 
 case class Sample(name: String, Description: String = "")
 
-import rx.ops._
+
 class MeasurementView(val elem: Element, measurement: Var[Measurement]) extends BindableView
 {
   val sample = measurement.map(m => m.sample.name)

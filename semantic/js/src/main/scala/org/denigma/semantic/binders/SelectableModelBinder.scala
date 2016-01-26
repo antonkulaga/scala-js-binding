@@ -5,7 +5,7 @@ import org.denigma.binding.views.BindableView
 import org.denigma.semantic.binders.binded.{SemanticSelector, BindedTextProperty, Typed}
 import org.scalajs.dom.raw.HTMLElement
 import org.w3.banana._
-import rx.core.Var
+import rx.Var
 import scalajs.concurrent.JSExecutionContext.Implicits.queue
 import org.denigma.binding.extensions._
 import scala.collection.immutable.Map

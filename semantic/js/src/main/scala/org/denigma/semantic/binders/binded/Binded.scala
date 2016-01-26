@@ -6,8 +6,9 @@ import org.scalajs.dom
 import org.scalajs.dom.Element
 import org.w3.banana._
 import rx.Rx
-import rx.core.Var
-
+import rx.Var
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
 /**
  * For each binded property
  * @param graph RDF graph
@@ -40,7 +41,7 @@ abstract class Binded[Rdf<:RDF](graph: Var[PointedGraph[Rdf]],
    * Is used to subscribe to default behaviour
    */
   protected def subscribe(): Unit = { //in case if want to override it
-    import rx.ops._
+
     if(!propertyExists){
       if(createIfNotExist) {
         //if no properties exist then creates them
@@ -77,7 +78,7 @@ abstract class Binded[Rdf<:RDF](graph: Var[PointedGraph[Rdf]],
     ops.removeTriples(g,oldValues)
     //extract new values from html
     val newValues = this.objectsFromHTML()
-    myObjects.updateSilent(newValues)
+    myObjects.Internal.value = newValues
     val newTriplets = nodes2triplets(newValues)
     ops.addTriples(g,newTriplets)
     graph() = PointedGraph[Rdf](subject,ops.makeIGraph(g))

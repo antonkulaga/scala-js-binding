@@ -5,8 +5,9 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom
 import org.scalajs.dom._
-import rx.ops._
-import rx.{Rx, Var}
+import rx._
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 /**
   * Basic login varibales/events
@@ -14,17 +15,18 @@ import rx.{Rx, Var}
 trait BasicLogin extends BindableView
  {
 
-  def session:Session //is added to constructor
+
+ def session: Session //is added to constructor
   /**
    * Extracts name from global
    */
-  val registeredName:Rx[String]  = session.username //I know, that it is bad to have shared mustable state=)
-  val isSigned:Rx[Boolean] =session.currentUser.map(_.isDefined)
+  val registeredName: Rx[String]  = session.username //I know, that it is bad to have shared mustable state=)
+  val isSigned: Rx[Boolean] = session.currentUser.map(_.isDefined)
 
-   val username = Var("","username")
-   val password = Var("","password")
-   val email = Var("","email")
-   val message = Var("","message")
+   val username = Var("")
+   val password = Var("")
+   val email = Var("")
+   val message = Var("")
    val hasMessage = message.map(_.length>0)
 
    val inRegistration = Var(false)
@@ -35,13 +37,13 @@ trait BasicLogin extends BindableView
    val canLogin = Rx{validUsername() && validPassword()}
    val wantsLogin = Rx{ !isSigned() && inLogin() && canLogin() }
 
-   val loginClick: Var[MouseEvent] = Var(Events.createMouseEvent(),"loginClick")
-   val logoutClick: Var[MouseEvent] = Var(Events.createMouseEvent(),"logoutClick")
-   val signupClick: Var[MouseEvent] = Var(Events.createMouseEvent(),"signupClick")
+   val loginClick: Var[MouseEvent] = Var(Events.createMouseEvent())
+   val logoutClick: Var[MouseEvent] = Var(Events.createMouseEvent())
+   val signupClick: Var[MouseEvent] = Var(Events.createMouseEvent())
 
-   def report(req:org.scalajs.dom.XMLHttpRequest): String = req.response.dyn.message match {
+   def report(req: org.scalajs.dom.XMLHttpRequest): String = req.response.dyn.message match {
      case m if m.isNullOrUndef => this.report(req.responseText)
-     case other =>this.report(other.toString)
+     case other => this.report(other.toString)
    }
 
    /**
@@ -49,10 +51,10 @@ trait BasicLogin extends BindableView
     * @param str
     * @return
     */
-   def report(str:String): String = {
+   def report(str: String): String = {
      this.message()=str
      str
    }
 
-   def reportError(str:String) = dom.console.error(this.report(str))
+   def reportError(str: String) = dom.console.error(this.report(str))
  }

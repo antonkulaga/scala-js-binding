@@ -2,8 +2,11 @@ package org.denigma.controls.charts
 
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom._
-import rx.core.Rx
-import rx.ops._
+import rx._
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
+
+
 
 import scala.collection.immutable._
 
@@ -18,7 +21,8 @@ class SeriesView(elem: Element, series: Rx[Series], transform: Rx[Point => Point
   val title = series.map(s=>s.title)
 }
 
-class PathView(val elem: Element, val points: Rx[List[Point]], style: Rx[LineStyles], threshold:Point = Point(1,1), closed: Boolean = true) extends BindableView {
+class PathView(val elem: Element, val points: Rx[List[Point]], style: Rx[LineStyles], threshold: Point = Point(1,1), closed: Boolean = true) extends BindableView {
+
 
   val strokeColor: rx.Rx[String] = style.map(s=>s.strokeColor)
   val strokeWidth: rx.Rx[Double] = style.map(s=>s.strokeWidth)

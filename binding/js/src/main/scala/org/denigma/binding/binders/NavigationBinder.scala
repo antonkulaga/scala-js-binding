@@ -14,7 +14,7 @@ import scala.util.{Failure, Success}
 class NavigationBinder(view: BindableView) extends ReactiveBinder{
 
 
-  protected def processUrl(url:String, relativeURI:Boolean = true):String =
+  protected def processUrl(url:String, relativeURI:Boolean = true): String =
     (url.indexOf("://"),url.indexOf("/"),url.indexOf("?"))
     match {
       case (-1,sl,q)=> sq.withHost(url)

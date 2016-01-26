@@ -7,7 +7,7 @@ import org.denigma.controls.tabs.{TabItem, TabsView}
 import org.denigma.preview.FrontEnd._
 import org.denigma.preview.StatesSelectionView
 import org.scalajs.dom.raw.Element
-import rx.core.Var
+import rx.Var
 
 import scala.collection.immutable._
 
@@ -140,12 +140,12 @@ trait LoginExample {
       |   /**
       |    * When the user comes from registration to login
       |    */
-      |   val toggleLogin = this.loginToggleClick.handler{
+      |   val toggleLogin = this.loginToggleClick.triggerLater{
       |     this.inRegistration() = false
       |   }
       |
       |   val authClick = loginClick.takeIfAll(canLogin,inLogin)
-      |   val authHandler = authClick.handler{
+      |   val authHandler = authClick.triggerLater{
       |     val auth = if(this.loginWithEmail.now) session.emailLogin(email.now,password.now) else session.usernameLogin(username.now,password.now)
       |     auth.onComplete{
       |       case Success(result)=>
@@ -223,7 +223,7 @@ trait TabExample {
     |  }
     |
     |  val onClick = Var(Events.createMouseEvent())
-    |  onClick.handler{
+    |  onClick.triggerLater{
     |    selection() = Some(this.item)
     |  }
     |}

@@ -8,6 +8,4 @@ object Mode {
     case _ => "-fastopt.js"
   } else  "-fastopt.js" //"-opt.js"
 
-  //println("HELLO HELLO")
-
 }

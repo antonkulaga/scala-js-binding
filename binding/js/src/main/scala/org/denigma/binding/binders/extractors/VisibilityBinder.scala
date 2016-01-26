@@ -4,7 +4,6 @@ import org.denigma.binding.binders.ReactiveBinder
 import org.denigma.binding.extensions._
 import org.scalajs.dom.raw.{Element, HTMLElement}
 import rx._
-import rx.ops._
 import scala.collection.immutable.Map
 
 /**

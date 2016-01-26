@@ -3,10 +3,9 @@ package org.denigma.preview.charts
 import org.denigma.binding.binders.{GeneralBinder, ReactiveBinder}
 import org.denigma.binding.views.{BindableView, CollectionView}
 import org.denigma.controls.charts.Point
-import org.denigma.controls.code.CodeBinder
 import org.scalajs.dom.Element
-import rx.Rx
-import rx.core.Var
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.scalajs.js
 
@@ -137,7 +136,7 @@ trait ArrayChart extends CollectionView {
 
   override def subscribeUpdates(): Unit = {
     template.hide()
-    resize.onChange("onResize", uniqueValue = true, skipInitial = true)(change => onResize(change._1, change._2))
+    resize.onChange(change => onResize(change._1, change._2))
     val arr = createArray2(rows.now, cols.now)(makeItem)
     items.set(arr)
   }
@@ -161,7 +160,7 @@ class CellsChart(val elem: Element, val cols: Var[Int], val rows: Var[Int], val 
   }
 
   override def makeItem(r: Int, c: Int): Rx[Cell] = {
-    val s = side()
+    val s = side.now
     val vert = this.vertSide(s)
     val xStart = s * ( if (isOdd(r)) 0.5 else 2.0 )
     Var(Cell(Point(xStart + s * 3 * c,  vert * (r +1) ), s))
@@ -206,7 +205,7 @@ class CellView(val elem: Element, val cell: Rx[Cell]) extends BindableView {
 
   self =>
 
-  import rx.ops._
+
 
   val dots = Rx{ //draws shape
     val c = cell()

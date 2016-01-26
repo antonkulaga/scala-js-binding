@@ -5,8 +5,9 @@ import org.denigma.controls.charts._
 import org.denigma.controls.charts.ode.{XYSeries, ODESeries}
 import org.scalajs.dom.Element
 import org.scalajs.dom.raw.MouseEvent
-import rx.core.{Rx, Var}
-import rx.ops._
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
+
 import org.denigma.binding.extensions._
 import scala.collection.immutable._
 
@@ -39,7 +40,7 @@ class ProteinsTime(val elem: Element, val odes: Rx[CompBioODEs], val initialCond
     tetR() = tetR.now.copy(points = coords(3).toList)
   }
 
-  solve.handler{
+  solve.triggerLater{
     onSolve()
   }
 
@@ -65,7 +66,7 @@ class ProteinsXY(val elem: Element, val odes: Rx[CompBioODEs], val conditionSour
 
   override val items = Var(Seq(xy))
 
-  chartClick.onChange("OnChartClick", uniqueValue = false, skipInitial = true){
+  chartClick.onChange{
     event=> onChartClick(event)
   }
 
@@ -89,7 +90,7 @@ class ProteinsXY(val elem: Element, val odes: Rx[CompBioODEs], val conditionSour
   }
 
   lazy val solve = Var(Events.createMouseEvent)
-  solve.handler{
+  solve.triggerLater{
     xy() = xy.now.copy(points = odes.now.computeXY(initial = initialConditions.now, 2, 3))
   }
 }

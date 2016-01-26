@@ -48,7 +48,7 @@ trait BindableView extends OrganizedView with BubbleView
 
 
   protected def warnIfNoBinders(asError: Boolean) = if(this.binders.isEmpty) {
-    val mess = s"the view $name does not have any binders! Its outer HTML is: ${elem.outerHTML}"
+    val mess = s"the view $id of type $className does not have any binders! Its outer HTML is: ${elem.outerHTML}"
     if(asError) dom.console.error(mess) else dom.console.log(mess)
   }
 

@@ -5,6 +5,8 @@ import rx.Rx
 
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 trait Signed extends Registration {
 
@@ -12,7 +14,7 @@ trait Signed extends Registration {
 
    val onLogout = logoutClick.takeIf(this.isSigned)
 
-   val logoutHandler = onLogout.handler{
+   val logoutHandler = onLogout.triggerLater{
      session.logout().onComplete{
        case Success(req) =>
          session.logout()

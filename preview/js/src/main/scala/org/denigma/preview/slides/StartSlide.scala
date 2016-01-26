@@ -2,9 +2,10 @@ package org.denigma.preview.slides
 
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom.raw.Element
-import rx.core.Var
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
 
-class StartSlide(val elem:Element) extends BindableView{
+class StartSlide(val elem: Element) extends BindableView{
 
   val bindingDepend = Var(
     """

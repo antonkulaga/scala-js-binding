@@ -1,6 +1,7 @@
 package org.denigma.preview.charts
 
-import rx.core.{Rx, Var}
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 /**
   * Created by antonkulaga on 11/16/15.

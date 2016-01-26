@@ -1,6 +1,6 @@
 package org.denigma.binding.macroses
 
-import rx.core.Rx
+import rx._
 
 import scala.language.experimental.macros
 import scala.reflect.macros._

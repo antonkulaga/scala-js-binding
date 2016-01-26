@@ -4,16 +4,17 @@ import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.XMLHttpRequest
 import org.scalajs.dom.ext.Ajax
-import rx.ops._
-import rx.{Rx, Var}
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
+import rx._
 
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 
 
-class AjaxSession(nameByToken:String = "/users/status") extends Session
+class AjaxSession(nameByToken: String = "/users/status") extends Session
 {
-  protected def extractCookies():Map[String, String] = dom.document.cookie
+  protected def extractCookies(): Map[String, String] = dom.document.cookie
     .split(";")
     .collect { case pair if pair.contains("=") && pair.length>2 =>
       pair.split("=") match {
@@ -54,9 +55,10 @@ class AjaxSession(nameByToken:String = "/users/status") extends Session
 
 trait Session {
 
+
    val currentUser:Var[Option[String]]= Var(None)
 
-   val userChange: Rx[(Option[String], Option[String])] = currentUser.unique().zip()
+   val userChange: Rx[(Option[String], Option[String])] = currentUser.zip
 
    def register(username:String,password:String,email:String):Future[_]
 

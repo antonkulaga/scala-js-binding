@@ -2,26 +2,62 @@ package org.denigma.controls.charts
 
 import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.views.{BindableView, ItemsSeqView}
+import org.scalajs.dom
 import org.scalajs.dom.Element
-import org.scalajs.dom.raw.HTMLElement
-import rx.core.{Rx, Var}
-import rx.ops._
+import rx._
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
+
 
 import scala.collection.immutable._
 
 case class Tick(name: String, value: Double)
-object Tick {
-  def linear(value: Double): Tick =Tick(value.toString, value)
 
-  def logarithmic(value: Double): Tick =Tick(value.toString, Math.log(value))
+object Tick {
+
+  def linear(value: Double): Tick = Tick(value.toString, value)
+
+  def logarithmic(value: Double): Tick = Tick(value.toString, Math.log(value))
 }
 
-case class LinearScale(title: String, start: Double, end: Double, stepSize: Double, length: Double, inverted: Boolean = false) extends Scale
+case class LinearScale(title: String, start: Double, end: Double, stepSize: Double, length: Double, inverted: Boolean = false, precision:Int = 3) extends WithLinearScale
 {
+
+  if(stepSize > Math.abs(start - end)) dom.console.error(s"stepSize is larger then ")
+
+  override def points(current: Double, end: Double, dots: List[Double] = List.empty): List[Double]  = {
+    val tick = step(current)
+    if (current<end) points(truncateAt(tick, precision), end, current::dots) else (truncateAt(end, precision)::dots).reverse
+  }
+
+  /**
+    *
+    * @param max maximum value of the point coordinate
+    * @param stretchMult makes end strechMult times more then maximum value
+    * @param shrinkMult shrinks the scale if maximum is much larger then end
+    * @return
+    */
+  def stretched(max: Double, stretchMult: Double = 1.1, shrinkMult: Double = -1): LinearScale = if(max > end) {
+    val newEnd = max * stretchMult
+    val st = Math.abs(newEnd - start) / (ticks.length - 2)
+    this.copy(end = newEnd, stepSize = st)
+  } else if( shrinkMult > 0 && Math.abs(max - start) > 0.0 && end > max * shrinkMult){
+    val newEnd = max
+    val st = Math.abs(newEnd - start) / (ticks.length - 2)
+    this.copy(end = newEnd, stepSize = st)
+  } else this //does not change anything
+
+}
+
+trait WithLinearScale extends Scale {
+
+  def stepSize: Double
+
+  def inverted: Boolean
 
   override def step(value: Double): Double = value + stepSize
 
-  lazy val scale: Double = length / (end - start)
+  lazy val scale: Double = length / Math.abs(end - start)
 
   def inverse(value: Double): Double = end - value + start
 
@@ -49,6 +85,15 @@ trait Scale
 
   def points(current: Double, end: Double, dots: List[Double] = List.empty): List[Double]  =
     if (current<end) points(step(current), end, current::dots) else (end::dots).reverse
+
+  /**
+    * Cuts values of ticks with some precision
+    * @param n
+    * @param p
+    * @return
+    */
+  def truncateAt(n: Double, p: Int): Double = if(p>0) { val s = math pow (10, p); (math floor n * s) / s } else n
+
 }
 
 class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
@@ -102,9 +147,3 @@ class TickView(val elem: Element, tick: Rx[Tick], val tickLength: Rx[Double], st
   val labelPadding: rx.Rx[Double] = tickLength.map(_+15)
 
 }
-
-/*
-class ValueView(val elem:HTMLElement,tick:Rx[Tick]) extends BindableView{
-  val label = tick.map(t=>t.name)
-  val value = tick.map(t=>t.value)
-}*/

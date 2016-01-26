@@ -7,7 +7,7 @@ import org.denigma.semantic.{DefaultPrefixes, WebPlatform}
 import org.scalajs.dom.raw.Element
 import org.w3.banana._
 import org.w3.banana.plantain.Plantain
-import rx.core.Var
+import rx.Var
 
 
 class RdfSlide(val elem:Element)

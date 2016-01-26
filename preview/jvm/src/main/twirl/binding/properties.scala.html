@@ -1,0 +1,112 @@
+@(title:String)
+<article id="main_article" data-view="PropertiesBinderSlide" class="ui blue piled segment">
+
+  <div class="ui equal width middle aligned grid">
+    <section class="equal width row">
+        <column class="ui column">
+          <p>
+            The logic how html properties are binded to variables is defined by the <i>Binder</i> classes that are applied to the view.
+            There is no need to hardcode HTML templates into scala-js code, so you can use any template engine you want or even just ordinary HTML files.
+          </p>
+        </column>
+      <column class="ui column">
+        <p>The default(GeneralBinder) binder uses <b>data-<i>property</i>="<i>variable</i>"</b> HTML attributes to connect HTML properties with variables.
+          Below there are some examples of bindings avaliable by default.
+        </p>
+      </column>
+    </section>
+    <section class="ui row">
+      <column class="ui column">
+        <h1 class="ui orange header">Description</h1>
+      </column>
+      <column class="ui column">
+        <h1 class="ui orange header">ScalaJS (inside View)</h1>
+      </column>
+      <column class="ui column">
+        <h1 class="ui orange header">Html</h1>
+      </column>
+    </section>
+
+    @*<section class="ui row" data-template="true">
+      <column class="ui column">
+          <p data-bind="description">
+            <b>data="<i>varname</i>"</b> - if it is input or textarea - binds reactive variable to <i>value</i> property , for all other HTML elements - binds to textContent property
+          </p>
+      </column>
+      <column class="ui column">
+        <textarea class="ui input" data-code="html"></textarea>
+      </column>
+      <column class="ui column">
+        <textarea class="ui input" data-code="code"></textarea>
+      </column>
+    </section>
+    <section class="ui row">
+      <column class="ui column">
+        <p>    <b>data-style-<i>property</i>="<i>varname</i>"</b> - binds style property <i>property</i>  to
+          <i>varname</i> reactive variable
+        </p>
+      </column>
+      <column class="ui column" data-code="bindHtml">
+      </column>
+      <column class="ui column">
+        <input class="ui input" data-code="bindCode">
+      </column>
+    </section>
+    <section class="ui row">
+      <column class="ui column">
+        <p>    <b>data-style-<i>property</i>="<i>varname</i>"</b> - binds style property <i>property</i>  to
+          <i>varname</i> reactive variable
+        </p>
+      </column>
+      <column class="ui column" data-code="bindHtml">
+      </column>
+      <column class="ui column">
+        <input class="ui input" data-code="bindCode">
+      </column>
+    </section>*@
+
+  </div>
+
+       @*
+            <b>data-style-<i>property</i>="<i>varname</i>"</b> - binds style property <i>property</i>  to
+            <i>varname</i> reactive variable
+          </li>
+          <li>
+            <b>data-showif="<i>varname</i>"</b> - if boolean reactive variable with corresponding name is true then shows HTML element
+          </li>
+          <li>
+            <b>data-hideif="<i>varname</i>"</b> - if boolean reactive variable with corresponding name is true
+            then hides (by setting display = none ) HTML element
+          </li>
+          <li>
+            <b>data-class-<i>classname</i>if="<i>varname</i>"</b> - if boolean reactive variable with corresponding name is true
+            then add CSS class to HTML element
+          </li>
+          <li>
+            <b>data-inner-html="<i>varname</i>"</b> - binds inner html either to scalatag or to string reactive variable
+          </li>
+          <li>
+            <b>data-event-<i>eventname</i>="<i>varname</i>"</b> - binds event (for instance click or mousemove event) to corresponding reactive variable.
+            You can add handlers and further processing to this reactive variable.
+          </li>
+        </ul>
+      </column>
+
+      <column class="ui column">
+        <h1 class="ui orange header">Other binders</h1>
+
+        In binding-controls and semantic-binding subprojects there are also some predefined binders that you can use out of the box:</p>
+        <ul>
+          <li> <i>CodeBinder</i> that can be used to display programming code</li>
+          <li> <i>NavigationBinder</i> to create AJAX menus</li>
+          <li> <i>RDFBinder</i> that support RDFa and allows you to bind HTML to RDF properties</li>
+          <li>etc.</li>
+        </ul>
+      </column>
+
+    </section>
+
+  </div>*@
+
+
+</article>

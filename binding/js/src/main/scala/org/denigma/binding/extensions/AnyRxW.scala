@@ -1,19 +1,20 @@
 package org.denigma.binding.extensions
 
-import rx.core.{Var, Rx}
+import rx._
 
 import scala.concurrent.duration.FiniteDuration
-import rx.ops._
-class AnyRxW[T](source:Rx[T]) {
+
+@deprecated
+class AnyRxW[T](source: Rx[T])(implicit ctx: Ctx.Owner)  {
 
   import scalajs.js
-  def delayed(time:FiniteDuration) = {
+  def delayed(time: FiniteDuration) = {
     val v = Var(source.now) //UGLY BUT WORKS
-    js.timers.setTimeout(time)(v()=source.now)
+    js.timers.setTimeout(time)( v() = source.now)
     v
   }
 
-  def afterLastChange(time:FiniteDuration): Var[T] = {
+  def afterLastChange(time: FiniteDuration): Var[T] = {
     val v = Var(source.now) //UGLY BUT WORKS
     def waitChange(value:T): Unit ={
       js.timers.setTimeout(time){
@@ -23,7 +24,7 @@ class AnyRxW[T](source:Rx[T]) {
           waitChange(source.now)
       }
     }
-    source.foreach(s=>if(s!=v.now)waitChange(s))
+    source.foreach(s=> if(s!=v.now) waitChange(s))
     v
   }
 }

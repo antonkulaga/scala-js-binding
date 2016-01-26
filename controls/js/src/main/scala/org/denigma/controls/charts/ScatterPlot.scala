@@ -5,9 +5,8 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.views.{BindableView, ItemsSeqView}
 import org.scalajs.dom.Element
 import org.scalajs.dom.ext.Color
-import rx.Rx
-import rx.core.Var
-import rx.ops._
+import rx._
+
 
 import scala.collection.immutable.Seq
 
@@ -15,7 +14,7 @@ class ScatterPlot(val elem:Element,
                   val scaleX:Var[Scale],
                   val scaleY:Var[Scale],
                   val chartStyles:Rx[ChartStyles]= Var(ChartStyles.default)
-                   ) extends PointPlot
+                   )(implicit val ctx: Ctx.Owner) extends PointPlot
 {
   self=>
 
@@ -37,7 +36,7 @@ class ScatterPlot(val elem:Element,
 
   override protected def subscribeUpdates() = {
     this.items.now.foreach(i=>this.addItemView(i,this.newItemView(i)))
-    updates.onChange("ItemsUpdates")(upd=>{
+    updates.onChange(upd=>{
       upd.added.foreach(onInsert)
       upd.removed.foreach(onRemove)
       upd.moved.foreach(onMove)

@@ -62,13 +62,13 @@ trait BasicView extends IDGenerator
 
   def elem: ViewElement
 
-  def name: String = this.getClass.getName.split('.').last
+  def className: String = this.getClass.getName.split('.').last
 
 
   /**
    * Id of this view
    */
-  val id: String = this.ifNoID(elem, this.name)
+  val id: String = this.ifNoID(elem, this.className)
 
   implicit var subviews = Map.empty[String, ChildView]
 

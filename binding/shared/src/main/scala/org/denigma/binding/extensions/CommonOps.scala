@@ -40,7 +40,7 @@ trait CommonOps {
      * @param by set to update
      * @return updated Seq, preserving the order of previous elements
      */
-    def updatedBy(by:Set[T]): Seq[T] = ImmutableSeqOps(Seq(source:_*)).updatedBy(by)
+    def updatedBy(by: Set[T]): Seq[T] = ImmutableSeqOps(Seq(source:_*)).updatedBy(by)
 
   }
 
@@ -51,20 +51,18 @@ trait CommonOps {
      * @param by set to update
      * @return updated Seq, preserving the order of previous elements
      */
-    def updatedBy(by:Set[T]): Seq[T] = {
+    def updatedBy(by: Set[T]): Seq[T] = {
       val w = source.toSet
       if(w==by) source
       else{
-        val (minus:Set[T],plus:Set[T]) = w.removeAddToBecome(by)
+        val (minus:Set[T], plus: Set[T]) = w.removeAddToBecome(by)
         source.filterNot(minus.contains)  ++ plus
       }
     }
 
   }
 
-  implicit class NumberOps(num:Int){
-
-
+  implicit class NumberOps(num: Int){
 
     def toWords =  num match { //TODO rewrite
 

@@ -7,11 +7,12 @@ import org.denigma.controls.models.TextOption
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.ext.KeyCode
-import rx.Rx
-import rx.core.Var
-import rx.ops._
+import rx._
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
 
-class TextOptionsView(val elem:Element,
+
+class TextOptionsView(  val elem: Element,
                         val items: Rx[scala.collection.immutable.Seq[Var[TextOption]]],
                         onkeydown: Var[KeyboardEvent]
                          )
@@ -24,7 +25,7 @@ class TextOptionsView(val elem:Element,
 
   def my(str:String) = str+"_of_"+this.id //to name Vars for debugging purposes
 
-  val keyDownHandler = onkeydown.onChange(my("keydown_handler"))(event=>{
+  val keyDownHandler = onkeydown.onChange(event=>{
     event.keyCode match  {
       case KeyCode.Down => focus() = focus.now +1
       case KeyCode.Up => focus() = focus.now - 1
@@ -51,7 +52,7 @@ class TextOptionsView(val elem:Element,
   val hasOptions: Rx[Boolean] = items.map{case ops=> ops.nonEmpty}
 
   val focus:Var[Int] = Var(-1)
-  focus.onChange("focus_change"){
+  focus.onChange{
     f=>
       val its = indexedItems.now
       for{
@@ -63,7 +64,7 @@ class TextOptionsView(val elem:Element,
   }
 
 
-  override protected def warnIfNoBinders(asError:Boolean) = if(asError) super.warnIfNoBinders(asError)
+  override protected def warnIfNoBinders(asError: Boolean) = if(asError) super.warnIfNoBinders(asError)
 
   override def newItemView(item: Item): OptionView = constructItemView(item){
     case (el,mp)=>new OptionView(el,item).withBinder{new GeneralBinder(_)}
@@ -75,7 +76,7 @@ class TextOptionsView(val elem:Element,
   override protected def subscribeUpdates(): Unit = {
     template.style.display = "none"
     this.items.now.foreach(i=>this.addItemView(i,this.newItemView(i))) //initialization of views
-    items.onChange("items_change"){its=>
+    items.onChange{its=>
       val (removed,inserted) = removedInserted.now
       for(r <- removed) onRemove(r)
       for(i <- inserted) onInsert(i)

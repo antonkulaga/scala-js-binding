@@ -7,7 +7,6 @@ import org.scalajs.dom.ext._
 import org.scalajs.dom.raw.{HTMLInputElement, HTMLTextAreaElement}
 import org.scalajs.dom.{Element, Event, KeyboardEvent}
 import rx._
-import rx.ops._
 
 import scala.collection.immutable.Map
 import scala.language.implicitConversions
@@ -98,8 +97,7 @@ trait PropertyBinder extends ScalaTagsBinder{
   {
     case inp: HTMLInputElement=>
       el.attributes.get("type").map(_.value.toString) match {
-        case Some("checkbox") =>
-          for (b <- bools.get(rxName)) b.foreach(v => el.attributes.setNamedItem(("checked" -> v.toString).toAtt))
+        case Some("checkbox") => this.bindProperty(el, rxName, "checked")
         case _ =>
           subscribeInputValue(el, rxName, Events.keyup, strings)
             .orElse(subscribeInputValue(el, rxName, Events.keyup, doubles))

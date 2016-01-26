@@ -1,13 +1,14 @@
 package org.denigma.binding.views
 
+import rx.{Ctx, Rx}
 import org.denigma.binding.extensions._
-import rx.Rx
-import rx.ops.{Moved, SequenceUpdate}
-
 import scala.collection.immutable._
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 
 trait ItemsSeqView extends CollectionView {
+
 
   val items: Rx[Seq[Item]]
 
@@ -22,7 +23,7 @@ trait ItemsSeqView extends CollectionView {
   override protected def subscribeUpdates() = {
     template.hide()
     this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
-    updates.onChange("ItemsUpdates")(upd => {
+    updates.onChange(upd => {
       upd.added.foreach(onInsert)
       upd.removed.foreach(onRemove)
       upd.moved.foreach(onMove)

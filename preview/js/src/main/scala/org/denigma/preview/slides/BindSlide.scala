@@ -2,7 +2,8 @@ package org.denigma.preview.slides
 
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom.raw.Element
-import rx.core.{Rx, Var}
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 
 /**

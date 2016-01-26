@@ -5,7 +5,7 @@ import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.raw.Element
 import org.w3.banana._
-import rx.core.Var
+import rx.Var
 
 import scala.collection.immutable.Map
 

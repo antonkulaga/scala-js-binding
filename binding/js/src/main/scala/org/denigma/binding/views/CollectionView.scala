@@ -6,7 +6,9 @@ import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.ext._
 import org.scalajs.dom.raw.{SVGElement, HTMLElement, Element}
-
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
+import rx._
 import scala.collection.immutable._
 import scala.util.{Failure, Success, Try}
 import org.denigma.binding.extensions._
@@ -29,7 +31,8 @@ trait CollectionView extends BindableView
   def template: Element = _template
   /**
    * extracts element after which it inserts children
-   * @return
+    *
+    * @return
    */
   def extractStart(): Element = {
     val id = "items_of_"+viewElement.id
@@ -86,11 +89,12 @@ trait CollectionView extends BindableView
 
     /**
    * Replaces elementes
-   * @param newChild new child
+      *
+      * @param newChild new child
    * @param oldChild oldchild
    * @return
    */
-  def replace(newChild: Element, oldChild: Element, switch: Boolean = false) = {
+  protected def replace(newChild: Element, oldChild: Element, switch: Boolean = false) = {
       (newChild, oldChild) match {
         case (n: HTMLElement, o: HTMLElement) => replaceHTML(n , o, switch)
         case (n: SVGElement, o: SVGElement) =>  replaceHTML(n ,o, switch)//replaceSVG(n,o,switch)
@@ -116,7 +120,8 @@ trait CollectionView extends BindableView
 
   /**
    * Function to create Item. Often used for default item creation
-   * @param item item that will be added
+    *
+    * @param item item that will be added
    * @param construct function that does construction
    * @return
    */

@@ -1,11 +1,9 @@
 package org.denigma.binding
 
 import org.scalajs.dom
-import rx._
-import rx.ops.RxExt
+import rx.Rx
 
 import scala.collection.immutable.Map
-import scala.scalajs.js.Dynamic.{global => g}
 
 /**
  * Useful implicit classes
@@ -19,11 +17,12 @@ package object extensions extends AttributesOps
   with DataOps
 {
 
-  implicit def toAnyRxW[T](source: Rx[T]): AnyRxW[T] = new AnyRxW[T](source)
+  //implicit def toAnyRxW[T](source: Rx[T]): AnyRxW[T] = new AnyRxW[T](source)
+
 
   implicit class OptionOpt[T](source: Option[T]){
 
-    def orError(str: String): Unit = if(source.isEmpty) dom.console.error(str)
+    def orError(str: String): Unit = if (source.isEmpty) dom.console.error(str)
 
   }
 

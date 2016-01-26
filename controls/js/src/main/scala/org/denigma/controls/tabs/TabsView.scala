@@ -4,8 +4,10 @@ import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.views.{ItemsSeqView, BindableView}
 import org.denigma.controls.tabs.TabItemView.SimpleTabItemView
 import org.scalajs.dom.Element
-import rx.core.{Var, Rx}
-import rx.ops._
+import rx._
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
+
 import org.denigma.binding.extensions._
 
 import scala.collection.immutable.Seq
@@ -25,6 +27,7 @@ object TabItemView {
 
 trait TabItemView extends BindableView {
 
+
   val item: Rx[TabItem]
   val selection: Var[Option[Rx[TabItem]]]
 
@@ -38,7 +41,7 @@ trait TabItemView extends BindableView {
   }
 
   val onClick = Var(Events.createMouseEvent())
-  onClick.handler{
+  onClick.triggerLater{
     selection() = Some(this.item)
   }
 }
@@ -56,7 +59,7 @@ class TabsView(val elem: Element, val items: Rx[Seq[Rx[TabItem]]]) extends Basic
   override protected def subscribeUpdates() = {
     template.hide()
     this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
-    updates.onChange("ItemsUpdates")(upd => {
+    updates.onChange(upd => {
       upd.added.foreach(onInsert)
       upd.removed.foreach(onRemove)
       upd.moved.foreach(onMove)

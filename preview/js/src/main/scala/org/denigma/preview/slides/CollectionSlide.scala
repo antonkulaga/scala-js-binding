@@ -8,7 +8,7 @@ import org.scalajs.dom._
 import org.scalajs.dom.ext._
 import org.scalajs.dom.raw.{HTMLDocument, Element}
 import rx._
-import rx.core.Var
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.collection.immutable.Seq
 import scala.util._
@@ -33,11 +33,9 @@ class CollectionSlide(val elem: Element) extends BindableView with CollectionSli
     }
   }
 
-  override def name: String = "COLLECTION_SLIDE"
-
   val code = Var("")
   val apply = Var(Events.createMouseEvent())
-  this.apply.handler {
+  this.apply.triggerLater {
       this.findView("testmenu") match {
         case Some(view) =>
           dom.console.log("ID IS = "+view.id)
@@ -70,7 +68,7 @@ trait CollectionSlideCode {
     |class TestMenuItemView(val elem: Element, menuItem: Rx[MenuItem]) extends BindableView
     |{
     |  // to add extensions like .map to reactive variables
-    |  import rx.ops._
+    |
     |
     |  // let's make a label reactive variable to use for the binding to html element property
     |  // menuItem.map(_.label) is the same as Rx{ menuItem().label }
@@ -126,7 +124,7 @@ case class MenuItem(uri: String, label: String)
 class TestMenuItemView(val elem: Element, menuItem: Rx[MenuItem]) extends BindableView
 {
   // to add extensions like .map to reactive variables
-  import rx.ops._
+
 
   // let's make a label reactive variable to use for the binding to html element property
   // menuItem.map(_.label) is the same as Rx{ menuItem().label }

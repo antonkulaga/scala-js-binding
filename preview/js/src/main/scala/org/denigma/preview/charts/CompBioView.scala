@@ -3,7 +3,8 @@ package org.denigma.preview.charts
 import org.denigma.binding.binders.{GeneralBinder, ReactiveBinder}
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom._
-import rx.core.Var
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 
 class CompBioView(val elem: Element) extends BindableView with CodeForCompBio with InitialConditions {

@@ -49,6 +49,7 @@ trait Routes extends Directives with PJax with TextFilesDirectives
       case "start" => page(html.start())(ctx)
       case "charts" | "plots" => page(plots.html.charts())(ctx)
       case "bind" => page(binding.html.bind("Simple binding example"))(ctx)
+      case "properties" => page(binding.html.properties("Property bindings"))(ctx)
       case "rdf" => page(semantic.html.rdf("It can bind views to rdf models"))(ctx)
       case other => ctx.complete("other")
     }

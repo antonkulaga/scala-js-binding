@@ -193,7 +193,7 @@ abstract class OrganizedView extends BasicView
    */
   def findView(viewName: String): Option[ChildView] = this match
   {
-    case view: ChildView if this.name == viewName => Some(view)
+    case view: ChildView if this.id == viewName => Some(view)
     case _=>  this.findSubView(viewName)(this.subviews)
   }
 
@@ -229,7 +229,7 @@ abstract class OrganizedView extends BasicView
    * @return
    */
   def writeTree(level: Int = 0): String = (0 to level).foldLeft("")((acc, l) => acc + "  ") +
-    s"$id -> $name\n" +
+    s"$id -> $id\n" +
     this.subviews.values.foldLeft("")(
       (acc, v) => v.writeTree(level + 1)
     )

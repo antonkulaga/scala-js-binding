@@ -6,14 +6,13 @@ import org.denigma.binding.extensions._
 import org.denigma.binding.views.{BindableView, ItemsSeqView}
 import org.scalajs.dom.Element
 import org.scalajs.dom.ext.Color
-import rx.core.{Rx, Var}
-import rx.ops._
-
-
+import rx._
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 object PointValue {
 
-  def apply(x: Double, y: Double, name: String/*,radius:Double,color:Color*/): PointValue = PointValue(Point(x, y), name)
+  def apply(x: Double, y: Double, name: String /* ,radius:Double,color:Color*/): PointValue = PointValue(Point(x, y), name)
 
 }
 
@@ -66,10 +65,10 @@ class PointValueView(val elem: Element, point: Var[PointValue], style: Rx[LineSt
   val color = point.map(p => p.color.toString())
   val radius = point.map(p => p.radius)
 
-  mouseEnter.handler{
+  mouseEnter.triggerLater{
     showLabel() = true
   }
-  mouseLeave.handler{
+  mouseLeave.triggerLater{
     showLabel() = false
   }
 

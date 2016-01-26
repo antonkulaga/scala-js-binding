@@ -74,7 +74,7 @@ trait ODEs extends VectorODESolver
         i <- arr.indices
         (ti, value) = arr(i)
         j <- value.indices
-      } result(j)(i) = Point(ti,value(j))
+      } result(j)(i) = Point(ti, value(j))
       result
   }
 

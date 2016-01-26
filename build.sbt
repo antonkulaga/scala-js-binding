@@ -173,7 +173,7 @@ lazy val preview = crossProject
 			(emitSourceMaps in fullOptJS) := true,
 			pipelineStages in Assets := Seq(scalaJSDevStage/*scalaJSProd*/, gzip), //for run configuration
 		  (fullClasspath in Runtime) += (packageBin in Assets).value //to package production deps
-		).dependsOn(semantic,controls)
+		).dependsOn(semantic, controls)
 
 lazy val previewJS = preview.js
 lazy val previewJVM = preview.jvm settings(

@@ -4,8 +4,9 @@ import org.denigma.binding.binders.GeneralBinder
 import org.denigma.controls.charts._
 import org.denigma.controls.charts.ode.{ ODESeries}
 import org.scalajs.dom._
-import rx.core.{Rx, Var}
-import rx.ops._
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
+
 
 import scala.collection.immutable.{Seq, _}
 

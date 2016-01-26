@@ -11,6 +11,8 @@ import org.scalajs.dom
 import org.scalajs.dom.Element
 import org.scalajs.dom.raw.{HTMLElement, HTMLTextAreaElement}
 import rx._
+//import rx.Ctx.Owner.voodoo
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.collection.immutable.Map
 
@@ -93,7 +95,7 @@ extends GeneralBinder[View](view, recover)(
 
   def bindCode(el: Element, value: String, mode: String): Unit = this.strings.get(value) match {
     case Some(str: Var[String])=>
-      if(str.now=="") codeFromElement(el, str)
+      if(str.now == "") codeFromElement(el, str)
       this.makeCode(el, str, mode)
 
     case Some(str)=> this.makeCode(el, str, mode)
@@ -131,7 +133,7 @@ extends GeneralBinder[View](view, recover)(
           case s: Var[String] => ed.on("change", onChange(s) _)
           case _ =>  dom.console.info(s"$str.now is not reactive Var in ${view.id}")
         }
-        str.onChange("change", uniqueValue = true, skipInitial = true)(s => {
+        str.onChange(s => {
           val d = ed.getDoc()
           if(d.getValue() != s) d.setValue(s)
         })
@@ -147,7 +149,7 @@ extends GeneralBinder[View](view, recover)(
           el.innerHTML=""
           el.appendChild(area)
           textArea2Code(area, str, mode)
-        case _ => dom.console.error(s"cannot create a textarea for ${el.outerHTML} with ${str.name}")
+        case _ => dom.console.error(s"cannot create a textarea for ${el.outerHTML} with ${str}")
       }
   }
 

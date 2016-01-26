@@ -8,9 +8,9 @@ import org.denigma.semantic.binders.binded.Typed
 import org.denigma.semantic.extensions.GraphUpdate
 import org.scalajs.dom.raw.Element
 import org.w3.banana.{PointedGraph, RDF, RDFOps}
-import rx.Rx
-import rx.core.Var
-import rx.ops._
+import rx._
+import rx.Ctx.Owner.Unsafe.Unsafe
+
 
 import scala.collection.immutable.SortedSet
 
@@ -59,7 +59,7 @@ class SemanticOptionView[Rdf<:RDF](val elem: Element, item: Var[TripleSelection[
 
   val select = Var(Events.createMouseEvent())
 
-  select.onChange("onSelectClick",uniqueValue = true,skipInitial = true){
+  select.onChange{
     case ev=> onSelect()
   }
 
@@ -74,7 +74,7 @@ class SemanticSelectionView[Rdf<:RDF](val elem: Element,
 {
 
 
-  implicit val varOrdering:Ordering[rx.core.Var[TripleSelection[Rdf]]] = new Ordering[Var[TripleSelection[Rdf]]]{
+  implicit val varOrdering:Ordering[rx.Var[TripleSelection[Rdf]]] = new Ordering[Var[TripleSelection[Rdf]]]{
     override def compare(x: Var[TripleSelection[Rdf]], y: Var[TripleSelection[Rdf]]): Int = if(x.now.position<y.now.position)
       -1 else if(x.now.position > y.now.position) 1 else 0
   }
