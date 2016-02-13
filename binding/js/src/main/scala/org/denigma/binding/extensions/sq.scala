@@ -54,7 +54,7 @@ object sq
 
 
   def withHost(str:String): String = {
-    "http://"+dom.location.host+(if(str.isPartOfUrl) str else "/"+str)
+    "http://"+dom.window.location.host+(if(str.isPartOfUrl) str else "/"+str)
   }
 
 

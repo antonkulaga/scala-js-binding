@@ -1,0 +1,32 @@
+@(title: String)
+<link rel="stylesheet" href="https://raw.githubusercontent.com/mozilla/pdf.js/master/web/text_layer_builder.css" />
+
+<div data-view="Annotation">
+  <section class="ui teal container">
+    <section class="ui equal width grid">
+      <row class="ui row">
+        <column class="ui column">
+          <p>This is a demo of PDF bookmarks. Select part of PDF text, push "add" and</p>
+        </column>
+      </row>
+      <row class="ui row">
+        <column class="ui column">
+          <canvas id="the-canvas" style="border:1px solid black;"></canvas>
+          <div id="text-layer" class="textLayer"></div>
+          <div class="ui inverted segment">
+            <button class="ui inverted button" data-showif="hasPreviousPage" data-event-click="previousPage">Previous</button>
+            <input class="ui input" data-bind-value="currentPageNum">
+            <button class="ui inverted red button" data-showif="hasNextPage" data-event-click="nextPage">Next</button>
+          </div>
+        </column>
+        <column class="ui column">
+          <p>Here you can add selection from PDF to the list</p>
+          <div data-view="Bookmarks" class="ui segment">
+            <p data-bind="bookmark" data-template="true"></p>
+
+          </div>
+        </column>
+      </row>
+    </section>
+  </section>
+</div>

@@ -19,6 +19,7 @@ class MenuView(elem: Element) extends MapCollectionView(elem) {
             Map("uri" -> "pages/controls", "label" -> "Various controls"),
             Map("uri" -> "pages/charts", "label" -> "Charts"),
             Map("uri" -> "pages/start", "label" -> "Getting started"),
+            Map("uri" -> "pages/pdf", "label" -> "PDF viewing"),
             Map("uri" -> "pages/rdf", "label" -> "RDF support")
         )
     )

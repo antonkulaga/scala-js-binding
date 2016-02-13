@@ -18,7 +18,7 @@ trait Measurable {
 
   def alertedMeasure(name: String)(fun: () => Unit): Unit = {
     val tn: (String, Number) = this.measure(name)(fun)
-    dom.alert(s"function ${tn._1} exectured for ${tn._2}")
+    dom.window.alert(s"function ${tn._1} exectured for ${tn._2}")
   }
 
   def loggedMeasure(name: String)(fun: () => Unit): Unit = {

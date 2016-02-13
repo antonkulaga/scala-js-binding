@@ -21,7 +21,8 @@ class NavigationBinder(view: BindableView) extends ReactiveBinder{
       case (prot,sl,q)  if sl > -1 && sl<prot =>
         val st = prot+3
         sq.withHost(url.substring(url.indexOf("/",st)))
-      case  other => if(url.contains("domain")) url.replace("domain",dom.location.host) else url
+
+      case  other => if(url.contains("domain")) url.replace("domain", dom.window.location.host) else url
     }
 
   /**

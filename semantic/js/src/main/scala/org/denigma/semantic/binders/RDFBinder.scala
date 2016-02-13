@@ -59,7 +59,7 @@ class RDFBinder[Rdf <: RDF](resolver: Resolver[Rdf]) extends ReactiveBinder
   import resolver.ops
 
 
-  implicit val context = ops.makeUri("http://"+dom.location.hostname) //TODO: deprecate
+  implicit val context = ops.makeUri("http://"+dom.window.location.hostname) //TODO: deprecate
 
   def elementPartial(el: Element, ats: Map[String, String]): PartialFunction[(String,String),Unit] = rdfPartial(el,ats)
 

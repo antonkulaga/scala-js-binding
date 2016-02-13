@@ -1,10 +1,50 @@
 package org.denigma.binding.extensions
 
+import rx.Var
+
 import scala.collection.immutable._
+import scala.concurrent.{ExecutionContext, Future}
 //import org.scalajs.dom
 
 
 trait CommonOps {
+
+  implicit class FutureOps[T](source: Future[T]) {
+
+    def toVarOption(implicit context: ExecutionContext): Var[Option[T]] = {
+      val v = Var[Option[T]](None)
+      source.onSuccess{ case value => v() = Some(value)}
+      v
+    }
+  }
+
+  implicit class MutableMapOps[Key, Value](mp: scala.collection.mutable.Map[Key, Value]) {
+
+    /**
+      * Gets some value or runs a future to get it
+      *
+      * @param key key
+      * @param computeFuture
+      * @return
+      */
+    def getFuture(key: Key)(computeFuture: => Future[Value])(implicit context: ExecutionContext) = mp.get(key) match {
+      case Some(value) => Future.successful(value)
+      case None => updateFuture(key)(computeFuture)
+    }
+
+    /**
+      * Updates the key with future value
+      *
+      * @param key
+      * @param future
+      * @return
+      */
+    def updateFuture(key: Key)(future: Future[Value])(implicit context: ExecutionContext) = {
+        future.onSuccess{ case v => mp.update(key, v)}
+        future
+    }
+
+  }
 
   implicit class ErrorOps(e: Throwable){
     def stackString: String = {
@@ -13,7 +53,7 @@ trait CommonOps {
     }
   }
 
-  implicit class StringPath(str:String) {
+  implicit class StringPath(str: String) {
     def  isPartOfUrl = str.startsWith("/") || str.startsWith("#") || str.startsWith("?")
 
     def /(child:String): String = if(str.endsWith("/") || str.endsWith("#") || str.endsWith("?")) str+child else str+ "/" +child
@@ -37,7 +77,8 @@ trait CommonOps {
   implicit class SeqOps[T](source: collection.Seq[T]) {
     /**
      * Ordered update
-     * @param by set to update
+      *
+      * @param by set to update
      * @return updated Seq, preserving the order of previous elements
      */
     def updatedBy(by: Set[T]): Seq[T] = ImmutableSeqOps(Seq(source:_*)).updatedBy(by)
@@ -48,7 +89,8 @@ trait CommonOps {
 
     /**
      * Ordered update
-     * @param by set to update
+      *
+      * @param by set to update
      * @return updated Seq, preserving the order of previous elements
      */
     def updatedBy(by: Set[T]): Seq[T] = {

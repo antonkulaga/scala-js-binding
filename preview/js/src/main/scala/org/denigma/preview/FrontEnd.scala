@@ -50,6 +50,8 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
       {case (el, args) =>   new CollectionSlide(el).withBinder(view=>new CodeBinder(view))
     }.register("ControlSlide"){ case (el, args) =>
       new ControlSlide(el).withBinder(new CodeBinder(_))
+    }.register("Annotation"){ case (el, args) =>
+      new Annotation(el).withBinder(new CodeBinder(_))
     }
     .register("RdfSlide"){case (el, args) => new RdfSlide(el).withBinder(view => new CodeBinder(view))}
     .register("promo"){case (el, args) => new PromoView(el).withBinder(view => new CodeBinder(view))}

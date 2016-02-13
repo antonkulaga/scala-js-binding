@@ -26,7 +26,7 @@ trait UpDownBinder[View<:BindableView]{
       val fun: js.Function0[Any] = ()=>{
         downPartialDelayed(el, bname, rxName, ats)
       }
-      dom.setTimeout( fun, defaultDelay.toMillis: Double)
+      dom.window.setTimeout( fun, defaultDelay.toMillis: Double)
   }
 
   protected def downPartialDelayed(el: Element, bname: String, rxName: String, ats: Map[String, String]) = {
