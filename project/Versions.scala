@@ -40,7 +40,7 @@ trait ScalaJSVersions {
 // versions for libs that are shared between client and server
 trait SharedVersions
 {
-	val scalaRx = "0.3.0"
+	val scalaRx = "0.3.0" //val scalaRx = "0.3.1.1" //temporary published snapshot
 
 	val quicklens = "1.4.2"
 

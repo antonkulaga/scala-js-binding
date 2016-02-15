@@ -4,8 +4,6 @@ import rx.Var
 
 import scala.collection.immutable._
 import scala.concurrent.{ExecutionContext, Future}
-//import org.scalajs.dom
-
 
 trait CommonOps {
 
@@ -18,7 +16,18 @@ trait CommonOps {
     }
   }
 
-  implicit class MutableMapOps[Key, Value](mp: scala.collection.mutable.Map[Key, Value]) {
+  implicit class ImmutableMapOps[Key, Value](mp: scala.collection.immutable.Map[Key, Value]) {
+
+    //WARNING: UNLIKE MUTABLE getFuture, does not mutate anyting!
+    def getFuture(key: Key)(computeFuture: => Future[Value])(implicit context: ExecutionContext): Future[Value] = mp.get(key) match {
+      case Some(value) => Future.successful(value)
+      case None => computeFuture
+    }
+
+  }
+
+
+    implicit class MutableMapOps[Key, Value](mp: scala.collection.mutable.Map[Key, Value]) {
 
     /**
       * Gets some value or runs a future to get it

@@ -46,19 +46,32 @@ class ExtendedSVGElement(val el:SVGElement) extends AnyVal with NodeOps with Ext
 }
 
 trait NodeOps extends Any{
-  @tailrec final def fromParent[TOut](node:Node)(matcher:PartialFunction[Node,TOut]):Option[TOut] =
+  @tailrec final def fromParent[TOut](node: Node)(matcher: PartialFunction[Node, TOut]): Option[TOut] =
+    if (node.parentNode == null) None
+    else
     if(matcher.isDefinedAt(node.parentNode))
-      Option(matcher(node.parentNode))
-    else fromParent(node.parentNode.parentNode)(matcher)
+      {
+        Option(matcher(node.parentNode))
+      }
+    else {
+      val parent = node.parentNode.parentNode
+      if(parent==null) None else fromParent(parent)(matcher)
+    }
 }
 
-trait ExtendedElement  extends Any {
-  def fromParent[TOut](node:Node)(matcher:PartialFunction[Node,TOut]):Option[TOut]
+class ExtendedNode(val node: Node) extends AnyVal with NodeOps
+{
+  def fromParentNode[TOut](matcher: PartialFunction[Node, TOut]): Option[TOut] = super.fromParent(node)(matcher)
+}
+
+trait ExtendedElement extends Any{
+  def fromParent[TOut](node: Node)(matcher: PartialFunction[Node, TOut]): Option[TOut]
 
   def parentElement: Element
 
-  def updateIfExist(key:String,value:js.Any): Unit
+  def updateIfExist(key: String, value: js.Any): Unit
 
+  implicit def extNode(el: Node): ExtendedNode = new ExtendedNode(el)
   def style: CSSStyleDeclaration
 
   def display_=(value:String):Unit
@@ -73,16 +86,19 @@ trait ExtendedElement  extends Any {
  */
 trait ElementOps {
 
-  implicit def extSVG(svg:SVGElement): ExtendedSVGElement = new ExtendedSVGElement(svg)
-  implicit def extHTML(el:HTMLElement): ExtendedHTMLElement = new ExtendedHTMLElement(el)
+  implicit def extSVG(svg: SVGElement): ExtendedSVGElement = new ExtendedSVGElement(svg)
+  implicit def extHTML(el: HTMLElement): ExtendedHTMLElement = new ExtendedHTMLElement(el)
+  implicit def extNode(node: Node): ExtendedNode = new ExtendedNode(node)
 
-  implicit def elementWithOps(el:Element):ExtendedElement =  el match {
-    case html:HTMLElement => html
-    case svg:SVGElement =>   svg
+
+  implicit def elementWithOps(el: Element):ExtendedElement =  el match {
+    case html: HTMLElement => html
+    case svg: SVGElement =>   svg
     case other =>
       dom.console.error(s"element ${el.outerHTML} cannot be transformed to extended element")
       ???
   }
 
 }
+
 

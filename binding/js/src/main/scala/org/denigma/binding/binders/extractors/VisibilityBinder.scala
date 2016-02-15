@@ -5,6 +5,7 @@ import org.denigma.binding.extensions._
 import org.scalajs.dom.raw.{Element, HTMLElement}
 import rx._
 import scala.collection.immutable.Map
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 /**
  * Provides useful functions for visibility bindings (like showif/hideif)

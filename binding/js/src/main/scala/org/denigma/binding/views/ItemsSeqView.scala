@@ -9,7 +9,6 @@ import rx.Ctx.Owner.Unsafe.Unsafe
 
 trait ItemsSeqView extends CollectionView {
 
-
   val items: Rx[Seq[Item]]
 
   lazy val updates: Rx[SequenceUpdate[Item]] = items.updates
@@ -20,6 +19,9 @@ trait ItemsSeqView extends CollectionView {
     this.replace(t.viewElement, fr.viewElement)
   }
 
+  /**
+    * This function is very important as it monitors items updates
+    */
   override protected def subscribeUpdates() = {
     template.hide()
     this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))

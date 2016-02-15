@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://raw.githubusercontent.com/mozilla/pdf.js/master/web/text_layer_builder.css" />
 
 <div data-view="Annotation">
-  <section class="ui teal container">
+  <section class="ui teal">
     <section class="ui equal width grid">
       <row class="ui row">
         <column class="ui column">
@@ -11,6 +11,7 @@
       </row>
       <row class="ui row">
         <column class="ui column">
+          <h4 data-bind="paperURI"></h4>
           <canvas id="the-canvas" style="border:1px solid black;"></canvas>
           <div id="text-layer" class="textLayer"></div>
           <div class="ui inverted segment">
@@ -19,12 +20,28 @@
             <button class="ui inverted red button" data-showif="hasNextPage" data-event-click="nextPage">Next</button>
           </div>
         </column>
-        <column class="ui column">
+        <column class="ui column" data-view="Bookmarks">
           <p>Here you can add selection from PDF to the list</p>
-          <div data-view="Bookmarks" class="ui segment">
-            <p data-bind="bookmark" data-template="true"></p>
-
-          </div>
+          @*<ul>
+            <li>Last selection: <div data-bind="lastSelection"></div></li>
+            <li>Last paper: <div data-bind="paper"></div></li>
+            <li>Last page: <div data-bind="page"></div></li>
+          </ul>
+*@
+          <div data-code-r="comments"></div>
+          <table  class="ui table">
+            <tr>
+              <td>Paper</td>
+              <td>Text</td>
+              <td>GoTo</td>
+            </tr>
+            <tr data-template="true">
+              <td data-bind="paper"></td>
+              <td data-bind="text"></td>
+              <td><button data-bind="page" class="ui positive button"></button></td>
+            </tr>
+          </table>
+          <button class="ui positive button" data-event-click="addSelection">Add selection</button>
         </column>
       </row>
     </section>

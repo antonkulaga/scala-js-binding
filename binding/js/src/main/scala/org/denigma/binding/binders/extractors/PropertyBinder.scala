@@ -12,6 +12,8 @@ import scala.collection.immutable.Map
 import scala.language.implicitConversions
 import scala.scalajs.js
 import scala.util.{Failure, Success, Try}
+import rx.Ctx.Owner.Unsafe.Unsafe
+
 
 /**
  * Does binding for classes

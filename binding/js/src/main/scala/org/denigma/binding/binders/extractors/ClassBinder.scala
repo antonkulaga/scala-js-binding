@@ -7,6 +7,7 @@ import org.scalajs.dom.{Element, MouseEvent}
 import org.scalajs.dom.raw.HTMLElement
 import rx._
 import scala.collection.immutable.Map
+import rx.Ctx.Owner.Unsafe.Unsafe
 
 
 /**
