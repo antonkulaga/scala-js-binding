@@ -1,8 +1,10 @@
 package org.denigma.controls.papers
 
+import org.denigma.binding.binders.Events
 import org.denigma.binding.views.BindableView
+import org.scalajs.dom.MouseEvent
 import org.scalajs.dom.raw.{Selection, Element}
-import rx.Rx
+import rx.{Var, Rx}
 import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.concurrent.Future
@@ -23,23 +25,14 @@ case class Bookmark(paper: String, page: Int, selections: List[TextSelection] = 
 //case class SimpleBookmark(paper: String, page: Int, selection: String = "") extends Bookmark
 
 
-class BookmarkView(val elem: Element, val bookmark: Rx[Bookmark]) extends BindableView {
+class BookmarkView(val elem: Element, val bookmark: Rx[Bookmark], location:Var[Bookmark]) extends BindableView {
+  val go: Var[MouseEvent] = Var(Events.createMouseEvent())
+  go.triggerLater{
+    location() = bookmark.now
+  }
+
   val paper = bookmark.map(_.paper)
   val page = bookmark.map(_.page)
   val text = bookmark.map(_.selections.foldLeft("")((acc, el)=> acc + el.text))
-}
 
-object TextSelection {
-
-  def apply(text: String) = SimpleSelection(text)
-}
-case class SimpleSelection(text:String) extends TextSelection {
-  def highlight(textLayer: Element) = {
-    //textLayer
-  }
-}
-
-trait TextSelection {
-  def text: String
-  def highlight(textLayer: Element)
 }

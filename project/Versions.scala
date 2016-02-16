@@ -4,7 +4,7 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 	val binding = "0.8.2"
 
-  val macroBinding = "0.3"
+  val macroBinding = "0.4"
 
 	val bananaRdf = "0.8.2-SNAP4" // "0.8.1"
 
@@ -44,9 +44,9 @@ trait SharedVersions
 
 	val quicklens = "1.4.2"
 
-	val scalaTags = "0.5.3"
+	val scalaTags = "0.5.4"
 
-	val scalaCSS = "0.3.2"
+	val scalaCSS = "0.4.0"
 
 	val macroParadise = "2.1.0"
 

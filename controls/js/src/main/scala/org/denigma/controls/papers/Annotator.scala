@@ -76,6 +76,7 @@ trait Annotator extends BindableView {
           textLayer.setTextContent(textContent)
           //println(textContent+"!!! is TEXT")
           textLayer.render()
+          location.now.selections.foreach(_.select(textLayerDiv))
         case Failure(th) =>
             dom.console.error(s"cannot load the text layer for ${location.now}")
       }

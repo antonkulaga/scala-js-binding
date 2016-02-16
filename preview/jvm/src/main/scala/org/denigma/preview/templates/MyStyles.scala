@@ -36,6 +36,9 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles {
   ".ui.items > .item:first-child" -{
     marginTop(20 px) important
   }
+  ".highlighted" -{
+    backgroundColor.gold
+  }
 
 
   ".CodeMirror" -(

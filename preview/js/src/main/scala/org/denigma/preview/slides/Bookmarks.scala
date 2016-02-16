@@ -3,6 +3,7 @@ package org.denigma.preview.slides
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.ItemsSeqView
+import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.papers._
 import org.querki.jquery.$
 import org.scalajs.dom
@@ -28,7 +29,11 @@ class Bookmarks(val elem: Element, location: Var[Bookmark], textLayer: Element) 
   val paper = location.map(_.paper)
   val page = location.map(_.page)
 
-  val currentSelection = Var("")
+
+  val selections = Var(List.empty[Range])
+
+  val currentSelection = selections.map(_.foldLeft("")((acc, el)=>acc + "\n" + el.cloneContents().textContent))
+
   val lastSelection = Var("")
   val comments = Rx{
     "\n## Paper: "+paper() +
@@ -38,20 +43,18 @@ class Bookmarks(val elem: Element, location: Var[Bookmark], textLayer: Element) 
 
   override def newItemView(item: Item): ItemView  = this.constructItemView(item){
     case (el, mp) =>
-      new BookmarkView(el, item).withBinder(new GeneralBinder(_))
+      new BookmarkView(el, item, location).withBinder(new CodeBinder(_))
   }
+
 
   val addSelection = Var(Events.createMouseEvent())
 
   def addSelectionHandler(event: MouseEvent) = {
       val book = location.now
       val mark = Bookmark(book.paper, book.page, lastSelection.now)
-      val item = Var(mark)
-      /*println("item added!")
-      Var.apply(mark).Internal
-      */
-      println(s"NUMBER OF DUPLICATES: "+items.now.count(_==item))
-      println(s"NUMBER OF UNVAR DUPLICATES: "+items.now.count(_.now==item.now))
+      val item = Var(mark)     
+      //println(s"NUMBER OF DUPLICATES: "+items.now.count(_==item))
+      //println(s"NUMBER OF UNVAR DUPLICATES: "+items.now.count(_.now==item.now))
       if(!items.now.exists(_.now==mark)) items() = items.now ++ (item::Nil)
   }
 
@@ -62,20 +65,18 @@ class Bookmarks(val elem: Element, location: Var[Bookmark], textLayer: Element) 
   protected def onSelectionChange(event: Event) = {
     val selection: Selection = dom.window.getSelection()
     val count = selection.rangeCount
-    //println("selection!"+selection.anchorNode)
-   inTextLayer(selection.anchorNode) || inTextLayer(selection.focusNode)  match {
+     inTextLayer(selection.anchorNode) || inTextLayer(selection.focusNode)  match {
       case true =>
          if (count > 0) {
-          val selections = {
+          selections() = {
             for{
               i <- 0 until count
               range = selection.getRangeAt(i)
             } yield range
-          }
-          val text = selections.foldLeft("")((acc, el)=>acc + "\n" + el.cloneContents().textContent)
-          currentSelection() = text
+          }.toList
+          //val text = selections.foldLeft("")((acc, el)=>acc + "\n" + el.cloneContents().textContent)
+          //currentSelection() = text
         }
-
       case false => //println(s"something else ${selection.anchorNode.textContent}") //do nothing
     }
 
@@ -85,7 +86,8 @@ class Bookmarks(val elem: Element, location: Var[Bookmark], textLayer: Element) 
     //println("mouseleave")
     if(currentSelection.now != "") {
       lastSelection() = currentSelection.now
-      currentSelection() = ""
+      selections() = List.empty
+      //currentSelection() = ""
     }
   }
 
@@ -105,13 +107,19 @@ class Bookmarks(val elem: Element, location: Var[Bookmark], textLayer: Element) 
     })
   }
 
+/*
+  lazy val codemirror = {
+    this.binders.collectFirst{
+      case cb: CodeBinder => cb.editors.head
+    }.get //VERY UGLY AND BAD CODE
+  }
+*/
+
   override def bindView() = {
     super.bindView()
     dom.window.document.onselectionchange = onSelectionChange _
     addSelection.onChange(addSelectionHandler)
     textLayer.parentNode.addEventListener(Events.mouseleave, fixSelection _)
-  //  dom.document.onselectionchange = onSelectionChange _
-    //dom.window.addEventListener("selectionchange")
   }
 
 }
