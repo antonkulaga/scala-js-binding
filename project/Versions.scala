@@ -15,7 +15,7 @@ trait ScalaJVMVersions {
 
 	val akkaHttp = "2.0.3"
 
-	val akkaHttpExtensions = "0.0.9"
+	val akkaHttpExtensions = "0.0.10"
 
 	val ammonite = "0.5.3"
 
@@ -31,6 +31,7 @@ trait ScalaJSVersions {
 	val jqueryFacade = "0.10"
 
 	val semanticUIFacade = "0.0.1"
+
 
 	val codemirrorFacade = "5.4-0.5"
 
@@ -63,9 +64,9 @@ trait WebJarsVersions{
 
 	val semanticUI = "2.1.8"
 
-	val codemirror = "5.8"
+	val codemirror = "5.11"
 
-	val threeJS = "r71"
+	val threeJS = "r74"
 
 	val webcomponents = "0.7.12"
 

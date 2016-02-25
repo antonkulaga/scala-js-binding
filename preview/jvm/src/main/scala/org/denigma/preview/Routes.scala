@@ -36,7 +36,7 @@ trait Routes extends Directives with PJax with TextFilesDirectives
   lazy val loadPage: Html => Html = h => html.index( Some(h) )
 
 
-  def page(html:Html): Route = pjax[Twirl](html, loadPage){h=>c=>
+  def page(html: Html): Route = pjax[Twirl](html, loadPage){h=>c=>
         val resp = HttpResponse(  entity = HttpEntity(MediaTypes.`text/html`.withCharset(HttpCharsets.`UTF-8`), h.body  ))
         c.complete(resp)
       }
@@ -82,6 +82,7 @@ trait Routes extends Directives with PJax with TextFilesDirectives
       }
     }
   }
+
   def webjars: Route = pathPrefix(webjarsPrefix ~ Slash)  {  getFromResourceDirectory(webjarsPrefix)  }
 
   def routes: Route = index ~  webjars ~ mystyles ~ menu ~ new WebSockets(SuggesterProvider.openChannel).routes ~ loadResources ~ loadSources
