@@ -16,8 +16,6 @@ import scalacss.Defaults._
 trait Routes extends Directives with PJax with TextFilesDirectives
 {
 
-  def log: LoggingAdapter
-
   lazy val webjarsPrefix = "lib"
 
   lazy val resourcePrefix = "resources"

@@ -1,5 +1,6 @@
 package org.denigma.preview
 
+import akka.http.scaladsl.model.ws.BinaryMessage.Strict
 import akka.http.scaladsl.model.ws._
 import akka.stream.scaladsl.{Source, Sink, Flow}
 import akka.stream.stage.{TerminationDirective, SyncDirective, Context, PushStage}
@@ -22,7 +23,8 @@ object SuggesterProvider extends WebPicklers {
             case Suggest(inp, ch) =>
               val sug = Suggestion(inp,channel,testOptions.search(inp)) //cases error
               val d = Pickle.intoBytes[WebMessage](sug)
-              BinaryMessage(ByteString(d))
+              val mess: Message = BinaryMessage.Strict(ByteString(d))
+              mess
           }
       }.via(reportErrorsFlow(channel,username)) // ... then log any processing errors on stdin
   }

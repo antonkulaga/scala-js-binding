@@ -13,7 +13,7 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 trait ScalaJVMVersions {
 
-	val akkaHttp = "2.0.3"
+	val akkaHttp = "2.4.2"
 
 	val akkaHttpExtensions = "0.0.10"
 

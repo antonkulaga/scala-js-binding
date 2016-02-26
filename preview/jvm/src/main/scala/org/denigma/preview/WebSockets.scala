@@ -16,7 +16,7 @@ class WebSockets(
     pathPrefix("connect") {
         parameters("channel", "username"){
           case (channel, username) =>
-            handleWebsocketMessages(makeChannel(channel, username))
+            handleWebSocketMessages(makeChannel(channel, username))
         }
     }
 }
@@ -33,7 +33,7 @@ class WebSocketsWithLogin(
         parameter("username"){
           username=>
             println(s"username = $username")
-            handleWebsocketMessages(makeChannel("notebook", username))
+            handleWebSocketMessages(makeChannel("notebook", username))
         }
       }
     }
