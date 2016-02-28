@@ -1,5 +1,6 @@
 package org.denigma.preview
 
+import akka.NotUsed
 import akka.http.scaladsl.model.ws.BinaryMessage.Strict
 import akka.http.scaladsl.model.ws._
 import akka.stream.scaladsl.{Source, Sink, Flow}
@@ -17,7 +18,7 @@ object SuggesterProvider extends WebPicklers {
 
   def openChannel(channel: String, username: String = "guest"): Flow[Message, Message, Unit] = (channel, username) match {
     case (_, _) =>
-      Flow[Message].collect {
+      val result: Flow[Message, Message, NotUsed] = Flow[Message].collect {
         case BinaryMessage.Strict(data) =>
           Unpickle[WebMessage].fromBytes(data.toByteBuffer) match {
             case Suggest(inp, ch) =>
@@ -27,6 +28,7 @@ object SuggesterProvider extends WebPicklers {
               mess
           }
       }.via(reportErrorsFlow(channel,username)) // ... then log any processing errors on stdin
+      result
   }
 
 

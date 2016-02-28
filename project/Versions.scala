@@ -6,7 +6,7 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
   val macroBinding = "0.4"
 
-	val bananaRdf = "0.8.2-SNAP4" // "0.8.1"
+	val bananaRdf = "0.8.2-SNAP5" // "0.8.1"
 
 	val controls = "0.0.10"
 }

@@ -1,9 +1,12 @@
 package org.denigma.preview
 
+import akka.NotUsed
 import akka.actor.ActorSystem
+import akka.http.scaladsl.model.{HttpResponse, HttpRequest}
 import akka.http.scaladsl.server.RouteResult
 import akka.http.scaladsl.{Http, HttpExt}
-import akka.stream.{ActorMaterializer, ActorFlowMaterializer}
+import akka.stream.scaladsl.Flow
+import akka.stream.{ActorMaterializer}
 
 /**
  * For running as kernel
@@ -24,13 +27,11 @@ object Main extends App with Routes {
   val port = 5553
 
   implicit val system = ActorSystem("my-system")
-  //implicit val materializer: ActorFlowMaterializer = ActorFlowMaterializer()
-  implicit val materializerStream: ActorMaterializer = ActorMaterializer()
+  implicit val materializer = ActorMaterializer()
+  implicit val executionContext = system.dispatcher
 
-  implicit val ec = system.dispatcher
-
-  //val server: HttpExt = Http(system)
-  val bindingFuture = Http().bindAndHandle(routes, host, port)
+  val server: HttpExt = Http(system)
+  val bindingFuture = server.bindAndHandle(routes, host, port)(materializer)
   println(s"starting server at $host:$port")
   bindingFuture
     .flatMap(_.unbind()) // trigger unbinding from the port
