@@ -16,9 +16,9 @@ object SuggesterProvider extends WebPicklers {
 
   val testOptions = TestOptions
 
-  def openChannel(channel: String, username: String = "guest"): Flow[Message, Message, Unit] = (channel, username) match {
+  def openChannel(channel: String, username: String = "guest"): Flow[Message, Message, NotUsed] = (channel, username) match {
     case (_, _) =>
-      val result: Flow[Message, Message, NotUsed] = Flow[Message].collect {
+      Flow[Message].collect {
         case BinaryMessage.Strict(data) =>
           Unpickle[WebMessage].fromBytes(data.toByteBuffer) match {
             case Suggest(inp, ch) =>
@@ -27,12 +27,11 @@ object SuggesterProvider extends WebPicklers {
               val mess: Message = BinaryMessage.Strict(ByteString(d))
               mess
           }
-      }.via(reportErrorsFlow(channel,username)) // ... then log any processing errors on stdin
-      result
+      }.via(reportErrorsFlow(channel, username)) // ... then log any processing errors on stdin
   }
 
 
-  def reportErrorsFlow[T](channel:String,username:String): Flow[T, T, Unit] =
+  def reportErrorsFlow[T](channel: String, username: String): Flow[T, T, NotUsed] =
     Flow[T]
       .transform(() ⇒ new PushStage[T, T] {
         def onPush(elem: T, ctx: Context[T]): SyncDirective = ctx.push(elem)

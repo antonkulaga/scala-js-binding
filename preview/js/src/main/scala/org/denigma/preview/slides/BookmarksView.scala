@@ -12,13 +12,15 @@ import org.scalajs.dom.html.Canvas
 import org.scalajs.dom.raw._
 import rx.Ctx.Owner.Unsafe.Unsafe
 import rx._
+import org.scalajs.dom.ext._
 
 import scala.annotation.tailrec
+import scala.scalajs.js
 
 /**
   * Created by antonkulaga on 2/14/16.
   */
-class Bookmarks(val elem: Element, location: Var[Bookmark], textLayer: Element) extends ItemsSeqView {
+class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Element) extends ItemsSeqView {
 
   override type Item = Var[Bookmark]
 
@@ -29,16 +31,19 @@ class Bookmarks(val elem: Element, location: Var[Bookmark], textLayer: Element) 
   val paper = location.map(_.paper)
   val page = location.map(_.page)
 
-
   val selections = Var(List.empty[Range])
 
-  val currentSelection = selections.map(_.foldLeft("")((acc, el)=>acc + "\n" + el.cloneContents().textContent))
+  val currentSelection = selections.map{ case sel =>
+    sel.foldLeft("")((acc, el)=>acc + "\n" + el.cloneContents().textContent)
+  }
 
-  val lastSelection = Var("")
+  val lastSelections: Var[List[TextSelection]] = Var(List.empty[TextSelection])
+
   val comments = Rx{
-    "\n## Paper: "+paper() +
-    "\n## Page: "+ page() +
-    lastSelection().replace("\n","\n## ")
+    "\n#^ :in_paper "+paper() +
+    "\n#^ :on_page "+ page() + lastSelections.now.foldLeft(""){
+      case (acc, el) => acc + "\n#^ :has_text " + el.text
+    }
   }
 
   override def newItemView(item: Item): ItemView  = this.constructItemView(item){
@@ -51,8 +56,8 @@ class Bookmarks(val elem: Element, location: Var[Bookmark], textLayer: Element) 
 
   def addSelectionHandler(event: MouseEvent) = {
       val book = location.now
-      val mark = Bookmark(book.paper, book.page, lastSelection.now)
-      val item = Var(mark)     
+      val mark = Bookmark(book.paper, book.page, lastSelections.now)
+      val item = Var(mark)
       //println(s"NUMBER OF DUPLICATES: "+items.now.count(_==item))
       //println(s"NUMBER OF UNVAR DUPLICATES: "+items.now.count(_.now==item.now))
       if(!items.now.exists(_.now==mark)) items() = items.now ++ (item::Nil)
@@ -82,10 +87,23 @@ class Bookmarks(val elem: Element, location: Var[Bookmark], textLayer: Element) 
 
   }
 
+  protected def rangeToTextSelection(range: Range) = {
+    val fragment = range.cloneContents()
+    //val s = fragment.isInstanceOf[HTMLElement]
+    //val txt = fragment.nodeValue
+    val div = dom.document.createElement("div") //the trick to get inner html of the selection
+    val nodes = fragment.childNodes.toList
+    val txt = div.innerHTML
+    js.debugger()
+    nodes.foreach(div.appendChild)
+
+    TextSelection(txt)
+  }
+
   protected def fixSelection(event: Event): Unit = {
     //println("mouseleave")
     if(currentSelection.now != "") {
-      lastSelection() = currentSelection.now
+      lastSelections() = selections.now.map(rangeToTextSelection)
       selections() = List.empty
       //currentSelection() = ""
     }

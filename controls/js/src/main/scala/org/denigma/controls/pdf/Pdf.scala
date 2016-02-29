@@ -8,6 +8,9 @@ import scala.scalajs.js.annotation._
 import scala.scalajs.js.typedarray.Uint8Array
 
 @js.native
+object PDFJS extends PDFJSStatic
+
+@js.native
 trait PDFPromise[T] extends js.Object {
   def isResolved(): Boolean = js.native
   def isRejected(): Boolean = js.native

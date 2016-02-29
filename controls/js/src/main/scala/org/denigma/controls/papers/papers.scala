@@ -26,8 +26,8 @@ case class Page(num: Int, pdf: PDFPageProxy)
   lazy val textContentFut: Future[TextContent] = pdf.getTextContent().toFuture
   lazy val textLayerOpt: Var[Option[TextContent]] = textContentFut.toVarOption
 
-  def viewport(scale: Double) = pdf.getViewport(scale)
-  def render(params: js.Dynamic) = pdf.render(params)
+  def viewport(scale: Double): PDFPageViewport = pdf.getViewport(scale)
+  def render(params: js.Dynamic): PDFRenderTask = pdf.render(params)
 }
 
 /*
@@ -82,7 +82,7 @@ case class FailedPaper(name: String, exception: Throwable, previous: Paper = Emp
 
 object Paper{
 
-  def apply(name: String, pdf: PDFDocumentProxy, pages: collection.immutable.Map[Int, Page] = Map.empty) = new PaperPDF(name, pdf, pages)
+  def apply(name: String, pdf: PDFDocumentProxy, pages: collection.immutable.Map[Int, Page] = Map.empty): Paper = new PaperPDF(name, pdf, pages)
 
 }
 

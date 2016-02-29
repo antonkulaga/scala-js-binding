@@ -16,10 +16,11 @@ import rx._
 import scala.collection.immutable._
 
 
-class Annotation(val elem: Element) extends Annotator {
+class AnnotationView(val elem: Element) extends Annotator {
 
 
-  val location = Var(Bookmark("/resources/pdf/eptcs.pdf", 1, ""))
+  //start location to run
+  val location = Var(Bookmark("/resources/pdf/eptcs.pdf", 1))
   val paperURI = location.map(_.paper)
 
 
@@ -62,7 +63,7 @@ class Annotation(val elem: Element) extends Annotator {
     */
   override lazy val injector = defaultInjector
     .register("Bookmarks"){
-      case (el, args) =>  new Bookmarks(el, location, textLayerDiv).withBinder(new CodeBinder(_))
+      case (el, args) =>  new BookmarksView(el, location, textLayerDiv).withBinder(new CodeBinder(_))
     }
 
  }

@@ -9,11 +9,6 @@ import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.concurrent.Future
 
-object Bookmark{
-
-  def apply(paper: String, page: Int, selection: String): Bookmark = Bookmark(paper, page, List(TextSelection(selection)))
-}
-
 case class Bookmark(paper: String, page: Int, selections: List[TextSelection] = List.empty)
 
 /*trait Bookmark{
@@ -33,6 +28,7 @@ class BookmarkView(val elem: Element, val bookmark: Rx[Bookmark], location:Var[B
 
   val paper = bookmark.map(_.paper)
   val page = bookmark.map(_.page)
-  val text = bookmark.map(_.selections.foldLeft("")((acc, el)=> acc + el.text))
+  //val text = bookmark.map(_.selection.text)
+  val text = bookmark.map(_.selections.foldLeft("")((acc, el)=> acc +"\n"+ el.text))
 
 }

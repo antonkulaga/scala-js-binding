@@ -13,6 +13,9 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
 import scala.util.{Failure, Success}
 
+/**
+  * View-trait responsible for lo
+  */
 trait Annotator extends BindableView {
 
   def canvas: Canvas //= $("#the-canvas").get(0).asInstanceOf[Canvas]
@@ -67,7 +70,7 @@ trait Annotator extends BindableView {
         canvasContext = context,
         viewport = viewport
       ))
-        val textContentFut = page.textContentFut.onComplete{
+      val textContentFut = page.textContentFut.onComplete{
         case Success(textContent) =>
           alignTextLayer(viewport)
           textLayerDiv.innerHTML = ""
@@ -77,6 +80,7 @@ trait Annotator extends BindableView {
           //println(textContent+"!!! is TEXT")
           textLayer.render()
           location.now.selections.foreach(_.select(textLayerDiv))
+
         case Failure(th) =>
             dom.console.error(s"cannot load the text layer for ${location.now}")
       }
@@ -106,6 +110,7 @@ trait Annotator extends BindableView {
           dom.console.error(s"cannot load the page at ${bookmark}")
       }
     }
+    else location.now.selections.foreach(_.select(textLayerDiv))
   }
 
   protected def subscribePapers(): Unit ={
