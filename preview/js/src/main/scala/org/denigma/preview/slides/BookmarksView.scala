@@ -40,8 +40,17 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
   val lastSelections: Var[List[TextSelection]] = Var(List.empty[TextSelection])
 
   val comments = Rx{
+
+    val opt = lastSelections.now.headOption
+    /*
+    if(opt.isDefined) {
+      val r = opt.get
+      println(r.text)
+      js.debugger()
+    }
+    */
     "\n#^ :in_paper "+paper() +
-    "\n#^ :on_page "+ page() + lastSelections.now.foldLeft(""){
+    "\n#^ :on_page "+ page() + lastSelections().foldLeft(""){
       case (acc, el) => acc + "\n#^ :has_text " + el.text
     }
   }
@@ -89,21 +98,22 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
 
   protected def rangeToTextSelection(range: Range) = {
     val fragment = range.cloneContents()
-    //val s = fragment.isInstanceOf[HTMLElement]
-    //val txt = fragment.nodeValue
+    /*
     val div = dom.document.createElement("div") //the trick to get inner html of the selection
     val nodes = fragment.childNodes.toList
-    val txt = div.innerHTML
-    js.debugger()
     nodes.foreach(div.appendChild)
-
+    val txt = div.innerHTML
+    */
+    val txt = fragment.textContent
     TextSelection(txt)
   }
 
   protected def fixSelection(event: Event): Unit = {
     //println("mouseleave")
     if(currentSelection.now != "") {
-      lastSelections() = selections.now.map(rangeToTextSelection)
+      val ss = selections.now.map(rangeToTextSelection)
+      //println(ss)
+      lastSelections() = ss
       selections() = List.empty
       //currentSelection() = ""
     }

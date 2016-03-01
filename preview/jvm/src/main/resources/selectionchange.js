@@ -133,3 +133,8 @@ var selectionchange = (function (undefined) {
     });
   }
 })();
+
+if (typeof module !== 'undefined') {
+    // CommonJS/Node compatibility.
+    module.exports = selectionchange;
+}

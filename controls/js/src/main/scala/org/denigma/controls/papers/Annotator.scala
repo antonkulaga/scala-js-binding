@@ -18,14 +18,12 @@ import scala.util.{Failure, Success}
   */
 trait Annotator extends BindableView {
 
-  def canvas: Canvas //= $("#the-canvas").get(0).asInstanceOf[Canvas]
-  //def $textLayerDiv: JQuery
+  def canvas: Canvas
   val textLayerDiv: Element
 
   def paperURI: Rx[String]
 
   val location: Var[Bookmark]
-  //val currentPageNum: Var[Int] = Var(1)
 
   val currentPaper:Var[Paper] = Var(EmptyPaper)
   val currentPage: Var[Option[Page]] = Var(None)
@@ -57,6 +55,20 @@ trait Annotator extends BindableView {
     textLayerDiv.style.left = canvas.offsetLeft + "px"
   }
 
+  protected def updateSelection(e: Element) = {
+    import scala.concurrent.duration._
+    js.timers.setTimeout(300 millis){
+      deselect(e)
+      location.now.selections.foreach(_.select(e))
+    }
+  }
+
+  protected def deselect(el: Element): Unit = { //bad code
+    if(el.classList.contains("highlighted")) el.classList.remove("highlighted")
+    import dom.ext._
+    el.children.foreach(deselect)
+  }
+
    protected def onPageChange(pageOpt: Option[Page]): Unit =  pageOpt match
    {
      case Some(page) =>
@@ -79,7 +91,7 @@ trait Annotator extends BindableView {
           textLayer.setTextContent(textContent)
           //println(textContent+"!!! is TEXT")
           textLayer.render()
-          location.now.selections.foreach(_.select(textLayerDiv))
+          updateSelection(textLayerDiv)
 
         case Failure(th) =>
             dom.console.error(s"cannot load the text layer for ${location.now}")
@@ -89,7 +101,7 @@ trait Annotator extends BindableView {
         textLayerDiv.innerHTML = ""
    }
 
-  protected def onLocationUpdate(bookmark: Bookmark) = {
+  protected def onLocationUpdate(bookmark: Bookmark): Unit = {
     //print(s"bookmark update $bookmark")
     val paper = currentPaper.now
     if(paper.name != bookmark.paper){
@@ -110,7 +122,8 @@ trait Annotator extends BindableView {
           dom.console.error(s"cannot load the page at ${bookmark}")
       }
     }
-    else location.now.selections.foreach(_.select(textLayerDiv))
+    else updateSelection(textLayerDiv)
+
   }
 
   protected def subscribePapers(): Unit ={

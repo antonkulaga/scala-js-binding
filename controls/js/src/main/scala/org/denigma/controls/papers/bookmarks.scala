@@ -8,6 +8,7 @@ import rx.{Var, Rx}
 import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.concurrent.Future
+import scala.scalajs.js
 
 case class Bookmark(paper: String, page: Int, selections: List[TextSelection] = List.empty)
 
@@ -23,9 +24,11 @@ case class Bookmark(paper: String, page: Int, selections: List[TextSelection] = 
 class BookmarkView(val elem: Element, val bookmark: Rx[Bookmark], location:Var[Bookmark]) extends BindableView {
   val go: Var[MouseEvent] = Var(Events.createMouseEvent())
   go.triggerLater{
+    val sel = bookmark.now.selections
+    println(sel.mkString("\n"))
+    js.debugger()
     location() = bookmark.now
   }
-
   val paper = bookmark.map(_.paper)
   val page = bookmark.map(_.page)
   //val text = bookmark.map(_.selection.text)
