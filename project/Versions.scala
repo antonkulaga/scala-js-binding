@@ -1,25 +1,25 @@
 object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersions with SharedVersions
 {
-	val scala = "2.11.7"
+	val scala = "2.11.8"
 
-	val binding = "0.8.2"
+	val binding = "0.8.5"
 
-  val macroBinding = "0.4"
+  val macroBinding = "0.5"
 
 	val bananaRdf = "0.8.2-SNAP5" // "0.8.1"
 
-	val controls = "0.0.11"
+	val controls = "0.0.13"
 }
 
 trait ScalaJVMVersions {
 
-	val akkaHttp = "2.4.2"
+	val akkaHttp = "2.4.3"
 
 	val akkaHttpExtensions = "0.0.10"
 
-	val ammonite = "0.5.3"
+	val ammonite = "0.5.7"
 
-	val seleniumJava = "2.52.0"
+	val seleniumJava = "2.53.0"
 
 	val config = "1.3.0"
 }
@@ -28,22 +28,19 @@ trait ScalaJSVersions {
 
  	val dom = "0.9.0"
 
-	val jqueryFacade = "0.10"
+	val jqueryFacade = "0.11"
 
 	val semanticUIFacade = "0.0.1"
 
+	val codemirrorFacade = "5.11-0.7"
 
-	val codemirrorFacade = "5.4-0.5"
-
-	val threejsFacade =  "0.0.71-0.1.5"
+	val threejsFacade =  "0.0.74-0.1.6"
 }
 
 // versions for libs that are shared between client and server
 trait SharedVersions
 {
-	val scalaRx = "0.3.0" //val scalaRx = "0.3.1.1" //temporary published snapshot
-
-	val quicklens = "1.4.2"
+	val scalaRx = "0.3.1" //val scalaRx = "0.3.1.1" //temporary published snapshot
 
 	val scalaTags = "0.5.4"
 
@@ -53,23 +50,23 @@ trait SharedVersions
 
 	val scalaTest =  "3.0.0-SNAP13"
 
-	val booPickle = "1.1.2"
+	val booPickle = "1.1.3"
 
-	val productCollections = "1.4.2"
+	val productCollections = "1.4.3"
 
-	val fastParse = "0.3.4"
+	val fastParse = "0.3.7"
 }
 
 trait WebJarsVersions{
 
 	val semanticUI = "2.1.8"
 
-	val codemirror = "5.11"
+	val codemirror = "5.13.2"
 
 	val threeJS = "r74"
 
 	val webcomponents = "0.7.12"
 
-	val jquery = "3.0.0-alpha1"
+	val jquery = "2.2.3"
 }
 

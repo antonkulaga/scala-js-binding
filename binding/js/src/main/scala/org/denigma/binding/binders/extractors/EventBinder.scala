@@ -17,7 +17,13 @@ trait EventBinder extends ReactiveBinder
 
   protected def mouseEvents: Map[String, Var[MouseEvent]]
 
+  protected def wheelEvents: Map[String, Var[WheelEvent]]
+
   protected def keyboardEvents: Map[String, Var[KeyboardEvent]]
+
+  protected def dragEvents: Map[String, Var[DragEvent]]
+
+  protected def focusEvents: Map[String, Var[FocusEvent]]
 
   protected def events: Map[String, Var[Event]]
 
@@ -37,6 +43,36 @@ trait EventBinder extends ReactiveBinder
     case key if noDash(key).contains(Events.click) => Events.click
     case key if noDash(key).contains(Events.mouseover) => Events.mouseover
     case key if noDash(key).contains(Events.mouseout) => Events.mouseout
+    case key if noDash(key).contains(Events.dblclick) => Events.dblclick
+    case key if noDash(key).contains("doubleclick") => Events.dblclick
+  }
+
+  protected def mouseWheelFromKey: PartialFunction[String, String] = {
+    case key if noDash(key).contains(Events.mousewheel) => Events.mousewheel
+    case key if noDash(key).contains(Events.wheel) => Events.wheel
+  }
+
+  protected def dragFromKey: PartialFunction[String, String] = {
+    case key if noDash(key).contains(Events.copy) => Events.copy
+    case key if noDash(key).contains(Events.cut) => Events.cut
+    case key if noDash(key).contains(Events.paste) => Events.paste
+    case key if noDash(key).contains(Events.beforecopy) => Events.beforecopy
+    case key if noDash(key).contains(Events.beforecut) => Events.beforecut
+    case key if noDash(key).contains(Events.beforepaste) => Events.beforepaste
+    case key if noDash(key).contains(Events.drag) => Events.drag
+    case key if noDash(key).contains(Events.dragend) => Events.dragend
+    case key if noDash(key).contains(Events.dragenter) => Events.dragenter
+    case key if noDash(key).contains(Events.dragleave) => Events.dragleave
+    case key if noDash(key).contains(Events.dragover) => Events.dragover
+    case key if noDash(key).contains(Events.dragstart) => Events.dragstart
+    case key if noDash(key).contains(Events.drop) => Events.drop
+  }
+
+
+  protected def focusFromKey: PartialFunction[String, String] = {
+    case key if noDash(key).contains(Events.focus) => Events.focus
+    case key if noDash(key).contains(Events.focusin) => Events.focusin
+    case key if noDash(key).contains(Events.focusout) => Events.focusout
   }
 
   protected def otherEventFromKey: PartialFunction[String, String] = {
@@ -50,6 +86,32 @@ trait EventBinder extends ReactiveBinder
         e.addEventListener[MouseEvent](event, {ev: MouseEvent=>v()= ev })
       )
   }
+
+
+  protected def wheelEventsPartial(el: Element): PartialFunction[(String, String), Unit] = {
+    case (key, value) if mouseWheelFromKey.isDefinedAt(key) =>
+      val event: String = mouseWheelFromKey(key)
+      this.bindMapItem(el, wheelEvents, key, value)((e, v) =>
+        e.addEventListener[WheelEvent](event, {ev: WheelEvent=>v()= ev })
+      )
+  }
+
+  protected def dragEventsPartial(el: Element): PartialFunction[(String, String), Unit] = {
+    case (key, value) if dragFromKey.isDefinedAt(key) =>
+      val event: String = dragFromKey(key)
+      this.bindMapItem(el, dragEvents, key, value)((e, v) =>
+        e.addEventListener[DragEvent](event, {ev: DragEvent=>v()= ev })
+      )
+  }
+
+  protected def focusEventsPartial(el: Element): PartialFunction[(String, String), Unit] = {
+    case (key, value) if focusFromKey.isDefinedAt(key) =>
+      val event: String = focusFromKey(key)
+      this.bindMapItem(el, focusEvents, key, value)((e, v) =>
+        e.addEventListener[FocusEvent](event, {ev: FocusEvent=>v()= ev })
+      )
+  }
+
 
   protected def keyboardEventsPartial(el: Element): PartialFunction[(String, String), Unit] = {
     case (key, value) if keyboardEventFromKey.isDefinedAt(key) =>
@@ -66,6 +128,11 @@ trait EventBinder extends ReactiveBinder
       )
   }
 
-  def eventsPartial(el: Element): PartialFunction[(String, String), Unit] = keyboardEventsPartial(el).orElse(mouseEventsPartial(el)).orElse(otherEventsPartial(el))
+  def eventsPartial(el: Element): PartialFunction[(String, String), Unit] = keyboardEventsPartial(el)
+    .orElse(mouseEventsPartial(el))
+    .orElse(wheelEventsPartial(el))
+    .orElse(dragEventsPartial(el))
+    .orElse(focusEventsPartial(el))
+    .orElse(otherEventsPartial(el))
 
 }

@@ -27,7 +27,7 @@ object KeyEventMap extends BinderObject {
 }
 
 trait TextEventMap[T] {
-  def asTextEventMap(t:T):Map[String,Var[dom.TextEvent]]
+  def asTextEventMap(t: T): Map[String,Var[dom.TextEvent]]
 }
 
 object TextEventMap extends BinderObject {
@@ -46,7 +46,7 @@ object TextEventMap extends BinderObject {
 }
 
 trait MouseEventMap[T] {
-  def asMouseEventMap(t:T):Map[String,Var[dom.MouseEvent]]
+  def asMouseEventMap(t: T): Map[String,Var[dom.MouseEvent]]
 }
 
 object MouseEventMap extends BinderObject {
@@ -64,7 +64,7 @@ object MouseEventMap extends BinderObject {
 }
 
 trait FocusEventMap[T] {
-  def asFocusEventMap(t:T):Map[String,Var[dom.FocusEvent]]
+  def asFocusEventMap(t: T): Map[String,Var[dom.FocusEvent]]
 }
 
 object FocusEventMap extends BinderObject {
@@ -83,7 +83,7 @@ object FocusEventMap extends BinderObject {
 
 
 trait DragEventMap[T] {
-  def asDragEventMap(t:T):Map[String,Var[dom.DragEvent]]
+  def asDragEventMap(t: T): Map[String, Var[dom.DragEvent]]
 }
 
 object DragEventMap extends BinderObject {
@@ -91,7 +91,7 @@ object DragEventMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[DragEventMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Var[dom.DragEvent]](c)
+    val mapExpr = extract[T, Var[dom.DragEvent]](c)
     reify {
       new DragEventMap[T] {
         def asDragEventMap(t: T) = mapExpr.splice
@@ -101,7 +101,7 @@ object DragEventMap extends BinderObject {
 }
 
 trait EventMap[T] {
-  def asEventMap(t:T):Map[String,Var[dom.Event]]
+  def asEventMap(t: T): Map[String,Var[dom.Event]]
 }
 
 object EventMap extends BinderObject {
@@ -109,7 +109,7 @@ object EventMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[EventMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Var[dom.Event]](c)
+    val mapExpr = extract[T, Var[dom.Event]](c)
     reify {
       new EventMap[T] {
         def asEventMap(t: T) = mapExpr.splice
@@ -119,7 +119,7 @@ object EventMap extends BinderObject {
 }
 
 trait UIEventMap[T] {
-  def asUIEventMap(t:T):Map[String,Var[dom.UIEvent]]
+  def asUIEventMap(t: T): Map[String,Var[dom.UIEvent]]
 }
 
 object UIEventMap extends BinderObject {

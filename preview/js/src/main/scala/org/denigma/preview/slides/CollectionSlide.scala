@@ -125,13 +125,12 @@ class TestMenuItemView(val elem: Element, menuItem: Rx[MenuItem]) extends Bindab
 {
   // to add extensions like .map to reactive variables
 
-
   // let's make a label reactive variable to use for the binding to html element property
   // menuItem.map(_.label) is the same as Rx{ menuItem().label }
-  val label:Rx[String] = menuItem.map(_.label)
+  val label: Rx[String] = menuItem.map(_.label)
 
   // let's make the same with URI
-  val uri:Rx[String] = menuItem.map(_.uri)
+  val uri: Rx[String] = menuItem.map(_.uri)
 }
 
 

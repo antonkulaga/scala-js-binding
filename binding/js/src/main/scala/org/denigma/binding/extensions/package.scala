@@ -33,9 +33,10 @@ package object extensions extends AttributesOps
 
   implicit class MapOpt[TValue](source: Map[String, TValue]) {
 
-    def getOrError(key: String): Option[TValue] = {
+    def getOrError(key: String, inside: String = ""): Option[TValue] = {
       val g = source.get(key)
-      if(g.isEmpty) dom.console.error(s"failed to find item with key $key, all keys are: [${source.keySet.toList.mkString(", ")}]")
+      val in = if(inside=="") "" else " in "+inside + " "
+      if(g.isEmpty) dom.console.error(s"failed to find item with key $key$in, all keys are: [${source.keySet.toList.mkString(", ")}]")
       g
     }
   }

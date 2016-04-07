@@ -38,11 +38,11 @@ trait BindableView extends OrganizedView with BubbleView
    * @param fun
    * @return
    */
-  def withBinder(fun: this.type => ViewBinder): this.type  = withBinders(fun(this)::binders)
+  def withBinder(fun: this.type => ViewBinder): this.type  = { binders = binders ++ List(fun(this)); this }
 
-  def withBinders(fun: this.type => List[ViewBinder]): this.type  = withBinders(fun(this) ++ binders)
+  def withBinders(fun: this.type => List[ViewBinder]): this.type  = { binders = binders ++ fun(this); this }
 
-  override def makeDefault(el: Element, props:Map[String, Any] = Map.empty): ChildView = {
+  override def makeDefault(el: Element, props: Map[String, Any] = Map.empty): ChildView = {
     BindableView(el,props)
   }
 

@@ -25,7 +25,9 @@ trait Annotator extends BindableView {
 
   val location: Var[Bookmark]
 
-  val currentPaper:Var[Paper] = Var(EmptyPaper)
+  val scale = Var(1.2)
+
+  val currentPaper: Var[Paper] = Var(EmptyPaper)
   val currentPage: Var[Option[Page]] = Var(None)
   val currentPageNum = currentPage.map{
     case None=> 0
@@ -69,12 +71,18 @@ trait Annotator extends BindableView {
     el.children.foreach(deselect)
   }
 
+  def refreshPage() = if(this.currentPage.now.nonEmpty){
+    val paper = currentPaper.now
+    paper.getPage(currentPage.now.get.num).onSuccess{
+      case pg: Page => onPageChange(Some(pg))
+    }
+  }
+
    protected def onPageChange(pageOpt: Option[Page]): Unit =  pageOpt match
    {
      case Some(page) =>
       //println(s"page option change with ${page}")
-      var scale = 1.0
-      val viewport: PDFPageViewport = page.viewport(scale)
+      val viewport: PDFPageViewport = page.viewport(scale.now)
       var context = canvas.getContext("2d")//("webgl")
       canvas.height = viewport.height.toInt
       canvas.width =  viewport.width.toInt

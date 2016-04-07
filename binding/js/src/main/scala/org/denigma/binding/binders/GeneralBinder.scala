@@ -5,10 +5,8 @@ import org.denigma.binding.macroses._
 import org.denigma.binding.views.{BindableView, IDGenerator}
 import org.scalajs.dom
 import org.scalajs.dom._
-import org.scalajs.dom.raw.{Element, KeyboardEvent, MouseEvent}
 import rx._
 
-import scala.Predef
 import scala.collection.immutable.Map
 import scalatags.Text._
 
@@ -26,7 +24,8 @@ class GeneralBinder[View <: BindableView](val view: View, recover: => Option[Rea
   mpDouble: DoubleRxMap[View],mpInt: IntRxMap[View],
   mpEvent: EventMap[View],  mpMouse: MouseEventMap[View],
   mpText: TextEventMap[View], mpKey: KeyEventMap[View],
-  mpUI: UIEventMap[View], mpWheel: WheelEventMap[View], mpFocus: FocusEventMap[View]
+  mpUI: UIEventMap[View], mpWheel: WheelEventMap[View],
+  mpFocus: FocusEventMap[View], mpDrag: DragEventMap[View]
 ) extends ReactiveBinder
   with IDGenerator
   with VisibilityBinder
@@ -34,9 +33,7 @@ class GeneralBinder[View <: BindableView](val view: View, recover: => Option[Rea
   with PropertyBinder
   with EventBinder
   with UpDownBinder[View]
-//with Extractor
 {
-
   lazy val bools: Map[String, Rx[Boolean]] = mpBool.asBooleanRxMap(view)
 
   lazy val strings: Map[String, Rx[String]] = mpString.asStringRxMap(view)
@@ -49,9 +46,16 @@ class GeneralBinder[View <: BindableView](val view: View, recover: => Option[Rea
 
   lazy val mouseEvents: Map[String, rx.Var[MouseEvent]] = mpMouse.asMouseEventMap(view)
 
-  lazy val keyboardEvents:Map[String, Var[KeyboardEvent]] = mpKey.asKeyEventMap(view)
+  lazy val wheelEvents: Map[String, Var[WheelEvent]] = mpWheel.asWheelEventMap(view)
+
+  lazy val keyboardEvents: Map[String, Var[KeyboardEvent]] = mpKey.asKeyEventMap(view)
 
   lazy val events: Map[String, rx.Var[Event]] = mpEvent.asEventMap(view)
+
+  lazy val dragEvents: Map[String, Var[DragEvent]] = mpDrag.asDragEventMap(view)
+
+  lazy val focusEvents: Map[String, Var[FocusEvent]] = mpFocus.asFocusEventMap(view)
+
 
   override def bindAttributes(el: Element, atribs: Map[String, String]): Boolean = {
     val ats: Map[String, String] = this.dataAttributesOnly(atribs)
@@ -72,6 +76,7 @@ class GeneralBinder[View <: BindableView](val view: View, recover: => Option[Rea
 
   /**
     * This function can set
+    *
     * @param el Element
     * @return
     */
@@ -107,4 +112,5 @@ class GeneralBinder[View <: BindableView](val view: View, recover: => Option[Rea
       .orElse(propertyPartial(el))
       .orElse(setOnPartial(el))
       .orElse(eventsPartial(el))
+
 }

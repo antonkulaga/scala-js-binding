@@ -21,7 +21,7 @@ trait ClassBinder {
   def bools: Map[String, Rx[Boolean]]
 
 
-  protected def classIf(el: Element, className: String, cond: String) = for ( b<-bools.getOrError(cond) )
+  protected def classIf(el: Element, className: String, cond: String) = for ( b<-bools.getOrError(cond, el.outerHTML) )
   {
     //ifNoID(el,s"class-$className-If_$cond")
     b.foreach{
@@ -30,7 +30,7 @@ trait ClassBinder {
     }
   }
 
-  protected def classUnless(el: Element, className: String, cond: String) = for ( b<-bools.getOrError(cond) )
+  protected def classUnless(el: Element, className: String, cond: String) = for ( b<-bools.getOrError(cond, el.outerHTML) )
   {
     //ifNoID(el,s"class-$className-Unless_$cond")
     b.foreach{
@@ -79,7 +79,7 @@ trait ClassBinder {
       }
   }
 
-  def bindClass(el:Element,rxName: String) = for ( str<-strings.getOrError(rxName) ) {
+  def bindClass(el:Element,rxName: String) = for ( str<-strings.getOrError(rxName, el.outerHTML) ) {
     Rx.unsafe{
       str.zip.foreach{
         case (oldVal,newVal)=>

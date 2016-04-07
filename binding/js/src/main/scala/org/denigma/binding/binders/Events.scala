@@ -2,6 +2,7 @@ package org.denigma.binding.binders
 
 import org.scalajs.dom
 import org.scalajs.dom._
+import org.scalajs.dom.raw.HTMLElement
 
 object Events {
 
@@ -14,10 +15,29 @@ object Events {
   val mouseleave = "mouseleave"
   val mouseup = "mouseup"
   val mousedown = "mousedown"
+  val dblclick = "dblclick"
   val keypress = "keypress"
   val change = "change"
   val click = "click"
-
+  val mousewheel = "mousewheel"
+  val wheel = "wheel"
+  val scroll = "scroll"
+  val copy = "copy"
+  val paste = "paste"
+  val cut = "cut"
+  val beforecopy = "beforecopy"
+  val beforepaste = "beforepaste"
+  val beforecut = "beforecut"
+  val drag = "drag"
+  val dragend = "dragend"
+  val dragenter = "dragenter"
+  val dragleave = "dragleave"
+  val dragover = "dragover"
+  val dragstart = "dragstart"
+  val drop = "drop"
+  val focusin = "focusin"
+  val focusout = "focusout"
+  val focus = "focus"
 
   def createEvent() = dom.document.createEvent("Event")
 
@@ -38,5 +58,9 @@ object Events {
   def createStorageEvent() = dom.document.createEvent("StorageEvent").asInstanceOf[StorageEvent]
 
   def createWheelEvent() = dom.document.createEvent("WheelEvent").asInstanceOf[WheelEvent]
+
+  def createDragEvent() = dom.document.createEvent("DragEvent").asInstanceOf[DragEvent]
+
+  def createFocusEvent() = dom.document.createEvent("FocusEvent").asInstanceOf[FocusEvent]
 
 }

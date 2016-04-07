@@ -22,7 +22,7 @@ object Binder{
 trait Binder
 {
 
-  def bindAttributes(el:Element,attributes:Map[String, String] ):Boolean
+  def bindAttributes(el: Element, attributes: Map[String, String] ):Boolean
 
 }
 

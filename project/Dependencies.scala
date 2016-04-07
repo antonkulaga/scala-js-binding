@@ -9,13 +9,15 @@ case class CrossDep(
 object Dependencies {
 
   lazy val testing: Def.Initialize[Seq[ModuleID]] = Def.setting(Seq(
-		"org.scalatest" %%% "scalatest" % Versions.scalaTest % "test"
+		"org.scalatest" %%% "scalatest" % Versions.scalaTest % Test
   ))
 
 	lazy val macroses = CrossDep(
 		shared = Def.setting(Seq(
 			"com.lihaoyi" %%% "scalatags" % Versions.scalaTags,
+
 			"com.lihaoyi" %%% "scalarx" % Versions.scalaRx,
+
 			"com.github.marklister" %%% "product-collections" % Versions.productCollections
 		)),
 
@@ -24,7 +26,9 @@ object Dependencies {
 		js = Def.setting(Seq("org.scala-js" %%% "scalajs-dom" % Versions.dom))
 	)
 
-	val binding = CrossDep(shared = Def.setting(Seq("com.softwaremill.quicklens" %%% "quicklens" % Versions.quicklens)),
+	val binding = CrossDep(shared = Def.setting(
+		Seq.empty
+	),
 			jvm = Def.setting(Seq.empty),
 			js  = Def.setting(Seq("org.querki" %%% "jquery-facade" % Versions.jqueryFacade))
 	)

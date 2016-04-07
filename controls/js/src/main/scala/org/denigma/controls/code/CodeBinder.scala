@@ -23,7 +23,8 @@ class CodeBinder[View <: BindableView](view: View, recover: Option[ReactiveBinde
                                      mpDouble: DoubleRxMap[View], mpInt: IntRxMap[View],
                                      mpEvent: EventMap[View], mpMouse: MouseEventMap[View],
                                      mpText: TextEventMap[View], mpKey: KeyEventMap[View],
-                                     mpUI: UIEventMap[View], mpWheel: WheelEventMap[View], mpFocus: FocusEventMap[View]
+                                     mpUI: UIEventMap[View], mpWheel: WheelEventMap[View],
+                                     mpFocus: FocusEventMap[View],  mpDrag: DragEventMap[View]
                                       )
 extends GeneralBinder[View](view, recover)(
   mpMap, mpTag,
@@ -31,7 +32,7 @@ extends GeneralBinder[View](view, recover)(
   mpDouble, mpInt,
   mpEvent, mpMouse,
   mpText, mpKey,
-  mpUI, mpWheel, mpFocus)
+  mpUI, mpWheel, mpFocus, mpDrag)
 {
   val modes: Map[String, String] = Map(
     "html"->"htmlmixed",
@@ -46,10 +47,8 @@ extends GeneralBinder[View](view, recover)(
   var editors = Map.empty[HTMLElement, Editor]
 
   def allStrings: String =strings.mapValues(str=>str.now).mkString("\n") //for debugging
+
   def allStringsKeys: String =strings.map{case (key, value) => key}.mkString("\n")  //for debugging
-
-
-  //dom.console.log(s"extracted strings in code binder for ${view.id} are: $allStringsKeys")
 
  override def elementPartial(el: Element, ats: Map[String, String]) = super.elementPartial(el, ats).orElse(codePartial(el, ats))
 
