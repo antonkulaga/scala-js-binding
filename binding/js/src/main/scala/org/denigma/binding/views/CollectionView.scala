@@ -142,7 +142,7 @@ trait CollectionView extends BindableView
     view
   }
 
-  var itemViews = Map.empty[Item, ItemView]
+  val itemViews = Var(Map.empty[Item, ItemView])
 
   def addItemView(item: Item, iv: ItemView): ItemView = {
     Try ( template.parentElement.insertBefore(iv.viewElement, template) ) match {
@@ -157,18 +157,18 @@ trait CollectionView extends BindableView
     iv match {
       case b: ChildView =>  this.addView(b)
     }
-    itemViews = itemViews + (item->iv)
+    itemViews() = itemViews.now + (item->iv)
     iv.bindView()
     iv
   }
 
-  def removeItemView(r: Item): Unit =  this.itemViews.get(r) match {
+  def removeItemView(r: Item): Unit =  this.itemViews.now.get(r) match {
     case Some(rv) =>
       rv.unbindView()
       this.removeViewByName(rv.id)
-      this.itemViews = itemViews - r
+      this.itemViews() = itemViews.now - r
     case None =>
-      dom.console.error("cannot find the view for item: "+r.toString+" in item view "+this.itemViews.toString+"\n")
+      dom.console.error("cannot find the view for item: "+r.toString+" in item view "+this.itemViews.now.toString+"\n")
   }
 
   def newItemView(item: Item): ItemView

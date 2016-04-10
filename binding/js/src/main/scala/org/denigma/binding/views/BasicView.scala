@@ -48,7 +48,7 @@ trait IDGenerator
 trait BasicView extends IDGenerator
 {
 
-  require(elem!=null,s"html element of view of class ${this.getClass.getName} with id $id  must not be null!")
+  require(elem != null,s"html element of view of class ${this.getClass.getName} with id $id  must not be null!")
 
   def binders: List[ViewBinder]
 
@@ -68,7 +68,7 @@ trait BasicView extends IDGenerator
   /**
    * Id of this view
    */
-  val id: String = this.ifNoID(elem, this.className)
+  lazy val id: String = this.ifNoID(elem, this.className)
 
   implicit var subviews = Map.empty[String, ChildView]
 

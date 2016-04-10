@@ -49,13 +49,14 @@ trait UpDownBinder[View<:BindableView]{
     }
   }
 
-  //note: BAD CODE!!!
   protected def upPartial(el: Element, atribs: Map[String, String]): PartialFunction[(String, String), Unit] = {
     case (bname, rxName) if bname.startsWith("up-")=>
       val tup = (bname.replace("up-", ""), rxName)
       for(p <- this.view.parent) {
         //println("BINDERS = " +p.binders)
-        p.binders.collectFirst{case b: GeneralBinder[_] => b.elementPartial(el, atribs)(tup)}
+        val funcs: List[PartialFunction[(String, String), Unit]] = p.binders.collect{ case b: GeneralBinder[_] => b.elementPartial(el, atribs)  }
+        val fun = funcs.reduce((a, b)=> a.orElse(b) )
+        if(fun.isDefinedAt(tup)) fun(tup) else fun((bname, rxName))
       }
   }
 

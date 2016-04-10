@@ -22,6 +22,7 @@ trait Routes extends Directives with PJax with TextFilesDirectives
 
   lazy val sourcesPath = "js/src/main/scala/"
 
+
   def defaultPage: Option[Html] = None
 
 

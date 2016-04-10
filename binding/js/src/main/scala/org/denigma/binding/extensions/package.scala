@@ -15,6 +15,7 @@ package object extensions extends AttributesOps
   with ElementOps
   with EventsOps
   with DataOps
+  with MapOps
 {
 
   //implicit def toAnyRxW[T](source: Rx[T]): AnyRxW[T] = new AnyRxW[T](source)

@@ -14,7 +14,8 @@ import scalatags.Text._
 /**
  * Binders that extracts most of reaactive variables
  * DO NO BE SCARED BY NUMBER OF IMPLICITS, THEY ARE RESOLVED AUTOMATICALLY!
- * @param view
+  *
+  * @param view
  * @tparam View
  */
 class GeneralBinder[View <: BindableView](val view: View, recover: => Option[ReactiveBinder] = None)
@@ -92,10 +93,19 @@ class GeneralBinder[View <: BindableView](val view: View, recover: => Option[Rea
                 //println(s"event is $event and str is $where")
                 el.addEventListener[Event](event, {
                   ev: Event =>
-                    println(s"${where}(${vstr.now}) = $value")
                     vstr()= value
                 })
-              case _ => dom.console.error(s"cannot find $where variable")
+              case _=>
+                if(value=="true" || value=="false") bools.get(where) match {
+                  case Some(bool: Var[Boolean]) =>
+                    el.addEventListener[Event](event, {
+                      ev: Event =>
+                        bool() = if (value == "false") false else true
+                    })
+                  case None =>
+                    dom.console.error(s"cannot find $where variable")
+                }
+                else dom.console.error(s"cannot find $where variable")
             }
           }
           else dom.console.error(s"settings expression is wrong: $key")

@@ -14,8 +14,8 @@ trait ItemsSeqView extends CollectionView {
   lazy val updates: Rx[SequenceUpdate[Item]] = items.updates
 
   protected def onMove(mv: Moved[Item]) = {
-    val fr = itemViews(items.now(mv.from))
-    val t = itemViews(items.now(mv.to))
+    val fr = itemViews.now(items.now(mv.from))
+    val t = itemViews.now(items.now(mv.to))
     this.replace(t.viewElement, fr.viewElement)
   }
 
