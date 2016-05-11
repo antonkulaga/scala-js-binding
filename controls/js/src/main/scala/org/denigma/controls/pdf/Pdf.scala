@@ -5,7 +5,8 @@ import org.scalajs.dom.raw.HTMLElement
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation._
-import scala.scalajs.js.typedarray.Uint8Array
+import scala.scalajs.js.typedarray.{ArrayBuffer, Uint8Array}
+import scala.scalajs.js.|
 
 @js.native
 object PDFJS extends PDFJSStatic
@@ -207,7 +208,7 @@ trait PDFObjects extends js.Object {
 trait PDFJSStatic extends js.Object {
   var maxImageSize: Double = js.native
   var disableFontFace: Boolean = js.native
-  def getDocument(source: String, pdfDataRangeTransport: js.Any = ???, passwordCallback: js.Function2[js.Function1[String, Unit], String, String] = ???, progressCallback: js.Function1[PDFProgressData, Unit] = ???): PDFPromise[PDFDocumentProxy] = js.native
+  def getDocument(source: String | ArrayBuffer, pdfDataRangeTransport: js.Any = ???, passwordCallback: js.Function2[js.Function1[String, Unit], String, String] = ???, progressCallback: js.Function1[PDFProgressData, Unit] = ???): PDFPromise[PDFDocumentProxy] = js.native
   def PDFViewer(params: PDFViewerParams): Unit = js.native
   var workerSrc: String = js.native
 }

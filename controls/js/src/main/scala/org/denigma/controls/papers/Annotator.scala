@@ -19,13 +19,14 @@ import scala.util.{Failure, Success}
 trait Annotator extends BindableView {
 
   def canvas: Canvas
+
   val textLayerDiv: Element
 
   def paperURI: Rx[String]
 
   val location: Var[Bookmark]
 
-  val scale = Var(1.2)
+  val scale = Var(1.4)
 
   val currentPaper: Var[Paper] = Var(EmptyPaper)
   val currentPage: Var[Option[Page]] = Var(None)
@@ -137,6 +138,7 @@ trait Annotator extends BindableView {
   protected def subscribePapers(): Unit ={
     currentPage.onChange(onPageChange)
     location.foreach(onLocationUpdate)
+    scale.onChange{ case sc=> refreshPage()  }
   }
 }
 

@@ -1,15 +1,16 @@
 package org.denigma.controls.papers
 
-import org.denigma.binding.binders.{GeneralBinder, Events}
-import org.denigma.binding.views.{ItemsSeqView, BindableView}
+import org.denigma.binding.binders.{Events, GeneralBinder}
+import org.denigma.binding.views.{BindableView, ItemsSeqView}
 import org.denigma.controls.pdf._
 import org.denigma.controls.pdf.extensions._
-import org.querki.jquery.{JQuery, $}
+import org.querki.jquery.{$, JQuery}
 import org.scalajs.dom
-import org.scalajs.dom.{MouseEvent, Event}
-import org.scalajs.dom.html.{Div, Canvas}
-import org.scalajs.dom.raw.{DocumentFragment, Selection, HTMLElement, Element}
+import org.scalajs.dom.{Event, MouseEvent}
+import org.scalajs.dom.html.{Canvas, Div}
+import org.scalajs.dom.raw.{DocumentFragment, Element, HTMLElement, Selection}
 import rx.opmacros.Utils.Id
+
 import scala.collection.immutable._
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
@@ -20,6 +21,8 @@ import org.denigma.binding.extensions._
 import rx.Ctx.Owner.Unsafe.Unsafe
 import rx.async._
 import rx.async.Platform._
+
+import scala.scalajs.js.typedarray.ArrayBuffer
 
 case class Page(num: Int, pdf: PDFPageProxy)
 {
@@ -141,6 +144,17 @@ class PaperLoader(
         val paper = Paper(path,proxy)
         cache = cache.updated(path, paper)
         paper
+      }
+    }
+  }
+
+  def getPaper(name: String, data: ArrayBuffer): Future[Paper] = {
+    cache.get(name).map(Future.successful).getOrElse{
+      PDFJS.getDocument(data).toFuture.map{
+        case proxy =>
+          val paper = Paper(name, proxy)
+          cache = cache.updated(name, paper)
+          paper
       }
     }
   }

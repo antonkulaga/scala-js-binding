@@ -3,8 +3,16 @@ package org.denigma.controls.models
 import java.util.Date
 
 import scala.collection.immutable.Seq
+import boopickle.Default._
 
-trait WebMessage
+object WebMessage {
+  implicit val WebMessage = compositePickler[WebMessage].
+    addConcreteType[Suggest].
+    addConcreteType[Suggestion]
+
+}
+
+sealed trait WebMessage
 {
   val channel: String
   val time: Date = new Date()

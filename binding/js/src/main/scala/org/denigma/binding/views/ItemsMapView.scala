@@ -38,5 +38,10 @@ trait ItemsMapView extends CollectionView{
       upd.removed.foreach{ case (key, value ) => removeItemView(key)}
       upd.updated.foreach{ case( key, (old, current))=> itemViews.now(key).update(current)}
     })
+    for ( (key, value) <- items.now) {
+      val n = newItemView(key)
+      n.update(value)
+      this.addItemView(key, n)
+    }
   }
 }

@@ -150,23 +150,20 @@ lazy val preview = crossProject
 		.in(file("preview"))
 		.settings(commonSettings++publishSettings: _*)
 		.settings(
-			name := "preview"
+			name := "preview",
+      libraryDependencies ++= Dependencies.preview.shared.value
 		).disablePlugins(RevolverPlugin)
 		.jsConfigure(p => p.enablePlugins(ScalaJSPlay))
 		.jsSettings(
 			persistLauncher in Compile := true,
 			persistLauncher in Test := false,
-			libraryDependencies ++= Dependencies.previewJS.value,
-			jsDependencies += RuntimeDOM % "test"
+			libraryDependencies ++= Dependencies.preview.js.value,
+			jsDependencies += RuntimeDOM % Test
 		)
 		.jvmConfigure(p => p.enablePlugins(SbtTwirl, SbtWeb).enablePlugins(PlayScalaJS)) //despite "Play" in name it is actually sbtweb-related plugin
 		.jvmSettings(
       TwirlKeys.templateImports += "org.denigma.preview.Mode._",
-      libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Seq(
-			  "me.chrons" %% "boopickle" % Versions.booPickle,
-			  "org.seleniumhq.selenium" % "selenium-java" % Versions.seleniumJava % "test"
-        //"org.spire-math" %%% "spire" % Versions.spire
-      ),
+      libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Dependencies.preview.jvm.value,
 			mainClass in Compile := Some("org.denigma.preview.Main"),
 			scalaJSDevStage := scalaJSDevTaskStage.value,
 			//pipelineStages := Seq(scalaJSProd, gzip),

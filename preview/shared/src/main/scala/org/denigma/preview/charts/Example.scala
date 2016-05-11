@@ -40,8 +40,8 @@ object Defaults1 {
   lazy val eta_L: Double = 4
   lazy val eta_T: Double = 4
 
-  lazy val lacIRepression = HillRepression(kappa_L_m, theta_T, eta_T,gamma_L_m, kappa_L_m0)
-  lazy val tetRRepression = HillRepression(kappa_T_m, theta_L, eta_L,gamma_T_m, kappa_T_m0)
+  lazy val lacIRepression = HillRepression(kappa_L_m, theta_T, eta_T, gamma_L_m, kappa_L_m0)
+  lazy val tetRRepression = HillRepression(kappa_T_m, theta_L, eta_L, gamma_T_m, kappa_T_m0)
   lazy val lacIProduction = ProductionDelusion(kappa_L_p, gamma_L_p)
   lazy val tetRProduction = ProductionDelusion(kappa_T_p, gamma_T_p)
 }

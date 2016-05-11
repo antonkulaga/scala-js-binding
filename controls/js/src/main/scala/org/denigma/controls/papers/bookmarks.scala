@@ -21,7 +21,7 @@ case class Bookmark(paper: String, page: Int, selections: List[TextSelection] = 
 //case class SimpleBookmark(paper: String, page: Int, selection: String = "") extends Bookmark
 
 
-class BookmarkView(val elem: Element, val bookmark: Rx[Bookmark], location:Var[Bookmark]) extends BindableView {
+class BookmarkView(val elem: Element, val bookmark: Rx[Bookmark], location: Var[Bookmark]) extends BindableView {
   val go: Var[MouseEvent] = Var(Events.createMouseEvent())
   go.triggerLater{
     val sel = bookmark.now.selections

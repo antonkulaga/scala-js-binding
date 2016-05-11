@@ -59,11 +59,30 @@ object Dependencies {
 	)
 
 
+	/*
 	val previewJS = Def.setting(Seq(
 		"org.denigma" %%% "semantic-ui-facade" % Versions.semanticUIFacade
 		//"org.spire-math" %%% "spire" % Versions.spire
 		)
 	)
+	*/
+
+	val preview = CrossDep(
+		shared = Def.setting(Seq(		"com.lihaoyi" %%% "fastparse" % Versions.fastparse )),
+		jvm  = Def.setting(styles.value ++ akka.value ++ otherJVM.value ),
+		js = Def.setting(styles.value ++ Seq("org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade)
+		)
+	)
+
+	lazy val otherJVM = Def.setting(Seq(
+		"org.seleniumhq.selenium" % "selenium-java" % Versions.seleniumJava % Test,
+
+		"com.iheart" %% "ficus" % Versions.ficus,
+
+		"com.github.pathikrit"  %% "better-files-akka"  % Versions.betterFiles
+	))
+
+
 
 	// akka-related libs
 	lazy val akka = Def.setting(Seq(
@@ -76,7 +95,7 @@ object Dependencies {
 
 		"com.typesafe.akka" %% "akka-http-experimental" % Versions.akkaHttp,
 
-		"com.typesafe.akka" %% "akka-http-testkit" % Versions.akkaHttp % "test"
+		"com.typesafe.akka" %% "akka-http-testkit" % Versions.akkaHttp % Test
 
 	))
 

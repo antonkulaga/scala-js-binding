@@ -10,7 +10,6 @@ import org.denigma.preview.charts.ChartsView
 import org.denigma.preview.slides._
 import org.scalajs.dom
 import org.scalajs.dom.raw.Element
-import org.semantic.SidebarConfig
 import rx._
 import rx.Ctx.Owner.Unsafe.Unsafe
 
@@ -25,8 +24,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
 
   lazy val elem: Element = dom.document.body
 
-  val sidebarargs = SidebarConfig.exclusive(false).dimPage(false).closable(false).useLegacy(true)
-
   val session = new AjaxSession()
 
   /**
@@ -35,10 +32,6 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
   override lazy val injector = defaultInjector
     .register("experiments"){
       case (el, args) =>  new Experiments(el).withBinder(new GeneralBinder(_))
-    }
-    .register("sidebar"){
-      case (el, args) =>
-        new SidebarView(el).withBinder(new GeneralBinder(_))
     }
     .register("menu"){
       case (el, args) => new MenuView(el)

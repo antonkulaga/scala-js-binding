@@ -10,6 +10,7 @@ import org.denigma.controls.models._
 import org.denigma.controls.sockets.WebSocketSubscriber
 import org.scalajs.dom.KeyboardEvent
 import org.scalajs.dom.ext.KeyCode
+
 import scala.collection.immutable
 import scala.collection.immutable._
 import org.denigma.binding.extensions._
@@ -17,6 +18,7 @@ import rx._
 import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.concurrent.duration.FiniteDuration
+import scala.util.{Success, Try}
 
 trait WithDelay {
 
@@ -42,9 +44,11 @@ trait WithDelay {
   }
 }
 
-case class TextOptionsSuggester(input:Rx[String],subscriber:WebSocketSubscriber)
-  extends Suggester with WebPicklers with BinaryWebSocket with WithDelay
+trait TextOptionsSuggester extends Suggester with BinaryWebSocket with WithDelay
 {
+
+  def input: Rx[String]
+  def subscriber: WebSocketSubscriber
 
   import scala.concurrent.duration._
 
@@ -52,20 +56,25 @@ case class TextOptionsSuggester(input:Rx[String],subscriber:WebSocketSubscriber)
 
   lazy val minSuggestLength = 1
 
+  protected def onDelayedInput(inp: String): Unit
+  protected def unpickle(bytes: ByteBuffer): Try[WebMessage]
 
+  /*
+  case inp=>
+  if(inp.length >= minSuggestLength){
+    import boopickle.Default._
+    val bytes: ByteBuffer = Pickle.intoBytes[WebMessage](Suggest(inp, subscriber.channel))
+    subscriber.send(bytes2message(bytes))
+  }*/
+
+  //Unpickle[WebMessage].fromBytes
 
   val dalayedInput = afterLastChange(input, inputDelay)
-  dalayedInput.onChange{case inp=>
-    if(inp.length>=minSuggestLength){
-      import boopickle.Default._
-      val bytes: ByteBuffer = Pickle.intoBytes[WebMessage](Suggest(inp,subscriber.channel))
-      subscriber.send(bytes2message(bytes))
-    }
-  }
+  dalayedInput.onChange(onDelayedInput)
 
-  protected def updateFromMessage(bytes:ByteBuffer) = {
-    Unpickle[WebMessage].fromBytes(bytes) match {
-      case Suggestion(inp,channel,sug)=>
+  protected def updateFromMessage(bytes: ByteBuffer) = {
+    unpickle(bytes) match {
+      case Success( Suggestion(inp, channel, sug) )=>
         suggestions() = sug.toList
 
       case other=>  println("something other was found! "+other)
@@ -74,7 +83,7 @@ case class TextOptionsSuggester(input:Rx[String],subscriber:WebSocketSubscriber)
 
   this.subscriber.onMessage.onChange(onMessage)
 
-  lazy val suggestions:Var[scala.collection.immutable.Seq[TextOption]] = Var(Seq.empty)
+  lazy val suggestions: Var[scala.collection.immutable.Seq[TextOption]] = Var(Seq.empty)
 
   def clear() = suggestions() = immutable.Seq.empty
 }
