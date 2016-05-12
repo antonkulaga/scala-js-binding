@@ -30,6 +30,7 @@ class WebSocketSuggester(val input: Rx[String], val subscriber: WebSocketTranspo
       case Data(mess)=> Success(mess)
       case other=> new Failure(new Exception("unexpected message "+other))
     }
+
   subscriber.open()
 }
 

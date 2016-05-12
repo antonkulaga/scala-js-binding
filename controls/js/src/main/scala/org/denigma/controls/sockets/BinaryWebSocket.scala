@@ -28,7 +28,7 @@ trait BinaryWebSocket {
 
   protected def toByteBuffer(data: Any) = TypedArrayBuffer.wrap(data.asInstanceOf[ArrayBuffer])
 
-  protected def onMessage(mess: MessageEvent) = {
+  protected def onMessageEvent(mess: MessageEvent) = {
     mess.data match{
       case str: String=>  dom.console.log(s"message from websocket: " + str)
 

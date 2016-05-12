@@ -29,10 +29,11 @@ trait WebSocketTransport2 extends WebSocketSubscriber with BinaryWebSocket {
 
   def open(): Unit
 
+  def connected: Var[Boolean] = opened
+
   onMessage.triggerLater{
     val mess = onMessage.now
-    println("message received "+mess)
-    onMessage(mess)
+    onMessageEvent(mess)
   }
 
   protected def unpickle(bytes: ByteBuffer): Input
@@ -40,7 +41,7 @@ trait WebSocketTransport2 extends WebSocketSubscriber with BinaryWebSocket {
   protected def pickle(message: Output): ByteBuffer
 
   def ask[Result](message: Output, timeout: FiniteDuration)(partial: PartialFunction[Input, Result]): Future[Result] = {
-    println("ask is used for message "+message)
+    //println("ask is used for message "+message)
     val expectation = TimeoutExpectation[Input, Result](input, timeout)(partial)
     output() = message
     expectation.future
@@ -57,21 +58,12 @@ trait WebSocketTransport2 extends WebSocketSubscriber with BinaryWebSocket {
     input() = unpickle(bytes)
   }
 
+  output.triggerLater{ send(output.now) }
 
-  output.triggerLater{
-    println("output trigger later")
-    send(output.now)
-  }
-
-  def send(message: Output): Unit = if(opened.now) {
+  def send(message: Output): Unit = {
     println("send message: "+message)
     val mes = bytes2message(pickle(message))
     send(mes)
-  } else opened.triggerOnce{
-    case true =>
-      println("send after delay")
-      send(message)
-    case false =>
   }
 
 }

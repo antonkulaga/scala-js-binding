@@ -59,7 +59,6 @@ trait Expectation[Input, Output] {
   val inputObservable = input.triggerLater {
     val mes = input.now
     if (partialFunction.isDefinedAt(mes)) {
-      println("it works!")
       promise.success(partialFunction(mes))
     }
   }

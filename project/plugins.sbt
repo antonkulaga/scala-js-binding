@@ -1,4 +1,4 @@
-addSbtPlugin("com.typesafe.sbt" % "sbt-web" % "1.3.0") // advanced assets handling
+addSbtPlugin("com.typesafe.sbt" % "sbt-web" % "1.4.0") // advanced assets handling
 
 addSbtPlugin("io.spray" % "sbt-revolver" % "0.8.0") //live refresh
 

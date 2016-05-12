@@ -12,7 +12,9 @@ object WebMessages {
       addConcreteType[WebMessages.ServerErrors].
       addConcreteType[WebMessages.Data].
       addConcreteType[WebMessages.DataMessage].
-      addConcreteType[WebMessages.Load]
+      addConcreteType[WebMessages.Load].
+      addConcreteType[WebMessages.Connected].
+      addConcreteType[WebMessages.Disconnected]
   }
 
   sealed trait Message
@@ -28,5 +30,10 @@ object WebMessages {
   case class Load(path: String) extends Message
 
   case object EmptyMessage extends Message
+
+  case class Connected(username: String, channel: String, users: List[String]) extends Message
+
+  case class Disconnected(username: String, channel: String, users: List[String]) extends Message
+
 
 }

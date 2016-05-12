@@ -36,8 +36,7 @@ trait WebSocketSubscriber
   val channel: String
 
   val webSocketOpt: Var[Option[WebSocket]] = Var(None)
-
-  val connected: Rx[Boolean] = webSocketOpt.map(_.isDefined)
+  val hasWebSocket: Rx[Boolean] = webSocketOpt.map(_.isDefined)
   val urlOpt: Var[Option[String]] = Var(None)
 
   protected def onUrlChange(url: Option[String]): Unit = url match{
@@ -60,7 +59,6 @@ trait WebSocketSubscriber
 
   def send(message: ArrayBuffer): Unit = webSocketOpt.now match {
     case Some(w)=>
-      println("sending arraybuffer message")
       w.send(message)
     case None=> dom.console.error("websocket is not initialized")
   }
@@ -90,9 +88,21 @@ trait WebSocketSubscriber
   val opened: Var[Boolean] = Var(false)
 
   onOpen.triggerLater{
-    println("opened")
+    openHandler()
+  }
+
+  protected def openHandler() = {
+    println("websocket opened")
     opened() = true
   }
-  onClose.triggerLater(opened() = false)
+
+  onClose.triggerLater{
+    closeHandler()
+  }
+
+  protected def closeHandler() = {
+    println("websocket closed")
+    opened() = false
+  }
 
 }

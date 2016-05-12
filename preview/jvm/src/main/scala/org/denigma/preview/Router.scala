@@ -43,5 +43,5 @@ class Router(files: File)(implicit fm: Materializer, system: ActorSystem) extend
   }
 
 
-  def routes: Route = new Head().routes ~ new Pages().routes ~ loadFiles  ~ new WebSockets(transport.openChannel).routes ~  loadSources
+  def routes: Route = new Head().routes ~ new Pages().routes ~ loadFiles  ~ new WebSockets("test", transport.openChannel).routes ~  loadSources
 }

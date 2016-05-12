@@ -44,6 +44,7 @@ lazy val commonSettings = Seq(
   organization := "org.denigma",
   scalacOptions ++= Seq( "-feature", "-language:_" ),
   resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"), // for scala-js-binding
+  resolvers += Resolver.jcenterRepo,
   libraryDependencies ++= Dependencies.testing.value,
   unmanagedClasspath in Compile <++= unmanagedResources in Compile,
   updateOptions := updateOptions.value.withCachedResolution(true) // to speed up dependency resolution

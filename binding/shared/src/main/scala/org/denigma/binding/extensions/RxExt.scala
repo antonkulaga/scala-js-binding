@@ -37,7 +37,7 @@ trait RxExt extends CommonOps {
 
 
 
-    def triggerN(num: Int)(fun: T => Unit): Unit = {
+    def triggerN(num: Int)(fun: T => Unit): Obs = {
       var counter = num
       def triggerN(obs: =>Obs)(fun: T => Unit): Unit =  {
         counter = counter - 1
@@ -49,7 +49,7 @@ trait RxExt extends CommonOps {
       lazy val obs: Obs = source.triggerLater {
         triggerN(obs)(fun)
       }
-      val test = obs
+      obs
     }
 
     def triggerOnce(fun: T => Unit): Unit = triggerN(1)(fun)
@@ -109,16 +109,10 @@ trait RxExt extends CommonOps {
 
     var previous: Col = col.now
 
-   /* lazy val red: Rx[(Col, Col)] = Rx{
-      val old = previous
-      if(col.now!=previous)  previous = col() //TODO: maybe dangerous!
-      (old, previous)
-    }*/
     val zipped: Rx[(Col, Col)] = Rx{
      val old = previous
      val cur = col()
      if (cur != previous)  previous = cur //TODO: maybe dangerous!
-     //println(s"zipped for $old ${cur}")
      (old, cur)
    }
 

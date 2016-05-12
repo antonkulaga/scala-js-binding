@@ -8,6 +8,7 @@ import akka.stream.scaladsl.Flow
 import scala.concurrent.Future
 
 class WebSockets(
+                channel: String,
                 makeChannel: (String, String) => Flow[Message, Message, _]
                 ) extends  AuthDirectives with Directives with WithLoginRejections with WithRegistrationRejections
 {
@@ -24,11 +25,11 @@ class WebSockets(
     */
   def routes: Route =
     pathPrefix("channel"){
-      pathPrefix("test"){
+      pathPrefix(channel){
         parameter("username"){
           username=>
             println(s"username = $username")
-            handleWebSocketMessages(makeChannel("notebook", username))
+            handleWebSocketMessages(makeChannel(channel, username))
         }
       }
     }

@@ -1,6 +1,7 @@
 package org.denigma.preview.communication
 
 import akka.actor.{Actor, ActorLogging, ActorRef}
+import org.denigma.preview.messages.WebMessages.Connected
 
 class RoomActor(channel: String) extends Actor with ActorLogging{
 
@@ -12,7 +13,7 @@ class RoomActor(channel: String) extends Actor with ActorLogging{
       //broadcast(SystemMessage(s"User $name joined channel..."))
       //self ! RoomMessages.Broadcast(_, message, name, true)
       log.info(s"User $name joined channel[$channel]")
-      //actorRef ! Connected(name, channel, Nil)
+      actorRef ! Connected(name, channel, participants.keys.toList)
 
 
     case SocketMessages.UserLeft(name, _, time) =>

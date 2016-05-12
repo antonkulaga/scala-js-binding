@@ -13,6 +13,7 @@ import org.denigma.preview.FileManager
 import org.denigma.preview.communication.SocketMessages.OutgoingMessage
 import org.denigma.preview.data.TestOptions
 import org.denigma.preview.messages.WebMessages
+import org.denigma.preview.messages.WebMessages.{Connected, Disconnected}
 
 import scala.annotation.tailrec
 trait SomeMessage
@@ -71,7 +72,6 @@ class UserActor(username: String, fileManager: FileManager) extends Actor
           send(d)
 
         case mess @ WebMessages.Load(path) =>
-          log.info("load message received!!!!")
           fileManager.readBytes(path) match {
             case Some(bytes)=>
               println("bytes received "+bytes.length)
@@ -86,6 +86,18 @@ class UserActor(username: String, fileManager: FileManager) extends Actor
     //log.error(s"something binary received on $channel by $username")
   }
 
+  protected def onServerMessage: Receive = {
+
+    case result: Connected =>
+      val d = Pickle.intoBytes[WebMessages.Message](result)
+      send(d)
+
+    case d @ Disconnected(user, channel, participants) =>
+      log.info(s"User $user disconnected from channel $channel")
+
+  }
+
+
   protected def onOtherMessage: Receive = {
 
     case ActorPublisherMessage.Request(n) => deliverBuf()
@@ -94,7 +106,7 @@ class UserActor(username: String, fileManager: FileManager) extends Actor
   }
 
 
-  override def receive: Receive =  onTextMessage.orElse(onBinaryMessage).orElse(onOtherMessage)
+  override def receive: Receive =  onTextMessage.orElse(onBinaryMessage).orElse(onServerMessage).orElse(onOtherMessage)
 
   def deliver(mess: OutgoingMessage) = {
     if (buf.isEmpty && totalDemand > 0)

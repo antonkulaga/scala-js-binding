@@ -1,11 +1,6 @@
 package org.denigma.preview.slides
 
-import scalajs.concurrent.JSExecutionContext.Implicits.queue
-
-import java.nio.ByteBuffer
-
 import org.denigma.binding.binders.Events
-import org.denigma.binding.extensions._
 import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.papers._
 import org.denigma.preview.WebSocketTransport
@@ -19,8 +14,9 @@ import rx.Ctx.Owner.Unsafe.Unsafe
 import rx._
 
 import scala.collection.immutable._
-import scala.concurrent.{Future, Promise}
 import scala.concurrent.duration._
+import scala.concurrent.{Future, Promise}
+import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
 import scala.scalajs.js.typedarray.{ArrayBuffer, Uint8Array}
 
@@ -28,17 +24,9 @@ case class WebSocketPaperLoader(subscriber: WebSocketTransport,
                                 loadedPapers: Var[Map[String, Paper]])
   extends PaperLoader {
 
-
-  subscriber.input.onChange{
-    case inp =>
-      println("input is going: " + inp)
-  }
-
   override def getPaper(path: String, timeout: FiniteDuration = 25 seconds): Future[Paper] =
     this.subscriber.ask[Future[ArrayBuffer]](WebMessages.Load(path), timeout){
       case WebMessages.DataMessage(source, bytes) =>
-        println("PAPER message received!")
-        //val arr= new Uint8Array(data.toJSArray)
         bytes2Arr(bytes)
     }.flatMap{case arr=>arr}.flatMap{ case arr=>  super.getPaper(path, arr) }
 
