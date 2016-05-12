@@ -36,7 +36,7 @@ trait Annotator extends BindableView {
   }
 
   //val paperManager: PaperManager = new PaperManager(currentBookmark, Var(Map.empty), workerPath)
-  lazy val paperLoader = new PaperLoader()
+  def paperLoader: PaperLoader
 
   val hasNextPage: Rx[Boolean] = Rx{
     val paper = currentPaper()
@@ -109,6 +109,9 @@ trait Annotator extends BindableView {
         //println("nothing changes")
         textLayerDiv.innerHTML = ""
    }
+
+  import scala.concurrent.duration._
+  implicit def timeout: FiniteDuration = 10 seconds
 
   protected def onLocationUpdate(bookmark: Bookmark): Unit = {
     //print(s"bookmark update $bookmark")

@@ -10,7 +10,7 @@ import scala.scalajs.js.typedarray.{ArrayBuffer, TypedArrayBuffer}
 
 trait BinaryWebSocket {
 
-  protected def updateFromMessage(bytes: ByteBuffer): Unit
+  protected def updateFromBinaryMessage(bytes: ByteBuffer): Unit
 
   implicit def bytes2message(data: ByteBuffer): ArrayBuffer = {
     if (data.hasTypedArray()) {
@@ -28,7 +28,6 @@ trait BinaryWebSocket {
 
   protected def toByteBuffer(data: Any) = TypedArrayBuffer.wrap(data.asInstanceOf[ArrayBuffer])
 
-
   protected def onMessage(mess: MessageEvent) = {
     mess.data match{
       case str: String=>  dom.console.log(s"message from websocket: " + str)
@@ -37,14 +36,14 @@ trait BinaryWebSocket {
         val reader = new FileReader()
         def onLoadEnd(ev: ProgressEvent): Any = {
           val buff = reader.result
-          updateFromMessage(toByteBuffer(buff))
+          updateFromBinaryMessage(toByteBuffer(buff))
         }
         reader.onloadend = onLoadEnd _
         reader.readAsArrayBuffer(blob)
 
       case buff: ArrayBuffer=>
-        val bytes = TypedArrayBuffer.wrap(buff)
-        updateFromMessage(bytes)
+        val bytes: ByteBuffer = TypedArrayBuffer.wrap(buff)
+        updateFromBinaryMessage(bytes)
     }
   }
 

@@ -44,7 +44,7 @@ trait WithDelay {
   }
 }
 
-trait TextOptionsSuggester extends Suggester with BinaryWebSocket with WithDelay
+trait TextOptionsSuggester extends Suggester with WithDelay
 {
 
   def input: Rx[String]
@@ -81,7 +81,7 @@ trait TextOptionsSuggester extends Suggester with BinaryWebSocket with WithDelay
     }
   }
 
-  this.subscriber.onMessage.onChange(onMessage)
+  //this.subscriber.onMessage.onChange(onMessage)
 
   lazy val suggestions: Var[scala.collection.immutable.Seq[TextOption]] = Var(Seq.empty)
 

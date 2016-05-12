@@ -21,6 +21,12 @@ class FileManager(val root: File) {
     path.delete()
   }
 
+  def readBytes(relativePath: String): Option[Array[Byte]] = {
+    val file = (root / relativePath)
+    if(file.exists && file.isRegularFile) {
+      Some(file.loadBytes)
+    } else None
+  }
   def read(relativePath: String): String = (root / relativePath).contentAsString
 
   def cd(relativePath: String): FileManager = new FileManager(root / relativePath)

@@ -16,12 +16,12 @@ import rx._
 
 import scala.util.{Failure, Success, Try}
 
-class WebSocketSuggester(val input: Rx[String], val subscriber: WebSocketSubscriber) extends TextOptionsSuggester {
+class WebSocketSuggester(val input: Rx[String], val subscriber: WebSocketTransport) extends TextOptionsSuggester {
 
   protected def onDelayedInput(inp: String): Unit = {
     if(inp.length >= minSuggestLength){
       val bytes: ByteBuffer = Pickle.intoBytes[WebMessages.Message](Data(Suggest(inp, subscriber.channel)))
-      subscriber.send(bytes2message(bytes))
+      subscriber.send(subscriber.bytes2message(bytes))
     }
   }
 
@@ -30,22 +30,12 @@ class WebSocketSuggester(val input: Rx[String], val subscriber: WebSocketSubscri
       case Data(mess)=> Success(mess)
       case other=> new Failure(new Exception("unexpected message "+other))
     }
-
-
-  /*
-  case inp=>
-  if(inp.length >= minSuggestLength){
-    import boopickle.Default._
-    val bytes: ByteBuffer = Pickle.intoBytes[WebMessage](Suggest(inp, subscriber.channel))
-    subscriber.send(bytes2message(bytes))
-  }*/
-
-  //Unpickle[WebMessage].fromBytes
+  subscriber.open()
 }
 
 class StatesSelectionView(val elem: Element, channel: String, username: String="guest") extends TextSelectionView{
 
-  override val suggester = new WebSocketSuggester(input, WebSocketSubscriber(channel, username))
+  override val suggester = new WebSocketSuggester(input, WebSocketTransport(channel, username))
 
   override lazy val items:Var[collection.immutable.SortedSet[Item]] = Var(TestOptions.items.map(i=>Var(i)))
 

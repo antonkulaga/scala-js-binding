@@ -1,27 +1,16 @@
 package org.denigma.controls.papers
 
-import org.denigma.binding.binders.{Events, GeneralBinder}
-import org.denigma.binding.views.{BindableView, ItemsSeqView}
+import org.denigma.binding.extensions._
 import org.denigma.controls.pdf._
 import org.denigma.controls.pdf.extensions._
-import org.querki.jquery.{$, JQuery}
 import org.scalajs.dom
-import org.scalajs.dom.{Event, MouseEvent}
-import org.scalajs.dom.html.{Canvas, Div}
-import org.scalajs.dom.raw.{DocumentFragment, Element, HTMLElement, Selection}
-import rx.opmacros.Utils.Id
+import rx._
 
 import scala.collection.immutable._
 import scala.concurrent.Future
+import scala.concurrent.duration.FiniteDuration
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
-import scala.util._
-import rx._
-import org.denigma.binding.extensions._
-import rx.Ctx.Owner.Unsafe.Unsafe
-import rx.async._
-import rx.async.Platform._
-
 import scala.scalajs.js.typedarray.ArrayBuffer
 
 case class Page(num: Int, pdf: PDFPageProxy)
@@ -129,36 +118,31 @@ class PaperPDF(val name: String, val pdf: PDFDocumentProxy, var pages: collectio
 
 }
 
-class PaperLoader(
-                   workerPath: String = "/resources/pdf/pdf.worker.js",
-                   var cache: collection.immutable.Map[String, Paper] = Map.empty
-                 )
+trait PaperLoader
 {
+
+  def loadedPapers: Var[Map[String, Paper]]
+
+  val workerPath: String = "/resources/pdf/pdf.worker.js"
+  //var cache: collection.immutable.Map[String, Paper] = Map.empty
+
 
   PDFJS.workerSrc = workerPath
 
-  def getPaper(path: String): Future[Paper] = {
-    cache.get(path).map(Future.successful).getOrElse{
-      PDFJS.getDocument(path).toFuture.map{
-        case proxy =>
-        val paper = Paper(path,proxy)
-        cache = cache.updated(path, paper)
-        paper
-      }
-    }
-  }
+  def getPaper(path: String, timeout: FiniteDuration): Future[Paper]
 
   def getPaper(name: String, data: ArrayBuffer): Future[Paper] = {
-    cache.get(name).map(Future.successful).getOrElse{
+    loadedPapers.now.get(name).map(Future.successful).getOrElse{
       PDFJS.getDocument(data).toFuture.map{
         case proxy =>
           val paper = Paper(name, proxy)
-          cache = cache.updated(name, paper)
+          loadedPapers() = loadedPapers.now.updated(name, paper)
           paper
       }
     }
   }
 
-  def getPaperAt(bookmark: Bookmark): Future[(Paper, Page)] = this.getPaper(bookmark.paper).flatMap(paper =>  paper.getPage(bookmark.page).map(paper -> _))
+  def getPaperAt(bookmark: Bookmark)(implicit timeout: FiniteDuration): Future[(Paper, Page)] =
+    this.getPaper(bookmark.paper, timeout).flatMap(paper =>  paper.getPage(bookmark.page).map(paper -> _))
 
 }

@@ -1,0 +1,40 @@
+package org.denigma.preview
+
+import java.nio.ByteBuffer
+
+import boopickle.DefaultBasic._
+import org.denigma.controls.sockets.{BinaryWebSocket, WebSocketStorage, WebSocketSubscriber, WebSocketTransport1}
+import org.denigma.preview.messages.WebMessages
+import org.denigma.preview.messages.WebMessages.Message
+//import org.denigma.kappa.notebook.storage.WebSocketStorage
+import org.scalajs.dom
+import org.scalajs.dom.raw.WebSocket
+import rx.Ctx.Owner.Unsafe.Unsafe
+import rx.Var
+
+case class WebSocketTransport(channel: String, username: String) extends WebSocketTransport1
+{
+
+  type Input = WebMessages.Message
+
+  override def getWebSocketUri(username: String): String = {
+    val wsProtocol = if (dom.document.location.protocol == "https:") "wss" else "ws"
+    s"$wsProtocol://${dom.document.location.host}/channel/$channel?username=$username"
+  }
+
+  def open(): Unit = {
+    urlOpt() = Option(getWebSocketUri(username))
+  }
+
+  override def initWebSocket(url: String): WebSocket = WebSocketStorage(url)
+
+  override def emptyInput: Message = WebMessages.EmptyMessage
+
+  override protected def pickle(message: Output): ByteBuffer = {
+    Pickle.intoBytes(message)
+  }
+
+  override protected def unpickle(bytes: ByteBuffer): Message = {
+    Unpickle[Input].fromBytes(bytes)
+  }
+}

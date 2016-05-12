@@ -33,7 +33,7 @@ class WebSocketManager(system: ActorSystem, fileManager: FileManager){
   def openChannel(channel: String, username: String = "guest"): Flow[Message, Message, Any] = {
     val partial: Graph[FlowShape[Message, Message], ActorRef] = GraphDSL.create(
       Source.actorPublisher[OutgoingMessage](Props(classOf[UserActor],
-        username))
+        username, fileManager))
     )
     {
       implicit builder => user =>

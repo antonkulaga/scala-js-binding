@@ -34,6 +34,25 @@ trait RxExt extends CommonOps {
           source.set(valueOnError(th))
       }(executor)
     }
+
+
+
+    def triggerN(num: Int)(fun: T => Unit): Unit = {
+      var counter = num
+      def triggerN(obs: =>Obs)(fun: T => Unit): Unit =  {
+        counter = counter - 1
+        if(counter <=0) {
+          fun(source.now)
+          obs.kill()
+        } else fun(source.now)
+      }
+      lazy val obs: Obs = source.triggerLater {
+        triggerN(obs)(fun)
+      }
+      val test = obs
+    }
+
+    def triggerOnce(fun: T => Unit): Unit = triggerN(1)(fun)
   }
 
   implicit class AnyRx[T](source: Rx[T]) {
@@ -69,7 +88,7 @@ trait RxExt extends CommonOps {
 
     def takeIfAny(bools: Rx[Boolean]*)(implicit ctx: Ctx.Owner) = source.filter(el=>bools.exists(b => b.now))
 
-    def observeIf(b: Rx[Boolean])(callback: Boolean=> Unit)(implicit ctx: Ctx.Owner): Obs = takeIf(b).triggerLater(callback)
+    def observeIf(b: Rx[Boolean])(callback: Boolean=> Unit)(implicit ctx: Ctx.Owner): Obs = takeIf(b).triggerLater(callback(b.now))
 
   }
 

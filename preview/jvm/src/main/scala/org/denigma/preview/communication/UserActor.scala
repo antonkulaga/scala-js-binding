@@ -9,6 +9,7 @@ import akka.stream.actor.{ActorPublisher, ActorPublisherMessage}
 import akka.util.ByteString
 import boopickle.DefaultBasic._
 import org.denigma.controls.models.{Suggest, Suggestion}
+import org.denigma.preview.FileManager
 import org.denigma.preview.communication.SocketMessages.OutgoingMessage
 import org.denigma.preview.data.TestOptions
 import org.denigma.preview.messages.WebMessages
@@ -16,7 +17,7 @@ import org.denigma.preview.messages.WebMessages
 import scala.annotation.tailrec
 trait SomeMessage
 
-class UserActor(username: String) extends Actor
+class UserActor(username: String, fileManager: FileManager) extends Actor
   with akka.actor.ActorLogging
   with ActorPublisher[SocketMessages.OutgoingMessage]
 {
@@ -57,6 +58,7 @@ class UserActor(username: String) extends Actor
 
   protected def onTextMessage: Receive = {
     case SocketMessages.IncomingMessage(channel, uname, TextMessage.Strict(text), time) =>
+      log.error("there is not handler for text message right now!")
   }
 
   protected def onBinaryMessage: Receive = {
@@ -67,6 +69,17 @@ class UserActor(username: String) extends Actor
           val sug = Suggestion(inp,channel, testOptions.search(inp)) //cases error
           val d = Pickle.intoBytes[WebMessages.Message](WebMessages.Data(sug))
           send(d)
+
+        case mess @ WebMessages.Load(path) =>
+          log.info("load message received!!!!")
+          fileManager.readBytes(path) match {
+            case Some(bytes)=>
+              println("bytes received "+bytes.length)
+              val m = WebMessages.DataMessage(mess, bytes)
+              val d = Pickle.intoBytes[WebMessages.Message](m)
+              send(d)
+            case None =>
+          }
 
         case other => log.error(s"unexpected $other")
       }
