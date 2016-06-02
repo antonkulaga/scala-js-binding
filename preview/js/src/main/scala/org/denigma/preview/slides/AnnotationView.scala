@@ -3,13 +3,18 @@ package org.denigma.preview.slides
 import org.denigma.binding.binders.Events
 import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.papers._
-import org.denigma.preview.WebSocketTransport
+import org.denigma.preview.WebMessagesTransport
 import org.denigma.preview.messages.WebMessages
 import org.querki.jquery.$
 import org.scalajs.dom
+import org.scalajs.dom.ProgressEvent
 import org.scalajs.dom._
 import org.scalajs.dom.html.Canvas
-import org.scalajs.dom.raw.{Blob, BlobPropertyBag, Element, FileReader}
+import org.scalajs.dom.raw.Blob
+import org.scalajs.dom.raw.BlobPropertyBag
+import org.scalajs.dom.raw.Element
+import org.scalajs.dom.raw.FileReader
+import org.scalajs.dom.raw._
 import rx.Ctx.Owner.Unsafe.Unsafe
 import rx._
 
@@ -20,7 +25,7 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
 import scala.scalajs.js.typedarray.{ArrayBuffer, Uint8Array}
 
-case class WebSocketPaperLoader(subscriber: WebSocketTransport,
+case class WebSocketPaperLoader(subscriber: WebMessagesTransport,
                                 loadedPapers: Var[Map[String, Paper]])
   extends PaperLoader {
 
@@ -54,7 +59,7 @@ case class WebSocketPaperLoader(subscriber: WebSocketTransport,
 class AnnotationView(val elem: Element) extends Annotator {
 
 
-  lazy val subscriber = new WebSocketTransport("test", "guest"+Math.random())
+  lazy val subscriber = new WebMessagesTransport("test", "guest"+Math.random())
 
   lazy val loadedPapers = Var(Map.empty[String, Paper])
 
@@ -68,7 +73,7 @@ class AnnotationView(val elem: Element) extends Annotator {
 
   val canvas: Canvas  = $("#the-canvas").get(0).asInstanceOf[Canvas]
   //val $textLayerDiv: JQuery = $("#text-layer")
-  val textLayerDiv: Element = dom.document.getElementById("text-layer")//.asInstanceOf[HTMLElement]
+  val textLayerDiv: HTMLElement = dom.document.getElementById("text-layer").asInstanceOf[HTMLElement]
 
   //val paperName = paperManager.currentPaper.map(_.name)
 

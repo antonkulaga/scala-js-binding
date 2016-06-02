@@ -1,8 +1,8 @@
 package org.denigma.controls.papers
 
 import org.denigma.binding.extensions._
-import org.denigma.controls.pdf._
-import org.denigma.controls.pdf.extensions._
+import org.denigma.pdf._
+import org.denigma.pdf.extensions._
 import org.scalajs.dom
 import rx._
 

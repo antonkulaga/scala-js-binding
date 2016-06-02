@@ -1,10 +1,19 @@
-package org.denigma.controls.pdf
+package org.denigma.pdf.extensions
 
+import org.denigma.pdf._
 import org.scalajs.dom
+import org.scalajs.dom.ext._
+
+import org.scalajs.dom.Node
+import org.scalajs.dom.raw.{DocumentFragment, HTMLElement}
 
 import scala.concurrent.Promise
+import scala.concurrent.duration.FiniteDuration
 import scala.scalajs.js
 import scala.scalajs.js.annotation.ScalaJSDefined
+import scala.concurrent.duration._
+import scala.util.{Failure, Success}
+import scalajs.concurrent.JSExecutionContext.Implicits.queue
 
 
 class ExtendedPDFPromise[T](val promisePDF: PDFPromise[T]) extends AnyVal {
@@ -24,24 +33,15 @@ class ExtendedPDFPromise[T](val promisePDF: PDFPromise[T]) extends AnyVal {
   }
 }
 
-object extensions {
-  implicit def toExtendedPDFPromise[T](promise: PDFPromise[T]): ExtendedPDFPromise[T] = {
-    new ExtendedPDFPromise[T](promise)
-  }
-}
-
-@js.native
-class TextLayerBuilder(options: TextLayerOptions) extends js.Object {
-
-  def setTextContent(content: TextContent): Unit = js.native
-
-  def render(timeout: Double = ???): Unit = js.native
-}
 
 @ScalaJSDefined
-class TextLayerOptions(val textLayerDiv: dom.Element, val pageIndex: Int, val viewport: PDFPageViewport) extends js.Object{
-
-}
+class RenderTextLayerParams(val textContent: TextContent,
+                            val container: Node,
+                            val viewport: PDFPageViewport,
+                            val textDivs: js.Array[HTMLElement],
+                            val timeout: Int
+                           )
+                         extends js.Object
 
 /*
 createTextLayerBuilder: function (textLayerDiv, pageIndex, viewport) {

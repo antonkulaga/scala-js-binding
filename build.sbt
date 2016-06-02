@@ -96,6 +96,17 @@ lazy val binding = crossProject
 lazy val bindingJS = binding.js
 lazy val bindingJVM = binding.jvm
 
+lazy val pdf= (project in file("pdf"))
+  .settings(commonSettings ++ publishSettings: _*)
+  .settings(
+    name := "pdf-js-facade",
+    version := Versions.pdfJSFacade,
+    scalaVersion := Versions.scala,
+    libraryDependencies ++= Seq(
+      "org.scala-js" %%% "scalajs-dom" % "0.9.0"
+    )
+  ).enablePlugins(ScalaJSPlugin, ScalaJSPlay)
+
 lazy val controls = crossProject
   .crossType(CrossType.Full)
   .in(file("controls"))
@@ -110,10 +121,10 @@ lazy val controls = crossProject
     libraryDependencies ++= Dependencies.controls.js.value,
     jsDependencies += RuntimeDOM % "test"
   )
+  .jsConfigure(p=>p.dependsOn(pdf))
   .jvmSettings( libraryDependencies ++= Dependencies.controls.jvm.value )
   .jvmConfigure(p=>p.enablePlugins(SbtTwirl))
   .dependsOn(binding)
-
 
 
 lazy val controlsJS = controls.js

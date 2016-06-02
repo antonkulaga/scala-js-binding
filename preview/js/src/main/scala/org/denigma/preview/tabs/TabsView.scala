@@ -1,4 +1,4 @@
-package org.denigma.controls.tabs
+package org.denigma.preview.tabs
 
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.views.{ItemsSeqView, BindableView}

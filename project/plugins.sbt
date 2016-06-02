@@ -2,7 +2,7 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-web" % "1.4.0") // advanced assets handli
 
 addSbtPlugin("io.spray" % "sbt-revolver" % "0.8.0") //live refresh
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.0.6") // packaging for production
+addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.1.1") // packaging for production
 
 addSbtPlugin("com.vmunier" % "sbt-play-scalajs" % "0.3.0")
 

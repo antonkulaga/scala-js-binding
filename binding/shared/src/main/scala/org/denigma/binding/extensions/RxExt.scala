@@ -3,7 +3,7 @@ package org.denigma.binding.extensions
 import rx._
 import rx.Ctx.Owner.Unsafe.Unsafe
 import scala.util._
-import scala.collection.immutable.SortedSet
+import scala.collection.immutable.{Vector, SortedSet}
 import scala.concurrent.{ExecutionContext, Future}
 
 /**
@@ -153,6 +153,26 @@ trait RxExt extends CommonOps {
       {
         case (prev, cur) => SetUpdate(prev.removeAddToBecome(cur))
       }
+
+    def updatesTo[U](vector: Var[Vector[U]])(convert: T => U)(implicit same: (T, U)=> Boolean): Var[Vector[U]] = {
+      updates.onChange{
+        case u =>
+          val remained: Vector[U] = vector.now.filterNot(v=>u.removed.exists(r=>same(r, v)))
+          vector() = remained ++ u.added.map(convert)
+      }
+      vector
+    }
+
+    /**
+      * Produces a vector that syncs with the set without applying convertions too many times
+      *
+      * @param convert
+      * @param same
+      * @tparam U
+      * @return
+      */
+    def toSyncVector[U](convert: T => U)(implicit same: (T, U)=> Boolean): Var[Vector[U]] = updatesTo(Var(col.now.map(convert).toVector))(convert)(same)
+
   }
 
 }

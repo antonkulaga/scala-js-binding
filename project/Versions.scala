@@ -10,13 +10,15 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 	val controls = "0.0.15"
 
+	val pdfJSFacade = "0.8.0-0.0.1"
+
 }
 
 trait ScalaJVMVersions {
 
-	val akkaHttp = "2.4.4"
+	val akkaHttp = "2.4.6"
 
-	val akkaHttpExtensions = "0.0.10"
+	val akkaHttpExtensions = "0.0.12"
 
 	val ammonite = "0.5.7"
 
@@ -24,9 +26,9 @@ trait ScalaJVMVersions {
 
 	val config = "1.3.0"
 
-	val ficus: String = "1.2.4"
+	val ficus: String = "1.2.6"
 
-	val betterFiles = "2.15.0"
+	val betterFiles = "2.16.0"
 }
 
 trait ScalaJSVersions {
@@ -49,7 +51,7 @@ trait SharedVersions
 
 	val scalaTags = "0.5.4"
 
-	val scalaCSS = "0.4.0"
+	val scalaCSS = "0.4.1"
 
 	val macroParadise = "2.1.0"
 
@@ -68,10 +70,10 @@ trait WebJarsVersions{
 
 	val codemirror = "5.13.2"
 
-	val threeJS = "r74"
+	val threeJS = "r77"
 
 	val webcomponents = "0.7.12"
 
-	val jquery = "2.2.3"
+	val jquery = "2.2.4"
 }
 

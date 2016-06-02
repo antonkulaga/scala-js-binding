@@ -2,7 +2,8 @@ package org.denigma.controls.papers
 
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
-import org.denigma.controls.pdf._
+import org.denigma.pdf.PDFPageViewport
+import org.denigma.pdf.extensions.TextLayerRenderer
 import org.scalajs.dom
 import org.scalajs.dom.html.Canvas
 import org.scalajs.dom.raw.Element
@@ -20,7 +21,7 @@ trait Annotator extends BindableView {
 
   def canvas: Canvas
 
-  val textLayerDiv: Element
+  val textLayerDiv: dom.html.Element
 
   def paperURI: Rx[String]
 
@@ -84,7 +85,7 @@ trait Annotator extends BindableView {
      case Some(page) =>
       //println(s"page option change with ${page}")
       val viewport: PDFPageViewport = page.viewport(scale.now)
-      var context = canvas.getContext("2d")//("webgl")
+      var context: js.Dynamic = canvas.getContext("2d")//("webgl")
       canvas.height = viewport.height.toInt
       canvas.width =  viewport.width.toInt
       page.render(js.Dynamic.literal(
@@ -94,12 +95,23 @@ trait Annotator extends BindableView {
       val textContentFut = page.textContentFut.onComplete{
         case Success(textContent) =>
           alignTextLayer(viewport)
-          textLayerDiv.innerHTML = ""
+          /*
           val textLayerOptions = new TextLayerOptions(textLayerDiv, 1, viewport)
           val textLayer = new TextLayerBuilder(textLayerOptions)
           textLayer.setTextContent(textContent)
+          */
+
+          val layer = new TextLayerRenderer(viewport, textContent)
+          //layer.setTextContent(textContent)
+          layer.render().onComplete{
+            case Success(rest)=>
+              textLayerDiv.innerHTML = ""
+              for{(str, node) <- rest} {textLayerDiv.appendChild(node)}
+            case Failure(th) =>
+              dom.console.error(th.getMessage)
+          }
           //println(textContent+"!!! is TEXT")
-          textLayer.render()
+          //textLayer.render()
           updateSelection(textLayerDiv)
 
         case Failure(th) =>

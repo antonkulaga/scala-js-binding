@@ -16,7 +16,7 @@ import rx._
 
 import scala.util.{Failure, Success, Try}
 
-class WebSocketSuggester(val input: Rx[String], val subscriber: WebSocketTransport) extends TextOptionsSuggester {
+class WebSocketSuggester(val input: Rx[String], val subscriber: WebMessagesTransport) extends TextOptionsSuggester {
 
   protected def onDelayedInput(inp: String): Unit = {
     if(inp.length >= minSuggestLength){
@@ -36,7 +36,7 @@ class WebSocketSuggester(val input: Rx[String], val subscriber: WebSocketTranspo
 
 class StatesSelectionView(val elem: Element, channel: String, username: String="guest") extends TextSelectionView{
 
-  override val suggester = new WebSocketSuggester(input, WebSocketTransport(channel, username))
+  override val suggester = new WebSocketSuggester(input, new WebMessagesTransport(channel, username))
 
   override lazy val items:Var[collection.immutable.SortedSet[Item]] = Var(TestOptions.items.map(i=>Var(i)))
 

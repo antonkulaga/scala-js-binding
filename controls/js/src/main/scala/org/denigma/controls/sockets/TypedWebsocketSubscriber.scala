@@ -26,6 +26,9 @@ trait WebSocketTransport2 extends WebSocketSubscriber with BinaryWebSocket {
   val input = Var(emptyInput)
   val output = Var(emptyOutput)
 
+  def collect[Output](partialFunction: PartialFunction[Input, Output])(until: PartialFunction[Input, Boolean]): Future[List[Output]] = {
+    new Collector[Input, Output](input)(partialFunction)(until).future
+  }
 
   def open(): Unit
 

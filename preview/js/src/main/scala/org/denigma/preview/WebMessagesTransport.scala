@@ -3,9 +3,12 @@ package org.denigma.preview
 import java.nio.ByteBuffer
 
 import boopickle.DefaultBasic._
-import org.denigma.controls.sockets.{BinaryWebSocket, WebSocketStorage, WebSocketSubscriber, WebSocketTransport1}
+import org.denigma.controls.sockets._
 import org.denigma.preview.messages.WebMessages
 import org.denigma.preview.messages.WebMessages.Message
+
+import scala.concurrent.Future
+
 //import org.denigma.kappa.notebook.storage.WebSocketStorage
 import org.scalajs.dom
 import org.scalajs.dom.raw.WebSocket
@@ -13,7 +16,7 @@ import rx.Ctx.Owner.Unsafe.Unsafe
 import rx.Var
 import org.denigma.binding.extensions._
 
-case class WebSocketTransport(channel: String, username: String) extends WebSocketTransport1
+class WebMessagesTransport(val channel: String, username: String) extends WebSocketTransport1
 {
 
   type Input = WebMessages.Message
@@ -25,7 +28,7 @@ case class WebSocketTransport(channel: String, username: String) extends WebSock
     onInput(input.now)
   }
 
-  protected def onInput(inp: Input) = inp match {
+   protected def onInput(inp: Input) = inp match {
     case WebMessages.Connected(uname, ch, list) if uname==username //&& ch == channel
     =>
       println(s"connection of user $username to $channel established")
