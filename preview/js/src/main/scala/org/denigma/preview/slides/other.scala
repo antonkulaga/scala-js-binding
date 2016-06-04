@@ -3,9 +3,9 @@ package org.denigma.preview.slides
 import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.views.BindableView
 import org.denigma.controls.login.LoginView
-import org.denigma.controls.tabs.{TabItem, TabsView}
 import org.denigma.preview.FrontEnd._
 import org.denigma.preview.StatesSelectionView
+import org.denigma.preview.tabs.{TabItem, TabsView}
 import org.scalajs.dom.raw.Element
 import rx.Var
 

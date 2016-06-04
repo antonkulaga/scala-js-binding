@@ -34,7 +34,7 @@ object extensions extends RxExt{
   implicit class GraphRx[Rdf <: RDF](graph: Rx[PointedGraph[Rdf]])(implicit ops: RDFOps[Rdf])
   {
 
-    def updates(implicit ctx: Ctx.Owner): Rx[GraphUpdate[Rdf]] = graph.zip((a,b)=>GraphUpdate[Rdf](a,b)(ops))
+    def updates(implicit ctx: Ctx.Owner): Rx[GraphUpdate[Rdf]] = graph.zip((a,b) => GraphUpdate[Rdf](a,b)(ops))
 
   }
 

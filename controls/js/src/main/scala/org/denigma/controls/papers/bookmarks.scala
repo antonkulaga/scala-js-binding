@@ -3,14 +3,15 @@ package org.denigma.controls.papers
 import org.denigma.binding.binders.Events
 import org.denigma.binding.views.BindableView
 import org.scalajs.dom.MouseEvent
-import org.scalajs.dom.raw.{Selection, Element}
-import rx.{Var, Rx}
+import org.scalajs.dom.raw.{Element, HTMLElement, Selection}
+import rx.{Rx, Var}
 import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.concurrent.Future
 import scala.scalajs.js
+import org.denigma.binding
 
-case class Bookmark(paper: String, page: Int, selections: List[TextSelection] = List.empty)
+case class Bookmark(paper: String, page: Int, selections: List[TextLayerSelection] = List.empty)
 
 /*trait Bookmark{
   def paper: String
@@ -32,6 +33,6 @@ class BookmarkView(val elem: Element, val bookmark: Rx[Bookmark], location: Var[
   val paper = bookmark.map(_.paper)
   val page = bookmark.map(_.page)
   //val text = bookmark.map(_.selection.text)
-  val text = bookmark.map(_.selections.foldLeft("")((acc, el)=> acc +"\n"+ el.text))
+  val text = Var("")//bookmark.map(_.selections.foldLeft("")((acc, el)=> acc +"\n"+ el.text))
 
 }

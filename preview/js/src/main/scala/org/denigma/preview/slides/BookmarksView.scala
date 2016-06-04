@@ -31,13 +31,9 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
   val paper = location.map(_.paper)
   val page = location.map(_.page)
 
-  val selections = Var(List.empty[Range])
+  val selections = Var(List.empty[org.scalajs.dom.raw.Range])
 
-  val currentSelection = selections.map{ case sel =>
-    sel.foldLeft("")((acc, el)=>acc + "\n" + el.cloneContents().textContent)
-  }
-
-  val lastSelections: Var[List[TextSelection]] = Var(List.empty[TextSelection])
+  val lastSelections: Var[List[TextLayerSelection]] = Var(List.empty[TextLayerSelection])
 
   val comments = Rx{
 
@@ -51,7 +47,11 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
     */
     "\n#^ :in_paper "+paper() +
     "\n#^ :on_page "+ page() + lastSelections().foldLeft(""){
-      case (acc, el) => acc + "\n#^ :has_text " + el.text
+      case (acc, sel) => acc +
+        "\n#^ :from_chunk " + sel.fromChunk
+        "\n#^ :from_token_num " + sel.fromToken
+        "\n#^ :to_chunk " + sel.toChunk
+        "\n#^ :to_token_num " + sel.toToken
     }
   }
 
@@ -96,27 +96,12 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
 
   }
 
-  protected def rangeToTextSelection(range: Range) = {
-    val fragment = range.cloneContents()
-    /*
-    val div = dom.document.createElement("div") //the trick to get inner html of the selection
-    val nodes = fragment.childNodes.toList
-    nodes.foreach(div.appendChild)
-    val txt = div.innerHTML
-    */
-    val txt = fragment.textContent
-    TextSelection(txt)
+  protected def chunkToken(container: Node) =  {
+    container.attributes.get(TextLayerSelection.data_chunk_id)
   }
 
-  protected def fixSelection(event: Event): Unit = {
-    //println("mouseleave")
-    if(currentSelection.now != "") {
-      val ss = selections.now.map(rangeToTextSelection)
-      //println(ss)
-      lastSelections() = ss
-      selections() = List.empty
-      //currentSelection() = ""
-    }
+  protected def rangeToTextSelection(range: org.scalajs.dom.raw.Range) = {
+    TextLayerSelection.fromRange(range)
   }
 
   override protected def subscribeUpdates() = {
@@ -135,19 +120,11 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
     })
   }
 
-/*
-  lazy val codemirror = {
-    this.binders.collectFirst{
-      case cb: CodeBinder => cb.editors.head
-    }.get //VERY UGLY AND BAD CODE
-  }
-*/
-
   override def bindView() = {
     super.bindView()
     dom.window.document.onselectionchange = onSelectionChange _
     addSelection.onChange(addSelectionHandler)
-    textLayer.parentNode.addEventListener(Events.mouseleave, fixSelection _)
+    //textLayer.parentNode.addEventListener(Events.mouseleave, fixSelection _)
   }
 
 }

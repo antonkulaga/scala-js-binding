@@ -1,10 +1,11 @@
 package org.denigma.preview.templates
 
-import org.denigma.semantic.styles.{SelectionStyles, Colors}
+import org.denigma.controls.papers.TextLayerStyles
+import org.denigma.semantic.styles.{Colors, SelectionStyles}
 
 import scalacss.Defaults._
 
-object MyStyles extends StyleSheet.Standalone with SelectionStyles {
+object MyStyles extends StyleSheet.Standalone with SelectionStyles with TextLayerStyles {
   import dsl._
 
   "body"-(

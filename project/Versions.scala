@@ -2,13 +2,13 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 {
 	val scala = "2.11.8"
 
-	val binding = "0.8.7"
+	val binding = "0.8.8"
 
   val macroBinding = "0.5"
 
 	val bananaRdf = "0.8.2-SNAP5" // "0.8.1"
 
-	val controls = "0.0.15"
+	val controls = "0.0.16"
 
 	val pdfJSFacade = "0.8.0-0.0.1"
 

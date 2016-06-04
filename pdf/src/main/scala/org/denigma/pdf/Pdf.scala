@@ -1,8 +1,7 @@
 package org.denigma.pdf
 
-import org.denigma.pdf.extensions.RenderTextLayerParams
 import org.scalajs.dom.CanvasRenderingContext2D
-import org.scalajs.dom.raw.{DocumentFragment, HTMLElement}
+import org.scalajs.dom.raw.{DocumentFragment, HTMLElement, Node}
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation._
@@ -215,62 +214,6 @@ trait TextLayerRenderTask extends js.Object
   def promise : PDFPromise[Unit]
   def cancel(): Unit = js.native
 }
-/*
-*
-  /**
-   * Text layer rendering task.
-   *
-   * @param {TextContent} textContent
-   * @param {HTMLElement} container
-   * @param {PDFJS.PageViewport} viewport
-   * @param {Array} textDivs
-   * @private
-   */
-  function TextLayerRenderTask(textContent, container, viewport, textDivs) {
-    this._textContent = textContent;
-    this._container = container;
-    this._viewport = viewport;
-    textDivs = textDivs || [];
-    this._textDivs = textDivs;
-    this._canceled = false;
-    this._capability = createPromiseCapability();
-    this._renderTimer = null;
-  }
-  TextLayerRenderTask.prototype = {
-    get promise() {
-      return this._capability.promise;
-    },
-
-    cancel: function TextLayer_cancel() {
-      this._canceled = true;
-      if (this._renderTimer !== null) {
-        clearTimeout(this._renderTimer);
-        this._renderTimer = null;
-      }
-      this._capability.reject('canceled');
-    },
-
-    _render: function TextLayer_render(timeout) {
-      var textItems = this._textContent.items;
-      var styles = this._textContent.styles;
-      var textDivs = this._textDivs;
-      var viewport = this._viewport;
-      for (var i = 0, len = textItems.length; i < len; i++) {
-        appendText(textDivs, viewport, textItems[i], styles);
-      }
-
-      if (!timeout) { // Render right away
-        render(this);
-      } else { // Schedule
-        var self = this;
-        this._renderTimer = setTimeout(function() {
-          render(self);
-          self._renderTimer = null;
-        }, timeout);
-      }
-    }
-  };
-* */
 
 @js.native
 trait PDFJSStatic extends js.Object {
@@ -280,15 +223,13 @@ trait PDFJSStatic extends js.Object {
   def PDFViewer(params: PDFViewerParams): Unit = js.native
   var workerSrc: String = js.native
   def renderTextLayer(params: RenderTextLayerParams): TextLayerRenderTask = js.native
-  //TextLayerRenderTask(textContent, container, viewport, textDivs)
-
-  /*
-  *
-  *         this.textLayerRenderTask = PDFJS.renderTextLayer({
-                textContent: this.textContent,
-                container: textLayerFrag,
-                viewport: this.viewport,
-                textDivs: this.textDivs,
-                timeout: timeout
-            });*/
 }
+
+@ScalaJSDefined
+class RenderTextLayerParams(val textContent: TextContent,
+                            val container: Node,
+                            val viewport: PDFPageViewport,
+                            val textDivs: js.Array[HTMLElement],
+                            val timeout: Int
+                           )
+  extends js.Object

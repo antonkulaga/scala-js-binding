@@ -3,7 +3,7 @@ package org.denigma.controls.papers
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.denigma.pdf.PDFPageViewport
-import org.denigma.pdf.extensions.TextLayerRenderer
+import org.denigma.pdf.extensions.{Page, PageRenderer, TextLayerRenderer}
 import org.scalajs.dom
 import org.scalajs.dom.html.Canvas
 import org.scalajs.dom.raw.Element
@@ -83,41 +83,13 @@ trait Annotator extends BindableView {
    protected def onPageChange(pageOpt: Option[Page]): Unit =  pageOpt match
    {
      case Some(page) =>
-      //println(s"page option change with ${page}")
-      val viewport: PDFPageViewport = page.viewport(scale.now)
-      var context: js.Dynamic = canvas.getContext("2d")//("webgl")
-      canvas.height = viewport.height.toInt
-      canvas.width =  viewport.width.toInt
-      page.render(js.Dynamic.literal(
-        canvasContext = context,
-        viewport = viewport
-      ))
-      val textContentFut = page.textContentFut.onComplete{
-        case Success(textContent) =>
-          alignTextLayer(viewport)
-          /*
-          val textLayerOptions = new TextLayerOptions(textLayerDiv, 1, viewport)
-          val textLayer = new TextLayerBuilder(textLayerOptions)
-          textLayer.setTextContent(textContent)
-          */
-
-          val layer = new TextLayerRenderer(viewport, textContent)
-          //layer.setTextContent(textContent)
-          layer.render().onComplete{
-            case Success(rest)=>
-              textLayerDiv.innerHTML = ""
-              for{(str, node) <- rest} {textLayerDiv.appendChild(node)}
-            case Failure(th) =>
-              dom.console.error(th.getMessage)
-          }
-          //println(textContent+"!!! is TEXT")
-          //textLayer.render()
-          updateSelection(textLayerDiv)
-
-        case Failure(th) =>
-            dom.console.error(s"cannot load the text layer for ${location.now}")
-      }
-      case None =>
+       val pageRenderer = new PageRenderer(page)
+       pageRenderer.render(canvas, textLayerDiv, scale.now).onComplete{
+         case Success(result)=> updateSelection(textLayerDiv)
+         case Failure(th) =>
+           dom.console.error(s"cannot load the text layer for ${location.now}")
+       }
+     case None =>
         //println("nothing changes")
         textLayerDiv.innerHTML = ""
    }

@@ -13,15 +13,6 @@ import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
 import scala.scalajs.js.typedarray.ArrayBuffer
 
-case class Page(num: Int, pdf: PDFPageProxy)
-{
-  lazy val textContentFut: Future[TextContent] = pdf.getTextContent().toFuture
-  lazy val textLayerOpt: Var[Option[TextContent]] = textContentFut.toVarOption
-
-  def viewport(scale: Double): PDFPageViewport = pdf.getViewport(scale)
-  def render(params: js.Dynamic): PDFRenderTask = pdf.render(params)
-}
-
 /*
 trait Paper
 {

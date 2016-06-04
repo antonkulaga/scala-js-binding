@@ -2,10 +2,8 @@ package org.denigma.preview.tabs
 
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.views.{ItemsSeqView, BindableView}
-import org.denigma.controls.tabs.TabItemView.SimpleTabItemView
 import org.scalajs.dom.Element
 import rx._
-//import rx.Ctx.Owner.voodoo
 import rx.Ctx.Owner.Unsafe.Unsafe
 
 import org.denigma.binding.extensions._

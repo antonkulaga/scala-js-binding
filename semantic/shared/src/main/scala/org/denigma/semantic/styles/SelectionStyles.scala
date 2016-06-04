@@ -5,7 +5,8 @@ import scalacss.Defaults._
 import scalacss.LengthUnit.em
 
 trait SelectionStyles extends Colors{
-  self:StyleSheet.Standalone =>
+  self: StyleSheet.Standalone =>
+
   import dsl._
 
   val itemTextColor = c"rgba(179, 179, 179, 0.7)"
