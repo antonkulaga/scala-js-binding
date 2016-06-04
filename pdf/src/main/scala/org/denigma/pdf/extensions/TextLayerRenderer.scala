@@ -14,8 +14,8 @@ import scala.scalajs.js
 
 class TextLayerRenderer(val viewport: PDFPageViewport, val content: TextContent) {
 
-
   lazy val items: List[TextContentItem] = content.items.toList
+
   lazy val strs: List[String] = items.map(i=>i.str)
 
   def render(timeout: FiniteDuration = 100 millis): Future[List[(String, Node)]] = {
@@ -37,8 +37,10 @@ class TextLayerRenderer(val viewport: PDFPageViewport, val content: TextContent)
   }
 
   protected def tokenize(text: String): String = {
-    text.split(" ").zipWithIndex.map{
-      case (str, i) =>"<tspan data-num=\""+i+"\">" + str + "</tspan>"
+    val arr = text.split("\\s+")
+    arr.zipWithIndex.map{
+      case (str, i) =>
+        "<tspan data-num=\""+i+"\">" + str + "</tspan>"
     }.reduce(_ + " " + _)
   }
 

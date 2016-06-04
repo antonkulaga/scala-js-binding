@@ -8,7 +8,7 @@ import scala.scalajs.js
 
 trait EventsOps {
 
-  implicit class KeyboardEventEventExtended(ev:KeyboardEvent)
+  implicit class KeyboardEventEventExtended(ev: KeyboardEvent)
   {
     def backspaceKey = ev.keyCode==KeyCode.Backspace
     def tabKey	= ev.keyCode==KeyCode.Tab

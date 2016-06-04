@@ -58,7 +58,7 @@ trait Annotator extends BindableView {
     textLayerDiv.style.top = canvas.offsetTop + "px"
     textLayerDiv.style.left = canvas.offsetLeft + "px"
   }
-
+/*
   protected def updateSelection(e: Element) = {
     import scala.concurrent.duration._
     js.timers.setTimeout(300 millis){
@@ -66,6 +66,7 @@ trait Annotator extends BindableView {
       location.now.selections.foreach(_.select(e))
     }
   }
+  */
 
   protected def deselect(el: Element): Unit = { //bad code
     if(el.classList.contains("highlighted")) el.classList.remove("highlighted")
@@ -85,7 +86,8 @@ trait Annotator extends BindableView {
      case Some(page) =>
        val pageRenderer = new PageRenderer(page)
        pageRenderer.render(canvas, textLayerDiv, scale.now).onComplete{
-         case Success(result)=> updateSelection(textLayerDiv)
+         case Success(result)=>
+           //updateSelection(textLayerDiv)
          case Failure(th) =>
            dom.console.error(s"cannot load the text layer for ${location.now}")
        }
@@ -118,7 +120,7 @@ trait Annotator extends BindableView {
           dom.console.error(s"cannot load the page at ${bookmark}")
       }
     }
-    else updateSelection(textLayerDiv)
+    //else updateSelection(textLayerDiv)
 
   }
 

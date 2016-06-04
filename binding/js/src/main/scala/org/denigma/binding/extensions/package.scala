@@ -3,9 +3,10 @@ package org.denigma.binding
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.raw.{HTMLElement, SVGElement}
-import rx.Rx
+import rx.{Ctx, Var, Rx}
 
 import scala.collection.immutable.Map
+import scala.concurrent.duration.FiniteDuration
 
 /**
  * Useful implicit classes
@@ -18,6 +19,10 @@ package object extensions extends AttributesOps
   with DataOps
   with MapOps
 {
+
+  implicit def timers[T](source: Rx[T]): TimerExtensions[T] = {
+    new TimerExtensions(source)
+  }
 
   //implicit def toExtendedElement(el: HTMLElement): ExtendedHTMLElement = new ExtendedHTMLElement(el)
 
@@ -43,7 +48,6 @@ package object extensions extends AttributesOps
       g
     }
   }
-
 
   implicit def extSVG(svg: SVGElement): ExtendedSVGElement = new ExtendedSVGElement(svg)
 
