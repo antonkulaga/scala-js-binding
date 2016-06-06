@@ -36,12 +36,54 @@ class TextLayerRenderer(val viewport: PDFPageViewport, val content: TextContent)
     }
   }
 
+  def keyMovePartition[Key](text: String)(characterize: String=> (Key, Int)) = text.foldLeft(List.empty[(Key, String)]){
+    case (Nil, el) =>
+      val est = el +""
+      (characterize(est)._1 -> est)::Nil
+
+    case ((key, value)::tail, el) =>
+      val join = value + el
+      val (k, move) = characterize(join)
+      val (keep, give) = join.splitAt(join.length - move)
+      if(k==key) key->join::tail else {
+        (k->give)::(key, keep)::tail
+      }
+  }.reverse
+
+  def matched(str: String, regex: String): (Int, Int) = {
+    regex.r.findAllMatchIn(str).foldLeft((-1, 0)){
+      case ( (-1, to), m)=>
+        (m.start, Math.max(to, m.end))
+
+      case ((from, to), m)=>
+        (from, Math.max(to, m.end))
+    }
+  }
+
+  def regexPartition(text: String, reg: String): scala.List[(Boolean, String)] = keyMovePartition(text){
+    case str =>
+      matched(str, reg) match {
+
+        case (from, to) if from >= 0 && to==str.length =>
+          val diff = to - from
+          true -> diff
+
+        case _ =>
+          false -> 1
+      }
+  }
+
   protected def tokenize(text: String): String = {
-    val arr = text.split("\\s+")
-    arr.zipWithIndex.map{
-      case (str, i) =>
-        "<tspan data-num=\""+i+"\">" + str + "</tspan>"
-    }.reduce(_ + " " + _)
+
+    val sp = "\\s+"
+    val (txt, _) = regexPartition(text, sp).foldLeft(("", 0)){
+      case ((str, i), (true, value))=>
+        (str + s"""<tspan data="delimiter">$value</tspan>""", i)
+      case ((str, i), (false, value))=>
+        val ni = i + 1
+        (str + "<tspan data-num=\""+ni+"\">" + value + "</tspan>", ni)
+    }
+    txt
   }
 
 }

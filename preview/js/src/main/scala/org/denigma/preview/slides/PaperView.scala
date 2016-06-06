@@ -16,6 +16,7 @@ import org.scalajs.dom.raw.Element
 import org.scalajs.dom.raw.FileReader
 import org.scalajs.dom.raw._
 import rx.Ctx.Owner.Unsafe.Unsafe
+import rx.Rx.Dynamic
 import rx._
 
 import scala.collection.immutable._
@@ -56,8 +57,7 @@ case class WebSocketPaperLoader(subscriber: WebMessagesTransport,
 
 }
 
-class AnnotationView(val elem: Element) extends Annotator {
-
+class PaperView(val elem: Element) extends Annotator {
 
   lazy val subscriber = new WebMessagesTransport("test", "guest"+Math.random())
 
@@ -66,7 +66,9 @@ class AnnotationView(val elem: Element) extends Annotator {
   lazy val paperLoader: PaperLoader = WebSocketPaperLoader(subscriber, loadedPapers)
 
   //start location to run
-  val location = Var(Bookmark("toggle_switch/403339a0.pdf", 1))
+  val location: Var[Bookmark] = Var(Bookmark("toggle_switch/403339a0.pdf", 1))
+
+  val selections = location.map(b=>b.selections)
 
   val paperURI = location.map(_.paper)
 

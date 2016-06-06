@@ -56,3 +56,4 @@ The repo consists of several subprojects:
 * Macro subproject. It is a subproject that is internally used by scala-js-binding to extract reactive variables from views with macro.
 * Controls subproject. It depends on binding subproject and contains some useful html controls and charts.
 * Semantic subproject. It depends on controls subproject and contains integration with Banana-RDF library. It allows to bind RDF properties to HTML and scalajs views.
+* PDF subproject. This subproject is a facade for PDF.js that will be later separated to a separate repository

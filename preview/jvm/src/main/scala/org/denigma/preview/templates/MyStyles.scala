@@ -9,7 +9,7 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles with TextLaye
   import dsl._
 
   "body"-(
-    backgroundColor(bindingViolet)
+    backgroundColor(deepskyblue)
     )
 
   "#main"-(

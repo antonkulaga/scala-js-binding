@@ -23,13 +23,13 @@ import scala.util.{Success, Try}
 trait WithDelay {
 
   import scalajs.js
-  def delayed[T](source:Rx[T], time: FiniteDuration) = {
+  def delayed[T](source: Rx[T], time: FiniteDuration) = {
     val v = Var(source.now) //UGLY BUT WORKS
     js.timers.setTimeout(time)( v() = source.now)
     v
   }
 
-  def afterLastChange[T](source:Rx[T],time: FiniteDuration): Var[T] = {
+  def afterLastChange[T](source: Rx[T],time: FiniteDuration): Var[T] = {
     val v = Var(source.now) //UGLY BUT WORKS
     def waitChange(value: T): Unit ={
       js.timers.setTimeout(time){
@@ -57,6 +57,7 @@ trait TextOptionsSuggester extends Suggester with WithDelay
   lazy val minSuggestLength = 1
 
   protected def onDelayedInput(inp: String): Unit
+
   protected def unpickle(bytes: ByteBuffer): Try[WebMessage]
 
   /*
@@ -122,8 +123,8 @@ trait TextSelectionView extends SelectionView
     }
   })
 
-  override def receive:PartialFunction[ViewEvent,Unit] = {
-    case selection:SelectTextOptionEvent=>
+  override def receive: PartialFunction[ViewEvent, Unit] = {
+    case selection: SelectTextOptionEvent=>
       //println("selection received = "+selection)
       val i = selection.item
       i.set(i.now.copy(preselected = false))
@@ -146,7 +147,7 @@ trait TextSelectionView extends SelectionView
 
   lazy val items:Var[SortedSet[Item]] = Var(SortedSet.empty)
 
-  protected def onPositionChange(pos:Int):Unit = if(pos<items.now.size){
+  protected def onPositionChange(pos: Int): Unit = if(pos < items.now.size){
     for{
       item <- items.now
       i = item.now
@@ -159,7 +160,7 @@ trait TextSelectionView extends SelectionView
   position.onChange(onPositionChange)
 
 
-  protected def typed2Item(str:String):Item = Var(TextOption(str,str,position.now))
+  protected def typed2Item(str: String):Item = Var(TextOption(str, str, position.now))
 
   override lazy val injector = defaultInjector
     .register("options"){  case (el,args)=>

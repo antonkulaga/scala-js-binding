@@ -27,6 +27,8 @@ trait Annotator extends BindableView {
 
   val location: Var[Bookmark]
 
+  val selections: Rx[scala.List[TextLayerSelection]]
+
   val scale = Var(1.4)
 
   val currentPaper: Var[Paper] = Var(EmptyPaper)
@@ -51,29 +53,6 @@ trait Annotator extends BindableView {
     page.isDefined && paper.hasPage(page.get.num - 1)
   }
 
-
-  protected def alignTextLayer(viewport: PDFPageViewport) = {
-    textLayerDiv.style.height = viewport.height + "px"
-    textLayerDiv.style.width = viewport.width + "px"
-    textLayerDiv.style.top = canvas.offsetTop + "px"
-    textLayerDiv.style.left = canvas.offsetLeft + "px"
-  }
-/*
-  protected def updateSelection(e: Element) = {
-    import scala.concurrent.duration._
-    js.timers.setTimeout(300 millis){
-      deselect(e)
-      location.now.selections.foreach(_.select(e))
-    }
-  }
-  */
-
-  protected def deselect(el: Element): Unit = { //bad code
-    if(el.classList.contains("highlighted")) el.classList.remove("highlighted")
-    import dom.ext._
-    el.children.foreach(deselect)
-  }
-
   def refreshPage() = if(this.currentPage.now.nonEmpty){
     val paper = currentPaper.now
     paper.getPage(currentPage.now.get.num).onSuccess{
@@ -84,10 +63,11 @@ trait Annotator extends BindableView {
    protected def onPageChange(pageOpt: Option[Page]): Unit =  pageOpt match
    {
      case Some(page) =>
+       deselect(textLayerDiv)
        val pageRenderer = new PageRenderer(page)
        pageRenderer.render(canvas, textLayerDiv, scale.now).onComplete{
          case Success(result)=>
-           //updateSelection(textLayerDiv)
+           select(textLayerDiv)
          case Failure(th) =>
            dom.console.error(s"cannot load the text layer for ${location.now}")
        }
@@ -98,6 +78,32 @@ trait Annotator extends BindableView {
 
   import scala.concurrent.duration._
   implicit def timeout: FiniteDuration = 10 seconds
+
+  protected def deselect(element: Element) = {
+    selections.now.foreach {
+      case sel =>
+        val spans = sel.selectTokenSpans(element)
+        spans.foreach {
+          case sp =>
+            if (sp.classList.contains("highlight"))
+              sp.classList.remove("highlight")
+        }
+    }
+  }
+
+  protected def select(element: Element) = {
+    selections.now.foreach{
+      case sel=>
+        println("chunks are: ")
+        val spans = sel.selectTokenSpans(element)
+        //spans.foreach(s=>println(s.outerHTML))
+        spans.foreach{
+          case sp=>
+            if(!sp.classList.contains("highlight"))
+              sp.classList.add("highlight")
+        }
+    }
+  }
 
   protected def onLocationUpdate(bookmark: Bookmark): Unit = {
     //print(s"bookmark update $bookmark")
@@ -120,8 +126,6 @@ trait Annotator extends BindableView {
           dom.console.error(s"cannot load the page at ${bookmark}")
       }
     }
-    //else updateSelection(textLayerDiv)
-
   }
 
   protected def subscribePapers(): Unit ={
@@ -130,25 +134,3 @@ trait Annotator extends BindableView {
     scale.onChange{ case sc=> refreshPage()  }
   }
 }
-
-/*
-
-// Loading document.
-PDFJS.getDocument(DEFAULT_URL).then(function (pdfDocument) {
-// Document loaded, retrieving the page.
-return pdfDocument.getPage(PAGE_TO_VIEW).then(function (pdfPage) {
-// Creating the page view with default parameters.
-var pdfPageView = new PDFJS.PDFPageView({
-container: container,
-id: PAGE_TO_VIEW,
-scale: SCALE,
-defaultViewport: pdfPage.getViewport(SCALE),
-// We can enable text/annotations layers, if needed
-textLayerFactory: new PDFJS.DefaultTextLayerFactory(),
-annotationLayerFactory: new PDFJS.DefaultAnnotationLayerFactory()
-});
-// Associates the actual page with the view, and drawing it
-pdfPageView.setPdfPage(pdfPage);
-return pdfPageView.draw();
-});
-});*/

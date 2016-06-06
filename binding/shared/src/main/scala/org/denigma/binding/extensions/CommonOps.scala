@@ -4,6 +4,8 @@ import rx.Var
 
 import scala.collection.immutable._
 import scala.concurrent.{ExecutionContext, Future}
+import scala.util.matching.Regex
+import scala.util.matching.Regex.Match
 
 trait CommonOps {
 
@@ -111,6 +113,58 @@ trait CommonOps {
       }
     }
 
+  }
+
+  implicit class StringOps(text: String)
+  {
+
+    def keyPartition[T](characterize: String=> T): scala.List[(T, String)] = text.foldLeft(List.empty[(T, String)]){
+      case (Nil, el) =>
+        val est = el +""
+        (characterize(est) -> est)::Nil
+      case ((key, value)::tail, el) =>
+        val join = value + el
+        val k = characterize(join)
+        val est = el +""
+        if(k==key) key->join::tail else (characterize(est)->est)::(key, value)::tail
+    }.reverse
+
+    //def lastMatch(regex: String): Option[Match] = lastMatch(text, regex)
+
+    def keyMovePartition[Key](characterize: String=> (Key, Int)) = text.foldLeft(List.empty[(Key, String)]){
+      case (Nil, el) =>
+        val est = el +""
+        (characterize(est)._1 -> est)::Nil
+
+      case ((key, value)::tail, el) =>
+        val join = value + el
+        val (k, move) = characterize(join)
+        val (keep, give) = join.splitAt(join.length - move)
+        if(k==key) key->join::tail else {
+          (k->give)::(key, keep)::tail
+        }
+    }.reverse
+
+    def matched(str: String, regex: String): (Int, Int) = {
+      regex.r.findAllMatchIn(str).foldLeft((-1, 0)){
+        case ( (-1, to), m)=>
+          (m.start, Math.max(to, m.end))
+
+        case ((from, to), m)=>
+          (from, Math.max(to, m.end))
+      }
+    }
+
+    def regexPartition(reg: String): scala.List[(Boolean, String)] = keyMovePartition{
+      case str =>
+        matched(str, reg) match {
+          case (from, to) if from >= 0 && to==str.length =>
+            val diff = to - from
+            true -> diff
+
+          case _ => false -> 1
+        }
+    }
   }
 
   implicit class NumberOps(num: Int){

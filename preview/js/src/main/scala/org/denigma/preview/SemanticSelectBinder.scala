@@ -47,13 +47,14 @@ case class SelectTripleOption[Rdf<:RDF](item: Var[TripleSelection[Rdf]], origin:
 
 }
 
-class SemanticOptionView[Rdf<:RDF](val elem: Element, item: Var[TripleSelection[Rdf]], val params: Map[String, Any]) extends BindableView
+class SemanticOptionView[Rdf <: RDF](val elem: Element, item: Var[TripleSelection[Rdf]], val params: Map[String, Any]) extends BindableView
 {
 
   val label: Rx[String] = item.map(_.label)
   val position: Rx[Int] = item.map(_.position)
   val order: Rx[String] = item.map(_.position.toString)
-  def onSelect():Unit = {
+
+  def onSelect(): Unit = {
     fire(SelectTripleOption[Rdf](item,this,this))
   }
 
@@ -74,12 +75,12 @@ class SemanticSelectionView[Rdf<:RDF](val elem: Element,
 {
 
 
-  implicit val varOrdering:Ordering[rx.Var[TripleSelection[Rdf]]] = new Ordering[Var[TripleSelection[Rdf]]]{
+  implicit val varOrdering: Ordering[rx.Var[TripleSelection[Rdf]]] = new Ordering[Var[TripleSelection[Rdf]]]{
     override def compare(x: Var[TripleSelection[Rdf]], y: Var[TripleSelection[Rdf]]): Int = if(x.now.position<y.now.position)
       -1 else if(x.now.position > y.now.position) 1 else 0
   }
-  implicit val selectionOrdering:Ordering[TripleSelection[Rdf]] = new Ordering[TripleSelection[Rdf]]{
-    override def compare(x: TripleSelection[Rdf], y: TripleSelection[Rdf]): Int = if(x.position<y.position)
+  implicit val selectionOrdering: Ordering[TripleSelection[Rdf]] = new Ordering[TripleSelection[Rdf]]{
+    override def compare(x: TripleSelection[Rdf], y: TripleSelection[Rdf]): Int = if(x.position < y.position)
       -1 else if(x.position > y.position) 1 else 0
   }
   override type Item = Var[TripleSelection[Rdf]]

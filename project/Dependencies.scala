@@ -68,7 +68,10 @@ object Dependencies {
 	*/
 
 	val preview = CrossDep(
-		shared = Def.setting(Seq(		"com.lihaoyi" %%% "fastparse" % Versions.fastparse )),
+		shared = Def.setting(Seq(
+			"com.lihaoyi" %%% "fastparse" % Versions.fastparse,
+			"com.lihaoyi" %%% "pprint" % Versions.pprint
+		)),
 		jvm  = Def.setting(styles.value ++ akka.value ++ otherJVM.value ),
 		js = Def.setting(styles.value ++ Seq("org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade)
 		)

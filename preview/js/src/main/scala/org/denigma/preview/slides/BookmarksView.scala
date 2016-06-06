@@ -37,17 +37,8 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
   val lastSelections: Var[List[TextLayerSelection]] = Var(List.empty[TextLayerSelection])
 
   val comments = Rx{
-
-    val opt = lastSelections.now.headOption
-    /*
-    if(opt.isDefined) {
-      val r = opt.get
-      println(r.text)
-      js.debugger()
-    }
-    */
     "\n#^ :in_paper "+paper() +
-    "\n#^ :on_page "+ page() + lastSelections().foldLeft(""){
+      "\n#^ :on_page "+ page() + lastSelections().foldLeft(""){
       case (acc, sel) => acc +
         "\n#^ :from_chunk " + sel.fromChunk
         "\n#^ :from_token_num " + sel.fromToken
@@ -67,9 +58,9 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
   def addSelectionHandler(event: MouseEvent) = {
       val book = location.now
       val mark = Bookmark(book.paper, book.page, lastSelections.now)
-      val item = Var(mark)
-      //println(s"NUMBER OF DUPLICATES: "+items.now.count(_==item))
-      //println(s"NUMBER OF UNVAR DUPLICATES: "+items.now.count(_.now==item.now))
+      //println("selections = "+lastSelections.now.mkString("\n"))
+
+    val item = Var(mark)
       if(!items.now.exists(_.now==mark)) items() = items.now ++ (item::Nil)
 
   }
@@ -106,29 +97,20 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
   override protected def subscribeUpdates() = {
     template.hide()
     this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
-    val upd = updates
+    val upd: Rx[SequenceUpdate[Var[Bookmark]]] = updates
     upd.onChange(upd => {
-      println(s"change happenz!:\n+++++++++++++++++" +
-        s"\nADDED: \n${upd.added.mkString("\n")}" +
-        s"\nREMOVED: \n${upd.removed.mkString("\n")}" +
-        s"\nMOVED: \n${upd.moved.mkString("\n")}" +
-        s"\n ----------------------------")
       upd.added.foreach(onInsert)
       upd.removed.foreach(onRemove)
       upd.moved.foreach(onMove)
     })
     selections.afterLastChange(500 millis){
       case sels=>
-        lastSelections() = sels.map(s=> TextLayerSelection.fromRange(s))
-        lastSelections.foreach(s=>println(s))
-        if(lastSelections.now.nonEmpty)
-        {
-          val sel = lastSelections.now.head
-          //val chunks = lastSelections.now.head.selectChunks(textLayer)
-          val spans = sel.selectSpans(textLayer)
-          println(spans)
-        }
-    }
+        lastSelections() = sels.map{
+          case s=>
+            val textSelection: TextLayerSelection = TextLayerSelection.fromRange("", s)
+            textSelection
+          }
+      }
   }
 
   override def bindView() = {

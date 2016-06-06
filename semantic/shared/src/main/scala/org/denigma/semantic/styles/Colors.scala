@@ -3,7 +3,7 @@ package org.denigma.semantic.styles
 import scalacss.Defaults._
 
 trait Colors {
-  self:StyleSheet.Standalone =>
+  self: StyleSheet.Standalone =>
 
   import dsl._
 

@@ -62,6 +62,8 @@ trait SharedVersions
 	val productCollections = "1.4.3"
 
 	val fastparse = "0.3.7"
+
+	val pprint = "0.4.1"
 }
 
 trait WebJarsVersions{

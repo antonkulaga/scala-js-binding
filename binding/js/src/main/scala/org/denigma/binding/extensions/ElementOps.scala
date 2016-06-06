@@ -40,45 +40,49 @@ class ExtendedHTMLElement(val el:HTMLElement) extends AnyVal with NodeOps with E
   def children: HTMLCollection = el.children
 
 
-  @tailrec final def nextAll(previous: List[Element] = Nil): List[Element] = el.nextElementSibling match {
+  @tailrec final def nextAll(current: Element = el, previous: List[Element] = Nil): List[Element] = current.nextElementSibling match {
     case null => previous.reverse
-    case value => nextAll(value::previous)
+    case value if js.isUndefined(value) => previous.reverse
+    case value => nextAll(value, value::previous)
   }
 
-  @tailrec final def nextUntil(previous: List[Element], until: (Element) => Boolean): List[Element] = el.nextElementSibling match {
+  @tailrec final def nextUntil(current: Element = el, previous: List[Element], until: (Element) => Boolean): List[Element] = current.nextElementSibling match {
     case null => previous.reverse
-    case value if until(value) => previous.reverse
-    case value => nextUntil(value::previous, until)
+    case value if until(value) || js.isUndefined(value) => previous.reverse
+    case value => nextUntil(value, value::previous, until)
   }
 
-  @tailrec final def nextWhile(previous: List[Element], whileCondition: (Element) => Boolean): List[Element] = el.nextElementSibling match {
+  @tailrec final def nextWhile(current: Element = el, previous: List[Element], whileCondition: (Element) => Boolean): List[Element] = current.nextElementSibling match {
     case null => previous.reverse
-    case value if whileCondition(value)=> nextWhile(value::previous, whileCondition)
+    case value if js.isUndefined(value) => previous.reverse
+    case value if whileCondition(value)=> nextWhile(value, value::previous, whileCondition)
     case value => previous.reverse
   }
 
-
-  @tailrec final def previousAll(previous: List[Element]): List[Element] = el.previousElementSibling match {
+  @tailrec final def previousAll(current: Element = el, previous: List[Element]): List[Element] = current.previousElementSibling match {
     case null => previous.reverse
-    case value => previousAll(value::previous)
+    case value if js.isUndefined(value) => previous.reverse
+    case value => previousAll(value, value::previous)
   }
 
-  @tailrec final def previousUntil(previous: List[Element], until: (Element) => Boolean): List[Element] =  el.previousElementSibling match {
+  @tailrec final def previousUntil(current: Element = el, previous: List[Element], until: (Element) => Boolean): List[Element] =  current.previousElementSibling match {
     case null => previous.reverse
-    case value if until(value) => previous.reverse
-    case value => previousUntil(value::previous, until)
+    case value if until(value) || js.isUndefined(value) => previous.reverse
+    case value => previousUntil(value, value::previous, until)
   }
 
-  @tailrec final def previousWhile(previous: List[Element], whileCondition: (Element) => Boolean): List[Element] = el.previousElementSibling match {
+  @tailrec final def previousWhile(current: Element = el, previous: List[Element], whileCondition: (Element) => Boolean): List[Element] = current.previousElementSibling match {
     case null => previous.reverse
-    case value if whileCondition(value)=> previousWhile(value::previous, whileCondition)
+    case value if whileCondition(value)=> previousWhile(value, value::previous, whileCondition)
     case value => previous.reverse
   }
 
 }
 
-class ExtendedSVGElement(val el: SVGElement) extends AnyVal with NodeOps with ExtendedElement{
-  def fromParent[TOut](matcher:PartialFunction[Node,TOut]):Option[TOut] = super.fromParent(el)(matcher)
+class ExtendedSVGElement(val el: SVGElement) extends AnyVal with NodeOps with ExtendedElement
+{
+
+  def fromParent[TOut](matcher: PartialFunction[Node,TOut]):Option[TOut] = super.fromParent(el)(matcher)
 
   def updateIfExist(key:String,value:js.Any) = if(el.hasOwnProperty(key) && el.dyn.selectDynamic(key)!=value)
     el.dyn.updateDynamic(key)(value)
@@ -107,41 +111,42 @@ class ExtendedSVGElement(val el: SVGElement) extends AnyVal with NodeOps with Ex
 
   def selectAllByClass(classname: String): NodeList = el.querySelectorAll(s".$classname")
 
-  @tailrec final def nextAll(previous: List[Element] = Nil): List[Element] = el.nextElementSibling match {
+  @tailrec final def nextAll(current: Element = el, previous: List[Element] = Nil): List[Element] = current.nextElementSibling match {
     case null => previous.reverse
-    case value => nextAll(value::previous)
+    case value if js.isUndefined(value) => previous.reverse
+    case value => nextAll(value, value::previous)
   }
 
-  @tailrec final def nextUntil(previous: List[Element], until: (Element) => Boolean): List[Element] = el.nextElementSibling match {
+  @tailrec final def nextUntil(current: Element = el, previous: List[Element], until: (Element) => Boolean): List[Element] = current.nextElementSibling match {
     case null => previous.reverse
-    case value if until(value) => previous.reverse
-    case value => nextUntil(value::previous, until)
+    case value if until(value) || js.isUndefined(value) => previous.reverse
+    case value => nextUntil(value, value::previous, until)
   }
 
-  @tailrec final def nextWhile(previous: List[Element], whileCondition: (Element) => Boolean): List[Element] = el.nextElementSibling match {
+  @tailrec final def nextWhile(current: Element = el, previous: List[Element], whileCondition: (Element) => Boolean): List[Element] = current.nextElementSibling match {
     case null => previous.reverse
-    case value if whileCondition(value)=> nextWhile(value::previous, whileCondition)
+    case value if js.isUndefined(value) => previous.reverse
+    case value if whileCondition(value)=> nextWhile(value, value::previous, whileCondition)
     case value => previous.reverse
   }
 
-
-  @tailrec final def previousAll(previous: List[Element]): List[Element] = el.previousElementSibling match {
+  @tailrec final def previousAll(current: Element = el, previous: List[Element]): List[Element] = current.previousElementSibling match {
     case null => previous.reverse
-    case value => previousAll(value::previous)
+    case value if js.isUndefined(value) => previous.reverse
+    case value => previousAll(value, value::previous)
   }
 
-  @tailrec final def previousUntil(previous: List[Element], until: (Element) => Boolean): List[Element] =  el.previousElementSibling match {
+  @tailrec final def previousUntil(current: Element = el, previous: List[Element], until: (Element) => Boolean): List[Element] =  current.previousElementSibling match {
     case null => previous.reverse
-    case value if until(value) => previous.reverse
-    case value => previousUntil(value::previous, until)
+    case value if until(value) || js.isUndefined(value) => previous.reverse
+    case value => previousUntil(value, value::previous, until)
   }
 
-  @tailrec final def previousWhile(previous: List[Element], whileCondition: (Element) => Boolean): List[Element] = el.previousElementSibling match {
+  @tailrec final def previousWhile(current: Element = el, previous: List[Element], whileCondition: (Element) => Boolean): List[Element] = current.previousElementSibling match {
     case null => previous.reverse
-    case value if whileCondition(value)=> previousWhile(value::previous, whileCondition)
+    case value if whileCondition(value) => previousWhile(value, value :: previous, whileCondition)
     case value => previous.reverse
   }
-
 }
 
 trait NodeOps extends Any{
@@ -194,17 +199,17 @@ trait ExtendedElement extends Any{
 
   def children: HTMLCollection
 
-  def nextAll(previous: List[Element] = Nil): List[Element]
+  def nextAll(current: Element, previous: List[Element] = Nil): List[Element]
 
-  def nextUntil(previous: List[Element] = Nil, until: Element => Boolean): List[Element]
+  def nextUntil(current: Element, previous: List[Element] = Nil, until: Element => Boolean): List[Element]
 
-  def nextWhile(previous: List[Element] = Nil, whileCondition: Element => Boolean): List[Element]
+  def nextWhile(current: Element, previous: List[Element] = Nil, whileCondition: Element => Boolean): List[Element]
 
-  def previousAll(previous: List[Element] = Nil): List[Element]
+  def previousAll(current: Element, previous: List[Element] = Nil): List[Element]
 
-  def previousUntil(previous: List[Element] = Nil, until: Element => Boolean): List[Element]
+  def previousUntil(current: Element, previous: List[Element] = Nil, until: Element => Boolean): List[Element]
 
-  def previousWhile(previous: List[Element] = Nil, whileCondition: Element => Boolean): List[Element]
+  def previousWhile(current: Element, previous: List[Element] = Nil, whileCondition: Element => Boolean): List[Element]
 
 }
 
