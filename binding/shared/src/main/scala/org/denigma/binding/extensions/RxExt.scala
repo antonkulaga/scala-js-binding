@@ -34,8 +34,13 @@ trait RxExt extends CommonOps {
           source.set(valueOnError(th))
       }(executor)
     }
+  }
 
+  implicit class AnyRx[T](source: Rx[T]) {
 
+    def zip(implicit ctx: Ctx.Owner) : Rx[(T, T)] = source.fold(source.now, source.now){
+      case ( (one, two), el) => (two, el)
+    }
 
     def triggerN(num: Int)(fun: T => Unit): Obs = {
       var counter = num
@@ -53,14 +58,6 @@ trait RxExt extends CommonOps {
     }
 
     def triggerOnce(fun: T => Unit): Unit = triggerN(1)(fun)
-  }
-
-  implicit class AnyRx[T](source: Rx[T]) {
-
-    def zip(implicit ctx: Ctx.Owner) : Rx[(T, T)] = source.fold(source.now, source.now){
-      case ( (one, two), el) => (two, el)
-    }
-
 
     /**
       * Creates a new [[Rx]] which zips the values of the source [[Rx]] according
@@ -172,6 +169,32 @@ trait RxExt extends CommonOps {
       * @return
       */
     def toSyncVector[U](convert: T => U)(implicit same: (T, U)=> Boolean): Var[Vector[U]] = updatesTo(Var(col.now.map(convert).toVector))(convert)(same)
+
+  }
+
+
+  implicit class RxSortedSet[T](source: Rx[SortedSet[T]])  {
+
+    lazy val upd: Rx[SetUpdate[T]] = SortedSetWatcher(source).updates
+
+    def updatesTo[U](vector: Var[Vector[U]])(convert: T => U)(implicit same: (T, U)=> Boolean): Var[Vector[U]] = {
+      upd.onChange{
+        case u =>
+          val remained: Vector[U] = vector.now.filterNot(v=>u.removed.exists(r=>same(r, v)))
+          vector() = remained ++ u.added.map(convert)
+      }
+      vector
+    }
+
+    /**
+      * Produces a vector that syncs with the set without applying convertions too many times
+      *
+      * @param convert
+      * @param same
+      * @tparam U
+      * @return
+      */
+    def toSyncVector[U](convert: T => U)(implicit same: (T, U)=> Boolean): Var[Vector[U]] = updatesTo(Var(source.now.map(convert).toVector))(convert)(same)
 
   }
 

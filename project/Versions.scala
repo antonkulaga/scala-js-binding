@@ -10,7 +10,7 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 	val controls = "0.0.16"
 
-	val pdfJSFacade = "0.8.0-0.0.1"
+	val pdfJSFacade = "0.8.0-0.0.2"
 
 }
 

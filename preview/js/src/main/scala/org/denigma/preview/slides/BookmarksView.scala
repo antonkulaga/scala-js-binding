@@ -52,7 +52,6 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
       new BookmarkView(el, item, location).withBinder(new CodeBinder(_))
   }
 
-
   val addSelection = Var(Events.createMouseEvent())
 
   def addSelectionHandler(event: MouseEvent) = {
@@ -62,7 +61,6 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
 
     val item = Var(mark)
       if(!items.now.exists(_.now==mark)) items() = items.now ++ (item::Nil)
-
   }
 
   @tailrec final def inTextLayer(node: Node): Boolean = if(node == null) false
@@ -88,10 +86,6 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
       case false => //println(s"something else ${selection.anchorNode.textContent}") //do nothing
     }
 
-  }
-
-  protected def chunkToken(container: Node) =  {
-    container.attributes.get(TextLayerSelection.data_chunk_id)
   }
 
   override protected def subscribeUpdates() = {

@@ -40,11 +40,11 @@ trait EventBinder extends ReactiveBinder
     case key if noDash(key).contains(Events.mouseleave) => Events.mouseleave
     case key if noDash(key).contains(Events.mouseup) => Events.mouseup
     case key if noDash(key).contains(Events.mousedown) => Events.mousedown
-    case key if noDash(key).contains(Events.click) => Events.click
     case key if noDash(key).contains(Events.mouseover) => Events.mouseover
     case key if noDash(key).contains(Events.mouseout) => Events.mouseout
     case key if noDash(key).contains(Events.dblclick) => Events.dblclick
     case key if noDash(key).contains("doubleclick") => Events.dblclick
+    case key if noDash(key).contains(Events.click) => Events.click
   }
 
   protected def mouseWheelFromKey: PartialFunction[String, String] = {
@@ -53,26 +53,26 @@ trait EventBinder extends ReactiveBinder
   }
 
   protected def dragFromKey: PartialFunction[String, String] = {
-    case key if noDash(key).contains(Events.copy) => Events.copy
-    case key if noDash(key).contains(Events.cut) => Events.cut
-    case key if noDash(key).contains(Events.paste) => Events.paste
     case key if noDash(key).contains(Events.beforecopy) => Events.beforecopy
     case key if noDash(key).contains(Events.beforecut) => Events.beforecut
     case key if noDash(key).contains(Events.beforepaste) => Events.beforepaste
-    case key if noDash(key).contains(Events.drag) => Events.drag
+    case key if noDash(key).contains(Events.copy) => Events.copy
+    case key if noDash(key).contains(Events.cut) => Events.cut
+    case key if noDash(key).contains(Events.paste) => Events.paste
     case key if noDash(key).contains(Events.dragend) => Events.dragend
     case key if noDash(key).contains(Events.dragenter) => Events.dragenter
     case key if noDash(key).contains(Events.dragleave) => Events.dragleave
     case key if noDash(key).contains(Events.dragover) => Events.dragover
     case key if noDash(key).contains(Events.dragstart) => Events.dragstart
     case key if noDash(key).contains(Events.drop) => Events.drop
+    case key if noDash(key).contains(Events.drag) => Events.drag
   }
 
 
   protected def focusFromKey: PartialFunction[String, String] = {
-    case key if noDash(key).contains(Events.focus) => Events.focus
     case key if noDash(key).contains(Events.focusin) => Events.focusin
     case key if noDash(key).contains(Events.focusout) => Events.focusout
+    case key if noDash(key).contains(Events.focus) => Events.focus
   }
 
   protected def otherEventFromKey: PartialFunction[String, String] = {

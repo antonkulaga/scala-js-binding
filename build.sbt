@@ -160,7 +160,7 @@ def scalaJSDevTaskStage: Def.Initialize[Task[Pipeline.Stage]] = Def.task { mappi
 lazy val preview = crossProject
 		.crossType(CrossType.Full)
 		.in(file("preview"))
-		.settings(commonSettings++publishSettings: _*)
+		.settings(commonSettings ++ publishSettings: _*)
 		.settings(
 			name := "preview",
       libraryDependencies ++= Dependencies.preview.shared.value
