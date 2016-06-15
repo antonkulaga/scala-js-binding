@@ -10,7 +10,7 @@ import scala.scalajs.js
 /**
   * Binders that binds either to parent or to child
   */
-trait UpDownBinder[View<:BindableView]{
+trait UpDownBinder[View <: BindableView]{
 
   self: ReactiveBinder =>
 
@@ -26,7 +26,7 @@ trait UpDownBinder[View<:BindableView]{
       val fun: js.Function0[Any] = ()=>{
         downPartialDelayed(el, bname, rxName, ats)
       }
-      dom.window.setTimeout( fun, defaultDelay.toMillis: Double)
+      dom.window.setTimeout(fun, defaultDelay.toMillis: Double)
   }
 
   protected def downPartialDelayed(el: Element, bname: String, rxName: String, ats: Map[String, String]) = {
@@ -37,12 +37,11 @@ trait UpDownBinder[View<:BindableView]{
       case Some(child)=>
         child.binders.foreach{
           case b: ReactiveBinder =>
-            //println(s"DOWN PARTIAL IS ${bname} -> ${childRxName}")
             b.elementPartial(el, ats.updated(bname, childRxName))(bname, childRxName)
           case other: child.type#ViewBinder=> // do nothing
         }
 
-      case None => dom.console.error(s"cannot bind to child view's Rx with Name $childName and RxName ${rxName}\n " +
+      case None => dom.console.error(s"cannot bind $bname to child view's Rx with Name $childName and RxName ${rxName}\n " +
         s"delay is ${defaultDelay.toMillis}" +
         s"all child views are: [${view.subviews.keySet.toList.mkString(", ")}]" +
         s"")

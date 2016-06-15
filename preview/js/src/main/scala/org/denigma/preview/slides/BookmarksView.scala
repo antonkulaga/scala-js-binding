@@ -85,7 +85,6 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
         }
       case false => //println(s"something else ${selection.anchorNode.textContent}") //do nothing
     }
-
   }
 
   override protected def subscribeUpdates() = {

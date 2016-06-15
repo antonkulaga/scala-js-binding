@@ -2,15 +2,15 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 {
 	val scala = "2.11.8"
 
-	val binding = "0.8.8"
+	val binding = "0.8.9"
 
-  val macroBinding = "0.5"
+  val macroBinding = "0.6"
 
 	val bananaRdf = "0.8.2-SNAP5" // "0.8.1"
 
-	val controls = "0.0.16"
+	val controls = "0.0.17"
 
-	val pdfJSFacade = "0.8.0-0.0.2"
+	val pdfJSFacade = "0.8.0-0.0.3"
 
 }
 
@@ -18,7 +18,7 @@ trait ScalaJVMVersions {
 
 	val akkaHttp = "2.4.7"
 
-	val akkaHttpExtensions = "0.0.12"
+	val akkaHttpExtensions = "0.0.13"
 
 	val ammonite = "0.5.7"
 
@@ -33,7 +33,7 @@ trait ScalaJVMVersions {
 
 trait ScalaJSVersions {
 
- 	val dom = "0.9.0"
+ 	val dom = "0.9.1"
 
 	val jqueryFacade = "0.11"
 
@@ -47,7 +47,7 @@ trait ScalaJSVersions {
 // versions for libs that are shared between client and server
 trait SharedVersions
 {
-	val scalaRx = "0.3.1" //val scalaRx = "0.3.1.1" //temporary published snapshot
+	val scalaRx = "0.3.1"
 
 	val scalaTags = "0.5.4"
 
@@ -55,9 +55,9 @@ trait SharedVersions
 
 	val macroParadise = "2.1.0"
 
-	val scalaTest =  "3.0.0-M16-SNAP4"
+	val scalaTest = "3.0.0-RC2"
 
-	val booPickle = "1.1.3"
+	val booPickle = "1.2.0"
 
 	val productCollections = "1.4.3"
 
