@@ -16,9 +16,7 @@ object Dependencies {
 		shared = Def.setting(Seq(
 			"com.lihaoyi" %%% "scalatags" % Versions.scalaTags,
 
-			"com.lihaoyi" %%% "scalarx" % Versions.scalaRx,
-
-			"com.github.marklister" %%% "product-collections" % Versions.productCollections
+			"com.lihaoyi" %%% "scalarx" % Versions.scalaRx
 		)),
 
 		jvm = Def.setting(Seq.empty),
@@ -70,7 +68,8 @@ object Dependencies {
 	val preview = CrossDep(
 		shared = Def.setting(Seq(
 			"com.lihaoyi" %%% "fastparse" % Versions.fastparse,
-			"com.lihaoyi" %%% "pprint" % Versions.pprint
+			"com.lihaoyi" %%% "pprint" % Versions.pprint,
+			"com.github.marklister" %%% "product-collections" % Versions.productCollections
 		)),
 		jvm  = Def.setting(styles.value ++ akka.value ++ otherJVM.value ),
 		js = Def.setting(styles.value ++ Seq("org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade)
