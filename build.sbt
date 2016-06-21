@@ -92,7 +92,7 @@ lazy val pdf= (project in file("pdf"))
     version := Versions.pdfJSFacade,
     scalaVersion := Versions.scala,
     libraryDependencies ++= Seq(
-      "org.scala-js" %%% "scalajs-dom" % "0.9.0"
+      "org.scala-js" %%% "scalajs-dom" % Versions.dom
     )
   ).enablePlugins(ScalaJSPlugin, ScalaJSPlay)
 
@@ -146,6 +146,26 @@ def scalaJSDevTaskStage: Def.Initialize[Task[Pipeline.Stage]] = Def.task { mappi
   mappings ++ PlayScalaJS.devFiles(Compile).value ++ PlayScalaJS.sourcemapScalaFiles(fastOptJS).value
 }
 
+lazy val experimental = crossProject
+  .crossType(CrossType.Full)
+  .in(file("experimental"))
+  .settings(commonSettings: _*)
+  .settings(
+    name := "binding-experimental",
+    libraryDependencies ++= Dependencies.preview.shared.value,
+    libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-reflect" % _),
+    libraryDependencies += compilerPlugin("org.scalamacros" % "paradise" % Versions.macroParadise cross CrossVersion.full)
+  ).disablePlugins(RevolverPlugin)
+  .jsSettings(
+    persistLauncher in Compile := true,
+    persistLauncher in Test := false,
+    libraryDependencies ++= Dependencies.preview.js.value,
+    jsDependencies += RuntimeDOM % Test
+  ).dependsOn(controls)
+
+lazy val experimentalJS = experimental.js
+lazy val experimentalJVM = experimental.jvm
+
 lazy val preview = crossProject
 		.crossType(CrossType.Full)
 		.in(file("preview"))
@@ -171,7 +191,7 @@ lazy val preview = crossProject
 			(emitSourceMaps in fullOptJS) := true,
 			pipelineStages in Assets := Seq(scalaJSDevStage/*scalaJSProd*/, gzip), //for run configuration
 		  (fullClasspath in Runtime) += (packageBin in Assets).value //to package production deps
-		).dependsOn(semantic, controls)
+		).dependsOn(semantic, controls, experimental)
 
 lazy val previewJS = preview.js
 lazy val previewJVM = preview.jvm settings(

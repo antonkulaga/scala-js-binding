@@ -8,7 +8,7 @@ import scala.language.experimental.macros
 import scala.reflect.macros._
 
 trait KeyEventMap[T] {
-  def asKeyEventMap(t:T):Map[String,Var[dom.KeyboardEvent]]
+  def asKeyEventMap(t: T): Map[String, Var[dom.KeyboardEvent]]
 }
 
 object KeyEventMap extends BinderObject {
@@ -16,7 +16,7 @@ object KeyEventMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[KeyEventMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Var[dom.KeyboardEvent]](c)
+    val mapExpr = extract[T, Var[dom.KeyboardEvent]](c)
 
     reify {
       new KeyEventMap[T] {
@@ -27,7 +27,7 @@ object KeyEventMap extends BinderObject {
 }
 
 trait TextEventMap[T] {
-  def asTextEventMap(t: T): Map[String,Var[dom.TextEvent]]
+  def asTextEventMap(t: T): Map[String, Var[dom.TextEvent]]
 }
 
 object TextEventMap extends BinderObject {
@@ -35,7 +35,7 @@ object TextEventMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[TextEventMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Var[dom.TextEvent]](c)
+    val mapExpr = extract[T, Var[dom.TextEvent]](c)
 
     reify {
       new TextEventMap[T] {
@@ -119,7 +119,7 @@ object EventMap extends BinderObject {
 }
 
 trait UIEventMap[T] {
-  def asUIEventMap(t: T): Map[String,Var[dom.UIEvent]]
+  def asUIEventMap(t: T): Map[String, Var[dom.UIEvent]]
 }
 
 object UIEventMap extends BinderObject {
@@ -127,7 +127,7 @@ object UIEventMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[UIEventMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Var[dom.UIEvent]](c)
+    val mapExpr = extract[T, Var[dom.UIEvent]](c)
     reify {
       new UIEventMap[T] {
         def asUIEventMap(t: T) = mapExpr.splice
@@ -137,7 +137,7 @@ object UIEventMap extends BinderObject {
 }
 
 trait WheelEventMap[T] {
-  def asWheelEventMap(t:T):Map[String,Var[dom.WheelEvent]]
+  def asWheelEventMap(t: T): Map[String, Var[dom.WheelEvent]]
 }
 
 object WheelEventMap extends BinderObject {
@@ -145,7 +145,7 @@ object WheelEventMap extends BinderObject {
 
   def impl[T: c.WeakTypeTag](c: whitebox.Context): c.Expr[WheelEventMap[T]] = {
     import c.universe._
-    val mapExpr = extract[T,Var[dom.WheelEvent]](c)
+    val mapExpr = extract[T, Var[dom.WheelEvent]](c)
     reify {
       new WheelEventMap[T] {
         def asWheelEventMap(t: T) = mapExpr.splice

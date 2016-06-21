@@ -44,6 +44,7 @@ trait UpDownBinder[View <: BindableView]{
       case None => dom.console.error(s"cannot bind $bname to child view's Rx with Name $childName and RxName ${rxName}\n " +
         s"delay is ${defaultDelay.toMillis}" +
         s"all child views are: [${view.subviews.keySet.toList.mkString(", ")}]" +
+        s"element outerHTML is ${el.outerHTML}" +
         s"")
     }
   }

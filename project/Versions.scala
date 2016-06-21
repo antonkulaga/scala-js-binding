@@ -2,9 +2,9 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 {
 	val scala = "2.11.8"
 
-	val binding = "0.8.9"
+	val binding = "0.8.10"
 
-  val macroBinding = "0.6"
+  val macroBinding = "0.6.1"
 
 	val bananaRdf = "0.8.2-SNAP5" // "0.8.1"
 
@@ -35,11 +35,11 @@ trait ScalaJSVersions {
 
  	val dom = "0.9.1"
 
-	val jqueryFacade = "0.11"
+	val jqueryFacade = "1.0-RC6"
 
 	val semanticUIFacade = "0.0.1"
 
-	val codemirrorFacade = "5.11-0.7"
+	val codemirrorFacade = "5.13.2-0.7"
 
 	val threejsFacade =  "0.0.74-0.1.6"
 }
@@ -49,7 +49,7 @@ trait SharedVersions
 {
 	val scalaRx = "0.3.1"
 
-	val scalaTags = "0.5.4"
+	val scalaTags = "0.5.5"
 
 	val scalaCSS = "0.4.1"
 
