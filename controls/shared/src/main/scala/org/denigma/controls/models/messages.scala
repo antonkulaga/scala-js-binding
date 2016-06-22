@@ -2,23 +2,33 @@ package org.denigma.controls.models
 
 import java.util.Date
 
+import boopickle.DefaultBasic._
+
+import boopickle.{CompositePickler, Pickler}
+
 import scala.collection.immutable.Seq
-import boopickle.Default._
 
 object WebMessage {
-  implicit val WebMessage = compositePickler[WebMessage].
+  implicit val messagePickler: CompositePickler[WebMessage] = compositePickler[WebMessage].
     addConcreteType[Suggest].
     addConcreteType[Suggestion]
-
 }
 
-sealed trait WebMessage
+trait WebMessage
 {
   val channel: String
   val time: Date = new Date()
 }
 
+object Suggest {
+  implicit val classPickler: Pickler[Suggest] = boopickle.Default.generatePickler[Suggest]
+}
+
 case class Suggest(input: String, channel: String) extends WebMessage
+
+object Suggestion {
+  implicit val classPickler: Pickler[Suggestion] = boopickle.Default.generatePickler[Suggestion]
+}
 
 case class Suggestion(input: String, channel: String, suggestions: Seq[TextOption]) extends WebMessage
 
@@ -35,9 +45,11 @@ object TextOption{
 
     implicit val selectionOrdering: Ordering[TextOption] = new Ordering[TextOption]
     {
-      override def compare(x: TextOption, y: TextOption): Int = if(x.position<y.position)
+      override def compare(x: TextOption, y: TextOption): Int = if(x.position < y.position)
         -1 else if(x.position>y.position) 1 else if(x==y) 0 else 1
     }
+
+  implicit val classPickler: Pickler[TextOption] = boopickle.Default.generatePickler[TextOption]
 }
 
 

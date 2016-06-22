@@ -2,7 +2,6 @@ package org.denigma.controls.selection
 
 import java.nio.ByteBuffer
 
-import boopickle.Default._
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.ViewEvent
@@ -10,13 +9,11 @@ import org.denigma.controls.models._
 import org.denigma.controls.sockets.WebSocketSubscriber
 import org.scalajs.dom.KeyboardEvent
 import org.scalajs.dom.ext.KeyCode
+import rx.Ctx.Owner.Unsafe.Unsafe
+import rx._
 
 import scala.collection.immutable
 import scala.collection.immutable._
-import org.denigma.binding.extensions._
-import rx._
-import rx.Ctx.Owner.Unsafe.Unsafe
-
 import scala.concurrent.duration.FiniteDuration
 import scala.util.{Success, Try}
 
@@ -59,16 +56,6 @@ trait TextOptionsSuggester extends Suggester with WithDelay
   protected def onDelayedInput(inp: String): Unit
 
   protected def unpickle(bytes: ByteBuffer): Try[WebMessage]
-
-  /*
-  case inp=>
-  if(inp.length >= minSuggestLength){
-    import boopickle.Default._
-    val bytes: ByteBuffer = Pickle.intoBytes[WebMessage](Suggest(inp, subscriber.channel))
-    subscriber.send(bytes2message(bytes))
-  }*/
-
-  //Unpickle[WebMessage].fromBytes
 
   val dalayedInput = afterLastChange(input, inputDelay)
   dalayedInput.onChange(onDelayedInput)

@@ -33,8 +33,7 @@ object Dependencies {
 
 
 	val controls = CrossDep(
-		shared = Def.setting(Seq(
-			"me.chrons" %%% "boopickle" % Versions.booPickle)),
+		shared = Def.setting(Seq("me.chrons" %%% "boopickle" % Versions.booPickle)),
 		jvm  = Def.setting(styles.value ++ akka.value),
 		js = Def.setting(styles.value ++ Seq("org.denigma" %%% "codemirror-facade" % Versions.codemirrorFacade)
 		)

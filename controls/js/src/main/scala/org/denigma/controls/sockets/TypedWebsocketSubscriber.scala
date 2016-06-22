@@ -1,11 +1,9 @@
 package org.denigma.controls.sockets
 
 import java.nio.ByteBuffer
-import rx.Ctx.Owner.Unsafe.Unsafe
 
-import boopickle.DefaultBasic._
+import rx.Ctx.Owner.Unsafe.Unsafe
 import rx.Var
-import org.denigma.binding.extensions._
 
 import scala.concurrent.Future
 import scala.concurrent.duration.FiniteDuration

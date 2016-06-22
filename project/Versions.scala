@@ -57,7 +57,7 @@ trait SharedVersions
 
 	val scalaTest = "3.0.0-RC2"
 
-	val booPickle = "1.2.0"
+	val booPickle = "1.2.2"
 
 	val productCollections = "1.4.3"
 
