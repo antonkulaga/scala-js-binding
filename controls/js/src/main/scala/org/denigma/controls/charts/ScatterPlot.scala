@@ -34,12 +34,4 @@ class ScatterPlot(val elem:Element,
 
   override val items: Rx[Seq[Var[PointValue]]] = Var(Seq.empty)
 
-  override protected def subscribeUpdates() = {
-    this.items.now.foreach(i=>this.addItemView(i,this.newItemView(i)))
-    updates.onChange(upd=>{
-      upd.added.foreach(onInsert)
-      upd.removed.foreach(onRemove)
-      upd.moved.foreach(onMove)
-    })
-  }
 }

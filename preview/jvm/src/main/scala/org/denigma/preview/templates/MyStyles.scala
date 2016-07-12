@@ -1,12 +1,33 @@
 package org.denigma.preview.templates
 
-import org.denigma.controls.papers.TextLayerStyles
+import org.denigma.controls.papers.{MediaQueries, TextLayerStyles}
 import org.denigma.semantic.styles.{Colors, SelectionStyles}
 
 import scalacss.Defaults._
 
-object MyStyles extends StyleSheet.Standalone with SelectionStyles with TextLayerStyles {
+object MyStyles extends StyleSheet.Standalone with SelectionStyles with TextLayerStyles with MediaQueries{
+
+
   import dsl._
+
+    media.maxWidth(1024 px) - {
+    &("html") - {
+      fontSize(8 pt)
+    }
+  }
+  media.minWidth(1281 px) - {
+    &("html") - {
+      fontSize(12 pt)
+    }
+  }
+
+  "html"-(
+    onTiny -fontSize(8 pt),
+    onLittle -fontSize(9 pt),
+    onSmall -fontSize(10 pt),
+    onMedium -fontSize(11 pt),
+    onLarge -fontSize(12 pt)
+    )
 
   "body"-(
     backgroundColor(deepskyblue)

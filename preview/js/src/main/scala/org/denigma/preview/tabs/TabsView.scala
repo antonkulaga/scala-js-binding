@@ -57,12 +57,16 @@ class TabsView(val elem: Element, val items: Rx[Seq[Rx[TabItem]]]) extends Basic
   override protected def subscribeUpdates() = {
     template.hide()
     this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
-    updates.onChange(upd => {
-      upd.added.foreach(onInsert)
-      upd.removed.foreach(onRemove)
-      upd.moved.foreach(onMove)
-      if (active.now.isEmpty && items.now.nonEmpty) active() = items.now.headOption
-    })
+    zipped.onChange{
+      case (from, to) if from == to => //do nothing
+      case (prev, cur) if prev !=cur =>
+        val removed = prev.diff(cur)
+        for(r <- removed) removeItemView(r)
+        val added = cur.toSet.diff(prev.toSet)
+        val revCur = cur.toList.reverse
+        reDraw(revCur, added, template)
+        if (active.now.isEmpty && items.now.nonEmpty) active() = items.now.headOption
+    }
     if (active.now.isEmpty && items.now.nonEmpty) active() = items.now.headOption  //TODO: refactor
   }
 

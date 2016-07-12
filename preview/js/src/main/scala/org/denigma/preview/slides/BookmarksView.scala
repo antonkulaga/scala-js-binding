@@ -88,14 +88,7 @@ class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Eleme
   }
 
   override protected def subscribeUpdates() = {
-    template.hide()
-    this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
-    val upd: Rx[SequenceUpdate[Var[Bookmark]]] = updates
-    upd.onChange(upd => {
-      upd.added.foreach(onInsert)
-      upd.removed.foreach(onRemove)
-      upd.moved.foreach(onMove)
-    })
+   super.subscribeUpdates()
     selections.afterLastChange(500 millis){
       case sels=>
         lastSelections() = sels.map{

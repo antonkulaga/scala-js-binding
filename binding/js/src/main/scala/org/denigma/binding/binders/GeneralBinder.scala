@@ -102,7 +102,7 @@ class GeneralBinder[View <: BindableView](val view: View, recover: => Option[Rea
                       ev: Event =>
                         bool() = if (value == "false") false else true
                     })
-                  case None =>
+                  case _ =>
                     dom.console.error(s"cannot find $where variable")
                 }
                 else dom.console.error(s"cannot find $where variable")

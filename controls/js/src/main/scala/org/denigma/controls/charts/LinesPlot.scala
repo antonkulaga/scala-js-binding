@@ -64,8 +64,9 @@ trait LinesPlot extends ItemsSeqView with Plot
       scale.copy(end = scale.end / 2, stepSize = scale.stepSize / 2)
     } else scale
 
-
+/*
   override protected def subscribeUpdates() = {
+    super.subscribeUpdates()
     this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
     updates.onChange(upd=>{
       upd.added.foreach(onInsert)
@@ -73,7 +74,7 @@ trait LinesPlot extends ItemsSeqView with Plot
       upd.moved.foreach(onMove)
     })
   }
-
+*/
   override lazy val injector = defaultInjector
     .register("ox"){case (el, args) => new AxisView(el, scaleX, chartStyles.map(_.scaleX))
       .withBinder(new GeneralBinder(_))}

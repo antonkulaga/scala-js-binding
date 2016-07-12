@@ -102,6 +102,24 @@ trait CollectionView extends BindableView
       }
   }
 
+  def insertItemView(item: Item, iv: ItemView, before: Element): ItemView = {
+    Try ( template.parentElement.insertBefore(iv.viewElement, before) ) match {
+      case Failure(th) =>
+        dom.console.error("stack trace "+th.getMessage+"\n"+th.getStackTrace.toList.mkString("/n"))
+        println("TEMPLATE ="+template.outerHTML)
+        println("IV ="+iv.viewElement.outerHTML)
+        println("TEMPLATE PARENT ="+template.parentElement.outerHTML)
+        println("and EL = \n**********\n"+this.viewElement.outerHTML)
+      case Success(res) =>
+    }
+    iv match {
+      case b: ChildView =>  this.addView(b)
+    }
+    itemViews() = itemViews.now + (item->iv)
+    iv.bindView()
+    iv
+  }
+
   override def bindView(): Unit = {
     this.bindElement(this.viewElement)
     this.subscribeUpdates()

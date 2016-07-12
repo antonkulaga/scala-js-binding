@@ -1,6 +1,7 @@
 import com.typesafe.sbt.gzip.Import.gzip
 import com.typesafe.sbt.web._
 import com.typesafe.sbt.web.pipeline.Pipeline
+import com.typesafe.sbt.web.pipeline.Pipeline.Stage
 import playscalajs.PlayScalaJS.autoImport._
 import playscalajs.ScalaJSPlay.autoImport._
 import playscalajs.{PlayScalaJS, ScalaJSPlay}
@@ -16,7 +17,7 @@ lazy val publishSettings = Seq(
     bintrayOrganization := Some("denigma"),
     licenses += ("MPL-2.0", url("http://opensource.org/licenses/MPL-2.0")),
     bintrayPublishIvyStyle := true,
-    developers := Developer("antonkulaga","Anton Kulaga","antonkulaga@gmail.com",new URL("https://github.com/antonkulaga"))::Nil
+    developers := Developer("antonkulaga", "Anton Kulaga","antonkulaga@gmail.com", new URL("https://github.com/antonkulaga"))::Nil
   )
 
 /**
@@ -189,8 +190,18 @@ lazy val preview = crossProject
 			scalaJSDevStage := scalaJSDevTaskStage.value,
 			//pipelineStages := Seq(scalaJSProd, gzip),
 			(emitSourceMaps in fullOptJS) := true,
-			pipelineStages in Assets := Seq(scalaJSDevStage/*scalaJSProd*/, gzip), //for run configuration
-		  (fullClasspath in Runtime) += (packageBin in Assets).value //to package production deps
+			pipelineStages in Assets := {
+        val stages: Seq[TaskKey[Stage]] = sys.env.get("APP_MODE") match {
+          case Some(str) if str.toLowerCase.startsWith("prod") =>
+            println("PROJECT IS IN PRODUCTION MODE")
+            Seq(scalaJSProd, gzip)
+          case other =>
+            println("PROJECT IS IN DEVELOPMENT MODE")
+            Seq(scalaJSDevStage, gzip)
+        }
+        stages
+      }
+		  //(fullClasspath in Runtime) += (packageBin in Assets).value //to package production deps
 		).dependsOn(semantic, controls, experimental)
 
 lazy val previewJS = preview.js
@@ -206,9 +217,9 @@ lazy val root = Project("root", file("."),settings = commonSettings)
     version := Versions.binding,
     javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint"),
     mainClass in Compile := (mainClass in previewJVM in Compile).value,
-    (fullClasspath in Runtime) += (packageBin in previewJVM in Assets).value,
+    (managedClasspath in Runtime) += (packageBin in previewJVM in Assets).value,
     maintainer := "Anton Kulaga <antonkulaga@gmail.com>",
     packageSummary := "scala-js-binding",
     packageDescription := """Scala-js-binding preview App"""
     // general package information (can be scoped to Windows)
-     ) dependsOn previewJVM aggregate(previewJVM, previewJS) enablePlugins JavaServerAppPackaging
+     ) dependsOn previewJVM aggregate(previewJVM, previewJS) enablePlugins(JavaServerAppPackaging, SystemdPlugin)

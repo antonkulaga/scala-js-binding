@@ -1,5 +1,6 @@
 package org.denigma.binding.views
 
+import org.scalajs.dom.raw.Element
 import rx.{Ctx, Rx}
 import org.denigma.binding.extensions._
 import scala.collection.immutable._
@@ -11,27 +12,33 @@ trait ItemsSeqView extends CollectionView {
 
   val items: Rx[Seq[Item]]
 
-  lazy val updates: Rx[SequenceUpdate[Item]] = items.updates
+  lazy val zipped = items.zipped
 
-  protected def onMove(mv: Moved[Item]) = {
-    val fr = itemViews.now(items.now(mv.from))
-    val t = itemViews.now(items.now(mv.to))
-    this.replace(t.viewElement, fr.viewElement)
+  @inline protected def reDraw(curRev: List[Item], added: Set[Item], insertBefore: Element): Unit =  curRev match {
+    case Nil =>
+    case head :: tail if added.contains(head) =>
+      val v = this.newItemView(head)
+      insertItemView(head, v, insertBefore)
+      reDraw(tail, added - head, v.viewElement)
+    case head :: tail =>
+      val view = itemViews.now(head)
+      template.parentElement.insertBefore(view.viewElement, insertBefore)
+      reDraw(tail, added, view.viewElement)
   }
 
-  /**
-    * This function is very important as it monitors items updates
-    */
   override protected def subscribeUpdates() = {
     template.hide()
     this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
-    updates.onChange(upd => {
-      upd.added.foreach(onInsert)
-      upd.removed.foreach(onRemove)
-      upd.moved.foreach(onMove)
-    })
+    zipped.onChange{
+      case (from, to) if from == to => //do nothing
+      case (prev, cur) if prev !=cur =>
+        val removed = prev.diff(cur)
+        for(r <- removed) removeItemView(r)
+        val added = cur.toSet.diff(prev.toSet)
+        val revCur = cur.toList.reverse
+        reDraw(revCur, added, template)
+    }
   }
-
 
 }
 
