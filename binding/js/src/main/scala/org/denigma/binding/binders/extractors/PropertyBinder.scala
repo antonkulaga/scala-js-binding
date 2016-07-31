@@ -4,7 +4,7 @@ import org.denigma.binding.binders.{Events, ReactiveBinder}
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.ext._
-import org.scalajs.dom.raw.{HTMLInputElement, HTMLTextAreaElement}
+import org.scalajs.dom.raw.{Element, HTMLInputElement, HTMLTextAreaElement}
 import org.scalajs.dom.{Element, Event, KeyboardEvent}
 import rx._
 
@@ -36,6 +36,20 @@ trait PropertyBinder extends ScalaTagsBinder{
   def ints: Map[String, Rx[Int]]
 
   def allValues = strings ++ bools ++ doubles ++ ints
+
+  protected lazy val specialAttributes = Map("viewbox"->"viewBox", "preserveaspectratio"-> "preserveAspectRatio")
+
+  protected def setAttribute[T](e: Element, prop: String, value: T)(implicit conv: T => js.Any) = {
+    //println(s"set attribute $prop with value $value")
+    val property = specialAttributes.getOrElse(prop, prop) //fir for nonLowerCaseAttributes in SVG
+    e.setAttribute(property, value.toString)
+    Try(e.dyn.updateDynamic(property)(value)) match {
+      case Failure(th) =>
+        if(warnOnUpdateFailures)
+          dom.console.warn(s"cannot set $prop to $value because of ${th.getMessage} with stack ${th.stackString} \nIN: ${e.outerHTML}")
+      case _=>
+    }
+  }
 
   /**
    * Partial function that is usually added to bindProperties
@@ -190,16 +204,7 @@ trait PropertyBinder extends ScalaTagsBinder{
    */
   protected def propertyOnRx[T](el: Element, prop: String, value: Rx[T])(implicit conv: T => js.Any): Unit =
   {
-    value.foreach{case v =>
-      el.setAttribute(prop,v.toString)
-      //el.attributes.setNamedItem((prop -> v.toString).toAtt)
-      Try(el.dyn.updateDynamic(prop)(v)) match {
-        case Failure(th) =>
-          if(warnOnUpdateFailures)
-            dom.console.warn(s"cannot set $prop to $value because of ${th.getMessage} with stack ${th.stackString} \nIN: ${el.outerHTML}")
-        case _=>
-      }
-    }
+    value.foreach{case v => setAttribute(el, prop, v.toString)}
   }
 
   protected def stylePropertyOnRx[T](el: Element, prop: String, value: Rx[T])(implicit conv: T => js.Any): Unit =

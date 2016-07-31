@@ -2,7 +2,7 @@ package org.denigma.controls.charts
 
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.{BindableView, ItemsSeqView}
+import org.denigma.binding.views.{BindableView, CollectionSeqView}
 import org.scalajs.dom.Element
 import org.scalajs.dom.ext.Color
 import rx._

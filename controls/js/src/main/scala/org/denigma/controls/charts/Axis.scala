@@ -1,7 +1,7 @@
 package org.denigma.controls.charts
 
 import org.denigma.binding.binders.GeneralBinder
-import org.denigma.binding.views.{BindableView, ItemsSeqView}
+import org.denigma.binding.views.{BindableView, CollectionSeqView}
 import org.scalajs.dom
 import org.scalajs.dom.Element
 import rx._
@@ -88,6 +88,7 @@ trait Scale
 
   /**
     * Cuts values of ticks with some precision
+ *
     * @param n
     * @param p
     * @return
@@ -97,7 +98,7 @@ trait Scale
 }
 
 class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
-  extends BindableView with ItemsSeqView
+  extends BindableView with CollectionSeqView
 {
 
   override type Item = Var[Tick]

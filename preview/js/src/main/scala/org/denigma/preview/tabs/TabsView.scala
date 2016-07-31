@@ -1,7 +1,7 @@
 package org.denigma.preview.tabs
 
 import org.denigma.binding.binders.{Events, GeneralBinder}
-import org.denigma.binding.views.{ItemsSeqView, BindableView}
+import org.denigma.binding.views.{CollectionSeqView, BindableView}
 import org.scalajs.dom.Element
 import rx._
 import rx.Ctx.Owner.Unsafe.Unsafe
@@ -76,7 +76,7 @@ class TabsView(val elem: Element, val items: Rx[Seq[Rx[TabItem]]]) extends Basic
     }
 }
 
-trait BasicTabsView extends ItemsSeqView {
+trait BasicTabsView extends CollectionSeqView {
   type Item = Rx[TabItem]
   type ItemView = TabItemView
   def active: Var[Option[Item]]

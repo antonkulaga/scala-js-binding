@@ -1,5 +1,5 @@
 package org.denigma.preview.slides
-
+/*
 import org.denigma.binding.binders.Events
 import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.papers._
@@ -7,55 +7,16 @@ import org.denigma.preview.WebMessagesTransport
 import org.denigma.preview.messages.WebMessages
 import org.querki.jquery.$
 import org.scalajs.dom
-import org.scalajs.dom.ProgressEvent
-import org.scalajs.dom._
 import org.scalajs.dom.html.Canvas
-import org.scalajs.dom.raw.Blob
-import org.scalajs.dom.raw.BlobPropertyBag
-import org.scalajs.dom.raw.Element
-import org.scalajs.dom.raw.FileReader
-import org.scalajs.dom.raw._
+import org.scalajs.dom.raw.{Element, _}
 import rx.Ctx.Owner.Unsafe.Unsafe
-import rx.Rx.Dynamic
 import rx._
 
 import scala.collection.immutable._
+import scala.concurrent.Future
 import scala.concurrent.duration._
-import scala.concurrent.{Future, Promise}
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-import scala.scalajs.js
-import scala.scalajs.js.typedarray.{ArrayBuffer, Uint8Array}
-
-case class WebSocketPaperLoader(subscriber: WebMessagesTransport,
-                                loadedPapers: Var[Map[String, Paper]])
-  extends PaperLoader {
-
-  override def getPaper(path: String, timeout: FiniteDuration = 25 seconds): Future[Paper] =
-    this.subscriber.ask[Future[ArrayBuffer]](WebMessages.Load(path), timeout){
-      case WebMessages.DataMessage(source, bytes) =>
-        bytes2Arr(bytes)
-    }.flatMap{case arr=>arr}.flatMap{ case arr=>  super.getPaper(path, arr) }
-
-  import js.JSConverters._
-
-  def bytes2Arr(data: Array[Byte]): Future[ArrayBuffer] = {
-    val p = Promise[ArrayBuffer]
-    val options = BlobPropertyBag("octet/stream")
-    val arr: Uint8Array = new Uint8Array(data.toJSArray)
-    val blob = new Blob(js.Array(arr), options)
-    //val url = dom.window.dyn.URL.createObjectURL(blob)
-    val reader = new FileReader()
-    def onLoadEnd(ev: ProgressEvent): Any = {
-      p.success(reader.result.asInstanceOf[ArrayBuffer])
-    }
-    reader.onloadend = onLoadEnd _
-    reader.readAsArrayBuffer(blob)
-    p.future
-  }
-
-  subscriber.open()
-
-}
+import scala.scalajs.js.typedarray.ArrayBuffer
 
 class PaperView(val elem: Element) extends Annotator {
 
@@ -87,7 +48,6 @@ class PaperView(val elem: Element) extends Annotator {
   override def bindView(): Unit = {
     super.bindView()
     subscribePapers()
-
    }
 
   override def subscribePapers():Unit = {
@@ -117,3 +77,4 @@ class PaperView(val elem: Element) extends Annotator {
     }
 
  }
+*/

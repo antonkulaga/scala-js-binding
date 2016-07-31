@@ -16,7 +16,7 @@ class TextOptionsView(  val elem: Element,
                         val items: Rx[scala.collection.immutable.Seq[Var[TextOption]]],
                         onkeydown: Var[KeyboardEvent]
                          )
-  extends CollectionView
+  extends CollectionSeqView
 {
 
   type Item = Var[TextOption]
@@ -81,7 +81,7 @@ class TextOptionsView(  val elem: Element,
       for(r <- removed) onRemove(r)
       for(i <- inserted) onInsert(i)
       for{
-        (it,i)<-indexedItems.now
+        (it, i)<-indexedItems.now
         item = it.now
         if item.position!=i
       } it() = item.copy(position = i)

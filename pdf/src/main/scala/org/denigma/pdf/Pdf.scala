@@ -2,6 +2,7 @@ package org.denigma.pdf
 
 import org.scalajs.dom.CanvasRenderingContext2D
 import org.scalajs.dom.raw.{DocumentFragment, HTMLElement, Node}
+import org.scalajs.dom.svg.SVG
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation._
@@ -176,6 +177,9 @@ trait PDFPageProxy extends js.Object {
 
   def getTextContent(): PDFPromise[TextContent] = js.native
   def destroy(): Unit = js.native
+  def getOperatorList: PDFPromise[js.Array[_]] =  js.native
+
+  def commonObj: PDFObjects = js.native
 }
 
 @js.native
@@ -233,3 +237,9 @@ class RenderTextLayerParams(val textContent: TextContent,
                             val timeout: Int
                            )
   extends js.Object
+
+@js.native
+class SVGGraphics(val commonObjs: PDFObjects = js.native, objs: Any) extends js.Object
+{
+  def getSVG(opList: js.Array[_], viewport: PDFPageViewport): SVG = js.native
+}

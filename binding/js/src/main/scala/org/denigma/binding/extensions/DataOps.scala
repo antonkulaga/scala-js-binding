@@ -41,6 +41,7 @@ trait DataOps {
       reader.readAsText(f)
       result.future
     }
+    /*
 
     def readAsBlob: Future[String] = {
       val result = Promise[String]
@@ -54,6 +55,23 @@ trait DataOps {
       reader.onloadend = onLoadEnd _
       reader.onerror = onErrorEnd _
       reader.readAsText(f)
+      result.future
+    }
+    */
+
+
+    def readAsArrayBuffer: Future[ArrayBuffer] = {
+      val result = Promise[ArrayBuffer]
+      val reader = new FileReader()
+      def onLoadEnd(ev: ProgressEvent): Any = {
+        result.success(reader.result.asInstanceOf[ArrayBuffer])
+      }
+      def onErrorEnd(ev: Event): Any = {
+        result.failure(new Exception("READING FAILURE " + ev.toString))
+      }
+      reader.onloadend = onLoadEnd _
+      reader.onerror = onErrorEnd _
+      reader.readAsArrayBuffer(f)
       result.future
     }
 

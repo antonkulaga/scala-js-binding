@@ -1,63 +1,13 @@
 @(title: String)
 <link rel="stylesheet" href="https://raw.githubusercontent.com/mozilla/pdf.js/master/web/text_layer_builder.css" />
 
-<div data-view="Annotation">
+<div data-view="Annotations">
   <section class="ui teal">
-    <section class="ui equal width grid">
-      <row class="ui row">
-        <column class="ui column">
-          <p>This is a demo of PDF bookmarks. Select part of PDF text, push "add" and</p>
-        </column>
-      </row>
-      <row class="ui row">
-        <column class="ui column">
-          <h4 data-bind="paperURI"></h4>
-          <canvas id="the-canvas" style="border:1px solid black;"></canvas>
-          <div id="text-layer" class="textLayer"></div>
-          <div class="ui inverted segment">
-            <button class="ui inverted button" data-showif="hasPreviousPage" data-event-click="previousPage">Previous</button>
-            <input class="ui input" data-bind-value="currentPageNum">
-            <button class="ui inverted red button" data-showif="hasNextPage" data-event-click="nextPage">Next</button>
-          </div>
-        </column>
-        <column class="ui column" data-view="Bookmarks">
-          <p>Here you can add selection from PDF to the list</p>
-          <div data-code-r="comments"></div>
-          <table  class="ui table">
-            <tr>
-              <td>Paper</td>
-              <td>Page</td>
-              <td>Label</td>
-              <td colspan="3" align="center">From</td>
-              <td colspan="2" align="center">To</td>
-              <td>Text</td>
-              <td>GoTo</td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>Chunk</td>
-              <td>Token</td>
-              <td>Chunk</td>
-              <td>Token</td>
-              <td>Text</td>
-              <td>GoTo</td>
-            </tr>
-            <tr data-template="true">
-              <td data-bind="paper"></td>
-              <td data-bind="page"></td>
-              <td data-bind="label"></td>
-              <td data-bind="fromChunk"></td>
-              <td data-bind="fromToken"></td>
-              <td data-bind="toChunk"></td>
-              <td data-bind="toToken"></td>
-              <td><button class="ui positive button" data-event-click="go">Go to #<span data-bind="page"></span></button></td>
-            </tr>
-          </table>
-          <button class="ui positive button" data-event-click="addSelection">Add selection</button>
-        </column>
-      </row>
+    <section class="ui grid" data-view="Publication" id="paper-container">
+        <a data-template="true" class="page-container ui eight wide column" data-bind-name="name" data-bind-title="title">
+          <canvas class="page-canvas"></canvas>
+          <div class="textLayer"></div>
+        </a>
     </section>
   </section>
 </div>

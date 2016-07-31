@@ -1,5 +1,6 @@
 package org.denigma.controls.papers
 
+/*
 import org.denigma.binding.extensions._
 import org.denigma.binding.views.BindableView
 import org.denigma.pdf.PDFPageViewport
@@ -55,7 +56,7 @@ trait Annotator extends BindableView {
 
   def refreshPage() = if(this.currentPage.now.nonEmpty){
     val paper = currentPaper.now
-    paper.getPage(currentPage.now.get.num).onSuccess{
+    paper.loadPage(currentPage.now.get.num).onSuccess{
       case pg: Page => onPageChange(Some(pg))
     }
   }
@@ -114,11 +115,11 @@ trait Annotator extends BindableView {
           currentPaper() = p
           currentPage()= Some( page )
         case Failure(th) =>
-          dom.console.error(s"cannot load the paper at ${bookmark}")
+          dom.console.error(s"cannot load the paper at ${bookmark} with error ${th}")
       }
     } else
     if(!currentPage.now.map(_.num).contains(bookmark.page)) {
-      paper.getPage(bookmark.page).onComplete{
+      paper.loadPage(bookmark.page).onComplete{
         case Success(result) =>
           currentPage() = Some(result)
           //println(s"current page update to ${bookmark.page}")
@@ -134,3 +135,4 @@ trait Annotator extends BindableView {
     scale.onChange{ case sc=> refreshPage()  }
   }
 }
+*/

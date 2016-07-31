@@ -2,7 +2,7 @@ package org.denigma.preview.slides
 
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.extensions.TimerExtensions
-import org.denigma.binding.views.ItemsSeqView
+import org.denigma.binding.views.CollectionSeqView
 import org.denigma.controls.code.CodeBinder
 import org.denigma.controls.papers._
 import org.scalajs.dom
@@ -20,7 +20,7 @@ import scala.scalajs.js
 /**
   * Created by antonkulaga on 2/14/16.
   */
-class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Element) extends ItemsSeqView {
+class BookmarksView(val elem: Element, location: Var[Bookmark], textLayer: Element) extends CollectionSeqView {
 
   override type Item = Var[Bookmark]
 

@@ -71,7 +71,7 @@ class SemanticSelectionView[Rdf<:RDF](val elem: Element,
                                       val graphUpdates: Rx[GraphUpdate[Rdf]],
                                       //val suggester:  TypedSuggester,
                                       val params: Map[String, Any])(implicit ops: RDFOps[Rdf])
-  extends  ItemsSetView
+  extends  CollectionSortedSetView
 {
 
 

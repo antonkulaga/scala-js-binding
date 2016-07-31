@@ -14,7 +14,8 @@ import scala.util.{Failure, Success}
 
 class PageRenderer(page: Page) {
 
-  def render(canvas: Canvas, textLayerDiv: HTMLElement, scale: Double, timeout: FiniteDuration = 300 millis): Future[(HTMLElement, List[(String, Node)])] = {
+  def render(canvas: Canvas, textLayerDiv: HTMLElement, scale: Double)(implicit timeout: FiniteDuration = 1 second): Future[(HTMLElement, List[(String, Node)])] = {
+    println("render fires")
     val viewport: PDFPageViewport = page.viewport(scale)
     var context: js.Dynamic = canvas.getContext("2d") //("webgl")
     canvas.height = viewport.height.toInt
@@ -22,11 +23,17 @@ class PageRenderer(page: Page) {
     page.render(js.Dynamic.literal(
       canvasContext = context,
       viewport = viewport
-    ))
+    )).toFuture.onComplete{
+      case Success(value) =>
+        println(s"page rendering ${page.num} succeeded")
+      case Failure(th) =>
+        dom.console.error(s"$page {page.num} rendering failed because of ${th}")
+    }
     page.textContentFut.flatMap {
       case textContent =>
         val layer = new TextLayerRenderer(viewport, textContent)
         alignTextLayer(canvas, textLayerDiv, viewport)
+        println("text render")
         layer.render(timeout).map {
           case res=>
             textLayerDiv.innerHTML = ""

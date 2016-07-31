@@ -125,7 +125,6 @@ trait CollectionView extends BindableView
     this.subscribeUpdates()
   }
 
-  protected def onInsert(item: Item): ItemView = this.addItemView(item, this.newItemView(item))
   protected def onRemove(item: Item): Unit = this.removeItemView(item)
 
   protected def getItemView(el: Element) = el.attributes.get("data-item-view")//.orElse(el.attributes.get("data-view"))
@@ -149,7 +148,7 @@ trait CollectionView extends BindableView
     //dom.console.log(template.outerHTML.toString)
     val el = copyTemplate()
     val view = getItemView(el) match {
-      case None=> construct(el,mp)
+      case None=> construct(el, mp)
       case Some(v)=> this.inject(v.value, el, mp) match {
         case iv:ItemView if iv.isInstanceOf[ItemView]=> iv
         case _=>
@@ -188,8 +187,6 @@ trait CollectionView extends BindableView
     case None =>
       dom.console.error("cannot find the view for item: "+r.toString+" in item view "+this.itemViews.now.toString+"\n")
   }
-
-  def newItemView(item: Item): ItemView
   /**
    * Adds subscription
    */

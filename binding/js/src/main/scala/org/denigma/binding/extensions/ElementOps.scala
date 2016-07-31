@@ -10,6 +10,11 @@ import scala.language.implicitConversions
 
 
 class ExtendedHTMLElement(val el:HTMLElement) extends AnyVal with NodeOps with ExtendedElement{
+
+  def isHidden = el.offsetParent == null
+
+  def isVisible = el.offsetParent !=null
+
   def fromParent[TOut](matcher:PartialFunction[Node,TOut]):Option[TOut] = fromParent(el)(matcher)
 
   def updateIfExist(key:String,value:js.Any): Unit = if(el.hasOwnProperty(key) && el.dyn.selectDynamic(key)!=value)

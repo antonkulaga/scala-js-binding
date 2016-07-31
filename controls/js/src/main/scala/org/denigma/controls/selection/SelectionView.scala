@@ -1,18 +1,18 @@
 package org.denigma.controls.selection
 
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.ItemsSetView
+import org.denigma.binding.views.CollectionSortedSetView
 import rx._
 import rx.Ctx.Owner.Unsafe.Unsafe
 
 
-trait SelectionView extends ItemsSetView{
+trait SelectionView extends CollectionSortedSetView{
 
   def my(str: String) = str+"_of_"+this.id //to name Vars for debugging purposes
 
   val input: Var[String] = Var("")
 
-  val inputSize = input.map(i=>i.length+1) //to set size
+  val inputSize = input.map(i=> i.length + 1) //to set size
 
   val positionShift = Var(0)
 
@@ -27,7 +27,7 @@ trait SelectionView extends ItemsSetView{
   override protected def subscribeUpdates() = {
     template.style.display = "none"
     this.items.now.foreach(i=>this.addItemView(i,this.newItemView(i))) //initialization of views
-    updates.onChange(upd=>{
+    updates.foreach(upd=>{
       upd.added.foreach(onInsert)
       upd.removed.foreach(onRemove)
     })

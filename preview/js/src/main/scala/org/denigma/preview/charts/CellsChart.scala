@@ -35,6 +35,8 @@ trait ArrayChart extends CollectionView {
 
   def makeItem(r: Int, c: Int): Item
 
+  protected def onInsert(item: Item): ItemView
+
   val dimensions: Rx[(Int, Int)] = Rx((rows(), cols()))
 
   val resize = dimensions.zip
@@ -155,9 +157,11 @@ class CellsChart(val elem: Element, val cols: Var[Int], val rows: Var[Int], val 
   def vertSide(s: Double): Double =  Math.sqrt(Math.pow(s, 2) - Math.pow(s/2, 2))
 
 
-  override def newItemView(item: Item): ItemView = this.constructItemView(item){
+  def newItemView(item: Item): ItemView = this.constructItemView(item){
     case (el, mp) => new CellView(el, item).withBinder(new GeneralBinder(_))
   }
+
+  protected def onInsert(item: Item): ItemView = this.addItemView(item, this.newItemView(item))
 
   override def makeItem(r: Int, c: Int): Rx[Cell] = {
     val s = side.now

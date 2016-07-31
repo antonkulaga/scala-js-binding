@@ -8,11 +8,15 @@ import scala.collection.immutable._
 import rx.Ctx.Owner.Unsafe.Unsafe
 
 
-trait ItemsSeqView extends CollectionView {
+trait CollectionSeqView extends CollectionView {
 
   val items: Rx[Seq[Item]]
 
   lazy val zipped = items.zipped
+
+  def newItemView(item: Item): ItemView
+
+  protected def onInsert(item: Item): ItemView = this.addItemView(item, this.newItemView(item))
 
   @inline protected def reDraw(curRev: List[Item], added: Set[Item], insertBefore: Element): Unit =  curRev match {
     case Nil =>
@@ -28,7 +32,6 @@ trait ItemsSeqView extends CollectionView {
 
   override protected def subscribeUpdates() = {
     template.hide()
-    this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
     zipped.onChange{
       case (from, to) if from == to => //do nothing
       case (prev, cur) if prev !=cur =>
@@ -38,6 +41,7 @@ trait ItemsSeqView extends CollectionView {
         val revCur = cur.toList.reverse
         reDraw(revCur, added, template)
     }
+    this.items.now.foreach(i => this.addItemView(i, this.newItemView(i)))
   }
 
 }

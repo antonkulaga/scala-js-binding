@@ -76,7 +76,7 @@ class GeneralBinder[View <: BindableView](val view: View, recover: => Option[Rea
   protected val ON = "-on-"
 
   /**
-    * This function can set
+    * This function can set value on event
     *
     * @param el Element
     * @return

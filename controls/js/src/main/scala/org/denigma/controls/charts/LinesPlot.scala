@@ -1,7 +1,7 @@
 package org.denigma.controls.charts
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.{BindableView, ItemsSeqView}
+import org.denigma.binding.views.{BindableView, CollectionSeqView}
 import org.scalajs.dom.Element
 import rx._
 //import rx.Ctx.Owner.voodoo
@@ -27,7 +27,7 @@ object LinesPlot {
 
 case class Legend(name: String, color: String, unit: String)
 
-trait LinesPlot extends ItemsSeqView with Plot
+trait LinesPlot extends CollectionSeqView with Plot
 {
   self=>
 
@@ -84,7 +84,7 @@ trait LinesPlot extends ItemsSeqView with Plot
       .withBinder(new GeneralBinder(_))}
 }
 
-class LegendView(val elem: Element, val items: rx.Rx[Seq[Rx[Series]]]) extends ItemsSeqView with BindableView{
+class LegendView(val elem: Element, val items: rx.Rx[Seq[Rx[Series]]]) extends CollectionSeqView with BindableView{
 
   type Item = Rx[Series]
   type ItemView = LegendItemView

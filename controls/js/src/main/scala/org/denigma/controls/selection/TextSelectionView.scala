@@ -45,6 +45,7 @@ trait TextOptionsSuggester extends Suggester with WithDelay
 {
 
   def input: Rx[String]
+
   def subscriber: WebSocketSubscriber
 
   import scala.concurrent.duration._
@@ -84,7 +85,7 @@ trait Suggester {
 
 trait TextSelectionView extends SelectionView
 {
-  val suggester: Suggester
+  def suggester: Suggester
   type Item = Var[TextOption]
   type ItemView = OptionView
 
@@ -123,7 +124,7 @@ trait TextSelectionView extends SelectionView
       input() = ""
       suggester.clear()
 
-    case event:ViewEvent=> this.propagate(event)
+    case event: ViewEvent=> this.propagate(event)
   }
 
   val unique = true//this.resolveKeyOption("unique"){case u:Boolean=>u}.getOrElse(true)

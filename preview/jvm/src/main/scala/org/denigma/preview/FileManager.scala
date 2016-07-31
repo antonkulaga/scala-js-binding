@@ -3,30 +3,24 @@ package org.denigma.preview
 
 import java.io.{File => JFile}
 
-import akka.actor.ActorSystem
-import akka.http.scaladsl.{Http, HttpExt}
-import akka.stream.{ActorMaterializer, IOResult}
-import akka.stream.scaladsl.{FileIO, Source}
-import akka.util.ByteString
+import akka.event.LoggingAdapter
 import better.files.File
-import com.typesafe.config.Config
-import net.ceedubs.ficus.Ficus._
-import better.files._
 
-import scala.Seq
-import scala.collection.immutable._
-import scala.concurrent.Future
+object FileManager {
+  val FILE_NOT_EXIST = "file does not exist"
+}
 
 
-class FileManager(val root: File) {
+class FileManager(val root: File, log: LoggingAdapter) {
 
   def remove(name: String) = {
-    val path: File = root / name
+    val path = root / name
+    if(path.notExists) log.error("")
     path.delete()
   }
 
   def readBytes(relativePath: String): Option[Array[Byte]] = {
-    val file = (root / relativePath)
+    val file = root / relativePath
     if(file.exists && file.isRegularFile) {
       Some(file.loadBytes)
     } else None
@@ -34,6 +28,6 @@ class FileManager(val root: File) {
 
   def read(relativePath: String): String = (root / relativePath).contentAsString
 
-  def cd(relativePath: String): FileManager = new FileManager(root / relativePath)
+  def cd(relativePath: String): FileManager = new FileManager(root.sibling(relativePath), log)
 
 }

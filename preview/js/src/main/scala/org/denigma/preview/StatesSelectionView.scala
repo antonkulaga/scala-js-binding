@@ -38,19 +38,12 @@ class StatesSelectionView(val elem: Element, channel: String, username: String="
 
   override val suggester = new WebSocketSuggester(input, new WebMessagesTransport(channel, username))
 
-  override lazy val items:Var[collection.immutable.SortedSet[Item]] = Var(TestOptions.items.map(i=>Var(i)))
+  override lazy val items: Var[collection.immutable.SortedSet[Item]] = Var(TestOptions.items.map(i=>Var(i)))
 
-  val test = Var(Events.createMouseEvent())
-  test.triggerLater{
-/*
+  suggester.subscriber.input.foreach(mess => println("WEBSOCKET INPUT ="+mess))
 
-    val l = items.now.toList
-    println("before reorder = "+l.map(_.now).mkString("\n"))
-    l.reverse.zipWithIndex.foreach{case (s,i)=>s() =s.now.copy()(i,s.now.preselected)}
-    items() = items.now
-    println("after reorder = "+items.now.toList.map(_.now).mkString("\n"))
-*/
+  suggester.subscriber.output.foreach(mess => println("WEBSOCKET OUTPUT ="+mess))
 
-  }
+
 }
 

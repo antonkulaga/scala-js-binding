@@ -4,7 +4,7 @@ package org.denigma.preview
 import java.util.Date
 
 import org.denigma.binding.binders.GeneralBinder
-import org.denigma.binding.views.{BindableView, ItemsSetView}
+import org.denigma.binding.views.{BindableView, CollectionSortedSetView}
 import org.scalajs.dom.raw.Element
 import rx._
 import rx.Ctx.Owner.Unsafe.Unsafe
@@ -45,7 +45,7 @@ class MeasurementView(val elem: Element, measurement: Var[Measurement]) extends 
   val value = measurement.map(m => m.value.toString)
 }
 
-class Experiments(val elem: Element) extends BindableView with ItemsSetView
+class Experiments(val elem: Element) extends BindableView with CollectionSortedSetView
 {
   override type Item = Var[Measurement]
 

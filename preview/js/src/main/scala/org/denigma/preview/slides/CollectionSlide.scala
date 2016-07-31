@@ -2,7 +2,7 @@ package org.denigma.preview.slides
 
 import org.denigma.binding.binders.{Events, GeneralBinder, NavigationBinder}
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.{BindableView, ItemsSeqView}
+import org.denigma.binding.views.{BindableView, CollectionSeqView}
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.ext._
@@ -134,7 +134,7 @@ class TestMenuItemView(val elem: Element, menuItem: Rx[MenuItem]) extends Bindab
 }
 
 
-class TestMenuView(val elem: Element) extends ItemsSeqView {
+class TestMenuView(val elem: Element) extends CollectionSeqView {
 
   self =>
 

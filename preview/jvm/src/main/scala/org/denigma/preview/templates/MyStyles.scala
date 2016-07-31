@@ -33,6 +33,11 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles with TextLaye
     backgroundColor(deepskyblue)
     )
 
+
+  "#paper-row" -(
+    maxHeight(75 vh),
+    overflowY.auto
+    )
   "#main"-(
     margin(20 px)
     //backgroundColor(bindingGreen)

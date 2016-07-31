@@ -18,7 +18,7 @@ class Router(files: File)(implicit fm: Materializer, system: ActorSystem) extend
 
   lazy val sourcesPath = "js/src/main/scala/"
 
-  val transport = new WebSocketManager(system, new FileManager(files))
+  val transport = new WebSocketManager(system, new FileManager(files, system.log))
 
   def loadFiles: Route = pathPrefix("files" ~ Slash) {
     getFromDirectory(files.path.toString)

@@ -3,7 +3,7 @@ package org.denigma.controls.charts
 
 import org.denigma.binding.binders.Events
 import org.denigma.binding.extensions._
-import org.denigma.binding.views.{BindableView, ItemsSeqView}
+import org.denigma.binding.views.{BindableView, CollectionSeqView}
 import org.scalajs.dom.Element
 import org.scalajs.dom.ext.Color
 import rx._
@@ -42,7 +42,7 @@ trait Plot extends BindableView {
 
 }
 
-trait PointPlot extends Plot with ItemsSeqView {
+trait PointPlot extends Plot with CollectionSeqView {
 
   override type Item = Var[PointValue]
   override type ItemView = PointValueView

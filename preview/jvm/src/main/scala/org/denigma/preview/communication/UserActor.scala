@@ -72,6 +72,8 @@ class UserActor(username: String, fileManager: FileManager) extends Actor
           send(d)
 
         case mess @ WebMessages.Load(path) =>
+          //println(s"LOAD REQUEST FOR PATH ${path} received!")
+
           fileManager.readBytes(path) match {
             case Some(bytes)=>
               println("bytes received "+bytes.length)
@@ -79,6 +81,7 @@ class UserActor(username: String, fileManager: FileManager) extends Actor
               val d = Pickle.intoBytes[WebMessages.Message](m)
               send(d)
             case None =>
+              log.info(s"cannot find a file for $path")
           }
 
         case other => log.error(s"unexpected $other")

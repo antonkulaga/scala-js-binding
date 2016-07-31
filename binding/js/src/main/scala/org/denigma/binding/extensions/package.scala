@@ -2,8 +2,9 @@ package org.denigma.binding
 
 import org.scalajs.dom
 import org.scalajs.dom._
+import org.scalajs.dom.ext.EasySeq
 import org.scalajs.dom.raw.{HTMLElement, SVGElement}
-import rx.{Ctx, Var, Rx}
+import rx.{Ctx, Rx, Var}
 
 import scala.collection.immutable.Map
 import scala.concurrent.duration.FiniteDuration
@@ -63,6 +64,7 @@ package object extensions extends AttributesOps
       ???
   }
 
+  implicit class FileListExt(files: FileList) extends EasySeq[File](files.length, files.item)
 
 
 }

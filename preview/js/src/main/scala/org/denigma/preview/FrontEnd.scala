@@ -43,9 +43,15 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
       {case (el, args) =>   new CollectionSlide(el).withBinder(view=>new CodeBinder(view))
     }.register("ControlSlide"){ case (el, args) =>
       new ControlSlide(el).withBinder(new CodeBinder(_))
-    }.register("Annotation"){ case (el, args) =>
+    }
+    .register("Annotations"){ case (el, args) =>
+      new AnnotationsView(el, args.get("paper").map(v=>v.toString).getOrElse("toggle_switch/403339a0.pdf")).withBinder(new CodeBinder(_))
+    }
+    /*
+    .register("Publication"){ case (el, args) =>
       new PaperView(el).withBinder(new CodeBinder(_))
     }
+    */
     .register("RdfSlide"){case (el, args) => new RdfSlide(el).withBinder(view => new CodeBinder(view))}
     .register("promo"){case (el, args) => new PromoView(el).withBinder(view => new CodeBinder(view))}
     .register("HelloPlot"){case (el, args)=>
@@ -79,8 +85,7 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
   def moveInto(from: String, into: String): Unit = {
     for {
       ins <- sq.byId(from)
-      intoElement <- sq.byId(into)
-    } {
+      intoElement <- sq.byId(into)}{
       this.loadElementInto(intoElement, ins.innerHTML)
       ins.parentNode.removeChild(ins)
     }
