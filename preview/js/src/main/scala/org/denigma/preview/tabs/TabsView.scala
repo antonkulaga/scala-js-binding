@@ -10,9 +10,6 @@ import org.denigma.binding.extensions._
 
 import scala.collection.immutable.Seq
 
-/*trait TabItem{
-  def label: String
-}*/
 case class TabItem(label: String, content: String) // content: Element)
 
 object TabItemView {

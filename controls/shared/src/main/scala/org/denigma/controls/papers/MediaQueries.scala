@@ -1,9 +1,8 @@
 package org.denigma.controls.papers
 
-import scalacss.mutable.StyleSheet
+import scalacss.internal.mutable.StyleSheet
 
 trait MediaQueries extends StyleSheet.Standalone  {
-
 
   import dsl._
 

@@ -2,7 +2,6 @@ package org.denigma.semantic.styles
 
 
 import scalacss.Defaults._
-import scalacss.LengthUnit.em
 
 trait SelectionStyles extends Colors{
   self: StyleSheet.Standalone =>

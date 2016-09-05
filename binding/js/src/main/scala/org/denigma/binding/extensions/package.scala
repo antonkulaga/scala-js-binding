@@ -1,13 +1,19 @@
 package org.denigma.binding
 
+import java.nio.ByteBuffer
+
 import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.ext.EasySeq
-import org.scalajs.dom.raw.{HTMLElement, SVGElement}
+import org.scalajs.dom.raw.{Blob, HTMLElement, Node, ProgressEvent, SVGElement, Selection}
 import rx.{Ctx, Rx, Var}
 
+import scala.annotation.tailrec
 import scala.collection.immutable.Map
+import scala.concurrent.{Future, Promise}
 import scala.concurrent.duration.FiniteDuration
+import scala.language.implicitConversions
+import scala.scalajs.js.typedarray.{ArrayBuffer, TypedArrayBuffer}
 
 /**
  * Useful implicit classes
@@ -25,9 +31,7 @@ package object extensions extends AttributesOps
     new TimerExtensions(source)
   }
 
-  //implicit def toExtendedElement(el: HTMLElement): ExtendedHTMLElement = new ExtendedHTMLElement(el)
-
-  //implicit def toExtendedElement(el: SVGElement): ExtendedSVGElement = new ExtendedSVGElement(el)
+  implicit class SelectionOps(selection: Selection) extends EasySeq[org.scalajs.dom.raw.Range](selection.rangeCount, i => selection.getRangeAt(i))
 
   implicit class OptionOpt[T](source: Option[T]){
 
@@ -66,5 +70,24 @@ package object extensions extends AttributesOps
 
   implicit class FileListExt(files: FileList) extends EasySeq[File](files.length, files.item)
 
+  implicit class BlobOps(blob: Blob) {
+
+    def readAsByteBuffer: Future[ByteBuffer] = {
+      val result = Promise[ByteBuffer]
+      val reader = new FileReader()
+      def onLoadEnd(ev: ProgressEvent): Any = {
+        val buff = reader.result.asInstanceOf[ArrayBuffer]
+        val bytes = TypedArrayBuffer.wrap(buff)
+        result.success(bytes)
+      }
+      def onErrorEnd(ev: Event): Any = {
+        result.failure(new Exception("READING FAILURE " + ev.toString))
+      }
+      reader.onloadend = onLoadEnd _
+      reader.onerror = onErrorEnd _
+      reader.readAsArrayBuffer(blob)
+      result.future
+    }
+  }
 
 }

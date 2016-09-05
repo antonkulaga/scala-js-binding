@@ -1,8 +1,8 @@
 package org.denigma.binding.extensions
-import org.scalajs.dom.raw.{Event, FileReader, ProgressEvent}
+import org.scalajs.dom.raw.{Blob, Event, FileReader, ProgressEvent}
 
 import scala.concurrent.{Future, Promise}
-import scala.scalajs.js.typedarray.ArrayBuffer
+import scala.scalajs.js.typedarray.{ArrayBuffer, TypedArrayBuffer}
 import scala.scalajs.js.typedarray.TypedArrayBufferOps._
 
 trait DataOps {
@@ -25,7 +25,7 @@ trait DataOps {
     }
   }
 
-  implicit class FileOpt(f: org.scalajs.dom.File) {
+  implicit class BlobOpt(blob: Blob) {
 
     def readAsText: Future[String] = {
       val result = Promise[String]
@@ -38,27 +38,27 @@ trait DataOps {
       }
       reader.onloadend = onLoadEnd _
       reader.onerror = onErrorEnd _
-      reader.readAsText(f)
+      reader.readAsText(blob)
       result.future
     }
-    /*
 
-    def readAsBlob: Future[String] = {
-      val result = Promise[String]
+
+    def readAsByteBuffer: Future[ByteBuffer] = {
+      val result = Promise[ByteBuffer]
       val reader = new FileReader()
       def onLoadEnd(ev: ProgressEvent): Any = {
-        result.success(reader.result.toString)
+        val buff = reader.result.asInstanceOf[ArrayBuffer]
+        val bytes = TypedArrayBuffer.wrap(buff)
+        result.success(bytes)
       }
       def onErrorEnd(ev: Event): Any = {
         result.failure(new Exception("READING FAILURE " + ev.toString))
       }
       reader.onloadend = onLoadEnd _
       reader.onerror = onErrorEnd _
-      reader.readAsText(f)
+      reader.readAsArrayBuffer(blob)
       result.future
     }
-    */
-
 
     def readAsArrayBuffer: Future[ArrayBuffer] = {
       val result = Promise[ArrayBuffer]
@@ -71,7 +71,7 @@ trait DataOps {
       }
       reader.onloadend = onLoadEnd _
       reader.onerror = onErrorEnd _
-      reader.readAsArrayBuffer(f)
+      reader.readAsArrayBuffer(blob)
       result.future
     }
 

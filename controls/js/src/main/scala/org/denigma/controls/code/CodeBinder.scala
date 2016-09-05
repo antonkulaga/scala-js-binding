@@ -130,7 +130,7 @@ extends GeneralBinder[View](view, recover)(
         if (str.now!="") ed.getDoc().setValue(str.now)
         str match {
           case s: Var[String] => ed.on("change", onChange(s) _)
-          case _ =>  dom.console.info(s"$str.now is not reactive Var in ${view.id}")
+          case _ =>  //dom.console.info(s"${str.now} is not reactive Var in ${view.id}")
         }
         str.onChange(s => {
           val d = ed.getDoc()

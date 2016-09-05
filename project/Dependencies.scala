@@ -80,7 +80,9 @@ object Dependencies {
 
 		"com.iheart" %% "ficus" % Versions.ficus,
 
-		"com.github.pathikrit"  %% "better-files-akka"  % Versions.betterFiles
+		"com.github.pathikrit"  %% "better-files-akka"  % Versions.betterFiles,
+
+		"com.vmunier" %% "scalajs-scripts" % Versions.scalaJSscripts
 	))
 
 

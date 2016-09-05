@@ -2,7 +2,7 @@ package org.denigma.binding.extensions
 
 import org.scalajs.dom
 import org.scalajs.dom.{Element, Node}
-import org.scalajs.dom.raw._
+import org.scalajs.dom.raw.{Node, _}
 
 import scala.annotation.tailrec
 import scala.scalajs.js
@@ -171,6 +171,13 @@ trait NodeOps extends Any{
 class ExtendedNode(val node: Node) extends AnyVal with NodeOps
 {
   def fromParentNode[TOut](matcher: PartialFunction[Node, TOut]): Option[TOut] = super.fromParent(node)(matcher)
+
+  @tailrec final def isInside(other: Node): Boolean = if(node == null) false
+  else if (/*node.isEqualNode(textLayer) || */other == node || other.isSameNode(node)) true
+  else if(node.parentNode == null) false else new ExtendedNode(node.parentNode).isInside(other)
+
+  @tailrec final def insidePartial(fun: PartialFunction[Node, Unit]): Boolean = if(node==null) false else if(fun.isDefinedAt(node)) true
+  else if(node.parentNode == null) false else new ExtendedNode(node.parentNode).insidePartial(fun)
 }
 
 trait ExtendedElement extends Any{

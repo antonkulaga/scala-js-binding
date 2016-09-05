@@ -1,13 +1,10 @@
 import com.typesafe.sbt.gzip.Import.gzip
-import com.typesafe.sbt.web._
-import com.typesafe.sbt.web.pipeline.Pipeline
-import com.typesafe.sbt.web.pipeline.Pipeline.Stage
-import playscalajs.PlayScalaJS.autoImport._
-import playscalajs.ScalaJSPlay.autoImport._
-import playscalajs.{PlayScalaJS, ScalaJSPlay}
+import com.typesafe.sbt.SbtNativePackager.autoImport._
+import com.typesafe.sbt.web.SbtWeb
+import com.typesafe.sbt.web.SbtWeb.autoImport._
+import org.scalajs.sbtplugin.ScalaJSPlugin.autoImport._
 import sbt.Keys._
 import sbt._
-import spray.revolver.RevolverPlugin.autoImport._
 
 
 lazy val bintrayPublishIvyStyle = settingKey[Boolean]("=== !publishMavenStyle") //workaround for sbt-bintray bug
@@ -58,7 +55,7 @@ lazy val bindingMacro = crossProject
   )
   .jsSettings(
     libraryDependencies ++= Dependencies.macroses.js.value,
-    jsDependencies += RuntimeDOM % "test"
+    jsDependencies += RuntimeDOM % Test
   )
 
 val macroJS = bindingMacro.js
@@ -95,7 +92,7 @@ lazy val pdf= (project in file("pdf"))
     libraryDependencies ++= Seq(
       "org.scala-js" %%% "scalajs-dom" % Versions.dom
     )
-  ).enablePlugins(ScalaJSPlugin, ScalaJSPlay)
+  ).enablePlugins(ScalaJSPlugin, ScalaJSWeb)
 
 lazy val controls = crossProject
   .crossType(CrossType.Full)
@@ -111,9 +108,9 @@ lazy val controls = crossProject
     libraryDependencies ++= Dependencies.controls.js.value,
     jsDependencies += RuntimeDOM % "test"
   )
-  .jsConfigure(p=>p.dependsOn(pdf))
+  .jsConfigure(p=>p.dependsOn(pdf).enablePlugins(ScalaJSWeb))
   .jvmSettings( libraryDependencies ++= Dependencies.controls.jvm.value )
-  .jvmConfigure(p=>p.enablePlugins(SbtTwirl))
+  .jvmConfigure(p=>p.enablePlugins(SbtWeb, SbtTwirl))
   .dependsOn(binding)
 
 
@@ -131,7 +128,7 @@ lazy val semantic = crossProject
   ).disablePlugins(RevolverPlugin)
   .jsSettings(
     libraryDependencies ++= Dependencies.semantic.js.value,
-    jsDependencies += RuntimeDOM % "test"
+    jsDependencies += RuntimeDOM % Test
   )
   .jvmSettings(  libraryDependencies ++= Dependencies.semantic.jvm.value )
   .jvmConfigure(p=>p.enablePlugins(SbtTwirl))
@@ -140,12 +137,6 @@ lazy val semantic = crossProject
 
 lazy val semanticJS = semantic.js
 lazy val semanticJVM   = semantic.jvm
-
-val scalaJSDevStage  = Def.taskKey[Pipeline.Stage]("Apply fastOptJS on all Scala.js projects")
-
-def scalaJSDevTaskStage: Def.Initialize[Task[Pipeline.Stage]] = Def.task { mappings: Seq[PathMapping] =>
-  mappings ++ PlayScalaJS.devFiles(Compile).value ++ PlayScalaJS.sourcemapScalaFiles(fastOptJS).value
-}
 
 lazy val experimental = crossProject
   .crossType(CrossType.Full)
@@ -173,36 +164,30 @@ lazy val preview = crossProject
 		.settings(commonSettings ++ publishSettings: _*)
 		.settings(
 			name := "preview",
-      libraryDependencies ++= Dependencies.preview.shared.value
+      			libraryDependencies ++= Dependencies.preview.shared.value
 		).disablePlugins(RevolverPlugin)
-		.jsConfigure(p => p.enablePlugins(ScalaJSPlay))
+		.jsConfigure(p => p.enablePlugins(ScalaJSWeb))
 		.jsSettings(
 			persistLauncher in Compile := true,
 			persistLauncher in Test := false,
 			libraryDependencies ++= Dependencies.preview.js.value,
 			jsDependencies += RuntimeDOM % Test
 		)
-		.jvmConfigure(p => p.enablePlugins(SbtTwirl, SbtWeb).enablePlugins(PlayScalaJS)) //despite "Play" in name it is actually sbtweb-related plugin
+		.jvmConfigure(p => p.enablePlugins(SbtTwirl, SbtWeb))
 		.jvmSettings(
       TwirlKeys.templateImports += "org.denigma.preview.Mode._",
+    compile in Compile <<= (compile in Compile) dependsOn scalaJSPipeline.map(f => f(Seq.empty)),
       libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Dependencies.preview.jvm.value,
 			mainClass in Compile := Some("org.denigma.preview.Main"),
-			scalaJSDevStage := scalaJSDevTaskStage.value,
-			//pipelineStages := Seq(scalaJSProd, gzip),
+			pipelineStages in Assets := Seq(scalaJSPipeline, gzip),
 			(emitSourceMaps in fullOptJS) := true,
-			pipelineStages in Assets := {
-        val stages: Seq[TaskKey[Stage]] = sys.env.get("APP_MODE") match {
-          case Some(str) if str.toLowerCase.startsWith("prod") =>
-            println("PROJECT IS IN PRODUCTION MODE")
-            Seq(scalaJSProd, gzip)
-          case other =>
-            println("PROJECT IS IN DEVELOPMENT MODE")
-            Seq(scalaJSDevStage, gzip)
-        }
-        stages
+      isDevMode in scalaJSPipeline := { sys.env.get("APP_MODE") match {
+        case Some(str) if str.toLowerCase.startsWith("prod") =>
+	        println("PRODUCTION MODE")
+          true
+        case other => (devCommands in scalaJSPipeline).value.contains(state.value.history.current)
       }
-		  //(fullClasspath in Runtime) += (packageBin in Assets).value //to package production deps
-		).dependsOn(semantic, controls, experimental)
+    }).dependsOn(semantic, controls, experimental)
 
 lazy val previewJS = preview.js
 lazy val previewJVM = preview.jvm settings(
@@ -221,5 +206,4 @@ lazy val root = Project("root", file("."),settings = commonSettings)
     maintainer := "Anton Kulaga <antonkulaga@gmail.com>",
     packageSummary := "scala-js-binding",
     packageDescription := """Scala-js-binding preview App"""
-    // general package information (can be scoped to Windows)
      ) dependsOn previewJVM aggregate(previewJVM, previewJS) enablePlugins(JavaServerAppPackaging, SystemdPlugin)
