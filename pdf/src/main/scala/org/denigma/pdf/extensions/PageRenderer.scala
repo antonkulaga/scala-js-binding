@@ -1,55 +1,79 @@
 package org.denigma.pdf.extensions
 
-import org.denigma.pdf.PDFPageViewport
+import org.denigma.pdf.{PDFPageProxy, PDFPageViewport}
 import org.scalajs.dom
 import org.scalajs.dom.Node
 import org.scalajs.dom.html.Canvas
-import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
-import org.scalajs.dom.raw.HTMLElement
+import org.scalajs.dom.raw.{Element, HTMLElement}
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
+import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.scalajs.js
-import scala.util.{Failure, Success}
 
 class PageRenderer(page: Page) {
 
-  def render(canvas: Canvas, textLayerDiv: HTMLElement, scale: Double)(implicit timeout: FiniteDuration = 1 second): Future[(HTMLElement, List[(String, Node)])] = {
-    println("render fires")
-    val viewport: PDFPageViewport = page.viewport(scale)
-    var context: js.Dynamic = canvas.getContext("2d") //("webgl")
+  //note: with side effects
+  protected def adjustCanvasSize(element: Element, canvas: Canvas, viewport: PDFPageViewport): (Canvas, PDFPageViewport) = {
     canvas.height = viewport.height.toInt
     canvas.width = viewport.width.toInt
-    page.render(js.Dynamic.literal(
-      canvasContext = context,
-      viewport = viewport
-    )).toFuture.onComplete{
-      case Success(value) =>
-        println(s"page rendering ${page.num} succeeded")
-      case Failure(th) =>
-        dom.console.error(s"$page {page.num} rendering failed because of ${th}")
+    element match {
+      case e: HTMLElement =>
+        canvas.style.top = e.offsetTop + "px"
+        canvas.style.left = e.offsetLeft + "px"
+      case _ => dom.console.info("parent element in adjustCanvas is not an HTML element!")
     }
-    page.textContentFut.flatMap {
-      case textContent =>
-        val layer = new TextLayerRenderer(viewport, textContent)
-        alignTextLayer(canvas, textLayerDiv, viewport)
-        println("text render")
-        layer.render(timeout).map {
-          case res=>
-            textLayerDiv.innerHTML = ""
-            for {(str, node) <- res} {
-              textLayerDiv.appendChild(node)
-            }
-            textLayerDiv -> res
-        }
+    canvas -> viewport
+  }
+
+  def adjustSize(parent: Element, canvas: Canvas, textLayerDiv: HTMLElement, scale:Double) = {
+    val viewport: PDFPageViewport = page.viewport(scale)
+    adjustCanvasSize(parent, canvas, viewport)
+    alignTextLayer(parent, textLayerDiv, viewport)
+
+  }
+
+  protected def renderCanvasLayer(canvas: Canvas, viewport: PDFPageViewport): Future[(PDFPageViewport, PDFPageProxy)] = {
+    val toRender = js.Dynamic.literal(
+      canvasContext = canvas.getContext("2d"),
+      viewport = viewport
+    )
+    page.render(toRender).toFuture transform( value => viewport -> value ,{ th =>
+      dom.console.error(s"$page {page.num} rendering failed because of ${th}")
+      th
+    })
+  }
+
+  def render(canvas: Canvas, textLayerDiv: HTMLElement, scale: Double)
+            (implicit timeout: FiniteDuration = 1 second):
+  Future[(Canvas, HTMLElement, List[(String, Node)])] = {
+    val viewport: PDFPageViewport = page.viewport(scale)
+    renderCanvasLayer(canvas, viewport).flatMap{ case (vp, pg) =>
+      val text: Future[(Canvas, HTMLElement, List[(String, Node)])] = page.textContentFut.flatMap {
+        textContent =>
+          val layer = new TextLayerRenderer(vp, textContent)
+          //alignTextLayer(canvas.parentElement, textLayerDiv, vp)
+          layer.render(timeout).map { res=>  (canvas, textLayerDiv , res)}
+      }
+      text
     }
   }
 
-  protected def alignTextLayer(canvas: Canvas, textLayerDiv: HTMLElement, viewport: PDFPageViewport) = {
+
+  protected def alignTextLayer(element: Element, textLayerDiv: HTMLElement, viewport: PDFPageViewport) = {
     textLayerDiv.style.height = viewport.height + "px"
     textLayerDiv.style.width = viewport.width + "px"
-    textLayerDiv.style.top = canvas.offsetTop + "px"
-    textLayerDiv.style.left = canvas.offsetLeft + "px"
+    element match {
+      case e: HTMLElement =>
+        textLayerDiv.style.top = e.offsetTop + "px"
+        textLayerDiv.style.left = e.offsetLeft + "px"
+      case _ => dom.console.info("parent element in alignTextLayer is not an HTML element!")
+    }
+    textLayerDiv.scrollTop = element.scrollTop
   }
+
+
+
+
 
 }

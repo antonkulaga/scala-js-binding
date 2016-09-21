@@ -126,7 +126,6 @@ trait RxExt extends CommonOps {
     It would be nice to have a zip or buffer function as reduce does not allow me to map the result to something else
      */
 
-
     var previous: Col = col.now
 
     val zipped: Rx[(Col, Col)] = Rx{

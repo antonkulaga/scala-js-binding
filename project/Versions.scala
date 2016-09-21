@@ -4,13 +4,13 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 	val scala = "2.11.8"
 
-	val binding = "0.8.14"
+	val binding = "0.8.15"
 
 	val macroBinding = "0.6.1"
 
-	val bananaRdf = "0.8.2-SNAP5" // "0.8.1"
+	val bananaRdf = "0.8.3-SNAP1"
 
-	val controls = "0.0.21"
+	val controls = "0.0.22"
 
 	val pdfJSFacade = "0.8.0-0.0.5"
 
@@ -18,7 +18,7 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 trait ScalaJVMVersions {
 
-	val akkaHttp = "2.4.9"
+	val akkaHttp = "2.4.10"
 
 	val akkaHttpExtensions = "0.0.14"
 
@@ -65,7 +65,7 @@ trait SharedVersions
 
 	val productCollections = "1.4.3"
 
-	val fastparse = "0.3.7"
+	val fastparse = "0.4.1"
 
 	val pprint = "0.4.2"
 }
@@ -78,7 +78,7 @@ trait WebJarsVersions{
 
 	val threeJS = "r77"
 
-	val webcomponents = "0.7.12"
+	val webcomponents = "0.7.22"
 
 	val jquery = "3.1.0"
 }

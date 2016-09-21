@@ -41,18 +41,10 @@ object Dependencies {
 
 
 	val semantic = CrossDep(
-		shared = Def.setting(Seq.empty),
+		shared = Def.setting(	Seq("org.w3" %%% "banana-plantain" % Versions.bananaRdf) ),
 		jvm  = Def.setting(
-			styles.value ++ Seq(
-				"org.w3" %% "banana-plantain" % "0.8.2-SNAP5" excludeAll ExclusionRule(organization = "com.github.inthenow")
-					exclude("com.typesafe.akka", "akka-http-core-experimental"),
-				"com.typesafe.akka" %% "akka-http-core" % Versions.akkaHttp
-			)
-		)
-		,
-		js =Def.setting(Seq(
-			"org.w3" %%% "banana-plantain" % Versions.bananaRdf excludeAll ExclusionRule(organization = "com.github.inthenow"))
-		)
+			styles.value :+ "com.typesafe.akka" %% "akka-http-core" % Versions.akkaHttp
+		), js =Def.setting(Seq.empty)
 	)
 
 

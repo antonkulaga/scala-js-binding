@@ -4,15 +4,15 @@ import org.denigma.binding.binders.{Events, ReactiveBinder}
 import org.denigma.binding.extensions._
 import org.scalajs.dom
 import org.scalajs.dom.ext._
-import org.scalajs.dom.raw.{Element, HTMLInputElement, HTMLTextAreaElement}
+import org.scalajs.dom.raw.{HTMLInputElement, HTMLTextAreaElement}
 import org.scalajs.dom.{Element, Event, KeyboardEvent}
+import rx.Ctx.Owner.Unsafe.Unsafe
 import rx._
 
 import scala.collection.immutable.Map
 import scala.language.implicitConversions
 import scala.scalajs.js
 import scala.util.{Failure, Success, Try}
-import rx.Ctx.Owner.Unsafe.Unsafe
 
 
 /**
@@ -102,6 +102,47 @@ trait PropertyBinder extends ScalaTagsBinder{
       this.cannotFind(el: Element, rxName, prop, allValues)
   }
 
+  protected def subscribeOnEvent[T, Event <: dom.Event](el: Element, rxName: String, prop: String, event: String, mp: Map[String, Rx[T]])
+                                                       (implicit js2var: js.Any => T): Option[Rx[T]] =
+    mp.get(rxName) map {
+      value =>
+        //this.bindProperty(el, rxName, prop)
+        varOnEvent[T, Event](el, prop, value, event)(js2var)
+        //propertyOnRx(el,prop,value)
+        value
+    }
+
+
+  protected def bindInput(inp: HTMLInputElement, rxName: String): Unit =
+  {
+    inp.attributes.get("type").map(_.value.toString) match {
+      case Some("checkbox") =>
+        subscribeOnEvent(inp, rxName, "checked", Events.change, bools)(any =>
+          any.asInstanceOf[Boolean])
+
+      case Some("radio") =>
+        subscribeOnEvent(inp, rxName, "checked", Events.change, bools)(any =>
+          any.asInstanceOf[Boolean])
+
+      case Some("number") =>
+        subscribeInputValue(inp, rxName, Events.keyup, doubles)
+          .orElse(subscribeInputValue(inp, rxName, Events.keyup, ints))
+          .orError(s"cannot find ${rxName} in ${allValues}")
+
+      case Some("range") =>
+        subscribeInputValue(inp, rxName, Events.keyup, doubles)
+          .orElse(subscribeInputValue(inp, rxName, Events.keyup, ints))
+          .orError(s"cannot find ${rxName} in ${allValues}")
+
+      case _ =>
+        subscribeInputValue(inp, rxName, Events.keyup, strings)
+          .orElse(subscribeInputValue(inp, rxName, Events.keyup, doubles))
+          .orElse(subscribeInputValue(inp, rxName, Events.keyup, ints))
+          .orElse(subscribeInputValue(inp, rxName, Events.keyup, bools))
+          .orError(s"cannot find ${rxName} in ${allValues}")
+    }
+  }
+
 
   /**
    * Binds property
@@ -111,16 +152,7 @@ trait PropertyBinder extends ScalaTagsBinder{
    */
   def bind(el: Element, rxName: String): Unit =  el match
   {
-    case inp: HTMLInputElement=>
-      el.attributes.get("type").map(_.value.toString) match {
-        case Some("checkbox") => this.bindProperty(el, rxName, "checked")
-        case _ =>
-          subscribeInputValue(el, rxName, Events.keyup, strings)
-            .orElse(subscribeInputValue(el, rxName, Events.keyup, doubles))
-            .orElse(subscribeInputValue(el, rxName, Events.keyup, ints))
-            .orElse(subscribeInputValue(el, rxName, Events.keyup, bools))
-            .orError(s"cannot find ${rxName} in ${allValues}")
-      }
+    case inp: HTMLInputElement=>  bindInput(inp, rxName)
     case area: HTMLTextAreaElement =>
       subscribeInputValue(el, rxName, Events.keyup, strings)
         .orElse(subscribeInputValue(el, rxName, Events.keyup, doubles))
@@ -146,33 +178,33 @@ trait PropertyBinder extends ScalaTagsBinder{
   protected def subscribeInputValue[T](el: Element, rxName: String, event: String, mp: Map[String, Rx[T]])
                                       (implicit js2var: js.Any => T, var2js: T => js.Any): Option[Rx[T]] =
     mp.get(rxName) map {
-      case value=>
-          val prop = "value"
-          el match {
-            case inp: HTMLInputElement=>
-              value.foreach{
-                s=>
-                  val (start, end) =(inp.selectionStart, inp.selectionEnd)
-                  inp.value = s.toString
-                  if(inp.selectionStart != start) inp.selectionStart = start
-                  if(inp.selectionEnd != end) inp.selectionEnd = end
-              }
+      value =>
+        val prop = "value"
+        el match {
+          case inp: HTMLInputElement =>
+            value.foreach {
+              s =>
+                val (start, end) = (inp.selectionStart, inp.selectionEnd)
+                inp.value = s.toString
+                if (inp.selectionStart != start) inp.selectionStart = start
+                if (inp.selectionEnd != end) inp.selectionEnd = end
+            }
 
-            case area: HTMLTextAreaElement=>
-              value.foreach{
-                s=>
-                  val (start, end) =(area.selectionStart, area.selectionEnd)
-                  area.value = s.toString
-                  if(area.selectionStart!=start) area.selectionStart = start
-                  if(area.selectionEnd!=end) area.selectionEnd = end
-              }
+          case area: HTMLTextAreaElement =>
+            value.foreach {
+              s =>
+                val (start, end) = (area.selectionStart, area.selectionEnd)
+                area.value = s.toString
+                if (area.selectionStart != start) area.selectionStart = start
+                if (area.selectionEnd != end) area.selectionEnd = end
+            }
 
-            case other => propertyOnRx(el,prop,value)
-          }
-          varOnEvent[T, KeyboardEvent](el, prop, value, event)(js2var)
-          //propertyOnRx(el,prop,value)
-          value
-  }
+          case other => propertyOnRx(el, prop, value)
+        }
+        varOnEvent[T, KeyboardEvent](el, prop, value, event)(js2var)
+        //propertyOnRx(el,prop,value)
+        value
+    }
 
   /**
    * subscribes property to Rx, if Rx is Var then changes Var when specified event fires
@@ -181,17 +213,17 @@ trait PropertyBinder extends ScalaTagsBinder{
   protected def varOnEvent[T, TEvent <: dom.Event](el: Element, prop: String, value: Rx[T], event: String)
                                                       (implicit js2var: js.Any => T): Unit =
   {
-    value.onVar {case v =>
-      el.addEventListener[TEvent](event,(ev: TEvent) => {
-             if(ev.target==ev.currentTarget) el.onExists(prop){
-              case newValue=>
-                Try(js2var(newValue)) match {
-                  case Success(newVal)=> v.set(newVal)
-                  case Failure(th)=> dom.console.warn(s"cannot convert ${newValue} to Var , failure: ${th}")
-                }
-              }
-             }
-        )
+    value.onVar { v =>
+      el.addEventListener[TEvent](event, (ev: TEvent) => {
+        if (ev.target == ev.currentTarget) el.onExists(prop) {
+          newValue =>
+            Try(js2var(newValue)) match {
+              case Success(newVal) => v.set(newVal)
+              case Failure(th) => dom.console.warn(s"cannot convert ${newValue} to Var , failure: ${th}")
+            }
+        }
+      }
+      )
       v.set(js2var(el.dyn.selectDynamic(prop)))
     }
   }
@@ -204,12 +236,12 @@ trait PropertyBinder extends ScalaTagsBinder{
    */
   protected def propertyOnRx[T](el: Element, prop: String, value: Rx[T])(implicit conv: T => js.Any): Unit =
   {
-    value.foreach{case v => setAttribute(el, prop, v.toString)}
+    value.foreach{v => setAttribute(el, prop, v.toString)}
   }
 
   protected def stylePropertyOnRx[T](el: Element, prop: String, value: Rx[T])(implicit conv: T => js.Any): Unit =
   {
-    value.foreach{case v=> el.style.dyn.updateDynamic(prop)(v)}
+    value.foreach{v=> el.style.dyn.updateDynamic(prop)(v)}
   }
 
   //TODO: fix this ugly piece of code

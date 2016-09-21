@@ -6,12 +6,10 @@ import org.scalajs.dom
 import org.scalajs.dom._
 import org.scalajs.dom.ext.EasySeq
 import org.scalajs.dom.raw.{Blob, HTMLElement, Node, ProgressEvent, SVGElement, Selection}
-import rx.{Ctx, Rx, Var}
+import rx.Rx
 
-import scala.annotation.tailrec
 import scala.collection.immutable.Map
 import scala.concurrent.{Future, Promise}
-import scala.concurrent.duration.FiniteDuration
 import scala.language.implicitConversions
 import scala.scalajs.js.typedarray.{ArrayBuffer, TypedArrayBuffer}
 
@@ -26,6 +24,27 @@ package object extensions extends AttributesOps
   with DataOps
   with MapOps
 {
+
+  implicit class ClientRectExt(rect: ClientRect) {
+
+    def intersects(other: ClientRect): Boolean = {
+      rect.left <= other.right && rect.right >= other.left &&
+        rect.top <= other.bottom && rect.bottom >= other.top
+    }
+
+  }
+
+  implicit class BoundingExt(element: Element) {
+
+    def intersects(other: Element): Boolean = {
+      val rect = element.getBoundingClientRect()
+      val otherRect = other.getBoundingClientRect()
+      //println(s"RECT: left(${rect.left}) top(${rect.top}) right(${rect.right}) bottom(${rect.bottom})")
+      //println(s"OTHER: left(${otherRect.left}) top(${otherRect.top}) right(${otherRect.right}) bottom(${otherRect.bottom})")
+      rect.intersects(otherRect)
+    }
+
+  }
 
   implicit def timers[T](source: Rx[T]): TimerExtensions[T] = {
     new TimerExtensions(source)

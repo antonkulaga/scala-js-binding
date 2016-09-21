@@ -59,10 +59,10 @@ object FrontEnd extends BindableView with scalajs.js.JSApp
         el,
         Var(LinearScale("OX", 0.0, 1000.0, 100.0, 1000.0)),
         Var(LinearScale("OY", 0.0, 1000.0, 100.0, 1000.0, inverted = true))
-        ).withBinder{case view => new GeneralBinder(view)}
+        ).withBinder{ view => new GeneralBinder(view)}
     }
     .register("StartSlide"){case (el, args) =>
-      new StartSlide(el).withBinder{case view => new CodeBinder(view)}
+      new StartSlide(el).withBinder{ view => new CodeBinder(view)}
     }
     .register("ChartsView"){case (el, args) =>
       new ChartsView(el).withBinder(view => new CodeBinder(view))

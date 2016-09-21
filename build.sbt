@@ -124,7 +124,8 @@ lazy val semantic = crossProject
   .settings(
     version := Versions.controls,
     name := "semantic-controls",
-    scalaVersion:=Versions.scala
+    scalaVersion:=Versions.scala,
+    libraryDependencies ++= Dependencies.semantic.shared.value
   ).disablePlugins(RevolverPlugin)
   .jsSettings(
     libraryDependencies ++= Dependencies.semantic.js.value,
@@ -184,8 +185,8 @@ lazy val preview = crossProject
       isDevMode in scalaJSPipeline := { sys.env.get("APP_MODE") match {
         case Some(str) if str.toLowerCase.startsWith("prod") =>
 	        println("PRODUCTION MODE")
-          true
-        case other => (devCommands in scalaJSPipeline).value.contains(state.value.history.current)
+          false
+        case other => true//(devCommands in scalaJSPipeline).value.contains(state.value.history.current)
       }
     }).dependsOn(semantic, controls, experimental)
 

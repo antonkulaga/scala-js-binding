@@ -1,19 +1,18 @@
 package org.denigma.controls.papers
 
 import org.denigma.binding.views._
-import org.denigma.controls.code.CodeBinder
-import org.denigma.pdf.extensions.{Page, PageRenderer, _}
+import org.denigma.pdf.extensions.{Page, PageRenderer}
 import org.scalajs.dom
 import org.scalajs.dom.ext._
 import org.scalajs.dom.html.Canvas
-import org.scalajs.dom.raw.{Element, _}
+import org.scalajs.dom.raw._
+import rx.Ctx.Owner.Unsafe.Unsafe
 import rx._
 
 import scala.collection.immutable.SortedMap
 import scala.concurrent.duration._
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.queue
 import scala.util.{Failure, Success}
-import rx.Ctx.Owner.Unsafe.Unsafe
 
 /**
   * Created by antonkulaga on 7/30/16.
@@ -36,8 +35,10 @@ trait PageView extends BindableView{
 
   protected def renderPage(page: Page) = {
     val pageRenderer = new PageRenderer(page)
+    pageRenderer.adjustSize(elem, canvas, textDiv, scale.now)
     pageRenderer.render(canvas, textDiv, scale.now).onComplete{
       case Success(result)=>
+        for {(str, node) <- result._3} {textDiv.appendChild(node) }
 
       case Failure(th) =>
         dom.console.error(s"cannot load the text layer for page ${page.num} because of the ${th}")

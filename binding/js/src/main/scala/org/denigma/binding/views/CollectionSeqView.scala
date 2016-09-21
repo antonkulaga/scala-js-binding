@@ -1,11 +1,10 @@
 package org.denigma.binding.views
 
-import org.scalajs.dom.raw.Element
-import rx.{Ctx, Rx}
 import org.denigma.binding.extensions._
+import org.scalajs.dom.raw.Element
+import rx.Rx
+
 import scala.collection.immutable._
-//import rx.Ctx.Owner.voodoo
-import rx.Ctx.Owner.Unsafe.Unsafe
 
 
 trait CollectionSeqView extends CollectionView {

@@ -25,12 +25,12 @@ All versions are published to bintray repository ( https://bintray.com/denigma/d
 You can depend on scala-js-binding library itself:
 ```scala
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-libraryDependencies += "org.denigma" %%% "binding" % "0.8.12"
+libraryDependencies += "org.denigma" %%% "binding" % "0.8.15"
 ```
 Or you can use binding-controls library that contains UI controls and is based on scala-js-binding library:
 ```scala
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-libraryDependencies += "org.denigma" %%% "binding-controls" % "0.0.19" // to depend on html controls that are based on scala-js-binding lib
+libraryDependencies += "org.denigma" %%% "binding-controls" % "0.0.22" // to depend on html controls that are based on scala-js-binding lib
 ```
 
 
