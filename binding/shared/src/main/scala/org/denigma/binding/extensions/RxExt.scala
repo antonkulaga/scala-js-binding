@@ -39,12 +39,10 @@ trait RxExt extends CommonOps {
     def extractVar[U](fromSource: T => U)(updateSource: (T, U) => T): Var[U] = { //no can be very dangerous
     val initial = fromSource(source.now)
       val variable = Var(initial)
-      source.onChange{
-        case s=>
+      source.onChange{ s=>
           variable() = fromSource(s)
       }
-      variable.onChange{
-        case v =>
+      variable.onChange{ v =>
           source() = updateSource(source.now, v)
       }
       variable

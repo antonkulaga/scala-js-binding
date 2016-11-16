@@ -34,7 +34,7 @@ lazy val commonSettings = Seq(
   resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"), // for scala-js-binding
   resolvers += Resolver.jcenterRepo,
   libraryDependencies ++= Dependencies.testing.value,
-  unmanagedClasspath in Compile <++= unmanagedResources in Compile,
+  unmanagedClasspath in Compile ++= (unmanagedResources in Compile).value,
   updateOptions := updateOptions.value.withCachedResolution(true) // to speed up dependency resolution
 )
 
@@ -46,9 +46,13 @@ lazy val bindingMacro = crossProject
     version := Versions.macroBinding,
     name := "binding-macro",
     scalaVersion:=Versions.scala,
+    //crossScalaVersions := Seq(Versions.scala, "2.12.0"),
     libraryDependencies ++= Dependencies.macroses.shared.value,
-    libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-reflect" % _),
-    libraryDependencies += compilerPlugin("org.scalamacros" % "paradise" % Versions.macroParadise cross CrossVersion.full)
+    resolvers += Resolver.url("scalameta", url("http://dl.bintray.com/scalameta/maven"))(Resolver.ivyStylePatterns),
+    libraryDependencies += scalaVersion("org.scala-lang" % "scala-reflect" % _).value,
+    libraryDependencies += compilerPlugin("org.scalamacros" % "paradise" % Versions.macroParadise cross CrossVersion.full),
+    addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0.132" cross CrossVersion.full),
+    scalacOptions += "-Xplugin-require:macroparadise"
   ).disablePlugins(RevolverPlugin)
   .jvmSettings(
     libraryDependencies ++= Dependencies.macroses.jvm.value
@@ -146,7 +150,7 @@ lazy val experimental = crossProject
   .settings(
     name := "binding-experimental",
     libraryDependencies ++= Dependencies.preview.shared.value,
-    libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-reflect" % _),
+    libraryDependencies += scalaVersion("org.scala-lang" % "scala-reflect" % _).value,
     libraryDependencies += compilerPlugin("org.scalamacros" % "paradise" % Versions.macroParadise cross CrossVersion.full)
   ).disablePlugins(RevolverPlugin)
   .jsSettings(
@@ -177,10 +181,10 @@ lazy val preview = crossProject
 		.jvmConfigure(p => p.enablePlugins(SbtTwirl, SbtWeb))
 		.jvmSettings(
       TwirlKeys.templateImports += "org.denigma.preview.Mode._",
-    compile in Compile <<= (compile in Compile) dependsOn scalaJSPipeline.map(f => f(Seq.empty)),
+      compile in Compile := ((compile in Compile) dependsOn scalaJSPipeline.map(f => f(Seq.empty))).value,
       libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Dependencies.preview.jvm.value,
 			mainClass in Compile := Some("org.denigma.preview.Main"),
-			pipelineStages in Assets := Seq(scalaJSPipeline, gzip),
+			pipelineStages in Assets := Seq(scalaJSPipeline),
 			(emitSourceMaps in fullOptJS) := true,
       isDevMode in scalaJSPipeline := { sys.env.get("APP_MODE") match {
         case Some(str) if str.toLowerCase.startsWith("prod") =>
@@ -203,7 +207,7 @@ lazy val root = Project("root", file("."),settings = commonSettings)
     version := Versions.binding,
     javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint"),
     mainClass in Compile := (mainClass in previewJVM in Compile).value,
-    (managedClasspath in Runtime) += (packageBin in previewJVM in Assets).value,
+    (fullClasspath in Runtime) += (packageBin in previewJVM in Assets).value,
     maintainer := "Anton Kulaga <antonkulaga@gmail.com>",
     packageSummary := "scala-js-binding",
     packageDescription := """Scala-js-binding preview App"""

@@ -1,14 +1,14 @@
 addSbtPlugin("com.typesafe.sbt" % "sbt-web" % "1.4.0") // advanced assets handling
 
-addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.12")
+addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.13")
 
-addSbtPlugin("com.vmunier" % "sbt-web-scalajs" % "1.0.0")
+addSbtPlugin("com.vmunier" % "sbt-web-scalajs" % "1.0.3")
 
 addSbtPlugin("io.spray" % "sbt-revolver" % "0.8.0") //live refresh
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.2.0-M5") // packaging for production
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-twirl" % "1.2.0") // templates
+addSbtPlugin("com.typesafe.sbt" % "sbt-twirl" % "1.3.0") // templates
 
 addSbtPlugin("com.gilt" % "sbt-dependency-graph-sugar" % "0.7.5-1") // visual dependency management
 

@@ -30,7 +30,7 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles with TextLaye
     )
 
   "body"-(
-    backgroundColor(deepskyblue)
+    backgroundColor(skyblue)
     )
 
 

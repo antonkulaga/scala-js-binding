@@ -1,7 +1,7 @@
 package org.denigma.controls.charts
 
 import org.denigma.binding.binders.GeneralBinder
-import org.denigma.binding.views.{BindableView, CollectionSeqView}
+import org.denigma.binding.views.{BindableView, CollectionSeqView, CollectionSortedMapView}
 import org.scalajs.dom
 import org.scalajs.dom.Element
 import rx._
@@ -96,7 +96,7 @@ trait Scale
   def truncateAt(n: Double, p: Int): Double = if(p>0) { val s = math pow (10, p); (math floor n * s) / s } else n
 
 }
-
+/*
 class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
   extends BindableView with CollectionSeqView
 {
@@ -137,7 +137,47 @@ class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
 
 }
 
-class TickView(val elem: Element, tick: Rx[Tick], val tickLength: Rx[Double], styles: Rx[LineStyles]) extends BindableView{
+*/
+
+class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
+  extends BindableView with CollectionSortedMapView
+{
+
+  override type Key = Int
+  override type Value = Tick
+  override type ItemView = TickView
+
+  val title = scale.map(_.title)
+
+  val startCoord = scale.map(_.startCoord)
+  val endCoord = scale.map(_.endCoord)
+  val length = scale.map(_.length)
+
+  val strokeWidth = style.map(_.strokeWidth)
+  val strokeColor = style.map(_.strokeColor)
+  lazy val tickLength = Var(10.0)
+  lazy val half = length.map(_/2)
+
+  override def items: Rx[SortedMap[Int, Tick]] = scale.map{ sc =>
+    val list: List[(Int, Tick)] = sc.ticks.zipWithIndex.map{ case (tk, index) => (index, Tick(tk.toString, sc.coord(tk)))}
+    SortedMap[Int, Tick](list:_*)
+  }
+
+  override def updateView(view: ItemView, key: Int, old: Tick, current: Tick): Unit = {
+    view.tick() = current
+  }
+
+  override def newItemView(key: Int, value: Tick): ItemView = this.constructItemView(key){
+    case (el, _) => new TickView(el, Var(value), tickLength, style).withBinder(v=> new GeneralBinder(v))
+  }
+}
+
+class TickView(elem: Element, val tick: Var[Tick], tickLength: Rx[Double], styles: Rx[LineStyles]) extends BasicTickView(elem, tick, tickLength, styles)
+
+
+
+
+class BasicTickView(val elem: Element, tick: Rx[Tick], val tickLength: Rx[Double], styles: Rx[LineStyles]) extends BindableView{
 
   val label: rx.Rx[String] = tick.map(t=>t.name)
   val value: rx.Rx[Double] = tick.map(_.value)

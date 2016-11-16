@@ -10,7 +10,15 @@ import rx.Ctx.Owner.Unsafe.Unsafe
 
 import scala.collection.immutable._
 
-class SeriesView(elem: Element, series: Rx[Series], transform: Rx[Point => Point], threshold:Point = Point(1,1), closed: Boolean = false) extends PathView(
+/**
+  * View to show
+  * @param elem element to bind to
+  * @param series series of points
+  * @param transform function to transfor coordinates of the point
+  * @param threshold
+  * @param closed if the shape is closed
+  */
+class SeriesView(elem: Element, val series: Var[Series], transform: Rx[Point => Point], threshold:Point = Point(1,1), closed: Boolean = false) extends PathView(
   elem,
   Rx{series().points.map(transform())},
   series.map(s=>s.style),

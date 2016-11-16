@@ -4,13 +4,13 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 	val scala = "2.11.8"
 
-	val binding = "0.8.15"
+	val binding = "0.8.16"
 
-	val macroBinding = "0.6.1"
+	val macroBinding = "0.6.3"
 
 	val bananaRdf = "0.8.3-SNAP1"
 
-	val controls = "0.0.22"
+	val controls = "0.0.23"
 
 	val pdfJSFacade = "0.8.0-0.0.5"
 
@@ -18,21 +18,21 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 trait ScalaJVMVersions {
 
-	val akkaHttp = "2.4.10"
+	val akkaHttp = "2.4.11"
 
 	val akkaHttpExtensions = "0.0.14"
 
 	val ammonite = "0.5.7"
 
-	val seleniumJava = "2.53.1"
+	val seleniumJava = "3.0.1"
 
 	val config = "1.3.0"
 
-	val ficus = "1.2.6"
+	val ficus = "1.3.3"
 
 	val betterFiles = "2.16.0"
 
-	val scalaJSscripts = "1.0.0"
+	val scalaJSscripts = "1.1.0"
 }
 
 trait ScalaJSVersions {
@@ -51,23 +51,25 @@ trait ScalaJSVersions {
 // versions for libs that are shared between client and server
 trait SharedVersions
 {
-	val scalaRx = "0.3.1"
+	val scalaRx = "0.3.2"
 
-	val scalaTags = "0.6.0"
+	val scalaTags = "0.6.2"
 
-	val scalaCSS = "0.5.0"
+	val scalaCSS = "0.5.1"
 
 	val macroParadise = "2.1.0"
 
-	val scalaTest = "3.0.0"
+	val scalaTest = "3.0.1"
 
 	val booPickle = "1.2.4"
 
-	val productCollections = "1.4.3"
+	val productCollections = "1.4.5"
 
-	val fastparse = "0.4.1"
+	val fastparse = "0.4.2"
 
-	val pprint = "0.4.2"
+	val pprint = "0.4.4"
+
+	val scalameta = "1.3.0"
 }
 
 trait WebJarsVersions{
@@ -80,6 +82,6 @@ trait WebJarsVersions{
 
 	val webcomponents = "0.7.22"
 
-	val jquery = "3.1.0"
+	val jquery = "3.1.1"
 }
 

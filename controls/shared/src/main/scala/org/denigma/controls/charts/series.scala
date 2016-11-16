@@ -43,9 +43,16 @@ case class StaticSeries(title: String,
 
 }
 
+/**
+  * Plot series to keep
+  */
 trait Series
 {
-  val title: String
-  val points: List[Point]
-  val style: LineStyles
+  def title: String
+  def points: List[Point]
+  def style: LineStyles
+
+  lazy val maxOpt = if(points.isEmpty) None else Some(Point(points.maxBy(p=>p.x).x, points.maxBy(p=>p.y).y))
+  lazy val minOpt = if(points.isEmpty) None else Some(Point(points.minBy(p=>p.x).x, points.minBy(p=>p.y).y))
+
 }

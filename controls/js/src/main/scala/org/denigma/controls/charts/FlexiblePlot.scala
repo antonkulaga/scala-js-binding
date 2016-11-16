@@ -5,7 +5,7 @@ import rx.Var
 import rx.Ctx.Owner.Unsafe.Unsafe
 
 
-trait FlexibleLinearPlot extends FlexiblePlot {
+trait FlexibleLinesPlot extends FlexiblePlot {
   override val scaleX: Var[LinearScale]
   override val scaleY: Var[LinearScale]
   def onMaxChange(value: Point): Unit = value match {
@@ -23,20 +23,24 @@ trait FlexibleLinearPlot extends FlexiblePlot {
   }
 }
 
-trait FlexiblePlot extends LinesPlot{
+
+
+trait FlexiblePlot extends LinesPlot {
   val flexible = Var(true)
   val shrinkMult = Var(1.05)
   val stretchMult = Var(1.05)
   val empty: rx.Rx[Boolean] = items.map(_.isEmpty)
-  def max(series: Series)(fun: Point=>Double): Point = series.points.maxBy(fun)
+  //def max(series: Series)(fun: Point=>Double): Point = series.points.maxBy(fun)
 
-  val max: rx.Rx[Point] = items.map{case its=>
-    val x = its.foldLeft(0.0){ case (acc, series)=> Math.max(acc, series.now.points.maxBy(_.x).x)}
-    val y = its.foldLeft(0.0){ case (acc, series)=> Math.max(acc, series.now.points.maxBy(_.y).y)}
-    Point(x, y)
+  val max = items.map{ its =>
+    its.foldLeft(Point(0.0, 0.0)){ case (acc, (_, s)) => s.maxOpt match {
+      case Some(v) => acc.copy(Math.max(acc.x, v.x), Math.max(acc.y, v.y))
+      case _ => acc
+    }}
   }
 
   def onMaxChange(value: Point): Unit
+
   override def subscribeUpdates() = {
     super.subscribeUpdates()
     max.foreach{onMaxChange}

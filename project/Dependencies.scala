@@ -16,7 +16,9 @@ object Dependencies {
 		shared = Def.setting(Seq(
 			"com.lihaoyi" %%% "scalatags" % Versions.scalaTags,
 
-			"com.lihaoyi" %%% "scalarx" % Versions.scalaRx
+			"com.lihaoyi" %%% "scalarx" % Versions.scalaRx,
+
+			"org.scalameta" %% "scalameta" % Versions.scalameta
 		)),
 
 		jvm = Def.setting(Seq.empty),

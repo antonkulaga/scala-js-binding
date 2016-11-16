@@ -2,32 +2,41 @@ package org.denigma.preview.charts
 
 import org.denigma.binding.binders.{Events, GeneralBinder}
 import org.denigma.controls.charts._
-import org.denigma.controls.charts.ode.{XYSeries, ODESeries}
+import org.denigma.controls.charts.ode.{ODESeries, XYSeries}
 import org.scalajs.dom.Element
 import org.scalajs.dom.raw.MouseEvent
 import rx._
 import rx.Ctx.Owner.Unsafe.Unsafe
-
 import org.denigma.binding.extensions._
+import rx.Rx.Dynamic
+
 import scala.collection.immutable._
 
+/**
+  * Example charts with protein
+  * Element
+  * @param elem
+  * @param odes
+  * @param initialConditions initial conditions of ODE simulation
+  */
 class ProteinsTime(val elem: Element, val odes: Rx[CompBioODEs], val initialConditions: Rx[Array[Double]]) extends LinesPlot {
+  self=>
 
   val scaleX: rx.Var[Scale] = Var(LinearScale("Time", 0.0, 5000, 1000, 400))
 
   val scaleY: rx.Var[Scale] = Var(LinearScale("Concentration", 0.0, 2000, 500, 400, inverted = true))
 
-  val coords = odes.now.computeAll(initialConditions.now, 2, 3)
+  val coords: Array[Array[Point]] = odes.now.computeAll(initialConditions.now, 2, 3)
 
-  lazy val lacI_Prod = odes.map(o => o.lacIProduction.production)
-  lazy val tetR_Prod = odes.map(o => o.tetRProduction.production)
-  lazy val lacI_Delusion = odes.map(o => o.lacIProduction.production)
-  lazy val tetR_Delusion = odes.map(o => o.tetRProduction.production)
+  lazy val lacI_Prod: Rx[Double] = odes.map(o => o.lacIProduction.production)
+  lazy val tetR_Prod: Rx[Double] = odes.map(o => o.tetRProduction.production)
+  lazy val lacI_Delusion: Rx[Double] = odes.map(o => o.lacIProduction.production)
+  lazy val tetR_Delusion: Rx[Double] = odes.map(o => o.tetRProduction.production)
 
-  val lacI_mRNA = Var(new StaticSeries("LacI mRNA", List.empty).withStrokeColor("pink"))
-  val tetR_mRNA = Var(new StaticSeries("TetR mRNA", List.empty).withStrokeColor("cyan"))
-  val lacI = Var(new StaticSeries("LacI", List.empty).withStrokeColor("red"))
-  val tetR = Var(new StaticSeries("TetR", List.empty).withStrokeColor("blue"))
+  val lacI_mRNA = Var(StaticSeries("LacI mRNA", List.empty).withStrokeColor("pink"))
+  val tetR_mRNA = Var(StaticSeries("TetR mRNA", List.empty).withStrokeColor("cyan"))
+  val lacI = Var(StaticSeries("LacI", List.empty).withStrokeColor("red"))
+  val tetR = Var(StaticSeries("TetR", List.empty).withStrokeColor("blue"))
 
   lazy val solve = Var(Events.createMouseEvent)
 
@@ -44,15 +53,26 @@ class ProteinsTime(val elem: Element, val odes: Rx[CompBioODEs], val initialCond
     onSolve()
   }
 
+
+  /*
   override def newItemView(item: Item): SeriesView = constructItemView(item){
     case (el, mp) => new SeriesView(el, item, transform).withBinder(new GeneralBinder(_))
   }
+  */
+  override def newItemView(key: String, value: Series): ItemView = this.constructItemView(key){
+    case (el, _) => new ItemView(el, Var(value), self.transform).withBinder(v=>new GeneralBinder(v))
+  }
 
-  val items: Var[Seq[Item]] = Var(Seq(lacI_mRNA, tetR_mRNA, lacI, tetR))
+  //val items: Var[Seq[Item]] = Var(Seq(lacI_mRNA, tetR_mRNA, lacI, tetR))
+
+  lazy val items: Rx[SortedMap[Key, Value]] = Rx{
+    val seq = Seq(lacI_mRNA, tetR_mRNA, lacI, tetR).map{ v => (v.now.title, v()) }
+    SortedMap(seq:_*)
+  }
 }
 
 class ProteinsXY(val elem: Element, val odes: Rx[CompBioODEs], val conditionSource: InitialConditions) extends LinesPlot {
-
+  self=>
 
   override type ItemView = SeriesView
 
@@ -62,9 +82,9 @@ class ProteinsXY(val elem: Element, val odes: Rx[CompBioODEs], val conditionSour
 
   val scaleY: rx.Var[Scale] = Var(LinearScale("TetR", 0.0, 2000.0, 500.0, 400.0, inverted = true))
 
-  val xy = Var(new StaticSeries("LacI | TetR", List.empty))
+  val xy = Var(StaticSeries("LacI | TetR", List.empty))
 
-  override val items = Var(Seq(xy))
+  //override val items = Var(Seq(xy))
 
   chartClick.onChange{
     event=> onChartClick(event)
@@ -93,5 +113,14 @@ class ProteinsXY(val elem: Element, val odes: Rx[CompBioODEs], val conditionSour
   solve.triggerLater{
     xy() = xy.now.copy(points = odes.now.computeXY(initial = initialConditions.now, 2, 3))
   }
+
+  lazy val items: Rx[SortedMap[Key, Value]] = xy.map{ ss =>
+    SortedMap(("xy", ss))
+  }
+  override def newItemView(key: String, value: Series): ItemView = this.constructItemView(key){
+    case (el, _) => new ItemView(el, Var(value), self.transform).withBinder(v=>new GeneralBinder(v))
+  }
+
+
 }
 
