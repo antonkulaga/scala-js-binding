@@ -98,4 +98,8 @@ object MyStyles extends StyleSheet.Standalone with SelectionStyles with TextLaye
     backgroundColor(bindingGreen)
   }
 
+  "page-container" -{
+    padding(0 px)
+  }
+
 }

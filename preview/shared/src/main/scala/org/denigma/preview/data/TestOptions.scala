@@ -11,8 +11,8 @@ case object TestOptions{
     mp.name.zip(mp.abbreviation)
   }
 
-  println("STATES = ")
-  states.foreach(st => println(st))
+  //println("STATES = ")
+  //states.foreach(st => println(st))
 
   lazy val data = states.zipWithIndex.map{case ((label, value), index) => TextOption(value, label, position = index)}
   lazy val sortedOptions = SortedSet(data: _*)

@@ -2,7 +2,6 @@ package org.denigma.controls.papers
 
 import scalacss.Defaults._
 
-
 trait TextLayerStyles extends StyleSheet.Standalone {
   import dsl._
   ".textLayer" -(
@@ -16,7 +15,7 @@ trait TextLayerStyles extends StyleSheet.Standalone {
     opacity(0.2),
     lineHeight(1.0),
     transformOrigin := "0% 0%"
-    )
+  )
 
   ".textLayer > div" -(
     color.transparent,
@@ -24,14 +23,18 @@ trait TextLayerStyles extends StyleSheet.Standalone {
     whiteSpace.pre,
     cursor.text,
     transformOrigin := "0% 0%"
-    )
+  )
 
   ".textLayer .highlight" - (
     margin(-1.0 px),
     padding(1 px),
-    backgroundColor.rgb(180, 0, 170),
+    backgroundColor.deepskyblue,
+    borderWidth(1 px),
+    borderColor.navy,
+    //backgroundColor.rgb(180, 0, 170),
     borderRadius( 4 px)
-    )
+  )
+
   ".textLayer .highlight.begin" -(
     borderRadius(4 px, 0 px , 0 px , 4 px)
     )
@@ -71,7 +74,7 @@ trait TextLayerStyles extends StyleSheet.Standalone {
     cursor.default,
     userSelect := "none"
 
-    )
+  )
 
   ".textLayer .endOfContent.active" -(
     top(0 px)

@@ -33,6 +33,7 @@ trait PageView extends BindableView{
     case canv: HTMLDivElement => canv
   }.get //unsafe
 
+
   protected def renderPage(page: Page) = {
     val pageRenderer = new PageRenderer(page)
     pageRenderer.adjustSize(elem, canvas, textDiv, scale.now)
