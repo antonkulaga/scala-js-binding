@@ -4,6 +4,7 @@ import org.denigma.binding.binders.GeneralBinder
 import org.denigma.binding.views.{BindableView, CollectionSeqView, CollectionSortedMapView}
 import org.scalajs.dom
 import org.scalajs.dom.Element
+import rx.Rx.Dynamic
 import rx._
 //import rx.Ctx.Owner.voodoo
 import rx.Ctx.Owner.Unsafe.Unsafe
@@ -149,11 +150,11 @@ class AxisView(val elem: Element, scale: Rx[Scale], style: Rx[LineStyles])
 
   val title = scale.map(_.title)
 
-  val startCoord = scale.map(_.startCoord)
-  val endCoord = scale.map(_.endCoord)
-  val length = scale.map(_.length)
+  val startCoord: Rx[Double] = scale.map(_.startCoord)
+  val endCoord: Rx[Double] = scale.map(_.endCoord)
+  val length: Rx[Double] = scale.map(_.length)
 
-  val strokeWidth = style.map(_.strokeWidth)
+  val strokeWidth: Rx[Double] = style.map(_.strokeWidth)
   val strokeColor = style.map(_.strokeColor)
   lazy val tickLength = Var(10.0)
   lazy val half = length.map(_/2)

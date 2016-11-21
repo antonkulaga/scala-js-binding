@@ -10,15 +10,17 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 	val bananaRdf = "0.8.3-SNAP1"
 
-	val controls = "0.0.23"
+	val controls = "0.0.24"
 
-	val pdfJSFacade = "0.8.0-0.0.5"
+	val pdfJSFacade = "0.8.0-0.0.6"
 
 }
 
 trait ScalaJVMVersions {
 
 	val akkaHttp = "2.4.11"
+
+	val httpTestkit = "2.4.11"
 
 	val akkaHttpExtensions = "0.0.14"
 

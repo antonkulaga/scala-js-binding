@@ -90,9 +90,9 @@ object Dependencies {
 
 		"com.typesafe.akka" %% "akka-http-core" % Versions.akkaHttp,
 
-		"com.typesafe.akka" %% "akka-http-experimental" % Versions.akkaHttp,
+		"com.typesafe.akka" %% "akka-http-experimental" % Versions.httpTestkit,
 
-		"com.typesafe.akka" %% "akka-http-testkit" % Versions.akkaHttp % Test
+		"com.typesafe.akka" %% "akka-http-testkit" % Versions.httpTestkit % Test
 
 	))
 
