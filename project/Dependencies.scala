@@ -86,13 +86,9 @@ object Dependencies {
 
 		"org.denigma" %% "akka-http-extensions" % Versions.akkaHttpExtensions,
 
-		"com.typesafe.akka" %% "akka-stream" % Versions.akkaHttp,
+		"com.typesafe.akka" %% "akka-stream" % Versions.akka,
 
-		"com.typesafe.akka" %% "akka-http-core" % Versions.akkaHttp,
-
-		"com.typesafe.akka" %% "akka-http-experimental" % Versions.httpTestkit,
-
-		"com.typesafe.akka" %% "akka-http-testkit" % Versions.httpTestkit % Test
+		"com.typesafe.akka" %% "akka-http-testkit" % Versions.akkaHttp % Test
 
 	))
 

@@ -18,11 +18,11 @@ object Versions extends WebJarsVersions with ScalaJSVersions with ScalaJVMVersio
 
 trait ScalaJVMVersions {
 
-	val akkaHttp = "2.4.11"
+	val akka = "2.4.14"
 
-	val httpTestkit = "2.4.11"
+	val akkaHttp = "10.0.0"
 
-	val akkaHttpExtensions = "0.0.14"
+	val akkaHttpExtensions = "0.0.15"
 
 	val ammonite = "0.5.7"
 
@@ -30,7 +30,7 @@ trait ScalaJVMVersions {
 
 	val config = "1.3.0"
 
-	val ficus = "1.3.3"
+	val ficus = "1.3.4"
 
 	val betterFiles = "2.16.0"
 
