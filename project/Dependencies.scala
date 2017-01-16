@@ -16,9 +16,9 @@ object Dependencies {
 		shared = Def.setting(Seq(
 			"com.lihaoyi" %%% "scalatags" % Versions.scalaTags,
 
-			"com.lihaoyi" %%% "scalarx" % Versions.scalaRx,
+			"com.lihaoyi" %%% "scalarx" % Versions.scalaRx
 
-			"org.scalameta" %% "scalameta" % Versions.scalameta
+			//"org.scalameta" %% "scalameta" % Versions.scalameta
 		)),
 
 		jvm = Def.setting(Seq.empty),
@@ -27,7 +27,7 @@ object Dependencies {
 	)
 
 	val binding = CrossDep(shared = Def.setting(
-		Seq("com.lihaoyi" %% "sourcecode" % Versions.sourcecode)
+		Seq.empty//Seq("com.lihaoyi" %% "sourcecode" % Versions.sourcecode)
 	),
 			jvm = Def.setting(Seq.empty),
 			js  = Def.setting(Seq("org.querki" %%% "jquery-facade" % Versions.jqueryFacade))

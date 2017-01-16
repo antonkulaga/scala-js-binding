@@ -30,6 +30,7 @@ lazy val noPublishSettings = Seq(
 lazy val commonSettings = Seq(
   scalaVersion := Versions.scala,
   organization := "org.denigma",
+  crossScalaVersions := Seq("2.11.8", "2.12.1"),
   scalacOptions ++= Seq( "-feature", "-language:_" ),
   resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"), // for scala-js-binding
   resolvers += Resolver.jcenterRepo,
@@ -46,12 +47,11 @@ lazy val bindingMacro = crossProject
     version := Versions.macroBinding,
     name := "binding-macro",
     scalaVersion:=Versions.scala,
-    //crossScalaVersions := Seq(Versions.scala, "2.12.0"),
     libraryDependencies ++= Dependencies.macroses.shared.value,
     resolvers += Resolver.url("scalameta", url("http://dl.bintray.com/scalameta/maven"))(Resolver.ivyStylePatterns),
     libraryDependencies += scalaVersion("org.scala-lang" % "scala-reflect" % _).value,
     libraryDependencies += compilerPlugin("org.scalamacros" % "paradise" % Versions.macroParadise cross CrossVersion.full),
-    addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0.132" cross CrossVersion.full),
+    //addCompilerPlugin("org.scalameta" % "paradise" % "3.0.0.132" cross CrossVersion.full),
     scalacOptions += "-Xplugin-require:macroparadise"
   ).disablePlugins(RevolverPlugin)
   .jvmSettings(
@@ -181,10 +181,10 @@ lazy val preview = crossProject
 		.jvmConfigure(p => p.enablePlugins(SbtTwirl, SbtWeb))
 		.jvmSettings(
       TwirlKeys.templateImports += "org.denigma.preview.Mode._",
-      compile in Compile := ((compile in Compile) dependsOn scalaJSPipeline.map(f => f(Seq.empty))).value,
       libraryDependencies ++= Dependencies.akka.value ++ Dependencies.webjars.value++ Dependencies.preview.jvm.value,
 			mainClass in Compile := Some("org.denigma.preview.Main"),
-			pipelineStages in Assets := Seq(scalaJSPipeline),
+      compile in Compile := ((compile in Compile) dependsOn scalaJSPipeline.map(f => f(Seq.empty))).value,
+      pipelineStages in Assets := Seq(scalaJSPipeline),
 			(emitSourceMaps in fullOptJS) := true,
       isDevMode in scalaJSPipeline := { sys.env.get("APP_MODE") match {
         case Some(str) if str.toLowerCase.startsWith("prod") =>
