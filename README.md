@@ -25,15 +25,13 @@ All versions are published to bintray repository ( https://bintray.com/denigma/d
 You can depend on scala-js-binding library itself:
 ```scala
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-libraryDependencies += "org.denigma" %%% "binding" % "0.8.17"
+libraryDependencies += "org.denigma" %%% "binding" % "0.8.18"
 ```
 Or you can use binding-controls library that contains UI controls and is based on scala-js-binding library:
 ```scala
 resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases") //add resolver
-libraryDependencies += "org.denigma" %%% "binding-controls" % "0.0.25" // to depend on html controls that are based on scala-js-binding lib
+libraryDependencies += "org.denigma" %%% "binding-controls" % "0.0.27" // to depend on html controls that are based on scala-js-binding lib
 ```
-Currently both Scala 2.11.x and Scala 2.12.x are supported.
-
 Building from source and running examples
 -----------------------------------------
 
@@ -42,7 +40,7 @@ Install [sbt](http://www.scala-sbt.org/)
 Type the following commands:
 ```scala
 $ sbt // to open sbt console
-$ re-start // will open akka-http application with examples
+$ reStart // will open akka-http application with examples
 ```          
 It will open a local version of scala-js-binding website with some examples at http://localhost:5553/
 

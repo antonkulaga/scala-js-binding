@@ -17,20 +17,12 @@ lazy val publishSettings = Seq(
     developers := Developer("antonkulaga", "Anton Kulaga","antonkulaga@gmail.com", new URL("https://github.com/antonkulaga"))::Nil
   )
 
-/**
- * For parts of the project that we will not publish
- */
-lazy val noPublishSettings = Seq(
-  publish := (),
-  publishLocal := (),
-  publishArtifact := false
-)
 
 //settings for all the projects
 lazy val commonSettings = Seq(
   scalaVersion := Versions.scala,
   organization := "org.denigma",
-  crossScalaVersions := Seq("2.11.8", "2.12.1"),
+  crossScalaVersions := Seq("2.11.11", "2.12.3"),
   scalacOptions ++= Seq( "-feature", "-language:_" ),
   resolvers += sbt.Resolver.bintrayRepo("denigma", "denigma-releases"), // for scala-js-binding
   resolvers += Resolver.jcenterRepo,
@@ -201,7 +193,8 @@ lazy val previewJVM = preview.jvm settings(
   )
 
 
-lazy val root = Project("root", file("."),settings = commonSettings)
+lazy val root = (project in file("."))
+  .settings(commonSettings)
   .settings(
     name := "scala-js-binding-preview",
     version := Versions.binding,
