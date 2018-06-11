@@ -1,5 +1,9 @@
+Project DISCONTINUED!
+=====================
+Consider using https://github.com/OlivierBlanvillain/monadic-html or https://github.com/ThoughtWorksInc/Binding.scala instead!
+
 ScalaJS Binding project
-#######################
+=======================
 [![Gitter chat channel](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/denigma/denigma-libs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 *scalajs-binding* is a scala-scala-js framework that let you
